@@ -60,7 +60,7 @@ namespace Mathre
             mnuView = new ToolStripMenuItem();
             tabMathre = new TabControl();
             tabHelloWorld = new TabPage();
-            grpHelloWorld = new SaveCustomGroupBox();
+            grpHelloWorld = new CustomGroupBox();
             PictureBox1 = new PictureBox();
             btnFrench = new RadioButton();
             PictureBox2 = new PictureBox();
@@ -73,7 +73,7 @@ namespace Mathre
             TabUnknown = new TabPage();
             tabSecret = new TabPage();
             lblSecretTitle = new Label();
-            grpSecret = new SaveCustomGroupBox();
+            grpSecret = new CustomGroupBox();
             _btnSecretDisable = new RadioButton();
             _btnSecretDisable.Click += new EventHandler(SecretHandler);
             _btnSecretEnable = new RadioButton();
@@ -640,7 +640,7 @@ namespace Mathre
             }
         }
 
-        internal SaveCustomGroupBox grpHelloWorld;
+        internal CustomGroupBox grpHelloWorld;
         internal PictureBox PictureBox1;
         internal RadioButton btnFrench;
         internal PictureBox PictureBox2;
@@ -649,7 +649,7 @@ namespace Mathre
         internal RadioButton btnGerman;
         internal RadioButton btnEnglish;
         internal TabPage tabSecret;
-        internal SaveCustomGroupBox grpSecret;
+        internal CustomGroupBox grpSecret;
         internal Label lblSecretPrompt;
         internal TextBox txtSecretPassword;
         internal Label lblSecretTitle;
