@@ -1,6 +1,7 @@
-﻿// Sources:
+// Sources:
 // The AddMenuItemHandlers Sub (and some supporting code in the FormLoad sub) is sourced from https://social.msdn.microsoft.com/Forums/vstudio/2ac347d5-4946-4143-8d54-e136d5508f64
 // Flag icons are sourced from the free icon set at https://www.iconfinder.com/iconsets/flags-37
+// RoughRiders mascot image sourced from https://www.gfschools.org/cms/lib/ND02203034/Centricity/Template/GlobalAssets/images///logos/Red%20River%20HS.png
 // 
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
@@ -19,36 +20,28 @@ namespace Mathre
         }
         // 
         public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
-        private static string systemColor;
-        public static TabControl colRemovedTabs = new();
-        public static TabPage tabSecretStorage;
+        public static string systemColor; // Define a global variable to store the starting value of the System Accent Color
+        public static TabControl colRemovedTabs = new(); // Add a hidden/unused TabControl to store the Secret Settings page when not enabled
+        public static TabPage tabSecretStorage; // Add a variable "tabSecretStorage" as a Tabpage to store the Secret Setting Page without modifying it
 
-        public static string SystemColor { get => systemColor; set => systemColor = value; }
 
+        public static string SystemColor { get => systemColor; set => systemColor = value; } // Not sure what this is or what it does but it needs to be here otherwise everything breaks
         // 
-        public void FormLoad(object sender, EventArgs e)
+        public void FormLoad(object sender, EventArgs e) //Formload event handler
         {
-            tabSecretStorage = tabMathre.TabPages[3];
-            colRemovedTabs.Controls.Add(tabSecretStorage);
-            tabMathre.Controls.Remove(tabSecretStorage);
-            mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
-            var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
-            SystemColor = Conversions.ToString(ColorKey.GetValue("AccentColor"));
-            ColorKey.Close();
+            tabSecretStorage = tabMathre.TabPages[2]; // Copy the secret settings page to tabSecretStorage
+            colRemovedTabs.Controls.Add(tabSecretStorage); // Add the secret settings tab to the hidden tabcontrol
+            tabMathre.Controls.Remove(tabSecretStorage); // Remove the secret settings tab from the primary tabcontrol
+            mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one.
+            var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM"); // Navigate to this windows directory key
+            SystemColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key.
+            ColorKey.Close(); // Stop registry access
             KeyPreview = true; // Ensure key inputs on the form are being tracked
-            StartingValue = grpHelloWorldGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name;
-            Console.WriteLine(StartingValue);
+            StartingValue = grpHelloWorldGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
             foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
             {
                 AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
             } // Begin recursion
-        }
-
-        public void SystemColorChecker(object sender, EventArgs e)
-        {
-            var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
-            SystemColor = Conversions.ToString(ColorKey.GetValue("AccentColor"));
-            ColorKey.Close();
         }
         // 
         private void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem.
@@ -79,7 +72,7 @@ namespace Mathre
                     tabMathre.SelectedTab = tabSecretStorage;
                 }
             }
-
+            //
             if (e.Control & e.KeyCode == Keys.R & mnuSecret.Enabled) // Add Control+R shortcut, dependent on the secret menu being enabled
             {
                 Buttons(mnuRandomify, null); // Use shortcut to quickly run the randomize function
@@ -89,11 +82,13 @@ namespace Mathre
             {
                 Buttons(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button.
             }
-            if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9))
+            //
+            if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9)) // Add Control+Number shortcut for each tab page, and no more than the amout of pages.
             {
                 tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1];
             }
-            if (txtSecretPassword.ContainsFocus & e.KeyCode == Keys.Enter)
+            //
+            if (txtSecretPassword.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
             {
                 SecretHandler(txtSecretPassword, null);
             }
@@ -112,6 +107,7 @@ namespace Mathre
                 {
                     btnSecretEnable.Enabled = false;
                     btnSecretDisable.Enabled = false;
+                    btnSecretDisable.Checked = true;
                 }
 
                 if (btnSecretEnable.Enabled == false)
