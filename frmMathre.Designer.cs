@@ -51,6 +51,7 @@ namespace Mathre
             this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldReset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchool = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMySchoolToggleMascot = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,11 +67,11 @@ namespace Mathre
             this.btnHelloWorldEnglish = new System.Windows.Forms.RadioButton();
             this.lblHelloWorldTitle = new System.Windows.Forms.Label();
             this.tabMySchool = new System.Windows.Forms.TabPage();
-            this.customGroupBox1 = new Mathre.CustomGroupBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnMySchoolView = new System.Windows.Forms.Button();
-            this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.lblMySchoolTitle = new System.Windows.Forms.Label();
+            this.customGroupBox1 = new Mathre.CustomGroupBox();
+            this.lblMySchoolMascot = new System.Windows.Forms.Label();
+            this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
+            this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
             this.TabUnknown = new System.Windows.Forms.TabPage();
             this.tabSecret = new System.Windows.Forms.TabPage();
             this.lblSecretTitle = new System.Windows.Forms.Label();
@@ -88,7 +89,7 @@ namespace Mathre
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
             this.tabMySchool.SuspendLayout();
             this.customGroupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.tabSecret.SuspendLayout();
             this.grpSecret.SuspendLayout();
             this.SuspendLayout();
@@ -111,8 +112,6 @@ namespace Mathre
             // mnuFile
             // 
             this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuHelloWorldLanguage,
-            this.mnuHelloWorldReset,
             this.mnuSecret,
             this.mnuHelloWorld,
             this.mnuMySchool,
@@ -120,47 +119,6 @@ namespace Mathre
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
-            // 
-            // mnuHelloWorldLanguage
-            // 
-            this.mnuHelloWorldLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuHelloWorldLanguageEnglish,
-            this.mnuHelloWorldLanguageFrench,
-            this.mnuHelloWorldLanguageGerman});
-            this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
-            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(184, 22);
-            this.mnuHelloWorldLanguage.Text = "Language";
-            // 
-            // mnuHelloWorldLanguageEnglish
-            // 
-            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
-            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(180, 22);
-            this.mnuHelloWorldLanguageEnglish.Text = "English";
-            this.mnuHelloWorldLanguageEnglish.Click += new System.EventHandler(this.Buttons);
-            // 
-            // mnuHelloWorldLanguageFrench
-            // 
-            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(180, 22);
-            this.mnuHelloWorldLanguageFrench.Text = "French";
-            this.mnuHelloWorldLanguageFrench.Click += new System.EventHandler(this.Buttons);
-            // 
-            // mnuHelloWorldLanguageGerman
-            // 
-            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(180, 22);
-            this.mnuHelloWorldLanguageGerman.Text = "German";
-            this.mnuHelloWorldLanguageGerman.Click += new System.EventHandler(this.Buttons);
-            // 
-            // mnuHelloWorldReset
-            // 
-            this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
-            this.mnuHelloWorldReset.Size = new System.Drawing.Size(184, 22);
-            this.mnuHelloWorldReset.Text = "Reset";
-            this.mnuHelloWorldReset.Click += new System.EventHandler(this.Buttons);
             // 
             // mnuSecret
             // 
@@ -216,23 +174,64 @@ namespace Mathre
             this.mnuHelloWorld.Size = new System.Drawing.Size(184, 22);
             this.mnuHelloWorld.Text = "Hello World";
             // 
+            // mnuHelloWorldLanguage
+            // 
+            this.mnuHelloWorldLanguage.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuHelloWorldLanguageEnglish,
+            this.mnuHelloWorldLanguageFrench,
+            this.mnuHelloWorldLanguageGerman});
+            this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
+            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldLanguage.Text = "Language";
+            // 
+            // mnuHelloWorldLanguageEnglish
+            // 
+            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
+            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Text = "English";
+            // 
+            // mnuHelloWorldLanguageFrench
+            // 
+            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Text = "French";
+            // 
+            // mnuHelloWorldLanguageGerman
+            // 
+            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Text = "German";
+            // 
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
-            this.mnuHelloWorldReset.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldReset.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldReset.Text = "Reset";
             // 
             // mnuMySchool
             // 
+            this.mnuMySchool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuMySchoolToggleMascot});
             this.mnuMySchool.Name = "mnuMySchool";
             this.mnuMySchool.Size = new System.Drawing.Size(184, 22);
             this.mnuMySchool.Text = "My School";
+            // 
+            // mnuMySchoolToggleMascot
+            // 
+            this.mnuMySchoolToggleMascot.Name = "mnuMySchoolToggleMascot";
+            this.mnuMySchoolToggleMascot.Size = new System.Drawing.Size(198, 22);
+            this.mnuMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
+            this.mnuMySchoolToggleMascot.Click += new System.EventHandler(this.Buttons);
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.Size = new System.Drawing.Size(184, 22);
             this.mnuExit.Text = "Exit";
+            this.mnuExit.Click += new System.EventHandler(this.Buttons);
             // 
             // mnuEdit
             // 
@@ -256,8 +255,8 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabMathre.Controls.Add(this.tabHelloWorld);
             this.tabMathre.Controls.Add(this.tabMySchool);
-            this.tabMathre.Controls.Add(this.TabUnknown);
             this.tabMathre.Controls.Add(this.tabSecret);
+            this.tabMathre.Controls.Add(this.TabUnknown);
             this.tabMathre.Location = new System.Drawing.Point(0, 29);
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
             this.tabMathre.Name = "tabMathre";
@@ -388,8 +387,8 @@ namespace Mathre
             // 
             // tabMySchool
             // 
-            this.tabMySchool.Controls.Add(this.customGroupBox1);
             this.tabMySchool.Controls.Add(this.lblMySchoolTitle);
+            this.tabMySchool.Controls.Add(this.customGroupBox1);
             this.tabMySchool.Location = new System.Drawing.Point(4, 22);
             this.tabMySchool.Name = "tabMySchool";
             this.tabMySchool.Padding = new System.Windows.Forms.Padding(3);
@@ -398,40 +397,32 @@ namespace Mathre
             this.tabMySchool.Text = "My School";
             this.tabMySchool.UseVisualStyleBackColor = true;
             // 
+            // lblMySchoolTitle
+            // 
+            this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMySchoolTitle.Location = new System.Drawing.Point(274, 122);
+            this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblMySchoolTitle.Name = "lblMySchoolTitle";
+            this.lblMySchoolTitle.Size = new System.Drawing.Size(496, 51);
+            this.lblMySchoolTitle.TabIndex = 8;
+            this.lblMySchoolTitle.Text = "Red River High School";
+            this.lblMySchoolTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // customGroupBox1
             // 
             this.customGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customGroupBox1.AutoSize = true;
             this.customGroupBox1.BackColor = System.Drawing.SystemColors.Control;
             this.customGroupBox1.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox1.Controls.Add(this.pictureBox1);
-            this.customGroupBox1.Controls.Add(this.btnMySchoolView);
             this.customGroupBox1.Controls.Add(this.lblMySchoolMascot);
+            this.customGroupBox1.Controls.Add(this.picMySchoolMascot);
+            this.customGroupBox1.Controls.Add(this.btnMySchoolToggleMascot);
             this.customGroupBox1.Location = new System.Drawing.Point(309, 191);
             this.customGroupBox1.Name = "customGroupBox1";
             this.customGroupBox1.Size = new System.Drawing.Size(426, 105);
             this.customGroupBox1.TabIndex = 9;
             this.customGroupBox1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBox1.Image = global::Mathre.My.Resources.Resources.RedRiver;
-            this.pictureBox1.Location = new System.Drawing.Point(268, 19);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(108, 66);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 13;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnMySchoolView
-            // 
-            this.btnMySchoolView.Location = new System.Drawing.Point(80, 60);
-            this.btnMySchoolView.Name = "btnMySchoolView";
-            this.btnMySchoolView.Size = new System.Drawing.Size(75, 23);
-            this.btnMySchoolView.TabIndex = 9;
-            this.btnMySchoolView.Text = "View";
-            this.btnMySchoolView.UseVisualStyleBackColor = true;
             // 
             // lblMySchoolMascot
             // 
@@ -444,17 +435,27 @@ namespace Mathre
             this.lblMySchoolMascot.TabIndex = 10;
             this.lblMySchoolMascot.Text = "Mascot: Roughriders";
             // 
-            // lblMySchoolTitle
+            // picMySchoolMascot
             // 
-            this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolTitle.Location = new System.Drawing.Point(309, 122);
-            this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblMySchoolTitle.Name = "lblMySchoolTitle";
-            this.lblMySchoolTitle.Size = new System.Drawing.Size(426, 51);
-            this.lblMySchoolTitle.TabIndex = 8;
-            this.lblMySchoolTitle.Text = "Red River High School";
-            this.lblMySchoolTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.picMySchoolMascot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picMySchoolMascot.Image = global::Mathre.My.Resources.Resources.RedRiver;
+            this.picMySchoolMascot.Location = new System.Drawing.Point(268, 19);
+            this.picMySchoolMascot.Name = "picMySchoolMascot";
+            this.picMySchoolMascot.Size = new System.Drawing.Size(108, 66);
+            this.picMySchoolMascot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picMySchoolMascot.TabIndex = 13;
+            this.picMySchoolMascot.TabStop = false;
+            this.picMySchoolMascot.Visible = false;
+            // 
+            // btnMySchoolToggleMascot
+            // 
+            this.btnMySchoolToggleMascot.Location = new System.Drawing.Point(51, 60);
+            this.btnMySchoolToggleMascot.Name = "btnMySchoolToggleMascot";
+            this.btnMySchoolToggleMascot.Size = new System.Drawing.Size(132, 23);
+            this.btnMySchoolToggleMascot.TabIndex = 9;
+            this.btnMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
+            this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
+            this.btnMySchoolToggleMascot.Click += new System.EventHandler(this.Buttons);
             // 
             // TabUnknown
             // 
@@ -546,6 +547,7 @@ namespace Mathre
             // 
             this.lblSecretPrompt.AutoSize = true;
             this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblSecretPrompt.Location = new System.Drawing.Point(52, 24);
             this.lblSecretPrompt.Name = "lblSecretPrompt";
             this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
@@ -583,7 +585,7 @@ namespace Mathre
             this.tabMySchool.PerformLayout();
             this.customGroupBox1.ResumeLayout(false);
             this.customGroupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
             this.tabSecret.ResumeLayout(false);
             this.tabSecret.PerformLayout();
             this.grpSecret.ResumeLayout(false);
@@ -623,17 +625,18 @@ namespace Mathre
         internal RadioButton btnSecretDisable;
         internal RadioButton btnSecretEnable;
         internal CustomGroupBox customGroupBox1;
-        internal PictureBox pictureBox1;
-        internal Button btnMySchoolView;
+        internal PictureBox picMySchoolMascot;
+        internal Button btnMySchoolToggleMascot;
         internal Label lblMySchoolTitle;
         private Label lblMySchoolMascot;
         private ToolStripMenuItem mnuHelloWorld;
+        private ToolStripMenuItem mnuMySchool;
+        private ToolStripMenuItem mnuExit;
         private ToolStripMenuItem mnuHelloWorldLanguage;
         private ToolStripMenuItem mnuHelloWorldLanguageEnglish;
         private ToolStripMenuItem mnuHelloWorldLanguageFrench;
         private ToolStripMenuItem mnuHelloWorldLanguageGerman;
         private ToolStripMenuItem mnuHelloWorldReset;
-        private ToolStripMenuItem mnuMySchool;
-        private ToolStripMenuItem mnuExit;
+        private ToolStripMenuItem mnuMySchoolToggleMascot;
     }
 }

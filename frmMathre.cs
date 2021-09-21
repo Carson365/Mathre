@@ -89,7 +89,10 @@ namespace Mathre
             {
                 Buttons(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button.
             }
-
+            if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9))
+            {
+                tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1];
+            }
             if (txtSecretPassword.ContainsFocus & e.KeyCode == Keys.Enter)
             {
                 SecretHandler(txtSecretPassword, null);
@@ -156,6 +159,22 @@ namespace Mathre
             else if (ReferenceEquals(sender, mnuRandomify))
             {
                 lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value.
+            }
+            else if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, mnuMySchoolToggleMascot))
+            {
+                picMySchoolMascot.Visible = !picMySchoolMascot.Visible;
+                if (lblMySchoolMascot.ForeColor != Color.Black)
+                {
+                    lblMySchoolMascot.ForeColor = Color.Black;
+                }
+                else
+                {
+                    lblMySchoolMascot.ForeColor = Color.DimGray;
+                }
+            }
+            else if (ReferenceEquals(sender, mnuExit))
+            {
+                Application.Exit();
             }
         }
 
