@@ -73,6 +73,16 @@ namespace Mathre.My.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EnglishAtScale {
+            get {
+                object obj = ResourceManager.GetObject("EnglishAtScale", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap French {
             get {
                 object obj = ResourceManager.GetObject("French", resourceCulture);
@@ -86,6 +96,16 @@ namespace Mathre.My.Resources {
         internal static System.Drawing.Bitmap German {
             get {
                 object obj = ResourceManager.GetObject("German", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RedRiver {
+            get {
+                object obj = ResourceManager.GetObject("RedRiver", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

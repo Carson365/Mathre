@@ -2,18 +2,18 @@
 // The AddMenuItemHandlers Sub (and some supporting code in the FormLoad sub) is sourced from https://social.msdn.microsoft.com/Forums/vstudio/2ac347d5-4946-4143-8d54-e136d5508f64
 // Flag icons are sourced from the free icon set at https://www.iconfinder.com/iconsets/flags-37
 // 
+using Microsoft.VisualBasic;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
-using Microsoft.VisualBasic.CompilerServices;
 
 namespace Mathre
 {
     public partial class FrmMathre
     {
-        public FrmMathre() 
+        public FrmMathre()
         {
             InitializeComponent();
         }
@@ -36,7 +36,8 @@ namespace Mathre
             SystemColor = Conversions.ToString(ColorKey.GetValue("AccentColor"));
             ColorKey.Close();
             KeyPreview = true; // Ensure key inputs on the form are being tracked
-            StartingValue = grpHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name;
+            StartingValue = grpHelloWorldGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name;
+            Console.WriteLine(StartingValue);
             foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
             {
                 AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
@@ -86,7 +87,7 @@ namespace Mathre
             // 
             if (e.Control & e.Shift & e.KeyCode == Keys.R) // Add Control+Shift+R shortcut
             {
-                Buttons(mnuReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button.
+                Buttons(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button.
             }
 
             if (txtSecretPassword.ContainsFocus & e.KeyCode == Keys.Enter)
@@ -133,28 +134,28 @@ namespace Mathre
         // 
         private void Buttons(object sender, EventArgs e) // Event Handler for a press of the French button
         {
-            if (ReferenceEquals(sender, btnEnglish) | ReferenceEquals(sender, mnuEnglish))
+            if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, mnuHelloWorldLanguageEnglish))
             {
-                btnEnglish.Checked = true;
-                lblHelloWorld.Text = "Hello World"; // Sets lblHelloWorld to English
+                btnHelloWorldEnglish.Checked = true;
+                lblHelloWorldTitle.Text = "Hello World"; // Sets lblHelloWorld to English
             }
-            else if (ReferenceEquals(sender, btnFrench) | ReferenceEquals(sender, mnuFrench))
+            else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, mnuHelloWorldLanguageFrench))
             {
-                btnFrench.Checked = true;
-                lblHelloWorld.Text = "Bonjour le Monde"; // Sets lblHelloWorld to French
+                btnHelloWorldFrench.Checked = true;
+                lblHelloWorldTitle.Text = "Bonjour le Monde"; // Sets lblHelloWorld to French
             }
-            else if (ReferenceEquals(sender, btnGerman) | ReferenceEquals(sender, mnuGerman))
+            else if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, mnuHelloWorldLanguageGerman))
             {
-                btnGerman.Checked = true;
-                lblHelloWorld.Text = "Hallo Welt"; // Sets lblHelloWorld to German
+                btnHelloWorldGerman.Checked = true;
+                lblHelloWorldTitle.Text = "Hallo Welt"; // Sets lblHelloWorld to German
             }
-            else if (ReferenceEquals(sender, btnReset) | ReferenceEquals(sender, mnuReset))
+            else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))
             {
-                Buttons(grpHelloWorld.Controls[StartingValue.ToString()], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value.
+                Buttons(grpHelloWorldGroupBox.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value.
             }
             else if (ReferenceEquals(sender, mnuRandomify))
             {
-                lblHelloWorld.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value.
+                lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value.
             }
         }
 
@@ -185,30 +186,5 @@ namespace Mathre
             }
             // 
         }
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
-        // 
     }
 }
