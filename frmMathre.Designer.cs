@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.CompilerServices;
@@ -72,7 +72,6 @@ namespace Mathre
             this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
-            this.TabUnknown = new System.Windows.Forms.TabPage();
             this.tabSecret = new System.Windows.Forms.TabPage();
             this.lblSecretTitle = new System.Windows.Forms.Label();
             this.grpSecret = new Mathre.CustomGroupBox();
@@ -80,6 +79,7 @@ namespace Mathre
             this.btnSecretEnable = new System.Windows.Forms.RadioButton();
             this.txtSecretPassword = new System.Windows.Forms.TextBox();
             this.lblSecretPrompt = new System.Windows.Forms.Label();
+            this.TabUnknown = new System.Windows.Forms.TabPage();
             this.mnuBaseLayer.SuspendLayout();
             this.tabMathre.SuspendLayout();
             this.tabHelloWorld.SuspendLayout();
@@ -181,35 +181,39 @@ namespace Mathre
             this.mnuHelloWorldLanguageFrench,
             this.mnuHelloWorldLanguageGerman});
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
-            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
             // 
             // mnuHelloWorldLanguageEnglish
             // 
             this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
             this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageEnglish.Text = "English";
+            this.mnuHelloWorldLanguageEnglish.Click += new System.EventHandler(this.Buttons);
             // 
             // mnuHelloWorldLanguageFrench
             // 
             this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
             this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageFrench.Text = "French";
+            this.mnuHelloWorldLanguageFrench.Click += new System.EventHandler(this.Buttons);
             // 
             // mnuHelloWorldLanguageGerman
             // 
             this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
             this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageGerman.Text = "German";
+            this.mnuHelloWorldLanguageGerman.Click += new System.EventHandler(this.Buttons);
             // 
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
-            this.mnuHelloWorldReset.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldReset.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldReset.Text = "Reset";
+            this.mnuHelloWorldReset.Click += new System.EventHandler(this.Buttons);
             // 
             // mnuMySchool
             // 
@@ -457,16 +461,6 @@ namespace Mathre
             this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
             this.btnMySchoolToggleMascot.Click += new System.EventHandler(this.Buttons);
             // 
-            // TabUnknown
-            // 
-            this.TabUnknown.Location = new System.Drawing.Point(4, 22);
-            this.TabUnknown.Name = "TabUnknown";
-            this.TabUnknown.Padding = new System.Windows.Forms.Padding(3);
-            this.TabUnknown.Size = new System.Drawing.Size(1044, 486);
-            this.TabUnknown.TabIndex = 2;
-            this.TabUnknown.Text = "...";
-            this.TabUnknown.UseVisualStyleBackColor = true;
-            // 
             // tabSecret
             // 
             this.tabSecret.Controls.Add(this.lblSecretTitle);
@@ -553,6 +547,16 @@ namespace Mathre
             this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
             this.lblSecretPrompt.TabIndex = 9;
             this.lblSecretPrompt.Text = "Enter the Passcode:";
+            // 
+            // TabUnknown
+            // 
+            this.TabUnknown.Location = new System.Drawing.Point(4, 22);
+            this.TabUnknown.Name = "TabUnknown";
+            this.TabUnknown.Padding = new System.Windows.Forms.Padding(3);
+            this.TabUnknown.Size = new System.Drawing.Size(1044, 486);
+            this.TabUnknown.TabIndex = 2;
+            this.TabUnknown.Text = "...";
+            this.TabUnknown.UseVisualStyleBackColor = true;
             // 
             // FrmMathre
             // 
