@@ -98,19 +98,16 @@ namespace Mathre
         {
             if (ReferenceEquals(sender, txtSecretPassword)) // If the event is caused by the textbox:
             {
-                //static string GetStringSha256Hash(string text = txtSecretPassword.Text)
-                //{
-                //    if (String.IsNullOrEmpty(text))
-                //        return String.Empty;
-
-                //    using (var sha = new System.Security.Cryptography.SHA256Managed())
-                //    {
-                //        byte[] textData = System.Text.Encoding.UTF8.GetBytes(text);
-                //        byte[] hash = sha.ComputeHash(textData);
-                //        return BitConverter.ToString(hash).Replace("-", String.Empty);
-                //    }
-                //}
-                if (txtSecretPassword.Text == "12345") // If the text is the correct value:
+                string hashedvalue; // Introduce the 'hashedvalue' variable
+                if (String.IsNullOrEmpty(txtSecretPassword.Text)) // Check for a null value in the Secret Setting password field
+                    hashedvalue = String.Empty; // Set the hashedvalue to Empty if the value is null.
+                using (var sha = new System.Security.Cryptography.SHA256Managed()) // Introduce the Sha256 hashing method
+                {
+                    byte[] textData = System.Text.Encoding.UTF8.GetBytes(txtSecretPassword.Text); // Get the value of the Secret Settings password field input and convert it to a usable form (bytes).
+                    byte[] hash = sha.ComputeHash(textData); // Compute the Sha256 hash of the input.
+                    hashedvalue = BitConverter.ToString(hash).Replace("-", String.Empty); // Convert the calculated hash to a useable format and store it in the hashedvalue variable.
+                }
+                if (hashedvalue == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") // If the hashed value of the text matches this predefined value (AKA the correct password):
                 {
                     btnSecretEnable.Enabled = true; // Enable the control buttons.
                     btnSecretDisable.Enabled = true; // Enable the control buttons.
