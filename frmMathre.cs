@@ -21,8 +21,8 @@ namespace Mathre
         // 
         public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
         public static string systemColor; // Define a global variable to store the starting value of the System Accent Color
-        public static TabControl colRemovedTabs = new(); // Add a hidden/unused TabControl to store the Secret Settings page when not enabled
-        public static TabPage tabSecretStorage; // Add a variable "tabSecretStorage" as a Tabpage to store the Secret Setting Page without modifying it
+        public static TabControl colRemovedTabs = new(); // Add a hidden/unused TabControl to store the Secret Settings tab  when not enabled
+        public static TabPage tabSecretStorage; // Add a variable "tabSecretStorage" as a Tabpage to store the Secret Settings tab  without modifying it
 
 
         public static string SystemColor { get => systemColor; set => systemColor = value; } // Not sure what this is or what it does but it needs to be here otherwise everything breaks
@@ -30,8 +30,8 @@ namespace Mathre
         public void FormLoad(object sender, EventArgs e) //Formload event handler
         {
             tabSecretStorage = tabMathre.TabPages[2]; // Copy the secret settings page to tabSecretStorage
-            colRemovedTabs.Controls.Add(tabSecretStorage); // Add the secret settings tab to the hidden tabcontrol
-            tabMathre.Controls.Remove(tabSecretStorage); // Remove the secret settings tab from the primary tabcontrol
+            colRemovedTabs.Controls.Add(tabSecretStorage); // Add the Secret Settings tab to the hidden tabcontrol
+            tabMathre.Controls.Remove(tabSecretStorage); // Remove the Secret Settings tab from the primary tabcontrol
             mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one.
             var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM"); // Navigate to this windows directory key
             SystemColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key.
@@ -60,16 +60,16 @@ namespace Mathre
         {
             if (e.Control & e.KeyCode == Keys.S) // Add Control+S shortcut
             {
-                if (tabMathre.TabPages.Contains(tabSecretStorage))
+                if (tabMathre.TabPages.Contains(tabSecretStorage)) // Check for the Secret Settings tab in the main tablist
                 {
-                    colRemovedTabs.Controls.Add(tabSecretStorage);
-                    tabMathre.Controls.Remove(tabSecretStorage);
+                    colRemovedTabs.Controls.Add(tabSecretStorage); // If the Secret Settings tab is in the main tablist, add it to the hidden removed tab list -
+                    tabMathre.Controls.Remove(tabSecretStorage); // - then remove it.
                 }
                 else
                 {
-                    tabMathre.Controls.Add(colRemovedTabs.TabPages[0]);
-                    colRemovedTabs.Controls.Remove(tabSecretStorage);
-                    tabMathre.SelectedTab = tabSecretStorage;
+                    tabMathre.Controls.Add(colRemovedTabs.TabPages[0]); // If the Secret Settings tab is not in the main tablist, add it -
+                    colRemovedTabs.Controls.Remove(tabSecretStorage); // then remove it from the hidden removed tab list -
+                    tabMathre.SelectedTab = tabSecretStorage; // - and switch to the Secret Settings tab.
                 }
             }
             //
@@ -85,70 +85,82 @@ namespace Mathre
             //
             if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9)) // Add Control+Number shortcut for each tab page, and no more than the amout of pages.
             {
-                tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1];
+                tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1]; // Navigate to the tab of the key pressed by converting the key value to a number and then subtracting 1 to adjust for the indexing starting at 0.
             }
             //
             if (txtSecretPassword.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
             {
-                SecretHandler(txtSecretPassword, null);
+                SecretHandler(txtSecretPassword, null); // Send the inputted text to SecretHandler for processing.
             }
         }
 
-        private void SecretHandler(object sender, EventArgs e) // Event handler for keypresses made within the form (which now includes keypresses from the menu items)
+        private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page.
         {
-            if (ReferenceEquals(sender, txtSecretPassword))
+            if (ReferenceEquals(sender, txtSecretPassword)) // If the event is caused by the textbox:
             {
-                if (txtSecretPassword.Text == "12345")
+                //static string GetStringSha256Hash(string text = txtSecretPassword.Text)
+                //{
+                //    if (String.IsNullOrEmpty(text))
+                //        return String.Empty;
+
+                //    using (var sha = new System.Security.Cryptography.SHA256Managed())
+                //    {
+                //        byte[] textData = System.Text.Encoding.UTF8.GetBytes(text);
+                //        byte[] hash = sha.ComputeHash(textData);
+                //        return BitConverter.ToString(hash).Replace("-", String.Empty);
+                //    }
+                //}
+                if (txtSecretPassword.Text == "12345") // If the text is the correct value:
                 {
-                    btnSecretEnable.Enabled = true;
-                    btnSecretDisable.Enabled = true;
+                    btnSecretEnable.Enabled = true; // Enable the control buttons.
+                    btnSecretDisable.Enabled = true; // Enable the control buttons.
                 }
                 else
                 {
-                    btnSecretEnable.Enabled = false;
-                    btnSecretDisable.Enabled = false;
-                    btnSecretDisable.Checked = true;
+                    btnSecretEnable.Enabled = false; // Disable the control buttons.
+                    btnSecretDisable.Enabled = false; // Disable the control buttons.
+                    btnSecretDisable.Checked = true; // Check the Disabled button
                 }
 
-                if (btnSecretEnable.Enabled == false)
+                if (btnSecretEnable.Enabled == false) // If the Enabled button is not pressed:
                 {
-                    mnuSecret.Enabled = false;
+                    mnuSecret.Enabled = false; // Disable the Secret Settings menu item
                 }
             }
 
-            txtSecretPassword.Text = "";
-            if (ReferenceEquals(sender, btnSecretEnable))
+            txtSecretPassword.Text = ""; // Clear the text box when buttons are pressed
+            if (ReferenceEquals(sender, btnSecretEnable)) // If the event is caused by the Enable button:
             {
-                mnuSecret.Enabled = true;
-                btnSecretEnable.Checked = true;
+                mnuSecret.Enabled = true; // Enable the Secret menu.
+                btnSecretEnable.Checked = true; // Check the Enabled button.
             }
 
-            if (ReferenceEquals(sender, btnSecretDisable))
+            if (ReferenceEquals(sender, btnSecretDisable)) // If the event is caused by the Disable button:
             {
-                mnuSecret.Enabled = false;
-                btnSecretDisable.Checked = true;
+                mnuSecret.Enabled = false; // Disable the Secret menu.
+                btnSecretDisable.Checked = true; // Check the Disabled button
             }
             // 
         }
         // 
         private void Buttons(object sender, EventArgs e) // Event Handler for a press of the French button
         {
-            if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, mnuHelloWorldLanguageEnglish))
+            if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, mnuHelloWorldLanguageEnglish)) // If the event is caused by the English button or menu item:
             {
                 btnHelloWorldEnglish.Checked = true;
                 lblHelloWorldTitle.Text = "Hello World"; // Sets lblHelloWorld to English
             }
-            else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, mnuHelloWorldLanguageFrench))
+            else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, mnuHelloWorldLanguageFrench)) // If the event is caused by the French button or menu item:
             {
                 btnHelloWorldFrench.Checked = true;
                 lblHelloWorldTitle.Text = "Bonjour le Monde"; // Sets lblHelloWorld to French
             }
-            else if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, mnuHelloWorldLanguageGerman))
+            else if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, mnuHelloWorldLanguageGerman)) // If the event is caused by the German button or menu item:
             {
                 btnHelloWorldGerman.Checked = true;
                 lblHelloWorldTitle.Text = "Hallo Welt"; // Sets lblHelloWorld to German
             }
-            else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))
+            else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
             {
                 Buttons(grpHelloWorldGroupBox.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value.
             }
@@ -156,10 +168,10 @@ namespace Mathre
             {
                 lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value.
             }
-            else if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, mnuMySchoolToggleMascot))
+            else if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, mnuMySchoolToggleMascot)) // If the event is caused by the ToggleMascot button or menu item:
             {
-                picMySchoolMascot.Visible = !picMySchoolMascot.Visible;
-                if (lblMySchoolMascot.ForeColor != Color.Black)
+                picMySchoolMascot.Visible = !picMySchoolMascot.Visible; // Inverts the visibility of the mascot image
+                if (lblMySchoolMascot.ForeColor != Color.Black) // Inverts the text color
                 {
                     lblMySchoolMascot.ForeColor = Color.Black;
                 }
@@ -168,35 +180,35 @@ namespace Mathre
                     lblMySchoolMascot.ForeColor = Color.DimGray;
                 }
             }
-            else if (ReferenceEquals(sender, mnuExit))
+            else if (ReferenceEquals(sender, mnuExit)) // If the event is caused by the Exit menu item:
             {
-                Application.Exit();
+                Application.Exit(); // Exit.
             }
         }
 
-        private class MenuColorTable : ProfessionalColorTable
+        private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
         {
-            public override Color MenuItemBorder
+            public override Color MenuItemBorder // Override the MenuItemBorder Color
             {
                 get
                 {
-                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor));
+                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor)); // Use the stored system accent color to replace the default color
                 }
             }
 
-            public override Color MenuItemSelected
+            public override Color MenuItemSelected // Override the MenuItemSelected Color
             {
                 get
                 {
-                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor));
+                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor)); // Use the stored system accent color to replace the default color
                 }
             }
 
-            public override Color MenuBorder
+            public override Color MenuBorder // Override the MenuBorder Color
             {
                 get
                 {
-                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor));
+                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor)); // Use the stored system accent color to replace the default color
                 }
             }
             // 
