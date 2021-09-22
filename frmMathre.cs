@@ -23,13 +23,14 @@ namespace Mathre
         public static string systemColor; // Define a global variable to store the starting value of the System Accent Color
         public static TabControl colRemovedTabs = new(); // Add a hidden/unused TabControl to store the Secret Settings tab  when not enabled
         public static TabPage tabSecretStorage; // Add a variable "tabSecretStorage" as a Tabpage to store the Secret Settings tab  without modifying it
+        private object Placeholder;
 
 
         public static string SystemColor { get => systemColor; set => systemColor = value; } // Not sure what this is or what it does but it needs to be here otherwise everything breaks
         // 
         public void FormLoad(object sender, EventArgs e) //Formload event handler
         {
-            tabSecretStorage = tabMathre.TabPages[2]; // Copy the secret settings page to tabSecretStorage
+            tabSecretStorage = tabMathre.TabPages[3]; // Copy the secret settings page to tabSecretStorage
             colRemovedTabs.Controls.Add(tabSecretStorage); // Add the Secret Settings tab to the hidden tabcontrol
             tabMathre.Controls.Remove(tabSecretStorage); // Remove the Secret Settings tab from the primary tabcontrol
             mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one.
@@ -91,6 +92,11 @@ namespace Mathre
             if (txtSecretPassword.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
             {
                 SecretHandler(txtSecretPassword, null); // Send the inputted text to SecretHandler for processing.
+            }
+
+            if (txtRectangleDimensions.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
+            {
+                Rectangle(Placeholder, null); // Send the inputted text to SecretHandler for processing.
             }
         }
 
@@ -209,6 +215,26 @@ namespace Mathre
                 }
             }
             // 
+        }
+
+        private void Rectangle(object sender, EventArgs e)
+        {
+            if (ReferenceEquals(sender, Placeholder)) 
+            {
+                RectanglePainter(Placeholder, null);
+
+            }
+            else if (ReferenceEquals(sender, txtRectangleDimensions))
+            {
+
+            }
+        }
+        private void rectanglePainter(object sender, PaintEventArgs e)
+        {
+            var rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
+            ControlPaint.DrawBorder(e.Graphics, rect, Conversions.ToInteger(SystemColor), ButtonBorderStyle.Solid);
+            rect.Inflate(-1, -1);
+            ControlPaint.DrawBorder(e.Graphics, rect, Conversions.ToInteger(SystemColor), ButtonBorderStyle.Solid);
         }
     }
 }
