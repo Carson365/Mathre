@@ -57,7 +57,7 @@ namespace Mathre
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.tabMathre = new System.Windows.Forms.TabControl();
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
-            this.grpHelloWorldGroupBox = new Mathre.CustomGroupBox();
+            this.grpHelloWorld = new Mathre.CustomGroupBox();
             this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
             this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
             this.picHelloWorldEnglish = new System.Windows.Forms.PictureBox();
@@ -68,7 +68,7 @@ namespace Mathre
             this.lblHelloWorldTitle = new System.Windows.Forms.Label();
             this.tabMySchool = new System.Windows.Forms.TabPage();
             this.lblMySchoolTitle = new System.Windows.Forms.Label();
-            this.customGroupBox1 = new Mathre.CustomGroupBox();
+            this.grpMySchool = new Mathre.CustomGroupBox();
             this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
@@ -79,16 +79,16 @@ namespace Mathre
             this.btnSecretEnable = new System.Windows.Forms.RadioButton();
             this.txtSecretPassword = new System.Windows.Forms.TextBox();
             this.lblSecretPrompt = new System.Windows.Forms.Label();
-            this.TabUnknown = new System.Windows.Forms.TabPage();
+            this.tabUnknown = new System.Windows.Forms.TabPage();
             this.mnuBaseLayer.SuspendLayout();
             this.tabMathre.SuspendLayout();
             this.tabHelloWorld.SuspendLayout();
-            this.grpHelloWorldGroupBox.SuspendLayout();
+            this.grpHelloWorld.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
             this.tabMySchool.SuspendLayout();
-            this.customGroupBox1.SuspendLayout();
+            this.grpMySchool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.tabSecret.SuspendLayout();
             this.grpSecret.SuspendLayout();
@@ -181,14 +181,14 @@ namespace Mathre
             this.mnuHelloWorldLanguageFrench,
             this.mnuHelloWorldLanguageGerman});
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
-            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
             // 
             // mnuHelloWorldLanguageEnglish
             // 
             this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
             this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageEnglish.Text = "English";
             this.mnuHelloWorldLanguageEnglish.Click += new System.EventHandler(this.Buttons);
             // 
@@ -196,7 +196,7 @@ namespace Mathre
             // 
             this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
             this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageFrench.Text = "French";
             this.mnuHelloWorldLanguageFrench.Click += new System.EventHandler(this.Buttons);
             // 
@@ -204,14 +204,14 @@ namespace Mathre
             // 
             this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
             this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageGerman.Text = "German";
             this.mnuHelloWorldLanguageGerman.Click += new System.EventHandler(this.Buttons);
             // 
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
-            this.mnuHelloWorldReset.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldReset.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldReset.Text = "Reset";
             this.mnuHelloWorldReset.Click += new System.EventHandler(this.Buttons);
             // 
@@ -260,7 +260,7 @@ namespace Mathre
             this.tabMathre.Controls.Add(this.tabHelloWorld);
             this.tabMathre.Controls.Add(this.tabMySchool);
             this.tabMathre.Controls.Add(this.tabSecret);
-            this.tabMathre.Controls.Add(this.TabUnknown);
+            this.tabMathre.Controls.Add(this.tabUnknown);
             this.tabMathre.Location = new System.Drawing.Point(0, 29);
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
             this.tabMathre.Name = "tabMathre";
@@ -272,7 +272,7 @@ namespace Mathre
             // 
             // tabHelloWorld
             // 
-            this.tabHelloWorld.Controls.Add(this.grpHelloWorldGroupBox);
+            this.tabHelloWorld.Controls.Add(this.grpHelloWorld);
             this.tabHelloWorld.Controls.Add(this.lblHelloWorldTitle);
             this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
             this.tabHelloWorld.Margin = new System.Windows.Forms.Padding(0);
@@ -283,24 +283,24 @@ namespace Mathre
             this.tabHelloWorld.Text = "Hello World";
             this.tabHelloWorld.UseVisualStyleBackColor = true;
             // 
-            // grpHelloWorldGroupBox
+            // grpHelloWorld
             // 
-            this.grpHelloWorldGroupBox.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpHelloWorldGroupBox.AutoSize = true;
-            this.grpHelloWorldGroupBox.BackColor = System.Drawing.SystemColors.Control;
-            this.grpHelloWorldGroupBox.BorderColor = System.Drawing.Color.Black;
-            this.grpHelloWorldGroupBox.Controls.Add(this.picHelloWorldGerman);
-            this.grpHelloWorldGroupBox.Controls.Add(this.btnHelloWorldFrench);
-            this.grpHelloWorldGroupBox.Controls.Add(this.picHelloWorldEnglish);
-            this.grpHelloWorldGroupBox.Controls.Add(this.picHelloWorldFrench);
-            this.grpHelloWorldGroupBox.Controls.Add(this.btnHelloWorldReset);
-            this.grpHelloWorldGroupBox.Controls.Add(this.btnHelloWorldGerman);
-            this.grpHelloWorldGroupBox.Controls.Add(this.btnHelloWorldEnglish);
-            this.grpHelloWorldGroupBox.Location = new System.Drawing.Point(309, 191);
-            this.grpHelloWorldGroupBox.Name = "grpHelloWorldGroupBox";
-            this.grpHelloWorldGroupBox.Size = new System.Drawing.Size(426, 105);
-            this.grpHelloWorldGroupBox.TabIndex = 7;
-            this.grpHelloWorldGroupBox.TabStop = false;
+            this.grpHelloWorld.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpHelloWorld.AutoSize = true;
+            this.grpHelloWorld.BackColor = System.Drawing.SystemColors.Control;
+            this.grpHelloWorld.BorderColor = System.Drawing.Color.Black;
+            this.grpHelloWorld.Controls.Add(this.picHelloWorldGerman);
+            this.grpHelloWorld.Controls.Add(this.btnHelloWorldFrench);
+            this.grpHelloWorld.Controls.Add(this.picHelloWorldEnglish);
+            this.grpHelloWorld.Controls.Add(this.picHelloWorldFrench);
+            this.grpHelloWorld.Controls.Add(this.btnHelloWorldReset);
+            this.grpHelloWorld.Controls.Add(this.btnHelloWorldGerman);
+            this.grpHelloWorld.Controls.Add(this.btnHelloWorldEnglish);
+            this.grpHelloWorld.Location = new System.Drawing.Point(309, 191);
+            this.grpHelloWorld.Name = "grpHelloWorld";
+            this.grpHelloWorld.Size = new System.Drawing.Size(426, 105);
+            this.grpHelloWorld.TabIndex = 7;
+            this.grpHelloWorld.TabStop = false;
             // 
             // picHelloWorldGerman
             // 
@@ -392,7 +392,7 @@ namespace Mathre
             // tabMySchool
             // 
             this.tabMySchool.Controls.Add(this.lblMySchoolTitle);
-            this.tabMySchool.Controls.Add(this.customGroupBox1);
+            this.tabMySchool.Controls.Add(this.grpMySchool);
             this.tabMySchool.Location = new System.Drawing.Point(4, 22);
             this.tabMySchool.Name = "tabMySchool";
             this.tabMySchool.Padding = new System.Windows.Forms.Padding(3);
@@ -413,20 +413,20 @@ namespace Mathre
             this.lblMySchoolTitle.Text = "Red River High School";
             this.lblMySchoolTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // customGroupBox1
+            // grpMySchool
             // 
-            this.customGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox1.AutoSize = true;
-            this.customGroupBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.customGroupBox1.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox1.Controls.Add(this.lblMySchoolMascot);
-            this.customGroupBox1.Controls.Add(this.picMySchoolMascot);
-            this.customGroupBox1.Controls.Add(this.btnMySchoolToggleMascot);
-            this.customGroupBox1.Location = new System.Drawing.Point(309, 191);
-            this.customGroupBox1.Name = "customGroupBox1";
-            this.customGroupBox1.Size = new System.Drawing.Size(426, 105);
-            this.customGroupBox1.TabIndex = 9;
-            this.customGroupBox1.TabStop = false;
+            this.grpMySchool.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpMySchool.AutoSize = true;
+            this.grpMySchool.BackColor = System.Drawing.SystemColors.Control;
+            this.grpMySchool.BorderColor = System.Drawing.Color.Black;
+            this.grpMySchool.Controls.Add(this.lblMySchoolMascot);
+            this.grpMySchool.Controls.Add(this.picMySchoolMascot);
+            this.grpMySchool.Controls.Add(this.btnMySchoolToggleMascot);
+            this.grpMySchool.Location = new System.Drawing.Point(309, 191);
+            this.grpMySchool.Name = "grpMySchool";
+            this.grpMySchool.Size = new System.Drawing.Size(426, 105);
+            this.grpMySchool.TabIndex = 9;
+            this.grpMySchool.TabStop = false;
             // 
             // lblMySchoolMascot
             // 
@@ -548,15 +548,15 @@ namespace Mathre
             this.lblSecretPrompt.TabIndex = 9;
             this.lblSecretPrompt.Text = "Enter the Passcode:";
             // 
-            // TabUnknown
+            // tabUnknown
             // 
-            this.TabUnknown.Location = new System.Drawing.Point(4, 22);
-            this.TabUnknown.Name = "TabUnknown";
-            this.TabUnknown.Padding = new System.Windows.Forms.Padding(3);
-            this.TabUnknown.Size = new System.Drawing.Size(1044, 486);
-            this.TabUnknown.TabIndex = 2;
-            this.TabUnknown.Text = "...";
-            this.TabUnknown.UseVisualStyleBackColor = true;
+            this.tabUnknown.Location = new System.Drawing.Point(4, 22);
+            this.tabUnknown.Name = "tabUnknown";
+            this.tabUnknown.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUnknown.Size = new System.Drawing.Size(1044, 486);
+            this.tabUnknown.TabIndex = 2;
+            this.tabUnknown.Text = "...";
+            this.tabUnknown.UseVisualStyleBackColor = true;
             // 
             // FrmMathre
             // 
@@ -580,15 +580,15 @@ namespace Mathre
             this.tabMathre.ResumeLayout(false);
             this.tabHelloWorld.ResumeLayout(false);
             this.tabHelloWorld.PerformLayout();
-            this.grpHelloWorldGroupBox.ResumeLayout(false);
-            this.grpHelloWorldGroupBox.PerformLayout();
+            this.grpHelloWorld.ResumeLayout(false);
+            this.grpHelloWorld.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
             this.tabMySchool.ResumeLayout(false);
             this.tabMySchool.PerformLayout();
-            this.customGroupBox1.ResumeLayout(false);
-            this.customGroupBox1.PerformLayout();
+            this.grpMySchool.ResumeLayout(false);
+            this.grpMySchool.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
             this.tabSecret.ResumeLayout(false);
             this.tabSecret.PerformLayout();
@@ -612,8 +612,8 @@ namespace Mathre
         internal TabPage tabHelloWorld;
         internal TabPage tabMySchool;
         internal Label lblHelloWorldTitle;
-        internal TabPage TabUnknown;
-        internal CustomGroupBox grpHelloWorldGroupBox;
+        internal TabPage tabUnknown;
+        internal CustomGroupBox grpHelloWorld;
         internal PictureBox picHelloWorldGerman;
         internal RadioButton btnHelloWorldFrench;
         internal PictureBox picHelloWorldEnglish;
@@ -628,7 +628,7 @@ namespace Mathre
         internal Label lblSecretTitle;
         internal RadioButton btnSecretDisable;
         internal RadioButton btnSecretEnable;
-        internal CustomGroupBox customGroupBox1;
+        internal CustomGroupBox grpMySchool;
         internal PictureBox picMySchoolMascot;
         internal Button btnMySchoolToggleMascot;
         internal Label lblMySchoolTitle;

@@ -37,7 +37,7 @@ namespace Mathre
             SystemColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key.
             ColorKey.Close(); // Stop registry access
             KeyPreview = true; // Ensure key inputs on the form are being tracked
-            StartingValue = grpHelloWorldGroupBox.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
+            StartingValue = grpHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
             foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
             {
                 AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
@@ -159,7 +159,7 @@ namespace Mathre
             }
             else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
             {
-                Buttons(grpHelloWorldGroupBox.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value.
+                Buttons(grpHelloWorld.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value.
             }
             else if (ReferenceEquals(sender, mnuRandomify))
             {
