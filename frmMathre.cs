@@ -1,5 +1,5 @@
 // Sources:
-// The AddMenuItemHandlers Sub (and some supporting code in the FormLoad sub) is sourced from https://social.msdn.microsoft.com/Forums/vstudio/2ac347d5-4946-4143-8d54-e136d5508f64
+//
 // Flag icons are sourced from the free icon set at https://www.iconfinder.com/iconsets/flags-37
 // RoughRiders mascot image sourced from https://www.gfschools.org/cms/lib/ND02203034/Centricity/Template/GlobalAssets/images///logos/Red%20River%20HS.png
 // 
