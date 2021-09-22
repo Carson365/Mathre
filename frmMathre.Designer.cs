@@ -72,6 +72,13 @@ namespace Mathre
             this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
+            this.tabRectangle = new System.Windows.Forms.TabPage();
+            this.label1 = new System.Windows.Forms.Label();
+            this.customGroupBox1 = new Mathre.CustomGroupBox();
+            this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.label2 = new System.Windows.Forms.Label();
             this.tabSecret = new System.Windows.Forms.TabPage();
             this.lblSecretTitle = new System.Windows.Forms.Label();
             this.grpSecret = new Mathre.CustomGroupBox();
@@ -80,6 +87,7 @@ namespace Mathre
             this.txtSecretPassword = new System.Windows.Forms.TextBox();
             this.lblSecretPrompt = new System.Windows.Forms.Label();
             this.tabUnknown = new System.Windows.Forms.TabPage();
+            this.grpRectangleHolder = new Mathre.CustomGroupBox();
             this.mnuBaseLayer.SuspendLayout();
             this.tabMathre.SuspendLayout();
             this.tabHelloWorld.SuspendLayout();
@@ -90,6 +98,8 @@ namespace Mathre
             this.tabMySchool.SuspendLayout();
             this.grpMySchool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
+            this.tabRectangle.SuspendLayout();
+            this.customGroupBox1.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.grpSecret.SuspendLayout();
             this.SuspendLayout();
@@ -259,6 +269,7 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabMathre.Controls.Add(this.tabHelloWorld);
             this.tabMathre.Controls.Add(this.tabMySchool);
+            this.tabMathre.Controls.Add(this.tabRectangle);
             this.tabMathre.Controls.Add(this.tabSecret);
             this.tabMathre.Controls.Add(this.tabUnknown);
             this.tabMathre.Location = new System.Drawing.Point(0, 29);
@@ -461,6 +472,93 @@ namespace Mathre
             this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
             this.btnMySchoolToggleMascot.Click += new System.EventHandler(this.Buttons);
             // 
+            // tabRectangle
+            // 
+            this.tabRectangle.Controls.Add(this.grpRectangleHolder);
+            this.tabRectangle.Controls.Add(this.label1);
+            this.tabRectangle.Controls.Add(this.customGroupBox1);
+            this.tabRectangle.Location = new System.Drawing.Point(4, 22);
+            this.tabRectangle.Name = "tabRectangle";
+            this.tabRectangle.Size = new System.Drawing.Size(1044, 486);
+            this.tabRectangle.TabIndex = 4;
+            this.tabRectangle.Text = "Rectangle Calculator";
+            this.tabRectangle.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(209, 122);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(626, 51);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Rectangle Calculator";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // customGroupBox1
+            // 
+            this.customGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customGroupBox1.AutoSize = true;
+            this.customGroupBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.customGroupBox1.BorderColor = System.Drawing.Color.Black;
+            this.customGroupBox1.Controls.Add(this.txtRectangleDimensions);
+            this.customGroupBox1.Controls.Add(this.radioButton1);
+            this.customGroupBox1.Controls.Add(this.radioButton2);
+            this.customGroupBox1.Controls.Add(this.label2);
+            this.customGroupBox1.Location = new System.Drawing.Point(309, 191);
+            this.customGroupBox1.Name = "customGroupBox1";
+            this.customGroupBox1.Size = new System.Drawing.Size(426, 105);
+            this.customGroupBox1.TabIndex = 10;
+            this.customGroupBox1.TabStop = false;
+            // 
+            // txtRectangleDimensions
+            // 
+            this.txtRectangleDimensions.BackColor = System.Drawing.SystemColors.Window;
+            this.txtRectangleDimensions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRectangleDimensions.Location = new System.Drawing.Point(156, 39);
+            this.txtRectangleDimensions.Name = "txtRectangleDimensions";
+            this.txtRectangleDimensions.PasswordChar = '∗';
+            this.txtRectangleDimensions.Size = new System.Drawing.Size(114, 26);
+            this.txtRectangleDimensions.TabIndex = 13;
+            this.txtRectangleDimensions.TextChanged += new System.EventHandler(this.Rectangle);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Enabled = false;
+            this.radioButton1.Location = new System.Drawing.Point(85, 66);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(60, 17);
+            this.radioButton1.TabIndex = 11;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Disable";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Enabled = false;
+            this.radioButton2.Location = new System.Drawing.Point(283, 67);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(58, 17);
+            this.radioButton2.TabIndex = 10;
+            this.radioButton2.Text = "Enable";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label2.Location = new System.Drawing.Point(16, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(173, 20);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Rectangle Dimensions:";
+            // 
             // tabSecret
             // 
             this.tabSecret.Controls.Add(this.lblSecretTitle);
@@ -496,7 +594,7 @@ namespace Mathre
             this.grpSecret.Controls.Add(this.lblSecretPrompt);
             this.grpSecret.Location = new System.Drawing.Point(309, 191);
             this.grpSecret.Name = "grpSecret";
-            this.grpSecret.Size = new System.Drawing.Size(426, 119);
+            this.grpSecret.Size = new System.Drawing.Size(426, 105);
             this.grpSecret.TabIndex = 8;
             this.grpSecret.TabStop = false;
             // 
@@ -505,7 +603,7 @@ namespace Mathre
             this.btnSecretDisable.AutoSize = true;
             this.btnSecretDisable.Checked = true;
             this.btnSecretDisable.Enabled = false;
-            this.btnSecretDisable.Location = new System.Drawing.Point(85, 78);
+            this.btnSecretDisable.Location = new System.Drawing.Point(85, 66);
             this.btnSecretDisable.Name = "btnSecretDisable";
             this.btnSecretDisable.Size = new System.Drawing.Size(60, 17);
             this.btnSecretDisable.TabIndex = 11;
@@ -518,7 +616,7 @@ namespace Mathre
             // 
             this.btnSecretEnable.AutoSize = true;
             this.btnSecretEnable.Enabled = false;
-            this.btnSecretEnable.Location = new System.Drawing.Point(283, 79);
+            this.btnSecretEnable.Location = new System.Drawing.Point(283, 67);
             this.btnSecretEnable.Name = "btnSecretEnable";
             this.btnSecretEnable.Size = new System.Drawing.Size(58, 17);
             this.btnSecretEnable.TabIndex = 10;
@@ -531,7 +629,7 @@ namespace Mathre
             this.txtSecretPassword.BackColor = System.Drawing.SystemColors.Window;
             this.txtSecretPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSecretPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecretPassword.Location = new System.Drawing.Point(261, 22);
+            this.txtSecretPassword.Location = new System.Drawing.Point(261, 21);
             this.txtSecretPassword.Name = "txtSecretPassword";
             this.txtSecretPassword.PasswordChar = '∗';
             this.txtSecretPassword.Size = new System.Drawing.Size(114, 26);
@@ -542,7 +640,7 @@ namespace Mathre
             this.lblSecretPrompt.AutoSize = true;
             this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSecretPrompt.Location = new System.Drawing.Point(52, 24);
+            this.lblSecretPrompt.Location = new System.Drawing.Point(52, 23);
             this.lblSecretPrompt.Name = "lblSecretPrompt";
             this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
             this.lblSecretPrompt.TabIndex = 9;
@@ -557,6 +655,16 @@ namespace Mathre
             this.tabUnknown.TabIndex = 2;
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
+            // 
+            // grpRectangleHolder
+            // 
+            this.grpRectangleHolder.BorderColor = System.Drawing.Color.Black;
+            this.grpRectangleHolder.Location = new System.Drawing.Point(758, 34);
+            this.grpRectangleHolder.Name = "grpRectangleHolder";
+            this.grpRectangleHolder.Size = new System.Drawing.Size(200, 106);
+            this.grpRectangleHolder.TabIndex = 12;
+            this.grpRectangleHolder.TabStop = false;
+            this.grpRectangleHolder.Text = "customGroupBox2";
             // 
             // FrmMathre
             // 
@@ -590,6 +698,10 @@ namespace Mathre
             this.grpMySchool.ResumeLayout(false);
             this.grpMySchool.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
+            this.tabRectangle.ResumeLayout(false);
+            this.tabRectangle.PerformLayout();
+            this.customGroupBox1.ResumeLayout(false);
+            this.customGroupBox1.PerformLayout();
             this.tabSecret.ResumeLayout(false);
             this.tabSecret.PerformLayout();
             this.grpSecret.ResumeLayout(false);
@@ -642,5 +754,13 @@ namespace Mathre
         private ToolStripMenuItem mnuHelloWorldLanguageGerman;
         private ToolStripMenuItem mnuHelloWorldReset;
         private ToolStripMenuItem mnuMySchoolToggleMascot;
+        internal TabPage tabRectangle;
+        internal Label label1;
+        internal CustomGroupBox customGroupBox1;
+        internal RadioButton radioButton1;
+        internal RadioButton radioButton2;
+        internal Label label2;
+        internal TextBox txtRectangleDimensions;
+        private CustomGroupBox grpRectangleHolder;
     }
 }
