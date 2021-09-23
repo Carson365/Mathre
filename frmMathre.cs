@@ -223,18 +223,17 @@ namespace Mathre
 
         private void Rectangle(object sender, EventArgs e)
         {
-            g = grpRectangle.CreateGraphics();
-            int Height = 0;
-            int Width = 0;
+            double Height = 0;
+            double Width = 0;
             string[] words = txtRectangleDimensions.Text.Split(' ');
             if (words.Length > 2)
             {
-                var LengthIsNumeric = int.TryParse(words[2], out int HeightValue);
+                var LengthIsNumeric = double.TryParse(words[2], out double HeightValue);
                 if (LengthIsNumeric)
                 {
                     Height = HeightValue;
                 }
-                var WidthIsNumeric = int.TryParse(words[0], out int WidthValue);
+                var WidthIsNumeric = double.TryParse(words[0], out double WidthValue);
                 if (WidthIsNumeric)
                 {
                     Width = WidthValue;
@@ -242,27 +241,24 @@ namespace Mathre
             }
             if (ReferenceEquals(sender, Placeholder))
             {
-                grpRectangle.Width = Width;
-                grpRectangle.Height = Height;
+                var ratioX = (double)grpRectangle.MaximumSize.Width / Width;
+                var ratioY = (double)grpRectangle.MaximumSize.Height / Height;
+                var ratio = Math.Min(ratioX, ratioY);
+                var newWidth = (int)(Width * ratio);
+                var newHeight = (int)(Height * ratio);
+                grpRectangle.Width = newWidth;
+                grpRectangle.Height = newHeight;
                 grpRectangle.Left = (grpRectangle.Parent.Width - grpRectangle.Width) / 2;
                 grpRectangle.Top = (grpRectangle.Parent.Height - grpRectangle.Height) / 2;
+                grpRectangle.Visible = true;
+                lblArea.Text = (Width * Height).ToString();
+                lblPerimeter.Text = (2 * Width + 2 * Height).ToString();
             }
+            //if (txtRectangleDimensions.Text.Contains("x"))
+            //{
+            //    txtRectangleDimensions.Text.Replace("x", " x ");
+            //}
         }
-        //    protected override void OnPaint(PaintEventArgs e)
-        //    {
-        //        g = picRectangle.CreateGraphics();
-        //        ControlPaint.DrawBorder(g, Rect, SystemColor, ButtonBorderStyle.Solid);
-        //        Rect.Inflate(-1, -1);
-        //        ControlPaint.DrawBorder(g, Rect, SystemColor, ButtonBorderStyle.Solid);
-        //        Rect.Inflate(1, 1);
-        //    }
-        //    protected override void OnResize(EventArgs e)
-        //    {
-
-        //        g = picRectangle.CreateGraphics();
-        //        OnPaint(new PaintEventArgs(g, this.Bounds));
-        //        base.OnResize(e);
-        //    }
     }
 
 }
