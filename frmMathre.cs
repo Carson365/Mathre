@@ -2,12 +2,14 @@
 //
 // Flag icons are sourced from the free icon set at https://www.iconfinder.com/iconsets/flags-37
 // RoughRiders mascot image sourced from https://www.gfschools.org/cms/lib/ND02203034/Centricity/Template/GlobalAssets/images///logos/Red%20River%20HS.png
+// Enter icon sourced from https://icons8.com/icon/62334/enter-mac-key
 // 
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
 namespace Mathre
@@ -254,6 +256,20 @@ namespace Mathre
                 lblArea.Text = (Width * Height).ToString();
                 lblPerimeter.Text = (2 * Width + 2 * Height).ToString();
             }
+            Regex r = new Regex(@"^[0-9]+( x )+[0-9]+$");
+            String RegexValue = (@"^[0-9]+$");
+            Regex a = new Regex((string)RegexValue);
+            
+
+            Match m = a.Match(((TextBox)sender).Text);
+            if (!m.Success)
+
+            {
+                ((TextBox)sender).Select(0, ((TextBox)sender).Text.Length);
+            }
+
+
+
             //if (txtRectangleDimensions.Text.Contains("x"))
             //{
             //    txtRectangleDimensions.Text.Replace("x", " x ");
