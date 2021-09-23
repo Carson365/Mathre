@@ -10,7 +10,7 @@ namespace Mathre
         {
             get
             {
-                return ColorTranslator.FromWin32(Conversions.ToInteger(FrmMathre.SystemColor));
+                return FrmMathre.SystemColor;
             }
 
             set

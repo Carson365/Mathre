@@ -73,6 +73,8 @@ namespace Mathre
             this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
             this.tabRectangle = new System.Windows.Forms.TabPage();
+            this.customGroupBox2 = new Mathre.CustomGroupBox();
+            this.grpRectangle = new Mathre.CustomGroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.customGroupBox1 = new Mathre.CustomGroupBox();
             this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
@@ -87,7 +89,6 @@ namespace Mathre
             this.txtSecretPassword = new System.Windows.Forms.TextBox();
             this.lblSecretPrompt = new System.Windows.Forms.Label();
             this.tabUnknown = new System.Windows.Forms.TabPage();
-            this.grpRectangleHolder = new Mathre.CustomGroupBox();
             this.mnuBaseLayer.SuspendLayout();
             this.tabMathre.SuspendLayout();
             this.tabHelloWorld.SuspendLayout();
@@ -99,6 +100,7 @@ namespace Mathre
             this.grpMySchool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.tabRectangle.SuspendLayout();
+            this.customGroupBox2.SuspendLayout();
             this.customGroupBox1.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.grpSecret.SuspendLayout();
@@ -429,7 +431,7 @@ namespace Mathre
             this.grpMySchool.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grpMySchool.AutoSize = true;
             this.grpMySchool.BackColor = System.Drawing.SystemColors.Control;
-            this.grpMySchool.BorderColor = System.Drawing.Color.Black;
+            this.grpMySchool.BorderColor = FrmMathre.SystemColor;
             this.grpMySchool.Controls.Add(this.lblMySchoolMascot);
             this.grpMySchool.Controls.Add(this.picMySchoolMascot);
             this.grpMySchool.Controls.Add(this.btnMySchoolToggleMascot);
@@ -474,7 +476,7 @@ namespace Mathre
             // 
             // tabRectangle
             // 
-            this.tabRectangle.Controls.Add(this.grpRectangleHolder);
+            this.tabRectangle.Controls.Add(this.customGroupBox2);
             this.tabRectangle.Controls.Add(this.label1);
             this.tabRectangle.Controls.Add(this.customGroupBox1);
             this.tabRectangle.Location = new System.Drawing.Point(4, 22);
@@ -483,6 +485,31 @@ namespace Mathre
             this.tabRectangle.TabIndex = 4;
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
+            // 
+            // customGroupBox2
+            // 
+            this.customGroupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customGroupBox2.AutoSize = true;
+            this.customGroupBox2.BorderColor = System.Drawing.Color.Empty;
+            this.customGroupBox2.Controls.Add(this.grpRectangle);
+            this.customGroupBox2.Location = new System.Drawing.Point(309, 317);
+            this.customGroupBox2.Name = "customGroupBox2";
+            this.customGroupBox2.Size = new System.Drawing.Size(426, 111);
+            this.customGroupBox2.TabIndex = 15;
+            this.customGroupBox2.TabStop = false;
+            this.customGroupBox2.Text = "customGroupBox2";
+            // 
+            // grpRectangle
+            // 
+            this.grpRectangle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpRectangle.BackColor = System.Drawing.Color.Turquoise;
+            this.grpRectangle.BorderColor = FrmMathre.SystemColor;
+            this.grpRectangle.Location = new System.Drawing.Point(135, 29);
+            this.grpRectangle.Name = "grpRectangle";
+            this.grpRectangle.Size = new System.Drawing.Size(156, 52);
+            this.grpRectangle.TabIndex = 14;
+            this.grpRectangle.TabStop = false;
+            this.grpRectangle.Text = "customGroupBox2";
             // 
             // label1
             // 
@@ -501,7 +528,7 @@ namespace Mathre
             this.customGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customGroupBox1.AutoSize = true;
             this.customGroupBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.customGroupBox1.BorderColor = System.Drawing.Color.Black;
+            this.customGroupBox1.BorderColor = System.Drawing.Color.Empty;
             this.customGroupBox1.Controls.Add(this.txtRectangleDimensions);
             this.customGroupBox1.Controls.Add(this.radioButton1);
             this.customGroupBox1.Controls.Add(this.radioButton2);
@@ -519,7 +546,6 @@ namespace Mathre
             this.txtRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRectangleDimensions.Location = new System.Drawing.Point(156, 39);
             this.txtRectangleDimensions.Name = "txtRectangleDimensions";
-            this.txtRectangleDimensions.PasswordChar = '∗';
             this.txtRectangleDimensions.Size = new System.Drawing.Size(114, 26);
             this.txtRectangleDimensions.TabIndex = 13;
             this.txtRectangleDimensions.TextChanged += new System.EventHandler(this.Rectangle);
@@ -587,7 +613,7 @@ namespace Mathre
             this.grpSecret.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grpSecret.AutoSize = true;
             this.grpSecret.BackColor = System.Drawing.SystemColors.Control;
-            this.grpSecret.BorderColor = System.Drawing.Color.Black;
+            this.grpSecret.BorderColor = FrmMathre.SystemColor;
             this.grpSecret.Controls.Add(this.btnSecretDisable);
             this.grpSecret.Controls.Add(this.btnSecretEnable);
             this.grpSecret.Controls.Add(this.txtSecretPassword);
@@ -656,16 +682,6 @@ namespace Mathre
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
             // 
-            // grpRectangleHolder
-            // 
-            this.grpRectangleHolder.BorderColor = System.Drawing.Color.Black;
-            this.grpRectangleHolder.Location = new System.Drawing.Point(758, 34);
-            this.grpRectangleHolder.Name = "grpRectangleHolder";
-            this.grpRectangleHolder.Size = new System.Drawing.Size(200, 106);
-            this.grpRectangleHolder.TabIndex = 12;
-            this.grpRectangleHolder.TabStop = false;
-            this.grpRectangleHolder.Text = "customGroupBox2";
-            // 
             // FrmMathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -700,6 +716,7 @@ namespace Mathre
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
             this.tabRectangle.ResumeLayout(false);
             this.tabRectangle.PerformLayout();
+            this.customGroupBox2.ResumeLayout(false);
             this.customGroupBox1.ResumeLayout(false);
             this.customGroupBox1.PerformLayout();
             this.tabSecret.ResumeLayout(false);
@@ -761,6 +778,7 @@ namespace Mathre
         internal RadioButton radioButton2;
         internal Label label2;
         internal TextBox txtRectangleDimensions;
-        private CustomGroupBox grpRectangleHolder;
+        private CustomGroupBox grpRectangle;
+        private CustomGroupBox customGroupBox2;
     }
 }

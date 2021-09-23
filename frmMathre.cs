@@ -20,13 +20,16 @@ namespace Mathre
         }
         // 
         public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
-        public static string systemColor; // Define a global variable to store the starting value of the System Accent Color
+        public static string AccentColor; // Define a global variable to store the starting value of the System Accent Color
         public static TabControl colRemovedTabs = new(); // Add a hidden/unused TabControl to store the Secret Settings tab  when not enabled
         public static TabPage tabSecretStorage; // Add a variable "tabSecretStorage" as a Tabpage to store the Secret Settings tab  without modifying it
+        public static Color SystemColor;
         private object Placeholder;
+        public static Rectangle Rect;
+        public static Graphics g;
 
 
-        public static string SystemColor { get => systemColor; set => systemColor = value; } // Not sure what this is or what it does but it needs to be here otherwise everything breaks
+
         // 
         public void FormLoad(object sender, EventArgs e) //Formload event handler
         {
@@ -35,10 +38,11 @@ namespace Mathre
             tabMathre.Controls.Remove(tabSecretStorage); // Remove the Secret Settings tab from the primary tabcontrol
             mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one.
             var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM"); // Navigate to this windows directory key
-            SystemColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key.
+            AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key.
             ColorKey.Close(); // Stop registry access
             KeyPreview = true; // Ensure key inputs on the form are being tracked
             StartingValue = grpHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
+            SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
             foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
             {
                 AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
@@ -94,9 +98,9 @@ namespace Mathre
                 SecretHandler(txtSecretPassword, null); // Send the inputted text to SecretHandler for processing.
             }
 
-            if (txtRectangleDimensions.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
+            if (txtRectangleDimensions.ContainsFocus & e.KeyCode == Keys.Enter)
             {
-                Rectangle(Placeholder, null); // Send the inputted text to SecretHandler for processing.
+                Rectangle(Placeholder, null);
             }
         }
 
@@ -195,7 +199,7 @@ namespace Mathre
             {
                 get
                 {
-                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor)); // Use the stored system accent color to replace the default color
+                    return SystemColor; // Use the stored system accent color to replace the default color
                 }
             }
 
@@ -203,7 +207,7 @@ namespace Mathre
             {
                 get
                 {
-                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor)); // Use the stored system accent color to replace the default color
+                    return SystemColor; // Use the stored system accent color to replace the default color
                 }
             }
 
@@ -211,7 +215,7 @@ namespace Mathre
             {
                 get
                 {
-                    return ColorTranslator.FromWin32(Conversions.ToInteger(SystemColor)); // Use the stored system accent color to replace the default color
+                    return SystemColor; // Use the stored system accent color to replace the default color
                 }
             }
             // 
@@ -219,22 +223,46 @@ namespace Mathre
 
         private void Rectangle(object sender, EventArgs e)
         {
-            if (ReferenceEquals(sender, Placeholder)) 
+            g = grpRectangle.CreateGraphics();
+            int Height = 0;
+            int Width = 0;
+            string[] words = txtRectangleDimensions.Text.Split(' ');
+            if (words.Length > 2)
             {
-                RectanglePainter(Placeholder, null);
-
+                var LengthIsNumeric = int.TryParse(words[2], out int HeightValue);
+                if (LengthIsNumeric)
+                {
+                    Height = HeightValue;
+                }
+                var WidthIsNumeric = int.TryParse(words[0], out int WidthValue);
+                if (WidthIsNumeric)
+                {
+                    Width = WidthValue;
+                }
             }
-            else if (ReferenceEquals(sender, txtRectangleDimensions))
+            if (ReferenceEquals(sender, Placeholder))
             {
-
+                grpRectangle.Width = Width;
+                grpRectangle.Height = Height;
+                grpRectangle.Left = (grpRectangle.Parent.Width - grpRectangle.Width) / 2;
+                grpRectangle.Top = (grpRectangle.Parent.Height - grpRectangle.Height) / 2;
             }
         }
-        private void rectanglePainter(object sender, PaintEventArgs e)
-        {
-            var rect = new Rectangle(0, 0, ClientSize.Width, ClientSize.Height);
-            ControlPaint.DrawBorder(e.Graphics, rect, Conversions.ToInteger(SystemColor), ButtonBorderStyle.Solid);
-            rect.Inflate(-1, -1);
-            ControlPaint.DrawBorder(e.Graphics, rect, Conversions.ToInteger(SystemColor), ButtonBorderStyle.Solid);
-        }
+        //    protected override void OnPaint(PaintEventArgs e)
+        //    {
+        //        g = picRectangle.CreateGraphics();
+        //        ControlPaint.DrawBorder(g, Rect, SystemColor, ButtonBorderStyle.Solid);
+        //        Rect.Inflate(-1, -1);
+        //        ControlPaint.DrawBorder(g, Rect, SystemColor, ButtonBorderStyle.Solid);
+        //        Rect.Inflate(1, 1);
+        //    }
+        //    protected override void OnResize(EventArgs e)
+        //    {
+
+        //        g = picRectangle.CreateGraphics();
+        //        OnPaint(new PaintEventArgs(g, this.Bounds));
+        //        base.OnResize(e);
+        //    }
     }
+
 }
