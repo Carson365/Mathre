@@ -99,10 +99,23 @@ namespace Mathre
             {
                 SecretHandler(txtSecretPassword, null); // Send the inputted text to SecretHandler for processing.
             }
-
+            //
             if (txtRectangleDimensions.ContainsFocus & e.KeyCode == Keys.Enter)
             {
                 Rectangle(Placeholder, null);
+            }
+
+            if (txtRectangleDimensions.ContainsFocus & e.KeyCode == Keys.Back)
+            {
+                if (new Regex((string)(@"^\d+( x )+$")).Match(txtRectangleDimensions.Text).Success)
+                {
+                    if (txtRectangleDimensions.SelectionStart.Equals(txtRectangleDimensions.Text.Length))
+                    {
+                        e.SuppressKeyPress = true;
+                        txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 3);
+                        txtRectangleDimensions.SelectionStart = (txtRectangleDimensions.Text.Length);
+                    }
+                }
             }
         }
 
@@ -241,6 +254,10 @@ namespace Mathre
                     Width = WidthValue;
                 }
             }
+            if (ReferenceEquals(sender, button1))
+            {
+                Rectangle(Placeholder, null);
+            }
             if (ReferenceEquals(sender, Placeholder))
             {
                 var ratioX = (double)grpRectangle.MaximumSize.Width / Width;
@@ -256,25 +273,45 @@ namespace Mathre
                 lblArea.Text = (Width * Height).ToString();
                 lblPerimeter.Text = (2 * Width + 2 * Height).ToString();
             }
-            Regex r = new Regex(@"^[0-9]+( x )+[0-9]+$");
-            String RegexValue = (@"^[0-9]+$");
-            Regex a = new Regex((string)RegexValue);
-            
 
-            Match m = a.Match(((TextBox)sender).Text);
-            if (!m.Success)
-
+            if (!new Regex((string)(@"^\d+( x ){1}\d+$")).Match(txtRectangleDimensions.Text).Success)
             {
-                ((TextBox)sender).Select(0, ((TextBox)sender).Text.Length);
+                if (new Regex((string)(@"^\d+( x ){1}\d+[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
+                {
+                    txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
+                    txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+                }
+                else
+                {
+                    if (!new Regex((string)(@"^\d+( x ){1}$")).Match(txtRectangleDimensions.Text).Success)
+                    {
+                        if (new Regex((string)(@"^\d+( x ){1}[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
+                        {
+                            txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
+                            txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+                        }
+                        else
+                        {
+                            if (!new Regex((string)(@"^[0-9]?$")).Match(txtRectangleDimensions.Text).Success)
+                            {
+                                if (txtRectangleDimensions.Text.Length == 1)
+                                {
+                                    txtRectangleDimensions.Text = txtRectangleDimensions.Text.Remove(txtRectangleDimensions.Text.Length - 1, 1);
+                                }
+                            }
+
+                            if (!new Regex((string)(@"^[0-9]+$")).Match(txtRectangleDimensions.Text).Success)
+                            {
+                                if (txtRectangleDimensions.Text.Length != 0)
+                                {
+                                    txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1) + " x ";
+                                    txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+                                }
+                            }
+                        }
+                    }
+                }
             }
-
-
-
-            //if (txtRectangleDimensions.Text.Contains("x"))
-            //{
-            //    txtRectangleDimensions.Text.Replace("x", " x ");
-            //}
         }
     }
-
 }

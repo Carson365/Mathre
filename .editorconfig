@@ -2,3 +2,6 @@
 
 # CS0649: Field 'FrmMathre.components' is never assigned to, and will always have its default value null
 dotnet_diagnostic.CS0649.severity = suggestion
+
+[*.{cs,vb}]
+indent_style=tab

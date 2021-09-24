@@ -83,6 +83,16 @@ namespace Mathre.My.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap EnterKey {
+            get {
+                object obj = ResourceManager.GetObject("EnterKey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap French {
             get {
                 object obj = ResourceManager.GetObject("French", resourceCulture);

@@ -37,6 +37,7 @@ namespace Mathre
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMathre));
             this.mnuBaseLayer = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSecret = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,6 +47,9 @@ namespace Mathre
             this.mnuRandomify = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguage = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldReset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchool = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchoolToggleMascot = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,9 +66,6 @@ namespace Mathre
             this.tabSecret = new System.Windows.Forms.TabPage();
             this.lblSecretTitle = new System.Windows.Forms.Label();
             this.tabUnknown = new System.Windows.Forms.TabPage();
-            this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
             this.grpHelloWorld = new Mathre.CustomGroupBox();
             this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
             this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
@@ -79,7 +80,7 @@ namespace Mathre
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
             this.customGroupBox2 = new Mathre.CustomGroupBox();
             this.grpRectangle = new Mathre.CustomGroupBox();
-            this.customGroupBox1 = new Mathre.CustomGroupBox();
+            this.customGroupBox12 = new Mathre.CustomGroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.lblAreaTitle = new System.Windows.Forms.Label();
             this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
@@ -105,7 +106,7 @@ namespace Mathre
             this.grpMySchool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.customGroupBox2.SuspendLayout();
-            this.customGroupBox1.SuspendLayout();
+            this.customGroupBox12.SuspendLayout();
             this.grpSecret.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -199,6 +200,30 @@ namespace Mathre
             this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
             // 
+            // mnuHelloWorldLanguageEnglish
+            // 
+            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
+            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Text = "English";
+            this.mnuHelloWorldLanguageEnglish.Click += new System.EventHandler(this.Buttons);
+            // 
+            // mnuHelloWorldLanguageFrench
+            // 
+            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Text = "French";
+            this.mnuHelloWorldLanguageFrench.Click += new System.EventHandler(this.Buttons);
+            // 
+            // mnuHelloWorldLanguageGerman
+            // 
+            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Text = "German";
+            this.mnuHelloWorldLanguageGerman.Click += new System.EventHandler(this.Buttons);
+            // 
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
@@ -230,6 +255,7 @@ namespace Mathre
             // 
             // mnuEdit
             // 
+            this.mnuEdit.Enabled = false;
             this.mnuEdit.Name = "mnuEdit";
             this.mnuEdit.Size = new System.Drawing.Size(39, 24);
             this.mnuEdit.Text = "Edit";
@@ -315,7 +341,7 @@ namespace Mathre
             // 
             this.tabRectangle.Controls.Add(this.customGroupBox2);
             this.tabRectangle.Controls.Add(this.label1);
-            this.tabRectangle.Controls.Add(this.customGroupBox1);
+            this.tabRectangle.Controls.Add(this.customGroupBox12);
             this.tabRectangle.Location = new System.Drawing.Point(4, 22);
             this.tabRectangle.Name = "tabRectangle";
             this.tabRectangle.Size = new System.Drawing.Size(1044, 486);
@@ -367,30 +393,6 @@ namespace Mathre
             this.tabUnknown.TabIndex = 2;
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
-            // 
-            // mnuHelloWorldLanguageEnglish
-            // 
-            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
-            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageEnglish.Text = "English";
-            this.mnuHelloWorldLanguageEnglish.Click += new System.EventHandler(this.Buttons);
-            // 
-            // mnuHelloWorldLanguageFrench
-            // 
-            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageFrench.Text = "French";
-            this.mnuHelloWorldLanguageFrench.Click += new System.EventHandler(this.Buttons);
-            // 
-            // mnuHelloWorldLanguageGerman
-            // 
-            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageGerman.Text = "German";
-            this.mnuHelloWorldLanguageGerman.Click += new System.EventHandler(this.Buttons);
             // 
             // grpHelloWorld
             // 
@@ -559,37 +561,38 @@ namespace Mathre
             this.grpRectangle.TabStop = false;
             this.grpRectangle.Visible = false;
             // 
-            // customGroupBox1
+            // customGroupBox12
             // 
-            this.customGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox1.AutoSize = true;
-            this.customGroupBox1.BackColor = System.Drawing.SystemColors.Control;
-            this.customGroupBox1.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox1.Controls.Add(this.button1);
-            this.customGroupBox1.Controls.Add(this.lblAreaTitle);
-            this.customGroupBox1.Controls.Add(this.txtRectangleDimensions);
-            this.customGroupBox1.Controls.Add(this.label2);
-            this.customGroupBox1.Controls.Add(this.lblPerimiterTitle);
-            this.customGroupBox1.Controls.Add(this.lblArea);
-            this.customGroupBox1.Controls.Add(this.lblPerimeter);
-            this.customGroupBox1.Location = new System.Drawing.Point(309, 140);
-            this.customGroupBox1.Name = "customGroupBox1";
-            this.customGroupBox1.Size = new System.Drawing.Size(426, 105);
-            this.customGroupBox1.TabIndex = 10;
-            this.customGroupBox1.TabStop = false;
+            this.customGroupBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customGroupBox12.AutoSize = true;
+            this.customGroupBox12.BackColor = System.Drawing.SystemColors.Control;
+            this.customGroupBox12.BorderColor = System.Drawing.Color.Black;
+            this.customGroupBox12.Controls.Add(this.button1);
+            this.customGroupBox12.Controls.Add(this.lblAreaTitle);
+            this.customGroupBox12.Controls.Add(this.txtRectangleDimensions);
+            this.customGroupBox12.Controls.Add(this.label2);
+            this.customGroupBox12.Controls.Add(this.lblPerimiterTitle);
+            this.customGroupBox12.Controls.Add(this.lblArea);
+            this.customGroupBox12.Controls.Add(this.lblPerimeter);
+            this.customGroupBox12.Location = new System.Drawing.Point(309, 140);
+            this.customGroupBox12.Name = "customGroupBox12";
+            this.customGroupBox12.Size = new System.Drawing.Size(426, 105);
+            this.customGroupBox12.TabIndex = 10;
+            this.customGroupBox12.TabStop = false;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Control;
             this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::Mathre.My.Resources.Resources.EnterKey;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.Location = new System.Drawing.Point(391, 13);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(26, 26);
             this.button1.TabIndex = 18;
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.Rectangle);
             // 
             // lblAreaTitle
             // 
@@ -759,8 +762,8 @@ namespace Mathre
             this.grpMySchool.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
             this.customGroupBox2.ResumeLayout(false);
-            this.customGroupBox1.ResumeLayout(false);
-            this.customGroupBox1.PerformLayout();
+            this.customGroupBox12.ResumeLayout(false);
+            this.customGroupBox12.PerformLayout();
             this.grpSecret.ResumeLayout(false);
             this.grpSecret.PerformLayout();
             this.ResumeLayout(false);
@@ -813,7 +816,7 @@ namespace Mathre
         private ToolStripMenuItem mnuMySchoolToggleMascot;
         internal TabPage tabRectangle;
         internal Label label1;
-        internal CustomGroupBox customGroupBox1;
+        internal CustomGroupBox customGroupBox12;
         internal Label label2;
         internal TextBox txtRectangleDimensions;
         private CustomGroupBox grpRectangle;
