@@ -62,7 +62,7 @@ namespace Mathre
             this.tabMySchool = new System.Windows.Forms.TabPage();
             this.lblMySchoolTitle = new System.Windows.Forms.Label();
             this.tabRectangle = new System.Windows.Forms.TabPage();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblRectangleTitle = new System.Windows.Forms.Label();
             this.tabSecret = new System.Windows.Forms.TabPage();
             this.lblSecretTitle = new System.Windows.Forms.Label();
             this.tabUnknown = new System.Windows.Forms.TabPage();
@@ -78,16 +78,16 @@ namespace Mathre
             this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
-            this.customGroupBox2 = new Mathre.CustomGroupBox();
+            this.grpRectangleContainer = new Mathre.CustomGroupBox();
             this.grpRectangle = new Mathre.CustomGroupBox();
-            this.customGroupBox12 = new Mathre.CustomGroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.lblAreaTitle = new System.Windows.Forms.Label();
+            this.grpRectangleControls = new Mathre.CustomGroupBox();
+            this.btnRectangleEnter = new System.Windows.Forms.Button();
+            this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
             this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblPerimiterTitle = new System.Windows.Forms.Label();
-            this.lblArea = new System.Windows.Forms.Label();
-            this.lblPerimeter = new System.Windows.Forms.Label();
+            this.lblRectangleDimensions = new System.Windows.Forms.Label();
+            this.lblRectanglePerimiterTitle = new System.Windows.Forms.Label();
+            this.lblRectangleArea = new System.Windows.Forms.Label();
+            this.lblRectanglePerimeter = new System.Windows.Forms.Label();
             this.grpSecret = new Mathre.CustomGroupBox();
             this.btnSecretDisable = new System.Windows.Forms.RadioButton();
             this.btnSecretEnable = new System.Windows.Forms.RadioButton();
@@ -105,8 +105,8 @@ namespace Mathre
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
             this.grpMySchool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
-            this.customGroupBox2.SuspendLayout();
-            this.customGroupBox12.SuspendLayout();
+            this.grpRectangleContainer.SuspendLayout();
+            this.grpRectangleControls.SuspendLayout();
             this.grpSecret.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -339,9 +339,9 @@ namespace Mathre
             // 
             // tabRectangle
             // 
-            this.tabRectangle.Controls.Add(this.customGroupBox2);
-            this.tabRectangle.Controls.Add(this.label1);
-            this.tabRectangle.Controls.Add(this.customGroupBox12);
+            this.tabRectangle.Controls.Add(this.grpRectangleContainer);
+            this.tabRectangle.Controls.Add(this.lblRectangleTitle);
+            this.tabRectangle.Controls.Add(this.grpRectangleControls);
             this.tabRectangle.Location = new System.Drawing.Point(4, 22);
             this.tabRectangle.Name = "tabRectangle";
             this.tabRectangle.Size = new System.Drawing.Size(1044, 486);
@@ -349,17 +349,17 @@ namespace Mathre
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // lblRectangleTitle
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(209, 71);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(626, 51);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Rectangle Calculator";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRectangleTitle.Name = "lblRectangleTitle";
+            this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblRectangleTitle.TabIndex = 11;
+            this.lblRectangleTitle.Text = "Rectangle Calculator";
+            this.lblRectangleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabSecret
             // 
@@ -536,17 +536,17 @@ namespace Mathre
             this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
             this.btnMySchoolToggleMascot.Click += new System.EventHandler(this.Buttons);
             // 
-            // customGroupBox2
+            // grpRectangleContainer
             // 
-            this.customGroupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox2.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox2.Controls.Add(this.grpRectangle);
-            this.customGroupBox2.Location = new System.Drawing.Point(309, 261);
-            this.customGroupBox2.Name = "customGroupBox2";
-            this.customGroupBox2.Size = new System.Drawing.Size(426, 136);
-            this.customGroupBox2.TabIndex = 15;
-            this.customGroupBox2.TabStop = false;
-            this.customGroupBox2.Text = "customGroupBox2";
+            this.grpRectangleContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpRectangleContainer.BorderColor = System.Drawing.Color.Black;
+            this.grpRectangleContainer.Controls.Add(this.grpRectangle);
+            this.grpRectangleContainer.Location = new System.Drawing.Point(309, 261);
+            this.grpRectangleContainer.Name = "grpRectangleContainer";
+            this.grpRectangleContainer.Size = new System.Drawing.Size(426, 136);
+            this.grpRectangleContainer.TabIndex = 15;
+            this.grpRectangleContainer.TabStop = false;
+            this.grpRectangleContainer.Text = "customGroupBox2";
             // 
             // grpRectangle
             // 
@@ -561,49 +561,49 @@ namespace Mathre
             this.grpRectangle.TabStop = false;
             this.grpRectangle.Visible = false;
             // 
-            // customGroupBox12
+            // grpRectangleControls
             // 
-            this.customGroupBox12.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox12.AutoSize = true;
-            this.customGroupBox12.BackColor = System.Drawing.SystemColors.Control;
-            this.customGroupBox12.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox12.Controls.Add(this.button1);
-            this.customGroupBox12.Controls.Add(this.lblAreaTitle);
-            this.customGroupBox12.Controls.Add(this.txtRectangleDimensions);
-            this.customGroupBox12.Controls.Add(this.label2);
-            this.customGroupBox12.Controls.Add(this.lblPerimiterTitle);
-            this.customGroupBox12.Controls.Add(this.lblArea);
-            this.customGroupBox12.Controls.Add(this.lblPerimeter);
-            this.customGroupBox12.Location = new System.Drawing.Point(309, 140);
-            this.customGroupBox12.Name = "customGroupBox12";
-            this.customGroupBox12.Size = new System.Drawing.Size(426, 105);
-            this.customGroupBox12.TabIndex = 10;
-            this.customGroupBox12.TabStop = false;
+            this.grpRectangleControls.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpRectangleControls.AutoSize = true;
+            this.grpRectangleControls.BackColor = System.Drawing.SystemColors.Control;
+            this.grpRectangleControls.BorderColor = System.Drawing.Color.Black;
+            this.grpRectangleControls.Controls.Add(this.btnRectangleEnter);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleAreaTitle);
+            this.grpRectangleControls.Controls.Add(this.txtRectangleDimensions);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleDimensions);
+            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimiterTitle);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleArea);
+            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimeter);
+            this.grpRectangleControls.Location = new System.Drawing.Point(309, 140);
+            this.grpRectangleControls.Name = "grpRectangleControls";
+            this.grpRectangleControls.Size = new System.Drawing.Size(426, 105);
+            this.grpRectangleControls.TabIndex = 10;
+            this.grpRectangleControls.TabStop = false;
             // 
-            // button1
+            // btnRectangleEnter
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(391, 13);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 26);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.Rectangle);
+            this.btnRectangleEnter.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRectangleEnter.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRectangleEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRectangleEnter.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangleEnter.Image")));
+            this.btnRectangleEnter.Location = new System.Drawing.Point(391, 13);
+            this.btnRectangleEnter.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRectangleEnter.Name = "btnRectangleEnter";
+            this.btnRectangleEnter.Size = new System.Drawing.Size(26, 26);
+            this.btnRectangleEnter.TabIndex = 18;
+            this.btnRectangleEnter.UseVisualStyleBackColor = false;
+            this.btnRectangleEnter.Click += new System.EventHandler(this.Rectangle);
             // 
-            // lblAreaTitle
+            // lblRectangleAreaTitle
             // 
-            this.lblAreaTitle.AutoSize = true;
-            this.lblAreaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblAreaTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAreaTitle.Location = new System.Drawing.Point(18, 42);
-            this.lblAreaTitle.Name = "lblAreaTitle";
-            this.lblAreaTitle.Size = new System.Drawing.Size(47, 20);
-            this.lblAreaTitle.TabIndex = 14;
-            this.lblAreaTitle.Text = "Area:";
+            this.lblRectangleAreaTitle.AutoSize = true;
+            this.lblRectangleAreaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleAreaTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectangleAreaTitle.Location = new System.Drawing.Point(18, 42);
+            this.lblRectangleAreaTitle.Name = "lblRectangleAreaTitle";
+            this.lblRectangleAreaTitle.Size = new System.Drawing.Size(47, 20);
+            this.lblRectangleAreaTitle.TabIndex = 14;
+            this.lblRectangleAreaTitle.Text = "Area:";
             // 
             // txtRectangleDimensions
             // 
@@ -617,49 +617,49 @@ namespace Mathre
             this.txtRectangleDimensions.TabIndex = 13;
             this.txtRectangleDimensions.TextChanged += new System.EventHandler(this.Rectangle);
             // 
-            // label2
+            // lblRectangleDimensions
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(18, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(173, 20);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Rectangle Dimensions:";
+            this.lblRectangleDimensions.AutoSize = true;
+            this.lblRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleDimensions.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectangleDimensions.Location = new System.Drawing.Point(18, 16);
+            this.lblRectangleDimensions.Name = "lblRectangleDimensions";
+            this.lblRectangleDimensions.Size = new System.Drawing.Size(173, 20);
+            this.lblRectangleDimensions.TabIndex = 9;
+            this.lblRectangleDimensions.Text = "Rectangle Dimensions:";
             // 
-            // lblPerimiterTitle
+            // lblRectanglePerimiterTitle
             // 
-            this.lblPerimiterTitle.AutoSize = true;
-            this.lblPerimiterTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerimiterTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPerimiterTitle.Location = new System.Drawing.Point(18, 68);
-            this.lblPerimiterTitle.Name = "lblPerimiterTitle";
-            this.lblPerimiterTitle.Size = new System.Drawing.Size(75, 20);
-            this.lblPerimiterTitle.TabIndex = 15;
-            this.lblPerimiterTitle.Text = "Perimiter:";
+            this.lblRectanglePerimiterTitle.AutoSize = true;
+            this.lblRectanglePerimiterTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectanglePerimiterTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectanglePerimiterTitle.Location = new System.Drawing.Point(18, 68);
+            this.lblRectanglePerimiterTitle.Name = "lblRectanglePerimiterTitle";
+            this.lblRectanglePerimiterTitle.Size = new System.Drawing.Size(75, 20);
+            this.lblRectanglePerimiterTitle.TabIndex = 15;
+            this.lblRectanglePerimiterTitle.Text = "Perimiter:";
             // 
-            // lblArea
+            // lblRectangleArea
             // 
-            this.lblArea.AutoSize = true;
-            this.lblArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArea.Location = new System.Drawing.Point(71, 45);
-            this.lblArea.Name = "lblArea";
-            this.lblArea.Size = new System.Drawing.Size(32, 15);
-            this.lblArea.TabIndex = 16;
-            this.lblArea.Text = "Area";
-            this.lblArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRectangleArea.AutoSize = true;
+            this.lblRectangleArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleArea.Location = new System.Drawing.Point(71, 45);
+            this.lblRectangleArea.Name = "lblRectangleArea";
+            this.lblRectangleArea.Size = new System.Drawing.Size(32, 15);
+            this.lblRectangleArea.TabIndex = 16;
+            this.lblRectangleArea.Text = "Area";
+            this.lblRectangleArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblPerimeter
+            // lblRectanglePerimeter
             // 
-            this.lblPerimeter.AutoSize = true;
-            this.lblPerimeter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPerimeter.Location = new System.Drawing.Point(99, 71);
-            this.lblPerimeter.Name = "lblPerimeter";
-            this.lblPerimeter.Size = new System.Drawing.Size(61, 15);
-            this.lblPerimeter.TabIndex = 17;
-            this.lblPerimeter.Text = "Perimeter";
-            this.lblPerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblRectanglePerimeter.AutoSize = true;
+            this.lblRectanglePerimeter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectanglePerimeter.Location = new System.Drawing.Point(99, 71);
+            this.lblRectanglePerimeter.Name = "lblRectanglePerimeter";
+            this.lblRectanglePerimeter.Size = new System.Drawing.Size(61, 15);
+            this.lblRectanglePerimeter.TabIndex = 17;
+            this.lblRectanglePerimeter.Text = "Perimeter";
+            this.lblRectanglePerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // grpSecret
             // 
@@ -761,9 +761,9 @@ namespace Mathre
             this.grpMySchool.ResumeLayout(false);
             this.grpMySchool.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
-            this.customGroupBox2.ResumeLayout(false);
-            this.customGroupBox12.ResumeLayout(false);
-            this.customGroupBox12.PerformLayout();
+            this.grpRectangleContainer.ResumeLayout(false);
+            this.grpRectangleControls.ResumeLayout(false);
+            this.grpRectangleControls.PerformLayout();
             this.grpSecret.ResumeLayout(false);
             this.grpSecret.PerformLayout();
             this.ResumeLayout(false);
@@ -815,16 +815,16 @@ namespace Mathre
         private ToolStripMenuItem mnuHelloWorldReset;
         private ToolStripMenuItem mnuMySchoolToggleMascot;
         internal TabPage tabRectangle;
-        internal Label label1;
-        internal CustomGroupBox customGroupBox12;
-        internal Label label2;
+        internal Label lblRectangleTitle;
+        internal CustomGroupBox grpRectangleControls;
+        internal Label lblRectangleDimensions;
         internal TextBox txtRectangleDimensions;
         private CustomGroupBox grpRectangle;
-        private CustomGroupBox customGroupBox2;
-        private Label lblPerimeter;
-        private Label lblArea;
-        internal Label lblAreaTitle;
-        internal Label lblPerimiterTitle;
-        private Button button1;
+        private CustomGroupBox grpRectangleContainer;
+        private Label lblRectanglePerimeter;
+        private Label lblRectangleArea;
+        internal Label lblRectangleAreaTitle;
+        internal Label lblRectanglePerimiterTitle;
+        private Button btnRectangleEnter;
     }
 }

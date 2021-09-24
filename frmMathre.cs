@@ -254,7 +254,7 @@ namespace Mathre
                     Width = WidthValue;
                 }
             }
-            if (ReferenceEquals(sender, button1))
+            if (ReferenceEquals(sender, btnRectangleEnter))
             {
                 Rectangle(Placeholder, null);
             }
@@ -270,8 +270,8 @@ namespace Mathre
                 grpRectangle.Left = (grpRectangle.Parent.Width - grpRectangle.Width) / 2;
                 grpRectangle.Top = (grpRectangle.Parent.Height - grpRectangle.Height) / 2;
                 grpRectangle.Visible = true;
-                lblArea.Text = (Width * Height).ToString();
-                lblPerimeter.Text = (2 * Width + 2 * Height).ToString();
+                lblRectangleArea.Text = (Width * Height).ToString();
+                lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
             }
 
             if (!new Regex((string)(@"^\d+( x ){1}\d+$")).Match(txtRectangleDimensions.Text).Success)
