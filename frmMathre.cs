@@ -103,20 +103,40 @@ namespace Mathre
             {
                 Rectangle(Placeholder, null);
             }
-
-            if (txtRectangleDimensions.ContainsFocus & e.KeyCode == Keys.Back)
-            {
-				if (new Regex((string)(@"^\d+( x )+$")).Match(txtRectangleDimensions.Text).Success)
+			if (txtRectangleDimensions.ContainsFocus)
+			{
+				string StoreDimensionsInput = txtRectangleDimensions.Text;
+				if (e.KeyCode == Keys.Back)
 				{
-					if (txtRectangleDimensions.SelectionStart.Equals(txtRectangleDimensions.Text.Length))
+					if (new Regex((string)(@"^\d+( x )+$")).Match(txtRectangleDimensions.Text).Success)
 					{
-						e.SuppressKeyPress = true;
-						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 3);
-						txtRectangleDimensions.SelectionStart = (txtRectangleDimensions.Text.Length);
+						if (txtRectangleDimensions.SelectionStart.Equals(txtRectangleDimensions.Text.Length))
+						{
+							e.SuppressKeyPress = true;
+							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 3);
+							txtRectangleDimensions.SelectionStart = (txtRectangleDimensions.Text.Length);
+						}
+					}
+				}
+				if (!(e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9))
+				{
+					if (new Regex((string)(@"^[0-9.]+$")).Match(txtRectangleDimensions.Text).Success)
+					{
+						//do nothing;
+					}
+					else if (new Regex((string)(@"^[^0-9.]+$")).Match(txtRectangleDimensions.Text).Success)
+					{
+						//txtRectangleDimensions.Focus();
+						//	SendKeys.Send("{Back}");
+					}
+					else if (new Regex((string)(@"^[0-9]*[^0-9.]+[0-9]*$")).Match(txtRectangleDimensions.Text).Success)
+					{
+						txtRectangleDimensions.Focus(); 
+						SendKeys.SendWait("{BACKSPACE}");
 					}
 				}
 			}
-        }
+		}
 
         private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page.
         {
@@ -273,44 +293,44 @@ namespace Mathre
                 lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
 			}
 
-			if (!new Regex((string)(@"^\d+( x ){1}\d+$")).Match(txtRectangleDimensions.Text).Success)
-			{
-				if (new Regex((string)(@"^\d+( x ){1}\d+[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
-				{
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
-					txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-				}
-				else
-				{
-					if (!new Regex((string)(@"^\d+( x ){1}$")).Match(txtRectangleDimensions.Text).Success)
-					{
-						if (new Regex((string)(@"^\d+( x ){1}[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
-						{
-							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
-							txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-						}
-						else
-						{
-							if (!new Regex((string)(@"^[0-9]?$")).Match(txtRectangleDimensions.Text).Success)
-							{
-								if (txtRectangleDimensions.Text.Length == 1)
-								{
-									txtRectangleDimensions.Text = txtRectangleDimensions.Text.Remove(txtRectangleDimensions.Text.Length - 1, 1);
-								}
-							}
+			//if (!new Regex((string)(@"^\d+( x ){1}\d+$")).Match(txtRectangleDimensions.Text).Success)
+			//{
+			//	if (new Regex((string)(@"^\d+( x ){1}\d+[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
+			//	{
+			//		txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
+			//		txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+			//	}
+			//	else
+			//	{
+			//		if (!new Regex((string)(@"^\d+( x ){1}$")).Match(txtRectangleDimensions.Text).Success)
+			//		{
+			//			if (new Regex((string)(@"^\d+( x ){1}[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
+			//			{
+			//				txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
+			//				txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+			//			}
+			//			else
+			//			{
+			//				if (!new Regex((string)(@"^[0-9]?$")).Match(txtRectangleDimensions.Text).Success)
+			//				{
+			//					if (txtRectangleDimensions.Text.Length == 1)
+			//					{
+			//						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Remove(txtRectangleDimensions.Text.Length - 1, 1);
+			//					}
+			//				}
 
-							if (!new Regex((string)(@"^[0-9]+$")).Match(txtRectangleDimensions.Text).Success)
-							{
-								if (txtRectangleDimensions.Text.Length != 0)
-								{
-									txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1) + " x ";
-									txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-								}
-							}
-						}
-					}
-				}
-			}
+			//				if (!new Regex((string)(@"^[0-9]+$")).Match(txtRectangleDimensions.Text).Success)
+			//				{
+			//					if (txtRectangleDimensions.Text.Length != 0)
+			//					{
+			//						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1) + " x ";
+			//						txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+			//					}
+			//				}
+			//			}
+			//		}
+			//	}
+			//}
 		}
     }
 }
