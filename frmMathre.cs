@@ -28,14 +28,13 @@ namespace Mathre
         public static Color SystemColor;
         private object Placeholder;
         public static Rectangle Rect;
-        public static Graphics g;
 
 
 
         // 
         public void FormLoad(object sender, EventArgs e) //Formload event handler
         {
-            tabSecretStorage = tabMathre.TabPages[3]; // Copy the secret settings page to tabSecretStorage
+            tabSecretStorage = tabMathre.TabPages[tabMathre.TabPages.IndexOf(tabSecret)]; // Copy the secret settings page to tabSecretStorage
             colRemovedTabs.Controls.Add(tabSecretStorage); // Add the Secret Settings tab to the hidden tabcontrol
             tabMathre.Controls.Remove(tabSecretStorage); // Remove the Secret Settings tab from the primary tabcontrol
             mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one.
@@ -107,16 +106,16 @@ namespace Mathre
 
             if (txtRectangleDimensions.ContainsFocus & e.KeyCode == Keys.Back)
             {
-                if (new Regex((string)(@"^\d+( x )+$")).Match(txtRectangleDimensions.Text).Success)
-                {
-                    if (txtRectangleDimensions.SelectionStart.Equals(txtRectangleDimensions.Text.Length))
-                    {
-                        e.SuppressKeyPress = true;
-                        txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 3);
-                        txtRectangleDimensions.SelectionStart = (txtRectangleDimensions.Text.Length);
-                    }
-                }
-            }
+				if (new Regex((string)(@"^\d+( x )+$")).Match(txtRectangleDimensions.Text).Success)
+				{
+					if (txtRectangleDimensions.SelectionStart.Equals(txtRectangleDimensions.Text.Length))
+					{
+						e.SuppressKeyPress = true;
+						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 3);
+						txtRectangleDimensions.SelectionStart = (txtRectangleDimensions.Text.Length);
+					}
+				}
+			}
         }
 
         private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page.
@@ -272,46 +271,46 @@ namespace Mathre
                 grpRectangle.Visible = true;
                 lblRectangleArea.Text = (Width * Height).ToString();
                 lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
-            }
+			}
 
-            if (!new Regex((string)(@"^\d+( x ){1}\d+$")).Match(txtRectangleDimensions.Text).Success)
-            {
-                if (new Regex((string)(@"^\d+( x ){1}\d+[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
-                {
-                    txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
-                    txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-                }
-                else
-                {
-                    if (!new Regex((string)(@"^\d+( x ){1}$")).Match(txtRectangleDimensions.Text).Success)
-                    {
-                        if (new Regex((string)(@"^\d+( x ){1}[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
-                        {
-                            txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
-                            txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-                        }
-                        else
-                        {
-                            if (!new Regex((string)(@"^[0-9]?$")).Match(txtRectangleDimensions.Text).Success)
-                            {
-                                if (txtRectangleDimensions.Text.Length == 1)
-                                {
-                                    txtRectangleDimensions.Text = txtRectangleDimensions.Text.Remove(txtRectangleDimensions.Text.Length - 1, 1);
-                                }
-                            }
+			if (!new Regex((string)(@"^\d+( x ){1}\d+$")).Match(txtRectangleDimensions.Text).Success)
+			{
+				if (new Regex((string)(@"^\d+( x ){1}\d+[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
+				{
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
+					txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+				}
+				else
+				{
+					if (!new Regex((string)(@"^\d+( x ){1}$")).Match(txtRectangleDimensions.Text).Success)
+					{
+						if (new Regex((string)(@"^\d+( x ){1}[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
+						{
+							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
+							txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+						}
+						else
+						{
+							if (!new Regex((string)(@"^[0-9]?$")).Match(txtRectangleDimensions.Text).Success)
+							{
+								if (txtRectangleDimensions.Text.Length == 1)
+								{
+									txtRectangleDimensions.Text = txtRectangleDimensions.Text.Remove(txtRectangleDimensions.Text.Length - 1, 1);
+								}
+							}
 
-                            if (!new Regex((string)(@"^[0-9]+$")).Match(txtRectangleDimensions.Text).Success)
-                            {
-                                if (txtRectangleDimensions.Text.Length != 0)
-                                {
-                                    txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1) + " x ";
-                                    txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
+							if (!new Regex((string)(@"^[0-9]+$")).Match(txtRectangleDimensions.Text).Success)
+							{
+								if (txtRectangleDimensions.Text.Length != 0)
+								{
+									txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1) + " x ";
+									txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
     }
 }
