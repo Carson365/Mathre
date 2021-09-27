@@ -8,6 +8,7 @@ using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -103,42 +104,39 @@ namespace Mathre
             {
                 Rectangle(Placeholder, null);
             }
-			if (txtRectangleDimensions.ContainsFocus)
+		}
+		private void RectangleKeypress(object sender, KeyPressEventArgs e)
+		{
+			var textBox = sender as TextBoxBase;
+			if (textBox == null)
+				return;
+
+			// did the user press their locale's decimal separator?
+			if (e.KeyChar.ToString() == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)
 			{
-				string StoreDimensionsInput = txtRectangleDimensions.Text;
-				if (e.KeyCode == Keys.Back)
+				if (textBox.Text.Length == 0) // if empty, prefix the decimal with a 0
 				{
-					if (new Regex((string)(@"^\d+( x )+$")).Match(txtRectangleDimensions.Text).Success)
-					{
-						if (txtRectangleDimensions.SelectionStart.Equals(txtRectangleDimensions.Text.Length))
-						{
-							e.SuppressKeyPress = true;
-							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 3);
-							txtRectangleDimensions.SelectionStart = (txtRectangleDimensions.Text.Length);
-						}
-					}
+					textBox.Text = "0" + CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+					e.Handled = true;
+					textBox.SelectionStart = textBox.TextLength;
 				}
-				if (!(e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9))
-				{
-					if (new Regex((string)(@"^[0-9.]+$")).Match(txtRectangleDimensions.Text).Success)
-					{
-						//do nothing;
-					}
-					else if (new Regex((string)(@"^[^0-9.]+$")).Match(txtRectangleDimensions.Text).Success)
-					{
-						//txtRectangleDimensions.Focus();
-						//	SendKeys.Send("{Back}");
-					}
-					else if (new Regex((string)(@"^[0-9]*[^0-9.]+[0-9]*$")).Match(txtRectangleDimensions.Text).Success)
-					{
-						txtRectangleDimensions.Focus(); 
-						SendKeys.SendWait("{BACKSPACE}");
-					}
-				}
+				// ignore extra decimal separators
+				else if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+					e.Handled = true;
 			}
+			// allow backspaces, but no other non-numeric characters;
+			// note that arrow keys, delete, home, end, etc. do not trigger KeyPress
+			else if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))
+				e.Handled = true;
+			if (!textBox.Text.Contains(" x "))
+			{
+				SendKeys.Send(" x ");
+			}
+
 		}
 
-        private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page.
+
+		private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page.
         {
             if (ReferenceEquals(sender, txtSecretPassword)) // If the event is caused by the textbox:
             {
