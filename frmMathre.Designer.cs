@@ -160,7 +160,7 @@ namespace Mathre
             this.mnuSecret.Name = "mnuSecret";
             this.mnuSecret.Size = new System.Drawing.Size(184, 22);
             this.mnuSecret.Text = "Super Secret Settings";
-            this.mnuSecret.Click += new System.EventHandler(this.Buttons);
+            this.mnuSecret.Click += this.Buttons;
             // 
             // mnuRecolor
             // 
@@ -171,7 +171,7 @@ namespace Mathre
             this.mnuRecolor.Name = "mnuRecolor";
             this.mnuRecolor.Size = new System.Drawing.Size(132, 22);
             this.mnuRecolor.Text = "Recolor";
-            this.mnuRecolor.Click += new System.EventHandler(this.Buttons);
+            this.mnuRecolor.Click += this.Buttons;
             // 
             // mnuDarkMode
             // 
@@ -179,7 +179,7 @@ namespace Mathre
             this.mnuDarkMode.Name = "mnuDarkMode";
             this.mnuDarkMode.Size = new System.Drawing.Size(135, 22);
             this.mnuDarkMode.Text = "Dark Mode";
-            this.mnuDarkMode.Click += new System.EventHandler(this.Buttons);
+            this.mnuDarkMode.Click += this.Buttons;
             // 
             // mnuTechnicolor
             // 
@@ -187,14 +187,14 @@ namespace Mathre
             this.mnuTechnicolor.Name = "mnuTechnicolor";
             this.mnuTechnicolor.Size = new System.Drawing.Size(135, 22);
             this.mnuTechnicolor.Text = "Technicolor";
-            this.mnuTechnicolor.Click += new System.EventHandler(this.Buttons);
+            this.mnuTechnicolor.Click += this.Buttons;
             // 
             // mnuRandomify
             // 
             this.mnuRandomify.Name = "mnuRandomify";
             this.mnuRandomify.Size = new System.Drawing.Size(132, 22);
             this.mnuRandomify.Text = "Randomify";
-            this.mnuRandomify.Click += new System.EventHandler(this.Buttons);
+            this.mnuRandomify.Click += this.Buttons;
             // 
             // mnuHelloWorld
             // 
@@ -221,7 +221,7 @@ namespace Mathre
             this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
             this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageEnglish.Text = "English";
-            this.mnuHelloWorldLanguageEnglish.Click += new System.EventHandler(this.Buttons);
+            this.mnuHelloWorldLanguageEnglish.Click += this.Buttons;
             // 
             // mnuHelloWorldLanguageFrench
             // 
@@ -229,7 +229,7 @@ namespace Mathre
             this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
             this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageFrench.Text = "French";
-            this.mnuHelloWorldLanguageFrench.Click += new System.EventHandler(this.Buttons);
+            this.mnuHelloWorldLanguageFrench.Click += this.Buttons;
             // 
             // mnuHelloWorldLanguageGerman
             // 
@@ -237,14 +237,14 @@ namespace Mathre
             this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
             this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageGerman.Text = "German";
-            this.mnuHelloWorldLanguageGerman.Click += new System.EventHandler(this.Buttons);
+            this.mnuHelloWorldLanguageGerman.Click += this.Buttons;
             // 
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
             this.mnuHelloWorldReset.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldReset.Text = "Reset";
-            this.mnuHelloWorldReset.Click += new System.EventHandler(this.Buttons);
+            this.mnuHelloWorldReset.Click += this.Buttons;
             // 
             // mnuMySchool
             // 
@@ -259,14 +259,14 @@ namespace Mathre
             this.mnuMySchoolToggleMascot.Name = "mnuMySchoolToggleMascot";
             this.mnuMySchoolToggleMascot.Size = new System.Drawing.Size(198, 22);
             this.mnuMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
-            this.mnuMySchoolToggleMascot.Click += new System.EventHandler(this.Buttons);
+            this.mnuMySchoolToggleMascot.Click += this.Buttons;
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.Size = new System.Drawing.Size(184, 22);
             this.mnuExit.Text = "Exit";
-            this.mnuExit.Click += new System.EventHandler(this.Buttons);
+            this.mnuExit.Click += this.Buttons;
             // 
             // mnuEdit
             // 
@@ -274,7 +274,7 @@ namespace Mathre
             this.mnuEdit.Name = "mnuEdit";
             this.mnuEdit.Size = new System.Drawing.Size(39, 24);
             this.mnuEdit.Text = "Edit";
-            this.mnuEdit.Click += new System.EventHandler(this.Buttons);
+            this.mnuEdit.Click += this.Buttons;
             // 
             // mnuView
             // 
@@ -282,7 +282,7 @@ namespace Mathre
             this.mnuView.Name = "mnuView";
             this.mnuView.Size = new System.Drawing.Size(44, 24);
             this.mnuView.Text = "View";
-            this.mnuView.Click += new System.EventHandler(this.Buttons);
+            this.mnuView.Click += this.Buttons;
             // 
             // imageList1
             // 
@@ -364,7 +364,7 @@ namespace Mathre
             this.btnSecretEnable.TabIndex = 10;
             this.btnSecretEnable.Text = "Enable";
             this.btnSecretEnable.UseVisualStyleBackColor = true;
-            this.btnSecretEnable.Click += new System.EventHandler(this.SecretHandler);
+            this.btnSecretEnable.Click += this.SecretHandler;
             // 
             // btnSecretDisable
             // 
@@ -378,7 +378,7 @@ namespace Mathre
             this.btnSecretDisable.TabStop = true;
             this.btnSecretDisable.Text = "Disable";
             this.btnSecretDisable.UseVisualStyleBackColor = true;
-            this.btnSecretDisable.Click += new System.EventHandler(this.SecretHandler);
+            this.btnSecretDisable.Click += this.SecretHandler;
             // 
             // lblSecretTitle
             // 
@@ -603,11 +603,12 @@ namespace Mathre
             this.txtRectangleDimensions.Name = "txtRectangleDimensions";
             this.txtRectangleDimensions.Size = new System.Drawing.Size(175, 26);
             this.txtRectangleDimensions.TabIndex = 13;
-            this.txtRectangleDimensions.TextChanged += new System.EventHandler(this.Rectangle);
-            // 
-            // lblRectangleAreaTitle
-            // 
-            this.lblRectangleAreaTitle.AutoSize = true;
+            this.txtRectangleDimensions.TextChanged += this.Rectangle;
+			this.txtRectangleDimensions.KeyPress += this.RectangleKeypress;
+			// 
+			// lblRectangleAreaTitle
+			// 
+			this.lblRectangleAreaTitle.AutoSize = true;
             this.lblRectangleAreaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblRectangleAreaTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblRectangleAreaTitle.Location = new System.Drawing.Point(18, 42);
@@ -628,7 +629,7 @@ namespace Mathre
             this.btnRectangleEnter.Size = new System.Drawing.Size(26, 26);
             this.btnRectangleEnter.TabIndex = 18;
             this.btnRectangleEnter.UseVisualStyleBackColor = false;
-            this.btnRectangleEnter.Click += new System.EventHandler(this.Rectangle);
+            this.btnRectangleEnter.Click += this.Rectangle;
             // 
             // lblRectangleTitle
             // 
@@ -702,7 +703,7 @@ namespace Mathre
             this.btnMySchoolToggleMascot.TabIndex = 9;
             this.btnMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
             this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
-            this.btnMySchoolToggleMascot.Click += new System.EventHandler(this.Buttons);
+            this.btnMySchoolToggleMascot.Click += this.Buttons;
             // 
             // picMySchoolMascot
             // 
@@ -794,7 +795,7 @@ namespace Mathre
             this.btnHelloWorldEnglish.TabStop = true;
             this.btnHelloWorldEnglish.Text = "English";
             this.btnHelloWorldEnglish.UseVisualStyleBackColor = true;
-            this.btnHelloWorldEnglish.Click += new System.EventHandler(this.Buttons);
+            this.btnHelloWorldEnglish.Click += this.Buttons;
             // 
             // btnHelloWorldGerman
             // 
@@ -805,7 +806,7 @@ namespace Mathre
             this.btnHelloWorldGerman.TabIndex = 8;
             this.btnHelloWorldGerman.Text = "German";
             this.btnHelloWorldGerman.UseVisualStyleBackColor = true;
-            this.btnHelloWorldGerman.Click += new System.EventHandler(this.Buttons);
+            this.btnHelloWorldGerman.Click += this.Buttons;
             // 
             // btnHelloWorldReset
             // 
@@ -815,7 +816,7 @@ namespace Mathre
             this.btnHelloWorldReset.TabIndex = 9;
             this.btnHelloWorldReset.Text = "Reset";
             this.btnHelloWorldReset.UseVisualStyleBackColor = true;
-            this.btnHelloWorldReset.Click += new System.EventHandler(this.Buttons);
+            this.btnHelloWorldReset.Click += this.Buttons;
             // 
             // picHelloWorldFrench
             // 
@@ -846,7 +847,7 @@ namespace Mathre
             this.btnHelloWorldFrench.TabIndex = 10;
             this.btnHelloWorldFrench.Text = "French";
             this.btnHelloWorldFrench.UseVisualStyleBackColor = true;
-            this.btnHelloWorldFrench.Click += new System.EventHandler(this.Buttons);
+            this.btnHelloWorldFrench.Click += this.Buttons;
             // 
             // picHelloWorldGerman
             // 
@@ -894,7 +895,7 @@ namespace Mathre
             this.Name = "FrmMathre";
             this.Text = "Hello World";
             this.Load += new System.EventHandler(this.FormLoad);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.KeyboardShortcuts);
+            this.KeyDown += this.KeyboardShortcuts;
             this.mnuBaseLayer.ResumeLayout(false);
             this.mnuBaseLayer.PerformLayout();
             this.tabSecret.ResumeLayout(false);
