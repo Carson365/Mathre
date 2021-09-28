@@ -13,11 +13,26 @@ using System.Globalization;
 using System.Linq;
 using System.Threading;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace Mathre
 {
+
 	public partial class FrmMathre
 	{
+		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+
+		{
+
+			if (keyData == Keys.Delete)
+
+				OnKeyPress(new KeyPressEventArgs((Char)Keys.Delete));
+
+
+
+			return base.ProcessCmdKey(ref msg, keyData);
+
+		}
 		public FrmMathre()
 		{
 			InitializeComponent();
@@ -107,23 +122,6 @@ namespace Mathre
 				{
 					Rectangle(Placeholder, null);
 				}
-				if (e.KeyCode == (Keys.Back) || e.KeyCode == (Keys.Delete))
-				{
-					if (txtRectangleDimensions.Text.Contains(" x"))
-					{
-						SendKeys.Send("{BS}");
-					}
-					else if (txtRectangleDimensions.Text.Contains("  "))
-					{
-						txtRectangleDimensions.SelectionStart++;
-						SendKeys.Send("{BS}");
-					}
-					else if (txtRectangleDimensions.Text.Contains("x "))
-					{
-						txtRectangleDimensions.SelectionStart += 2;
-						SendKeys.Send("{BS}");
-					}
-				}
 				if (sender != null)
 				{
 					e.Handled = true;
@@ -134,6 +132,9 @@ namespace Mathre
 		}
 		private void RectangleKeypress(object sender, KeyPressEventArgs e)
 		{
+			Console.WriteLine(txtRectangleDimensions.SelectionStart.ToString());
+			Console.WriteLine(txtRectangleDimensions.Text.IndexOf(" "));
+			Console.WriteLine(txtRectangleDimensions.Text.IndexOf(" ", txtRectangleDimensions.Text.IndexOf(" ") + 1));
 			var textBox = sender as TextBoxBase;
 					if (textBox == null)
 				return;
@@ -167,6 +168,27 @@ namespace Mathre
 					textBox.Text = textBox.Text.Insert(selectionIndex, insertText);
 					textBox.SelectionStart = selectionIndex + 3; // restore cursor position
 				}
+			}
+			else if (e.KeyChar == '\b' || e.KeyChar == (Char)Keys.Delete)
+			{
+				if (txtRectangleDimensions.SelectionStart == txtRectangleDimensions.Text.IndexOf(" ") || txtRectangleDimensions.SelectionStart == txtRectangleDimensions.Text.IndexOf("x"))
+				{
+					e.Handled = true; 
+					if (txtRectangleDimensions.Text.Contains(" x "))
+					{
+						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
+					}
+				}
+				//else if (txtRectangleDimensions.Text.Contains("  "))
+				//{
+				//	txtRectangleDimensions.SelectionStart++;
+				//	SendKeys.Send("{BS}");
+				//}
+				//else if (txtRectangleDimensions.Text.Contains("x "))
+				//{
+				//	txtRectangleDimensions.SelectionStart += 2;
+				//	SendKeys.Send("{BS}");
+				//}
 			}
 
 		}
