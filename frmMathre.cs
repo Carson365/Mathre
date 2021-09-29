@@ -333,6 +333,9 @@ namespace Mathre
 			}
 			else if (ReferenceEquals(sender, mnuRandomify))
 			{
+				btnHelloWorldEnglish.Checked = false;
+				btnHelloWorldFrench.Checked = false;
+				btnHelloWorldGerman.Checked = false;
 				lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value
 			}
 			else if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, mnuMySchoolToggleMascot)) // If the event is caused by the ToggleMascot button or menu item:
