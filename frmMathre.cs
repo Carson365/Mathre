@@ -78,30 +78,30 @@ namespace Mathre
 		// 
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
-			lblRectangleError.Visible = false;
-			tabMathre.TabPages.Remove(tabSecret);
-			hidden = true;
-			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one.
+			lblRectangleError.Visible = false; // Hide the Rectangle Calculator Error box
+			tabMathre.TabPages.Remove(tabSecret); // Hide the secret settings tab
+			hidden = true; // Mark the secret settings hidden variable as true
+			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM"); // Navigate to this windows directory key
-			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key.
+			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key
 			ColorKey.Close(); // Stop registry access
 			KeyPreview = true; // Ensure key inputs on the form are being tracked
 			StartingValue = grpHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
-			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
+			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor)); // Translate the system accent color to a usable format
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
 			{
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
 			} // Begin recursion
 		}
 		// 
-		private void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem.
+		private void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem
 		{
 			foreach (var ToolStripItem in ToolStripMenuItem.DropDownItems) // Recursion point
 			{
 				if (ToolStripItem is ToolStripMenuItem ToolstripItem) // For the menu items that don't have key input tracking -
 				{
-					ToolStripMenuItem.DropDown.KeyDown += KeyboardShortcuts; // - add a function to track key inputs (under the name of the main form's, for simplicity.
-					AddMenuItemHandlers(ToolstripItem); // Call back to the above sub to repeat this code on the next menu item.
+					ToolStripMenuItem.DropDown.KeyDown += KeyboardShortcuts; // - add a function to track key inputs (under the name of the main form's, for simplicity)
+					AddMenuItemHandlers(ToolstripItem); // Call back to the above sub to repeat this code on the next menu item
 				}
 			} // Begin recursion
 		}
@@ -110,16 +110,16 @@ namespace Mathre
 		{
 			if (e.Control & e.KeyCode == Keys.S) // Add Control+S shortcut
 			{
-				if (hidden == true)
+				if (hidden == true) // Ensure the secret settings tab is hidden
 				{
-					tabMathre.Controls.Add(tabSecret);
-					tabMathre.SelectedTab = tabSecret;
-					hidden = false;
+					tabMathre.Controls.Add(tabSecret); // Unhide the secret settings tab
+					tabMathre.SelectedTab = tabSecret; // Select the secret settings tab
+					hidden = false; // Mark the secret settings tab as shown
 				}
-				else if (hidden == false)
+				else if (hidden == false)  // Ensure the secret settings tab is not hidden
 				{
-					tabMathre.Controls.Remove(tabSecret); // - then remove it.
-					hidden = true;
+					tabMathre.Controls.Remove(tabSecret); // Hide the secret settings tab
+					hidden = true; // Mark the secret settings tab as hidden
 				}
 			}
 			//
@@ -130,90 +130,91 @@ namespace Mathre
 			// 
 			if (e.Control & e.Shift & e.KeyCode == Keys.R) // Add Control+Shift+R shortcut
 			{
-				Buttons(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button.
+				Buttons(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button
 			}
 			//
-			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9)) // Add Control+Number shortcut for each tab page, and no more than the amout of pages.
+			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9)) // Add Control+Number shortcut for each tab page, and no more than the amout of pages
 			{
-				tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1]; // Navigate to the tab of the key pressed by converting the key value to a number and then subtracting 1 to adjust for the indexing starting at 0.
+				tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1]; // Navigate to the tab of the key pressed by converting the key value to a number and then subtracting 1 to adjust for the indexing starting at 0
 			}
 			//
 			if (txtSecretPassword.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
 			{
-				SecretHandler(txtSecretPassword, null); // Send the inputted text to SecretHandler for processing.
+				SecretHandler(txtSecretPassword, null); // Send the inputted text to SecretHandler for processing
 			}
 			//
-			if (txtRectangleDimensions.ContainsFocus)
+			if (txtRectangleDimensions.ContainsFocus) // Check whether the rectangle calculator is selected
 			{
-				if (e.KeyCode == Keys.Enter)
+				if (e.KeyCode == Keys.Enter) // Check whether the enter key is pressed
 				{
-					Rectangle(Placeholder, null);
+					Rectangle(Placeholder, null); // Run the Rectangle Calculator
 				}
-				if (e.KeyCode == Keys.Delete)
+				if (e.KeyCode == Keys.Delete) // Check whether the delete key is pressed
 				{
-					e.Handled = true;
+					e.Handled = true; // Discard input
 				}
-				if (e.KeyCode == Keys.Control)
+				if (e.KeyCode == Keys.Control) // Check whether the control key is pressed
 				{
-					e.Handled = true;
+					e.Handled = true; // Discard input
 				}
 			}
 		}
-		private void RectangleKeypress(object sender, KeyPressEventArgs e)
+		private void RectangleKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
-			int space1 = (txtRectangleDimensions.Text.IndexOf(" "));
-			int x1 = (txtRectangleDimensions.Text.IndexOf("x"));
-			int space2 = (txtRectangleDimensions.Text.IndexOf(" ", txtRectangleDimensions.Text.IndexOf(" ") + 1));
-			int currentpos = (txtRectangleDimensions.SelectionStart - 1);
-			int modifier = 0;
-			string[] words = txtRectangleDimensions.Text.Split(' ');
-			if (!(e.KeyChar == (char)Keys.Return))
+			int space1 = (txtRectangleDimensions.Text.IndexOf(" ")); // Get the position of the first space in the textbox
+			int x1 = (txtRectangleDimensions.Text.IndexOf("x")); // Get the position of the first x in the textbox
+			int space2 = (txtRectangleDimensions.Text.IndexOf(" ", txtRectangleDimensions.Text.IndexOf(" ") + 1)); // Get the position of the second space in the textbox
+			int currentpos = (txtRectangleDimensions.SelectionStart - 1); // Add a variable represesnting the character that would be deleted with a backspace keypress 
+			int modifier = 0; // Introduce the modifier variable
+			string[] words = txtRectangleDimensions.Text.Split(' '); // Split the input using the spaces as separators
+			if (!(e.KeyChar == (char)Keys.Return)) // Check whether the pressed key is anything other than enter 
 			{
-				grpRectangle.Visible = false;
-				lblRectangleArea.Text = "Area";
-				lblRectanglePerimeter.Text = "Perimeter";
+				grpRectangle.Visible = false; // Clear the rectangle
+				lblRectangleArea.Text = "Area"; // Clear the area
+				lblRectanglePerimeter.Text = "Perimeter"; // Clear the perimeter
 			}
-			if (sender is not TextBoxBase textBox)
-				return;
-			if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x"))
+			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
+				return; // -or else discard it
+			if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x")) // If there is a selection made that includes part of the multiplier field
 			{
-				if (e.KeyChar == '\b')
+				// note to self: THIS MAY NEED EXTRA LOGIC TO ENSURE A CHARACTER PRESSED WHILE TEXT IS SELECTED DOES NOT CRASH
+				if (e.KeyChar == '\b') // If backspace is pressed
 				{
-					e.Handled = true;
-					txtRectangleDimensions.SelectedText = "";
-					int selectionIndex = textBox.SelectionStart;
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x", "");
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace("x ", "");
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" ", "");
-					if (currentpos == space1) modifier = 1;
-					else if (currentpos == x1) modifier = 2;
-					else if (currentpos == space2) modifier = 3;
-					else modifier = 0;
-					textBox.SelectionStart = selectionIndex - modifier;
+					e.Handled = true; // Discard the backspace keypress
+					txtRectangleDimensions.SelectedText = ""; // Delete the selected text
+					int selectionIndex = textBox.SelectionStart; // Get the current position
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", ""); // (this one probably isn't needed)
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x", ""); // Delete all variations of the multiplication separator
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace("x ", ""); // Delete all variations of the multiplication separator
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" ", ""); // Delete all variations of the multiplication separator
+					if (currentpos == space1) modifier = 1; // If the action of deleting put the cursor at the first space, move it back 1 to reallign it.
+					else if (currentpos == x1) modifier = 2; // If the action of deleting put the cursor at the first x, move it back 2 to reallign it.
+					else if (currentpos == space2) modifier = 3; // If the action of deleting put the cursor at the second space, move it back 3 to reallign it.
+					else modifier = 0; // If the selection was outside of the multiplication separator, don't move it.
+					textBox.SelectionStart = selectionIndex - modifier; // Set the cursor to the modified position
 				}
 			}
-			if (e.KeyChar.ToString() == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)
+			if (e.KeyChar.ToString() == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator) // If the pressed key is the user's decimal separator
 			{
-				if (words.Length > 2)
+				if (words.Length > 2) // If there are at least 3 substrings (meaning the multiplication separator exists)
 				{
-					if (currentpos < space1)
+					if (currentpos < space1) // If the cursor is before the first space
 					{
-						if (words[0].Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+						if (words[0].Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there is already a decimal separator
 						{
-							e.Handled = true;
+							e.Handled = true; // Discard the decimal separator input
 						}
 					}
-					else if (currentpos >= space2)
+					else if (currentpos >= space2) // If the cursor is at or after the first space
 					{
-						if (words[2].Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+						if (words[2].Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there is already a decimal separator
 						{
-							e.Handled = true;
+							e.Handled = true;// Discard the decimal separator input
 						}
 					}
 					else
 					{
-						e.Handled = true;
+						e.Handled = true; // Discard the decimal separator input
 					}
 				}
 				else if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
@@ -252,10 +253,10 @@ namespace Mathre
 							e.Handled = true;
 							int selectionIndex = textBox.SelectionStart;
 							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
-							if (currentpos == space1) modifier = 1;
-							if (currentpos == x1) modifier = 2;
-							if (currentpos == space2) modifier = 3;
-							textBox.SelectionStart = selectionIndex - modifier;
+							if (currentpos == space1) modifier = 1; // If the action of deleting put the cursor at the first space, move it back 1 to reallign it.
+							if (currentpos == x1) modifier = 2; // If the action of deleting put the cursor at the first x, move it back 2 to reallign it.
+							if (currentpos == space2) modifier = 3; // If the action of deleting put the cursor at the second space, move it back 3 to reallign it.
+							textBox.SelectionStart = selectionIndex - modifier; // Set the cursor to the modified position
 
 						}
 					}
