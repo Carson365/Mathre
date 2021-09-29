@@ -177,7 +177,6 @@ namespace Mathre
 				return; // -or else discard it
 			if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x")) // If there is a selection made that includes part of the multiplier field
 			{
-				// note to self: THIS MAY NEED EXTRA LOGIC TO ENSURE A CHARACTER PRESSED WHILE TEXT IS SELECTED DOES NOT CRASH
 				if (e.KeyChar == '\b') // If backspace is pressed
 				{
 					e.Handled = true; // Discard the backspace keypress
@@ -187,10 +186,10 @@ namespace Mathre
 					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x", ""); // Delete all variations of the multiplication separator
 					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace("x ", ""); // Delete all variations of the multiplication separator
 					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" ", ""); // Delete all variations of the multiplication separator
-					if (currentpos == space1) modifier = 1; // If the action of deleting put the cursor at the first space, move it back 1 to reallign it.
-					else if (currentpos == x1) modifier = 2; // If the action of deleting put the cursor at the first x, move it back 2 to reallign it.
-					else if (currentpos == space2) modifier = 3; // If the action of deleting put the cursor at the second space, move it back 3 to reallign it.
-					else modifier = 0; // If the selection was outside of the multiplication separator, don't move it.
+					if (currentpos == space1) modifier = 1; // If the action of deleting put the cursor at the first space, move it back 1 to reallign it
+					else if (currentpos == x1) modifier = 2; // If the action of deleting put the cursor at the first x, move it back 2 to reallign it
+					else if (currentpos == space2) modifier = 3; // If the action of deleting put the cursor at the second space, move it back 3 to reallign it
+					else modifier = 0; // If the selection was outside of the multiplication separator, don't move it
 					textBox.SelectionStart = selectionIndex - modifier; // Set the cursor to the modified position
 				}
 			}
@@ -235,27 +234,27 @@ namespace Mathre
 					string insertText = " x "; // Set the multiplication separator
 					int selectionIndex = textBox.SelectionStart; // Set the current position
 					textBox.Text = textBox.Text.Insert(selectionIndex, insertText); // Append the multiplication separator
-					textBox.SelectionStart = selectionIndex + 3; // restore cursor position
+					textBox.SelectionStart = selectionIndex + 3; // Restore cursor position
 				}
 			}
-			else if ((currentpos == space1 || currentpos == x1 || currentpos == space2) && currentpos != -1)
+			else if ((currentpos == space1 || currentpos == x1 || currentpos == space2) && currentpos != -1) //If the cursor is located where it would delete the multiplication operator
 			{
-				if (currentpos != space2)
+				if (currentpos != space2) // Make sure numbers can't be entered between the spaces by the x
 				{
 					e.Handled = true;
 				}
-				if (currentpos == space1 || currentpos == x1 || currentpos == space2 && currentpos != -1)
+				if (currentpos == space1 || currentpos == x1 || currentpos == space2 && currentpos != -1) //If the cursor is located where it would delete the multiplication operator
 				{
-					if (e.KeyChar == '\b')
+					if (e.KeyChar == '\b') // If backspace is pressed
 					{
-						if (txtRectangleDimensions.Text.Contains(" x "))
+						if (txtRectangleDimensions.Text.Contains(" x ")) // If the string has a multiplication operator
 						{
-							e.Handled = true;
-							int selectionIndex = textBox.SelectionStart;
-							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
-							if (currentpos == space1) modifier = 1; // If the action of deleting put the cursor at the first space, move it back 1 to reallign it.
-							if (currentpos == x1) modifier = 2; // If the action of deleting put the cursor at the first x, move it back 2 to reallign it.
-							if (currentpos == space2) modifier = 3; // If the action of deleting put the cursor at the second space, move it back 3 to reallign it.
+							e.Handled = true; // Discard the backspace
+							int selectionIndex = textBox.SelectionStart; // Get the cursor position
+							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", ""); // Remove the multiplication operator
+							if (currentpos == space1) modifier = 1; // If the action of deleting put the cursor at the first space, move it back 1 to reallign it
+							if (currentpos == x1) modifier = 2; // If the action of deleting put the cursor at the first x, move it back 2 to reallign it
+							if (currentpos == space2) modifier = 3; // If the action of deleting put the cursor at the second space, move it back 3 to reallign it
 							textBox.SelectionStart = selectionIndex - modifier; // Set the cursor to the modified position
 
 						}
@@ -265,7 +264,7 @@ namespace Mathre
 		}
 
 
-		private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page.
+		private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page
 		{
 			if (ReferenceEquals(sender, txtSecretPassword)) // If the event is caused by the textbox:
 			{
@@ -274,19 +273,19 @@ namespace Mathre
 					hashedvalue = String.Empty; // Set the hashedvalue to Empty if the value is null.
 				using (var sha = new System.Security.Cryptography.SHA256Managed()) // Introduce the Sha256 hashing method
 				{
-					byte[] textData = System.Text.Encoding.UTF8.GetBytes(txtSecretPassword.Text); // Get the value of the Secret Settings password field input and convert it to a usable form (bytes).
+					byte[] textData = System.Text.Encoding.UTF8.GetBytes(txtSecretPassword.Text); // Get the value of the Secret Settings password field input and convert it to a usable form (bytes)
 					byte[] hash = sha.ComputeHash(textData); // Compute the Sha256 hash of the input.
-					hashedvalue = BitConverter.ToString(hash).Replace("-", String.Empty); // Convert the calculated hash to a useable format and store it in the hashedvalue variable.
+					hashedvalue = BitConverter.ToString(hash).Replace("-", String.Empty); // Convert the calculated hash to a useable format and store it in the hashedvalue variable
 				}
 				if (hashedvalue == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") // If the hashed value of the text matches this predefined value (AKA the correct password):
 				{
-					btnSecretEnable.Enabled = true; // Enable the control buttons.
-					btnSecretDisable.Enabled = true; // Enable the control buttons.
+					btnSecretEnable.Enabled = true; // Enable the control buttons
+					btnSecretDisable.Enabled = true; // Enable the control buttons
 				}
 				else
 				{
-					btnSecretEnable.Enabled = false; // Disable the control buttons.
-					btnSecretDisable.Enabled = false; // Disable the control buttons.
+					btnSecretEnable.Enabled = false; // Disable the control buttons
+					btnSecretDisable.Enabled = false; // Disable the control buttons
 					btnSecretDisable.Checked = true; // Check the Disabled button
 				}
 
@@ -299,19 +298,19 @@ namespace Mathre
 			txtSecretPassword.Text = ""; // Clear the text box when buttons are pressed
 			if (ReferenceEquals(sender, btnSecretEnable)) // If the event is caused by the Enable button:
 			{
-				mnuSecret.Enabled = true; // Enable the Secret menu.
-				btnSecretEnable.Checked = true; // Check the Enabled button.
+				mnuSecret.Enabled = true; // Enable the Secret menu
+				btnSecretEnable.Checked = true; // Check the Enabled button
 			}
 
 			if (ReferenceEquals(sender, btnSecretDisable)) // If the event is caused by the Disable button:
 			{
-				mnuSecret.Enabled = false; // Disable the Secret menu.
+				mnuSecret.Enabled = false; // Disable the Secret menu
 				btnSecretDisable.Checked = true; // Check the Disabled button
 			}
 			// 
 		}
 		// 
-		private void Buttons(object sender, EventArgs e) // Event Handler for a press of the French button
+		private void Buttons(object sender, EventArgs e) // Event Handler for a button press
 		{
 			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, mnuHelloWorldLanguageEnglish)) // If the event is caused by the English button or menu item:
 			{
@@ -330,11 +329,11 @@ namespace Mathre
 			}
 			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
 			{
-				Buttons(grpHelloWorld.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value.
+				Buttons(grpHelloWorld.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
 			}
 			else if (ReferenceEquals(sender, mnuRandomify))
 			{
-				lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value.
+				lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value
 			}
 			else if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, mnuMySchoolToggleMascot)) // If the event is caused by the ToggleMascot button or menu item:
 			{
@@ -350,34 +349,40 @@ namespace Mathre
 			}
 			else if (ReferenceEquals(sender, mnuExit)) // If the event is caused by the Exit menu item:
 			{
-				Application.Exit(); // Exit.
+				Application.Exit(); // Exit
 			}
+			// The below five eventhandlers all handle the buttons on the My Favorites page. They each set their respective radio button to appear checked, set the title text, the info label text, and then the image
 			else if (ReferenceEquals(sender, btnFavoriteActor) | ReferenceEquals(sender, mnuFavoriteActor))
 			{
+				btnFavoriteActor.Checked = true;
 				lblFavoriteTitle.Text = "My Favorite Actor";
 				lblFavoriteInfo.Text = "My favorite actor is Tom Hiddleston. \n He has starred and appeared in several films, but his most famous role is that of Loki in Marvel's MCU.";
 				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[0];
 			}
 			else if (ReferenceEquals(sender, btnFavoriteMovie) | ReferenceEquals(sender, mnuFavoriteMovie))
 			{
+				btnFavoriteMovie.Checked = true;
 				lblFavoriteTitle.Text = "My Favorite Movie";
 				lblFavoriteInfo.Text = "My favorite movie is The Imitation Game. \n it follows the work and life of Alan Turing, a revolutionary code-breaker and very early computer scientist.";
 				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[1];
 			}
 			else if (ReferenceEquals(sender, btnFavoriteFruit) | ReferenceEquals(sender, mnuFavoriteFruit))
 			{
+				btnFavoriteFruit.Checked = true;
 				lblFavoriteTitle.Text = "My Favorite Fruit";
 				lblFavoriteInfo.Text = "My favorite fruit is any stone fruit. \n The stone fruit family includes raspberries and blackberries, as well as peaches, plums, cherries, and other great fruits.";
 				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[2];
 			}
 			else if (ReferenceEquals(sender, btnFavoriteHobby) | ReferenceEquals(sender, mnuFavoriteHobby))
 			{
+				btnFavoriteHobby.Checked = true;
 				lblFavoriteTitle.Text = "My Favorite Hobby";
 				lblFavoriteInfo.Text = "My favorite hobby is remote control. \n Remote control cars are very fun to drive and work on, and despite their high price they are an easy hobby to get into.";
 				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[3];
 			}
 			else if (ReferenceEquals(sender, btnFavoriteColor) | ReferenceEquals(sender, mnuFavoriteColor))
 			{
+				btnFavoriteColor.Checked = true;
 				lblFavoriteTitle.Text = "My Favorite Color";
 				lblFavoriteInfo.Text = "My favorite color is purple. \n It can complement a variety of other colors, works well to convey many different ideas or emotions, and it looks good.";
 				grpFavoriteImage.BackgroundImage = null;
@@ -413,59 +418,59 @@ namespace Mathre
 			// 
 		}
 
-		private void Rectangle(object sender, EventArgs e)
+		private void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
 		{
-			double Height = 0;
-			double Width = 0;
-			string[] words = txtRectangleDimensions.Text.Split(' ');
-			if (words.Length > 2)
+			double Height = 0; // Add a variable to store the rectangle height
+			double Width = 0; // Add a variable to store the rectangle width
+			string[] words = txtRectangleDimensions.Text.Split(' '); // Split the input using the spaces as separators
+			if (words.Length > 2) // If there are at least three substrings
 			{
-				var LengthIsNumeric = double.TryParse(words[2], out double HeightValue);
+				var LengthIsNumeric = double.TryParse(words[2], out double HeightValue); // Check whether the third substring is a number
 				if (LengthIsNumeric)
 				{
-					Height = HeightValue;
+					Height = HeightValue; // Assign the height value to the third substring if numeric
 				}
-				var WidthIsNumeric = double.TryParse(words[0], out double WidthValue);
+				var WidthIsNumeric = double.TryParse(words[0], out double WidthValue); // Check whether the first substring is a number
 				if (WidthIsNumeric)
 				{
-					Width = WidthValue;
+					Width = WidthValue; // Assign the width value to the first substring if numeric
 				}
 			}
-			if (ReferenceEquals(sender, btnRectangleCalculate))
+			if ((ReferenceEquals(sender, btnRectangleCalculate)) || (ReferenceEquals(sender, mnuRectangleCalculate))) // If the Calculate button is pressed
 			{
-				Rectangle(Placeholder, null);
+				Rectangle(Placeholder, null); // Run the rectangle calculator with the values from the input field
 			}
-			if (ReferenceEquals(sender, Placeholder))
+			if (ReferenceEquals(sender, Placeholder)) // If the rectangle needs to be calculated and visualized
 			{
-				var ratioX = (double)grpRectangle.MaximumSize.Width / Width;
-				var ratioY = (double)grpRectangle.MaximumSize.Height / Height;
-				var ratio = Math.Min(ratioX, ratioY);
-				var newWidth = (int)(Width * ratio);
-				var newHeight = (int)(Height * ratio);
-				grpRectangle.Width = newWidth;
-				grpRectangle.Height = newHeight;
-				grpRectangle.Left = (grpRectangle.Parent.Width - grpRectangle.Width) / 2;
-				grpRectangle.Top = (grpRectangle.Parent.Height - grpRectangle.Height) / 2;
-				grpRectangle.Visible = true;
-				lblRectangleError.Visible = false;
-				if ((newHeight == 0 || newWidth == 0) && (!(Height == 0 || Width == 0)))
+				var ratioX = (double)grpRectangle.MaximumSize.Width / Width; // Make the X-ratio equal to the proportional size of the maximum width of the visualization rectangle
+				var ratioY = (double)grpRectangle.MaximumSize.Height / Height; // Make the Y-ratio equal to the proportional size of the maximum height of the visualization rectangle
+				var ratio = Math.Min(ratioX, ratioY); // Set the overall ratio equal to the smallest of the two ratios
+				var newWidth = (int)(Width * ratio); // Create a new width for the visualizer that fits on the screen according to the ratio
+				var newHeight = (int)(Height * ratio); // Create a new height for the visualizer that fits on the screen according to the ratio
+				grpRectangle.Width = newWidth; // Set the visualization width to the modified proportional width
+				grpRectangle.Height = newHeight; // Set the visualization height to the modified proportional height
+				grpRectangle.Left = (grpRectangle.Parent.Width - grpRectangle.Width) / 2; // Center the rectangle horizontally within its visualization space
+				grpRectangle.Top = (grpRectangle.Parent.Height - grpRectangle.Height) / 2; // Center the rectangle vertically within its visualization space
+				grpRectangle.Visible = true; // Make the visualization rectangle visible
+				lblRectangleError.Visible = false; // Hide the error label
+				if ((newHeight == 0 || newWidth == 0) && (!(Height == 0 || Width == 0))) // Check whether the adjusted sizes (using the ratio) are zero
 				{
-					lblRectangleError.Text = "Invalid Visualization";
-					lblRectangleError.Visible = true;
-					lblRectangleArea.Text = (Width * Height).ToString();
-					lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
+					lblRectangleError.Text = "Invalid Visualization"; // Show a visualization error message
+					lblRectangleError.Visible = true; // Make the error visible
+					lblRectangleArea.Text = (Width * Height).ToString(); // Show the area result
+					lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString(); // Show the perimeter result
 				}
-				else if ((Height == 0 || Width == 0 || newHeight == -2147483648 || newWidth == -2147483648))
+				else if ((Height == 0 || Width == 0 || newHeight == -2147483648 || newWidth == -2147483648)) // If the height or width is zero or invalid
 				{
-					lblRectangleError.Text = "Invalid Dimensions";
-					lblRectangleError.Visible = true;
-					lblRectangleArea.Text = "Invalid Dimensions";
-					lblRectanglePerimeter.Text = "Invalid Dimensions";
+					lblRectangleError.Text = "Invalid Dimensions"; // Show an input error message
+					lblRectangleError.Visible = true; // Make the error visible
+					lblRectangleArea.Text = "Invalid Dimensions"; // Show an input error for the area result
+					lblRectanglePerimeter.Text = "Invalid Dimensions"; // Show an input error for the perimeter result
 				}
 				else
 				{
-					lblRectangleArea.Text = (Width * Height).ToString();
-					lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
+					lblRectangleArea.Text = (Width * Height).ToString(); // Show the area result
+					lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString(); // Show the perimeter result
 				}
 			}
 		}
