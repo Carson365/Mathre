@@ -217,24 +217,24 @@ namespace Mathre
 						e.Handled = true; // Discard the decimal separator input
 					}
 				}
-				else if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+				else if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there are not multiple number groups and there is already a decimal separator
 				{
-					e.Handled = true;
+					e.Handled = true; // Discard the decimal separator input
 				}
 			}
 
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
+			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace non-number character is pressed
 			{
-				if (textBox.Text.Contains(" x "))
+				if (textBox.Text.Contains(" x ")) // If there is a multiplication separator
 				{
-					e.Handled = true;
+					e.Handled = true; // Discard the character input
 				}
 				else
 				{
-					e.Handled = true;
-					string insertText = " x ";
-					int selectionIndex = textBox.SelectionStart;
-					textBox.Text = textBox.Text.Insert(selectionIndex, insertText);
+					e.Handled = true;  // Discard the character input
+					string insertText = " x "; // Set the multiplication separator
+					int selectionIndex = textBox.SelectionStart; // Set the current position
+					textBox.Text = textBox.Text.Insert(selectionIndex, insertText); // Append the multiplication separator
 					textBox.SelectionStart = selectionIndex + 3; // restore cursor position
 				}
 			}
