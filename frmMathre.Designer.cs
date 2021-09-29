@@ -55,6 +55,14 @@ namespace Mathre
             this.mnuMySchool = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchoolToggleMascot = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRectangle = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRectangleCalculate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFavorite = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFavoriteActor = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFavoriteMovie = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFavoriteFruit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFavoriteColor = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFavoriteHobby = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
@@ -70,14 +78,6 @@ namespace Mathre
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
             this.lblHelloWorldTitle = new System.Windows.Forms.Label();
             this.tabMathre = new System.Windows.Forms.TabControl();
-            this.mnuRectangle = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavorite = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavoriteActor = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavoriteMovie = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavoriteFruit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavoriteColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavoriteHobby = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRectangleCalculate = new System.Windows.Forms.ToolStripMenuItem();
             this.grpHelloWorld = new Mathre.CustomGroupBox();
             this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
             this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
@@ -156,9 +156,9 @@ namespace Mathre
             this.mnuSecret,
             this.mnuHelloWorld,
             this.mnuMySchool,
-            this.mnuExit,
             this.mnuRectangle,
-            this.mnuFavorite});
+            this.mnuFavorite,
+            this.mnuExit});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
@@ -268,6 +268,62 @@ namespace Mathre
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.Size = new System.Drawing.Size(184, 22);
             this.mnuExit.Text = "Exit";
+            // 
+            // mnuRectangle
+            // 
+            this.mnuRectangle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRectangleCalculate});
+            this.mnuRectangle.Name = "mnuRectangle";
+            this.mnuRectangle.Size = new System.Drawing.Size(184, 22);
+            this.mnuRectangle.Text = "Rectangle Calculator";
+            // 
+            // mnuRectangleCalculate
+            // 
+            this.mnuRectangleCalculate.Name = "mnuRectangleCalculate";
+            this.mnuRectangleCalculate.Size = new System.Drawing.Size(180, 22);
+            this.mnuRectangleCalculate.Text = "Calculate";
+            // 
+            // mnuFavorite
+            // 
+            this.mnuFavorite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFavoriteActor,
+            this.mnuFavoriteMovie,
+            this.mnuFavoriteFruit,
+            this.mnuFavoriteColor,
+            this.mnuFavoriteHobby});
+            this.mnuFavorite.Name = "mnuFavorite";
+            this.mnuFavorite.Size = new System.Drawing.Size(184, 22);
+            this.mnuFavorite.Text = "My Favorites";
+            // 
+            // mnuFavoriteActor
+            // 
+            this.mnuFavoriteActor.Name = "mnuFavoriteActor";
+            this.mnuFavoriteActor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteActor.Text = "Actor";
+            // 
+            // mnuFavoriteMovie
+            // 
+            this.mnuFavoriteMovie.Name = "mnuFavoriteMovie";
+            this.mnuFavoriteMovie.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteMovie.Text = "Movie";
+            // 
+            // mnuFavoriteFruit
+            // 
+            this.mnuFavoriteFruit.Name = "mnuFavoriteFruit";
+            this.mnuFavoriteFruit.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteFruit.Text = "Fruit";
+            // 
+            // mnuFavoriteColor
+            // 
+            this.mnuFavoriteColor.Name = "mnuFavoriteColor";
+            this.mnuFavoriteColor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteColor.Text = "Color";
+            // 
+            // mnuFavoriteHobby
+            // 
+            this.mnuFavoriteHobby.Name = "mnuFavoriteHobby";
+            this.mnuFavoriteHobby.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteHobby.Text = "Hobby";
             // 
             // mnuEdit
             // 
@@ -441,62 +497,6 @@ namespace Mathre
             this.tabMathre.Size = new System.Drawing.Size(1052, 512);
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabMathre.TabIndex = 4;
-            // 
-            // mnuRectangle
-            // 
-            this.mnuRectangle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuRectangleCalculate});
-            this.mnuRectangle.Name = "mnuRectangle";
-            this.mnuRectangle.Size = new System.Drawing.Size(184, 22);
-            this.mnuRectangle.Text = "Rectangle Calculator";
-            // 
-            // mnuFavorite
-            // 
-            this.mnuFavorite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuFavoriteActor,
-            this.mnuFavoriteMovie,
-            this.mnuFavoriteFruit,
-            this.mnuFavoriteColor,
-            this.mnuFavoriteHobby});
-            this.mnuFavorite.Name = "mnuFavorite";
-            this.mnuFavorite.Size = new System.Drawing.Size(184, 22);
-            this.mnuFavorite.Text = "My Favorites";
-            // 
-            // mnuFavoriteActor
-            // 
-            this.mnuFavoriteActor.Name = "mnuFavoriteActor";
-            this.mnuFavoriteActor.Size = new System.Drawing.Size(110, 22);
-            this.mnuFavoriteActor.Text = "Actor";
-            // 
-            // mnuFavoriteMovie
-            // 
-            this.mnuFavoriteMovie.Name = "mnuFavoriteMovie";
-            this.mnuFavoriteMovie.Size = new System.Drawing.Size(110, 22);
-            this.mnuFavoriteMovie.Text = "Movie";
-            // 
-            // mnuFavoriteFruit
-            // 
-            this.mnuFavoriteFruit.Name = "mnuFavoriteFruit";
-            this.mnuFavoriteFruit.Size = new System.Drawing.Size(110, 22);
-            this.mnuFavoriteFruit.Text = "Fruit";
-            // 
-            // mnuFavoriteColor
-            // 
-            this.mnuFavoriteColor.Name = "mnuFavoriteColor";
-            this.mnuFavoriteColor.Size = new System.Drawing.Size(110, 22);
-            this.mnuFavoriteColor.Text = "Color";
-            // 
-            // mnuFavoriteHobby
-            // 
-            this.mnuFavoriteHobby.Name = "mnuFavoriteHobby";
-            this.mnuFavoriteHobby.Size = new System.Drawing.Size(110, 22);
-            this.mnuFavoriteHobby.Text = "Hobby";
-            // 
-            // mnuRectangleCalculate
-            // 
-            this.mnuRectangleCalculate.Name = "mnuRectangleCalculate";
-            this.mnuRectangleCalculate.Size = new System.Drawing.Size(123, 22);
-            this.mnuRectangleCalculate.Text = "Calculate";
             // 
             // grpHelloWorld
             // 
