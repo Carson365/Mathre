@@ -37,7 +37,9 @@ namespace Mathre
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+
+
+			this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMathre));
             this.mnuBaseLayer = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,68 +62,69 @@ namespace Mathre
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabUnknown = new System.Windows.Forms.TabPage();
             this.tabSecret = new System.Windows.Forms.TabPage();
-            this.grpSecret = new Mathre.CustomGroupBox();
-            this.lblSecretPrompt = new System.Windows.Forms.Label();
-            this.txtSecretPassword = new System.Windows.Forms.TextBox();
-            this.btnSecretEnable = new System.Windows.Forms.RadioButton();
-            this.btnSecretDisable = new System.Windows.Forms.RadioButton();
             this.lblSecretTitle = new System.Windows.Forms.Label();
+            this.grpSecret = new Mathre.CustomGroupBox();
+            this.btnSecretDisable = new System.Windows.Forms.RadioButton();
+            this.btnSecretEnable = new System.Windows.Forms.RadioButton();
+            this.txtSecretPassword = new System.Windows.Forms.TextBox();
+            this.lblSecretPrompt = new System.Windows.Forms.Label();
             this.tabMyFavorites = new System.Windows.Forms.TabPage();
-            this.customGroupBox3 = new Mathre.CustomGroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.customGroupBox1 = new Mathre.CustomGroupBox();
             this.customGroupBox2 = new Mathre.CustomGroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.customGroupBox3 = new Mathre.CustomGroupBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.tabRectangle = new System.Windows.Forms.TabPage();
-            this.grpRectangleControls = new Mathre.CustomGroupBox();
-            this.lblRectanglePerimeter = new System.Windows.Forms.Label();
-            this.lblRectangleArea = new System.Windows.Forms.Label();
-            this.lblRectanglePerimiterTitle = new System.Windows.Forms.Label();
-            this.lblRectangleDimensions = new System.Windows.Forms.Label();
-            this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
-            this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
-            this.btnRectangleEnter = new System.Windows.Forms.Button();
-            this.lblRectangleTitle = new System.Windows.Forms.Label();
             this.grpRectangleContainer = new Mathre.CustomGroupBox();
             this.grpRectangle = new Mathre.CustomGroupBox();
+            this.lblRectangleTitle = new System.Windows.Forms.Label();
+            this.grpRectangleControls = new Mathre.CustomGroupBox();
+            this.btnRectangleEnter = new System.Windows.Forms.Button();
+            this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
+            this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
+            this.lblRectangleDimensions = new System.Windows.Forms.Label();
+            this.lblRectanglePerimiterTitle = new System.Windows.Forms.Label();
+            this.lblRectangleArea = new System.Windows.Forms.Label();
+            this.lblRectanglePerimeter = new System.Windows.Forms.Label();
             this.tabMySchool = new System.Windows.Forms.TabPage();
-            this.grpMySchool = new Mathre.CustomGroupBox();
-            this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
-            this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
-            this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.lblMySchoolTitle = new System.Windows.Forms.Label();
+            this.grpMySchool = new Mathre.CustomGroupBox();
+            this.lblMySchoolMascot = new System.Windows.Forms.Label();
+            this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
+            this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
-            this.lblHelloWorldTitle = new System.Windows.Forms.Label();
             this.grpHelloWorld = new Mathre.CustomGroupBox();
-            this.btnHelloWorldEnglish = new System.Windows.Forms.RadioButton();
-            this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
-            this.btnHelloWorldReset = new System.Windows.Forms.Button();
-            this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
-            this.picHelloWorldEnglish = new System.Windows.Forms.PictureBox();
-            this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
             this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
+            this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
+            this.picHelloWorldEnglish = new System.Windows.Forms.PictureBox();
+            this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
+            this.btnHelloWorldReset = new System.Windows.Forms.Button();
+            this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
+            this.btnHelloWorldEnglish = new System.Windows.Forms.RadioButton();
+            this.lblHelloWorldTitle = new System.Windows.Forms.Label();
             this.tabMathre = new System.Windows.Forms.TabControl();
+            this.lblRectangleError = new System.Windows.Forms.Label();
             this.mnuBaseLayer.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.grpSecret.SuspendLayout();
             this.tabMyFavorites.SuspendLayout();
-            this.customGroupBox3.SuspendLayout();
             this.customGroupBox1.SuspendLayout();
+            this.customGroupBox3.SuspendLayout();
             this.tabRectangle.SuspendLayout();
-            this.grpRectangleControls.SuspendLayout();
             this.grpRectangleContainer.SuspendLayout();
+            this.grpRectangleControls.SuspendLayout();
             this.tabMySchool.SuspendLayout();
             this.grpMySchool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.tabHelloWorld.SuspendLayout();
             this.grpHelloWorld.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
             this.tabMathre.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -160,7 +163,6 @@ namespace Mathre
             this.mnuSecret.Name = "mnuSecret";
             this.mnuSecret.Size = new System.Drawing.Size(184, 22);
             this.mnuSecret.Text = "Super Secret Settings";
-            this.mnuSecret.Click += this.Buttons;
             // 
             // mnuRecolor
             // 
@@ -171,7 +173,6 @@ namespace Mathre
             this.mnuRecolor.Name = "mnuRecolor";
             this.mnuRecolor.Size = new System.Drawing.Size(132, 22);
             this.mnuRecolor.Text = "Recolor";
-            this.mnuRecolor.Click += this.Buttons;
             // 
             // mnuDarkMode
             // 
@@ -179,7 +180,6 @@ namespace Mathre
             this.mnuDarkMode.Name = "mnuDarkMode";
             this.mnuDarkMode.Size = new System.Drawing.Size(135, 22);
             this.mnuDarkMode.Text = "Dark Mode";
-            this.mnuDarkMode.Click += this.Buttons;
             // 
             // mnuTechnicolor
             // 
@@ -187,14 +187,12 @@ namespace Mathre
             this.mnuTechnicolor.Name = "mnuTechnicolor";
             this.mnuTechnicolor.Size = new System.Drawing.Size(135, 22);
             this.mnuTechnicolor.Text = "Technicolor";
-            this.mnuTechnicolor.Click += this.Buttons;
             // 
             // mnuRandomify
             // 
             this.mnuRandomify.Name = "mnuRandomify";
             this.mnuRandomify.Size = new System.Drawing.Size(132, 22);
             this.mnuRandomify.Text = "Randomify";
-            this.mnuRandomify.Click += this.Buttons;
             // 
             // mnuHelloWorld
             // 
@@ -221,7 +219,6 @@ namespace Mathre
             this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
             this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageEnglish.Text = "English";
-            this.mnuHelloWorldLanguageEnglish.Click += this.Buttons;
             // 
             // mnuHelloWorldLanguageFrench
             // 
@@ -229,7 +226,6 @@ namespace Mathre
             this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
             this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageFrench.Text = "French";
-            this.mnuHelloWorldLanguageFrench.Click += this.Buttons;
             // 
             // mnuHelloWorldLanguageGerman
             // 
@@ -237,14 +233,12 @@ namespace Mathre
             this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
             this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageGerman.Text = "German";
-            this.mnuHelloWorldLanguageGerman.Click += this.Buttons;
             // 
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
             this.mnuHelloWorldReset.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldReset.Text = "Reset";
-            this.mnuHelloWorldReset.Click += this.Buttons;
             // 
             // mnuMySchool
             // 
@@ -259,14 +253,12 @@ namespace Mathre
             this.mnuMySchoolToggleMascot.Name = "mnuMySchoolToggleMascot";
             this.mnuMySchoolToggleMascot.Size = new System.Drawing.Size(198, 22);
             this.mnuMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
-            this.mnuMySchoolToggleMascot.Click += this.Buttons;
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.Size = new System.Drawing.Size(184, 22);
             this.mnuExit.Text = "Exit";
-            this.mnuExit.Click += this.Buttons;
             // 
             // mnuEdit
             // 
@@ -274,7 +266,6 @@ namespace Mathre
             this.mnuEdit.Name = "mnuEdit";
             this.mnuEdit.Size = new System.Drawing.Size(39, 24);
             this.mnuEdit.Text = "Edit";
-            this.mnuEdit.Click += this.Buttons;
             // 
             // mnuView
             // 
@@ -282,7 +273,6 @@ namespace Mathre
             this.mnuView.Name = "mnuView";
             this.mnuView.Size = new System.Drawing.Size(44, 24);
             this.mnuView.Text = "View";
-            this.mnuView.Click += this.Buttons;
             // 
             // imageList1
             // 
@@ -316,6 +306,18 @@ namespace Mathre
             this.tabSecret.Text = "Secret Settings Page";
             this.tabSecret.UseVisualStyleBackColor = true;
             // 
+            // lblSecretTitle
+            // 
+            this.lblSecretTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblSecretTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecretTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblSecretTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblSecretTitle.Name = "lblSecretTitle";
+            this.lblSecretTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblSecretTitle.TabIndex = 9;
+            this.lblSecretTitle.Text = "Enable Super Secret Settings";
+            this.lblSecretTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // grpSecret
             // 
             this.grpSecret.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -332,40 +334,6 @@ namespace Mathre
             this.grpSecret.TabIndex = 8;
             this.grpSecret.TabStop = false;
             // 
-            // lblSecretPrompt
-            // 
-            this.lblSecretPrompt.AutoSize = true;
-            this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSecretPrompt.Location = new System.Drawing.Point(52, 23);
-            this.lblSecretPrompt.Name = "lblSecretPrompt";
-            this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
-            this.lblSecretPrompt.TabIndex = 9;
-            this.lblSecretPrompt.Text = "Enter the Passcode:";
-            // 
-            // txtSecretPassword
-            // 
-            this.txtSecretPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSecretPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSecretPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecretPassword.Location = new System.Drawing.Point(261, 21);
-            this.txtSecretPassword.Name = "txtSecretPassword";
-            this.txtSecretPassword.PasswordChar = '∗';
-            this.txtSecretPassword.Size = new System.Drawing.Size(114, 26);
-            this.txtSecretPassword.TabIndex = 9;
-            // 
-            // btnSecretEnable
-            // 
-            this.btnSecretEnable.AutoSize = true;
-            this.btnSecretEnable.Enabled = false;
-            this.btnSecretEnable.Location = new System.Drawing.Point(283, 67);
-            this.btnSecretEnable.Name = "btnSecretEnable";
-            this.btnSecretEnable.Size = new System.Drawing.Size(58, 17);
-            this.btnSecretEnable.TabIndex = 10;
-            this.btnSecretEnable.Text = "Enable";
-            this.btnSecretEnable.UseVisualStyleBackColor = true;
-            this.btnSecretEnable.Click += this.SecretHandler;
-            // 
             // btnSecretDisable
             // 
             this.btnSecretDisable.AutoSize = true;
@@ -378,19 +346,39 @@ namespace Mathre
             this.btnSecretDisable.TabStop = true;
             this.btnSecretDisable.Text = "Disable";
             this.btnSecretDisable.UseVisualStyleBackColor = true;
-            this.btnSecretDisable.Click += this.SecretHandler;
             // 
-            // lblSecretTitle
+            // btnSecretEnable
             // 
-            this.lblSecretTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblSecretTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecretTitle.Location = new System.Drawing.Point(209, 71);
-            this.lblSecretTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblSecretTitle.Name = "lblSecretTitle";
-            this.lblSecretTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblSecretTitle.TabIndex = 9;
-            this.lblSecretTitle.Text = "Enable Super Secret Settings";
-            this.lblSecretTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSecretEnable.AutoSize = true;
+            this.btnSecretEnable.Enabled = false;
+            this.btnSecretEnable.Location = new System.Drawing.Point(283, 67);
+            this.btnSecretEnable.Name = "btnSecretEnable";
+            this.btnSecretEnable.Size = new System.Drawing.Size(58, 17);
+            this.btnSecretEnable.TabIndex = 10;
+            this.btnSecretEnable.Text = "Enable";
+            this.btnSecretEnable.UseVisualStyleBackColor = true;
+            // 
+            // txtSecretPassword
+            // 
+            this.txtSecretPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSecretPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSecretPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecretPassword.Location = new System.Drawing.Point(261, 21);
+            this.txtSecretPassword.Name = "txtSecretPassword";
+            this.txtSecretPassword.PasswordChar = '∗';
+            this.txtSecretPassword.Size = new System.Drawing.Size(114, 26);
+            this.txtSecretPassword.TabIndex = 9;
+            // 
+            // lblSecretPrompt
+            // 
+            this.lblSecretPrompt.AutoSize = true;
+            this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSecretPrompt.Location = new System.Drawing.Point(52, 23);
+            this.lblSecretPrompt.Name = "lblSecretPrompt";
+            this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
+            this.lblSecretPrompt.TabIndex = 9;
+            this.lblSecretPrompt.Text = "Enter the Passcode:";
             // 
             // tabMyFavorites
             // 
@@ -403,95 +391,6 @@ namespace Mathre
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
-            // 
-            // customGroupBox3
-            // 
-            this.customGroupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox3.AutoSize = true;
-            this.customGroupBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.customGroupBox3.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox3.Controls.Add(this.radioButton5);
-            this.customGroupBox3.Controls.Add(this.radioButton4);
-            this.customGroupBox3.Controls.Add(this.radioButton3);
-            this.customGroupBox3.Controls.Add(this.radioButton2);
-            this.customGroupBox3.Controls.Add(this.radioButton1);
-            this.customGroupBox3.Location = new System.Drawing.Point(309, 149);
-            this.customGroupBox3.Name = "customGroupBox3";
-            this.customGroupBox3.Size = new System.Drawing.Size(426, 113);
-            this.customGroupBox3.TabIndex = 16;
-            this.customGroupBox3.TabStop = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(20, 46);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(65, 24);
-            this.radioButton1.TabIndex = 14;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Actor";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(328, 28);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(73, 24);
-            this.radioButton2.TabIndex = 15;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Hobby";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton3.Location = new System.Drawing.Point(328, 70);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(64, 24);
-            this.radioButton3.TabIndex = 16;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Color";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton4.Location = new System.Drawing.Point(240, 16);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(64, 24);
-            this.radioButton4.TabIndex = 17;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "Food";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton5.Location = new System.Drawing.Point(176, 70);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(68, 24);
-            this.radioButton5.TabIndex = 18;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Movie";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(209, 80);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(626, 51);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "My Favorite __________";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // customGroupBox1
             // 
@@ -518,6 +417,95 @@ namespace Mathre
             this.customGroupBox2.TabStop = false;
             this.customGroupBox2.Visible = false;
             // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(209, 80);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(626, 51);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "My Favorite __________";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // customGroupBox3
+            // 
+            this.customGroupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customGroupBox3.AutoSize = true;
+            this.customGroupBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.customGroupBox3.BorderColor = System.Drawing.Color.Black;
+            this.customGroupBox3.Controls.Add(this.radioButton5);
+            this.customGroupBox3.Controls.Add(this.radioButton4);
+            this.customGroupBox3.Controls.Add(this.radioButton3);
+            this.customGroupBox3.Controls.Add(this.radioButton2);
+            this.customGroupBox3.Controls.Add(this.radioButton1);
+            this.customGroupBox3.Location = new System.Drawing.Point(309, 149);
+            this.customGroupBox3.Name = "customGroupBox3";
+            this.customGroupBox3.Size = new System.Drawing.Size(426, 113);
+            this.customGroupBox3.TabIndex = 16;
+            this.customGroupBox3.TabStop = false;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton5.Location = new System.Drawing.Point(176, 70);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(68, 24);
+            this.radioButton5.TabIndex = 18;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "Movie";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton4.Location = new System.Drawing.Point(240, 16);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(64, 24);
+            this.radioButton4.TabIndex = 17;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "Food";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton3.Location = new System.Drawing.Point(328, 70);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(64, 24);
+            this.radioButton3.TabIndex = 16;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Color";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(328, 28);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(73, 24);
+            this.radioButton2.TabIndex = 15;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Hobby";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(20, 46);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(65, 24);
+            this.radioButton1.TabIndex = 14;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Actor";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // tabRectangle
             // 
             this.tabRectangle.Controls.Add(this.grpRectangleContainer);
@@ -530,123 +518,11 @@ namespace Mathre
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
             // 
-            // grpRectangleControls
-            // 
-            this.grpRectangleControls.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpRectangleControls.AutoSize = true;
-            this.grpRectangleControls.BackColor = System.Drawing.SystemColors.Control;
-            this.grpRectangleControls.BorderColor = System.Drawing.Color.Black;
-            this.grpRectangleControls.Controls.Add(this.btnRectangleEnter);
-            this.grpRectangleControls.Controls.Add(this.lblRectangleAreaTitle);
-            this.grpRectangleControls.Controls.Add(this.txtRectangleDimensions);
-            this.grpRectangleControls.Controls.Add(this.lblRectangleDimensions);
-            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimiterTitle);
-            this.grpRectangleControls.Controls.Add(this.lblRectangleArea);
-            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimeter);
-            this.grpRectangleControls.Location = new System.Drawing.Point(309, 140);
-            this.grpRectangleControls.Name = "grpRectangleControls";
-            this.grpRectangleControls.Size = new System.Drawing.Size(426, 105);
-            this.grpRectangleControls.TabIndex = 10;
-            this.grpRectangleControls.TabStop = false;
-            // 
-            // lblRectanglePerimeter
-            // 
-            this.lblRectanglePerimeter.AutoSize = true;
-            this.lblRectanglePerimeter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectanglePerimeter.Location = new System.Drawing.Point(99, 71);
-            this.lblRectanglePerimeter.Name = "lblRectanglePerimeter";
-            this.lblRectanglePerimeter.Size = new System.Drawing.Size(61, 15);
-            this.lblRectanglePerimeter.TabIndex = 17;
-            this.lblRectanglePerimeter.Text = "Perimeter";
-            this.lblRectanglePerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblRectangleArea
-            // 
-            this.lblRectangleArea.AutoSize = true;
-            this.lblRectangleArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleArea.Location = new System.Drawing.Point(71, 45);
-            this.lblRectangleArea.Name = "lblRectangleArea";
-            this.lblRectangleArea.Size = new System.Drawing.Size(32, 15);
-            this.lblRectangleArea.TabIndex = 16;
-            this.lblRectangleArea.Text = "Area";
-            this.lblRectangleArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblRectanglePerimiterTitle
-            // 
-            this.lblRectanglePerimiterTitle.AutoSize = true;
-            this.lblRectanglePerimiterTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectanglePerimiterTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRectanglePerimiterTitle.Location = new System.Drawing.Point(18, 68);
-            this.lblRectanglePerimiterTitle.Name = "lblRectanglePerimiterTitle";
-            this.lblRectanglePerimiterTitle.Size = new System.Drawing.Size(75, 20);
-            this.lblRectanglePerimiterTitle.TabIndex = 15;
-            this.lblRectanglePerimiterTitle.Text = "Perimiter:";
-            // 
-            // lblRectangleDimensions
-            // 
-            this.lblRectangleDimensions.AutoSize = true;
-            this.lblRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleDimensions.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRectangleDimensions.Location = new System.Drawing.Point(18, 16);
-            this.lblRectangleDimensions.Name = "lblRectangleDimensions";
-            this.lblRectangleDimensions.Size = new System.Drawing.Size(173, 20);
-            this.lblRectangleDimensions.TabIndex = 9;
-            this.lblRectangleDimensions.Text = "Rectangle Dimensions:";
-            // 
-            // txtRectangleDimensions
-            // 
-            this.txtRectangleDimensions.BackColor = System.Drawing.SystemColors.Window;
-            this.txtRectangleDimensions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRectangleDimensions.Location = new System.Drawing.Point(217, 13);
-            this.txtRectangleDimensions.Margin = new System.Windows.Forms.Padding(0);
-            this.txtRectangleDimensions.Name = "txtRectangleDimensions";
-            this.txtRectangleDimensions.Size = new System.Drawing.Size(175, 26);
-            this.txtRectangleDimensions.TabIndex = 13;
-            this.txtRectangleDimensions.TextChanged += this.Rectangle;
-			this.txtRectangleDimensions.KeyPress += this.RectangleKeypress;
-			// 
-			// lblRectangleAreaTitle
-			// 
-			this.lblRectangleAreaTitle.AutoSize = true;
-            this.lblRectangleAreaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleAreaTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRectangleAreaTitle.Location = new System.Drawing.Point(18, 42);
-            this.lblRectangleAreaTitle.Name = "lblRectangleAreaTitle";
-            this.lblRectangleAreaTitle.Size = new System.Drawing.Size(47, 20);
-            this.lblRectangleAreaTitle.TabIndex = 14;
-            this.lblRectangleAreaTitle.Text = "Area:";
-            // 
-            // btnRectangleEnter
-            // 
-            this.btnRectangleEnter.BackColor = System.Drawing.SystemColors.Control;
-            this.btnRectangleEnter.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRectangleEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRectangleEnter.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangleEnter.Image")));
-            this.btnRectangleEnter.Location = new System.Drawing.Point(391, 13);
-            this.btnRectangleEnter.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRectangleEnter.Name = "btnRectangleEnter";
-            this.btnRectangleEnter.Size = new System.Drawing.Size(26, 26);
-            this.btnRectangleEnter.TabIndex = 18;
-            this.btnRectangleEnter.UseVisualStyleBackColor = false;
-            this.btnRectangleEnter.Click += this.Rectangle;
-            // 
-            // lblRectangleTitle
-            // 
-            this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleTitle.Location = new System.Drawing.Point(209, 71);
-            this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblRectangleTitle.Name = "lblRectangleTitle";
-            this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblRectangleTitle.TabIndex = 11;
-            this.lblRectangleTitle.Text = "Rectangle Calculator";
-            this.lblRectangleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // grpRectangleContainer
             // 
             this.grpRectangleContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.grpRectangleContainer.BorderColor = System.Drawing.Color.Black;
+            this.grpRectangleContainer.Controls.Add(this.lblRectangleError);
             this.grpRectangleContainer.Controls.Add(this.grpRectangle);
             this.grpRectangleContainer.Location = new System.Drawing.Point(309, 261);
             this.grpRectangleContainer.Name = "grpRectangleContainer";
@@ -668,6 +544,116 @@ namespace Mathre
             this.grpRectangle.TabStop = false;
             this.grpRectangle.Visible = false;
             // 
+            // lblRectangleTitle
+            // 
+            this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRectangleTitle.Name = "lblRectangleTitle";
+            this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblRectangleTitle.TabIndex = 11;
+            this.lblRectangleTitle.Text = "Rectangle Calculator";
+            this.lblRectangleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // grpRectangleControls
+            // 
+            this.grpRectangleControls.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpRectangleControls.AutoSize = true;
+            this.grpRectangleControls.BackColor = System.Drawing.SystemColors.Control;
+            this.grpRectangleControls.BorderColor = System.Drawing.Color.Black;
+            this.grpRectangleControls.Controls.Add(this.btnRectangleEnter);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleAreaTitle);
+            this.grpRectangleControls.Controls.Add(this.txtRectangleDimensions);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleDimensions);
+            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimiterTitle);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleArea);
+            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimeter);
+            this.grpRectangleControls.Location = new System.Drawing.Point(309, 140);
+            this.grpRectangleControls.Name = "grpRectangleControls";
+            this.grpRectangleControls.Size = new System.Drawing.Size(426, 105);
+            this.grpRectangleControls.TabIndex = 10;
+            this.grpRectangleControls.TabStop = false;
+            // 
+            // btnRectangleEnter
+            // 
+            this.btnRectangleEnter.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRectangleEnter.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRectangleEnter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRectangleEnter.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangleEnter.Image")));
+            this.btnRectangleEnter.Location = new System.Drawing.Point(391, 13);
+            this.btnRectangleEnter.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRectangleEnter.Name = "btnRectangleEnter";
+            this.btnRectangleEnter.Size = new System.Drawing.Size(26, 26);
+            this.btnRectangleEnter.TabIndex = 18;
+            this.btnRectangleEnter.UseVisualStyleBackColor = false;
+            // 
+            // lblRectangleAreaTitle
+            // 
+            this.lblRectangleAreaTitle.AutoSize = true;
+            this.lblRectangleAreaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleAreaTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectangleAreaTitle.Location = new System.Drawing.Point(18, 42);
+            this.lblRectangleAreaTitle.Name = "lblRectangleAreaTitle";
+            this.lblRectangleAreaTitle.Size = new System.Drawing.Size(47, 20);
+            this.lblRectangleAreaTitle.TabIndex = 14;
+            this.lblRectangleAreaTitle.Text = "Area:";
+            // 
+            // txtRectangleDimensions
+            // 
+            this.txtRectangleDimensions.BackColor = System.Drawing.SystemColors.Window;
+            this.txtRectangleDimensions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRectangleDimensions.Location = new System.Drawing.Point(217, 13);
+            this.txtRectangleDimensions.Margin = new System.Windows.Forms.Padding(0);
+            this.txtRectangleDimensions.Name = "txtRectangleDimensions";
+            this.txtRectangleDimensions.Size = new System.Drawing.Size(175, 26);
+            this.txtRectangleDimensions.TabIndex = 13;
+            // 
+            // lblRectangleDimensions
+            // 
+            this.lblRectangleDimensions.AutoSize = true;
+            this.lblRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleDimensions.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectangleDimensions.Location = new System.Drawing.Point(18, 16);
+            this.lblRectangleDimensions.Name = "lblRectangleDimensions";
+            this.lblRectangleDimensions.Size = new System.Drawing.Size(173, 20);
+            this.lblRectangleDimensions.TabIndex = 9;
+            this.lblRectangleDimensions.Text = "Rectangle Dimensions:";
+            // 
+            // lblRectanglePerimiterTitle
+            // 
+            this.lblRectanglePerimiterTitle.AutoSize = true;
+            this.lblRectanglePerimiterTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectanglePerimiterTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectanglePerimiterTitle.Location = new System.Drawing.Point(18, 68);
+            this.lblRectanglePerimiterTitle.Name = "lblRectanglePerimiterTitle";
+            this.lblRectanglePerimiterTitle.Size = new System.Drawing.Size(75, 20);
+            this.lblRectanglePerimiterTitle.TabIndex = 15;
+            this.lblRectanglePerimiterTitle.Text = "Perimiter:";
+            // 
+            // lblRectangleArea
+            // 
+            this.lblRectangleArea.AutoSize = true;
+            this.lblRectangleArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleArea.Location = new System.Drawing.Point(71, 45);
+            this.lblRectangleArea.Name = "lblRectangleArea";
+            this.lblRectangleArea.Size = new System.Drawing.Size(32, 15);
+            this.lblRectangleArea.TabIndex = 16;
+            this.lblRectangleArea.Text = "Area";
+            this.lblRectangleArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblRectanglePerimeter
+            // 
+            this.lblRectanglePerimeter.AutoSize = true;
+            this.lblRectanglePerimeter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectanglePerimeter.Location = new System.Drawing.Point(99, 71);
+            this.lblRectanglePerimeter.Name = "lblRectanglePerimeter";
+            this.lblRectanglePerimeter.Size = new System.Drawing.Size(61, 15);
+            this.lblRectanglePerimeter.TabIndex = 17;
+            this.lblRectanglePerimeter.Text = "Perimeter";
+            this.lblRectanglePerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // tabMySchool
             // 
             this.tabMySchool.Controls.Add(this.lblMySchoolTitle);
@@ -679,6 +665,18 @@ namespace Mathre
             this.tabMySchool.TabIndex = 1;
             this.tabMySchool.Text = "My School";
             this.tabMySchool.UseVisualStyleBackColor = true;
+            // 
+            // lblMySchoolTitle
+            // 
+            this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMySchoolTitle.Location = new System.Drawing.Point(274, 71);
+            this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblMySchoolTitle.Name = "lblMySchoolTitle";
+            this.lblMySchoolTitle.Size = new System.Drawing.Size(496, 51);
+            this.lblMySchoolTitle.TabIndex = 8;
+            this.lblMySchoolTitle.Text = "Red River High School";
+            this.lblMySchoolTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // grpMySchool
             // 
@@ -695,15 +693,16 @@ namespace Mathre
             this.grpMySchool.TabIndex = 9;
             this.grpMySchool.TabStop = false;
             // 
-            // btnMySchoolToggleMascot
+            // lblMySchoolMascot
             // 
-            this.btnMySchoolToggleMascot.Location = new System.Drawing.Point(51, 60);
-            this.btnMySchoolToggleMascot.Name = "btnMySchoolToggleMascot";
-            this.btnMySchoolToggleMascot.Size = new System.Drawing.Size(132, 23);
-            this.btnMySchoolToggleMascot.TabIndex = 9;
-            this.btnMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
-            this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
-            this.btnMySchoolToggleMascot.Click += this.Buttons;
+            this.lblMySchoolMascot.AutoSize = true;
+            this.lblMySchoolMascot.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMySchoolMascot.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblMySchoolMascot.Location = new System.Drawing.Point(50, 27);
+            this.lblMySchoolMascot.Name = "lblMySchoolMascot";
+            this.lblMySchoolMascot.Size = new System.Drawing.Size(134, 18);
+            this.lblMySchoolMascot.TabIndex = 10;
+            this.lblMySchoolMascot.Text = "Mascot: Roughriders";
             // 
             // picMySchoolMascot
             // 
@@ -717,28 +716,14 @@ namespace Mathre
             this.picMySchoolMascot.TabStop = false;
             this.picMySchoolMascot.Visible = false;
             // 
-            // lblMySchoolMascot
+            // btnMySchoolToggleMascot
             // 
-            this.lblMySchoolMascot.AutoSize = true;
-            this.lblMySchoolMascot.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolMascot.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblMySchoolMascot.Location = new System.Drawing.Point(50, 27);
-            this.lblMySchoolMascot.Name = "lblMySchoolMascot";
-            this.lblMySchoolMascot.Size = new System.Drawing.Size(134, 18);
-            this.lblMySchoolMascot.TabIndex = 10;
-            this.lblMySchoolMascot.Text = "Mascot: Roughriders";
-            // 
-            // lblMySchoolTitle
-            // 
-            this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolTitle.Location = new System.Drawing.Point(274, 71);
-            this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblMySchoolTitle.Name = "lblMySchoolTitle";
-            this.lblMySchoolTitle.Size = new System.Drawing.Size(496, 51);
-            this.lblMySchoolTitle.TabIndex = 8;
-            this.lblMySchoolTitle.Text = "Red River High School";
-            this.lblMySchoolTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnMySchoolToggleMascot.Location = new System.Drawing.Point(51, 60);
+            this.btnMySchoolToggleMascot.Name = "btnMySchoolToggleMascot";
+            this.btnMySchoolToggleMascot.Size = new System.Drawing.Size(132, 23);
+            this.btnMySchoolToggleMascot.TabIndex = 9;
+            this.btnMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
+            this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
             // 
             // tabHelloWorld
             // 
@@ -752,18 +737,6 @@ namespace Mathre
             this.tabHelloWorld.Size = new System.Drawing.Size(1044, 486);
             this.tabHelloWorld.TabIndex = 0;
             this.tabHelloWorld.Text = "Hello World";
-            // 
-            // lblHelloWorldTitle
-            // 
-            this.lblHelloWorldTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHelloWorldTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelloWorldTitle.Location = new System.Drawing.Point(309, 71);
-            this.lblHelloWorldTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblHelloWorldTitle.Name = "lblHelloWorldTitle";
-            this.lblHelloWorldTitle.Size = new System.Drawing.Size(426, 51);
-            this.lblHelloWorldTitle.TabIndex = 5;
-            this.lblHelloWorldTitle.Text = "Hello World";
-            this.lblHelloWorldTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // grpHelloWorld
             // 
@@ -784,49 +757,25 @@ namespace Mathre
             this.grpHelloWorld.TabIndex = 7;
             this.grpHelloWorld.TabStop = false;
             // 
-            // btnHelloWorldEnglish
+            // picHelloWorldGerman
             // 
-            this.btnHelloWorldEnglish.AutoSize = true;
-            this.btnHelloWorldEnglish.Checked = true;
-            this.btnHelloWorldEnglish.Location = new System.Drawing.Point(71, 25);
-            this.btnHelloWorldEnglish.Name = "btnHelloWorldEnglish";
-            this.btnHelloWorldEnglish.Size = new System.Drawing.Size(59, 17);
-            this.btnHelloWorldEnglish.TabIndex = 7;
-            this.btnHelloWorldEnglish.TabStop = true;
-            this.btnHelloWorldEnglish.Text = "English";
-            this.btnHelloWorldEnglish.UseVisualStyleBackColor = true;
-            this.btnHelloWorldEnglish.Click += this.Buttons;
+            this.picHelloWorldGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.picHelloWorldGerman.Location = new System.Drawing.Point(293, 21);
+            this.picHelloWorldGerman.Name = "picHelloWorldGerman";
+            this.picHelloWorldGerman.Size = new System.Drawing.Size(31, 25);
+            this.picHelloWorldGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelloWorldGerman.TabIndex = 13;
+            this.picHelloWorldGerman.TabStop = false;
             // 
-            // btnHelloWorldGerman
+            // btnHelloWorldFrench
             // 
-            this.btnHelloWorldGerman.AutoSize = true;
-            this.btnHelloWorldGerman.Location = new System.Drawing.Point(330, 25);
-            this.btnHelloWorldGerman.Name = "btnHelloWorldGerman";
-            this.btnHelloWorldGerman.Size = new System.Drawing.Size(62, 17);
-            this.btnHelloWorldGerman.TabIndex = 8;
-            this.btnHelloWorldGerman.Text = "German";
-            this.btnHelloWorldGerman.UseVisualStyleBackColor = true;
-            this.btnHelloWorldGerman.Click += this.Buttons;
-            // 
-            // btnHelloWorldReset
-            // 
-            this.btnHelloWorldReset.Location = new System.Drawing.Point(169, 61);
-            this.btnHelloWorldReset.Name = "btnHelloWorldReset";
-            this.btnHelloWorldReset.Size = new System.Drawing.Size(75, 23);
-            this.btnHelloWorldReset.TabIndex = 9;
-            this.btnHelloWorldReset.Text = "Reset";
-            this.btnHelloWorldReset.UseVisualStyleBackColor = true;
-            this.btnHelloWorldReset.Click += this.Buttons;
-            // 
-            // picHelloWorldFrench
-            // 
-            this.picHelloWorldFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.picHelloWorldFrench.Location = new System.Drawing.Point(164, 21);
-            this.picHelloWorldFrench.Name = "picHelloWorldFrench";
-            this.picHelloWorldFrench.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldFrench.TabIndex = 11;
-            this.picHelloWorldFrench.TabStop = false;
+            this.btnHelloWorldFrench.AutoSize = true;
+            this.btnHelloWorldFrench.Location = new System.Drawing.Point(201, 25);
+            this.btnHelloWorldFrench.Name = "btnHelloWorldFrench";
+            this.btnHelloWorldFrench.Size = new System.Drawing.Size(58, 17);
+            this.btnHelloWorldFrench.TabIndex = 10;
+            this.btnHelloWorldFrench.Text = "French";
+            this.btnHelloWorldFrench.UseVisualStyleBackColor = true;
             // 
             // picHelloWorldEnglish
             // 
@@ -838,26 +787,58 @@ namespace Mathre
             this.picHelloWorldEnglish.TabIndex = 12;
             this.picHelloWorldEnglish.TabStop = false;
             // 
-            // btnHelloWorldFrench
+            // picHelloWorldFrench
             // 
-            this.btnHelloWorldFrench.AutoSize = true;
-            this.btnHelloWorldFrench.Location = new System.Drawing.Point(201, 25);
-            this.btnHelloWorldFrench.Name = "btnHelloWorldFrench";
-            this.btnHelloWorldFrench.Size = new System.Drawing.Size(58, 17);
-            this.btnHelloWorldFrench.TabIndex = 10;
-            this.btnHelloWorldFrench.Text = "French";
-            this.btnHelloWorldFrench.UseVisualStyleBackColor = true;
-            this.btnHelloWorldFrench.Click += this.Buttons;
+            this.picHelloWorldFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.picHelloWorldFrench.Location = new System.Drawing.Point(164, 21);
+            this.picHelloWorldFrench.Name = "picHelloWorldFrench";
+            this.picHelloWorldFrench.Size = new System.Drawing.Size(31, 25);
+            this.picHelloWorldFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelloWorldFrench.TabIndex = 11;
+            this.picHelloWorldFrench.TabStop = false;
             // 
-            // picHelloWorldGerman
+            // btnHelloWorldReset
             // 
-            this.picHelloWorldGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.picHelloWorldGerman.Location = new System.Drawing.Point(293, 21);
-            this.picHelloWorldGerman.Name = "picHelloWorldGerman";
-            this.picHelloWorldGerman.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldGerman.TabIndex = 13;
-            this.picHelloWorldGerman.TabStop = false;
+            this.btnHelloWorldReset.Location = new System.Drawing.Point(169, 61);
+            this.btnHelloWorldReset.Name = "btnHelloWorldReset";
+            this.btnHelloWorldReset.Size = new System.Drawing.Size(75, 23);
+            this.btnHelloWorldReset.TabIndex = 9;
+            this.btnHelloWorldReset.Text = "Reset";
+            this.btnHelloWorldReset.UseVisualStyleBackColor = true;
+            // 
+            // btnHelloWorldGerman
+            // 
+            this.btnHelloWorldGerman.AutoSize = true;
+            this.btnHelloWorldGerman.Location = new System.Drawing.Point(330, 25);
+            this.btnHelloWorldGerman.Name = "btnHelloWorldGerman";
+            this.btnHelloWorldGerman.Size = new System.Drawing.Size(62, 17);
+            this.btnHelloWorldGerman.TabIndex = 8;
+            this.btnHelloWorldGerman.Text = "German";
+            this.btnHelloWorldGerman.UseVisualStyleBackColor = true;
+            // 
+            // btnHelloWorldEnglish
+            // 
+            this.btnHelloWorldEnglish.AutoSize = true;
+            this.btnHelloWorldEnglish.Checked = true;
+            this.btnHelloWorldEnglish.Location = new System.Drawing.Point(71, 25);
+            this.btnHelloWorldEnglish.Name = "btnHelloWorldEnglish";
+            this.btnHelloWorldEnglish.Size = new System.Drawing.Size(59, 17);
+            this.btnHelloWorldEnglish.TabIndex = 7;
+            this.btnHelloWorldEnglish.TabStop = true;
+            this.btnHelloWorldEnglish.Text = "English";
+            this.btnHelloWorldEnglish.UseVisualStyleBackColor = true;
+            // 
+            // lblHelloWorldTitle
+            // 
+            this.lblHelloWorldTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHelloWorldTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelloWorldTitle.Location = new System.Drawing.Point(309, 71);
+            this.lblHelloWorldTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblHelloWorldTitle.Name = "lblHelloWorldTitle";
+            this.lblHelloWorldTitle.Size = new System.Drawing.Size(426, 51);
+            this.lblHelloWorldTitle.TabIndex = 5;
+            this.lblHelloWorldTitle.Text = "Hello World";
+            this.lblHelloWorldTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabMathre
             // 
@@ -879,6 +860,19 @@ namespace Mathre
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabMathre.TabIndex = 4;
             // 
+            // lblRectangleError
+            // 
+            this.lblRectangleError.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRectangleError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRectangleError.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleError.Location = new System.Drawing.Point(52, 43);
+            this.lblRectangleError.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRectangleError.Name = "lblRectangleError";
+            this.lblRectangleError.Size = new System.Drawing.Size(322, 51);
+            this.lblRectangleError.TabIndex = 16;
+            this.lblRectangleError.Text = "Invalid Dimensions";
+            this.lblRectangleError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // FrmMathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -895,7 +889,6 @@ namespace Mathre
             this.Name = "FrmMathre";
             this.Text = "Hello World";
             this.Load += new System.EventHandler(this.FormLoad);
-            this.KeyDown += this.KeyboardShortcuts;
             this.mnuBaseLayer.ResumeLayout(false);
             this.mnuBaseLayer.PerformLayout();
             this.tabSecret.ResumeLayout(false);
@@ -904,14 +897,14 @@ namespace Mathre
             this.grpSecret.PerformLayout();
             this.tabMyFavorites.ResumeLayout(false);
             this.tabMyFavorites.PerformLayout();
+            this.customGroupBox1.ResumeLayout(false);
             this.customGroupBox3.ResumeLayout(false);
             this.customGroupBox3.PerformLayout();
-            this.customGroupBox1.ResumeLayout(false);
             this.tabRectangle.ResumeLayout(false);
             this.tabRectangle.PerformLayout();
+            this.grpRectangleContainer.ResumeLayout(false);
             this.grpRectangleControls.ResumeLayout(false);
             this.grpRectangleControls.PerformLayout();
-            this.grpRectangleContainer.ResumeLayout(false);
             this.tabMySchool.ResumeLayout(false);
             this.tabMySchool.PerformLayout();
             this.grpMySchool.ResumeLayout(false);
@@ -921,9 +914,9 @@ namespace Mathre
             this.tabHelloWorld.PerformLayout();
             this.grpHelloWorld.ResumeLayout(false);
             this.grpHelloWorld.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
             this.tabMathre.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -996,5 +989,6 @@ namespace Mathre
 		internal RadioButton btnHelloWorldEnglish;
 		internal Label lblHelloWorldTitle;
 		internal TabControl tabMathre;
+		internal Label lblRectangleError;
 	}
 }

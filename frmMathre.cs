@@ -7,19 +7,17 @@
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
-using System.Threading;
 using System.Windows.Forms;
-using System.Text.RegularExpressions;
 
 namespace Mathre
 {
 
 	public partial class FrmMathre
 	{
+
 		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
 
 		{
@@ -35,7 +33,34 @@ namespace Mathre
 		}
 		public FrmMathre()
 		{
+
 			InitializeComponent();
+			btnHelloWorldFrench.Click += Buttons;
+			Load += FormLoad;
+			KeyDown += KeyboardShortcuts;
+			btnHelloWorldReset.Click += Buttons;
+			btnHelloWorldGerman.Click += Buttons;
+			btnHelloWorldEnglish.Click += Buttons;
+			btnMySchoolToggleMascot.Click += Buttons;
+			btnRectangleEnter.Click += Rectangle;
+			txtRectangleDimensions.KeyPress += RectangleKeypress;
+			txtRectangleDimensions.TextChanged += Rectangle;
+			btnSecretDisable.Click += SecretHandler;
+			btnSecretEnable.Click += SecretHandler;
+			mnuView.Click += Buttons;
+			mnuEdit.Click += Buttons;
+			mnuExit.Click += Buttons;
+			mnuMySchoolToggleMascot.Click += Buttons;
+			mnuHelloWorldReset.Click += Buttons;
+			mnuHelloWorldLanguageGerman.Click += Buttons;
+			mnuHelloWorldLanguageFrench.Click += Buttons;
+			mnuHelloWorldLanguageEnglish.Click += Buttons;
+			mnuRandomify.Click += Buttons;
+			mnuTechnicolor.Click += Buttons;
+			mnuDarkMode.Click += Buttons;
+			mnuRecolor.Click += Buttons;
+			mnuSecret.Click += Buttons;
+			KeyDown += KeyboardShortcuts;
 		}
 		// 
 		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
@@ -51,6 +76,8 @@ namespace Mathre
 		// 
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
+			lblRectangleError.Visible = false;
+			//
 			tabSecretStorage = tabMathre.TabPages[tabMathre.TabPages.IndexOf(tabSecret)]; // Copy the secret settings page to tabSecretStorage
 			colRemovedTabs.Controls.Add(tabSecretStorage); // Add the Secret Settings tab to the hidden tabcontrol
 			tabMathre.Controls.Remove(tabSecretStorage); // Remove the Secret Settings tab from the primary tabcontrol
@@ -122,38 +149,73 @@ namespace Mathre
 				{
 					Rectangle(Placeholder, null);
 				}
-				if (sender != null)
+				if (e.KeyCode == Keys.Delete)
 				{
 					e.Handled = true;
-					if (txtRectangleDimensions.SelectionLength != 0)
-						txtRectangleDimensions.SelectionLength = 0;
+				}
+				if (e.KeyCode == Keys.Control)
+				{
+					e.Handled = true;
 				}
 			}
 		}
 		private void RectangleKeypress(object sender, KeyPressEventArgs e)
 		{
-			Console.WriteLine(txtRectangleDimensions.SelectionStart.ToString());
-			Console.WriteLine(txtRectangleDimensions.Text.IndexOf(" "));
-			Console.WriteLine(txtRectangleDimensions.Text.IndexOf(" ", txtRectangleDimensions.Text.IndexOf(" ") + 1));
-			var textBox = sender as TextBoxBase;
-					if (textBox == null)
+			int space1 = (txtRectangleDimensions.Text.IndexOf(" "));
+			int x1 = (txtRectangleDimensions.Text.IndexOf("x"));
+			int space2 = (txtRectangleDimensions.Text.IndexOf(" ", txtRectangleDimensions.Text.IndexOf(" ") + 1));
+			int currentpos = (txtRectangleDimensions.SelectionStart - 1);
+			int modifier = 0;
+			string[] words = txtRectangleDimensions.Text.Split(' ');
+			if (sender is not TextBoxBase textBox)
 				return;
-			// did the user press their locale's decimal separator?
+			if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x"))
+			{
+				if (e.KeyChar == '\b')
+				{
+					e.Handled = true;
+					txtRectangleDimensions.SelectedText = "";
+					int selectionIndex = textBox.SelectionStart;
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x", "");
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace("x ", "");
+					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" ", "");
+					if (currentpos == space1) modifier = 1;
+					else if (currentpos == x1) modifier = 2;
+					else if (currentpos == space2) modifier = 3;
+					else modifier = 0;
+					textBox.SelectionStart = selectionIndex - modifier;
+				}
+			}
 			if (e.KeyChar.ToString() == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)
 			{
-				if (textBox.Text.Length == 0) // if empty, prefix the decimal with a 0
+				if (words.Length > 2)
 				{
-					textBox.Text = "0" + CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-					e.Handled = true;
-					textBox.SelectionStart = textBox.TextLength;
-				}
-				// ignore extra decimal separators
-				else if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+					if (currentpos < space1)
+					{
+						if (words[0].Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+						{
 							e.Handled = true;
+						}
+					}
+					else if (currentpos >= space2)
+					{
+						if (words[2].Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+						{
+							e.Handled = true;
+						}
+					}
+					else
+					{
+						e.Handled = true;
+					}
+				}
+				else if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+				{
+					e.Handled = true;
+				}
 			}
-			// allow backspaces, but no other non-numeric characters;
-			// note that arrow keys, delete, home, end, etc. do not trigger KeyPress
-			
+
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
 			{
 				if (textBox.Text.Contains(" x "))
@@ -169,28 +231,30 @@ namespace Mathre
 					textBox.SelectionStart = selectionIndex + 3; // restore cursor position
 				}
 			}
-			else if (e.KeyChar == '\b' || e.KeyChar == (Char)Keys.Delete)
+			else if ((currentpos == space1 || currentpos == x1 || currentpos == space2) && currentpos != -1)
 			{
-				if (txtRectangleDimensions.SelectionStart == txtRectangleDimensions.Text.IndexOf(" ") || txtRectangleDimensions.SelectionStart == txtRectangleDimensions.Text.IndexOf("x"))
+				if (currentpos != space2)
 				{
-					e.Handled = true; 
-					if (txtRectangleDimensions.Text.Contains(" x "))
+					e.Handled = true;
+				}
+				if (currentpos == space1 || currentpos == x1 || currentpos == space2 && currentpos != -1)
+				{
+					if (e.KeyChar == '\b')
 					{
-						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
+						if (txtRectangleDimensions.Text.Contains(" x "))
+						{
+							e.Handled = true;
+							int selectionIndex = textBox.SelectionStart;
+							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
+							if (currentpos == space1) modifier = 1;
+							if (currentpos == x1) modifier = 2;
+							if (currentpos == space2) modifier = 3;
+							textBox.SelectionStart = selectionIndex - modifier;
+
+						}
 					}
 				}
-				//else if (txtRectangleDimensions.Text.Contains("  "))
-				//{
-				//	txtRectangleDimensions.SelectionStart++;
-				//	SendKeys.Send("{BS}");
-				//}
-				//else if (txtRectangleDimensions.Text.Contains("x "))
-				//{
-				//	txtRectangleDimensions.SelectionStart += 2;
-				//	SendKeys.Send("{BS}");
-				//}
 			}
-
 		}
 
 
@@ -345,48 +409,27 @@ namespace Mathre
 				grpRectangle.Left = (grpRectangle.Parent.Width - grpRectangle.Width) / 2;
 				grpRectangle.Top = (grpRectangle.Parent.Height - grpRectangle.Height) / 2;
 				grpRectangle.Visible = true;
-				lblRectangleArea.Text = (Width * Height).ToString();
-				lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
+				lblRectangleError.Visible = false;
+				if ((newHeight == 0 || newWidth == 0) && (!(Height == 0 || Width == 0)))
+				{
+					lblRectangleError.Text = "Invalid Visualization";
+					lblRectangleError.Visible = true;
+					lblRectangleArea.Text = (Width * Height).ToString();
+					lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
+				}
+				else if ((Height == 0 || Width == 0 || newHeight == -2147483648 || newWidth == -2147483648))
+				{
+					lblRectangleError.Text = "Invalid Dimensions";
+					lblRectangleError.Visible = true;
+					lblRectangleArea.Text = "Invalid Dimensions";
+					lblRectanglePerimeter.Text = "Invalid Dimensions";
+				}
+				else
+				{
+					lblRectangleArea.Text = (Width * Height).ToString();
+					lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
+				}
 			}
-
-			//if (!new Regex((string)(@"^\d+( x ){1}\d+$")).Match(txtRectangleDimensions.Text).Success)
-			//{
-			//	if (new Regex((string)(@"^\d+( x ){1}\d+[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
-			//	{
-			//		txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
-			//		txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-			//	}
-			//	else
-			//	{
-			//		if (!new Regex((string)(@"^\d+( x ){1}$")).Match(txtRectangleDimensions.Text).Success)
-			//		{
-			//			if (new Regex((string)(@"^\d+( x ){1}[^\d]+$")).Match(txtRectangleDimensions.Text).Success)
-			//			{
-			//				txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1);
-			//				txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-			//			}
-			//			else
-			//			{
-			//				if (!new Regex((string)(@"^[0-9]?$")).Match(txtRectangleDimensions.Text).Success)
-			//				{
-			//					if (txtRectangleDimensions.Text.Length == 1)
-			//					{
-			//						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Remove(txtRectangleDimensions.Text.Length - 1, 1);
-			//					}
-			//				}
-
-			//				if (!new Regex((string)(@"^[0-9]+$")).Match(txtRectangleDimensions.Text).Success)
-			//				{
-			//					if (txtRectangleDimensions.Text.Length != 0)
-			//					{
-			//						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Substring(0, txtRectangleDimensions.Text.Length - 1) + " x ";
-			//						txtRectangleDimensions.SelectionStart = txtRectangleDimensions.Text.Length;
-			//					}
-			//				}
-			//			}
-			//		}
-			//	}
-			//}
 		}
 	}
 }
