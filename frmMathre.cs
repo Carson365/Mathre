@@ -3,6 +3,13 @@
 // Flag icons are sourced from the free icon set at https://www.iconfinder.com/iconsets/flags-37
 // RoughRiders mascot image sourced from https://www.gfschools.org/cms/lib/ND02203034/Centricity/Template/GlobalAssets/images///logos/Red%20River%20HS.png
 // Enter icon sourced from https://icons8.com/icon/62334/enter-mac-key
+//
+// Images for the My Favorites page were sourced from the below links and then run through the following resizer: https://transloadit.com/demos/image-manipulation/resize-to-100x100/
+//
+// Actor : https://www.nydailynews.com/resizer/CSMoV-0r7NhBWiY4g8hbi8EBWoM=/1200x0/top/cloudfront-us-east-1.images.arcpublishing.com/tronc/J47DUG2ZZVBWTG325QQY3L3DWQ.jpg
+// Movie : https://m.media-amazon.com/images/M/MV5BOTgwMzFiMWYtZDhlNS00ODNkLWJiODAtZDVhNzgyNzJhYjQ4L2ltYWdlXkEyXkFqcGdeQXVyNzEzOTYxNTQ@._V1_.jpg
+// Fruit : https://www.gardeningknowhow.com/wp-content/uploads/2019/10/stone-fruit-400x267.jpg
+// Hobby : https://rccarmarketplace.com/wp-content/uploads/2020/10/arrma-mojave-exb-full-option-roller-p2-720x380.jpg
 // 
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
@@ -33,8 +40,7 @@ namespace Mathre
 		}
 		public FrmMathre()
 		{
-
-			InitializeComponent();
+			this.InitializeComponent();
 			btnHelloWorldFrench.Click += Buttons;
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
@@ -42,7 +48,8 @@ namespace Mathre
 			btnHelloWorldGerman.Click += Buttons;
 			btnHelloWorldEnglish.Click += Buttons;
 			btnMySchoolToggleMascot.Click += Buttons;
-			btnRectangleEnter.Click += Rectangle;
+			btnRectangleCalculate.Click += Rectangle;
+			mnuRectangleCalculate.Click += Rectangle;
 			txtRectangleDimensions.KeyPress += RectangleKeypress;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			btnSecretDisable.Click += SecretHandler;
@@ -60,14 +67,22 @@ namespace Mathre
 			mnuDarkMode.Click += Buttons;
 			mnuRecolor.Click += Buttons;
 			mnuSecret.Click += Buttons;
-			KeyDown += KeyboardShortcuts;
+			btnFavoriteActor.Click += Buttons;
+			btnFavoriteColor.Click += Buttons;
+			btnFavoriteFruit.Click += Buttons;
+			btnFavoriteHobby.Click += Buttons;
+			btnFavoriteMovie.Click += Buttons;
+			mnuFavoriteActor.Click += Buttons;
+			mnuFavoriteColor.Click += Buttons;
+			mnuFavoriteFruit.Click += Buttons;
+			mnuFavoriteHobby.Click += Buttons;
+			mnuFavoriteMovie.Click += Buttons;
 		}
 		// 
 		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
 		public static string AccentColor; // Define a global variable to store the starting value of the System Accent Color
-		public static TabControl colRemovedTabs = new(); // Add a hidden/unused TabControl to store the Secret Settings tab  when not enabled
-		public static TabPage tabSecretStorage; // Add a variable "tabSecretStorage" as a Tabpage to store the Secret Settings tab  without modifying it
 		public static Color SystemColor;
+		public static bool hidden;
 		public object Placeholder;
 		public static Rectangle Rect;
 
@@ -77,10 +92,8 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
 			lblRectangleError.Visible = false;
-			//
-			tabSecretStorage = tabMathre.TabPages[tabMathre.TabPages.IndexOf(tabSecret)]; // Copy the secret settings page to tabSecretStorage
-			colRemovedTabs.Controls.Add(tabSecretStorage); // Add the Secret Settings tab to the hidden tabcontrol
-			tabMathre.Controls.Remove(tabSecretStorage); // Remove the Secret Settings tab from the primary tabcontrol
+			tabMathre.TabPages.Remove(tabSecret);
+			hidden = true;
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one.
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM"); // Navigate to this windows directory key
 			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key.
@@ -110,16 +123,16 @@ namespace Mathre
 		{
 			if (e.Control & e.KeyCode == Keys.S) // Add Control+S shortcut
 			{
-				if (tabMathre.TabPages.Contains(tabSecretStorage)) // Check for the Secret Settings tab in the main tablist
+				if (hidden == true)
 				{
-					colRemovedTabs.Controls.Add(tabSecretStorage); // If the Secret Settings tab is in the main tablist, add it to the hidden removed tab list -
-					tabMathre.Controls.Remove(tabSecretStorage); // - then remove it.
+					tabMathre.Controls.Add(tabSecret);
+					tabMathre.SelectedTab = tabSecret;
+					hidden = false;
 				}
-				else
+				else if (hidden == false)
 				{
-					tabMathre.Controls.Add(colRemovedTabs.TabPages[0]); // If the Secret Settings tab is not in the main tablist, add it -
-					colRemovedTabs.Controls.Remove(tabSecretStorage); // then remove it from the hidden removed tab list -
-					tabMathre.SelectedTab = tabSecretStorage; // - and switch to the Secret Settings tab.
+					tabMathre.Controls.Remove(tabSecret); // - then remove it.
+					hidden = true;
 				}
 			}
 			//
@@ -167,6 +180,12 @@ namespace Mathre
 			int currentpos = (txtRectangleDimensions.SelectionStart - 1);
 			int modifier = 0;
 			string[] words = txtRectangleDimensions.Text.Split(' ');
+			if (!(e.KeyChar == (char)Keys.Return))
+			{
+				grpRectangle.Visible = false;
+				lblRectangleArea.Text = "Area";
+				lblRectanglePerimeter.Text = "Perimeter";
+			}
 			if (sender is not TextBoxBase textBox)
 				return;
 			if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x"))
@@ -345,6 +364,37 @@ namespace Mathre
 			{
 				Application.Exit(); // Exit.
 			}
+			else if (ReferenceEquals(sender, btnFavoriteActor) | ReferenceEquals(sender, mnuFavoriteActor))
+			{
+				lblFavoriteTitle.Text = "My Favorite Actor";
+				lblFavoriteInfo.Text = "My favorite actor is Tom Hiddleston. \n He has starred and appeared in several films, but his most famous role is that of Loki in Marvel's MCU.";
+				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[0];
+			}
+			else if (ReferenceEquals(sender, btnFavoriteMovie) | ReferenceEquals(sender, mnuFavoriteMovie))
+			{
+				lblFavoriteTitle.Text = "My Favorite Movie";
+				lblFavoriteInfo.Text = "My favorite movie is The Imitation Game. \n it follows the work and life of Alan Turing, a revolutionary code-breaker and very early computer scientist.";
+				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[1];
+			}
+			else if (ReferenceEquals(sender, btnFavoriteFruit) | ReferenceEquals(sender, mnuFavoriteFruit))
+			{
+				lblFavoriteTitle.Text = "My Favorite Fruit";
+				lblFavoriteInfo.Text = "My favorite fruit is any stone fruit. \n The stone fruit family includes raspberries and blackberries, as well as peaches, plums, cherries, and other great fruits.";
+				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[2];
+			}
+			else if (ReferenceEquals(sender, btnFavoriteHobby) | ReferenceEquals(sender, mnuFavoriteHobby))
+			{
+				lblFavoriteTitle.Text = "My Favorite Hobby";
+				lblFavoriteInfo.Text = "My favorite hobby is remote control. \n Remote control cars are very fun to drive and work on, and despite their high price they are an easy hobby to get into.";
+				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[3];
+			}
+			else if (ReferenceEquals(sender, btnFavoriteColor) | ReferenceEquals(sender, mnuFavoriteColor))
+			{
+				lblFavoriteTitle.Text = "My Favorite Color";
+				lblFavoriteInfo.Text = "My favorite color is purple. \n It can complement a variety of other colors, works well to convey many different ideas or emotions, and it looks good.";
+				grpFavoriteImage.BackgroundImage = null;
+				grpFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
+			}
 		}
 
 		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
@@ -393,7 +443,7 @@ namespace Mathre
 					Width = WidthValue;
 				}
 			}
-			if (ReferenceEquals(sender, btnRectangleEnter))
+			if (ReferenceEquals(sender, btnRectangleCalculate))
 			{
 				Rectangle(Placeholder, null);
 			}
