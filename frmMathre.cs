@@ -24,23 +24,10 @@ namespace Mathre
 
 	public partial class FrmMathre
 	{
-
-		protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-
-		{
-
-			if (keyData == Keys.Delete)
-
-				OnKeyPress(new KeyPressEventArgs((Char)Keys.Delete));
-
-
-
-			return base.ProcessCmdKey(ref msg, keyData);
-
-		}
 		public FrmMathre()
 		{
 			this.InitializeComponent();
+			// The following are all event handlers. They assign the event (left) to its handler (right)
 			btnHelloWorldFrench.Click += Buttons;
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
@@ -81,10 +68,10 @@ namespace Mathre
 		// 
 		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
 		public static string AccentColor; // Define a global variable to store the starting value of the System Accent Color
-		public static Color SystemColor;
-		public static bool hidden;
-		public object Placeholder;
-		public static Rectangle Rect;
+		public static Color SystemColor; // Define a global color to store the converted value of the System Accent Color
+		public static bool hidden; // Define a global variable to acknowledge whether the Secret Settings page is hidden
+		public object Placeholder; // Define a global object to use to send blank events between event handlers
+		public static Rectangle Rect; // Define a global rectangle to use for measurements
 
 
 
