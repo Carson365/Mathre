@@ -117,26 +117,30 @@ namespace Mathre
             this.tabMathre = new System.Windows.Forms.TabControl();
             this.tabTemperature = new System.Windows.Forms.TabPage();
             this.customGroupBox1 = new Mathre.CustomGroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.customGroupBox3 = new Mathre.CustomGroupBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.tabDigits = new System.Windows.Forms.TabPage();
             this.customGroupBox4 = new Mathre.CustomGroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.customGroupBox6 = new Mathre.CustomGroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.mnuBaseLayer.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.grpSecret.SuspendLayout();
@@ -156,8 +160,11 @@ namespace Mathre
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
             this.tabMathre.SuspendLayout();
             this.tabTemperature.SuspendLayout();
+            this.customGroupBox1.SuspendLayout();
             this.customGroupBox3.SuspendLayout();
             this.tabDigits.SuspendLayout();
+            this.customGroupBox4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.customGroupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -988,12 +995,60 @@ namespace Mathre
             // 
             this.customGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customGroupBox1.BorderColor = System.Drawing.Color.Black;
+            this.customGroupBox1.Controls.Add(this.label7);
+            this.customGroupBox1.Controls.Add(this.label6);
+            this.customGroupBox1.Controls.Add(this.label5);
+            this.customGroupBox1.Controls.Add(this.label3);
             this.customGroupBox1.Location = new System.Drawing.Point(309, 261);
             this.customGroupBox1.Name = "customGroupBox1";
-            this.customGroupBox1.Size = new System.Drawing.Size(426, 136);
+            this.customGroupBox1.Size = new System.Drawing.Size(426, 81);
             this.customGroupBox1.TabIndex = 18;
             this.customGroupBox1.TabStop = false;
             this.customGroupBox1.Text = "customGroupBox2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label3.Location = new System.Drawing.Point(18, 16);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(201, 20);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Temperature in Fahrenheit:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(199, 45);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(61, 15);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Perimeter";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(225, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(32, 15);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Area";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label5.Location = new System.Drawing.Point(18, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(175, 20);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Temperature in Celsius:";
             // 
             // label2
             // 
@@ -1013,13 +1068,11 @@ namespace Mathre
             this.customGroupBox3.AutoSize = true;
             this.customGroupBox3.BackColor = System.Drawing.SystemColors.Control;
             this.customGroupBox3.BorderColor = System.Drawing.Color.Black;
+            this.customGroupBox3.Controls.Add(this.radioButton1);
+            this.customGroupBox3.Controls.Add(this.radioButton2);
             this.customGroupBox3.Controls.Add(this.button1);
-            this.customGroupBox3.Controls.Add(this.label3);
             this.customGroupBox3.Controls.Add(this.textBox1);
             this.customGroupBox3.Controls.Add(this.label4);
-            this.customGroupBox3.Controls.Add(this.label5);
-            this.customGroupBox3.Controls.Add(this.label6);
-            this.customGroupBox3.Controls.Add(this.label7);
             this.customGroupBox3.Location = new System.Drawing.Point(309, 140);
             this.customGroupBox3.Name = "customGroupBox3";
             this.customGroupBox3.Size = new System.Drawing.Size(426, 105);
@@ -1038,17 +1091,6 @@ namespace Mathre
             this.button1.Size = new System.Drawing.Size(26, 26);
             this.button1.TabIndex = 18;
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(18, 42);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(47, 20);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Area:";
             // 
             // textBox1
             // 
@@ -1072,39 +1114,6 @@ namespace Mathre
             this.label4.TabIndex = 9;
             this.label4.Text = "Temperature:";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(18, 68);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(75, 20);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Perimiter:";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(71, 45);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 15);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Area";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(99, 71);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 15);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Perimeter";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
             // tabDigits
             // 
             this.tabDigits.Controls.Add(this.customGroupBox4);
@@ -1121,12 +1130,42 @@ namespace Mathre
             // 
             this.customGroupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.customGroupBox4.BorderColor = System.Drawing.Color.Black;
+            this.customGroupBox4.Controls.Add(this.panel1);
             this.customGroupBox4.Location = new System.Drawing.Point(309, 261);
             this.customGroupBox4.Name = "customGroupBox4";
             this.customGroupBox4.Size = new System.Drawing.Size(426, 136);
             this.customGroupBox4.TabIndex = 21;
             this.customGroupBox4.TabStop = false;
             this.customGroupBox4.Text = "customGroupBox2";
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.label15);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.label8);
+            this.panel1.Location = new System.Drawing.Point(2, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(422, 132);
+            this.panel1.TabIndex = 22;
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Location = new System.Drawing.Point(25, 45);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(154, 45);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "label1";
+            // 
+            // label8
+            // 
+            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label8.Location = new System.Drawing.Point(244, 45);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(154, 45);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "label8";
             // 
             // label9
             // 
@@ -1147,12 +1186,10 @@ namespace Mathre
             this.customGroupBox6.BackColor = System.Drawing.SystemColors.Control;
             this.customGroupBox6.BorderColor = System.Drawing.Color.Black;
             this.customGroupBox6.Controls.Add(this.button2);
-            this.customGroupBox6.Controls.Add(this.label10);
             this.customGroupBox6.Controls.Add(this.textBox2);
             this.customGroupBox6.Controls.Add(this.label11);
-            this.customGroupBox6.Controls.Add(this.label12);
-            this.customGroupBox6.Controls.Add(this.label13);
             this.customGroupBox6.Controls.Add(this.label14);
+            this.customGroupBox6.Controls.Add(this.label10);
             this.customGroupBox6.Location = new System.Drawing.Point(309, 140);
             this.customGroupBox6.Name = "customGroupBox6";
             this.customGroupBox6.Size = new System.Drawing.Size(426, 105);
@@ -1177,11 +1214,11 @@ namespace Mathre
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(18, 42);
+            this.label10.Location = new System.Drawing.Point(18, 61);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(47, 20);
+            this.label10.Size = new System.Drawing.Size(131, 20);
             this.label10.TabIndex = 14;
-            this.label10.Text = "Area:";
+            this.label10.Text = "Number of Digits:";
             // 
             // textBox2
             // 
@@ -1205,38 +1242,48 @@ namespace Mathre
             this.label11.TabIndex = 9;
             this.label11.Text = "Number:";
             // 
-            // label12
+            // label15
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label12.Location = new System.Drawing.Point(18, 68);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(75, 20);
-            this.label12.TabIndex = 15;
-            this.label12.Text = "Perimiter:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(71, 45);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(32, 15);
-            this.label13.TabIndex = 16;
-            this.label13.Text = "Area";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(25, 14);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(373, 27);
+            this.label15.TabIndex = 3;
+            this.label15.Text = "Number Digits";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(99, 71);
+            this.label14.Location = new System.Drawing.Point(155, 64);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(61, 15);
+            this.label14.Size = new System.Drawing.Size(38, 15);
             this.label14.TabIndex = 17;
-            this.label14.Text = "Perimeter";
+            this.label14.Text = "Digits";
             this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(275, 61);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(78, 24);
+            this.radioButton1.TabIndex = 26;
+            this.radioButton1.Text = "Celsius";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(73, 61);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(104, 24);
+            this.radioButton2.TabIndex = 25;
+            this.radioButton2.Text = "Fahrenheit";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // FrmMathre
             // 
@@ -1285,10 +1332,14 @@ namespace Mathre
             this.tabMathre.ResumeLayout(false);
             this.tabTemperature.ResumeLayout(false);
             this.tabTemperature.PerformLayout();
+            this.customGroupBox1.ResumeLayout(false);
+            this.customGroupBox1.PerformLayout();
             this.customGroupBox3.ResumeLayout(false);
             this.customGroupBox3.PerformLayout();
             this.tabDigits.ResumeLayout(false);
             this.tabDigits.PerformLayout();
+            this.customGroupBox4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.customGroupBox6.ResumeLayout(false);
             this.customGroupBox6.PerformLayout();
             this.ResumeLayout(false);
@@ -1391,8 +1442,12 @@ namespace Mathre
 		internal Label label10;
 		internal TextBox textBox2;
 		internal Label label11;
-		internal Label label12;
-		private Label label13;
+		private Panel panel1;
+		private Label label1;
+		private Label label8;
+		private RadioButton radioButton1;
+		private RadioButton radioButton2;
+		private Label label15;
 		private Label label14;
 	}
 }
