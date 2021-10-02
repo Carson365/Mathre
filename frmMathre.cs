@@ -76,6 +76,7 @@ namespace Mathre
 			btnFahrenheit.CheckedChanged += Temperature;
 			btnCelsius.CheckedChanged += Temperature;
 			txtTemperature.KeyUp += Temperature;
+			txtNumber.KeyUp += Digits;
 			mnuTemperatureFahrenheit.Click += Temperature;
 			mnuTemperatureCelsius.Click += Temperature;
 			mnuViewHelloWorld.Click += Buttons;
@@ -412,13 +413,11 @@ namespace Mathre
 			string[] words = txtRectangleDimensions.Text.Split(' '); // Split the input using the spaces as separators
 			if (words.Length > 2) // If there are at least three substrings
 			{
-				var LengthIsNumeric = double.TryParse(words[2], out double HeightValue); // Check whether the third substring is a number
-				if (LengthIsNumeric)
+				if (double.TryParse(words[2], out double HeightValue)) // Check whether the third substring is a number
 				{
 					Height = HeightValue; // Assign the height value to the third substring if numeric
 				}
-				var WidthIsNumeric = double.TryParse(words[0], out double WidthValue); // Check whether the first substring is a number
-				if (WidthIsNumeric)
+				if (double.TryParse(words[0], out double WidthValue)) // Check whether the first substring is a number
 				{
 					Width = WidthValue; // Assign the width value to the first substring if numeric
 				}
@@ -511,9 +510,35 @@ namespace Mathre
 		}
 		private void Digits(object sender, EventArgs e)
 		{
+			var numbersinbox = txtNumber.Text.Replace("-", "").Replace(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator, "").Length.ToString();
+			lblDigitsCount.Text = numbersinbox;
+			//foreach (char element in txtNumber.Text)
+			//{
+			//	if (element % 2 == 0)
+			//	{
+			//		lblDigitsListEvens.Text += $"{element}\r\n";
+			//	}
+			//	else if (element % 2 == 1)
+			//	{
+			//		lblDigitsListOdds.Text += ($"{element} ");
+			//	}
+			//}
 
-		}
-		private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
+			if (int.TryParse(lblDigitsCount.Text, out int numberofdigits))
+			{
+				if (numberofdigits % 2 == 0)
+				{
+					lblDigitsListEvens.Text += $"{numbersinbox}\r\n";
+				}
+				else if (numberofdigits % 2 == 1)
+				{
+					lblDigitsListOdds.Text += ($"{numbersinbox} ");
+				}
+			}
+				//Console.WriteLine(Char.GetNumericValue(txtNumber.Text, 7));
+				//lblDigitsListOdds.Text = 
+			}
+			private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
 			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
 				return; // -or else discard it
