@@ -116,31 +116,31 @@ namespace Mathre
             this.lblHelloWorldTitle = new System.Windows.Forms.Label();
             this.tabMathre = new System.Windows.Forms.TabControl();
             this.tabTemperature = new System.Windows.Forms.TabPage();
-            this.customGroupBox1 = new Mathre.CustomGroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.customGroupBox3 = new Mathre.CustomGroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.grpTemperatureResults = new Mathre.CustomGroupBox();
+            this.lblCelsiusDisplay = new System.Windows.Forms.Label();
+            this.lblFahrenheitDisplay = new System.Windows.Forms.Label();
+            this.lblCelsiusDisplayLabel = new System.Windows.Forms.Label();
+            this.lblFahrenheitDisplayLabel = new System.Windows.Forms.Label();
+            this.lblTemperatureTitle = new System.Windows.Forms.Label();
+            this.grpTemperature = new Mathre.CustomGroupBox();
+            this.btnCelsius = new System.Windows.Forms.RadioButton();
+            this.btnFahrenheit = new System.Windows.Forms.RadioButton();
+            this.btnTemperatureCalculate = new System.Windows.Forms.Button();
+            this.txtTemperature = new System.Windows.Forms.TextBox();
+            this.lblTemperature = new System.Windows.Forms.Label();
             this.tabDigits = new System.Windows.Forms.TabPage();
-            this.customGroupBox4 = new Mathre.CustomGroupBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.customGroupBox6 = new Mathre.CustomGroupBox();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label10 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.grpDigitsResults = new Mathre.CustomGroupBox();
+            this.pnlDigitsResults = new System.Windows.Forms.Panel();
+            this.lblDigitsResultsLabel = new System.Windows.Forms.Label();
+            this.lblDigitsListOdds = new System.Windows.Forms.Label();
+            this.lblDigitsListEvens = new System.Windows.Forms.Label();
+            this.lblDigitsTitle = new System.Windows.Forms.Label();
+            this.grpDigits = new Mathre.CustomGroupBox();
+            this.btnDigitsCalculate = new System.Windows.Forms.Button();
+            this.txtNumber = new System.Windows.Forms.TextBox();
+            this.lblDigits = new System.Windows.Forms.Label();
+            this.lblDigitsCount = new System.Windows.Forms.Label();
+            this.lblDigitsCountLabel = new System.Windows.Forms.Label();
             this.mnuBaseLayer.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.grpSecret.SuspendLayout();
@@ -160,12 +160,12 @@ namespace Mathre
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
             this.tabMathre.SuspendLayout();
             this.tabTemperature.SuspendLayout();
-            this.customGroupBox1.SuspendLayout();
-            this.customGroupBox3.SuspendLayout();
+            this.grpTemperatureResults.SuspendLayout();
+            this.grpTemperature.SuspendLayout();
             this.tabDigits.SuspendLayout();
-            this.customGroupBox4.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.customGroupBox6.SuspendLayout();
+            this.grpDigitsResults.SuspendLayout();
+            this.pnlDigitsResults.SuspendLayout();
+            this.grpDigits.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuBaseLayer
@@ -981,9 +981,9 @@ namespace Mathre
             // 
             // tabTemperature
             // 
-            this.tabTemperature.Controls.Add(this.customGroupBox1);
-            this.tabTemperature.Controls.Add(this.label2);
-            this.tabTemperature.Controls.Add(this.customGroupBox3);
+            this.tabTemperature.Controls.Add(this.grpTemperatureResults);
+            this.tabTemperature.Controls.Add(this.lblTemperatureTitle);
+            this.tabTemperature.Controls.Add(this.grpTemperature);
             this.tabTemperature.Location = new System.Drawing.Point(4, 22);
             this.tabTemperature.Name = "tabTemperature";
             this.tabTemperature.Size = new System.Drawing.Size(1044, 486);
@@ -991,134 +991,156 @@ namespace Mathre
             this.tabTemperature.Text = "Temperature Conversion";
             this.tabTemperature.UseVisualStyleBackColor = true;
             // 
-            // customGroupBox1
+            // grpTemperatureResults
             // 
-            this.customGroupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox1.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox1.Controls.Add(this.label7);
-            this.customGroupBox1.Controls.Add(this.label6);
-            this.customGroupBox1.Controls.Add(this.label5);
-            this.customGroupBox1.Controls.Add(this.label3);
-            this.customGroupBox1.Location = new System.Drawing.Point(309, 261);
-            this.customGroupBox1.Name = "customGroupBox1";
-            this.customGroupBox1.Size = new System.Drawing.Size(426, 81);
-            this.customGroupBox1.TabIndex = 18;
-            this.customGroupBox1.TabStop = false;
-            this.customGroupBox1.Text = "customGroupBox2";
+            this.grpTemperatureResults.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpTemperatureResults.BorderColor = System.Drawing.Color.Black;
+            this.grpTemperatureResults.Controls.Add(this.lblCelsiusDisplay);
+            this.grpTemperatureResults.Controls.Add(this.lblFahrenheitDisplay);
+            this.grpTemperatureResults.Controls.Add(this.lblCelsiusDisplayLabel);
+            this.grpTemperatureResults.Controls.Add(this.lblFahrenheitDisplayLabel);
+            this.grpTemperatureResults.Location = new System.Drawing.Point(309, 261);
+            this.grpTemperatureResults.Name = "grpTemperatureResults";
+            this.grpTemperatureResults.Size = new System.Drawing.Size(426, 81);
+            this.grpTemperatureResults.TabIndex = 18;
+            this.grpTemperatureResults.TabStop = false;
+            this.grpTemperatureResults.Text = "customGroupBox2";
             // 
-            // label3
+            // lblCelsiusDisplay
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label3.Location = new System.Drawing.Point(18, 16);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(201, 20);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Temperature in Fahrenheit:";
+            this.lblCelsiusDisplay.AutoSize = true;
+            this.lblCelsiusDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCelsiusDisplay.Location = new System.Drawing.Point(199, 45);
+            this.lblCelsiusDisplay.Name = "lblCelsiusDisplay";
+            this.lblCelsiusDisplay.Size = new System.Drawing.Size(78, 15);
+            this.lblCelsiusDisplay.TabIndex = 17;
+            this.lblCelsiusDisplay.Text = "Temperature";
+            this.lblCelsiusDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label7
+            // lblFahrenheitDisplay
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(199, 45);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 15);
-            this.label7.TabIndex = 17;
-            this.label7.Text = "Perimeter";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblFahrenheitDisplay.AutoSize = true;
+            this.lblFahrenheitDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFahrenheitDisplay.Location = new System.Drawing.Point(225, 19);
+            this.lblFahrenheitDisplay.Name = "lblFahrenheitDisplay";
+            this.lblFahrenheitDisplay.Size = new System.Drawing.Size(78, 15);
+            this.lblFahrenheitDisplay.TabIndex = 16;
+            this.lblFahrenheitDisplay.Text = "Temperature";
+            this.lblFahrenheitDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label6
+            // lblCelsiusDisplayLabel
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(225, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 15);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Area";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblCelsiusDisplayLabel.AutoSize = true;
+            this.lblCelsiusDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCelsiusDisplayLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCelsiusDisplayLabel.Location = new System.Drawing.Point(18, 42);
+            this.lblCelsiusDisplayLabel.Name = "lblCelsiusDisplayLabel";
+            this.lblCelsiusDisplayLabel.Size = new System.Drawing.Size(175, 20);
+            this.lblCelsiusDisplayLabel.TabIndex = 15;
+            this.lblCelsiusDisplayLabel.Text = "Temperature in Celsius:";
             // 
-            // label5
+            // lblFahrenheitDisplayLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label5.Location = new System.Drawing.Point(18, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(175, 20);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "Temperature in Celsius:";
+            this.lblFahrenheitDisplayLabel.AutoSize = true;
+            this.lblFahrenheitDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFahrenheitDisplayLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblFahrenheitDisplayLabel.Location = new System.Drawing.Point(18, 16);
+            this.lblFahrenheitDisplayLabel.Name = "lblFahrenheitDisplayLabel";
+            this.lblFahrenheitDisplayLabel.Size = new System.Drawing.Size(201, 20);
+            this.lblFahrenheitDisplayLabel.TabIndex = 14;
+            this.lblFahrenheitDisplayLabel.Text = "Temperature in Fahrenheit:";
             // 
-            // label2
+            // lblTemperatureTitle
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(209, 71);
-            this.label2.Margin = new System.Windows.Forms.Padding(0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(626, 51);
-            this.label2.TabIndex = 17;
-            this.label2.Text = "Temperature Converter";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTemperatureTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTemperatureTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperatureTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblTemperatureTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTemperatureTitle.Name = "lblTemperatureTitle";
+            this.lblTemperatureTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTemperatureTitle.TabIndex = 17;
+            this.lblTemperatureTitle.Text = "Temperature Converter";
+            this.lblTemperatureTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // customGroupBox3
+            // grpTemperature
             // 
-            this.customGroupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox3.AutoSize = true;
-            this.customGroupBox3.BackColor = System.Drawing.SystemColors.Control;
-            this.customGroupBox3.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox3.Controls.Add(this.radioButton1);
-            this.customGroupBox3.Controls.Add(this.radioButton2);
-            this.customGroupBox3.Controls.Add(this.button1);
-            this.customGroupBox3.Controls.Add(this.textBox1);
-            this.customGroupBox3.Controls.Add(this.label4);
-            this.customGroupBox3.Location = new System.Drawing.Point(309, 140);
-            this.customGroupBox3.Name = "customGroupBox3";
-            this.customGroupBox3.Size = new System.Drawing.Size(426, 105);
-            this.customGroupBox3.TabIndex = 16;
-            this.customGroupBox3.TabStop = false;
+            this.grpTemperature.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpTemperature.AutoSize = true;
+            this.grpTemperature.BackColor = System.Drawing.SystemColors.Control;
+            this.grpTemperature.BorderColor = System.Drawing.Color.Black;
+            this.grpTemperature.Controls.Add(this.btnCelsius);
+            this.grpTemperature.Controls.Add(this.btnFahrenheit);
+            this.grpTemperature.Controls.Add(this.btnTemperatureCalculate);
+            this.grpTemperature.Controls.Add(this.txtTemperature);
+            this.grpTemperature.Controls.Add(this.lblTemperature);
+            this.grpTemperature.Location = new System.Drawing.Point(309, 140);
+            this.grpTemperature.Name = "grpTemperature";
+            this.grpTemperature.Size = new System.Drawing.Size(426, 105);
+            this.grpTemperature.TabIndex = 16;
+            this.grpTemperature.TabStop = false;
             // 
-            // button1
+            // btnCelsius
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(391, 13);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(26, 26);
-            this.button1.TabIndex = 18;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCelsius.AutoSize = true;
+            this.btnCelsius.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCelsius.Location = new System.Drawing.Point(275, 61);
+            this.btnCelsius.Name = "btnCelsius";
+            this.btnCelsius.Size = new System.Drawing.Size(78, 24);
+            this.btnCelsius.TabIndex = 26;
+            this.btnCelsius.Text = "Celsius";
+            this.btnCelsius.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // btnFahrenheit
             // 
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(148, 13);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(244, 26);
-            this.textBox1.TabIndex = 13;
+            this.btnFahrenheit.AutoSize = true;
+            this.btnFahrenheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFahrenheit.Location = new System.Drawing.Point(73, 61);
+            this.btnFahrenheit.Name = "btnFahrenheit";
+            this.btnFahrenheit.Size = new System.Drawing.Size(104, 24);
+            this.btnFahrenheit.TabIndex = 25;
+            this.btnFahrenheit.Text = "Fahrenheit";
+            this.btnFahrenheit.UseVisualStyleBackColor = true;
             // 
-            // label4
+            // btnTemperatureCalculate
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label4.Location = new System.Drawing.Point(18, 16);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 20);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Temperature:";
+            this.btnTemperatureCalculate.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTemperatureCalculate.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnTemperatureCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTemperatureCalculate.Image = ((System.Drawing.Image)(resources.GetObject("btnTemperatureCalculate.Image")));
+            this.btnTemperatureCalculate.Location = new System.Drawing.Point(391, 13);
+            this.btnTemperatureCalculate.Margin = new System.Windows.Forms.Padding(0);
+            this.btnTemperatureCalculate.Name = "btnTemperatureCalculate";
+            this.btnTemperatureCalculate.Size = new System.Drawing.Size(26, 26);
+            this.btnTemperatureCalculate.TabIndex = 18;
+            this.btnTemperatureCalculate.UseVisualStyleBackColor = false;
+            // 
+            // txtTemperature
+            // 
+            this.txtTemperature.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTemperature.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemperature.Location = new System.Drawing.Point(148, 13);
+            this.txtTemperature.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTemperature.Name = "txtTemperature";
+            this.txtTemperature.Size = new System.Drawing.Size(244, 26);
+            this.txtTemperature.TabIndex = 13;
+            // 
+            // lblTemperature
+            // 
+            this.lblTemperature.AutoSize = true;
+            this.lblTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperature.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTemperature.Location = new System.Drawing.Point(18, 16);
+            this.lblTemperature.Name = "lblTemperature";
+            this.lblTemperature.Size = new System.Drawing.Size(104, 20);
+            this.lblTemperature.TabIndex = 9;
+            this.lblTemperature.Text = "Temperature:";
             // 
             // tabDigits
             // 
-            this.tabDigits.Controls.Add(this.customGroupBox4);
-            this.tabDigits.Controls.Add(this.label9);
-            this.tabDigits.Controls.Add(this.customGroupBox6);
+            this.tabDigits.Controls.Add(this.grpDigitsResults);
+            this.tabDigits.Controls.Add(this.lblDigitsTitle);
+            this.tabDigits.Controls.Add(this.grpDigits);
             this.tabDigits.Location = new System.Drawing.Point(4, 22);
             this.tabDigits.Name = "tabDigits";
             this.tabDigits.Size = new System.Drawing.Size(1044, 486);
@@ -1126,164 +1148,140 @@ namespace Mathre
             this.tabDigits.Text = "Digits of a Number";
             this.tabDigits.UseVisualStyleBackColor = true;
             // 
-            // customGroupBox4
+            // grpDigitsResults
             // 
-            this.customGroupBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox4.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox4.Controls.Add(this.panel1);
-            this.customGroupBox4.Location = new System.Drawing.Point(309, 261);
-            this.customGroupBox4.Name = "customGroupBox4";
-            this.customGroupBox4.Size = new System.Drawing.Size(426, 136);
-            this.customGroupBox4.TabIndex = 21;
-            this.customGroupBox4.TabStop = false;
-            this.customGroupBox4.Text = "customGroupBox2";
+            this.grpDigitsResults.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpDigitsResults.BorderColor = System.Drawing.Color.Black;
+            this.grpDigitsResults.Controls.Add(this.pnlDigitsResults);
+            this.grpDigitsResults.Location = new System.Drawing.Point(309, 261);
+            this.grpDigitsResults.Name = "grpDigitsResults";
+            this.grpDigitsResults.Size = new System.Drawing.Size(426, 136);
+            this.grpDigitsResults.TabIndex = 21;
+            this.grpDigitsResults.TabStop = false;
+            this.grpDigitsResults.Text = "customGroupBox2";
             // 
-            // panel1
+            // pnlDigitsResults
             // 
-            this.panel1.AutoScroll = true;
-            this.panel1.Controls.Add(this.label15);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.label8);
-            this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(422, 132);
-            this.panel1.TabIndex = 22;
+            this.pnlDigitsResults.AutoScroll = true;
+            this.pnlDigitsResults.Controls.Add(this.lblDigitsResultsLabel);
+            this.pnlDigitsResults.Controls.Add(this.lblDigitsListOdds);
+            this.pnlDigitsResults.Controls.Add(this.lblDigitsListEvens);
+            this.pnlDigitsResults.Location = new System.Drawing.Point(2, 2);
+            this.pnlDigitsResults.Name = "pnlDigitsResults";
+            this.pnlDigitsResults.Size = new System.Drawing.Size(422, 132);
+            this.pnlDigitsResults.TabIndex = 22;
             // 
-            // label1
+            // lblDigitsResultsLabel
             // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label1.Location = new System.Drawing.Point(25, 45);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(154, 45);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "label1";
+            this.lblDigitsResultsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigitsResultsLabel.Location = new System.Drawing.Point(25, 14);
+            this.lblDigitsResultsLabel.Name = "lblDigitsResultsLabel";
+            this.lblDigitsResultsLabel.Size = new System.Drawing.Size(373, 27);
+            this.lblDigitsResultsLabel.TabIndex = 3;
+            this.lblDigitsResultsLabel.Text = "Number of Digits";
+            this.lblDigitsResultsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label8
+            // lblDigitsListOdds
             // 
-            this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Location = new System.Drawing.Point(244, 45);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(154, 45);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "label8";
+            this.lblDigitsListOdds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDigitsListOdds.Location = new System.Drawing.Point(25, 45);
+            this.lblDigitsListOdds.Name = "lblDigitsListOdds";
+            this.lblDigitsListOdds.Size = new System.Drawing.Size(154, 45);
+            this.lblDigitsListOdds.TabIndex = 2;
             // 
-            // label9
+            // lblDigitsListEvens
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(209, 71);
-            this.label9.Margin = new System.Windows.Forms.Padding(0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(626, 51);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Numerical Digit Separator";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDigitsListEvens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblDigitsListEvens.Location = new System.Drawing.Point(244, 45);
+            this.lblDigitsListEvens.Name = "lblDigitsListEvens";
+            this.lblDigitsListEvens.Size = new System.Drawing.Size(154, 45);
+            this.lblDigitsListEvens.TabIndex = 1;
             // 
-            // customGroupBox6
+            // lblDigitsTitle
             // 
-            this.customGroupBox6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.customGroupBox6.AutoSize = true;
-            this.customGroupBox6.BackColor = System.Drawing.SystemColors.Control;
-            this.customGroupBox6.BorderColor = System.Drawing.Color.Black;
-            this.customGroupBox6.Controls.Add(this.button2);
-            this.customGroupBox6.Controls.Add(this.textBox2);
-            this.customGroupBox6.Controls.Add(this.label11);
-            this.customGroupBox6.Controls.Add(this.label14);
-            this.customGroupBox6.Controls.Add(this.label10);
-            this.customGroupBox6.Location = new System.Drawing.Point(309, 140);
-            this.customGroupBox6.Name = "customGroupBox6";
-            this.customGroupBox6.Size = new System.Drawing.Size(426, 105);
-            this.customGroupBox6.TabIndex = 19;
-            this.customGroupBox6.TabStop = false;
+            this.lblDigitsTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDigitsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigitsTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblDigitsTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblDigitsTitle.Name = "lblDigitsTitle";
+            this.lblDigitsTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblDigitsTitle.TabIndex = 20;
+            this.lblDigitsTitle.Text = "Numerical Digit Separator";
+            this.lblDigitsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // button2
+            // grpDigits
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
-            this.button2.Location = new System.Drawing.Point(391, 13);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(26, 26);
-            this.button2.TabIndex = 18;
-            this.button2.UseVisualStyleBackColor = false;
+            this.grpDigits.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpDigits.AutoSize = true;
+            this.grpDigits.BackColor = System.Drawing.SystemColors.Control;
+            this.grpDigits.BorderColor = System.Drawing.Color.Black;
+            this.grpDigits.Controls.Add(this.btnDigitsCalculate);
+            this.grpDigits.Controls.Add(this.txtNumber);
+            this.grpDigits.Controls.Add(this.lblDigits);
+            this.grpDigits.Controls.Add(this.lblDigitsCount);
+            this.grpDigits.Controls.Add(this.lblDigitsCountLabel);
+            this.grpDigits.Location = new System.Drawing.Point(309, 140);
+            this.grpDigits.Name = "grpDigits";
+            this.grpDigits.Size = new System.Drawing.Size(426, 105);
+            this.grpDigits.TabIndex = 19;
+            this.grpDigits.TabStop = false;
             // 
-            // label10
+            // btnDigitsCalculate
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label10.Location = new System.Drawing.Point(18, 61);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(131, 20);
-            this.label10.TabIndex = 14;
-            this.label10.Text = "Number of Digits:";
+            this.btnDigitsCalculate.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDigitsCalculate.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnDigitsCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDigitsCalculate.Image = ((System.Drawing.Image)(resources.GetObject("btnDigitsCalculate.Image")));
+            this.btnDigitsCalculate.Location = new System.Drawing.Point(391, 13);
+            this.btnDigitsCalculate.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDigitsCalculate.Name = "btnDigitsCalculate";
+            this.btnDigitsCalculate.Size = new System.Drawing.Size(26, 26);
+            this.btnDigitsCalculate.TabIndex = 18;
+            this.btnDigitsCalculate.UseVisualStyleBackColor = false;
             // 
-            // textBox2
+            // txtNumber
             // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(113, 13);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(279, 26);
-            this.textBox2.TabIndex = 13;
+            this.txtNumber.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumber.Location = new System.Drawing.Point(113, 13);
+            this.txtNumber.Margin = new System.Windows.Forms.Padding(0);
+            this.txtNumber.Name = "txtNumber";
+            this.txtNumber.Size = new System.Drawing.Size(279, 26);
+            this.txtNumber.TabIndex = 13;
             // 
-            // label11
+            // lblDigits
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label11.Location = new System.Drawing.Point(18, 16);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(69, 20);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Number:";
+            this.lblDigits.AutoSize = true;
+            this.lblDigits.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigits.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDigits.Location = new System.Drawing.Point(18, 16);
+            this.lblDigits.Name = "lblDigits";
+            this.lblDigits.Size = new System.Drawing.Size(69, 20);
+            this.lblDigits.TabIndex = 9;
+            this.lblDigits.Text = "Number:";
             // 
-            // label15
+            // lblDigitsCount
             // 
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(25, 14);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(373, 27);
-            this.label15.TabIndex = 3;
-            this.label15.Text = "Number Digits";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblDigitsCount.AutoSize = true;
+            this.lblDigitsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigitsCount.Location = new System.Drawing.Point(155, 64);
+            this.lblDigitsCount.Name = "lblDigitsCount";
+            this.lblDigitsCount.Size = new System.Drawing.Size(38, 15);
+            this.lblDigitsCount.TabIndex = 17;
+            this.lblDigitsCount.Text = "Digits";
+            this.lblDigitsCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // label14
+            // lblDigitsCountLabel
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(155, 64);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(38, 15);
-            this.label14.TabIndex = 17;
-            this.label14.Text = "Digits";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(275, 61);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(78, 24);
-            this.radioButton1.TabIndex = 26;
-            this.radioButton1.Text = "Celsius";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(73, 61);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(104, 24);
-            this.radioButton2.TabIndex = 25;
-            this.radioButton2.Text = "Fahrenheit";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.lblDigitsCountLabel.AutoSize = true;
+            this.lblDigitsCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigitsCountLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblDigitsCountLabel.Location = new System.Drawing.Point(18, 61);
+            this.lblDigitsCountLabel.Name = "lblDigitsCountLabel";
+            this.lblDigitsCountLabel.Size = new System.Drawing.Size(131, 20);
+            this.lblDigitsCountLabel.TabIndex = 14;
+            this.lblDigitsCountLabel.Text = "Number of Digits:";
             // 
             // FrmMathre
             // 
@@ -1332,16 +1330,16 @@ namespace Mathre
             this.tabMathre.ResumeLayout(false);
             this.tabTemperature.ResumeLayout(false);
             this.tabTemperature.PerformLayout();
-            this.customGroupBox1.ResumeLayout(false);
-            this.customGroupBox1.PerformLayout();
-            this.customGroupBox3.ResumeLayout(false);
-            this.customGroupBox3.PerformLayout();
+            this.grpTemperatureResults.ResumeLayout(false);
+            this.grpTemperatureResults.PerformLayout();
+            this.grpTemperature.ResumeLayout(false);
+            this.grpTemperature.PerformLayout();
             this.tabDigits.ResumeLayout(false);
             this.tabDigits.PerformLayout();
-            this.customGroupBox4.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.customGroupBox6.ResumeLayout(false);
-            this.customGroupBox6.PerformLayout();
+            this.grpDigitsResults.ResumeLayout(false);
+            this.pnlDigitsResults.ResumeLayout(false);
+            this.grpDigits.ResumeLayout(false);
+            this.grpDigits.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1425,29 +1423,29 @@ namespace Mathre
 		private CustomGroupBox grpFavoriteImage;
 		private TabPage tabTemperature;
 		private TabPage tabDigits;
-		private CustomGroupBox customGroupBox1;
-		internal Label label2;
-		internal CustomGroupBox customGroupBox3;
-		private Button button1;
-		internal Label label3;
-		internal TextBox textBox1;
-		internal Label label4;
-		internal Label label5;
-		private Label label6;
-		private Label label7;
-		private CustomGroupBox customGroupBox4;
-		internal Label label9;
-		internal CustomGroupBox customGroupBox6;
-		private Button button2;
-		internal Label label10;
-		internal TextBox textBox2;
-		internal Label label11;
-		private Panel panel1;
-		private Label label1;
-		private Label label8;
-		private RadioButton radioButton1;
-		private RadioButton radioButton2;
-		private Label label15;
-		private Label label14;
+		private CustomGroupBox grpTemperatureResults;
+		internal Label lblTemperatureTitle;
+		internal CustomGroupBox grpTemperature;
+		private Button btnTemperatureCalculate;
+		internal Label lblFahrenheitDisplayLabel;
+		internal TextBox txtTemperature;
+		internal Label lblTemperature;
+		internal Label lblCelsiusDisplayLabel;
+		private Label lblFahrenheitDisplay;
+		private Label lblCelsiusDisplay;
+		private CustomGroupBox grpDigitsResults;
+		internal Label lblDigitsTitle;
+		internal CustomGroupBox grpDigits;
+		private Button btnDigitsCalculate;
+		internal TextBox txtNumber;
+		internal Label lblDigits;
+		private Panel pnlDigitsResults;
+		private Label lblDigitsListOdds;
+		private Label lblDigitsListEvens;
+		private RadioButton btnCelsius;
+		private RadioButton btnFahrenheit;
+		private Label lblDigitsResultsLabel;
+		private Label lblDigitsCount;
+		internal Label lblDigitsCountLabel;
 	}
 }
