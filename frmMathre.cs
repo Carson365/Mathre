@@ -41,7 +41,6 @@ namespace Mathre
 			btnMySchoolToggleMascot.Click += Buttons;
 			btnRectangleCalculate.Click += Rectangle;
 			mnuRectangleCalculate.Click += Rectangle;
-			btnDigitsCalculate.Click += Temperature;
 			mnuDigitsCalculate.Click += Temperature;
 			txtRectangleDimensions.KeyPress += RectangleKeypress;
 			txtNumber.KeyPress += NumericalKeypress;
@@ -406,7 +405,6 @@ namespace Mathre
 				tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
 			}
 		}
-
 		private void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
 		{
 			double Height = 0; // Add a variable to store the rectangle height

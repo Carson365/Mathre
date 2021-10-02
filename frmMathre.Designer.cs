@@ -135,7 +135,6 @@ namespace Mathre
             this.lblDigitsListEvens = new System.Windows.Forms.Label();
             this.lblDigitsTitle = new System.Windows.Forms.Label();
             this.grpDigits = new Mathre.CustomGroupBox();
-            this.btnDigitsCalculate = new System.Windows.Forms.Button();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.lblDigits = new System.Windows.Forms.Label();
             this.lblDigitsCount = new System.Windows.Forms.Label();
@@ -226,7 +225,7 @@ namespace Mathre
             this.mnuTechnicolor});
             this.mnuRecolor.Enabled = false;
             this.mnuRecolor.Name = "mnuRecolor";
-            this.mnuRecolor.Size = new System.Drawing.Size(132, 22);
+            this.mnuRecolor.Size = new System.Drawing.Size(180, 22);
             this.mnuRecolor.Text = "Recolor";
             // 
             // mnuDarkMode
@@ -246,7 +245,7 @@ namespace Mathre
             // mnuRandomify
             // 
             this.mnuRandomify.Name = "mnuRandomify";
-            this.mnuRandomify.Size = new System.Drawing.Size(132, 22);
+            this.mnuRandomify.Size = new System.Drawing.Size(180, 22);
             this.mnuRandomify.Text = "Randomify";
             // 
             // mnuHelloWorld
@@ -265,7 +264,7 @@ namespace Mathre
             this.mnuHelloWorldLanguageFrench,
             this.mnuHelloWorldLanguageGerman});
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
-            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
             // 
             // mnuHelloWorldLanguageEnglish
@@ -292,7 +291,7 @@ namespace Mathre
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
-            this.mnuHelloWorldReset.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldReset.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldReset.Text = "Reset";
             // 
             // mnuMySchool
@@ -1221,7 +1220,6 @@ namespace Mathre
             this.grpDigits.AutoSize = true;
             this.grpDigits.BackColor = System.Drawing.SystemColors.Control;
             this.grpDigits.BorderColor = System.Drawing.Color.Black;
-            this.grpDigits.Controls.Add(this.btnDigitsCalculate);
             this.grpDigits.Controls.Add(this.txtNumber);
             this.grpDigits.Controls.Add(this.lblDigits);
             this.grpDigits.Controls.Add(this.lblDigitsCount);
@@ -1232,19 +1230,6 @@ namespace Mathre
             this.grpDigits.TabIndex = 19;
             this.grpDigits.TabStop = false;
             // 
-            // btnDigitsCalculate
-            // 
-            this.btnDigitsCalculate.BackColor = System.Drawing.SystemColors.Control;
-            this.btnDigitsCalculate.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnDigitsCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDigitsCalculate.Image = ((System.Drawing.Image)(resources.GetObject("btnDigitsCalculate.Image")));
-            this.btnDigitsCalculate.Location = new System.Drawing.Point(391, 13);
-            this.btnDigitsCalculate.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDigitsCalculate.Name = "btnDigitsCalculate";
-            this.btnDigitsCalculate.Size = new System.Drawing.Size(26, 26);
-            this.btnDigitsCalculate.TabIndex = 18;
-            this.btnDigitsCalculate.UseVisualStyleBackColor = false;
-            // 
             // txtNumber
             // 
             this.txtNumber.BackColor = System.Drawing.SystemColors.Window;
@@ -1253,7 +1238,7 @@ namespace Mathre
             this.txtNumber.Location = new System.Drawing.Point(113, 13);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(0);
             this.txtNumber.Name = "txtNumber";
-            this.txtNumber.Size = new System.Drawing.Size(279, 26);
+            this.txtNumber.Size = new System.Drawing.Size(304, 26);
             this.txtNumber.TabIndex = 13;
             // 
             // lblDigits
@@ -1518,7 +1503,6 @@ namespace Mathre
 		private CustomGroupBox grpDigitsResults;
 		internal Label lblDigitsTitle;
 		internal CustomGroupBox grpDigits;
-		private Button btnDigitsCalculate;
 		internal TextBox txtNumber;
 		internal Label lblDigits;
 		private Panel pnlDigitsResults;
