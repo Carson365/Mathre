@@ -56,7 +56,7 @@ namespace Mathre
             this.mnuMySchoolToggleMascot = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRectangle = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRectangleCalculate = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavorite = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFavorites = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteActor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteMovie = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteFruit = new System.Windows.Forms.ToolStripMenuItem();
@@ -141,6 +141,19 @@ namespace Mathre
             this.lblDigits = new System.Windows.Forms.Label();
             this.lblDigitsCount = new System.Windows.Forms.Label();
             this.lblDigitsCountLabel = new System.Windows.Forms.Label();
+            this.mnuTemperature = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDigits = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTemperatureCalculate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDigitsCalculate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTemperatureFahrenheit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTemperatureCelsius = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewHelloWorld = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewMySchool = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewRectangle = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewMyFavorites = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewTemperature = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewDigits = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewUnknown = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.grpSecret.SuspendLayout();
@@ -190,7 +203,9 @@ namespace Mathre
             this.mnuHelloWorld,
             this.mnuMySchool,
             this.mnuRectangle,
-            this.mnuFavorite,
+            this.mnuFavorites,
+            this.mnuTemperature,
+            this.mnuDigits,
             this.mnuExit});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
@@ -203,7 +218,7 @@ namespace Mathre
             this.mnuRandomify});
             this.mnuSecret.Enabled = false;
             this.mnuSecret.Name = "mnuSecret";
-            this.mnuSecret.Size = new System.Drawing.Size(184, 22);
+            this.mnuSecret.Size = new System.Drawing.Size(195, 22);
             this.mnuSecret.Text = "Super Secret Settings";
             // 
             // mnuRecolor
@@ -242,7 +257,7 @@ namespace Mathre
             this.mnuHelloWorldLanguage,
             this.mnuHelloWorldReset});
             this.mnuHelloWorld.Name = "mnuHelloWorld";
-            this.mnuHelloWorld.Size = new System.Drawing.Size(184, 22);
+            this.mnuHelloWorld.Size = new System.Drawing.Size(195, 22);
             this.mnuHelloWorld.Text = "Hello World";
             // 
             // mnuHelloWorldLanguage
@@ -287,7 +302,7 @@ namespace Mathre
             this.mnuMySchool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuMySchoolToggleMascot});
             this.mnuMySchool.Name = "mnuMySchool";
-            this.mnuMySchool.Size = new System.Drawing.Size(184, 22);
+            this.mnuMySchool.Size = new System.Drawing.Size(195, 22);
             this.mnuMySchool.Text = "My School";
             // 
             // mnuMySchoolToggleMascot
@@ -301,61 +316,61 @@ namespace Mathre
             this.mnuRectangle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuRectangleCalculate});
             this.mnuRectangle.Name = "mnuRectangle";
-            this.mnuRectangle.Size = new System.Drawing.Size(184, 22);
+            this.mnuRectangle.Size = new System.Drawing.Size(195, 22);
             this.mnuRectangle.Text = "Rectangle Calculator";
             // 
             // mnuRectangleCalculate
             // 
             this.mnuRectangleCalculate.Name = "mnuRectangleCalculate";
-            this.mnuRectangleCalculate.Size = new System.Drawing.Size(123, 22);
+            this.mnuRectangleCalculate.Size = new System.Drawing.Size(180, 22);
             this.mnuRectangleCalculate.Text = "Calculate";
             // 
-            // mnuFavorite
+            // mnuFavorites
             // 
-            this.mnuFavorite.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFavorites.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFavoriteActor,
             this.mnuFavoriteMovie,
             this.mnuFavoriteFruit,
             this.mnuFavoriteColor,
             this.mnuFavoriteHobby});
-            this.mnuFavorite.Name = "mnuFavorite";
-            this.mnuFavorite.Size = new System.Drawing.Size(184, 22);
-            this.mnuFavorite.Text = "My Favorites";
+            this.mnuFavorites.Name = "mnuFavorites";
+            this.mnuFavorites.Size = new System.Drawing.Size(195, 22);
+            this.mnuFavorites.Text = "My Favorites";
             // 
             // mnuFavoriteActor
             // 
             this.mnuFavoriteActor.Name = "mnuFavoriteActor";
-            this.mnuFavoriteActor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteActor.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteActor.Text = "Actor";
             // 
             // mnuFavoriteMovie
             // 
             this.mnuFavoriteMovie.Name = "mnuFavoriteMovie";
-            this.mnuFavoriteMovie.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteMovie.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteMovie.Text = "Movie";
             // 
             // mnuFavoriteFruit
             // 
             this.mnuFavoriteFruit.Name = "mnuFavoriteFruit";
-            this.mnuFavoriteFruit.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteFruit.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteFruit.Text = "Fruit";
             // 
             // mnuFavoriteColor
             // 
             this.mnuFavoriteColor.Name = "mnuFavoriteColor";
-            this.mnuFavoriteColor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteColor.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteColor.Text = "Color";
             // 
             // mnuFavoriteHobby
             // 
             this.mnuFavoriteHobby.Name = "mnuFavoriteHobby";
-            this.mnuFavoriteHobby.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteHobby.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteHobby.Text = "Hobby";
             // 
             // mnuExit
             // 
             this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(184, 22);
+            this.mnuExit.Size = new System.Drawing.Size(195, 22);
             this.mnuExit.Text = "Exit";
             // 
             // mnuEdit
@@ -367,7 +382,14 @@ namespace Mathre
             // 
             // mnuView
             // 
-            this.mnuView.Enabled = false;
+            this.mnuView.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuViewHelloWorld,
+            this.mnuViewMySchool,
+            this.mnuViewRectangle,
+            this.mnuViewMyFavorites,
+            this.mnuViewTemperature,
+            this.mnuViewDigits,
+            this.mnuViewUnknown});
             this.mnuView.Name = "mnuView";
             this.mnuView.Size = new System.Drawing.Size(44, 24);
             this.mnuView.Text = "View";
@@ -988,7 +1010,7 @@ namespace Mathre
             this.tabTemperature.Name = "tabTemperature";
             this.tabTemperature.Size = new System.Drawing.Size(1044, 486);
             this.tabTemperature.TabIndex = 6;
-            this.tabTemperature.Text = "Temperature Conversion";
+            this.tabTemperature.Text = "Temperature Converter";
             this.tabTemperature.UseVisualStyleBackColor = true;
             // 
             // grpTemperatureResults
@@ -1145,7 +1167,7 @@ namespace Mathre
             this.tabDigits.Name = "tabDigits";
             this.tabDigits.Size = new System.Drawing.Size(1044, 486);
             this.tabDigits.TabIndex = 7;
-            this.tabDigits.Text = "Digits of a Number";
+            this.tabDigits.Text = "Digit Separator";
             this.tabDigits.UseVisualStyleBackColor = true;
             // 
             // grpDigitsResults
@@ -1283,6 +1305,90 @@ namespace Mathre
             this.lblDigitsCountLabel.TabIndex = 14;
             this.lblDigitsCountLabel.Text = "Number of Digits:";
             // 
+            // mnuTemperature
+            // 
+            this.mnuTemperature.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuTemperatureFahrenheit,
+            this.mnuTemperatureCelsius,
+            this.mnuTemperatureCalculate});
+            this.mnuTemperature.Name = "mnuTemperature";
+            this.mnuTemperature.Size = new System.Drawing.Size(195, 22);
+            this.mnuTemperature.Text = "Temperature Converter";
+            // 
+            // mnuDigits
+            // 
+            this.mnuDigits.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuDigitsCalculate});
+            this.mnuDigits.Name = "mnuDigits";
+            this.mnuDigits.Size = new System.Drawing.Size(195, 22);
+            this.mnuDigits.Text = "Digit Separator";
+            // 
+            // mnuTemperatureCalculate
+            // 
+            this.mnuTemperatureCalculate.Name = "mnuTemperatureCalculate";
+            this.mnuTemperatureCalculate.Size = new System.Drawing.Size(180, 22);
+            this.mnuTemperatureCalculate.Text = "Calculate";
+            // 
+            // mnuDigitsCalculate
+            // 
+            this.mnuDigitsCalculate.Name = "mnuDigitsCalculate";
+            this.mnuDigitsCalculate.Size = new System.Drawing.Size(180, 22);
+            this.mnuDigitsCalculate.Text = "Calculate";
+            // 
+            // mnuTemperatureFahrenheit
+            // 
+            this.mnuTemperatureFahrenheit.Name = "mnuTemperatureFahrenheit";
+            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(180, 22);
+            this.mnuTemperatureFahrenheit.Text = "Fahrenheit";
+            // 
+            // mnuTemperatureCelsius
+            // 
+            this.mnuTemperatureCelsius.Name = "mnuTemperatureCelsius";
+            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(180, 22);
+            this.mnuTemperatureCelsius.Text = "Celsius";
+            // 
+            // mnuViewHelloWorld
+            // 
+            this.mnuViewHelloWorld.Name = "mnuViewHelloWorld";
+            this.mnuViewHelloWorld.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewHelloWorld.Text = "Hello World";
+            // 
+            // mnuViewMySchool
+            // 
+            this.mnuViewMySchool.Name = "mnuViewMySchool";
+            this.mnuViewMySchool.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewMySchool.Text = "My School";
+            // 
+            // mnuViewRectangle
+            // 
+            this.mnuViewRectangle.Name = "mnuViewRectangle";
+            this.mnuViewRectangle.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewRectangle.Text = "Rectangle Calculator";
+            // 
+            // mnuViewMyFavorites
+            // 
+            this.mnuViewMyFavorites.Name = "mnuViewMyFavorites";
+            this.mnuViewMyFavorites.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewMyFavorites.Text = "My Favorites";
+            // 
+            // mnuViewTemperature
+            // 
+            this.mnuViewTemperature.Name = "mnuViewTemperature";
+            this.mnuViewTemperature.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewTemperature.Text = "Temperature Converter";
+            // 
+            // mnuViewDigits
+            // 
+            this.mnuViewDigits.Name = "mnuViewDigits";
+            this.mnuViewDigits.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewDigits.Text = "Digit Separator";
+            // 
+            // mnuViewUnknown
+            // 
+            this.mnuViewUnknown.Name = "mnuViewUnknown";
+            this.mnuViewUnknown.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewUnknown.Text = "...";
+            // 
             // FrmMathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1414,7 +1520,7 @@ namespace Mathre
 		internal Label lblFavoriteInfo;
 		private ToolStripMenuItem mnuRectangle;
 		private ToolStripMenuItem mnuRectangleCalculate;
-		private ToolStripMenuItem mnuFavorite;
+		private ToolStripMenuItem mnuFavorites;
 		private ToolStripMenuItem mnuFavoriteActor;
 		private ToolStripMenuItem mnuFavoriteMovie;
 		private ToolStripMenuItem mnuFavoriteFruit;
@@ -1447,5 +1553,18 @@ namespace Mathre
 		private Label lblDigitsResultsLabel;
 		private Label lblDigitsCount;
 		internal Label lblDigitsCountLabel;
+		private ToolStripMenuItem mnuTemperature;
+		private ToolStripMenuItem mnuTemperatureFahrenheit;
+		private ToolStripMenuItem mnuTemperatureCelsius;
+		private ToolStripMenuItem mnuTemperatureCalculate;
+		private ToolStripMenuItem mnuDigits;
+		private ToolStripMenuItem mnuDigitsCalculate;
+		private ToolStripMenuItem mnuViewHelloWorld;
+		private ToolStripMenuItem mnuViewMySchool;
+		private ToolStripMenuItem mnuViewRectangle;
+		private ToolStripMenuItem mnuViewMyFavorites;
+		private ToolStripMenuItem mnuViewTemperature;
+		private ToolStripMenuItem mnuViewDigits;
+		private ToolStripMenuItem mnuViewUnknown;
 	}
 }

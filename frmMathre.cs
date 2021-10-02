@@ -24,6 +24,12 @@ namespace Mathre
 
 	public partial class FrmMathre
 	{
+		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
+		public static string AccentColor; // Define a global variable to store the starting value of the System Accent Color
+		public static Color SystemColor; // Define a global color to store the converted value of the System Accent Color
+		public static bool hidden; // Define a global variable to acknowledge whether the Secret Settings page is hidden
+		public object Placeholder; // Define a global object to use to send blank events between event handlers
+		public static Rectangle Rect; // Define a global rectangle to use for measurements
 		public FrmMathre()
 		{
 			this.InitializeComponent();
@@ -37,6 +43,10 @@ namespace Mathre
 			btnMySchoolToggleMascot.Click += Buttons;
 			btnRectangleCalculate.Click += Rectangle;
 			mnuRectangleCalculate.Click += Rectangle;
+			btnTemperatureCalculate.Click += Temperature;
+			mnuTemperatureCalculate.Click += Temperature;
+			btnDigitsCalculate.Click += Temperature;
+			mnuDigitsCalculate.Click += Temperature;
 			txtRectangleDimensions.KeyPress += RectangleKeypress;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			btnSecretDisable.Click += SecretHandler;
@@ -64,18 +74,18 @@ namespace Mathre
 			mnuFavoriteFruit.Click += Buttons;
 			mnuFavoriteHobby.Click += Buttons;
 			mnuFavoriteMovie.Click += Buttons;
+			btnFahrenheit.Click += Buttons;
+			btnCelsius.Click += Buttons;
+			mnuTemperatureFahrenheit.Click += Buttons;
+			mnuTemperatureCelsius.Click += Buttons;
+			mnuViewHelloWorld.Click += Buttons;
+			mnuViewMySchool .Click += Buttons;
+			mnuViewRectangle.Click += Buttons;
+			mnuViewMyFavorites.Click += Buttons;
+			mnuViewTemperature.Click += Buttons;
+			mnuViewDigits.Click += Buttons;
+			mnuViewUnknown.Click += Buttons;
 		}
-		// 
-		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
-		public static string AccentColor; // Define a global variable to store the starting value of the System Accent Color
-		public static Color SystemColor; // Define a global color to store the converted value of the System Accent Color
-		public static bool hidden; // Define a global variable to acknowledge whether the Secret Settings page is hidden
-		public object Placeholder; // Define a global object to use to send blank events between event handlers
-		public static Rectangle Rect; // Define a global rectangle to use for measurements
-
-
-
-		// 
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
 			lblRectangleError.Visible = false; // Hide the Rectangle Calculator Error box
@@ -93,7 +103,6 @@ namespace Mathre
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
 			} // Begin recursion
 		}
-		// 
 		private void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem
 		{
 			foreach (var ToolStripItem in ToolStripMenuItem.DropDownItems) // Recursion point
@@ -105,7 +114,6 @@ namespace Mathre
 				}
 			} // Begin recursion
 		}
-		// 
 		private void KeyboardShortcuts(object sender, KeyEventArgs e) // Event handler for keypresses made within the form (which now includes keypresses from the menu items)
 		{
 			if (e.Control & e.KeyCode == Keys.S) // Add Control+S shortcut
@@ -262,8 +270,6 @@ namespace Mathre
 				}
 			}
 		}
-
-
 		private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page
 		{
 			if (ReferenceEquals(sender, txtSecretPassword)) // If the event is caused by the textbox:
@@ -309,7 +315,6 @@ namespace Mathre
 			}
 			// 
 		}
-		// 
 		private void Buttons(object sender, EventArgs e) // Event Handler for a button press
 		{
 			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, mnuHelloWorldLanguageEnglish)) // If the event is caused by the English button or menu item:
@@ -391,8 +396,11 @@ namespace Mathre
 				grpFavoriteImage.BackgroundImage = null;
 				grpFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
 			}
+			else if (ReferenceEquals(sender, mnuViewHelloWorld) | ReferenceEquals(sender, mnuViewMySchool) | ReferenceEquals(sender, mnuViewRectangle) | ReferenceEquals(sender, mnuViewMyFavorites) | ReferenceEquals(sender, mnuViewTemperature) | ReferenceEquals(sender, mnuViewDigits) | ReferenceEquals(sender, mnuViewUnknown))
+			{
+				tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
+			}
 		}
-
 		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
 		{
 			public override Color MenuItemBorder // Override the MenuItemBorder Color
@@ -420,7 +428,6 @@ namespace Mathre
 			}
 			// 
 		}
-
 		private void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
 		{
 			double Height = 0; // Add a variable to store the rectangle height
@@ -476,6 +483,14 @@ namespace Mathre
 					lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString(); // Show the perimeter result
 				}
 			}
+		}
+		private void Temperature(object sender, EventArgs e)
+		{
+
+		}
+		private void Digits(object sender, EventArgs e)
+		{
+
 		}
 	}
 }
