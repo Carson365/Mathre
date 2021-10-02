@@ -18,10 +18,8 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace Mathre
 {
-
 	public partial class FrmMathre
 	{
 		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
@@ -43,11 +41,11 @@ namespace Mathre
 			btnMySchoolToggleMascot.Click += Buttons;
 			btnRectangleCalculate.Click += Rectangle;
 			mnuRectangleCalculate.Click += Rectangle;
-			btnTemperatureCalculate.Click += Temperature;
-			mnuTemperatureCalculate.Click += Temperature;
 			btnDigitsCalculate.Click += Temperature;
 			mnuDigitsCalculate.Click += Temperature;
 			txtRectangleDimensions.KeyPress += RectangleKeypress;
+			txtNumber.KeyPress += NumericalKeypress;
+			txtTemperature.KeyPress += NumericalKeypress;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			btnSecretDisable.Click += SecretHandler;
 			btnSecretEnable.Click += SecretHandler;
@@ -74,12 +72,15 @@ namespace Mathre
 			mnuFavoriteFruit.Click += Buttons;
 			mnuFavoriteHobby.Click += Buttons;
 			mnuFavoriteMovie.Click += Buttons;
-			btnFahrenheit.Click += Buttons;
-			btnCelsius.Click += Buttons;
-			mnuTemperatureFahrenheit.Click += Buttons;
-			mnuTemperatureCelsius.Click += Buttons;
+			btnFahrenheit.Click += Temperature;
+			btnCelsius.Click += Temperature;
+			btnFahrenheit.CheckedChanged += Temperature;
+			btnCelsius.CheckedChanged += Temperature;
+			txtTemperature.KeyUp += Temperature;
+			mnuTemperatureFahrenheit.Click += Temperature;
+			mnuTemperatureCelsius.Click += Temperature;
 			mnuViewHelloWorld.Click += Buttons;
-			mnuViewMySchool .Click += Buttons;
+			mnuViewMySchool.Click += Buttons;
 			mnuViewRectangle.Click += Buttons;
 			mnuViewMyFavorites.Click += Buttons;
 			mnuViewTemperature.Click += Buttons;
@@ -165,6 +166,10 @@ namespace Mathre
 				{
 					e.Handled = true; // Discard input
 				}
+			}
+			if (txtNumber.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
+			{
+				Digits(txtNumber, null); // Send the inputted text to SecretHandler for processing
 			}
 		}
 		private void RectangleKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
@@ -401,33 +406,7 @@ namespace Mathre
 				tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
 			}
 		}
-		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
-		{
-			public override Color MenuItemBorder // Override the MenuItemBorder Color
-			{
-				get
-				{
-					return SystemColor; // Use the stored system accent color to replace the default color
-				}
-			}
 
-			public override Color MenuItemSelected // Override the MenuItemSelected Color
-			{
-				get
-				{
-					return SystemColor; // Use the stored system accent color to replace the default color
-				}
-			}
-
-			public override Color MenuBorder // Override the MenuBorder Color
-			{
-				get
-				{
-					return SystemColor; // Use the stored system accent color to replace the default color
-				}
-			}
-			// 
-		}
 		private void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
 		{
 			double Height = 0; // Add a variable to store the rectangle height
@@ -486,11 +465,105 @@ namespace Mathre
 		}
 		private void Temperature(object sender, EventArgs e)
 		{
+			if (mnuTemperatureCelsius.Checked)
+			{
+				btnCelsius.Checked = true;
+			}
+			else if (mnuTemperatureFahrenheit.Checked)
+			{
+				btnFahrenheit.Checked = true;
+			}
+			if (!btnCelsius.Checked & !btnFahrenheit.Checked)
+			{
+				btnCelsius.Checked = true;
+			}
+			double temp = 0;
+			var roundamount = 0;
+			if (txtTemperature.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+			{
+				if (txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)
+				{
+					string[] words = txtTemperature.Text.Split(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray());
+					roundamount = words[1].Length;
+				}
+			}
+			else
+			{
+				roundamount = 0;
+			}
+			var LengthIsNumeric = double.TryParse(txtTemperature.Text, out var HeightValue); // Check whether the third substring is a number
+			if (LengthIsNumeric)
+			{
+				temp = HeightValue; // Assign the height value to the third substring if numeric
+			}
+			if (btnCelsius.Checked == true)
+			{
+				lblFahrenheitDisplay.Text = Math.Round(((temp - 32) * 5 / 9), roundamount).ToString();
+				lblCelsiusDisplay.Text = Math.Round((temp), roundamount).ToString();
+			}
+			else if (btnFahrenheit.Checked)
+			{
+				lblFahrenheitDisplay.Text = Math.Round((temp), roundamount).ToString();
+				lblCelsiusDisplay.Text = Math.Round(((temp * 5 / 9) + 32), roundamount).ToString();
+			}
+			else
+			{
 
+			}
 		}
 		private void Digits(object sender, EventArgs e)
 		{
 
+		}
+		private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		{
+			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
+				return; // -or else discard it
+			if (e.KeyChar.ToString() == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator) // If the pressed key is the user's decimal separator
+			{
+				if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there are not multiple number groups and there is already a decimal separator
+				{
+					e.Handled = true; // Discard the decimal separator input
+				}
+			}
+			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace non-number character is pressed
+			{
+				if (e.KeyChar != '-')
+				{
+					e.Handled = true; // Discard the character input
+				}
+				else if (textBox.SelectionStart != 0)
+				{
+					e.Handled = true;
+				}
+			}
+		}
+		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
+		{
+			public override Color MenuItemBorder // Override the MenuItemBorder Color
+			{
+				get
+				{
+					return SystemColor; // Use the stored system accent color to replace the default color
+				}
+			}
+
+			public override Color MenuItemSelected // Override the MenuItemSelected Color
+			{
+				get
+				{
+					return SystemColor; // Use the stored system accent color to replace the default color
+				}
+			}
+
+			public override Color MenuBorder // Override the MenuBorder Color
+			{
+				get
+				{
+					return SystemColor; // Use the stored system accent color to replace the default color
+				}
+			}
+			// 
 		}
 	}
 }

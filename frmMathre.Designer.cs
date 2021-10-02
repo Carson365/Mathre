@@ -125,7 +125,6 @@ namespace Mathre
             this.grpTemperature = new Mathre.CustomGroupBox();
             this.btnCelsius = new System.Windows.Forms.RadioButton();
             this.btnFahrenheit = new System.Windows.Forms.RadioButton();
-            this.btnTemperatureCalculate = new System.Windows.Forms.Button();
             this.txtTemperature = new System.Windows.Forms.TextBox();
             this.lblTemperature = new System.Windows.Forms.Label();
             this.tabDigits = new System.Windows.Forms.TabPage();
@@ -143,7 +142,6 @@ namespace Mathre
             this.lblDigitsCountLabel = new System.Windows.Forms.Label();
             this.mnuTemperature = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDigits = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTemperatureCalculate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDigitsCalculate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTemperatureFahrenheit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTemperatureCelsius = new System.Windows.Forms.ToolStripMenuItem();
@@ -1092,7 +1090,6 @@ namespace Mathre
             this.grpTemperature.BorderColor = System.Drawing.Color.Black;
             this.grpTemperature.Controls.Add(this.btnCelsius);
             this.grpTemperature.Controls.Add(this.btnFahrenheit);
-            this.grpTemperature.Controls.Add(this.btnTemperatureCalculate);
             this.grpTemperature.Controls.Add(this.txtTemperature);
             this.grpTemperature.Controls.Add(this.lblTemperature);
             this.grpTemperature.Location = new System.Drawing.Point(309, 140);
@@ -1123,19 +1120,6 @@ namespace Mathre
             this.btnFahrenheit.Text = "Fahrenheit";
             this.btnFahrenheit.UseVisualStyleBackColor = true;
             // 
-            // btnTemperatureCalculate
-            // 
-            this.btnTemperatureCalculate.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTemperatureCalculate.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnTemperatureCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTemperatureCalculate.Image = ((System.Drawing.Image)(resources.GetObject("btnTemperatureCalculate.Image")));
-            this.btnTemperatureCalculate.Location = new System.Drawing.Point(391, 13);
-            this.btnTemperatureCalculate.Margin = new System.Windows.Forms.Padding(0);
-            this.btnTemperatureCalculate.Name = "btnTemperatureCalculate";
-            this.btnTemperatureCalculate.Size = new System.Drawing.Size(26, 26);
-            this.btnTemperatureCalculate.TabIndex = 18;
-            this.btnTemperatureCalculate.UseVisualStyleBackColor = false;
-            // 
             // txtTemperature
             // 
             this.txtTemperature.BackColor = System.Drawing.SystemColors.Window;
@@ -1144,7 +1128,7 @@ namespace Mathre
             this.txtTemperature.Location = new System.Drawing.Point(148, 13);
             this.txtTemperature.Margin = new System.Windows.Forms.Padding(0);
             this.txtTemperature.Name = "txtTemperature";
-            this.txtTemperature.Size = new System.Drawing.Size(244, 26);
+            this.txtTemperature.Size = new System.Drawing.Size(269, 26);
             this.txtTemperature.TabIndex = 13;
             // 
             // lblTemperature
@@ -1309,8 +1293,7 @@ namespace Mathre
             // 
             this.mnuTemperature.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuTemperatureFahrenheit,
-            this.mnuTemperatureCelsius,
-            this.mnuTemperatureCalculate});
+            this.mnuTemperatureCelsius});
             this.mnuTemperature.Name = "mnuTemperature";
             this.mnuTemperature.Size = new System.Drawing.Size(195, 22);
             this.mnuTemperature.Text = "Temperature Converter";
@@ -1322,12 +1305,6 @@ namespace Mathre
             this.mnuDigits.Name = "mnuDigits";
             this.mnuDigits.Size = new System.Drawing.Size(195, 22);
             this.mnuDigits.Text = "Digit Separator";
-            // 
-            // mnuTemperatureCalculate
-            // 
-            this.mnuTemperatureCalculate.Name = "mnuTemperatureCalculate";
-            this.mnuTemperatureCalculate.Size = new System.Drawing.Size(180, 22);
-            this.mnuTemperatureCalculate.Text = "Calculate";
             // 
             // mnuDigitsCalculate
             // 
@@ -1532,7 +1509,6 @@ namespace Mathre
 		private CustomGroupBox grpTemperatureResults;
 		internal Label lblTemperatureTitle;
 		internal CustomGroupBox grpTemperature;
-		private Button btnTemperatureCalculate;
 		internal Label lblFahrenheitDisplayLabel;
 		internal TextBox txtTemperature;
 		internal Label lblTemperature;
@@ -1556,7 +1532,6 @@ namespace Mathre
 		private ToolStripMenuItem mnuTemperature;
 		private ToolStripMenuItem mnuTemperatureFahrenheit;
 		private ToolStripMenuItem mnuTemperatureCelsius;
-		private ToolStripMenuItem mnuTemperatureCalculate;
 		private ToolStripMenuItem mnuDigits;
 		private ToolStripMenuItem mnuDigitsCalculate;
 		private ToolStripMenuItem mnuViewHelloWorld;
