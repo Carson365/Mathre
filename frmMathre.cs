@@ -488,24 +488,19 @@ namespace Mathre
 			{
 				roundamount = 0;
 			}
-			var LengthIsNumeric = double.TryParse(txtTemperature.Text, out var HeightValue); // Check whether the third substring is a number
-			if (LengthIsNumeric)
+			if (double.TryParse(txtTemperature.Text, out var tempcheck))
 			{
-				temp = HeightValue; // Assign the height value to the third substring if numeric
+				temp = tempcheck; // Assign the height value to the third substring if numeric
 			}
-			if (btnCelsius.Checked == true)
+			if (btnFahrenheit.Checked)
 			{
-				lblFahrenheitDisplay.Text = Math.Round(((temp - 32) * 5 / 9), roundamount).ToString();
-				lblCelsiusDisplay.Text = Math.Round((temp), roundamount).ToString();
-			}
-			else if (btnFahrenheit.Checked)
-			{
+				lblCelsiusDisplay.Text = Math.Round(((temp - 32) * 5 / 9), roundamount).ToString();
 				lblFahrenheitDisplay.Text = Math.Round((temp), roundamount).ToString();
-				lblCelsiusDisplay.Text = Math.Round(((temp * 5 / 9) + 32), roundamount).ToString();
 			}
-			else
+			else if (btnCelsius.Checked)
 			{
-
+				lblCelsiusDisplay.Text = Math.Round((temp), roundamount).ToString();
+				lblFahrenheitDisplay.Text = Math.Round(((temp * 9 / 5) + 32), roundamount).ToString();
 			}
 		}
 		private void Digits(object sender, EventArgs e)
@@ -523,16 +518,33 @@ namespace Mathre
 			//		lblDigitsListOdds.Text += ($"{element} ");
 			//	}
 			//}
+			bool lastnumberwaseven = false;
 
 			if (int.TryParse(lblDigitsCount.Text, out int numberofdigits))
 			{
-				if (numberofdigits % 2 == 0)
+				if (txtNumber.SelectionStart - 1 >= 0)
 				{
-					lblDigitsListEvens.Text += $"{numbersinbox}\r\n";
-				}
-				else if (numberofdigits % 2 == 1)
-				{
-					lblDigitsListOdds.Text += ($"{numbersinbox} ");
+					if (numberofdigits % 2 == 0)
+					{
+						lblDigitsListEvens.Text += $"{txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n";
+						lastnumberwaseven = true;
+					}
+					else if (numberofdigits % 2 == 1)
+					{
+						if (sender == Placeholder)
+						{
+							int numOfLines = 30;
+							var lines = this.lblDigitsListEvens.Lines;
+							var newLines = lines.Skip(numOfLines);
+
+							this.textBox1.Lines = newLines.ToArray();
+						}
+						else
+						{
+							lblDigitsListOdds.Text += ($"{numbersinbox} ");
+							lastnumberwaseven = false;
+						}
+					}
 				}
 			}
 				//Console.WriteLine(Char.GetNumericValue(txtNumber.Text, 7));
@@ -558,6 +570,17 @@ namespace Mathre
 				else if (textBox.SelectionStart != 0)
 				{
 					e.Handled = true;
+				}
+			}
+			else if (e.KeyChar == '\b')
+			{
+				if (txtNumber.ContainsFocus)
+				{
+					Digits(Placeholder, null);
+				}
+				else if (txtTemperature.ContainsFocus)
+				{
+
 				}
 			}
 		}
