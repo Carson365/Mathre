@@ -503,54 +503,62 @@ namespace Mathre
 				lblFahrenheitDisplay.Text = Math.Round(((temp * 9 / 5) + 32), roundamount).ToString();
 			}
 		}
-		private void Digits(object sender, EventArgs e)
+		private void Digits(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
 			var numbersinbox = txtNumber.Text.Replace("-", "").Replace(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator, "").Length.ToString();
 			lblDigitsCount.Text = numbersinbox;
-			//foreach (char element in txtNumber.Text)
-			//{
-			//	if (element % 2 == 0)
-			//	{
-			//		lblDigitsListEvens.Text += $"{element}\r\n";
-			//	}
-			//	else if (element % 2 == 1)
-			//	{
-			//		lblDigitsListOdds.Text += ($"{element} ");
-			//	}
-			//}
-			bool lastnumberwaseven = false;
-
 			if (int.TryParse(lblDigitsCount.Text, out int numberofdigits))
 			{
-				if (txtNumber.SelectionStart - 1 >= 0)
+				if (txtNumber.SelectionStart > 0)
 				{
 					if (numberofdigits % 2 == 0)
 					{
-						lblDigitsListEvens.Text += $"{txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n";
-						lastnumberwaseven = true;
-					}
-					else if (numberofdigits % 2 == 1)
-					{
-						if (sender == Placeholder)
+						if (e.KeyCode != Keys.Back)
 						{
-							int numOfLines = 30;
-							var lines = this.lblDigitsListEvens.Lines;
-							var newLines = lines.Skip(numOfLines);
-
-							this.textBox1.Lines = newLines.ToArray();
+							lblDigitsListEvens.Text += $"{txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n";
 						}
 						else
 						{
-							lblDigitsListOdds.Text += ($"{numbersinbox} ");
-							lastnumberwaseven = false;
+							if (lblDigitsListOdds.Text.Length > 3)
+							{
+								lblDigitsListOdds.Text = lblDigitsListOdds.Text.Remove(lblDigitsListOdds.Text.LastIndexOf('\n') - 3, 3);
+							}
+							else
+							{
+								lblDigitsListOdds.Text = lblDigitsListOdds.Text.Remove(0, 3);
+							}
+						}
+					}
+					else if (numberofdigits % 2 == 1)
+					{
+						if (e.KeyCode != Keys.Back)
+						{
+							lblDigitsListOdds.Text += $"{txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n";
+						}
+						else
+						{
+							if (lblDigitsListEvens.Text.Length > 3)
+							{
+								lblDigitsListEvens.Text = lblDigitsListEvens.Text.Remove(lblDigitsListEvens.Text.LastIndexOf('\n') - 3, 3);
+							}
+							else
+							{
+								lblDigitsListEvens.Text = lblDigitsListEvens.Text.Remove(0, 3);
+							}
+						}
+					}
+					if (numberofdigits == 1)
+					{
+						if (e.KeyCode == Keys.Back)
+						{
+							lblDigitsListOdds.Text = lblDigitsListOdds.Text.Remove(0, 3);
+							lblDigitsListEvens.Text = lblDigitsListEvens.Text.Remove(0, 3);
 						}
 					}
 				}
 			}
-				//Console.WriteLine(Char.GetNumericValue(txtNumber.Text, 7));
-				//lblDigitsListOdds.Text = 
-			}
-			private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		}
+		private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
 			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
 				return; // -or else discard it
@@ -570,17 +578,6 @@ namespace Mathre
 				else if (textBox.SelectionStart != 0)
 				{
 					e.Handled = true;
-				}
-			}
-			else if (e.KeyChar == '\b')
-			{
-				if (txtNumber.ContainsFocus)
-				{
-					Digits(Placeholder, null);
-				}
-				else if (txtTemperature.ContainsFocus)
-				{
-
 				}
 			}
 		}
