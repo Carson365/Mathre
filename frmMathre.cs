@@ -505,56 +505,18 @@ namespace Mathre
 		}
 		private void Digits(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
-			var numbersinbox = txtNumber.Text.Replace("-", "").Replace(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator, "").Length.ToString();
-			lblDigitsCount.Text = numbersinbox;
-			if (int.TryParse(lblDigitsCount.Text, out int numberofdigits))
+			lblDigitsCount.Text = txtNumber.Text.Length.ToString();
+			lblDigitsListEvens.Text = "";
+			lblDigitsListOdds.Text = "";
+			foreach (char c in txtNumber.Text) // https://stackoverflow.com/questions/43021/how-do-you-get-the-index-of-the-current-iteration-of-a-foreach-loop
 			{
-				if (txtNumber.SelectionStart > 0)
+				if ((txtNumber.Text.IndexOf(c) + 1) % 2 == 0) // INDEXOF RETURNS THE FIRST INDEX OF THE VALUE, NOT THE LAST ENTERED
 				{
-					if (numberofdigits % 2 == 0)
-					{
-						if (e.KeyCode != Keys.Back)
-						{
-							lblDigitsListEvens.Text += $"{txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n";
-						}
-						else
-						{
-							if (lblDigitsListOdds.Text.Length > 3)
-							{
-								lblDigitsListOdds.Text = lblDigitsListOdds.Text.Remove(lblDigitsListOdds.Text.LastIndexOf('\n') - 3, 3);
-							}
-							else
-							{
-								lblDigitsListOdds.Text = lblDigitsListOdds.Text.Remove(0, 3);
-							}
-						}
-					}
-					else if (numberofdigits % 2 == 1)
-					{
-						if (e.KeyCode != Keys.Back)
-						{
-							lblDigitsListOdds.Text += $"{txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n";
-						}
-						else
-						{
-							if (lblDigitsListEvens.Text.Length > 3)
-							{
-								lblDigitsListEvens.Text = lblDigitsListEvens.Text.Remove(lblDigitsListEvens.Text.LastIndexOf('\n') - 3, 3);
-							}
-							else
-							{
-								lblDigitsListEvens.Text = lblDigitsListEvens.Text.Remove(0, 3);
-							}
-						}
-					}
-					if (numberofdigits == 1)
-					{
-						if (e.KeyCode == Keys.Back)
-						{
-							lblDigitsListOdds.Text = lblDigitsListOdds.Text.Remove(0, 3);
-							lblDigitsListEvens.Text = lblDigitsListEvens.Text.Remove(0, 3);
-						}
-					}
+					lblDigitsListEvens.Text += $"{c}\r\n";
+				}
+				else if ((txtNumber.Text.IndexOf(c) + 1) % 2 == 1)
+				{
+					lblDigitsListOdds.Text += $"{c}\r\n";
 				}
 			}
 		}
@@ -564,21 +526,36 @@ namespace Mathre
 				return; // -or else discard it
 			if (e.KeyChar.ToString() == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator) // If the pressed key is the user's decimal separator
 			{
-				if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there are not multiple number groups and there is already a decimal separator
+				if (!ReferenceEquals(sender, txtNumber))
 				{
-					e.Handled = true; // Discard the decimal separator input
+					if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there are not multiple number groups and there is already a decimal separator
+					{
+						e.Handled = true; // Discard the decimal separator input
+					}
+				}
+				else
+				{
+					e.Handled = true;
 				}
 			}
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace non-number character is pressed
 			{
-				if (e.KeyChar != '-')
+				if (!ReferenceEquals(sender, txtNumber))
 				{
-					e.Handled = true; // Discard the character input
+					if (e.KeyChar != '-')
+					{
+						e.Handled = true; // Discard the character input
+					}
+					else if (textBox.SelectionStart != 0)
+					{
+						e.Handled = true;
+					}
 				}
-				else if (textBox.SelectionStart != 0)
+				else
 				{
 					e.Handled = true;
 				}
+
 			}
 		}
 		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
