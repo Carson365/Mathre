@@ -1210,24 +1210,26 @@ namespace Mathre
             this.lblDigitsResultsLabel.Name = "lblDigitsResultsLabel";
             this.lblDigitsResultsLabel.Size = new System.Drawing.Size(373, 27);
             this.lblDigitsResultsLabel.TabIndex = 3;
-            this.lblDigitsResultsLabel.Text = "Number of Digits";
+            this.lblDigitsResultsLabel.Text = "Digits";
             this.lblDigitsResultsLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblDigitsListOdds
             // 
-            this.lblDigitsListOdds.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDigitsListOdds.Location = new System.Drawing.Point(25, 45);
+            this.lblDigitsListOdds.AutoSize = true;
+            this.lblDigitsListOdds.Location = new System.Drawing.Point(124, 45);
             this.lblDigitsListOdds.Name = "lblDigitsListOdds";
-            this.lblDigitsListOdds.Size = new System.Drawing.Size(154, 45);
+            this.lblDigitsListOdds.Size = new System.Drawing.Size(51, 13);
             this.lblDigitsListOdds.TabIndex = 2;
+            this.lblDigitsListOdds.Text = "Digit #: #";
             // 
             // lblDigitsListEvens
             // 
-            this.lblDigitsListEvens.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblDigitsListEvens.Location = new System.Drawing.Point(244, 45);
+            this.lblDigitsListEvens.AutoSize = true;
+            this.lblDigitsListEvens.Location = new System.Drawing.Point(247, 45);
             this.lblDigitsListEvens.Name = "lblDigitsListEvens";
-            this.lblDigitsListEvens.Size = new System.Drawing.Size(154, 45);
+            this.lblDigitsListEvens.Size = new System.Drawing.Size(51, 13);
             this.lblDigitsListEvens.TabIndex = 1;
+            this.lblDigitsListEvens.Text = "Digit #: #";
             // 
             // grpDigits
             // 
@@ -1404,6 +1406,7 @@ namespace Mathre
             this.grpTemperature.PerformLayout();
             this.grpDigitsResults.ResumeLayout(false);
             this.pnlDigitsResults.ResumeLayout(false);
+            this.pnlDigitsResults.PerformLayout();
             this.grpDigits.ResumeLayout(false);
             this.grpDigits.PerformLayout();
             this.grpSecret.ResumeLayout(false);
