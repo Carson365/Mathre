@@ -89,6 +89,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
+			lblDigitsListOdds.Text = "";
+			lblDigitsListEvens.Text = "";
 			lblRectangleError.Visible = false; // Hide the Rectangle Calculator Error box
 			tabMathre.TabPages.Remove(tabSecret); // Hide the secret settings tab
 			hidden = true; // Mark the secret settings hidden variable as true
@@ -508,15 +510,16 @@ namespace Mathre
 			lblDigitsCount.Text = txtNumber.Text.Length.ToString();
 			lblDigitsListEvens.Text = "";
 			lblDigitsListOdds.Text = "";
-			foreach (char c in txtNumber.Text) // https://stackoverflow.com/questions/43021/how-do-you-get-the-index-of-the-current-iteration-of-a-foreach-loop
+			for (int i = 0; i < txtNumber.Text.Length; i++)
 			{
-				if ((txtNumber.Text.IndexOf(c) + 1) % 2 == 0) // INDEXOF RETURNS THE FIRST INDEX OF THE VALUE, NOT THE LAST ENTERED
+				char c = txtNumber.Text[i];
+				if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 0)
 				{
-					lblDigitsListEvens.Text += $"{c}\r\n";
+					lblDigitsListEvens.Text += $"Digit {i+1}: {c}\r\n";
 				}
-				else if ((txtNumber.Text.IndexOf(c) + 1) % 2 == 1)
+				else if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 1)
 				{
-					lblDigitsListOdds.Text += $"{c}\r\n";
+					lblDigitsListOdds.Text += $"Digit {i+1}: {c}\r\n";
 				}
 			}
 		}
