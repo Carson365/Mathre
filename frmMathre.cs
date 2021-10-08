@@ -464,11 +464,11 @@ namespace Mathre
 		}
 		private void Temperature(object sender, EventArgs e)
 		{
-			if (mnuTemperatureCelsius.Checked)
+			if (mnuTemperatureCelsius.Checked | ReferenceEquals(sender, mnuTemperatureCelsius))
 			{
 				btnCelsius.Checked = true;
 			}
-			else if (mnuTemperatureFahrenheit.Checked)
+			else if (mnuTemperatureFahrenheit.Checked | ReferenceEquals(sender, mnuTemperatureFahrenheit))
 			{
 				btnFahrenheit.Checked = true;
 			}
@@ -496,13 +496,13 @@ namespace Mathre
 			}
 			if (btnFahrenheit.Checked)
 			{
-				lblCelsiusDisplay.Text = Math.Round(((temp - 32) * 5 / 9), roundamount).ToString();
-				lblFahrenheitDisplay.Text = Math.Round((temp), roundamount).ToString();
+				lblCelsiusDisplay.Text = $"{Math.Round(((temp - 32) * 5 / 9), roundamount).ToString()} °C";
+				lblFahrenheitDisplay.Text = $"{Math.Round((temp), roundamount).ToString()} °F";
 			}
 			else if (btnCelsius.Checked)
 			{
-				lblCelsiusDisplay.Text = Math.Round((temp), roundamount).ToString();
-				lblFahrenheitDisplay.Text = Math.Round(((temp * 9 / 5) + 32), roundamount).ToString();
+				lblCelsiusDisplay.Text = $"{Math.Round((temp), roundamount).ToString()} °C";
+				lblFahrenheitDisplay.Text = $"{Math.Round(((temp * 9 / 5) + 32), roundamount).ToString()} °F";
 			}
 		}
 		private void Digits(object sender, System.Windows.Forms.KeyEventArgs e)
@@ -588,5 +588,25 @@ namespace Mathre
 			}
 			// 
 		}
+		//private void BuildMenuItems()
+		//{
+		//	ToolStripMenuItem[] items = new ToolStripMenuItem[2]; // You would obviously calculate this value at runtime
+		//	for (int i = 0; i < items.Length; i++)
+		//	{
+		//		items[i] = new ToolStripMenuItem();
+		//		items[i].Name = "dynamicItem" + i.ToString();
+		//		items[i].Text = "Visible Menu Text Here";
+		//		items[i].Click += new EventHandler(MenuItemClickHandler);
+		//	}
+
+		//	mnuEdit.DropDownItems.AddRange(items);
+		//}
+
+		//private void MenuItemClickHandler(object sender, EventArgs e)
+		//{
+		//	ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
+		//	// Take some action based on the data in clickedItem
+		//}
+
 	}
 }
