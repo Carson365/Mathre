@@ -44,6 +44,7 @@ namespace Mathre
 			mnuDigitsCalculate.Click += Temperature;
 			txtRectangleDimensions.KeyPress += RectangleKeypress;
 			txtNumber.KeyPress += NumericalKeypress;
+			txtRectangleDimensions.KeyPress += Rectangle;
 			txtTemperature.KeyPress += NumericalKeypress;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			btnSecretDisable.Click += SecretHandler;
@@ -428,7 +429,7 @@ namespace Mathre
 			{
 				Rectangle(Placeholder, null); // Run the rectangle calculator with the values from the input field
 			}
-			if (ReferenceEquals(sender, Placeholder)) // If the rectangle needs to be calculated and visualized
+			if (ReferenceEquals(sender, Placeholder) || ReferenceEquals(sender, txtRectangleDimensions)) // If the rectangle needs to be calculated and visualized
 			{
 				var ratioX = (double)grpRectangle.MaximumSize.Width / Width; // Make the X-ratio equal to the proportional size of the maximum width of the visualization rectangle
 				var ratioY = (double)grpRectangle.MaximumSize.Height / Height; // Make the Y-ratio equal to the proportional size of the maximum height of the visualization rectangle
@@ -515,11 +516,11 @@ namespace Mathre
 				char c = txtNumber.Text[i];
 				if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 0) // Check if the number is even
 				{
-					lblDigitsListEvens.Text += $"Digit {i+1}: {c}\r\n"; // Add it to the even list in the proper format
+					lblDigitsListEvens.Text += $"Digit {i + 1}: {c}\r\n"; // Add it to the even list in the proper format
 				}
 				else if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 1) // Check if the number is even
 				{
-					lblDigitsListOdds.Text += $"Digit {i+1}: {c}\r\n"; // Add it to the odd list in the proper format
+					lblDigitsListOdds.Text += $"Digit {i + 1}: {c}\r\n"; // Add it to the odd list in the proper format
 				}
 			}
 		}
