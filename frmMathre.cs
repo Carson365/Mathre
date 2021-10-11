@@ -464,62 +464,62 @@ namespace Mathre
 		}
 		private void Temperature(object sender, EventArgs e)
 		{
-			if (mnuTemperatureCelsius.Checked | ReferenceEquals(sender, mnuTemperatureCelsius))
+			if (mnuTemperatureCelsius.Checked | ReferenceEquals(sender, mnuTemperatureCelsius)) //Set the buttons' appearances based on their checked state
 			{
-				btnCelsius.Checked = true;
+				btnCelsius.Checked = true; // ...
 			}
-			else if (mnuTemperatureFahrenheit.Checked | ReferenceEquals(sender, mnuTemperatureFahrenheit))
+			else if (mnuTemperatureFahrenheit.Checked | ReferenceEquals(sender, mnuTemperatureFahrenheit)) // ...
 			{
-				btnFahrenheit.Checked = true;
+				btnFahrenheit.Checked = true; // ...
 			}
-			if (!btnCelsius.Checked & !btnFahrenheit.Checked)
+			if (!btnCelsius.Checked & !btnFahrenheit.Checked) // ...
 			{
-				btnCelsius.Checked = true;
+				btnCelsius.Checked = true; // ...
 			}
-			double temp = 0;
-			var roundamount = 0;
-			if (txtTemperature.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator))
+			double temp = 0; // Declare Variables
+			var roundamount = 0; // ...
+			if (txtTemperature.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // Check for the decimal character
 			{
-				if (txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)
+				if (txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator) // Check whether there are numbers on each side of the decimal
 				{
-					string[] words = txtTemperature.Text.Split(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray());
-					roundamount = words[1].Length;
+					string[] words = txtTemperature.Text.Split(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()); // Split the string based on decimal position
+					roundamount = words[1].Length; // Store the amount of precision
 				}
 			}
 			else
 			{
-				roundamount = 0;
+				roundamount = 0; // If there is no decimal, do not round decimals in the answer
 			}
-			if (double.TryParse(txtTemperature.Text, out var tempcheck))
+			if (double.TryParse(txtTemperature.Text, out var tempcheck)) // Check whether the temperature is numeric
 			{
-				temp = tempcheck; // Assign the height value to the third substring if numeric
+				temp = tempcheck; // Assign the temperature value if it is numeric
 			}
-			if (btnFahrenheit.Checked)
+			if (btnFahrenheit.Checked) // ...
 			{
-				lblCelsiusDisplay.Text = $"{Math.Round(((temp - 32) * 5 / 9), roundamount).ToString()} °C";
-				lblFahrenheitDisplay.Text = $"{Math.Round((temp), roundamount).ToString()} °F";
+				lblCelsiusDisplay.Text = $"{Math.Round(((temp - 32) * 5 / 9), roundamount).ToString()} °C"; // Set the Celsius value using the proper math and degree of precision
+				lblFahrenheitDisplay.Text = $"{Math.Round((temp), roundamount).ToString()} °F"; // Set the Fahrenheit value using the proper degree of precision
 			}
-			else if (btnCelsius.Checked)
+			else if (btnCelsius.Checked) // ...
 			{
-				lblCelsiusDisplay.Text = $"{Math.Round((temp), roundamount).ToString()} °C";
-				lblFahrenheitDisplay.Text = $"{Math.Round(((temp * 9 / 5) + 32), roundamount).ToString()} °F";
+				lblCelsiusDisplay.Text = $"{Math.Round((temp), roundamount).ToString()} °C";  // Set the Celsius value using the proper degree of precision
+				lblFahrenheitDisplay.Text = $"{Math.Round(((temp * 9 / 5) + 32), roundamount).ToString()} °F"; // Set the Fahrenheit value using the proper math and degree of precision
 			}
 		}
-		private void Digits(object sender, System.Windows.Forms.KeyEventArgs e)
+		private void Digits(object sender, System.Windows.Forms.KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
 		{
-			lblDigitsCount.Text = txtNumber.Text.Length.ToString();
-			lblDigitsListEvens.Text = "";
-			lblDigitsListOdds.Text = "";
-			for (int i = 0; i < txtNumber.Text.Length; i++)
+			lblDigitsCount.Text = txtNumber.Text.Length.ToString(); // Set the length based on the string length
+			lblDigitsListEvens.Text = ""; // Clear the Even Number List (happens each keypress)
+			lblDigitsListOdds.Text = ""; // Clear the Odd Number List (happens each keypress)
+			for (int i = 0; i < txtNumber.Text.Length; i++) // Run the following code for each character in the text box, and note the index of the character.
 			{
 				char c = txtNumber.Text[i];
-				if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 0)
+				if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 0) // Check if the number is even
 				{
-					lblDigitsListEvens.Text += $"Digit {i+1}: {c}\r\n";
+					lblDigitsListEvens.Text += $"Digit {i+1}: {c}\r\n"; // Add it to the even list in the proper format
 				}
-				else if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 1)
+				else if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 1) // Check if the number is even
 				{
-					lblDigitsListOdds.Text += $"Digit {i+1}: {c}\r\n";
+					lblDigitsListOdds.Text += $"Digit {i+1}: {c}\r\n"; // Add it to the odd list in the proper format
 				}
 			}
 		}
@@ -541,7 +541,7 @@ namespace Mathre
 					e.Handled = true;
 				}
 			}
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace non-number character is pressed
+			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace, non-number character is pressed
 			{
 				if (!ReferenceEquals(sender, txtNumber))
 				{
