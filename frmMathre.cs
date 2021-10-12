@@ -46,6 +46,7 @@ namespace Mathre
 			txtNumber.KeyPress += NumericalKeypress;
 			txtRectangleDimensions.KeyPress += Rectangle;
 			txtTemperature.KeyPress += NumericalKeypress;
+			txtPaidAmount.KeyPress += NumericalKeypress;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			btnSecretDisable.Click += SecretHandler;
 			btnSecretEnable.Click += SecretHandler;
@@ -78,6 +79,7 @@ namespace Mathre
 			btnCelsius.CheckedChanged += Temperature;
 			txtTemperature.KeyUp += Temperature;
 			txtNumber.KeyUp += Digits;
+			txtPaidAmount.KeyUp += ChangeMaker;
 			mnuTemperatureFahrenheit.Click += Temperature;
 			mnuTemperatureCelsius.Click += Temperature;
 			mnuViewHelloWorld.Click += Buttons;
@@ -524,6 +526,10 @@ namespace Mathre
 				}
 			}
 		}
+		private void ChangeMaker(object sender, EventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
+		{
+
+		}
 		private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
 			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
@@ -559,7 +565,20 @@ namespace Mathre
 				{
 					e.Handled = true;
 				}
-
+			}
+			if (sender == txtPaidAmount)
+			{
+				string[] decimals = txtPaidAmount.Text.Split(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()); // Split the input using the spaces as separators
+				if (decimals.Length > 1 && e.KeyChar != '\b')
+				{
+					if (decimals[1].Length > 1)
+					{
+						if (/* The cursor is before the decimal */)
+						{
+							e.Handled = true;
+						}
+					}
+				}
 			}
 		}
 		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
