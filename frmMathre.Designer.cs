@@ -60,8 +60,8 @@ namespace Mathre
             this.mnuFavoriteActor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteMovie = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteFruit = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavoriteColor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteHobby = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuFavoriteColor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTemperature = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTemperatureFahrenheit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTemperatureCelsius = new System.Windows.Forms.ToolStripMenuItem();
@@ -81,53 +81,19 @@ namespace Mathre
             this.mnuViewMyFavorites = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuViewTemperature = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuViewDigits = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewChange = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewPizza = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuViewUnknown = new System.Windows.Forms.ToolStripMenuItem();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.tabUnknown = new System.Windows.Forms.TabPage();
             this.tabSecret = new System.Windows.Forms.TabPage();
             this.lblSecretTitle = new System.Windows.Forms.Label();
+            this.grpSecret = new Mathre.CustomGroupBox();
+            this.btnSecretDisable = new System.Windows.Forms.RadioButton();
+            this.btnSecretEnable = new System.Windows.Forms.RadioButton();
+            this.txtSecretPassword = new System.Windows.Forms.TextBox();
+            this.lblSecretPrompt = new System.Windows.Forms.Label();
             this.tabMyFavorites = new System.Windows.Forms.TabPage();
-            this.lblFavoriteTitle = new System.Windows.Forms.Label();
-            this.tabRectangle = new System.Windows.Forms.TabPage();
-            this.lblRectangleTitle = new System.Windows.Forms.Label();
-            this.tabMySchool = new System.Windows.Forms.TabPage();
-            this.lblMySchoolTitle = new System.Windows.Forms.Label();
-            this.tabHelloWorld = new System.Windows.Forms.TabPage();
-            this.lblHelloWorldTitle = new System.Windows.Forms.Label();
-            this.tabMathre = new System.Windows.Forms.TabControl();
-            this.tabTemperature = new System.Windows.Forms.TabPage();
-            this.lblTemperatureTitle = new System.Windows.Forms.Label();
-            this.tabDigits = new System.Windows.Forms.TabPage();
-            this.lblDigitsTitle = new System.Windows.Forms.Label();
-            this.tabChange = new System.Windows.Forms.TabPage();
-            this.lblChangeMakerTitle = new System.Windows.Forms.Label();
-            this.tabPizza = new System.Windows.Forms.TabPage();
-            this.lblPizzaTitle = new System.Windows.Forms.Label();
-            this.mnuViewChange = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuViewPizza = new System.Windows.Forms.ToolStripMenuItem();
-            this.grpHelloWorld = new Mathre.CustomGroupBox();
-            this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
-            this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
-            this.picHelloWorldEnglish = new System.Windows.Forms.PictureBox();
-            this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
-            this.btnHelloWorldReset = new System.Windows.Forms.Button();
-            this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
-            this.btnHelloWorldEnglish = new System.Windows.Forms.RadioButton();
-            this.grpMySchool = new Mathre.CustomGroupBox();
-            this.lblMySchoolMascot = new System.Windows.Forms.Label();
-            this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
-            this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
-            this.grpRectangleContainer = new Mathre.CustomGroupBox();
-            this.lblRectangleError = new System.Windows.Forms.Label();
-            this.grpRectangle = new Mathre.CustomGroupBox();
-            this.grpRectangleControls = new Mathre.CustomGroupBox();
-            this.btnRectangleCalculate = new System.Windows.Forms.Button();
-            this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
-            this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
-            this.lblRectangleDimensions = new System.Windows.Forms.Label();
-            this.lblRectanglePerimiterTitle = new System.Windows.Forms.Label();
-            this.lblRectangleArea = new System.Windows.Forms.Label();
-            this.lblRectanglePerimeter = new System.Windows.Forms.Label();
             this.grpFavoriteControls = new Mathre.CustomGroupBox();
             this.btnFavoriteMovie = new System.Windows.Forms.RadioButton();
             this.btnFavoriteColor = new System.Windows.Forms.RadioButton();
@@ -137,26 +103,62 @@ namespace Mathre
             this.grpFavoriteDisplay = new Mathre.CustomGroupBox();
             this.grpFavoriteImage = new Mathre.CustomGroupBox();
             this.lblFavoriteInfo = new System.Windows.Forms.Label();
+            this.lblFavoriteTitle = new System.Windows.Forms.Label();
+            this.tabRectangle = new System.Windows.Forms.TabPage();
+            this.grpRectangleContainer = new Mathre.CustomGroupBox();
+            this.lblRectangleError = new System.Windows.Forms.Label();
+            this.grpRectangle = new Mathre.CustomGroupBox();
+            this.lblRectangleTitle = new System.Windows.Forms.Label();
+            this.grpRectangleControls = new Mathre.CustomGroupBox();
+            this.btnRectangleCalculate = new System.Windows.Forms.Button();
+            this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
+            this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
+            this.lblRectangleDimensions = new System.Windows.Forms.Label();
+            this.lblRectanglePerimiterTitle = new System.Windows.Forms.Label();
+            this.lblRectangleArea = new System.Windows.Forms.Label();
+            this.lblRectanglePerimeter = new System.Windows.Forms.Label();
+            this.tabMySchool = new System.Windows.Forms.TabPage();
+            this.lblMySchoolTitle = new System.Windows.Forms.Label();
+            this.grpMySchool = new Mathre.CustomGroupBox();
+            this.lblMySchoolMascot = new System.Windows.Forms.Label();
+            this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
+            this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
+            this.tabHelloWorld = new System.Windows.Forms.TabPage();
+            this.grpHelloWorld = new Mathre.CustomGroupBox();
+            this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
+            this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
+            this.picHelloWorldEnglish = new System.Windows.Forms.PictureBox();
+            this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
+            this.btnHelloWorldReset = new System.Windows.Forms.Button();
+            this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
+            this.btnHelloWorldEnglish = new System.Windows.Forms.RadioButton();
+            this.lblHelloWorldTitle = new System.Windows.Forms.Label();
+            this.tabMathre = new System.Windows.Forms.TabControl();
+            this.tabTemperature = new System.Windows.Forms.TabPage();
             this.grpTemperatureResults = new Mathre.CustomGroupBox();
             this.lblCelsiusDisplay = new System.Windows.Forms.Label();
             this.lblFahrenheitDisplay = new System.Windows.Forms.Label();
             this.lblCelsiusDisplayLabel = new System.Windows.Forms.Label();
             this.lblFahrenheitDisplayLabel = new System.Windows.Forms.Label();
+            this.lblTemperatureTitle = new System.Windows.Forms.Label();
             this.grpTemperature = new Mathre.CustomGroupBox();
             this.btnCelsius = new System.Windows.Forms.RadioButton();
             this.btnFahrenheit = new System.Windows.Forms.RadioButton();
             this.txtTemperature = new System.Windows.Forms.TextBox();
             this.lblTemperature = new System.Windows.Forms.Label();
+            this.tabDigits = new System.Windows.Forms.TabPage();
             this.grpDigitsResults = new Mathre.CustomGroupBox();
             this.pnlDigitsResults = new System.Windows.Forms.Panel();
             this.lblDigitsResultsLabel = new System.Windows.Forms.Label();
             this.lblDigitsListOdds = new System.Windows.Forms.Label();
             this.lblDigitsListEvens = new System.Windows.Forms.Label();
+            this.lblDigitsTitle = new System.Windows.Forms.Label();
             this.grpDigits = new Mathre.CustomGroupBox();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.lblDigits = new System.Windows.Forms.Label();
             this.lblDigitsCount = new System.Windows.Forms.Label();
             this.lblDigitsCountLabel = new System.Windows.Forms.Label();
+            this.tabChange = new System.Windows.Forms.TabPage();
             this.grpChangeAmount = new Mathre.CustomGroupBox();
             this.lblOnesCount = new System.Windows.Forms.Label();
             this.lblQuartersCount = new System.Windows.Forms.Label();
@@ -179,9 +181,11 @@ namespace Mathre
             this.lblHundredsCount = new System.Windows.Forms.Label();
             this.lblHundreds = new System.Windows.Forms.Label();
             this.lblChange = new System.Windows.Forms.Label();
+            this.lblChangeMakerTitle = new System.Windows.Forms.Label();
             this.grpChangeMaker = new Mathre.CustomGroupBox();
             this.txtPaidAmount = new System.Windows.Forms.TextBox();
             this.lblPaidAmount = new System.Windows.Forms.Label();
+            this.tabPizza = new System.Windows.Forms.TabPage();
             this.grpPizza = new Mathre.CustomGroupBox();
             this.txtPizzaTip = new System.Windows.Forms.TextBox();
             this.lblPizzaTip = new System.Windows.Forms.Label();
@@ -192,42 +196,38 @@ namespace Mathre
             this.grpPizzaCost = new Mathre.CustomGroupBox();
             this.lblPizzaCostAmount = new System.Windows.Forms.Label();
             this.lblPizzaCost = new System.Windows.Forms.Label();
-            this.grpSecret = new Mathre.CustomGroupBox();
-            this.btnSecretDisable = new System.Windows.Forms.RadioButton();
-            this.btnSecretEnable = new System.Windows.Forms.RadioButton();
-            this.txtSecretPassword = new System.Windows.Forms.TextBox();
-            this.lblSecretPrompt = new System.Windows.Forms.Label();
+            this.lblPizzaTitle = new System.Windows.Forms.Label();
             this.mnuBaseLayer.SuspendLayout();
             this.tabSecret.SuspendLayout();
+            this.grpSecret.SuspendLayout();
             this.tabMyFavorites.SuspendLayout();
+            this.grpFavoriteControls.SuspendLayout();
+            this.grpFavoriteDisplay.SuspendLayout();
             this.tabRectangle.SuspendLayout();
+            this.grpRectangleContainer.SuspendLayout();
+            this.grpRectangleControls.SuspendLayout();
             this.tabMySchool.SuspendLayout();
+            this.grpMySchool.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.tabHelloWorld.SuspendLayout();
-            this.tabMathre.SuspendLayout();
-            this.tabTemperature.SuspendLayout();
-            this.tabDigits.SuspendLayout();
-            this.tabChange.SuspendLayout();
-            this.tabPizza.SuspendLayout();
             this.grpHelloWorld.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
-            this.grpMySchool.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
-            this.grpRectangleContainer.SuspendLayout();
-            this.grpRectangleControls.SuspendLayout();
-            this.grpFavoriteControls.SuspendLayout();
-            this.grpFavoriteDisplay.SuspendLayout();
+            this.tabMathre.SuspendLayout();
+            this.tabTemperature.SuspendLayout();
             this.grpTemperatureResults.SuspendLayout();
             this.grpTemperature.SuspendLayout();
+            this.tabDigits.SuspendLayout();
             this.grpDigitsResults.SuspendLayout();
             this.pnlDigitsResults.SuspendLayout();
             this.grpDigits.SuspendLayout();
+            this.tabChange.SuspendLayout();
             this.grpChangeAmount.SuspendLayout();
             this.grpChangeMaker.SuspendLayout();
+            this.tabPizza.SuspendLayout();
             this.grpPizza.SuspendLayout();
             this.grpPizzaCost.SuspendLayout();
-            this.grpSecret.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuBaseLayer
@@ -406,17 +406,17 @@ namespace Mathre
             this.mnuFavoriteFruit.Size = new System.Drawing.Size(110, 22);
             this.mnuFavoriteFruit.Text = "Fruit";
             // 
-            // mnuFavoriteColor
-            // 
-            this.mnuFavoriteColor.Name = "mnuFavoriteColor";
-            this.mnuFavoriteColor.Size = new System.Drawing.Size(110, 22);
-            this.mnuFavoriteColor.Text = "Color";
-            // 
             // mnuFavoriteHobby
             // 
             this.mnuFavoriteHobby.Name = "mnuFavoriteHobby";
             this.mnuFavoriteHobby.Size = new System.Drawing.Size(110, 22);
             this.mnuFavoriteHobby.Text = "Hobby";
+            // 
+            // mnuFavoriteColor
+            // 
+            this.mnuFavoriteColor.Name = "mnuFavoriteColor";
+            this.mnuFavoriteColor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteColor.Text = "Color";
             // 
             // mnuTemperature
             // 
@@ -553,6 +553,18 @@ namespace Mathre
             this.mnuViewDigits.Size = new System.Drawing.Size(195, 22);
             this.mnuViewDigits.Text = "Digit Separator";
             // 
+            // mnuViewChange
+            // 
+            this.mnuViewChange.Name = "mnuViewChange";
+            this.mnuViewChange.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewChange.Text = "Change Maker";
+            // 
+            // mnuViewPizza
+            // 
+            this.mnuViewPizza.Name = "mnuViewPizza";
+            this.mnuViewPizza.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewPizza.Text = "Pizza Delivery";
+            // 
             // mnuViewUnknown
             // 
             this.mnuViewUnknown.Name = "mnuViewUnknown";
@@ -601,6 +613,68 @@ namespace Mathre
             this.lblSecretTitle.Text = "Enable Super Secret Settings";
             this.lblSecretTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // grpSecret
+            // 
+            this.grpSecret.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpSecret.AutoSize = true;
+            this.grpSecret.BackColor = System.Drawing.SystemColors.Control;
+            this.grpSecret.BorderColor = System.Drawing.Color.Black;
+            this.grpSecret.Controls.Add(this.btnSecretDisable);
+            this.grpSecret.Controls.Add(this.btnSecretEnable);
+            this.grpSecret.Controls.Add(this.txtSecretPassword);
+            this.grpSecret.Controls.Add(this.lblSecretPrompt);
+            this.grpSecret.Location = new System.Drawing.Point(309, 140);
+            this.grpSecret.Name = "grpSecret";
+            this.grpSecret.Size = new System.Drawing.Size(426, 105);
+            this.grpSecret.TabIndex = 8;
+            this.grpSecret.TabStop = false;
+            // 
+            // btnSecretDisable
+            // 
+            this.btnSecretDisable.AutoSize = true;
+            this.btnSecretDisable.Checked = true;
+            this.btnSecretDisable.Enabled = false;
+            this.btnSecretDisable.Location = new System.Drawing.Point(85, 66);
+            this.btnSecretDisable.Name = "btnSecretDisable";
+            this.btnSecretDisable.Size = new System.Drawing.Size(60, 17);
+            this.btnSecretDisable.TabIndex = 11;
+            this.btnSecretDisable.TabStop = true;
+            this.btnSecretDisable.Text = "Disable";
+            this.btnSecretDisable.UseVisualStyleBackColor = true;
+            // 
+            // btnSecretEnable
+            // 
+            this.btnSecretEnable.AutoSize = true;
+            this.btnSecretEnable.Enabled = false;
+            this.btnSecretEnable.Location = new System.Drawing.Point(283, 67);
+            this.btnSecretEnable.Name = "btnSecretEnable";
+            this.btnSecretEnable.Size = new System.Drawing.Size(58, 17);
+            this.btnSecretEnable.TabIndex = 10;
+            this.btnSecretEnable.Text = "Enable";
+            this.btnSecretEnable.UseVisualStyleBackColor = true;
+            // 
+            // txtSecretPassword
+            // 
+            this.txtSecretPassword.BackColor = System.Drawing.SystemColors.Window;
+            this.txtSecretPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSecretPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSecretPassword.Location = new System.Drawing.Point(261, 21);
+            this.txtSecretPassword.Name = "txtSecretPassword";
+            this.txtSecretPassword.PasswordChar = '∗';
+            this.txtSecretPassword.Size = new System.Drawing.Size(114, 26);
+            this.txtSecretPassword.TabIndex = 9;
+            // 
+            // lblSecretPrompt
+            // 
+            this.lblSecretPrompt.AutoSize = true;
+            this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSecretPrompt.Location = new System.Drawing.Point(52, 23);
+            this.lblSecretPrompt.Name = "lblSecretPrompt";
+            this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
+            this.lblSecretPrompt.TabIndex = 9;
+            this.lblSecretPrompt.Text = "Enter the Passcode:";
+            // 
             // tabMyFavorites
             // 
             this.tabMyFavorites.Controls.Add(this.grpFavoriteControls);
@@ -612,497 +686,6 @@ namespace Mathre
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
-            // 
-            // lblFavoriteTitle
-            // 
-            this.lblFavoriteTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFavoriteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFavoriteTitle.Location = new System.Drawing.Point(209, 71);
-            this.lblFavoriteTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblFavoriteTitle.Name = "lblFavoriteTitle";
-            this.lblFavoriteTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblFavoriteTitle.TabIndex = 17;
-            this.lblFavoriteTitle.Text = "My Favorite __________";
-            this.lblFavoriteTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabRectangle
-            // 
-            this.tabRectangle.Controls.Add(this.grpRectangleContainer);
-            this.tabRectangle.Controls.Add(this.lblRectangleTitle);
-            this.tabRectangle.Controls.Add(this.grpRectangleControls);
-            this.tabRectangle.Location = new System.Drawing.Point(4, 22);
-            this.tabRectangle.Name = "tabRectangle";
-            this.tabRectangle.Size = new System.Drawing.Size(1044, 486);
-            this.tabRectangle.TabIndex = 4;
-            this.tabRectangle.Text = "Rectangle Calculator";
-            this.tabRectangle.UseVisualStyleBackColor = true;
-            // 
-            // lblRectangleTitle
-            // 
-            this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleTitle.Location = new System.Drawing.Point(209, 71);
-            this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblRectangleTitle.Name = "lblRectangleTitle";
-            this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblRectangleTitle.TabIndex = 11;
-            this.lblRectangleTitle.Text = "Rectangle Calculator";
-            this.lblRectangleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabMySchool
-            // 
-            this.tabMySchool.Controls.Add(this.lblMySchoolTitle);
-            this.tabMySchool.Controls.Add(this.grpMySchool);
-            this.tabMySchool.Location = new System.Drawing.Point(4, 22);
-            this.tabMySchool.Name = "tabMySchool";
-            this.tabMySchool.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMySchool.Size = new System.Drawing.Size(1044, 486);
-            this.tabMySchool.TabIndex = 1;
-            this.tabMySchool.Text = "My School";
-            this.tabMySchool.UseVisualStyleBackColor = true;
-            // 
-            // lblMySchoolTitle
-            // 
-            this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolTitle.Location = new System.Drawing.Point(274, 71);
-            this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblMySchoolTitle.Name = "lblMySchoolTitle";
-            this.lblMySchoolTitle.Size = new System.Drawing.Size(496, 51);
-            this.lblMySchoolTitle.TabIndex = 8;
-            this.lblMySchoolTitle.Text = "Red River High School";
-            this.lblMySchoolTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabHelloWorld
-            // 
-            this.tabHelloWorld.BackColor = System.Drawing.Color.White;
-            this.tabHelloWorld.Controls.Add(this.grpHelloWorld);
-            this.tabHelloWorld.Controls.Add(this.lblHelloWorldTitle);
-            this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
-            this.tabHelloWorld.Margin = new System.Windows.Forms.Padding(0);
-            this.tabHelloWorld.Name = "tabHelloWorld";
-            this.tabHelloWorld.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHelloWorld.Size = new System.Drawing.Size(1044, 486);
-            this.tabHelloWorld.TabIndex = 0;
-            this.tabHelloWorld.Text = "Hello World";
-            // 
-            // lblHelloWorldTitle
-            // 
-            this.lblHelloWorldTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHelloWorldTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelloWorldTitle.Location = new System.Drawing.Point(309, 71);
-            this.lblHelloWorldTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblHelloWorldTitle.Name = "lblHelloWorldTitle";
-            this.lblHelloWorldTitle.Size = new System.Drawing.Size(426, 51);
-            this.lblHelloWorldTitle.TabIndex = 5;
-            this.lblHelloWorldTitle.Text = "Hello World";
-            this.lblHelloWorldTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabMathre
-            // 
-            this.tabMathre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabMathre.Controls.Add(this.tabHelloWorld);
-            this.tabMathre.Controls.Add(this.tabMySchool);
-            this.tabMathre.Controls.Add(this.tabRectangle);
-            this.tabMathre.Controls.Add(this.tabMyFavorites);
-            this.tabMathre.Controls.Add(this.tabTemperature);
-            this.tabMathre.Controls.Add(this.tabDigits);
-            this.tabMathre.Controls.Add(this.tabChange);
-            this.tabMathre.Controls.Add(this.tabPizza);
-            this.tabMathre.Controls.Add(this.tabUnknown);
-            this.tabMathre.Controls.Add(this.tabSecret);
-            this.tabMathre.Location = new System.Drawing.Point(0, 29);
-            this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
-            this.tabMathre.Name = "tabMathre";
-            this.tabMathre.Padding = new System.Drawing.Point(0, 0);
-            this.tabMathre.SelectedIndex = 0;
-            this.tabMathre.Size = new System.Drawing.Size(1052, 512);
-            this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
-            this.tabMathre.TabIndex = 4;
-            // 
-            // tabTemperature
-            // 
-            this.tabTemperature.Controls.Add(this.grpTemperatureResults);
-            this.tabTemperature.Controls.Add(this.lblTemperatureTitle);
-            this.tabTemperature.Controls.Add(this.grpTemperature);
-            this.tabTemperature.Location = new System.Drawing.Point(4, 22);
-            this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(1044, 486);
-            this.tabTemperature.TabIndex = 6;
-            this.tabTemperature.Text = "Temperature Converter";
-            this.tabTemperature.UseVisualStyleBackColor = true;
-            // 
-            // lblTemperatureTitle
-            // 
-            this.lblTemperatureTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTemperatureTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperatureTitle.Location = new System.Drawing.Point(209, 71);
-            this.lblTemperatureTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTemperatureTitle.Name = "lblTemperatureTitle";
-            this.lblTemperatureTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblTemperatureTitle.TabIndex = 17;
-            this.lblTemperatureTitle.Text = "Temperature Converter";
-            this.lblTemperatureTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabDigits
-            // 
-            this.tabDigits.Controls.Add(this.grpDigitsResults);
-            this.tabDigits.Controls.Add(this.lblDigitsTitle);
-            this.tabDigits.Controls.Add(this.grpDigits);
-            this.tabDigits.Location = new System.Drawing.Point(4, 22);
-            this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(1044, 486);
-            this.tabDigits.TabIndex = 7;
-            this.tabDigits.Text = "Digit Separator";
-            this.tabDigits.UseVisualStyleBackColor = true;
-            // 
-            // lblDigitsTitle
-            // 
-            this.lblDigitsTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDigitsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDigitsTitle.Location = new System.Drawing.Point(209, 71);
-            this.lblDigitsTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblDigitsTitle.Name = "lblDigitsTitle";
-            this.lblDigitsTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblDigitsTitle.TabIndex = 20;
-            this.lblDigitsTitle.Text = "Numerical Digit Separator";
-            this.lblDigitsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabChange
-            // 
-            this.tabChange.Controls.Add(this.grpChangeAmount);
-            this.tabChange.Controls.Add(this.lblChangeMakerTitle);
-            this.tabChange.Controls.Add(this.grpChangeMaker);
-            this.tabChange.Location = new System.Drawing.Point(4, 22);
-            this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(1044, 486);
-            this.tabChange.TabIndex = 8;
-            this.tabChange.Text = "Change Maker";
-            this.tabChange.UseVisualStyleBackColor = true;
-            // 
-            // lblChangeMakerTitle
-            // 
-            this.lblChangeMakerTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblChangeMakerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeMakerTitle.Location = new System.Drawing.Point(209, 71);
-            this.lblChangeMakerTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblChangeMakerTitle.Name = "lblChangeMakerTitle";
-            this.lblChangeMakerTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblChangeMakerTitle.TabIndex = 20;
-            this.lblChangeMakerTitle.Text = "Change Maker";
-            this.lblChangeMakerTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabPizza
-            // 
-            this.tabPizza.Controls.Add(this.grpPizza);
-            this.tabPizza.Controls.Add(this.grpPizzaCost);
-            this.tabPizza.Controls.Add(this.lblPizzaTitle);
-            this.tabPizza.Location = new System.Drawing.Point(4, 22);
-            this.tabPizza.Name = "tabPizza";
-            this.tabPizza.Size = new System.Drawing.Size(1044, 486);
-            this.tabPizza.TabIndex = 9;
-            this.tabPizza.Text = "Pizza Delivery";
-            this.tabPizza.UseVisualStyleBackColor = true;
-            // 
-            // lblPizzaTitle
-            // 
-            this.lblPizzaTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblPizzaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPizzaTitle.Location = new System.Drawing.Point(209, 71);
-            this.lblPizzaTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblPizzaTitle.Name = "lblPizzaTitle";
-            this.lblPizzaTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblPizzaTitle.TabIndex = 23;
-            this.lblPizzaTitle.Text = "Pizza Delivery";
-            this.lblPizzaTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mnuViewChange
-            // 
-            this.mnuViewChange.Name = "mnuViewChange";
-            this.mnuViewChange.Size = new System.Drawing.Size(195, 22);
-            this.mnuViewChange.Text = "Change Maker";
-            // 
-            // mnuViewPizza
-            // 
-            this.mnuViewPizza.Name = "mnuViewPizza";
-            this.mnuViewPizza.Size = new System.Drawing.Size(195, 22);
-            this.mnuViewPizza.Text = "Pizza Delivery";
-            // 
-            // grpHelloWorld
-            // 
-            this.grpHelloWorld.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpHelloWorld.AutoSize = true;
-            this.grpHelloWorld.BackColor = System.Drawing.SystemColors.Control;
-            this.grpHelloWorld.BorderColor = System.Drawing.Color.Black;
-            this.grpHelloWorld.Controls.Add(this.picHelloWorldGerman);
-            this.grpHelloWorld.Controls.Add(this.btnHelloWorldFrench);
-            this.grpHelloWorld.Controls.Add(this.picHelloWorldEnglish);
-            this.grpHelloWorld.Controls.Add(this.picHelloWorldFrench);
-            this.grpHelloWorld.Controls.Add(this.btnHelloWorldReset);
-            this.grpHelloWorld.Controls.Add(this.btnHelloWorldGerman);
-            this.grpHelloWorld.Controls.Add(this.btnHelloWorldEnglish);
-            this.grpHelloWorld.Location = new System.Drawing.Point(309, 140);
-            this.grpHelloWorld.Name = "grpHelloWorld";
-            this.grpHelloWorld.Size = new System.Drawing.Size(426, 105);
-            this.grpHelloWorld.TabIndex = 7;
-            this.grpHelloWorld.TabStop = false;
-            // 
-            // picHelloWorldGerman
-            // 
-            this.picHelloWorldGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.picHelloWorldGerman.Location = new System.Drawing.Point(293, 21);
-            this.picHelloWorldGerman.Name = "picHelloWorldGerman";
-            this.picHelloWorldGerman.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldGerman.TabIndex = 13;
-            this.picHelloWorldGerman.TabStop = false;
-            // 
-            // btnHelloWorldFrench
-            // 
-            this.btnHelloWorldFrench.AutoSize = true;
-            this.btnHelloWorldFrench.Location = new System.Drawing.Point(201, 25);
-            this.btnHelloWorldFrench.Name = "btnHelloWorldFrench";
-            this.btnHelloWorldFrench.Size = new System.Drawing.Size(58, 17);
-            this.btnHelloWorldFrench.TabIndex = 10;
-            this.btnHelloWorldFrench.Text = "French";
-            this.btnHelloWorldFrench.UseVisualStyleBackColor = true;
-            // 
-            // picHelloWorldEnglish
-            // 
-            this.picHelloWorldEnglish.Image = global::Mathre.My.Resources.Resources.English;
-            this.picHelloWorldEnglish.Location = new System.Drawing.Point(34, 21);
-            this.picHelloWorldEnglish.Name = "picHelloWorldEnglish";
-            this.picHelloWorldEnglish.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldEnglish.TabIndex = 12;
-            this.picHelloWorldEnglish.TabStop = false;
-            // 
-            // picHelloWorldFrench
-            // 
-            this.picHelloWorldFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.picHelloWorldFrench.Location = new System.Drawing.Point(164, 21);
-            this.picHelloWorldFrench.Name = "picHelloWorldFrench";
-            this.picHelloWorldFrench.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldFrench.TabIndex = 11;
-            this.picHelloWorldFrench.TabStop = false;
-            // 
-            // btnHelloWorldReset
-            // 
-            this.btnHelloWorldReset.Location = new System.Drawing.Point(169, 61);
-            this.btnHelloWorldReset.Name = "btnHelloWorldReset";
-            this.btnHelloWorldReset.Size = new System.Drawing.Size(75, 23);
-            this.btnHelloWorldReset.TabIndex = 9;
-            this.btnHelloWorldReset.Text = "Reset";
-            this.btnHelloWorldReset.UseVisualStyleBackColor = true;
-            // 
-            // btnHelloWorldGerman
-            // 
-            this.btnHelloWorldGerman.AutoSize = true;
-            this.btnHelloWorldGerman.Location = new System.Drawing.Point(330, 25);
-            this.btnHelloWorldGerman.Name = "btnHelloWorldGerman";
-            this.btnHelloWorldGerman.Size = new System.Drawing.Size(62, 17);
-            this.btnHelloWorldGerman.TabIndex = 8;
-            this.btnHelloWorldGerman.Text = "German";
-            this.btnHelloWorldGerman.UseVisualStyleBackColor = true;
-            // 
-            // btnHelloWorldEnglish
-            // 
-            this.btnHelloWorldEnglish.AutoSize = true;
-            this.btnHelloWorldEnglish.Checked = true;
-            this.btnHelloWorldEnglish.Location = new System.Drawing.Point(71, 25);
-            this.btnHelloWorldEnglish.Name = "btnHelloWorldEnglish";
-            this.btnHelloWorldEnglish.Size = new System.Drawing.Size(59, 17);
-            this.btnHelloWorldEnglish.TabIndex = 7;
-            this.btnHelloWorldEnglish.TabStop = true;
-            this.btnHelloWorldEnglish.Text = "English";
-            this.btnHelloWorldEnglish.UseVisualStyleBackColor = true;
-            // 
-            // grpMySchool
-            // 
-            this.grpMySchool.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpMySchool.AutoSize = true;
-            this.grpMySchool.BackColor = System.Drawing.SystemColors.Control;
-            this.grpMySchool.BorderColor = System.Drawing.Color.Black;
-            this.grpMySchool.Controls.Add(this.lblMySchoolMascot);
-            this.grpMySchool.Controls.Add(this.picMySchoolMascot);
-            this.grpMySchool.Controls.Add(this.btnMySchoolToggleMascot);
-            this.grpMySchool.Location = new System.Drawing.Point(309, 140);
-            this.grpMySchool.Name = "grpMySchool";
-            this.grpMySchool.Size = new System.Drawing.Size(426, 105);
-            this.grpMySchool.TabIndex = 9;
-            this.grpMySchool.TabStop = false;
-            // 
-            // lblMySchoolMascot
-            // 
-            this.lblMySchoolMascot.AutoSize = true;
-            this.lblMySchoolMascot.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolMascot.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblMySchoolMascot.Location = new System.Drawing.Point(50, 27);
-            this.lblMySchoolMascot.Name = "lblMySchoolMascot";
-            this.lblMySchoolMascot.Size = new System.Drawing.Size(134, 18);
-            this.lblMySchoolMascot.TabIndex = 10;
-            this.lblMySchoolMascot.Text = "Mascot: Roughriders";
-            // 
-            // picMySchoolMascot
-            // 
-            this.picMySchoolMascot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picMySchoolMascot.Image = global::Mathre.My.Resources.Resources.RedRiver;
-            this.picMySchoolMascot.Location = new System.Drawing.Point(268, 19);
-            this.picMySchoolMascot.Name = "picMySchoolMascot";
-            this.picMySchoolMascot.Size = new System.Drawing.Size(108, 66);
-            this.picMySchoolMascot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picMySchoolMascot.TabIndex = 13;
-            this.picMySchoolMascot.TabStop = false;
-            this.picMySchoolMascot.Visible = false;
-            // 
-            // btnMySchoolToggleMascot
-            // 
-            this.btnMySchoolToggleMascot.Location = new System.Drawing.Point(51, 60);
-            this.btnMySchoolToggleMascot.Name = "btnMySchoolToggleMascot";
-            this.btnMySchoolToggleMascot.Size = new System.Drawing.Size(132, 23);
-            this.btnMySchoolToggleMascot.TabIndex = 9;
-            this.btnMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
-            this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
-            // 
-            // grpRectangleContainer
-            // 
-            this.grpRectangleContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpRectangleContainer.BorderColor = System.Drawing.Color.Black;
-            this.grpRectangleContainer.Controls.Add(this.lblRectangleError);
-            this.grpRectangleContainer.Controls.Add(this.grpRectangle);
-            this.grpRectangleContainer.Location = new System.Drawing.Point(309, 261);
-            this.grpRectangleContainer.Name = "grpRectangleContainer";
-            this.grpRectangleContainer.Size = new System.Drawing.Size(426, 136);
-            this.grpRectangleContainer.TabIndex = 15;
-            this.grpRectangleContainer.TabStop = false;
-            this.grpRectangleContainer.Text = "customGroupBox2";
-            // 
-            // lblRectangleError
-            // 
-            this.lblRectangleError.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRectangleError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblRectangleError.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleError.Location = new System.Drawing.Point(52, 43);
-            this.lblRectangleError.Margin = new System.Windows.Forms.Padding(0);
-            this.lblRectangleError.Name = "lblRectangleError";
-            this.lblRectangleError.Size = new System.Drawing.Size(322, 51);
-            this.lblRectangleError.TabIndex = 16;
-            this.lblRectangleError.Text = "Invalid Dimensions";
-            this.lblRectangleError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // grpRectangle
-            // 
-            this.grpRectangle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpRectangle.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.grpRectangle.BorderColor = System.Drawing.Color.Black;
-            this.grpRectangle.Location = new System.Drawing.Point(163, 17);
-            this.grpRectangle.MaximumSize = new System.Drawing.Size(100, 100);
-            this.grpRectangle.Name = "grpRectangle";
-            this.grpRectangle.Size = new System.Drawing.Size(100, 100);
-            this.grpRectangle.TabIndex = 14;
-            this.grpRectangle.TabStop = false;
-            this.grpRectangle.Visible = false;
-            // 
-            // grpRectangleControls
-            // 
-            this.grpRectangleControls.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpRectangleControls.AutoSize = true;
-            this.grpRectangleControls.BackColor = System.Drawing.SystemColors.Control;
-            this.grpRectangleControls.BorderColor = System.Drawing.Color.Black;
-            this.grpRectangleControls.Controls.Add(this.btnRectangleCalculate);
-            this.grpRectangleControls.Controls.Add(this.lblRectangleAreaTitle);
-            this.grpRectangleControls.Controls.Add(this.txtRectangleDimensions);
-            this.grpRectangleControls.Controls.Add(this.lblRectangleDimensions);
-            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimiterTitle);
-            this.grpRectangleControls.Controls.Add(this.lblRectangleArea);
-            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimeter);
-            this.grpRectangleControls.Location = new System.Drawing.Point(309, 140);
-            this.grpRectangleControls.Name = "grpRectangleControls";
-            this.grpRectangleControls.Size = new System.Drawing.Size(426, 105);
-            this.grpRectangleControls.TabIndex = 10;
-            this.grpRectangleControls.TabStop = false;
-            // 
-            // btnRectangleCalculate
-            // 
-            this.btnRectangleCalculate.BackColor = System.Drawing.SystemColors.Control;
-            this.btnRectangleCalculate.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRectangleCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRectangleCalculate.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangleCalculate.Image")));
-            this.btnRectangleCalculate.Location = new System.Drawing.Point(391, 13);
-            this.btnRectangleCalculate.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRectangleCalculate.Name = "btnRectangleCalculate";
-            this.btnRectangleCalculate.Size = new System.Drawing.Size(26, 26);
-            this.btnRectangleCalculate.TabIndex = 18;
-            this.btnRectangleCalculate.UseVisualStyleBackColor = false;
-            // 
-            // lblRectangleAreaTitle
-            // 
-            this.lblRectangleAreaTitle.AutoSize = true;
-            this.lblRectangleAreaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleAreaTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRectangleAreaTitle.Location = new System.Drawing.Point(18, 42);
-            this.lblRectangleAreaTitle.Name = "lblRectangleAreaTitle";
-            this.lblRectangleAreaTitle.Size = new System.Drawing.Size(47, 20);
-            this.lblRectangleAreaTitle.TabIndex = 14;
-            this.lblRectangleAreaTitle.Text = "Area:";
-            // 
-            // txtRectangleDimensions
-            // 
-            this.txtRectangleDimensions.BackColor = System.Drawing.SystemColors.Window;
-            this.txtRectangleDimensions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRectangleDimensions.Location = new System.Drawing.Point(217, 13);
-            this.txtRectangleDimensions.Margin = new System.Windows.Forms.Padding(0);
-            this.txtRectangleDimensions.Name = "txtRectangleDimensions";
-            this.txtRectangleDimensions.Size = new System.Drawing.Size(175, 26);
-            this.txtRectangleDimensions.TabIndex = 13;
-            // 
-            // lblRectangleDimensions
-            // 
-            this.lblRectangleDimensions.AutoSize = true;
-            this.lblRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleDimensions.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRectangleDimensions.Location = new System.Drawing.Point(18, 16);
-            this.lblRectangleDimensions.Name = "lblRectangleDimensions";
-            this.lblRectangleDimensions.Size = new System.Drawing.Size(173, 20);
-            this.lblRectangleDimensions.TabIndex = 9;
-            this.lblRectangleDimensions.Text = "Rectangle Dimensions:";
-            // 
-            // lblRectanglePerimiterTitle
-            // 
-            this.lblRectanglePerimiterTitle.AutoSize = true;
-            this.lblRectanglePerimiterTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectanglePerimiterTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblRectanglePerimiterTitle.Location = new System.Drawing.Point(18, 68);
-            this.lblRectanglePerimiterTitle.Name = "lblRectanglePerimiterTitle";
-            this.lblRectanglePerimiterTitle.Size = new System.Drawing.Size(75, 20);
-            this.lblRectanglePerimiterTitle.TabIndex = 15;
-            this.lblRectanglePerimiterTitle.Text = "Perimiter:";
-            // 
-            // lblRectangleArea
-            // 
-            this.lblRectangleArea.AutoSize = true;
-            this.lblRectangleArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleArea.Location = new System.Drawing.Point(71, 45);
-            this.lblRectangleArea.Name = "lblRectangleArea";
-            this.lblRectangleArea.Size = new System.Drawing.Size(32, 15);
-            this.lblRectangleArea.TabIndex = 16;
-            this.lblRectangleArea.Text = "Area";
-            this.lblRectangleArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblRectanglePerimeter
-            // 
-            this.lblRectanglePerimeter.AutoSize = true;
-            this.lblRectanglePerimeter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectanglePerimeter.Location = new System.Drawing.Point(99, 71);
-            this.lblRectanglePerimeter.Name = "lblRectanglePerimeter";
-            this.lblRectanglePerimeter.Size = new System.Drawing.Size(61, 15);
-            this.lblRectanglePerimeter.TabIndex = 17;
-            this.lblRectanglePerimeter.Text = "Perimeter";
-            this.lblRectanglePerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // grpFavoriteControls
             // 
@@ -1214,6 +797,401 @@ namespace Mathre
             this.lblFavoriteInfo.Text = "My Favorite __________";
             this.lblFavoriteInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblFavoriteTitle
+            // 
+            this.lblFavoriteTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblFavoriteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFavoriteTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblFavoriteTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblFavoriteTitle.Name = "lblFavoriteTitle";
+            this.lblFavoriteTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblFavoriteTitle.TabIndex = 17;
+            this.lblFavoriteTitle.Text = "My Favorite __________";
+            this.lblFavoriteTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabRectangle
+            // 
+            this.tabRectangle.Controls.Add(this.grpRectangleContainer);
+            this.tabRectangle.Controls.Add(this.lblRectangleTitle);
+            this.tabRectangle.Controls.Add(this.grpRectangleControls);
+            this.tabRectangle.Location = new System.Drawing.Point(4, 22);
+            this.tabRectangle.Name = "tabRectangle";
+            this.tabRectangle.Size = new System.Drawing.Size(1044, 486);
+            this.tabRectangle.TabIndex = 4;
+            this.tabRectangle.Text = "Rectangle Calculator";
+            this.tabRectangle.UseVisualStyleBackColor = true;
+            // 
+            // grpRectangleContainer
+            // 
+            this.grpRectangleContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpRectangleContainer.BorderColor = System.Drawing.Color.Black;
+            this.grpRectangleContainer.Controls.Add(this.lblRectangleError);
+            this.grpRectangleContainer.Controls.Add(this.grpRectangle);
+            this.grpRectangleContainer.Location = new System.Drawing.Point(309, 261);
+            this.grpRectangleContainer.Name = "grpRectangleContainer";
+            this.grpRectangleContainer.Size = new System.Drawing.Size(426, 136);
+            this.grpRectangleContainer.TabIndex = 15;
+            this.grpRectangleContainer.TabStop = false;
+            this.grpRectangleContainer.Text = "customGroupBox2";
+            // 
+            // lblRectangleError
+            // 
+            this.lblRectangleError.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRectangleError.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblRectangleError.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleError.Location = new System.Drawing.Point(52, 43);
+            this.lblRectangleError.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRectangleError.Name = "lblRectangleError";
+            this.lblRectangleError.Size = new System.Drawing.Size(322, 51);
+            this.lblRectangleError.TabIndex = 16;
+            this.lblRectangleError.Text = "Invalid Dimensions";
+            this.lblRectangleError.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // grpRectangle
+            // 
+            this.grpRectangle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpRectangle.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.grpRectangle.BorderColor = System.Drawing.Color.Black;
+            this.grpRectangle.Location = new System.Drawing.Point(163, 17);
+            this.grpRectangle.MaximumSize = new System.Drawing.Size(100, 100);
+            this.grpRectangle.Name = "grpRectangle";
+            this.grpRectangle.Size = new System.Drawing.Size(100, 100);
+            this.grpRectangle.TabIndex = 14;
+            this.grpRectangle.TabStop = false;
+            this.grpRectangle.Visible = false;
+            // 
+            // lblRectangleTitle
+            // 
+            this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRectangleTitle.Name = "lblRectangleTitle";
+            this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblRectangleTitle.TabIndex = 11;
+            this.lblRectangleTitle.Text = "Rectangle Calculator";
+            this.lblRectangleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // grpRectangleControls
+            // 
+            this.grpRectangleControls.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpRectangleControls.AutoSize = true;
+            this.grpRectangleControls.BackColor = System.Drawing.SystemColors.Control;
+            this.grpRectangleControls.BorderColor = System.Drawing.Color.Black;
+            this.grpRectangleControls.Controls.Add(this.btnRectangleCalculate);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleAreaTitle);
+            this.grpRectangleControls.Controls.Add(this.txtRectangleDimensions);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleDimensions);
+            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimiterTitle);
+            this.grpRectangleControls.Controls.Add(this.lblRectangleArea);
+            this.grpRectangleControls.Controls.Add(this.lblRectanglePerimeter);
+            this.grpRectangleControls.Location = new System.Drawing.Point(309, 140);
+            this.grpRectangleControls.Name = "grpRectangleControls";
+            this.grpRectangleControls.Size = new System.Drawing.Size(426, 105);
+            this.grpRectangleControls.TabIndex = 10;
+            this.grpRectangleControls.TabStop = false;
+            // 
+            // btnRectangleCalculate
+            // 
+            this.btnRectangleCalculate.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRectangleCalculate.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnRectangleCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRectangleCalculate.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangleCalculate.Image")));
+            this.btnRectangleCalculate.Location = new System.Drawing.Point(391, 13);
+            this.btnRectangleCalculate.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRectangleCalculate.Name = "btnRectangleCalculate";
+            this.btnRectangleCalculate.Size = new System.Drawing.Size(26, 26);
+            this.btnRectangleCalculate.TabIndex = 18;
+            this.btnRectangleCalculate.UseVisualStyleBackColor = false;
+            // 
+            // lblRectangleAreaTitle
+            // 
+            this.lblRectangleAreaTitle.AutoSize = true;
+            this.lblRectangleAreaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleAreaTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectangleAreaTitle.Location = new System.Drawing.Point(18, 42);
+            this.lblRectangleAreaTitle.Name = "lblRectangleAreaTitle";
+            this.lblRectangleAreaTitle.Size = new System.Drawing.Size(47, 20);
+            this.lblRectangleAreaTitle.TabIndex = 14;
+            this.lblRectangleAreaTitle.Text = "Area:";
+            // 
+            // txtRectangleDimensions
+            // 
+            this.txtRectangleDimensions.BackColor = System.Drawing.SystemColors.Window;
+            this.txtRectangleDimensions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRectangleDimensions.Location = new System.Drawing.Point(217, 13);
+            this.txtRectangleDimensions.Margin = new System.Windows.Forms.Padding(0);
+            this.txtRectangleDimensions.Name = "txtRectangleDimensions";
+            this.txtRectangleDimensions.Size = new System.Drawing.Size(175, 26);
+            this.txtRectangleDimensions.TabIndex = 13;
+            // 
+            // lblRectangleDimensions
+            // 
+            this.lblRectangleDimensions.AutoSize = true;
+            this.lblRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleDimensions.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectangleDimensions.Location = new System.Drawing.Point(18, 16);
+            this.lblRectangleDimensions.Name = "lblRectangleDimensions";
+            this.lblRectangleDimensions.Size = new System.Drawing.Size(173, 20);
+            this.lblRectangleDimensions.TabIndex = 9;
+            this.lblRectangleDimensions.Text = "Rectangle Dimensions:";
+            // 
+            // lblRectanglePerimiterTitle
+            // 
+            this.lblRectanglePerimiterTitle.AutoSize = true;
+            this.lblRectanglePerimiterTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectanglePerimiterTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblRectanglePerimiterTitle.Location = new System.Drawing.Point(18, 68);
+            this.lblRectanglePerimiterTitle.Name = "lblRectanglePerimiterTitle";
+            this.lblRectanglePerimiterTitle.Size = new System.Drawing.Size(75, 20);
+            this.lblRectanglePerimiterTitle.TabIndex = 15;
+            this.lblRectanglePerimiterTitle.Text = "Perimiter:";
+            // 
+            // lblRectangleArea
+            // 
+            this.lblRectangleArea.AutoSize = true;
+            this.lblRectangleArea.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleArea.Location = new System.Drawing.Point(71, 45);
+            this.lblRectangleArea.Name = "lblRectangleArea";
+            this.lblRectangleArea.Size = new System.Drawing.Size(32, 15);
+            this.lblRectangleArea.TabIndex = 16;
+            this.lblRectangleArea.Text = "Area";
+            this.lblRectangleArea.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblRectanglePerimeter
+            // 
+            this.lblRectanglePerimeter.AutoSize = true;
+            this.lblRectanglePerimeter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectanglePerimeter.Location = new System.Drawing.Point(99, 71);
+            this.lblRectanglePerimeter.Name = "lblRectanglePerimeter";
+            this.lblRectanglePerimeter.Size = new System.Drawing.Size(61, 15);
+            this.lblRectanglePerimeter.TabIndex = 17;
+            this.lblRectanglePerimeter.Text = "Perimeter";
+            this.lblRectanglePerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tabMySchool
+            // 
+            this.tabMySchool.Controls.Add(this.lblMySchoolTitle);
+            this.tabMySchool.Controls.Add(this.grpMySchool);
+            this.tabMySchool.Location = new System.Drawing.Point(4, 22);
+            this.tabMySchool.Name = "tabMySchool";
+            this.tabMySchool.Padding = new System.Windows.Forms.Padding(3);
+            this.tabMySchool.Size = new System.Drawing.Size(1044, 486);
+            this.tabMySchool.TabIndex = 1;
+            this.tabMySchool.Text = "My School";
+            this.tabMySchool.UseVisualStyleBackColor = true;
+            // 
+            // lblMySchoolTitle
+            // 
+            this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMySchoolTitle.Location = new System.Drawing.Point(274, 71);
+            this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblMySchoolTitle.Name = "lblMySchoolTitle";
+            this.lblMySchoolTitle.Size = new System.Drawing.Size(496, 51);
+            this.lblMySchoolTitle.TabIndex = 8;
+            this.lblMySchoolTitle.Text = "Red River High School";
+            this.lblMySchoolTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // grpMySchool
+            // 
+            this.grpMySchool.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpMySchool.AutoSize = true;
+            this.grpMySchool.BackColor = System.Drawing.SystemColors.Control;
+            this.grpMySchool.BorderColor = System.Drawing.Color.Black;
+            this.grpMySchool.Controls.Add(this.lblMySchoolMascot);
+            this.grpMySchool.Controls.Add(this.picMySchoolMascot);
+            this.grpMySchool.Controls.Add(this.btnMySchoolToggleMascot);
+            this.grpMySchool.Location = new System.Drawing.Point(309, 140);
+            this.grpMySchool.Name = "grpMySchool";
+            this.grpMySchool.Size = new System.Drawing.Size(426, 105);
+            this.grpMySchool.TabIndex = 9;
+            this.grpMySchool.TabStop = false;
+            // 
+            // lblMySchoolMascot
+            // 
+            this.lblMySchoolMascot.AutoSize = true;
+            this.lblMySchoolMascot.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMySchoolMascot.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblMySchoolMascot.Location = new System.Drawing.Point(50, 27);
+            this.lblMySchoolMascot.Name = "lblMySchoolMascot";
+            this.lblMySchoolMascot.Size = new System.Drawing.Size(134, 18);
+            this.lblMySchoolMascot.TabIndex = 10;
+            this.lblMySchoolMascot.Text = "Mascot: Roughriders";
+            // 
+            // picMySchoolMascot
+            // 
+            this.picMySchoolMascot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picMySchoolMascot.Image = global::Mathre.My.Resources.Resources.RedRiver;
+            this.picMySchoolMascot.Location = new System.Drawing.Point(268, 19);
+            this.picMySchoolMascot.Name = "picMySchoolMascot";
+            this.picMySchoolMascot.Size = new System.Drawing.Size(108, 66);
+            this.picMySchoolMascot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picMySchoolMascot.TabIndex = 13;
+            this.picMySchoolMascot.TabStop = false;
+            this.picMySchoolMascot.Visible = false;
+            // 
+            // btnMySchoolToggleMascot
+            // 
+            this.btnMySchoolToggleMascot.Location = new System.Drawing.Point(51, 60);
+            this.btnMySchoolToggleMascot.Name = "btnMySchoolToggleMascot";
+            this.btnMySchoolToggleMascot.Size = new System.Drawing.Size(132, 23);
+            this.btnMySchoolToggleMascot.TabIndex = 9;
+            this.btnMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
+            this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
+            // 
+            // tabHelloWorld
+            // 
+            this.tabHelloWorld.BackColor = System.Drawing.Color.White;
+            this.tabHelloWorld.Controls.Add(this.grpHelloWorld);
+            this.tabHelloWorld.Controls.Add(this.lblHelloWorldTitle);
+            this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
+            this.tabHelloWorld.Margin = new System.Windows.Forms.Padding(0);
+            this.tabHelloWorld.Name = "tabHelloWorld";
+            this.tabHelloWorld.Padding = new System.Windows.Forms.Padding(3);
+            this.tabHelloWorld.Size = new System.Drawing.Size(1044, 486);
+            this.tabHelloWorld.TabIndex = 0;
+            this.tabHelloWorld.Text = "Hello World";
+            // 
+            // grpHelloWorld
+            // 
+            this.grpHelloWorld.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.grpHelloWorld.AutoSize = true;
+            this.grpHelloWorld.BackColor = System.Drawing.SystemColors.Control;
+            this.grpHelloWorld.BorderColor = System.Drawing.Color.Black;
+            this.grpHelloWorld.Controls.Add(this.picHelloWorldGerman);
+            this.grpHelloWorld.Controls.Add(this.btnHelloWorldFrench);
+            this.grpHelloWorld.Controls.Add(this.picHelloWorldEnglish);
+            this.grpHelloWorld.Controls.Add(this.picHelloWorldFrench);
+            this.grpHelloWorld.Controls.Add(this.btnHelloWorldReset);
+            this.grpHelloWorld.Controls.Add(this.btnHelloWorldGerman);
+            this.grpHelloWorld.Controls.Add(this.btnHelloWorldEnglish);
+            this.grpHelloWorld.Location = new System.Drawing.Point(309, 140);
+            this.grpHelloWorld.Name = "grpHelloWorld";
+            this.grpHelloWorld.Size = new System.Drawing.Size(426, 105);
+            this.grpHelloWorld.TabIndex = 7;
+            this.grpHelloWorld.TabStop = false;
+            // 
+            // picHelloWorldGerman
+            // 
+            this.picHelloWorldGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.picHelloWorldGerman.Location = new System.Drawing.Point(293, 21);
+            this.picHelloWorldGerman.Name = "picHelloWorldGerman";
+            this.picHelloWorldGerman.Size = new System.Drawing.Size(31, 25);
+            this.picHelloWorldGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelloWorldGerman.TabIndex = 13;
+            this.picHelloWorldGerman.TabStop = false;
+            // 
+            // btnHelloWorldFrench
+            // 
+            this.btnHelloWorldFrench.AutoSize = true;
+            this.btnHelloWorldFrench.Location = new System.Drawing.Point(201, 25);
+            this.btnHelloWorldFrench.Name = "btnHelloWorldFrench";
+            this.btnHelloWorldFrench.Size = new System.Drawing.Size(58, 17);
+            this.btnHelloWorldFrench.TabIndex = 10;
+            this.btnHelloWorldFrench.Text = "French";
+            this.btnHelloWorldFrench.UseVisualStyleBackColor = true;
+            // 
+            // picHelloWorldEnglish
+            // 
+            this.picHelloWorldEnglish.Image = global::Mathre.My.Resources.Resources.English;
+            this.picHelloWorldEnglish.Location = new System.Drawing.Point(34, 21);
+            this.picHelloWorldEnglish.Name = "picHelloWorldEnglish";
+            this.picHelloWorldEnglish.Size = new System.Drawing.Size(31, 25);
+            this.picHelloWorldEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelloWorldEnglish.TabIndex = 12;
+            this.picHelloWorldEnglish.TabStop = false;
+            // 
+            // picHelloWorldFrench
+            // 
+            this.picHelloWorldFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.picHelloWorldFrench.Location = new System.Drawing.Point(164, 21);
+            this.picHelloWorldFrench.Name = "picHelloWorldFrench";
+            this.picHelloWorldFrench.Size = new System.Drawing.Size(31, 25);
+            this.picHelloWorldFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelloWorldFrench.TabIndex = 11;
+            this.picHelloWorldFrench.TabStop = false;
+            // 
+            // btnHelloWorldReset
+            // 
+            this.btnHelloWorldReset.Location = new System.Drawing.Point(169, 61);
+            this.btnHelloWorldReset.Name = "btnHelloWorldReset";
+            this.btnHelloWorldReset.Size = new System.Drawing.Size(75, 23);
+            this.btnHelloWorldReset.TabIndex = 9;
+            this.btnHelloWorldReset.Text = "Reset";
+            this.btnHelloWorldReset.UseVisualStyleBackColor = true;
+            // 
+            // btnHelloWorldGerman
+            // 
+            this.btnHelloWorldGerman.AutoSize = true;
+            this.btnHelloWorldGerman.Location = new System.Drawing.Point(330, 25);
+            this.btnHelloWorldGerman.Name = "btnHelloWorldGerman";
+            this.btnHelloWorldGerman.Size = new System.Drawing.Size(62, 17);
+            this.btnHelloWorldGerman.TabIndex = 8;
+            this.btnHelloWorldGerman.Text = "German";
+            this.btnHelloWorldGerman.UseVisualStyleBackColor = true;
+            // 
+            // btnHelloWorldEnglish
+            // 
+            this.btnHelloWorldEnglish.AutoSize = true;
+            this.btnHelloWorldEnglish.Checked = true;
+            this.btnHelloWorldEnglish.Location = new System.Drawing.Point(71, 25);
+            this.btnHelloWorldEnglish.Name = "btnHelloWorldEnglish";
+            this.btnHelloWorldEnglish.Size = new System.Drawing.Size(59, 17);
+            this.btnHelloWorldEnglish.TabIndex = 7;
+            this.btnHelloWorldEnglish.TabStop = true;
+            this.btnHelloWorldEnglish.Text = "English";
+            this.btnHelloWorldEnglish.UseVisualStyleBackColor = true;
+            // 
+            // lblHelloWorldTitle
+            // 
+            this.lblHelloWorldTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHelloWorldTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelloWorldTitle.Location = new System.Drawing.Point(309, 71);
+            this.lblHelloWorldTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblHelloWorldTitle.Name = "lblHelloWorldTitle";
+            this.lblHelloWorldTitle.Size = new System.Drawing.Size(426, 51);
+            this.lblHelloWorldTitle.TabIndex = 5;
+            this.lblHelloWorldTitle.Text = "Hello World";
+            this.lblHelloWorldTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tabMathre
+            // 
+            this.tabMathre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabMathre.Controls.Add(this.tabHelloWorld);
+            this.tabMathre.Controls.Add(this.tabMySchool);
+            this.tabMathre.Controls.Add(this.tabRectangle);
+            this.tabMathre.Controls.Add(this.tabMyFavorites);
+            this.tabMathre.Controls.Add(this.tabTemperature);
+            this.tabMathre.Controls.Add(this.tabDigits);
+            this.tabMathre.Controls.Add(this.tabChange);
+            this.tabMathre.Controls.Add(this.tabPizza);
+            this.tabMathre.Controls.Add(this.tabUnknown);
+            this.tabMathre.Controls.Add(this.tabSecret);
+            this.tabMathre.Location = new System.Drawing.Point(0, 29);
+            this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
+            this.tabMathre.Name = "tabMathre";
+            this.tabMathre.Padding = new System.Drawing.Point(0, 0);
+            this.tabMathre.SelectedIndex = 0;
+            this.tabMathre.Size = new System.Drawing.Size(1052, 512);
+            this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tabMathre.TabIndex = 4;
+            // 
+            // tabTemperature
+            // 
+            this.tabTemperature.Controls.Add(this.grpTemperatureResults);
+            this.tabTemperature.Controls.Add(this.lblTemperatureTitle);
+            this.tabTemperature.Controls.Add(this.grpTemperature);
+            this.tabTemperature.Location = new System.Drawing.Point(4, 22);
+            this.tabTemperature.Name = "tabTemperature";
+            this.tabTemperature.Size = new System.Drawing.Size(1044, 486);
+            this.tabTemperature.TabIndex = 6;
+            this.tabTemperature.Text = "Temperature Converter";
+            this.tabTemperature.UseVisualStyleBackColor = true;
+            // 
             // grpTemperatureResults
             // 
             this.grpTemperatureResults.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1272,6 +1250,18 @@ namespace Mathre
             this.lblFahrenheitDisplayLabel.Size = new System.Drawing.Size(201, 20);
             this.lblFahrenheitDisplayLabel.TabIndex = 14;
             this.lblFahrenheitDisplayLabel.Text = "Temperature in Fahrenheit:";
+            // 
+            // lblTemperatureTitle
+            // 
+            this.lblTemperatureTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTemperatureTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperatureTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblTemperatureTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTemperatureTitle.Name = "lblTemperatureTitle";
+            this.lblTemperatureTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTemperatureTitle.TabIndex = 17;
+            this.lblTemperatureTitle.Text = "Temperature Converter";
+            this.lblTemperatureTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // grpTemperature
             // 
@@ -1333,6 +1323,18 @@ namespace Mathre
             this.lblTemperature.TabIndex = 9;
             this.lblTemperature.Text = "Temperature:";
             // 
+            // tabDigits
+            // 
+            this.tabDigits.Controls.Add(this.grpDigitsResults);
+            this.tabDigits.Controls.Add(this.lblDigitsTitle);
+            this.tabDigits.Controls.Add(this.grpDigits);
+            this.tabDigits.Location = new System.Drawing.Point(4, 22);
+            this.tabDigits.Name = "tabDigits";
+            this.tabDigits.Size = new System.Drawing.Size(1044, 486);
+            this.tabDigits.TabIndex = 7;
+            this.tabDigits.Text = "Digit Separator";
+            this.tabDigits.UseVisualStyleBackColor = true;
+            // 
             // grpDigitsResults
             // 
             this.grpDigitsResults.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1383,6 +1385,18 @@ namespace Mathre
             this.lblDigitsListEvens.Size = new System.Drawing.Size(51, 13);
             this.lblDigitsListEvens.TabIndex = 1;
             this.lblDigitsListEvens.Text = "Digit #: #";
+            // 
+            // lblDigitsTitle
+            // 
+            this.lblDigitsTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblDigitsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDigitsTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblDigitsTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblDigitsTitle.Name = "lblDigitsTitle";
+            this.lblDigitsTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblDigitsTitle.TabIndex = 20;
+            this.lblDigitsTitle.Text = "Numerical Digit Separator";
+            this.lblDigitsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // grpDigits
             // 
@@ -1443,6 +1457,18 @@ namespace Mathre
             this.lblDigitsCountLabel.Size = new System.Drawing.Size(131, 20);
             this.lblDigitsCountLabel.TabIndex = 14;
             this.lblDigitsCountLabel.Text = "Number of Digits:";
+            // 
+            // tabChange
+            // 
+            this.tabChange.Controls.Add(this.grpChangeAmount);
+            this.tabChange.Controls.Add(this.lblChangeMakerTitle);
+            this.tabChange.Controls.Add(this.grpChangeMaker);
+            this.tabChange.Location = new System.Drawing.Point(4, 22);
+            this.tabChange.Name = "tabChange";
+            this.tabChange.Size = new System.Drawing.Size(1044, 486);
+            this.tabChange.TabIndex = 8;
+            this.tabChange.Text = "Change Maker";
+            this.tabChange.UseVisualStyleBackColor = true;
             // 
             // grpChangeAmount
             // 
@@ -1707,6 +1733,18 @@ namespace Mathre
             this.lblChange.TabIndex = 14;
             this.lblChange.Text = "Change:";
             // 
+            // lblChangeMakerTitle
+            // 
+            this.lblChangeMakerTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblChangeMakerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblChangeMakerTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblChangeMakerTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblChangeMakerTitle.Name = "lblChangeMakerTitle";
+            this.lblChangeMakerTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblChangeMakerTitle.TabIndex = 20;
+            this.lblChangeMakerTitle.Text = "Change Maker";
+            this.lblChangeMakerTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // grpChangeMaker
             // 
             this.grpChangeMaker.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1743,6 +1781,18 @@ namespace Mathre
             this.lblPaidAmount.TabIndex = 9;
             this.lblPaidAmount.Text = "Paid Amount:";
             // 
+            // tabPizza
+            // 
+            this.tabPizza.Controls.Add(this.grpPizza);
+            this.tabPizza.Controls.Add(this.grpPizzaCost);
+            this.tabPizza.Controls.Add(this.lblPizzaTitle);
+            this.tabPizza.Location = new System.Drawing.Point(4, 22);
+            this.tabPizza.Name = "tabPizza";
+            this.tabPizza.Size = new System.Drawing.Size(1044, 486);
+            this.tabPizza.TabIndex = 9;
+            this.tabPizza.Text = "Pizza Delivery";
+            this.tabPizza.UseVisualStyleBackColor = true;
+            // 
             // grpPizza
             // 
             this.grpPizza.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1766,10 +1816,10 @@ namespace Mathre
             this.txtPizzaTip.BackColor = System.Drawing.SystemColors.Window;
             this.txtPizzaTip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPizzaTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPizzaTip.Location = new System.Drawing.Point(265, 13);
+            this.txtPizzaTip.Location = new System.Drawing.Point(325, 13);
             this.txtPizzaTip.Margin = new System.Windows.Forms.Padding(0);
             this.txtPizzaTip.Name = "txtPizzaTip";
-            this.txtPizzaTip.Size = new System.Drawing.Size(152, 26);
+            this.txtPizzaTip.Size = new System.Drawing.Size(92, 26);
             this.txtPizzaTip.TabIndex = 30;
             // 
             // lblPizzaTip
@@ -1779,9 +1829,9 @@ namespace Mathre
             this.lblPizzaTip.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblPizzaTip.Location = new System.Drawing.Point(225, 16);
             this.lblPizzaTip.Name = "lblPizzaTip";
-            this.lblPizzaTip.Size = new System.Drawing.Size(34, 20);
+            this.lblPizzaTip.Size = new System.Drawing.Size(97, 20);
             this.lblPizzaTip.TabIndex = 27;
-            this.lblPizzaTip.Text = "Tip:";
+            this.lblPizzaTip.Text = "Tip (Dollars):";
             // 
             // btnDelivery
             // 
@@ -1810,10 +1860,10 @@ namespace Mathre
             this.txtPizzaSize.BackColor = System.Drawing.SystemColors.Window;
             this.txtPizzaSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPizzaSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPizzaSize.Location = new System.Drawing.Point(65, 14);
+            this.txtPizzaSize.Location = new System.Drawing.Point(127, 14);
             this.txtPizzaSize.Margin = new System.Windows.Forms.Padding(0);
             this.txtPizzaSize.Name = "txtPizzaSize";
-            this.txtPizzaSize.Size = new System.Drawing.Size(152, 26);
+            this.txtPizzaSize.Size = new System.Drawing.Size(90, 26);
             this.txtPizzaSize.TabIndex = 13;
             // 
             // lblPizzaSize
@@ -1823,9 +1873,9 @@ namespace Mathre
             this.lblPizzaSize.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblPizzaSize.Location = new System.Drawing.Point(18, 16);
             this.lblPizzaSize.Name = "lblPizzaSize";
-            this.lblPizzaSize.Size = new System.Drawing.Size(44, 20);
+            this.lblPizzaSize.Size = new System.Drawing.Size(106, 20);
             this.lblPizzaSize.TabIndex = 9;
-            this.lblPizzaSize.Text = "Size:";
+            this.lblPizzaSize.Text = "Size (Inches):";
             // 
             // grpPizzaCost
             // 
@@ -1862,67 +1912,17 @@ namespace Mathre
             this.lblPizzaCost.TabIndex = 14;
             this.lblPizzaCost.Text = "Cost:";
             // 
-            // grpSecret
+            // lblPizzaTitle
             // 
-            this.grpSecret.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.grpSecret.AutoSize = true;
-            this.grpSecret.BackColor = System.Drawing.SystemColors.Control;
-            this.grpSecret.BorderColor = System.Drawing.Color.Black;
-            this.grpSecret.Controls.Add(this.btnSecretDisable);
-            this.grpSecret.Controls.Add(this.btnSecretEnable);
-            this.grpSecret.Controls.Add(this.txtSecretPassword);
-            this.grpSecret.Controls.Add(this.lblSecretPrompt);
-            this.grpSecret.Location = new System.Drawing.Point(309, 140);
-            this.grpSecret.Name = "grpSecret";
-            this.grpSecret.Size = new System.Drawing.Size(426, 105);
-            this.grpSecret.TabIndex = 8;
-            this.grpSecret.TabStop = false;
-            // 
-            // btnSecretDisable
-            // 
-            this.btnSecretDisable.AutoSize = true;
-            this.btnSecretDisable.Checked = true;
-            this.btnSecretDisable.Enabled = false;
-            this.btnSecretDisable.Location = new System.Drawing.Point(85, 66);
-            this.btnSecretDisable.Name = "btnSecretDisable";
-            this.btnSecretDisable.Size = new System.Drawing.Size(60, 17);
-            this.btnSecretDisable.TabIndex = 11;
-            this.btnSecretDisable.TabStop = true;
-            this.btnSecretDisable.Text = "Disable";
-            this.btnSecretDisable.UseVisualStyleBackColor = true;
-            // 
-            // btnSecretEnable
-            // 
-            this.btnSecretEnable.AutoSize = true;
-            this.btnSecretEnable.Enabled = false;
-            this.btnSecretEnable.Location = new System.Drawing.Point(283, 67);
-            this.btnSecretEnable.Name = "btnSecretEnable";
-            this.btnSecretEnable.Size = new System.Drawing.Size(58, 17);
-            this.btnSecretEnable.TabIndex = 10;
-            this.btnSecretEnable.Text = "Enable";
-            this.btnSecretEnable.UseVisualStyleBackColor = true;
-            // 
-            // txtSecretPassword
-            // 
-            this.txtSecretPassword.BackColor = System.Drawing.SystemColors.Window;
-            this.txtSecretPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtSecretPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecretPassword.Location = new System.Drawing.Point(261, 21);
-            this.txtSecretPassword.Name = "txtSecretPassword";
-            this.txtSecretPassword.PasswordChar = '∗';
-            this.txtSecretPassword.Size = new System.Drawing.Size(114, 26);
-            this.txtSecretPassword.TabIndex = 9;
-            // 
-            // lblSecretPrompt
-            // 
-            this.lblSecretPrompt.AutoSize = true;
-            this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSecretPrompt.Location = new System.Drawing.Point(52, 23);
-            this.lblSecretPrompt.Name = "lblSecretPrompt";
-            this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
-            this.lblSecretPrompt.TabIndex = 9;
-            this.lblSecretPrompt.Text = "Enter the Passcode:";
+            this.lblPizzaTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblPizzaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPizzaTitle.Location = new System.Drawing.Point(209, 71);
+            this.lblPizzaTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblPizzaTitle.Name = "lblPizzaTitle";
+            this.lblPizzaTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblPizzaTitle.TabIndex = 23;
+            this.lblPizzaTitle.Text = "Pizza Delivery";
+            this.lblPizzaTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmMathre
             // 
@@ -1944,56 +1944,56 @@ namespace Mathre
             this.mnuBaseLayer.PerformLayout();
             this.tabSecret.ResumeLayout(false);
             this.tabSecret.PerformLayout();
+            this.grpSecret.ResumeLayout(false);
+            this.grpSecret.PerformLayout();
             this.tabMyFavorites.ResumeLayout(false);
             this.tabMyFavorites.PerformLayout();
+            this.grpFavoriteControls.ResumeLayout(false);
+            this.grpFavoriteControls.PerformLayout();
+            this.grpFavoriteDisplay.ResumeLayout(false);
             this.tabRectangle.ResumeLayout(false);
             this.tabRectangle.PerformLayout();
+            this.grpRectangleContainer.ResumeLayout(false);
+            this.grpRectangleControls.ResumeLayout(false);
+            this.grpRectangleControls.PerformLayout();
             this.tabMySchool.ResumeLayout(false);
             this.tabMySchool.PerformLayout();
+            this.grpMySchool.ResumeLayout(false);
+            this.grpMySchool.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
             this.tabHelloWorld.ResumeLayout(false);
             this.tabHelloWorld.PerformLayout();
-            this.tabMathre.ResumeLayout(false);
-            this.tabTemperature.ResumeLayout(false);
-            this.tabTemperature.PerformLayout();
-            this.tabDigits.ResumeLayout(false);
-            this.tabDigits.PerformLayout();
-            this.tabChange.ResumeLayout(false);
-            this.tabChange.PerformLayout();
-            this.tabPizza.ResumeLayout(false);
-            this.tabPizza.PerformLayout();
             this.grpHelloWorld.ResumeLayout(false);
             this.grpHelloWorld.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
-            this.grpMySchool.ResumeLayout(false);
-            this.grpMySchool.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
-            this.grpRectangleContainer.ResumeLayout(false);
-            this.grpRectangleControls.ResumeLayout(false);
-            this.grpRectangleControls.PerformLayout();
-            this.grpFavoriteControls.ResumeLayout(false);
-            this.grpFavoriteControls.PerformLayout();
-            this.grpFavoriteDisplay.ResumeLayout(false);
+            this.tabMathre.ResumeLayout(false);
+            this.tabTemperature.ResumeLayout(false);
+            this.tabTemperature.PerformLayout();
             this.grpTemperatureResults.ResumeLayout(false);
             this.grpTemperatureResults.PerformLayout();
             this.grpTemperature.ResumeLayout(false);
             this.grpTemperature.PerformLayout();
+            this.tabDigits.ResumeLayout(false);
+            this.tabDigits.PerformLayout();
             this.grpDigitsResults.ResumeLayout(false);
             this.pnlDigitsResults.ResumeLayout(false);
             this.pnlDigitsResults.PerformLayout();
             this.grpDigits.ResumeLayout(false);
             this.grpDigits.PerformLayout();
+            this.tabChange.ResumeLayout(false);
+            this.tabChange.PerformLayout();
             this.grpChangeAmount.ResumeLayout(false);
             this.grpChangeAmount.PerformLayout();
             this.grpChangeMaker.ResumeLayout(false);
             this.grpChangeMaker.PerformLayout();
+            this.tabPizza.ResumeLayout(false);
+            this.tabPizza.PerformLayout();
             this.grpPizza.ResumeLayout(false);
             this.grpPizza.PerformLayout();
             this.grpPizzaCost.ResumeLayout(false);
             this.grpPizzaCost.PerformLayout();
-            this.grpSecret.ResumeLayout(false);
-            this.grpSecret.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
