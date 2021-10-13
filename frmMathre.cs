@@ -28,6 +28,7 @@ namespace Mathre
 		public static bool hidden; // Define a global variable to acknowledge whether the Secret Settings page is hidden
 		public object Placeholder; // Define a global object to use to send blank events between event handlers
 		public static Rectangle Rect; // Define a global rectangle to use for measurements
+		public static string DecimalChar;
 		public FrmMathre()
 		{
 			this.InitializeComponent();
@@ -47,6 +48,7 @@ namespace Mathre
 			txtRectangleDimensions.KeyPress += Rectangle;
 			txtTemperature.KeyPress += NumericalKeypress;
 			txtPaidAmount.KeyPress += NumericalKeypress;
+			txtPizzaTip.KeyPress += NumericalKeypress;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			btnSecretDisable.Click += SecretHandler;
 			btnSecretEnable.Click += SecretHandler;
@@ -63,16 +65,16 @@ namespace Mathre
 			mnuDarkMode.Click += Buttons;
 			mnuRecolor.Click += Buttons;
 			mnuSecret.Click += Buttons;
-			btnFavoriteActor.Click += Buttons;
-			btnFavoriteColor.Click += Buttons;
-			btnFavoriteFruit.Click += Buttons;
-			btnFavoriteHobby.Click += Buttons;
-			btnFavoriteMovie.Click += Buttons;
-			mnuFavoriteActor.Click += Buttons;
-			mnuFavoriteColor.Click += Buttons;
-			mnuFavoriteFruit.Click += Buttons;
-			mnuFavoriteHobby.Click += Buttons;
-			mnuFavoriteMovie.Click += Buttons;
+			btnFavoriteActor.Click += Favorites;
+			btnFavoriteColor.Click += Favorites;
+			btnFavoriteFruit.Click += Favorites;
+			btnFavoriteHobby.Click += Favorites;
+			btnFavoriteMovie.Click += Favorites;
+			mnuFavoriteActor.Click += Favorites;
+			mnuFavoriteColor.Click += Favorites;
+			mnuFavoriteFruit.Click += Favorites;
+			mnuFavoriteHobby.Click += Favorites;
+			mnuFavoriteMovie.Click += Favorites;
 			btnFahrenheit.Click += Temperature;
 			btnCelsius.Click += Temperature;
 			btnFahrenheit.CheckedChanged += Temperature;
@@ -82,16 +84,19 @@ namespace Mathre
 			txtPaidAmount.KeyUp += ChangeMaker;
 			mnuTemperatureFahrenheit.Click += Temperature;
 			mnuTemperatureCelsius.Click += Temperature;
-			mnuViewHelloWorld.Click += Buttons;
-			mnuViewMySchool.Click += Buttons;
-			mnuViewRectangle.Click += Buttons;
-			mnuViewMyFavorites.Click += Buttons;
-			mnuViewTemperature.Click += Buttons;
-			mnuViewDigits.Click += Buttons;
-			mnuViewUnknown.Click += Buttons;
+			mnuViewHelloWorld.Click += PageSelect;
+			mnuViewMySchool.Click += PageSelect;
+			mnuViewRectangle.Click += PageSelect;
+			mnuViewMyFavorites.Click += PageSelect;
+			mnuViewTemperature.Click += PageSelect;
+			mnuViewDigits.Click += PageSelect;
+			mnuViewChange.Click += PageSelect;
+			mnuViewPizza.Click += PageSelect;
+			mnuViewUnknown.Click += PageSelect;
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
+			DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			lblDigitsListOdds.Text = "";
 			lblDigitsListEvens.Text = "";
 			lblRectangleError.Visible = false; // Hide the Rectangle Calculator Error box
@@ -211,20 +216,20 @@ namespace Mathre
 					textBox.SelectionStart = selectionIndex - modifier; // Set the cursor to the modified position
 				}
 			}
-			if (e.KeyChar.ToString() == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator) // If the pressed key is the user's decimal separator
+			if (e.KeyChar.ToString() == DecimalChar) // If the pressed key is the user's decimal separator
 			{
 				if (words.Length > 2) // If there are at least 3 substrings (meaning the multiplication separator exists)
 				{
 					if (currentpos < space1) // If the cursor is before the first space
 					{
-						if (words[0].Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there is already a decimal separator
+						if (words[0].Contains(DecimalChar)) // If there is already a decimal separator
 						{
 							e.Handled = true; // Discard the decimal separator input
 						}
 					}
 					else if (currentpos >= space2) // If the cursor is at or after the first space
 					{
-						if (words[2].Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there is already a decimal separator
+						if (words[2].Contains(DecimalChar)) // If there is already a decimal separator
 						{
 							e.Handled = true;// Discard the decimal separator input
 						}
@@ -234,7 +239,7 @@ namespace Mathre
 						e.Handled = true; // Discard the decimal separator input
 					}
 				}
-				else if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there are not multiple number groups and there is already a decimal separator
+				else if (textBox.Text.Contains(DecimalChar)) // If there are not multiple number groups and there is already a decimal separator
 				{
 					e.Handled = true; // Discard the decimal separator input
 				}
@@ -365,51 +370,43 @@ namespace Mathre
 					lblMySchoolMascot.ForeColor = Color.DimGray;
 				}
 			}
-			else if (ReferenceEquals(sender, mnuExit)) // If the event is caused by the Exit menu item:
-			{
-				Application.Exit(); // Exit
-			}
+		}
+		private void PageSelect(object sender, EventArgs e)
+		{
+			tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
+		}
+		private void Favorites(object sender, EventArgs e) // Event Handler for a button press
+		{
 			// The below five eventhandlers all handle the buttons on the My Favorites page. They each set their respective radio button to appear checked, set the title text, the info label text, and then the image
-			else if (ReferenceEquals(sender, btnFavoriteActor) | ReferenceEquals(sender, mnuFavoriteActor))
+			if (sender.GetType().ToString().Contains("Menu"))
 			{
-				btnFavoriteActor.Checked = true;
-				lblFavoriteTitle.Text = "My Favorite Actor";
+				RadioButton b = (RadioButton)grpFavoriteControls.Controls[$"btnFavorite{sender}"];
+				b.Checked = true;
+			}
+			if (ReferenceEquals(sender, btnFavoriteActor) | ReferenceEquals(sender, mnuFavoriteActor))
+			{
 				lblFavoriteInfo.Text = "My favorite actor is Tom Hiddleston. \n He has starred and appeared in several films, but his most famous role is that of Loki in Marvel's MCU.";
-				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[0];
 			}
 			else if (ReferenceEquals(sender, btnFavoriteMovie) | ReferenceEquals(sender, mnuFavoriteMovie))
 			{
-				btnFavoriteMovie.Checked = true;
-				lblFavoriteTitle.Text = "My Favorite Movie";
 				lblFavoriteInfo.Text = "My favorite movie is The Imitation Game. \n it follows the work and life of Alan Turing, a revolutionary code-breaker and very early computer scientist.";
-				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[1];
 			}
 			else if (ReferenceEquals(sender, btnFavoriteFruit) | ReferenceEquals(sender, mnuFavoriteFruit))
 			{
-				btnFavoriteFruit.Checked = true;
-				lblFavoriteTitle.Text = "My Favorite Fruit";
 				lblFavoriteInfo.Text = "My favorite fruit is any stone fruit. \n The stone fruit family includes raspberries and blackberries, as well as peaches, plums, cherries, and other great fruits.";
-				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[2];
 			}
 			else if (ReferenceEquals(sender, btnFavoriteHobby) | ReferenceEquals(sender, mnuFavoriteHobby))
 			{
-				btnFavoriteHobby.Checked = true;
-				lblFavoriteTitle.Text = "My Favorite Hobby";
 				lblFavoriteInfo.Text = "My favorite hobby is remote control. \n Remote control cars are very fun to drive and work on, and despite their high price they are an easy hobby to get into.";
-				grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[3];
 			}
 			else if (ReferenceEquals(sender, btnFavoriteColor) | ReferenceEquals(sender, mnuFavoriteColor))
 			{
-				btnFavoriteColor.Checked = true;
-				lblFavoriteTitle.Text = "My Favorite Color";
 				lblFavoriteInfo.Text = "My favorite color is purple. \n It can complement a variety of other colors, works well to convey many different ideas or emotions, and it looks good.";
 				grpFavoriteImage.BackgroundImage = null;
 				grpFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
 			}
-			else if (ReferenceEquals(sender, mnuViewHelloWorld) | ReferenceEquals(sender, mnuViewMySchool) | ReferenceEquals(sender, mnuViewRectangle) | ReferenceEquals(sender, mnuViewMyFavorites) | ReferenceEquals(sender, mnuViewTemperature) | ReferenceEquals(sender, mnuViewDigits) | ReferenceEquals(sender, mnuViewUnknown))
-			{
-				tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
-			}
+			lblFavoriteTitle.Text = $"My Favorite {grpFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
+			grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{grpFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 		}
 		private void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
 		{
@@ -481,11 +478,11 @@ namespace Mathre
 			}
 			double temp = 0; // Declare Variables
 			var roundamount = 0; // ...
-			if (txtTemperature.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // Check for the decimal character
+			if (txtTemperature.Text.Contains(DecimalChar)) // Check for the decimal character
 			{
-				if (txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator) // Check whether there are numbers on each side of the decimal
+				if (txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != DecimalChar) // Check whether there are numbers on each side of the decimal
 				{
-					string[] words = txtTemperature.Text.Split(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()); // Split the string based on decimal position
+					string[] words = txtTemperature.Text.Split(DecimalChar.ToCharArray()); // Split the string based on decimal position
 					roundamount = words[1].Length; // Store the amount of precision
 				}
 			}
@@ -499,13 +496,13 @@ namespace Mathre
 			}
 			if (btnFahrenheit.Checked) // ...
 			{
-				lblCelsiusDisplay.Text = $"{Math.Round(((temp - 32) * 5 / 9), roundamount).ToString()} °C"; // Set the Celsius value using the proper math and degree of precision
-				lblFahrenheitDisplay.Text = $"{Math.Round((temp), roundamount).ToString()} °F"; // Set the Fahrenheit value using the proper degree of precision
+				lblCelsiusDisplay.Text = $"{Math.Round((temp - 32) * 5 / 9, roundamount)} °C"; // Set the Celsius value using the proper math and degree of precision
+				lblFahrenheitDisplay.Text = $"{Math.Round(temp, roundamount)} °F"; // Set the Fahrenheit value using the proper degree of precision
 			}
 			else if (btnCelsius.Checked) // ...
 			{
-				lblCelsiusDisplay.Text = $"{Math.Round((temp), roundamount).ToString()} °C";  // Set the Celsius value using the proper degree of precision
-				lblFahrenheitDisplay.Text = $"{Math.Round(((temp * 9 / 5) + 32), roundamount).ToString()} °F"; // Set the Fahrenheit value using the proper math and degree of precision
+				lblCelsiusDisplay.Text = $"{Math.Round(temp, roundamount)} °C";  // Set the Celsius value using the proper degree of precision
+				lblFahrenheitDisplay.Text = $"{Math.Round((temp * 9 / 5) + 32, roundamount)} °F"; // Set the Fahrenheit value using the proper math and degree of precision
 			}
 		}
 		private void Digits(object sender, System.Windows.Forms.KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
@@ -528,17 +525,40 @@ namespace Mathre
 		}
 		private void ChangeMaker(object sender, EventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
 		{
-
+			string[] decimals = txtPaidAmount.Text.Split(DecimalChar.ToCharArray()); // Split the input using the spaces as separators
+			int Bills = 0;
+			int Coins = 0;
+			if (int.TryParse(decimals[0], out int BillsAmount)) // Check whether the first substring is a number
+			{
+				Bills = BillsAmount; // Assign the width value to the first substring if numeric
+			}
+			if (decimals.Length > 1)
+			{
+				if (int.TryParse(decimals[1], out int CoinsAmount)) // Check whether the first substring is a number
+				{
+					Coins = CoinsAmount; // Assign the width value to the first substring if numeric
+				}
+			}
+			lblHundredsCount.Text = (Bills / 100).ToString();
+			lblFiftiesCount.Text = (Bills % 100 / 50).ToString();
+			lblTwentiesCount.Text = (Bills % 100 % 50 / 20).ToString();
+			lblTensCount.Text = (Bills % 100 % 50 % 20 / 10).ToString();
+			lblFivesCount.Text = (Bills % 100 % 50 % 20 % 10 / 5).ToString();
+			lblOnesCount.Text = (Bills % 100 % 50 % 20 % 10 % 5 / 1).ToString();
+			lblQuartersCount.Text = (Coins / 25).ToString();
+			lblDimesCount.Text = (Coins % 25 / 10).ToString();
+			lblNickelsCount.Text = (Coins % 25 % 10 / 5).ToString();
+			lblPenniesCount.Text = (Coins % 25 % 10 % 5 / 1).ToString();
 		}
 		private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
 			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
 				return; // -or else discard it
-			if (e.KeyChar.ToString() == CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator) // If the pressed key is the user's decimal separator
+			if (e.KeyChar.ToString() == DecimalChar) // If the pressed key is the user's decimal separator
 			{
 				if (!ReferenceEquals(sender, txtNumber))
 				{
-					if (textBox.Text.Contains(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator)) // If there are not multiple number groups and there is already a decimal separator
+					if (textBox.Text.Contains(DecimalChar)) // If there are not multiple number groups and there is already a decimal separator
 					{
 						e.Handled = true; // Discard the decimal separator input
 					}
@@ -566,14 +586,14 @@ namespace Mathre
 					e.Handled = true;
 				}
 			}
-			if (sender == txtPaidAmount)
+			if (sender == txtPaidAmount | sender == txtPizzaTip)
 			{
-				string[] decimals = txtPaidAmount.Text.Split(CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator.ToCharArray()); // Split the input using the spaces as separators
+				string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray()); // Split the input using the spaces as separators
 				if (decimals.Length > 1 && e.KeyChar != '\b')
 				{
 					if (decimals[1].Length > 1)
 					{
-						if (/* The cursor is before the decimal */)
+						if (textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
 						{
 							e.Handled = true;
 						}

@@ -67,6 +67,11 @@ namespace Mathre
             this.mnuTemperatureCelsius = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDigits = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDigitsCalculate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuChange = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuChangeCalculate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPizzaDelivery = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPizzaDeliveryTakeout = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPizzaDeliveryDelivery = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,10 +99,12 @@ namespace Mathre
             this.lblTemperatureTitle = new System.Windows.Forms.Label();
             this.tabDigits = new System.Windows.Forms.TabPage();
             this.lblDigitsTitle = new System.Windows.Forms.Label();
-            this.tabChangeMaker = new System.Windows.Forms.TabPage();
+            this.tabChange = new System.Windows.Forms.TabPage();
             this.lblChangeMakerTitle = new System.Windows.Forms.Label();
             this.tabPizza = new System.Windows.Forms.TabPage();
             this.lblPizzaTitle = new System.Windows.Forms.Label();
+            this.mnuViewChange = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuViewPizza = new System.Windows.Forms.ToolStripMenuItem();
             this.grpHelloWorld = new Mathre.CustomGroupBox();
             this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
             this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
@@ -190,11 +197,6 @@ namespace Mathre
             this.btnSecretEnable = new System.Windows.Forms.RadioButton();
             this.txtSecretPassword = new System.Windows.Forms.TextBox();
             this.lblSecretPrompt = new System.Windows.Forms.Label();
-            this.mnuChangeMaker = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPizzaDelivery = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuChangeMakerCalculate = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPizzaDeliveryTakeout = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPizzaDeliveryDelivery = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.tabMyFavorites.SuspendLayout();
@@ -204,7 +206,7 @@ namespace Mathre
             this.tabMathre.SuspendLayout();
             this.tabTemperature.SuspendLayout();
             this.tabDigits.SuspendLayout();
-            this.tabChangeMaker.SuspendLayout();
+            this.tabChange.SuspendLayout();
             this.tabPizza.SuspendLayout();
             this.grpHelloWorld.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
@@ -253,7 +255,7 @@ namespace Mathre
             this.mnuFavorites,
             this.mnuTemperature,
             this.mnuDigits,
-            this.mnuChangeMaker,
+            this.mnuChange,
             this.mnuPizzaDelivery,
             this.mnuExit});
             this.mnuFile.Name = "mnuFile";
@@ -371,7 +373,7 @@ namespace Mathre
             // mnuRectangleCalculate
             // 
             this.mnuRectangleCalculate.Name = "mnuRectangleCalculate";
-            this.mnuRectangleCalculate.Size = new System.Drawing.Size(180, 22);
+            this.mnuRectangleCalculate.Size = new System.Drawing.Size(123, 22);
             this.mnuRectangleCalculate.Text = "Calculate";
             // 
             // mnuFavorites
@@ -380,8 +382,8 @@ namespace Mathre
             this.mnuFavoriteActor,
             this.mnuFavoriteMovie,
             this.mnuFavoriteFruit,
-            this.mnuFavoriteColor,
-            this.mnuFavoriteHobby});
+            this.mnuFavoriteHobby,
+            this.mnuFavoriteColor});
             this.mnuFavorites.Name = "mnuFavorites";
             this.mnuFavorites.Size = new System.Drawing.Size(195, 22);
             this.mnuFavorites.Text = "My Favorites";
@@ -428,13 +430,13 @@ namespace Mathre
             // mnuTemperatureFahrenheit
             // 
             this.mnuTemperatureFahrenheit.Name = "mnuTemperatureFahrenheit";
-            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(180, 22);
+            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(130, 22);
             this.mnuTemperatureFahrenheit.Text = "Fahrenheit";
             // 
             // mnuTemperatureCelsius
             // 
             this.mnuTemperatureCelsius.Name = "mnuTemperatureCelsius";
-            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(180, 22);
+            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(130, 22);
             this.mnuTemperatureCelsius.Text = "Celsius";
             // 
             // mnuDigits
@@ -448,8 +450,43 @@ namespace Mathre
             // mnuDigitsCalculate
             // 
             this.mnuDigitsCalculate.Name = "mnuDigitsCalculate";
-            this.mnuDigitsCalculate.Size = new System.Drawing.Size(180, 22);
+            this.mnuDigitsCalculate.Size = new System.Drawing.Size(123, 22);
             this.mnuDigitsCalculate.Text = "Calculate";
+            // 
+            // mnuChange
+            // 
+            this.mnuChange.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuChangeCalculate});
+            this.mnuChange.Name = "mnuChange";
+            this.mnuChange.Size = new System.Drawing.Size(195, 22);
+            this.mnuChange.Text = "Change Maker";
+            // 
+            // mnuChangeCalculate
+            // 
+            this.mnuChangeCalculate.Name = "mnuChangeCalculate";
+            this.mnuChangeCalculate.Size = new System.Drawing.Size(123, 22);
+            this.mnuChangeCalculate.Text = "Calculate";
+            // 
+            // mnuPizzaDelivery
+            // 
+            this.mnuPizzaDelivery.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuPizzaDeliveryTakeout,
+            this.mnuPizzaDeliveryDelivery});
+            this.mnuPizzaDelivery.Name = "mnuPizzaDelivery";
+            this.mnuPizzaDelivery.Size = new System.Drawing.Size(195, 22);
+            this.mnuPizzaDelivery.Text = "Pizza Delivery";
+            // 
+            // mnuPizzaDeliveryTakeout
+            // 
+            this.mnuPizzaDeliveryTakeout.Name = "mnuPizzaDeliveryTakeout";
+            this.mnuPizzaDeliveryTakeout.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaDeliveryTakeout.Text = "Takeout";
+            // 
+            // mnuPizzaDeliveryDelivery
+            // 
+            this.mnuPizzaDeliveryDelivery.Name = "mnuPizzaDeliveryDelivery";
+            this.mnuPizzaDeliveryDelivery.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaDeliveryDelivery.Text = "Delivery";
             // 
             // mnuExit
             // 
@@ -459,6 +496,7 @@ namespace Mathre
             // 
             // mnuEdit
             // 
+            this.mnuEdit.Enabled = false;
             this.mnuEdit.Name = "mnuEdit";
             this.mnuEdit.Size = new System.Drawing.Size(39, 24);
             this.mnuEdit.Text = "Edit";
@@ -472,6 +510,8 @@ namespace Mathre
             this.mnuViewMyFavorites,
             this.mnuViewTemperature,
             this.mnuViewDigits,
+            this.mnuViewChange,
+            this.mnuViewPizza,
             this.mnuViewUnknown});
             this.mnuView.Name = "mnuView";
             this.mnuView.Size = new System.Drawing.Size(44, 24);
@@ -669,7 +709,7 @@ namespace Mathre
             this.tabMathre.Controls.Add(this.tabMyFavorites);
             this.tabMathre.Controls.Add(this.tabTemperature);
             this.tabMathre.Controls.Add(this.tabDigits);
-            this.tabMathre.Controls.Add(this.tabChangeMaker);
+            this.tabMathre.Controls.Add(this.tabChange);
             this.tabMathre.Controls.Add(this.tabPizza);
             this.tabMathre.Controls.Add(this.tabUnknown);
             this.tabMathre.Controls.Add(this.tabSecret);
@@ -730,17 +770,17 @@ namespace Mathre
             this.lblDigitsTitle.Text = "Numerical Digit Separator";
             this.lblDigitsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tabChangeMaker
+            // tabChange
             // 
-            this.tabChangeMaker.Controls.Add(this.grpChangeAmount);
-            this.tabChangeMaker.Controls.Add(this.lblChangeMakerTitle);
-            this.tabChangeMaker.Controls.Add(this.grpChangeMaker);
-            this.tabChangeMaker.Location = new System.Drawing.Point(4, 22);
-            this.tabChangeMaker.Name = "tabChangeMaker";
-            this.tabChangeMaker.Size = new System.Drawing.Size(1044, 486);
-            this.tabChangeMaker.TabIndex = 8;
-            this.tabChangeMaker.Text = "Change Maker";
-            this.tabChangeMaker.UseVisualStyleBackColor = true;
+            this.tabChange.Controls.Add(this.grpChangeAmount);
+            this.tabChange.Controls.Add(this.lblChangeMakerTitle);
+            this.tabChange.Controls.Add(this.grpChangeMaker);
+            this.tabChange.Location = new System.Drawing.Point(4, 22);
+            this.tabChange.Name = "tabChange";
+            this.tabChange.Size = new System.Drawing.Size(1044, 486);
+            this.tabChange.TabIndex = 8;
+            this.tabChange.Text = "Change Maker";
+            this.tabChange.UseVisualStyleBackColor = true;
             // 
             // lblChangeMakerTitle
             // 
@@ -777,6 +817,18 @@ namespace Mathre
             this.lblPizzaTitle.TabIndex = 23;
             this.lblPizzaTitle.Text = "Pizza Delivery";
             this.lblPizzaTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mnuViewChange
+            // 
+            this.mnuViewChange.Name = "mnuViewChange";
+            this.mnuViewChange.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewChange.Text = "Change Maker";
+            // 
+            // mnuViewPizza
+            // 
+            this.mnuViewPizza.Name = "mnuViewPizza";
+            this.mnuViewPizza.Size = new System.Drawing.Size(195, 22);
+            this.mnuViewPizza.Text = "Pizza Delivery";
             // 
             // grpHelloWorld
             // 
@@ -1430,9 +1482,9 @@ namespace Mathre
             this.lblOnesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblOnesCount.Location = new System.Drawing.Point(324, 9);
             this.lblOnesCount.Name = "lblOnesCount";
-            this.lblOnesCount.Size = new System.Drawing.Size(39, 15);
+            this.lblOnesCount.Size = new System.Drawing.Size(14, 15);
             this.lblOnesCount.TabIndex = 35;
-            this.lblOnesCount.Text = "Count";
+            this.lblOnesCount.Text = "0";
             this.lblOnesCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblQuartersCount
@@ -1441,9 +1493,9 @@ namespace Mathre
             this.lblQuartersCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblQuartersCount.Location = new System.Drawing.Point(348, 35);
             this.lblQuartersCount.Name = "lblQuartersCount";
-            this.lblQuartersCount.Size = new System.Drawing.Size(39, 15);
+            this.lblQuartersCount.Size = new System.Drawing.Size(14, 15);
             this.lblQuartersCount.TabIndex = 34;
-            this.lblQuartersCount.Text = "Count";
+            this.lblQuartersCount.Text = "0";
             this.lblQuartersCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblDimesCount
@@ -1452,9 +1504,9 @@ namespace Mathre
             this.lblDimesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDimesCount.Location = new System.Drawing.Point(331, 61);
             this.lblDimesCount.Name = "lblDimesCount";
-            this.lblDimesCount.Size = new System.Drawing.Size(39, 15);
+            this.lblDimesCount.Size = new System.Drawing.Size(14, 15);
             this.lblDimesCount.TabIndex = 33;
-            this.lblDimesCount.Text = "Count";
+            this.lblDimesCount.Text = "0";
             this.lblDimesCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblNickelsCount
@@ -1463,9 +1515,9 @@ namespace Mathre
             this.lblNickelsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNickelsCount.Location = new System.Drawing.Point(336, 87);
             this.lblNickelsCount.Name = "lblNickelsCount";
-            this.lblNickelsCount.Size = new System.Drawing.Size(39, 15);
+            this.lblNickelsCount.Size = new System.Drawing.Size(14, 15);
             this.lblNickelsCount.TabIndex = 32;
-            this.lblNickelsCount.Text = "Count";
+            this.lblNickelsCount.Text = "0";
             this.lblNickelsCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPenniesCount
@@ -1474,9 +1526,9 @@ namespace Mathre
             this.lblPenniesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPenniesCount.Location = new System.Drawing.Point(343, 113);
             this.lblPenniesCount.Name = "lblPenniesCount";
-            this.lblPenniesCount.Size = new System.Drawing.Size(39, 15);
+            this.lblPenniesCount.Size = new System.Drawing.Size(14, 15);
             this.lblPenniesCount.TabIndex = 31;
-            this.lblPenniesCount.Text = "Count";
+            this.lblPenniesCount.Text = "0";
             this.lblPenniesCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFivesCount
@@ -1485,9 +1537,9 @@ namespace Mathre
             this.lblFivesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFivesCount.Location = new System.Drawing.Point(158, 113);
             this.lblFivesCount.Name = "lblFivesCount";
-            this.lblFivesCount.Size = new System.Drawing.Size(39, 15);
+            this.lblFivesCount.Size = new System.Drawing.Size(14, 15);
             this.lblFivesCount.TabIndex = 30;
-            this.lblFivesCount.Text = "Count";
+            this.lblFivesCount.Text = "0";
             this.lblFivesCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTensCount
@@ -1496,9 +1548,9 @@ namespace Mathre
             this.lblTensCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTensCount.Location = new System.Drawing.Point(156, 87);
             this.lblTensCount.Name = "lblTensCount";
-            this.lblTensCount.Size = new System.Drawing.Size(39, 15);
+            this.lblTensCount.Size = new System.Drawing.Size(14, 15);
             this.lblTensCount.TabIndex = 29;
-            this.lblTensCount.Text = "Count";
+            this.lblTensCount.Text = "0";
             this.lblTensCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTwentiesCount
@@ -1507,9 +1559,9 @@ namespace Mathre
             this.lblTwentiesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTwentiesCount.Location = new System.Drawing.Point(184, 61);
             this.lblTwentiesCount.Name = "lblTwentiesCount";
-            this.lblTwentiesCount.Size = new System.Drawing.Size(39, 15);
+            this.lblTwentiesCount.Size = new System.Drawing.Size(14, 15);
             this.lblTwentiesCount.TabIndex = 28;
-            this.lblTwentiesCount.Text = "Count";
+            this.lblTwentiesCount.Text = "0";
             this.lblTwentiesCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblFiftiesCount
@@ -1518,9 +1570,9 @@ namespace Mathre
             this.lblFiftiesCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFiftiesCount.Location = new System.Drawing.Point(164, 35);
             this.lblFiftiesCount.Name = "lblFiftiesCount";
-            this.lblFiftiesCount.Size = new System.Drawing.Size(39, 15);
+            this.lblFiftiesCount.Size = new System.Drawing.Size(14, 15);
             this.lblFiftiesCount.TabIndex = 27;
-            this.lblFiftiesCount.Text = "Count";
+            this.lblFiftiesCount.Text = "0";
             this.lblFiftiesCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPennies
@@ -1628,9 +1680,9 @@ namespace Mathre
             this.lblHundredsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHundredsCount.Location = new System.Drawing.Point(191, 9);
             this.lblHundredsCount.Name = "lblHundredsCount";
-            this.lblHundredsCount.Size = new System.Drawing.Size(39, 15);
+            this.lblHundredsCount.Size = new System.Drawing.Size(14, 15);
             this.lblHundredsCount.TabIndex = 16;
-            this.lblHundredsCount.Text = "Count";
+            this.lblHundredsCount.Text = "0";
             this.lblHundredsCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblHundreds
@@ -1794,9 +1846,9 @@ namespace Mathre
             this.lblPizzaCostAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPizzaCostAmount.Location = new System.Drawing.Point(70, 33);
             this.lblPizzaCostAmount.Name = "lblPizzaCostAmount";
-            this.lblPizzaCostAmount.Size = new System.Drawing.Size(31, 15);
+            this.lblPizzaCostAmount.Size = new System.Drawing.Size(137, 15);
             this.lblPizzaCostAmount.TabIndex = 16;
-            this.lblPizzaCostAmount.Text = "Cost";
+            this.lblPizzaCostAmount.Text = "Not Enough Information";
             this.lblPizzaCostAmount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblPizzaCost
@@ -1872,41 +1924,6 @@ namespace Mathre
             this.lblSecretPrompt.TabIndex = 9;
             this.lblSecretPrompt.Text = "Enter the Passcode:";
             // 
-            // mnuChangeMaker
-            // 
-            this.mnuChangeMaker.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuChangeMakerCalculate});
-            this.mnuChangeMaker.Name = "mnuChangeMaker";
-            this.mnuChangeMaker.Size = new System.Drawing.Size(195, 22);
-            this.mnuChangeMaker.Text = "Change Maker";
-            // 
-            // mnuPizzaDelivery
-            // 
-            this.mnuPizzaDelivery.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuPizzaDeliveryTakeout,
-            this.mnuPizzaDeliveryDelivery});
-            this.mnuPizzaDelivery.Name = "mnuPizzaDelivery";
-            this.mnuPizzaDelivery.Size = new System.Drawing.Size(195, 22);
-            this.mnuPizzaDelivery.Text = "Pizza Delivery";
-            // 
-            // mnuChangeMakerCalculate
-            // 
-            this.mnuChangeMakerCalculate.Name = "mnuChangeMakerCalculate";
-            this.mnuChangeMakerCalculate.Size = new System.Drawing.Size(180, 22);
-            this.mnuChangeMakerCalculate.Text = "Calculate";
-            // 
-            // mnuPizzaDeliveryTakeout
-            // 
-            this.mnuPizzaDeliveryTakeout.Name = "mnuPizzaDeliveryTakeout";
-            this.mnuPizzaDeliveryTakeout.Size = new System.Drawing.Size(180, 22);
-            this.mnuPizzaDeliveryTakeout.Text = "Takeout";
-            // 
-            // mnuPizzaDeliveryDelivery
-            // 
-            this.mnuPizzaDeliveryDelivery.Name = "mnuPizzaDeliveryDelivery";
-            this.mnuPizzaDeliveryDelivery.Size = new System.Drawing.Size(180, 22);
-            this.mnuPizzaDeliveryDelivery.Text = "Delivery";
-            // 
             // FrmMathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1940,8 +1957,8 @@ namespace Mathre
             this.tabTemperature.PerformLayout();
             this.tabDigits.ResumeLayout(false);
             this.tabDigits.PerformLayout();
-            this.tabChangeMaker.ResumeLayout(false);
-            this.tabChangeMaker.PerformLayout();
+            this.tabChange.ResumeLayout(false);
+            this.tabChange.PerformLayout();
             this.tabPizza.ResumeLayout(false);
             this.tabPizza.PerformLayout();
             this.grpHelloWorld.ResumeLayout(false);
@@ -2094,7 +2111,7 @@ namespace Mathre
 		private ToolStripMenuItem mnuViewTemperature;
 		private ToolStripMenuItem mnuViewDigits;
 		private ToolStripMenuItem mnuViewUnknown;
-		private TabPage tabChangeMaker;
+		private TabPage tabChange;
 		private CustomGroupBox grpChangeAmount;
 		private Label lblHundredsCount;
 		internal Label lblChange;
@@ -2133,10 +2150,12 @@ namespace Mathre
 		private Label lblTensCount;
 		private Label lblTwentiesCount;
 		private Label lblFiftiesCount;
-		private ToolStripMenuItem mnuChangeMaker;
-		private ToolStripMenuItem mnuChangeMakerCalculate;
+		private ToolStripMenuItem mnuChange;
+		private ToolStripMenuItem mnuChangeCalculate;
 		private ToolStripMenuItem mnuPizzaDelivery;
 		private ToolStripMenuItem mnuPizzaDeliveryTakeout;
 		private ToolStripMenuItem mnuPizzaDeliveryDelivery;
+		private ToolStripMenuItem mnuViewChange;
+		private ToolStripMenuItem mnuViewPizza;
 	}
 }
