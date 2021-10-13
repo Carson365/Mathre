@@ -49,6 +49,7 @@ namespace Mathre
 			txtTemperature.KeyPress += NumericalKeypress;
 			txtPaidAmount.KeyPress += NumericalKeypress;
 			txtPizzaTip.KeyPress += NumericalKeypress;
+			txtPizzaSize.KeyPress += NumericalKeypress;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			btnSecretDisable.Click += SecretHandler;
 			btnSecretEnable.Click += SecretHandler;
@@ -82,6 +83,10 @@ namespace Mathre
 			txtTemperature.KeyUp += Temperature;
 			txtNumber.KeyUp += Digits;
 			txtPaidAmount.KeyUp += ChangeMaker;
+			txtPizzaSize.KeyUp += Pizza;
+			txtPizzaTip.KeyUp += Pizza;
+			btnDelivery.CheckedChanged += Pizza;
+			btnTakeout.CheckedChanged += Pizza;
 			mnuTemperatureFahrenheit.Click += Temperature;
 			mnuTemperatureCelsius.Click += Temperature;
 			mnuViewHelloWorld.Click += PageSelect;
@@ -556,7 +561,7 @@ namespace Mathre
 				return; // -or else discard it
 			if (e.KeyChar.ToString() == DecimalChar) // If the pressed key is the user's decimal separator
 			{
-				if (!ReferenceEquals(sender, txtNumber))
+				if (!(ReferenceEquals(sender, txtNumber) | ReferenceEquals(sender, txtPizzaSize)))
 				{
 					if (textBox.Text.Contains(DecimalChar)) // If there are not multiple number groups and there is already a decimal separator
 					{
@@ -600,6 +605,24 @@ namespace Mathre
 					}
 				}
 			}
+		}
+		private void Pizza(object sender, EventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		{
+			int Size = 0;
+			double Tip = 0;
+			if (int.TryParse(txtPizzaSize.Text, out int SizeText))
+			{
+				Size = SizeText;
+			}
+			if (double.TryParse(txtPizzaTip.Text, out double TipText))
+			{
+				Tip = TipText;
+			}
+			//else
+			//{
+			//	Tip = 0;
+			//}
+			lblPizzaCostAmount.Text = $"${ 0.75 + 1 + 0.05 * ( Size * Size ) + ( Convert.ToInt32(btnDelivery.Checked) * 1.5 ) + Tip }".ToString();
 		}
 		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
 		{
