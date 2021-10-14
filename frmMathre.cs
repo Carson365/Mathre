@@ -118,7 +118,7 @@ namespace Mathre
 			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key
 			ColorKey.Close(); // Stop registry access
 			KeyPreview = true; // Ensure key inputs on the form are being tracked
-			StartingValue = panel1.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
+			StartingValue = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
 			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor)); // Translate the system accent color to a usable format
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
 			{
@@ -143,7 +143,7 @@ namespace Mathre
 			foreach (Control c in container.Controls)
 			{
 				GetAllControls(c);
-				if (c is Panel) c.Paint += PaintPanel;
+				if ((c is Panel) && (c is not TabPage)) c.Paint += PaintPanel;
 			}
 		}
 		private void ScrollPanel(object sender, ScrollEventArgs e)
@@ -387,7 +387,7 @@ namespace Mathre
 			}
 			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
 			{
-				Buttons(panel1.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
+				Buttons(pnlHelloWorld.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
 			}
 			else if (ReferenceEquals(sender, mnuRandomify))
 			{
@@ -418,7 +418,7 @@ namespace Mathre
 			// The below five eventhandlers all handle the buttons on the My Favorites page. They each set their respective radio button to appear checked, set the title text, the info label text, and then the image
 			if (sender.GetType().ToString().Contains("Menu"))
 			{
-				RadioButton b = (RadioButton)grpFavoriteControls.Controls[$"btnFavorite{sender}"];
+				RadioButton b = (RadioButton)pnlFavoriteControls.Controls[$"btnFavorite{sender}"];
 				b.Checked = true;
 			}
 			if (ReferenceEquals(sender, btnFavoriteActor) | ReferenceEquals(sender, mnuFavoriteActor))
@@ -443,8 +443,8 @@ namespace Mathre
 				grpFavoriteImage.BackgroundImage = null;
 				grpFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
 			}
-			lblFavoriteTitle.Text = $"My Favorite {grpFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
-			grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{grpFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
+			lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
+			grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 		}
 		private void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
 		{
@@ -683,16 +683,20 @@ namespace Mathre
 		}
 		private void PaintPanel(object sender, PaintEventArgs p)
 		{
-				Panel box = (Panel)sender;
-				Color BorderColor = ColorTranslator.FromWin32(Conversions.ToInteger(FrmMathre.AccentColor));
-				if (box.Text == "Black")
-				{
-					BorderColor = Color.Black;
-				}
-				var rect = new Rectangle(0, 0, box.Width, box.Height);
-				ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
-				rect.Inflate(-1, -1);
-				ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
+			Panel box = (Panel)sender;
+			Color BorderColor = ColorTranslator.FromWin32(Conversions.ToInteger(FrmMathre.AccentColor));
+			if ((string)box.Tag == "Black")
+			{
+				BorderColor = Color.Black;
+			}
+			if ((string)box.Tag == "Transparent")
+			{
+				BorderColor = Color.Transparent;
+			}
+			var rect = new Rectangle(0, 0, box.Width, box.Height);
+			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
+			rect.Inflate(-1, -1);
+			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
 		}
 		//private void BuildMenuItems()
 		//{
