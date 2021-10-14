@@ -14,6 +14,7 @@
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace Mathre
 		public object Placeholder; // Define a global object to use to send blank events between event handlers
 		public static Rectangle Rect; // Define a global rectangle to use for measurements
 		public static string DecimalChar;
+
 		public FrmMathre()
 		{
 			this.InitializeComponent();
@@ -87,6 +89,8 @@ namespace Mathre
 			txtPizzaTip.KeyUp += Pizza;
 			btnDelivery.CheckedChanged += Pizza;
 			btnTakeout.CheckedChanged += Pizza;
+			btnPercent.CheckedChanged += Pizza;
+			btnDollars.CheckedChanged += Pizza;
 			mnuTemperatureFahrenheit.Click += Temperature;
 			mnuTemperatureCelsius.Click += Temperature;
 			mnuViewHelloWorld.Click += PageSelect;
@@ -98,7 +102,9 @@ namespace Mathre
 			mnuViewChange.Click += PageSelect;
 			mnuViewPizza.Click += PageSelect;
 			mnuViewUnknown.Click += PageSelect;
+			pnlDigitsResults.Scroll += ScrollPanel;
 		}
+
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
 			DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
@@ -112,12 +118,39 @@ namespace Mathre
 			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key
 			ColorKey.Close(); // Stop registry access
 			KeyPreview = true; // Ensure key inputs on the form are being tracked
-			StartingValue = grpHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
+			StartingValue = panel1.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
 			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor)); // Translate the system accent color to a usable format
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
 			{
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
 			} // Begin recursion
+			  //foreach (Control c in Controls)
+			  //{
+			  //	if (c.GetType() == typeof(Panel))
+			  //	{
+			  //		c.Paint += PaintPanel;
+			  //	}
+			  //}
+			foreach (Control c in Controls)
+			{
+				GetAllControls(c);
+				if (c is Panel) c.Paint += PaintPanel;
+			}
+		}
+		List<Control> ControlList = new();
+		private void GetAllControls(Control container)
+		{
+			foreach (Control c in container.Controls)
+			{
+				GetAllControls(c);
+				if (c is Panel) c.Paint += PaintPanel;
+			}
+		}
+		private void ScrollPanel(object sender, ScrollEventArgs e)
+		{
+			Panel box = (Panel)sender;
+			var rect = new Rectangle(0, 0, box.Width, box.Height);
+			this.Refresh();
 		}
 		private void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem
 		{
@@ -354,7 +387,7 @@ namespace Mathre
 			}
 			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
 			{
-				Buttons(grpHelloWorld.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
+				Buttons(panel1.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
 			}
 			else if (ReferenceEquals(sender, mnuRandomify))
 			{
@@ -618,11 +651,8 @@ namespace Mathre
 			{
 				Tip = TipText;
 			}
-			//else
-			//{
-			//	Tip = 0;
-			//}
-			lblPizzaCostAmount.Text = $"${ 0.75 + 1 + 0.05 * ( Size * Size ) + ( Convert.ToInt32(btnDelivery.Checked) * 1.5 ) + Tip }".ToString();
+			double Cost = (0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5));
+			lblPizzaCostAmount.Text = $"${ Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)) }".ToString();
 		}
 		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
 		{
@@ -650,6 +680,19 @@ namespace Mathre
 				}
 			}
 			// 
+		}
+		private void PaintPanel(object sender, PaintEventArgs p)
+		{
+				Panel box = (Panel)sender;
+				Color BorderColor = ColorTranslator.FromWin32(Conversions.ToInteger(FrmMathre.AccentColor));
+				if (box.Text == "Black")
+				{
+					BorderColor = Color.Black;
+				}
+				var rect = new Rectangle(0, 0, box.Width, box.Height);
+				ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
+				rect.Inflate(-1, -1);
+				ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
 		}
 		//private void BuildMenuItems()
 		//{
