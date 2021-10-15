@@ -11,10 +11,14 @@
 // Fruit : https://www.gardeningknowhow.com/wp-content/uploads/2019/10/stone-fruit-400x267.jpg
 // Hobby : https://rccarmarketplace.com/wp-content/uploads/2020/10/arrma-mojave-exb-full-option-roller-p2-720x380.jpg
 // 
+// Images for the Pizza page were sourced from the below links:
+// Small: https://preview.redd.it/rkt6dt3nf1841.jpg?auto=webp&s=28216c881e0906e1c893cd7e0bc8290b25151e3c
+// Medium : https://image.mlive.com/home/mlive-media/width2048/img/food_impact/photo/hungry-howies-pizza-21b1ef848c80e115.jpg
+// Large: https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BCUKGOJJYRABVPC7IK3422PWBE.jpg
+//
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
 using System.Linq;
@@ -68,16 +72,6 @@ namespace Mathre
 			mnuDarkMode.Click += Buttons;
 			mnuRecolor.Click += Buttons;
 			mnuSecret.Click += Buttons;
-			btnFavoriteActor.Click += Favorites;
-			btnFavoriteColor.Click += Favorites;
-			btnFavoriteFruit.Click += Favorites;
-			btnFavoriteHobby.Click += Favorites;
-			btnFavoriteMovie.Click += Favorites;
-			mnuFavoriteActor.Click += Favorites;
-			mnuFavoriteColor.Click += Favorites;
-			mnuFavoriteFruit.Click += Favorites;
-			mnuFavoriteHobby.Click += Favorites;
-			mnuFavoriteMovie.Click += Favorites;
 			btnFahrenheit.Click += Temperature;
 			btnCelsius.Click += Temperature;
 			btnFahrenheit.CheckedChanged += Temperature;
@@ -91,18 +85,13 @@ namespace Mathre
 			btnTakeout.CheckedChanged += Pizza;
 			btnPercent.CheckedChanged += Pizza;
 			btnDollars.CheckedChanged += Pizza;
+			mnuPizzaDelivery.Click += Pizza;
+			mnuPizzaTakeout.Click += Pizza;
+			mnuPizzaPercent.Click += Pizza;
+			mnuPizzaDollars.Click += Pizza;
 			mnuTemperatureFahrenheit.Click += Temperature;
 			mnuTemperatureCelsius.Click += Temperature;
-			mnuViewHelloWorld.Click += PageSelect;
-			mnuViewMySchool.Click += PageSelect;
-			mnuViewRectangle.Click += PageSelect;
-			mnuViewMyFavorites.Click += PageSelect;
-			mnuViewTemperature.Click += PageSelect;
-			mnuViewDigits.Click += PageSelect;
-			mnuViewChange.Click += PageSelect;
-			mnuViewPizza.Click += PageSelect;
-			mnuViewUnknown.Click += PageSelect;
-			pnlDigitsResults.Scroll += ScrollPanel;
+			Shown += FormShown;
 		}
 
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
@@ -124,33 +113,40 @@ namespace Mathre
 			{
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
 			} // Begin recursion
-			  //foreach (Control c in Controls)
-			  //{
-			  //	if (c.GetType() == typeof(Panel))
-			  //	{
-			  //		c.Paint += PaintPanel;
-			  //	}
-			  //}
+			foreach (ToolStripItem FavoriteItem in mnuFavorites.DropDownItems)
+			{
+				FavoriteItem.Click += Favorites;
+			}
+			foreach (RadioButton Button in pnlFavoriteControls.Controls)
+			{
+				Button.Click += Favorites;
+			}
 			foreach (Control c in Controls)
 			{
 				GetAllControls(c);
-				if (c is Panel) c.Paint += PaintPanel;
 			}
 		}
-		List<Control> ControlList = new();
+		public void FormShown(object sender, EventArgs e)
+		{
+			foreach (TabPage c in tabMathre.TabPages)
+			{
+				ToolStripMenuItem item = new();
+				item.Name = c.Name.ToString().Replace("tab", "mnuView");
+				item.Text = c.Text.ToString();
+				item.Click += new EventHandler(PageSelect);
+				mnuView.DropDownItems.Add(item);
+			}
+		}
 		private void GetAllControls(Control container)
 		{
 			foreach (Control c in container.Controls)
 			{
 				GetAllControls(c);
-				if ((c is Panel) && (c is not TabPage)) c.Paint += PaintPanel;
+				if ((c is Panel) && (c is not TabPage))
+				{
+					c.Paint += PaintPanel;
+				}
 			}
-		}
-		private void ScrollPanel(object sender, ScrollEventArgs e)
-		{
-			Panel box = (Panel)sender;
-			var rect = new Rectangle(0, 0, box.Width, box.Height);
-			this.Refresh();
 		}
 		private void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem
 		{
@@ -230,7 +226,7 @@ namespace Mathre
 			string[] words = txtRectangleDimensions.Text.Split(' '); // Split the input using the spaces as separators
 			if (!(e.KeyChar == (char)Keys.Return)) // Check whether the pressed key is anything other than enter 
 			{
-				grpRectangle.Visible = false; // Clear the rectangle
+				pnlRectangle.Visible = false; // Clear the rectangle
 				lblRectangleArea.Text = "Area"; // Clear the area
 				lblRectanglePerimeter.Text = "Perimeter"; // Clear the perimeter
 			}
@@ -440,11 +436,11 @@ namespace Mathre
 			else if (ReferenceEquals(sender, btnFavoriteColor) | ReferenceEquals(sender, mnuFavoriteColor))
 			{
 				lblFavoriteInfo.Text = "My favorite color is purple. \n It can complement a variety of other colors, works well to convey many different ideas or emotions, and it looks good.";
-				grpFavoriteImage.BackgroundImage = null;
-				grpFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
+				pnlFavoriteImage.BackgroundImage = null;
+				pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
 			}
 			lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
-			grpFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
+			pnlFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 		}
 		private void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
 		{
@@ -468,16 +464,16 @@ namespace Mathre
 			}
 			if (ReferenceEquals(sender, Placeholder) || ReferenceEquals(sender, txtRectangleDimensions)) // If the rectangle needs to be calculated and visualized
 			{
-				var ratioX = (double)grpRectangle.MaximumSize.Width / Width; // Make the X-ratio equal to the proportional size of the maximum width of the visualization rectangle
-				var ratioY = (double)grpRectangle.MaximumSize.Height / Height; // Make the Y-ratio equal to the proportional size of the maximum height of the visualization rectangle
+				var ratioX = (double)pnlRectangle.MaximumSize.Width / Width; // Make the X-ratio equal to the proportional size of the maximum width of the visualization rectangle
+				var ratioY = (double)pnlRectangle.MaximumSize.Height / Height; // Make the Y-ratio equal to the proportional size of the maximum height of the visualization rectangle
 				var ratio = Math.Min(ratioX, ratioY); // Set the overall ratio equal to the smallest of the two ratios
 				var newWidth = (int)(Width * ratio); // Create a new width for the visualizer that fits on the screen according to the ratio
 				var newHeight = (int)(Height * ratio); // Create a new height for the visualizer that fits on the screen according to the ratio
-				grpRectangle.Width = newWidth; // Set the visualization width to the modified proportional width
-				grpRectangle.Height = newHeight; // Set the visualization height to the modified proportional height
-				grpRectangle.Left = (grpRectangle.Parent.Width - grpRectangle.Width) / 2; // Center the rectangle horizontally within its visualization space
-				grpRectangle.Top = (grpRectangle.Parent.Height - grpRectangle.Height) / 2; // Center the rectangle vertically within its visualization space
-				grpRectangle.Visible = true; // Make the visualization rectangle visible
+				pnlRectangle.Width = newWidth; // Set the visualization width to the modified proportional width
+				pnlRectangle.Height = newHeight; // Set the visualization height to the modified proportional height
+				pnlRectangle.Left = (pnlRectangle.Parent.Width - pnlRectangle.Width) / 2; // Center the rectangle horizontally within its visualization space
+				pnlRectangle.Top = (pnlRectangle.Parent.Height - pnlRectangle.Height) / 2; // Center the rectangle vertically within its visualization space
+				pnlRectangle.Visible = true; // Make the visualization rectangle visible
 				lblRectangleError.Visible = false; // Hide the error label
 				if ((newHeight == 0 || newWidth == 0) && (!(Height == 0 || Width == 0))) // Check whether the adjusted sizes (using the ratio) are zero
 				{
@@ -502,11 +498,11 @@ namespace Mathre
 		}
 		private void Temperature(object sender, EventArgs e)
 		{
-			if (mnuTemperatureCelsius.Checked | ReferenceEquals(sender, mnuTemperatureCelsius)) //Set the buttons' appearances based on their checked state
+			if (ReferenceEquals(sender, mnuTemperatureCelsius)) //Set the buttons' appearances based on their checked state
 			{
 				btnCelsius.Checked = true; // ...
 			}
-			else if (mnuTemperatureFahrenheit.Checked | ReferenceEquals(sender, mnuTemperatureFahrenheit)) // ...
+			else if (ReferenceEquals(sender, mnuTemperatureFahrenheit)) // ...
 			{
 				btnFahrenheit.Checked = true; // ...
 			}
@@ -543,7 +539,7 @@ namespace Mathre
 				lblFahrenheitDisplay.Text = $"{Math.Round((temp * 9 / 5) + 32, roundamount)} °F"; // Set the Fahrenheit value using the proper math and degree of precision
 			}
 		}
-		private void Digits(object sender, System.Windows.Forms.KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
+		private void Digits(object sender, KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
 		{
 			lblDigitsCount.Text = txtNumber.Text.Length.ToString(); // Set the length based on the string length
 			lblDigitsListEvens.Text = ""; // Clear the Even Number List (happens each keypress)
@@ -608,7 +604,7 @@ namespace Mathre
 			}
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace, non-number character is pressed
 			{
-				if (!ReferenceEquals(sender, txtNumber))
+				if (!(ReferenceEquals(sender, txtNumber) | ReferenceEquals(sender, txtPizzaSize) | ReferenceEquals(sender, txtPizzaTip)))
 				{
 					if (e.KeyChar != '-')
 					{
@@ -641,6 +637,30 @@ namespace Mathre
 		}
 		private void Pizza(object sender, EventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
+			if (ReferenceEquals(sender, mnuPizzaDelivery)) //Set the buttons' appearances based on their checked state
+			{
+				btnDelivery.Checked = true; // ...
+			}
+			else if (ReferenceEquals(sender, mnuPizzaTakeout)) // ...
+			{
+				btnTakeout.Checked = true; // ...
+			}
+			if (!btnDelivery.Checked & !btnTakeout.Checked) // ...
+			{
+				btnDelivery.Checked = true; // ...
+			}
+			if (ReferenceEquals(sender, mnuPizzaDollars)) // ...
+			{
+				btnDollars.Checked = true; // ...
+			}
+			else if (ReferenceEquals(sender, mnuPizzaPercent)) // ...
+			{
+				btnPercent.Checked = true; // ...
+			}
+			if (!btnDollars.Checked & !btnPercent.Checked) // ...
+			{
+				btnPercent.Checked = true; // ...
+			}
 			int Size = 0;
 			double Tip = 0;
 			if (int.TryParse(txtPizzaSize.Text, out int SizeText))
@@ -653,6 +673,22 @@ namespace Mathre
 			}
 			double Cost = (0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5));
 			lblPizzaCostAmount.Text = $"${ Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)) }".ToString();
+			if (Size == 0)
+			{
+				pnlPizzaViewer.BackgroundImage = null;
+			}
+			else if (Size < 12)
+			{
+				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"SmallPizza.png".ToString()];
+			}
+			else if (Size > 13)
+			{
+				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"LargePizza.png".ToString()];
+			}
+			else if (Size is not 0)
+			{
+				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"MediumPizza.png".ToString()];
+			}
 		}
 		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
 		{
@@ -698,25 +734,5 @@ namespace Mathre
 			rect.Inflate(-1, -1);
 			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
 		}
-		//private void BuildMenuItems()
-		//{
-		//	ToolStripMenuItem[] items = new ToolStripMenuItem[2]; // You would obviously calculate this value at runtime
-		//	for (int i = 0; i < items.Length; i++)
-		//	{
-		//		items[i] = new ToolStripMenuItem();
-		//		items[i].Name = "dynamicItem" + i.ToString();
-		//		items[i].Text = "Visible Menu Text Here";
-		//		items[i].Click += new EventHandler(MenuItemClickHandler);
-		//	}
-
-		//	mnuEdit.DropDownItems.AddRange(items);
-		//}
-
-		//private void MenuItemClickHandler(object sender, EventArgs e)
-		//{
-		//	ToolStripMenuItem clickedItem = (ToolStripMenuItem)sender;
-		//	// Take some action based on the data in clickedItem
-		//}
-
 	}
 }

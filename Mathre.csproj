@@ -98,9 +98,6 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CustomGroupBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="My Project\MyNamespace.Dynamic.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.2.Designer.cs" />
@@ -137,6 +134,7 @@
   <ItemGroup>
     <EmbeddedResource Include="frmMathre.resx">
       <DependentUpon>frmMathre.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -191,6 +189,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\EnterKey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LargePizza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MediumPizza.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SmallPizza.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
