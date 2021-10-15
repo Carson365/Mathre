@@ -671,8 +671,8 @@ namespace Mathre
 			{
 				Tip = TipText;
 			}
-			double Cost = (0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5));
-			lblPizzaCostAmount.Text = $"${ Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)) }".ToString();
+			double Cost = 0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5);
+			lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString();
 			if (Size == 0)
 			{
 				pnlPizzaViewer.BackgroundImage = null;
