@@ -566,23 +566,23 @@ namespace Mathre
 			{
 				Bills = BillsAmount; // Assign the width value to the first substring if numeric
 			}
-			if (decimals.Length > 1)
+			if (decimals.Length > 1) // Ensure there is more than one substring
 			{
-				if (int.TryParse(decimals[1], out int CoinsAmount)) // Check whether the first substring is a number
+				if (int.TryParse(decimals[1], out int CoinsAmount)) // Check whether the second substring is a number
 				{
 					Coins = CoinsAmount; // Assign the width value to the first substring if numeric
 				}
 			}
-			lblHundredsCount.Text = (Bills / 100).ToString();
-			lblFiftiesCount.Text = (Bills % 100 / 50).ToString();
-			lblTwentiesCount.Text = (Bills % 100 % 50 / 20).ToString();
-			lblTensCount.Text = (Bills % 100 % 50 % 20 / 10).ToString();
-			lblFivesCount.Text = (Bills % 100 % 50 % 20 % 10 / 5).ToString();
-			lblOnesCount.Text = (Bills % 100 % 50 % 20 % 10 % 5 / 1).ToString();
-			lblQuartersCount.Text = (Coins / 25).ToString();
-			lblDimesCount.Text = (Coins % 25 / 10).ToString();
-			lblNickelsCount.Text = (Coins % 25 % 10 / 5).ToString();
-			lblPenniesCount.Text = (Coins % 25 % 10 % 5 / 1).ToString();
+			lblHundredsCount.Text = (Bills / 100).ToString(); // Integer division to determine how many whole 100s the dollar value can be divided by
+			lblFiftiesCount.Text = (Bills % 100 / 50).ToString(); // Use mod division to determine the remainder after checking for hundreds, then integer division to see how many whole 50s the number can be divided by
+			lblTwentiesCount.Text = (Bills % 100 % 50 / 20).ToString(); // ...
+			lblTensCount.Text = (Bills % 100 % 50 % 20 / 10).ToString(); // ...
+			lblFivesCount.Text = (Bills % 100 % 50 % 20 % 10 / 5).ToString(); // ...
+			lblOnesCount.Text = (Bills % 100 % 50 % 20 % 10 % 5 / 1).ToString(); // ...
+			lblQuartersCount.Text = (Coins / 25).ToString(); // Perform the same process for the coins
+			lblDimesCount.Text = (Coins % 25 / 10).ToString(); // ...
+			lblNickelsCount.Text = (Coins % 25 % 10 / 5).ToString(); // ...
+			lblPenniesCount.Text = (Coins % 25 % 10 % 5 / 1).ToString(); // ...
 		}
 		private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
@@ -663,31 +663,31 @@ namespace Mathre
 			}
 			int Size = 0;
 			double Tip = 0;
-			if (int.TryParse(txtPizzaSize.Text, out int SizeText))
+			if (int.TryParse(txtPizzaSize.Text, out int SizeText)) // Ensure the value is numeric
 			{
 				Size = SizeText;
 			}
-			if (double.TryParse(txtPizzaTip.Text, out double TipText))
+			if (double.TryParse(txtPizzaTip.Text, out double TipText)) // Ensure the value is numeric
 			{
 				Tip = TipText;
 			}
-			double Cost = 0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5);
-			lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString();
+			double Cost = 0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5); // Do math to get the proper price for a pizza before a tip
+			lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); // Add a tip in dollars or percent based on the selected option and ensure it is rounded to the nearest penny
 			if (Size == 0)
 			{
-				pnlPizzaViewer.BackgroundImage = null;
+				pnlPizzaViewer.BackgroundImage = null; // hide the image if no size is given
 			}
-			else if (Size < 12)
+			else if (Size < 12) // set the proper image for the given size
 			{
-				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"SmallPizza.png".ToString()];
+				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"SmallPizza.png".ToString()]; // ...
 			}
 			else if (Size > 13)
 			{
-				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"LargePizza.png".ToString()];
+				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"LargePizza.png".ToString()]; // ...
 			}
 			else if (Size is not 0)
 			{
-				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"MediumPizza.png".ToString()];
+				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"MediumPizza.png".ToString()]; // ...
 			}
 		}
 		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
