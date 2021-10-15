@@ -672,10 +672,14 @@ namespace Mathre
 				Tip = TipText;
 			}
 			double Cost = 0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5); // Do math to get the proper price for a pizza before a tip
-			lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); // Add a tip in dollars or percent based on the selected option and ensure it is rounded to the nearest penny
+			if (Size != 0)
+			{
+				lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); // Add a tip in dollars or percent based on the selected option and ensure it is rounded to the nearest penny
+			}
 			if (Size == 0)
 			{
 				pnlPizzaViewer.BackgroundImage = null; // hide the image if no size is given
+				lblPizzaCostAmount.Text = "Not Enough Information";
 			}
 			else if (Size < 12) // set the proper image for the given size
 			{
