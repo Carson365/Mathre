@@ -16,12 +16,18 @@
 // Medium : https://image.mlive.com/home/mlive-media/width2048/img/food_impact/photo/hungry-howies-pizza-21b1ef848c80e115.jpg
 // Large: https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BCUKGOJJYRABVPC7IK3422PWBE.jpg
 //
+using Microsoft.CSharp;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -92,6 +98,7 @@ namespace Mathre
 			mnuTemperatureFahrenheit.Click += Temperature;
 			mnuTemperatureCelsius.Click += Temperature;
 			Shown += FormShown;
+			button1.Click += NTest;
 		}
 
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
@@ -136,6 +143,47 @@ namespace Mathre
 				item.Click += new EventHandler(PageSelect);
 				mnuView.DropDownItems.Add(item);
 			}
+		}
+		private void NTest(object sender, EventArgs e)
+		{
+			Main(null);
+		}
+		static void Main(string[] args)
+		{
+			string source = File.ReadAllText("ChangeMaker.txt", Encoding.UTF8);
+			//			@"
+			//namespace Foo
+			//{
+			//    public class Bar
+			//    {
+			//        public void SayHello()
+			//        {
+			//            System.Console.WriteLine(""Hello World"");
+			//        }
+			//    }
+			//}
+			//            ";
+
+			Dictionary<string, string> providerOptions = new Dictionary<string, string>
+				{
+					{"CompilerVersion", "v3.5"}
+				};
+			CSharpCodeProvider provider = new CSharpCodeProvider(providerOptions);
+
+			CompilerParameters compilerParams = new CompilerParameters
+			{
+				GenerateInMemory = true,
+				GenerateExecutable = false
+			};
+
+			CompilerResults results = provider.CompileAssemblyFromSource(compilerParams, source);
+
+			if (results.Errors.Count != 0)
+				throw new Exception("Mission failed!");
+
+			object o = results.CompiledAssembly.CreateInstance("Foo.Bar");
+			MethodInfo mi = o.GetType().GetMethod("SayHello");
+			mi.Invoke(o, null);
 		}
 		private void GetAllControls(Control container)
 		{
