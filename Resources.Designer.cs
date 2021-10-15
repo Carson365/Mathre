@@ -113,9 +113,39 @@ namespace Mathre.My.Resources {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LargePizza {
+            get {
+                object obj = ResourceManager.GetObject("LargePizza", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap MediumPizza {
+            get {
+                object obj = ResourceManager.GetObject("MediumPizza", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RedRiver {
             get {
                 object obj = ResourceManager.GetObject("RedRiver", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SmallPizza {
+            get {
+                object obj = ResourceManager.GetObject("SmallPizza", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
