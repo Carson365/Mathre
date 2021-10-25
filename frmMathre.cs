@@ -16,12 +16,18 @@
 // Medium : https://image.mlive.com/home/mlive-media/width2048/img/food_impact/photo/hungry-howies-pizza-21b1ef848c80e115.jpg
 // Large: https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BCUKGOJJYRABVPC7IK3422PWBE.jpg
 //
+using Microsoft.CSharp;
 using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
+using System.CodeDom.Compiler;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
+using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 using static Mathre.FrmHelloWorld;
 namespace Mathre
