@@ -1,4 +1,4 @@
-﻿using Microsoft.VisualBasic.CompilerServices;
+using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
 using System.Linq;
@@ -26,6 +26,8 @@ namespace Mathre
 			//mnuHelloWorldLanguageFrench.Click += HelloWorld;
 			//mnuHelloWorldLanguageEnglish.Click += HelloWorld;
 			//mnuRandomify.Click += HelloWorld;
+			//FrmMathre main = new();
+			//main.mnuHelloWorldLanguageEnglish.Click += Transfer;
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
@@ -34,11 +36,15 @@ namespace Mathre
 			ColorKey.Close(); // Stop registry access
 			StartingValue = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
 			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor)); // Translate the system accent color to a usable format
-			var mainForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			foreach (Control c in Controls)
-			{
-				mainForm.GetAllControls(c);
-			}
+			//var mainForm = Application.OpenForms.OfType<FrmMathre>().Single();
+		}
+		public void Transfer(object sender, EventArgs e)
+		{
+			//FrmHelloWorld HW = new();
+			var HW = Application.OpenForms.OfType<FrmHelloWorld>().Single();
+			HW.btnHelloWorldEnglish.Checked = true;
+			HW.lblHelloWorldTitle.Text = "Hello World";
+			Console.WriteLine("abvhsui");
 		}
 		public void HelloWorld2(object sender, EventArgs e)
 		{
@@ -73,4 +79,3 @@ namespace Mathre
 		}
 	}
 }
-
