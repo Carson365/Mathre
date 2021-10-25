@@ -98,7 +98,7 @@ namespace Mathre
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
 			FrmHelloWorld HW = new();
-			mnuHelloWorldLanguageEnglish.Click += HW.HelloWorld2;
+			mnuHelloWorldLanguageEnglish.Click += HW.Transfer;
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
@@ -151,7 +151,6 @@ namespace Mathre
 			if (type != null)
 			{
 				var f = Activator.CreateInstance(type) as Form;
-				f.Show();
 				f.Size = FormSize;
 				f.FormBorderStyle = FormBorderStyle.None;
 				f.Left = 0;
@@ -401,7 +400,7 @@ namespace Mathre
 			}
 			// 
 		}
-		private void HelloWorld(object sender, EventArgs e) // Event Handler for a button press
+		public void HelloWorld(object sender, EventArgs e) // Event Handler for a button press
 		{
 			FrmHelloWorld p = new();
 
