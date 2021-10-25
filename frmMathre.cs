@@ -23,9 +23,11 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using static Mathre.FrmHelloWorld;
 namespace Mathre
 {
-	public partial class FrmMathre
+
+	public partial class FrmMathre : Form
 	{
 		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
 		public static string AccentColor; // Define a global variable to store the starting value of the System Accent Color
@@ -34,18 +36,20 @@ namespace Mathre
 		public object Placeholder; // Define a global object to use to send blank events between event handlers
 		public static Rectangle Rect; // Define a global rectangle to use for measurements
 		public static string DecimalChar;
-
+		public static Size FormSize;
+		//public static string Page;
+		public static Form DesiredForm;
 		public FrmMathre()
 		{
-			this.InitializeComponent();
+			InitializeComponent();
 			// The following are all event handlers. They assign the event (left) to its handler (right)
-			btnHelloWorldFrench.Click += Buttons;
+			btnHelloWorldFrench.Click += HelloWorld;
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
-			btnHelloWorldReset.Click += Buttons;
-			btnHelloWorldGerman.Click += Buttons;
-			btnHelloWorldEnglish.Click += Buttons;
-			btnMySchoolToggleMascot.Click += Buttons;
+			btnHelloWorldReset.Click += HelloWorld;
+			btnHelloWorldGerman.Click += HelloWorld;
+			btnHelloWorldEnglish.Click += HelloWorld;
+			btnMySchoolToggleMascot.Click += MySchool;
 			btnRectangleCalculate.Click += Rectangle;
 			mnuRectangleCalculate.Click += Rectangle;
 			mnuDigitsCalculate.Click += Temperature;
@@ -59,19 +63,19 @@ namespace Mathre
 			txtRectangleDimensions.TextChanged += Rectangle;
 			btnSecretDisable.Click += SecretHandler;
 			btnSecretEnable.Click += SecretHandler;
-			mnuView.Click += Buttons;
-			mnuEdit.Click += Buttons;
-			mnuExit.Click += Buttons;
-			mnuMySchoolToggleMascot.Click += Buttons;
-			mnuHelloWorldReset.Click += Buttons;
-			mnuHelloWorldLanguageGerman.Click += Buttons;
-			mnuHelloWorldLanguageFrench.Click += Buttons;
-			mnuHelloWorldLanguageEnglish.Click += Buttons;
-			mnuRandomify.Click += Buttons;
-			mnuTechnicolor.Click += Buttons;
-			mnuDarkMode.Click += Buttons;
-			mnuRecolor.Click += Buttons;
-			mnuSecret.Click += Buttons;
+			//mnuView.Click += Buttons;
+			//mnuEdit.Click += Buttons;
+			mnuExit.Click += Exit;
+			mnuMySchoolToggleMascot.Click += MySchool;
+			mnuHelloWorldReset.Click += HelloWorld;
+			mnuHelloWorldLanguageGerman.Click += HelloWorld;
+			mnuHelloWorldLanguageFrench.Click += HelloWorld;
+			//mnuHelloWorldLanguageEnglish.Click += HelloWorld;
+			mnuRandomify.Click += HelloWorld;
+			//mnuTechnicolor.Click += Buttons;
+			//mnuDarkMode.Click += Buttons;
+			//mnuRecolor.Click += Buttons;
+			mnuSecret.Click += HelloWorld;
 			btnFahrenheit.Click += Temperature;
 			btnCelsius.Click += Temperature;
 			btnFahrenheit.CheckedChanged += Temperature;
@@ -92,8 +96,11 @@ namespace Mathre
 			mnuTemperatureFahrenheit.Click += Temperature;
 			mnuTemperatureCelsius.Click += Temperature;
 			Shown += FormShown;
+			Resize += Resized;
+			tabMathre.SelectedIndexChanged += FormManager;
+			FrmHelloWorld HW = new();
+			mnuHelloWorldLanguageEnglish.Click += HW.HelloWorld2;
 		}
-
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
 			DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
@@ -125,6 +132,7 @@ namespace Mathre
 			{
 				GetAllControls(c);
 			}
+			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 537);
 		}
 		public void FormShown(object sender, EventArgs e)
 		{
@@ -136,8 +144,36 @@ namespace Mathre
 				item.Click += new EventHandler(PageSelect);
 				mnuView.DropDownItems.Add(item);
 			}
+			FormManager(null, null);
 		}
-		private void GetAllControls(Control container)
+		private void FormManager(object sender, EventArgs e)
+		{
+			var type = Type.GetType("Mathre." + tabMathre.SelectedTab.Name.Replace("tab", "Frm"));
+			if (type != null)
+			{
+				var f = Activator.CreateInstance(type) as Form;
+				f.Show();
+				f.Size = FormSize;
+				f.FormBorderStyle = FormBorderStyle.None;
+				f.Left = 0;
+				f.Top = 45;
+				f.TopLevel = false;
+				f.Visible = true;
+				this.Controls.Add(f);
+				f.Focus();
+				Resized(null, null);
+			}
+			for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+			{
+				if (Application.OpenForms[i].Name != "FrmMathre" && Application.OpenForms[i].Name != tabMathre.SelectedTab.Name.Replace("tab", "Frm"))
+					Application.OpenForms[i].Close();
+			}
+		}
+		private void Exit(object sender, EventArgs e)
+		{
+			Close();
+		}
+		public void GetAllControls(Control container)
 		{
 			foreach (Control c in container.Controls)
 			{
@@ -166,6 +202,7 @@ namespace Mathre
 				if (hidden == true) // Ensure the secret settings tab is hidden
 				{
 					tabMathre.Controls.Add(tabSecret); // Unhide the secret settings tab
+					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 537);
 					tabMathre.SelectedTab = tabSecret; // Select the secret settings tab
 					hidden = false; // Mark the secret settings tab as shown
 				}
@@ -174,16 +211,17 @@ namespace Mathre
 					tabMathre.Controls.Remove(tabSecret); // Hide the secret settings tab
 					hidden = true; // Mark the secret settings tab as hidden
 				}
+				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 537);
 			}
 			//
 			if (e.Control & e.KeyCode == Keys.R & mnuSecret.Enabled) // Add Control+R shortcut, dependent on the secret menu being enabled
 			{
-				Buttons(mnuRandomify, null); // Use shortcut to quickly run the randomize function
+				HelloWorld(mnuRandomify, null); // Use shortcut to quickly run the randomize function
 			}
 			// 
 			if (e.Control & e.Shift & e.KeyCode == Keys.R) // Add Control+Shift+R shortcut
 			{
-				Buttons(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button
+				HelloWorld(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button
 			}
 			//
 			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9)) // Add Control+Number shortcut for each tab page, and no more than the amout of pages
@@ -364,12 +402,14 @@ namespace Mathre
 			}
 			// 
 		}
-		private void Buttons(object sender, EventArgs e) // Event Handler for a button press
+		private void HelloWorld(object sender, EventArgs e) // Event Handler for a button press
 		{
-			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, mnuHelloWorldLanguageEnglish)) // If the event is caused by the English button or menu item:
+			FrmHelloWorld p = new();
+
+			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, mnuHelloWorldLanguageEnglish))
 			{
-				btnHelloWorldEnglish.Checked = true;
-				lblHelloWorldTitle.Text = "Hello World"; // Sets lblHelloWorld to English
+				p.btnHelloWorldEnglish.Checked = true;
+				p.lblHelloWorldTitle.Text = "Hello World"; // Sets lblHelloWorld to English
 			}
 			else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, mnuHelloWorldLanguageFrench)) // If the event is caused by the French button or menu item:
 			{
@@ -383,7 +423,7 @@ namespace Mathre
 			}
 			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
 			{
-				Buttons(pnlHelloWorld.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
+				HelloWorld(pnlHelloWorld.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
 			}
 			else if (ReferenceEquals(sender, mnuRandomify))
 			{
@@ -392,7 +432,10 @@ namespace Mathre
 				btnHelloWorldGerman.Checked = false;
 				lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value
 			}
-			else if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, mnuMySchoolToggleMascot)) // If the event is caused by the ToggleMascot button or menu item:
+		}
+		private void MySchool(object sender, EventArgs e)
+		{
+			if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, mnuMySchoolToggleMascot)) // If the event is caused by the ToggleMascot button or menu item:
 			{
 				picMySchoolMascot.Visible = !picMySchoolMascot.Visible; // Inverts the visibility of the mascot image
 				if (lblMySchoolMascot.ForeColor != Color.Black) // Inverts the text color
@@ -724,7 +767,7 @@ namespace Mathre
 		private void PaintPanel(object sender, PaintEventArgs p)
 		{
 			Panel box = (Panel)sender;
-			Color BorderColor = ColorTranslator.FromWin32(Conversions.ToInteger(FrmMathre.AccentColor));
+			Color BorderColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
 			if ((string)box.Tag == "Black")
 			{
 				BorderColor = Color.Black;
@@ -738,5 +781,19 @@ namespace Mathre
 			rect.Inflate(-1, -1);
 			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
 		}
+		public void Resized(object sender, EventArgs e)
+		{
+			FormSize.Width = this.Width - 16;
+			FormSize.Height = this.Height - 84;
+			foreach (Form f in Application.OpenForms)
+			{
+				if (f.Visible && f.Name != "FrmMathre")
+				{
+					f.Size = FormSize;
+				}
+			}
+		}
+
+
 	}
 }

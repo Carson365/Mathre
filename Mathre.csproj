@@ -98,6 +98,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmHelloWorld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHelloWorld.Designer.cs">
+      <DependentUpon>frmHelloWorld.cs</DependentUpon>
+    </Compile>
     <Compile Include="My Project\MyNamespace.Dynamic.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.2.Designer.cs" />
@@ -132,6 +138,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmHelloWorld.resx">
+      <DependentUpon>frmHelloWorld.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmMathre.resx">
       <DependentUpon>frmMathre.cs</DependentUpon>
       <SubType>Designer</SubType>
