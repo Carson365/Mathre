@@ -1,10 +1,8 @@
 ﻿using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-using static Mathre.FrmMathre;
 
 namespace Mathre
 {
