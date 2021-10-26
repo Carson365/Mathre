@@ -1956,8 +1956,6 @@ namespace Mathre
             this.PerformLayout();
 
         }
-
-        internal MenuStrip mnuBaseLayer;
         internal ToolStripMenuItem mnuEdit;
         internal ToolStripMenuItem mnuSecret;
         internal ToolStripMenuItem mnuRecolor;
@@ -1965,7 +1963,6 @@ namespace Mathre
         internal ToolStripMenuItem mnuTechnicolor;
         internal ToolStripMenuItem mnuRandomify;
         internal ToolStripMenuItem mnuView;
-		private ImageList imgFavoriteImages;
 		internal TabPage tabSecret;
 		private Panel pnlSecret;
 		internal RadioButton btnSecretDisable;
@@ -2113,5 +2110,7 @@ namespace Mathre
 		public ToolStripMenuItem mnuPizzaDelivery;
 		public ToolStripMenuItem mnuPizzaDollars;
 		public ToolStripMenuItem mnuPizzaPercent;
+		public MenuStrip mnuBaseLayer;
+		public ImageList imgFavoriteImages;
 	}
 }
