@@ -104,6 +104,12 @@
     <Compile Include="frmHelloWorld.Designer.cs">
       <DependentUpon>frmHelloWorld.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmMySchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMySchool.Designer.cs">
+      <DependentUpon>frmMySchool.cs</DependentUpon>
+    </Compile>
     <Compile Include="My Project\MyNamespace.Dynamic.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
     <Compile Include="My Project\MyNamespace.Static.2.Designer.cs" />
@@ -144,6 +150,9 @@
     <EmbeddedResource Include="frmMathre.resx">
       <DependentUpon>frmMathre.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMySchool.resx">
+      <DependentUpon>frmMySchool.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

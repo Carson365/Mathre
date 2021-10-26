@@ -180,21 +180,21 @@ namespace Mathre
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
             this.lblMySchoolTitle = new System.Windows.Forms.Label();
             this.tabMathre = new System.Windows.Forms.TabControl();
+            this.tabHelloWorld = new System.Windows.Forms.TabPage();
+            this.lblHelloWorldTitle = new System.Windows.Forms.Label();
+            this.pnlHelloWorld = new System.Windows.Forms.Panel();
+            this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
+            this.btnHelloWorldEnglish = new System.Windows.Forms.RadioButton();
+            this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
+            this.btnHelloWorldReset = new System.Windows.Forms.Button();
+            this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
+            this.picHelloWorldEnglish = new System.Windows.Forms.PictureBox();
+            this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
+            this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
+            this.btnRectangleCalculate = new System.Windows.Forms.Button();
             this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
-            this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
-            this.btnRectangleCalculate = new System.Windows.Forms.Button();
-            this.pnlHelloWorld = new System.Windows.Forms.Panel();
-            this.btnHelloWorldReset = new System.Windows.Forms.Button();
-            this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
-            this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
-            this.picHelloWorldEnglish = new System.Windows.Forms.PictureBox();
-            this.btnHelloWorldEnglish = new System.Windows.Forms.RadioButton();
-            this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
-            this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
-            this.lblHelloWorldTitle = new System.Windows.Forms.Label();
-            this.tabHelloWorld = new System.Windows.Forms.TabPage();
             this.mnuBaseLayer.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.pnlSecret.SuspendLayout();
@@ -222,12 +222,12 @@ namespace Mathre
             this.tabMySchool.SuspendLayout();
             this.pnlMySchool.SuspendLayout();
             this.tabMathre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
-            this.pnlHelloWorld.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
             this.tabHelloWorld.SuspendLayout();
+            this.pnlHelloWorld.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.SuspendLayout();
             // 
             // mnuBaseLayer
@@ -241,7 +241,7 @@ namespace Mathre
             this.mnuBaseLayer.Name = "mnuBaseLayer";
             this.mnuBaseLayer.Padding = new System.Windows.Forms.Padding(0);
             this.mnuBaseLayer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mnuBaseLayer.Size = new System.Drawing.Size(985, 24);
+            this.mnuBaseLayer.Size = new System.Drawing.Size(984, 24);
             this.mnuBaseLayer.TabIndex = 0;
             this.mnuBaseLayer.Text = "Menu";
             // 
@@ -318,7 +318,7 @@ namespace Mathre
             this.mnuHelloWorldLanguageFrench,
             this.mnuHelloWorldLanguageGerman});
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
-            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
             // 
             // mnuHelloWorldReset
@@ -518,7 +518,7 @@ namespace Mathre
             this.tabSecret.Controls.Add(this.lblSecretTitle);
             this.tabSecret.Location = new System.Drawing.Point(4, 22);
             this.tabSecret.Name = "tabSecret";
-            this.tabSecret.Size = new System.Drawing.Size(977, 0);
+            this.tabSecret.Size = new System.Drawing.Size(871, 456);
             this.tabSecret.TabIndex = 3;
             this.tabSecret.Text = "Secret Settings Page";
             this.tabSecret.UseVisualStyleBackColor = true;
@@ -531,7 +531,7 @@ namespace Mathre
             this.pnlSecret.Controls.Add(this.lblSecretPrompt);
             this.pnlSecret.Controls.Add(this.btnSecretEnable);
             this.pnlSecret.Controls.Add(this.txtSecretPassword);
-            this.pnlSecret.Location = new System.Drawing.Point(191, -87);
+            this.pnlSecret.Location = new System.Drawing.Point(138, 141);
             this.pnlSecret.Name = "pnlSecret";
             this.pnlSecret.Size = new System.Drawing.Size(426, 105);
             this.pnlSecret.TabIndex = 22;
@@ -586,7 +586,7 @@ namespace Mathre
             // 
             this.lblSecretTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblSecretTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecretTitle.Location = new System.Drawing.Point(91, -151);
+            this.lblSecretTitle.Location = new System.Drawing.Point(38, 77);
             this.lblSecretTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblSecretTitle.Name = "lblSecretTitle";
             this.lblSecretTitle.Size = new System.Drawing.Size(626, 51);
@@ -599,7 +599,7 @@ namespace Mathre
             this.tabUnknown.Location = new System.Drawing.Point(4, 22);
             this.tabUnknown.Margin = new System.Windows.Forms.Padding(0);
             this.tabUnknown.Name = "tabUnknown";
-            this.tabUnknown.Size = new System.Drawing.Size(977, 0);
+            this.tabUnknown.Size = new System.Drawing.Size(871, 456);
             this.tabUnknown.TabIndex = 2;
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
@@ -612,7 +612,7 @@ namespace Mathre
             this.tabPizza.Controls.Add(this.lblPizzaTitle);
             this.tabPizza.Location = new System.Drawing.Point(4, 22);
             this.tabPizza.Name = "tabPizza";
-            this.tabPizza.Size = new System.Drawing.Size(977, 0);
+            this.tabPizza.Size = new System.Drawing.Size(871, 456);
             this.tabPizza.TabIndex = 9;
             this.tabPizza.Tag = "Transparent";
             this.tabPizza.Text = "Pizza Delivery";
@@ -625,7 +625,7 @@ namespace Mathre
             this.pnlPizzaCost.Controls.Add(this.pnlPizzaViewer);
             this.pnlPizzaCost.Controls.Add(this.lblPizzaCostAmount);
             this.pnlPizzaCost.Controls.Add(this.lblPizzaCost);
-            this.pnlPizzaCost.Location = new System.Drawing.Point(194, 258);
+            this.pnlPizzaCost.Location = new System.Drawing.Point(194, 486);
             this.pnlPizzaCost.Name = "pnlPizzaCost";
             this.pnlPizzaCost.Size = new System.Drawing.Size(426, 81);
             this.pnlPizzaCost.TabIndex = 28;
@@ -672,7 +672,7 @@ namespace Mathre
             this.pnlPizza.Controls.Add(this.pnlTip);
             this.pnlPizza.Controls.Add(this.lblPizzaTip);
             this.pnlPizza.Controls.Add(this.txtPizzaSize);
-            this.pnlPizza.Location = new System.Drawing.Point(194, 137);
+            this.pnlPizza.Location = new System.Drawing.Point(194, 365);
             this.pnlPizza.Name = "pnlPizza";
             this.pnlPizza.Size = new System.Drawing.Size(426, 105);
             this.pnlPizza.TabIndex = 26;
@@ -789,7 +789,7 @@ namespace Mathre
             // 
             this.lblPizzaTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblPizzaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPizzaTitle.Location = new System.Drawing.Point(94, 68);
+            this.lblPizzaTitle.Location = new System.Drawing.Point(94, 296);
             this.lblPizzaTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblPizzaTitle.Name = "lblPizzaTitle";
             this.lblPizzaTitle.Size = new System.Drawing.Size(626, 51);
@@ -804,7 +804,7 @@ namespace Mathre
             this.tabChange.Controls.Add(this.lblChangeMakerTitle);
             this.tabChange.Location = new System.Drawing.Point(4, 22);
             this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(977, 0);
+            this.tabChange.Size = new System.Drawing.Size(871, 456);
             this.tabChange.TabIndex = 8;
             this.tabChange.Text = "Change Maker";
             this.tabChange.UseVisualStyleBackColor = true;
@@ -834,7 +834,7 @@ namespace Mathre
             this.panel3.Controls.Add(this.lblPennies);
             this.panel3.Controls.Add(this.lblDimes);
             this.panel3.Controls.Add(this.lblNickels);
-            this.panel3.Location = new System.Drawing.Point(194, 258);
+            this.panel3.Location = new System.Drawing.Point(194, 486);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(426, 136);
             this.panel3.TabIndex = 28;
@@ -1076,7 +1076,7 @@ namespace Mathre
             this.pnlChangeMaker.BackColor = System.Drawing.SystemColors.Control;
             this.pnlChangeMaker.Controls.Add(this.txtPaidAmount);
             this.pnlChangeMaker.Controls.Add(this.lblPaidAmount);
-            this.pnlChangeMaker.Location = new System.Drawing.Point(194, 137);
+            this.pnlChangeMaker.Location = new System.Drawing.Point(194, 365);
             this.pnlChangeMaker.Name = "pnlChangeMaker";
             this.pnlChangeMaker.Size = new System.Drawing.Size(426, 105);
             this.pnlChangeMaker.TabIndex = 22;
@@ -1107,7 +1107,7 @@ namespace Mathre
             // 
             this.lblChangeMakerTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblChangeMakerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeMakerTitle.Location = new System.Drawing.Point(94, 68);
+            this.lblChangeMakerTitle.Location = new System.Drawing.Point(94, 296);
             this.lblChangeMakerTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblChangeMakerTitle.Name = "lblChangeMakerTitle";
             this.lblChangeMakerTitle.Size = new System.Drawing.Size(626, 51);
@@ -1122,7 +1122,7 @@ namespace Mathre
             this.tabDigits.Controls.Add(this.lblDigitsTitle);
             this.tabDigits.Location = new System.Drawing.Point(4, 22);
             this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(977, 0);
+            this.tabDigits.Size = new System.Drawing.Size(871, 456);
             this.tabDigits.TabIndex = 7;
             this.tabDigits.Text = "Digit Separator";
             this.tabDigits.UseVisualStyleBackColor = true;
@@ -1132,7 +1132,7 @@ namespace Mathre
             this.pnlDigitsResults.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlDigitsResults.BackColor = System.Drawing.Color.Transparent;
             this.pnlDigitsResults.Controls.Add(this.pnlDigitsResultsDisplay);
-            this.pnlDigitsResults.Location = new System.Drawing.Point(194, 258);
+            this.pnlDigitsResults.Location = new System.Drawing.Point(194, 486);
             this.pnlDigitsResults.Name = "pnlDigitsResults";
             this.pnlDigitsResults.Size = new System.Drawing.Size(426, 136);
             this.pnlDigitsResults.TabIndex = 28;
@@ -1185,7 +1185,7 @@ namespace Mathre
             this.pnlDigits.Controls.Add(this.lblDigits);
             this.pnlDigits.Controls.Add(this.lblDigitsCount);
             this.pnlDigits.Controls.Add(this.lblDigitsCountLabel);
-            this.pnlDigits.Location = new System.Drawing.Point(194, 137);
+            this.pnlDigits.Location = new System.Drawing.Point(194, 365);
             this.pnlDigits.Name = "pnlDigits";
             this.pnlDigits.Size = new System.Drawing.Size(426, 105);
             this.pnlDigits.TabIndex = 22;
@@ -1238,7 +1238,7 @@ namespace Mathre
             // 
             this.lblDigitsTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblDigitsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDigitsTitle.Location = new System.Drawing.Point(94, 68);
+            this.lblDigitsTitle.Location = new System.Drawing.Point(94, 296);
             this.lblDigitsTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblDigitsTitle.Name = "lblDigitsTitle";
             this.lblDigitsTitle.Size = new System.Drawing.Size(626, 51);
@@ -1253,7 +1253,7 @@ namespace Mathre
             this.tabTemperature.Controls.Add(this.lblTemperatureTitle);
             this.tabTemperature.Location = new System.Drawing.Point(4, 22);
             this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(977, 0);
+            this.tabTemperature.Size = new System.Drawing.Size(871, 456);
             this.tabTemperature.TabIndex = 6;
             this.tabTemperature.Text = "Temperature Converter";
             this.tabTemperature.UseVisualStyleBackColor = true;
@@ -1323,7 +1323,7 @@ namespace Mathre
             this.pnlTemperature.Controls.Add(this.txtTemperature);
             this.pnlTemperature.Controls.Add(this.btnFahrenheit);
             this.pnlTemperature.Controls.Add(this.lblTemperature);
-            this.pnlTemperature.Location = new System.Drawing.Point(194, 137);
+            this.pnlTemperature.Location = new System.Drawing.Point(194, 365);
             this.pnlTemperature.Name = "pnlTemperature";
             this.pnlTemperature.Size = new System.Drawing.Size(426, 105);
             this.pnlTemperature.TabIndex = 21;
@@ -1376,7 +1376,7 @@ namespace Mathre
             // 
             this.lblTemperatureTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTemperatureTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperatureTitle.Location = new System.Drawing.Point(94, 68);
+            this.lblTemperatureTitle.Location = new System.Drawing.Point(94, 296);
             this.lblTemperatureTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTemperatureTitle.Name = "lblTemperatureTitle";
             this.lblTemperatureTitle.Size = new System.Drawing.Size(626, 51);
@@ -1391,7 +1391,7 @@ namespace Mathre
             this.tabMyFavorites.Controls.Add(this.lblFavoriteTitle);
             this.tabMyFavorites.Location = new System.Drawing.Point(4, 22);
             this.tabMyFavorites.Name = "tabMyFavorites";
-            this.tabMyFavorites.Size = new System.Drawing.Size(977, 0);
+            this.tabMyFavorites.Size = new System.Drawing.Size(871, 456);
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
@@ -1517,7 +1517,7 @@ namespace Mathre
             this.tabRectangle.Controls.Add(this.lblRectangleTitle);
             this.tabRectangle.Location = new System.Drawing.Point(4, 22);
             this.tabRectangle.Name = "tabRectangle";
-            this.tabRectangle.Size = new System.Drawing.Size(977, 0);
+            this.tabRectangle.Size = new System.Drawing.Size(976, 0);
             this.tabRectangle.TabIndex = 4;
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
@@ -1528,7 +1528,7 @@ namespace Mathre
             this.pnlRectangleContainer.BackColor = System.Drawing.Color.Transparent;
             this.pnlRectangleContainer.Controls.Add(this.lblRectangleError);
             this.pnlRectangleContainer.Controls.Add(this.pnlRectangle);
-            this.pnlRectangleContainer.Location = new System.Drawing.Point(194, 258);
+            this.pnlRectangleContainer.Location = new System.Drawing.Point(247, 30);
             this.pnlRectangleContainer.Name = "pnlRectangleContainer";
             this.pnlRectangleContainer.Size = new System.Drawing.Size(426, 136);
             this.pnlRectangleContainer.TabIndex = 26;
@@ -1568,7 +1568,7 @@ namespace Mathre
             this.pnlRectangleControls.Controls.Add(this.lblRectanglePerimiterTitle);
             this.pnlRectangleControls.Controls.Add(this.lblRectangleArea);
             this.pnlRectangleControls.Controls.Add(this.lblRectanglePerimeter);
-            this.pnlRectangleControls.Location = new System.Drawing.Point(194, 137);
+            this.pnlRectangleControls.Location = new System.Drawing.Point(247, -91);
             this.pnlRectangleControls.Name = "pnlRectangleControls";
             this.pnlRectangleControls.Size = new System.Drawing.Size(426, 105);
             this.pnlRectangleControls.TabIndex = 16;
@@ -1643,7 +1643,7 @@ namespace Mathre
             // 
             this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleTitle.Location = new System.Drawing.Point(94, 68);
+            this.lblRectangleTitle.Location = new System.Drawing.Point(147, -160);
             this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblRectangleTitle.Name = "lblRectangleTitle";
             this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
@@ -1658,7 +1658,7 @@ namespace Mathre
             this.tabMySchool.Location = new System.Drawing.Point(4, 22);
             this.tabMySchool.Name = "tabMySchool";
             this.tabMySchool.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMySchool.Size = new System.Drawing.Size(977, 0);
+            this.tabMySchool.Size = new System.Drawing.Size(976, 0);
             this.tabMySchool.TabIndex = 1;
             this.tabMySchool.Text = "My School";
             this.tabMySchool.UseVisualStyleBackColor = true;
@@ -1670,7 +1670,7 @@ namespace Mathre
             this.pnlMySchool.Controls.Add(this.lblMySchoolMascot);
             this.pnlMySchool.Controls.Add(this.picMySchoolMascot);
             this.pnlMySchool.Controls.Add(this.btnMySchoolToggleMascot);
-            this.pnlMySchool.Location = new System.Drawing.Point(194, -63);
+            this.pnlMySchool.Location = new System.Drawing.Point(247, -63);
             this.pnlMySchool.Name = "pnlMySchool";
             this.pnlMySchool.Size = new System.Drawing.Size(426, 104);
             this.pnlMySchool.TabIndex = 10;
@@ -1699,7 +1699,7 @@ namespace Mathre
             // 
             this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolTitle.Location = new System.Drawing.Point(159, -132);
+            this.lblMySchoolTitle.Location = new System.Drawing.Point(212, -132);
             this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblMySchoolTitle.Name = "lblMySchoolTitle";
             this.lblMySchoolTitle.Size = new System.Drawing.Size(496, 50);
@@ -1724,31 +1724,122 @@ namespace Mathre
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
             this.tabMathre.Name = "tabMathre";
             this.tabMathre.SelectedIndex = 0;
-            this.tabMathre.Size = new System.Drawing.Size(985, 21);
+            this.tabMathre.Size = new System.Drawing.Size(984, 21);
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabMathre.TabIndex = 4;
             this.tabMathre.Tag = "";
             // 
-            // mnuHelloWorldLanguageEnglish
+            // tabHelloWorld
             // 
-            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
-            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(180, 22);
-            this.mnuHelloWorldLanguageEnglish.Text = "English";
+            this.tabHelloWorld.BackColor = System.Drawing.Color.Transparent;
+            this.tabHelloWorld.Controls.Add(this.lblHelloWorldTitle);
+            this.tabHelloWorld.Controls.Add(this.pnlHelloWorld);
+            this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
+            this.tabHelloWorld.Margin = new System.Windows.Forms.Padding(0);
+            this.tabHelloWorld.Name = "tabHelloWorld";
+            this.tabHelloWorld.Size = new System.Drawing.Size(976, 0);
+            this.tabHelloWorld.TabIndex = 0;
+            this.tabHelloWorld.Text = "Hello World";
             // 
-            // mnuHelloWorldLanguageFrench
+            // lblHelloWorldTitle
             // 
-            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageFrench.Text = "French";
+            this.lblHelloWorldTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblHelloWorldTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHelloWorldTitle.Location = new System.Drawing.Point(328, -384);
+            this.lblHelloWorldTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblHelloWorldTitle.Name = "lblHelloWorldTitle";
+            this.lblHelloWorldTitle.Size = new System.Drawing.Size(426, 51);
+            this.lblHelloWorldTitle.TabIndex = 5;
+            this.lblHelloWorldTitle.Text = "Hello World";
+            this.lblHelloWorldTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // mnuHelloWorldLanguageGerman
+            // pnlHelloWorld
             // 
-            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageGerman.Text = "German";
+            this.pnlHelloWorld.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlHelloWorld.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlHelloWorld.Controls.Add(this.picHelloWorldGerman);
+            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldFrench);
+            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldEnglish);
+            this.pnlHelloWorld.Controls.Add(this.picHelloWorldEnglish);
+            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldGerman);
+            this.pnlHelloWorld.Controls.Add(this.picHelloWorldFrench);
+            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldReset);
+            this.pnlHelloWorld.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlHelloWorld.Location = new System.Drawing.Point(328, -315);
+            this.pnlHelloWorld.Name = "pnlHelloWorld";
+            this.pnlHelloWorld.Size = new System.Drawing.Size(426, 105);
+            this.pnlHelloWorld.TabIndex = 28;
+            // 
+            // btnHelloWorldFrench
+            // 
+            this.btnHelloWorldFrench.AutoSize = true;
+            this.btnHelloWorldFrench.Location = new System.Drawing.Point(201, 25);
+            this.btnHelloWorldFrench.Name = "btnHelloWorldFrench";
+            this.btnHelloWorldFrench.Size = new System.Drawing.Size(58, 17);
+            this.btnHelloWorldFrench.TabIndex = 10;
+            this.btnHelloWorldFrench.Text = "French";
+            this.btnHelloWorldFrench.UseVisualStyleBackColor = true;
+            // 
+            // btnHelloWorldEnglish
+            // 
+            this.btnHelloWorldEnglish.AutoSize = true;
+            this.btnHelloWorldEnglish.Checked = true;
+            this.btnHelloWorldEnglish.Location = new System.Drawing.Point(71, 25);
+            this.btnHelloWorldEnglish.Name = "btnHelloWorldEnglish";
+            this.btnHelloWorldEnglish.Size = new System.Drawing.Size(59, 17);
+            this.btnHelloWorldEnglish.TabIndex = 7;
+            this.btnHelloWorldEnglish.TabStop = true;
+            this.btnHelloWorldEnglish.Text = "English";
+            this.btnHelloWorldEnglish.UseVisualStyleBackColor = true;
+            // 
+            // btnHelloWorldGerman
+            // 
+            this.btnHelloWorldGerman.AutoSize = true;
+            this.btnHelloWorldGerman.Location = new System.Drawing.Point(330, 25);
+            this.btnHelloWorldGerman.Name = "btnHelloWorldGerman";
+            this.btnHelloWorldGerman.Size = new System.Drawing.Size(62, 17);
+            this.btnHelloWorldGerman.TabIndex = 8;
+            this.btnHelloWorldGerman.Text = "German";
+            this.btnHelloWorldGerman.UseVisualStyleBackColor = true;
+            // 
+            // btnHelloWorldReset
+            // 
+            this.btnHelloWorldReset.Location = new System.Drawing.Point(169, 61);
+            this.btnHelloWorldReset.Name = "btnHelloWorldReset";
+            this.btnHelloWorldReset.Size = new System.Drawing.Size(75, 23);
+            this.btnHelloWorldReset.TabIndex = 9;
+            this.btnHelloWorldReset.Text = "Reset";
+            this.btnHelloWorldReset.UseVisualStyleBackColor = true;
+            // 
+            // picHelloWorldGerman
+            // 
+            this.picHelloWorldGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.picHelloWorldGerman.Location = new System.Drawing.Point(293, 21);
+            this.picHelloWorldGerman.Name = "picHelloWorldGerman";
+            this.picHelloWorldGerman.Size = new System.Drawing.Size(31, 25);
+            this.picHelloWorldGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelloWorldGerman.TabIndex = 13;
+            this.picHelloWorldGerman.TabStop = false;
+            // 
+            // picHelloWorldEnglish
+            // 
+            this.picHelloWorldEnglish.Image = global::Mathre.My.Resources.Resources.English;
+            this.picHelloWorldEnglish.Location = new System.Drawing.Point(34, 21);
+            this.picHelloWorldEnglish.Name = "picHelloWorldEnglish";
+            this.picHelloWorldEnglish.Size = new System.Drawing.Size(31, 25);
+            this.picHelloWorldEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelloWorldEnglish.TabIndex = 12;
+            this.picHelloWorldEnglish.TabStop = false;
+            // 
+            // picHelloWorldFrench
+            // 
+            this.picHelloWorldFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.picHelloWorldFrench.Location = new System.Drawing.Point(164, 21);
+            this.picHelloWorldFrench.Name = "picHelloWorldFrench";
+            this.picHelloWorldFrench.Size = new System.Drawing.Size(31, 25);
+            this.picHelloWorldFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHelloWorldFrench.TabIndex = 11;
+            this.picHelloWorldFrench.TabStop = false;
             // 
             // picMySchoolMascot
             // 
@@ -1775,117 +1866,26 @@ namespace Mathre
             this.btnRectangleCalculate.TabIndex = 25;
             this.btnRectangleCalculate.UseVisualStyleBackColor = false;
             // 
-            // pnlHelloWorld
+            // mnuHelloWorldLanguageEnglish
             // 
-            this.pnlHelloWorld.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlHelloWorld.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlHelloWorld.Controls.Add(this.picHelloWorldGerman);
-            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldFrench);
-            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldEnglish);
-            this.pnlHelloWorld.Controls.Add(this.picHelloWorldEnglish);
-            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldGerman);
-            this.pnlHelloWorld.Controls.Add(this.picHelloWorldFrench);
-            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldReset);
-            this.pnlHelloWorld.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlHelloWorld.Location = new System.Drawing.Point(275, -87);
-            this.pnlHelloWorld.Name = "pnlHelloWorld";
-            this.pnlHelloWorld.Size = new System.Drawing.Size(426, 105);
-            this.pnlHelloWorld.TabIndex = 28;
+            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
+            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Text = "English";
             // 
-            // btnHelloWorldReset
+            // mnuHelloWorldLanguageFrench
             // 
-            this.btnHelloWorldReset.Location = new System.Drawing.Point(169, 61);
-            this.btnHelloWorldReset.Name = "btnHelloWorldReset";
-            this.btnHelloWorldReset.Size = new System.Drawing.Size(75, 23);
-            this.btnHelloWorldReset.TabIndex = 9;
-            this.btnHelloWorldReset.Text = "Reset";
-            this.btnHelloWorldReset.UseVisualStyleBackColor = true;
+            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Text = "French";
             // 
-            // picHelloWorldFrench
+            // mnuHelloWorldLanguageGerman
             // 
-            this.picHelloWorldFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.picHelloWorldFrench.Location = new System.Drawing.Point(164, 21);
-            this.picHelloWorldFrench.Name = "picHelloWorldFrench";
-            this.picHelloWorldFrench.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldFrench.TabIndex = 11;
-            this.picHelloWorldFrench.TabStop = false;
-            // 
-            // btnHelloWorldGerman
-            // 
-            this.btnHelloWorldGerman.AutoSize = true;
-            this.btnHelloWorldGerman.Location = new System.Drawing.Point(330, 25);
-            this.btnHelloWorldGerman.Name = "btnHelloWorldGerman";
-            this.btnHelloWorldGerman.Size = new System.Drawing.Size(62, 17);
-            this.btnHelloWorldGerman.TabIndex = 8;
-            this.btnHelloWorldGerman.Text = "German";
-            this.btnHelloWorldGerman.UseVisualStyleBackColor = true;
-            // 
-            // picHelloWorldEnglish
-            // 
-            this.picHelloWorldEnglish.Image = global::Mathre.My.Resources.Resources.English;
-            this.picHelloWorldEnglish.Location = new System.Drawing.Point(34, 21);
-            this.picHelloWorldEnglish.Name = "picHelloWorldEnglish";
-            this.picHelloWorldEnglish.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldEnglish.TabIndex = 12;
-            this.picHelloWorldEnglish.TabStop = false;
-            // 
-            // btnHelloWorldEnglish
-            // 
-            this.btnHelloWorldEnglish.AutoSize = true;
-            this.btnHelloWorldEnglish.Checked = true;
-            this.btnHelloWorldEnglish.Location = new System.Drawing.Point(71, 25);
-            this.btnHelloWorldEnglish.Name = "btnHelloWorldEnglish";
-            this.btnHelloWorldEnglish.Size = new System.Drawing.Size(59, 17);
-            this.btnHelloWorldEnglish.TabIndex = 7;
-            this.btnHelloWorldEnglish.TabStop = true;
-            this.btnHelloWorldEnglish.Text = "English";
-            this.btnHelloWorldEnglish.UseVisualStyleBackColor = true;
-            // 
-            // btnHelloWorldFrench
-            // 
-            this.btnHelloWorldFrench.AutoSize = true;
-            this.btnHelloWorldFrench.Location = new System.Drawing.Point(201, 25);
-            this.btnHelloWorldFrench.Name = "btnHelloWorldFrench";
-            this.btnHelloWorldFrench.Size = new System.Drawing.Size(58, 17);
-            this.btnHelloWorldFrench.TabIndex = 10;
-            this.btnHelloWorldFrench.Text = "French";
-            this.btnHelloWorldFrench.UseVisualStyleBackColor = true;
-            // 
-            // picHelloWorldGerman
-            // 
-            this.picHelloWorldGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.picHelloWorldGerman.Location = new System.Drawing.Point(293, 21);
-            this.picHelloWorldGerman.Name = "picHelloWorldGerman";
-            this.picHelloWorldGerman.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldGerman.TabIndex = 13;
-            this.picHelloWorldGerman.TabStop = false;
-            // 
-            // lblHelloWorldTitle
-            // 
-            this.lblHelloWorldTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHelloWorldTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelloWorldTitle.Location = new System.Drawing.Point(275, -156);
-            this.lblHelloWorldTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblHelloWorldTitle.Name = "lblHelloWorldTitle";
-            this.lblHelloWorldTitle.Size = new System.Drawing.Size(426, 51);
-            this.lblHelloWorldTitle.TabIndex = 5;
-            this.lblHelloWorldTitle.Text = "Hello World";
-            this.lblHelloWorldTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabHelloWorld
-            // 
-            this.tabHelloWorld.BackColor = System.Drawing.Color.Transparent;
-            this.tabHelloWorld.Controls.Add(this.lblHelloWorldTitle);
-            this.tabHelloWorld.Controls.Add(this.pnlHelloWorld);
-            this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
-            this.tabHelloWorld.Margin = new System.Windows.Forms.Padding(0);
-            this.tabHelloWorld.Name = "tabHelloWorld";
-            this.tabHelloWorld.Size = new System.Drawing.Size(977, 0);
-            this.tabHelloWorld.TabIndex = 0;
-            this.tabHelloWorld.Text = "Hello World";
+            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Text = "German";
             // 
             // FrmMathre
             // 
@@ -1893,13 +1893,13 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(985, 498);
+            this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.tabMathre);
             this.Controls.Add(this.mnuBaseLayer);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuBaseLayer;
-            this.MinimumSize = new System.Drawing.Size(500, 500);
+            this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "FrmMathre";
             this.Text = "Hello World";
             this.Load += new System.EventHandler(this.FormLoad);
@@ -1945,13 +1945,13 @@ namespace Mathre
             this.pnlMySchool.ResumeLayout(false);
             this.pnlMySchool.PerformLayout();
             this.tabMathre.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
+            this.tabHelloWorld.ResumeLayout(false);
             this.pnlHelloWorld.ResumeLayout(false);
             this.pnlHelloWorld.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).EndInit();
-            this.tabHelloWorld.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1965,12 +1965,7 @@ namespace Mathre
         internal ToolStripMenuItem mnuTechnicolor;
         internal ToolStripMenuItem mnuRandomify;
         internal ToolStripMenuItem mnuView;
-        private ToolStripMenuItem mnuMySchool;
         private ToolStripMenuItem mnuExit;
-        private ToolStripMenuItem mnuHelloWorldLanguageFrench;
-        private ToolStripMenuItem mnuHelloWorldLanguageGerman;
-        private ToolStripMenuItem mnuHelloWorldReset;
-        private ToolStripMenuItem mnuMySchoolToggleMascot;
 		private ImageList imgFavoriteImages;
 		private ToolStripMenuItem mnuRectangle;
 		private ToolStripMenuItem mnuRectangleCalculate;
@@ -2113,5 +2108,10 @@ namespace Mathre
 		public ToolStripMenuItem mnuHelloWorld;
 		public ToolStripMenuItem mnuHelloWorldLanguage;
 		public ToolStripMenuItem mnuHelloWorldLanguageEnglish;
+		public ToolStripMenuItem mnuHelloWorldLanguageFrench;
+		public ToolStripMenuItem mnuHelloWorldLanguageGerman;
+		public ToolStripMenuItem mnuHelloWorldReset;
+		public ToolStripMenuItem mnuMySchool;
+		public ToolStripMenuItem mnuMySchoolToggleMascot;
 	}
 }

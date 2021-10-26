@@ -1,81 +1,62 @@
-using Microsoft.VisualBasic.CompilerServices;
+using Microsoft.VisualBasic;
 using System;
-using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace Mathre
 {
 	public partial class FrmHelloWorld : Form
 	{
-		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
-		public static string AccentColor; // Define a global variable to store the starting value of the System Accent Color
-		public static Color SystemColor; // Define a global color to store the converted value of the System Accent Color
-		public object Placeholder; // Define a global object to use to send blank events between event handlers
+		public static string StartingLanguage;
+		public static FrmMathre main;
+		public static FrmHelloWorld HW;
 
 		public FrmHelloWorld()
 		{
 			InitializeComponent();
-			btnHelloWorldFrench.Click += HelloWorld2;
 			Load += FormLoad;
-			btnHelloWorldReset.Click += HelloWorld2;
-			btnHelloWorldGerman.Click += HelloWorld2;
-			btnHelloWorldEnglish.Click += HelloWorld2;
-			//mnuHelloWorldReset.Click += HelloWorld;
-			//mnuHelloWorldLanguageGerman.Click += HelloWorld;
-			//mnuHelloWorldLanguageFrench.Click += HelloWorld;
-			//mnuHelloWorldLanguageEnglish.Click += HelloWorld;
-			//mnuRandomify.Click += HelloWorld;
-			//FrmMathre main = new();
-			//main.mnuHelloWorldLanguageEnglish.Click += Transfer;
+			btnHelloWorldFrench.Click += HelloWorld;
+			btnHelloWorldReset.Click += HelloWorld;
+			btnHelloWorldGerman.Click += HelloWorld;
+			btnHelloWorldEnglish.Click += HelloWorld;
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
-			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM"); // Navigate to this windows directory key
-			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key
-			ColorKey.Close(); // Stop registry access
-			StartingValue = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
-			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor)); // Translate the system accent color to a usable format
-			//var mainForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			main = Application.OpenForms.OfType<FrmMathre>().Single();
+			HW = Application.OpenForms.OfType<FrmHelloWorld>().Single();
+			foreach (Control c in Controls)
+			{
+				main.GetAllControls(this);
+			}
+			StartingLanguage = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
 		}
-		public void Transfer(object sender, EventArgs e)
+		public void HelloWorld(object sender, EventArgs e)
 		{
-			//FrmHelloWorld HW = new();
-			var HW = Application.OpenForms.OfType<FrmHelloWorld>().Single();
-			HW.btnHelloWorldEnglish.Checked = true;
-			HW.lblHelloWorldTitle.Text = "Hello World";
-			Console.WriteLine("abvhsui");
-		}
-		public void HelloWorld2(object sender, EventArgs e)
-		{
-			Console.WriteLine(sender);
-			FrmMathre main = new();
-			if (ReferenceEquals(sender, btnHelloWorldEnglish) || ReferenceEquals(sender, main.mnuHelloWorldLanguageEnglish))
+			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, main.mnuHelloWorldLanguageEnglish))
 			{
-				btnHelloWorldEnglish.Checked = true;
-				lblHelloWorldTitle.Text = "Hello World";
+				HW.btnHelloWorldEnglish.Checked = true;
+				HW.lblHelloWorldTitle.Text = "Hello World"; // Sets lblHelloWorld to English
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldFrench))
+			else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, main.mnuHelloWorldLanguageFrench)) // If the event is caused by the French button or menu item:
 			{
-				btnHelloWorldFrench.Checked = true;
-				lblHelloWorldTitle.Text = "Bonjour le Monde";
+				HW.btnHelloWorldFrench.Checked = true;
+				HW.lblHelloWorldTitle.Text = "Bonjour le Monde"; // Sets lblHelloWorld to French
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldGerman))
+			else if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, main.mnuHelloWorldLanguageGerman)) // If the event is caused by the German button or menu item:
 			{
-				btnHelloWorldGerman.Checked = true;
-				lblHelloWorldTitle.Text = "Hallo Welt";
+				HW.btnHelloWorldGerman.Checked = true;
+				HW.lblHelloWorldTitle.Text = "Hallo Welt"; // Sets lblHelloWorld to German
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldReset))
+			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, main.mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
 			{
-				HelloWorld2(pnlHelloWorld.Controls[StartingValue], null);
+				HelloWorld(pnlHelloWorld.Controls[StartingLanguage], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
 			}
-			//else if (ReferenceEquals(sender, mnuRandomify))
-			//{
-			//	btnHelloWorldEnglish.Checked = false;
-			//	btnHelloWorldFrench.Checked = false;
-			//	btnHelloWorldGerman.Checked = false;
-			//	lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value
-			//}
+			else if (ReferenceEquals(sender, main.mnuRandomify))
+			{
+				HW.btnHelloWorldEnglish.Checked = false;
+				HW.btnHelloWorldFrench.Checked = false;
+				HW.btnHelloWorldGerman.Checked = false;
+				HW.lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value
+			}
 		}
 	}
 }

@@ -16,7 +16,6 @@
 // Medium : https://image.mlive.com/home/mlive-media/width2048/img/food_impact/photo/hungry-howies-pizza-21b1ef848c80e115.jpg
 // Large: https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BCUKGOJJYRABVPC7IK3422PWBE.jpg
 //
-using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
@@ -36,19 +35,17 @@ namespace Mathre
 		public static Rectangle Rect; // Define a global rectangle to use for measurements
 		public static string DecimalChar;
 		public static Size FormSize;
-		//public static string Page;
-		public static Form DesiredForm;
+		public static FrmMathre main;
+		public static FrmHelloWorld HW;
+		public static FrmMySchool MS;
 		public FrmMathre()
 		{
 			InitializeComponent();
+			FrmHelloWorld HW = new();
+			FrmMySchool MS = new();
 			// The following are all event handlers. They assign the event (left) to its handler (right)
-			btnHelloWorldFrench.Click += HelloWorld;
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
-			btnHelloWorldReset.Click += HelloWorld;
-			btnHelloWorldGerman.Click += HelloWorld;
-			btnHelloWorldEnglish.Click += HelloWorld;
-			btnMySchoolToggleMascot.Click += MySchool;
 			btnRectangleCalculate.Click += Rectangle;
 			mnuRectangleCalculate.Click += Rectangle;
 			mnuDigitsCalculate.Click += Temperature;
@@ -65,16 +62,18 @@ namespace Mathre
 			//mnuView.Click += Buttons;
 			//mnuEdit.Click += Buttons;
 			mnuExit.Click += Exit;
-			mnuMySchoolToggleMascot.Click += MySchool;
-			mnuHelloWorldReset.Click += HelloWorld;
-			mnuHelloWorldLanguageGerman.Click += HelloWorld;
-			mnuHelloWorldLanguageFrench.Click += HelloWorld;
+			mnuMySchoolToggleMascot.Click += MS.MySchool;
+			mnuHelloWorldReset.Click += HW.HelloWorld;
+			mnuHelloWorldLanguageGerman.Click += HW.HelloWorld;
+			mnuHelloWorldLanguageFrench.Click += HW.HelloWorld;
 			//mnuHelloWorldLanguageEnglish.Click += HelloWorld;
-			mnuRandomify.Click += HelloWorld;
-			//mnuTechnicolor.Click += Buttons;
+			mnuRandomify.Click += HW.HelloWorld;
+			//mnuTechnicolor.Click += HW.Buttons;
 			//mnuDarkMode.Click += Buttons;
 			//mnuRecolor.Click += Buttons;
-			mnuSecret.Click += HelloWorld;
+			// Make sure that's working right
+			// \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
+			//mnuSecret.Click += HelloWorld;
 			btnFahrenheit.Click += Temperature;
 			btnCelsius.Click += Temperature;
 			btnFahrenheit.CheckedChanged += Temperature;
@@ -97,11 +96,11 @@ namespace Mathre
 			Shown += FormShown;
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
-			FrmHelloWorld HW = new();
-			mnuHelloWorldLanguageEnglish.Click += HW.Transfer;
+			mnuHelloWorldLanguageEnglish.Click += HW.HelloWorld;
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
+			main = Application.OpenForms.OfType<FrmMathre>().Single();
 			DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			lblDigitsListOdds.Text = "";
 			lblDigitsListEvens.Text = "";
@@ -115,6 +114,7 @@ namespace Mathre
 			KeyPreview = true; // Ensure key inputs on the form are being tracked
 			StartingValue = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
 			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor)); // Translate the system accent color to a usable format
+			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
 			{
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
@@ -129,9 +129,19 @@ namespace Mathre
 			}
 			foreach (Control c in Controls)
 			{
-				GetAllControls(c);
+				GetAllControls(this);
 			}
-			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 537);
+		}
+		public void GetAllControls(Control container)
+		{
+			foreach (Control b in container.Controls)
+			{
+				GetAllControls(b);
+				if ((b is Panel) && (b is not TabPage))
+				{
+					b.Paint += PaintPanel;
+				}
+			}
 		}
 		public void FormShown(object sender, EventArgs e)
 		{
@@ -145,44 +155,35 @@ namespace Mathre
 			}
 			FormManager(null, null);
 		}
-		private void FormManager(object sender, EventArgs e)
+		public void FormManager(object sender, EventArgs e)
 		{
 			var type = Type.GetType("Mathre." + tabMathre.SelectedTab.Name.Replace("tab", "Frm"));
 			if (type != null)
 			{
-				var f = Activator.CreateInstance(type) as Form;
-				f.Size = FormSize;
-				f.FormBorderStyle = FormBorderStyle.None;
-				f.Left = 0;
-				f.Top = 45;
-				f.TopLevel = false;
-				f.Visible = true;
-				this.Controls.Add(f);
-				f.Focus();
+				var form = Activator.CreateInstance(type) as Form;
+				form.Size = FormSize;
+				form.FormBorderStyle = FormBorderStyle.None;
+				form.Left = 0;
+				form.Top = 45;
+				form.TopLevel = false;
+				form.Visible = true;
+				this.Controls.Add(form);
+				form.Focus();
 				Resized(null, null);
 			}
 			for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
 			{
 				if (Application.OpenForms[i].Name != "FrmMathre" && Application.OpenForms[i].Name != tabMathre.SelectedTab.Name.Replace("tab", "Frm"))
-					Application.OpenForms[i].Close();
-			}
-		}
-		private void Exit(object sender, EventArgs e)
-		{
-			Close();
-		}
-		public void GetAllControls(Control container)
-		{
-			foreach (Control c in container.Controls)
-			{
-				GetAllControls(c);
-				if ((c is Panel) && (c is not TabPage))
 				{
-					c.Paint += PaintPanel;
+					Application.OpenForms[i].Close();
 				}
 			}
 		}
-		private void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem
+		public void Exit(object sender, EventArgs e)
+		{
+			Close();
+		}
+		public void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem
 		{
 			foreach (var ToolStripItem in ToolStripMenuItem.DropDownItems) // Recursion point
 			{
@@ -193,14 +194,14 @@ namespace Mathre
 				}
 			} // Begin recursion
 		}
-		private void KeyboardShortcuts(object sender, KeyEventArgs e) // Event handler for keypresses made within the form (which now includes keypresses from the menu items)
+		public void KeyboardShortcuts(object sender, KeyEventArgs e) // Event handler for keypresses made within the form (which now includes keypresses from the menu items)
 		{
 			if (e.Control & e.KeyCode == Keys.S) // Add Control+S shortcut
 			{
 				if (hidden == true) // Ensure the secret settings tab is hidden
 				{
 					tabMathre.Controls.Add(tabSecret); // Unhide the secret settings tab
-					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 537);
+					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 500);
 					tabMathre.SelectedTab = tabSecret; // Select the secret settings tab
 					hidden = false; // Mark the secret settings tab as shown
 				}
@@ -209,17 +210,17 @@ namespace Mathre
 					tabMathre.Controls.Remove(tabSecret); // Hide the secret settings tab
 					hidden = true; // Mark the secret settings tab as hidden
 				}
-				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 537);
+				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			}
 			//
 			if (e.Control & e.KeyCode == Keys.R & mnuSecret.Enabled) // Add Control+R shortcut, dependent on the secret menu being enabled
 			{
-				HelloWorld(mnuRandomify, null); // Use shortcut to quickly run the randomize function
+				HW.HelloWorld(mnuRandomify, null); // Use shortcut to quickly run the randomize function
 			}
 			// 
 			if (e.Control & e.Shift & e.KeyCode == Keys.R) // Add Control+Shift+R shortcut
 			{
-				HelloWorld(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button
+				HW.HelloWorld(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button
 			}
 			//
 			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9)) // Add Control+Number shortcut for each tab page, and no more than the amout of pages
@@ -252,7 +253,7 @@ namespace Mathre
 				Digits(txtNumber, null); // Send the inputted text to SecretHandler for processing
 			}
 		}
-		private void RectangleKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		public void RectangleKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
 			int space1 = (txtRectangleDimensions.Text.IndexOf(" ")); // Get the position of the first space in the textbox
 			int x1 = (txtRectangleDimensions.Text.IndexOf("x")); // Get the position of the first x in the textbox
@@ -355,7 +356,7 @@ namespace Mathre
 				}
 			}
 		}
-		private void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page
+		public void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page
 		{
 			if (ReferenceEquals(sender, txtSecretPassword)) // If the event is caused by the textbox:
 			{
@@ -400,57 +401,11 @@ namespace Mathre
 			}
 			// 
 		}
-		public void HelloWorld(object sender, EventArgs e) // Event Handler for a button press
-		{
-			FrmHelloWorld p = new();
-
-			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, mnuHelloWorldLanguageEnglish))
-			{
-				p.btnHelloWorldEnglish.Checked = true;
-				p.lblHelloWorldTitle.Text = "Hello World"; // Sets lblHelloWorld to English
-			}
-			else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, mnuHelloWorldLanguageFrench)) // If the event is caused by the French button or menu item:
-			{
-				btnHelloWorldFrench.Checked = true;
-				lblHelloWorldTitle.Text = "Bonjour le Monde"; // Sets lblHelloWorld to French
-			}
-			else if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, mnuHelloWorldLanguageGerman)) // If the event is caused by the German button or menu item:
-			{
-				btnHelloWorldGerman.Checked = true;
-				lblHelloWorldTitle.Text = "Hallo Welt"; // Sets lblHelloWorld to German
-			}
-			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
-			{
-				HelloWorld(pnlHelloWorld.Controls[StartingValue], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
-			}
-			else if (ReferenceEquals(sender, mnuRandomify))
-			{
-				btnHelloWorldEnglish.Checked = false;
-				btnHelloWorldFrench.Checked = false;
-				btnHelloWorldGerman.Checked = false;
-				lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value
-			}
-		}
-		private void MySchool(object sender, EventArgs e)
-		{
-			if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, mnuMySchoolToggleMascot)) // If the event is caused by the ToggleMascot button or menu item:
-			{
-				picMySchoolMascot.Visible = !picMySchoolMascot.Visible; // Inverts the visibility of the mascot image
-				if (lblMySchoolMascot.ForeColor != Color.Black) // Inverts the text color
-				{
-					lblMySchoolMascot.ForeColor = Color.Black;
-				}
-				else
-				{
-					lblMySchoolMascot.ForeColor = Color.DimGray;
-				}
-			}
-		}
-		private void PageSelect(object sender, EventArgs e)
+		public void PageSelect(object sender, EventArgs e)
 		{
 			tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
 		}
-		private void Favorites(object sender, EventArgs e) // Event Handler for a button press
+		public void Favorites(object sender, EventArgs e) // Event Handler for a button press
 		{
 			// The below five eventhandlers all handle the buttons on the My Favorites page. They each set their respective radio button to appear checked, set the title text, the info label text, and then the image
 			if (sender.GetType().ToString().Contains("Menu"))
@@ -483,7 +438,7 @@ namespace Mathre
 			lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
 			pnlFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 		}
-		private void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
+		public void Rectangle(object sender, EventArgs e) // Event handler for the rectangle calculation functions
 		{
 			double Height = 0; // Add a variable to store the rectangle height
 			double Width = 0; // Add a variable to store the rectangle width
@@ -537,7 +492,7 @@ namespace Mathre
 				}
 			}
 		}
-		private void Temperature(object sender, EventArgs e)
+		public void Temperature(object sender, EventArgs e)
 		{
 			if (ReferenceEquals(sender, mnuTemperatureCelsius)) //Set the buttons' appearances based on their checked state
 			{
@@ -580,7 +535,7 @@ namespace Mathre
 				lblFahrenheitDisplay.Text = $"{Math.Round((temp * 9 / 5) + 32, roundamount)} °F"; // Set the Fahrenheit value using the proper math and degree of precision
 			}
 		}
-		private void Digits(object sender, KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
+		public void Digits(object sender, KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
 		{
 			lblDigitsCount.Text = txtNumber.Text.Length.ToString(); // Set the length based on the string length
 			lblDigitsListEvens.Text = ""; // Clear the Even Number List (happens each keypress)
@@ -598,7 +553,7 @@ namespace Mathre
 				}
 			}
 		}
-		private void ChangeMaker(object sender, EventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
+		public void ChangeMaker(object sender, EventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
 		{
 			string[] decimals = txtPaidAmount.Text.Split(DecimalChar.ToCharArray()); // Split the input using the spaces as separators
 			int Bills = 0;
@@ -625,7 +580,7 @@ namespace Mathre
 			lblNickelsCount.Text = (Coins % 25 % 10 / 5).ToString(); // ...
 			lblPenniesCount.Text = (Coins % 25 % 10 % 5 / 1).ToString(); // ...
 		}
-		private void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
 			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
 				return; // -or else discard it
@@ -676,7 +631,7 @@ namespace Mathre
 				}
 			}
 		}
-		private void Pizza(object sender, EventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		public void Pizza(object sender, EventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
 			if (ReferenceEquals(sender, mnuPizzaDelivery)) //Set the buttons' appearances based on their checked state
 			{
@@ -735,7 +690,7 @@ namespace Mathre
 				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"MediumPizza.png".ToString()]; // ...
 			}
 		}
-		private class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
+		public class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
 		{
 			public override Color MenuItemBorder // Override the MenuItemBorder Color
 			{
@@ -762,7 +717,7 @@ namespace Mathre
 			}
 			// 
 		}
-		private void PaintPanel(object sender, PaintEventArgs p)
+		public void PaintPanel(object sender, PaintEventArgs p)
 		{
 			Panel box = (Panel)sender;
 			Color BorderColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
@@ -783,15 +738,13 @@ namespace Mathre
 		{
 			FormSize.Width = this.Width - 16;
 			FormSize.Height = this.Height - 84;
-			foreach (Form f in Application.OpenForms)
+			foreach (Form form in Application.OpenForms)
 			{
-				if (f.Visible && f.Name != "FrmMathre")
+				if (form.Visible && form.Name != "FrmMathre")
 				{
-					f.Size = FormSize;
+					form.Size = FormSize;
 				}
 			}
 		}
-
-
 	}
 }
