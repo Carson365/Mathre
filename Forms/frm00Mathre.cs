@@ -36,6 +36,7 @@ namespace Mathre
 		public static string DecimalChar;
 		public static Size FormSize;
 		public static FrmMathre main;
+		public static FrmSecret SS;
 		public static FrmHelloWorld HW;
 		public static FrmMySchool MS;
 		public static FrmRectangle RC;
@@ -47,6 +48,7 @@ namespace Mathre
 		public FrmMathre()
 		{
 			InitializeComponent();
+			FrmSecret SS = new();
 			FrmHelloWorld HW = new();
 			FrmMySchool MS = new();
 			FrmRectangle RC = new();
@@ -58,16 +60,6 @@ namespace Mathre
 			// The following are all event handlers. They assign the event (left) to its handler (right)
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
-			mnuDigitsCalculate.Click += Temperature;
-			txtNumber.KeyPress += NumericalKeypress;
-			txtTemperature.KeyPress += NumericalKeypress;
-			txtPaidAmount.KeyPress += NumericalKeypress;
-			txtPizzaTip.KeyPress += NumericalKeypress;
-			txtPizzaSize.KeyPress += NumericalKeypress;
-			btnSecretDisable.Click += SecretHandler;
-			btnSecretEnable.Click += SecretHandler;
-			//mnuView.Click += Buttons;
-			//mnuEdit.Click += Buttons;
 			mnuExit.Click += Exit;
 			mnuMySchoolToggleMascot.Click += MS.MySchool;
 			mnuHelloWorldReset.Click += HW.HelloWorld;
@@ -75,31 +67,12 @@ namespace Mathre
 			mnuHelloWorldLanguageFrench.Click += HW.HelloWorld;
 			mnuHelloWorldLanguageEnglish.Click += HW.HelloWorld;
 			mnuRandomify.Click += HW.HelloWorld;
-			//mnuTechnicolor.Click += HW.Buttons;
-			//mnuDarkMode.Click += Buttons;
-			//mnuRecolor.Click += Buttons;
-			// Make sure that's working right
-			// \/ \/ \/ \/ \/ \/ \/ \/ \/ \/
-			//mnuSecret.Click += HelloWorld;
-			btnFahrenheit.Click += Temperature;
-			btnCelsius.Click += Temperature;
-			btnFahrenheit.CheckedChanged += Temperature;
-			btnCelsius.CheckedChanged += Temperature;
-			txtTemperature.KeyUp += Temperature;
-			txtNumber.KeyUp += Digits;
-			txtPaidAmount.KeyUp += ChangeMaker;
-			txtPizzaSize.KeyUp += Pizza;
-			txtPizzaTip.KeyUp += Pizza;
-			btnDelivery.CheckedChanged += Pizza;
-			btnTakeout.CheckedChanged += Pizza;
-			btnPercent.CheckedChanged += Pizza;
-			btnDollars.CheckedChanged += Pizza;
-			mnuPizzaDelivery.Click += Pizza;
-			mnuPizzaTakeout.Click += Pizza;
-			mnuPizzaPercent.Click += Pizza;
-			mnuPizzaDollars.Click += Pizza;
-			mnuTemperatureFahrenheit.Click += Temperature;
-			mnuTemperatureCelsius.Click += Temperature;
+			mnuPizzaDelivery.Click += PD.Pizza;
+			mnuPizzaTakeout.Click += PD.Pizza;
+			mnuPizzaPercent.Click += PD.Pizza;
+			mnuPizzaDollars.Click += PD.Pizza;
+			mnuTemperatureFahrenheit.Click += TC.Temperature;
+			mnuTemperatureCelsius.Click += TC.Temperature;
 			Shown += FormShown;
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
@@ -229,263 +202,10 @@ namespace Mathre
 			{
 				tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1]; // Navigate to the tab of the key pressed by converting the key value to a number and then subtracting 1 to adjust for the indexing starting at 0
 			}
-			//
-			if (txtSecretPassword.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
-			{
-				SecretHandler(txtSecretPassword, null); // Send the inputted text to SecretHandler for processing
-			}
-			//
-			if (txtNumber.ContainsFocus & e.KeyCode == Keys.Enter)  // Add Enter keypress handler for the text box on the Secret Settings menu
-			{
-				Digits(txtNumber, null); // Send the inputted text to SecretHandler for processing
-			}
-		}
-		public void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page
-		{
-			if (ReferenceEquals(sender, txtSecretPassword)) // If the event is caused by the textbox:
-			{
-				string hashedvalue; // Introduce the 'hashedvalue' variable
-				if (String.IsNullOrEmpty(txtSecretPassword.Text)) // Check for a null value in the Secret Setting password field
-					hashedvalue = String.Empty; // Set the hashedvalue to Empty if the value is null.
-				using (var sha = new System.Security.Cryptography.SHA256Managed()) // Introduce the Sha256 hashing method
-				{
-					byte[] textData = System.Text.Encoding.UTF8.GetBytes(txtSecretPassword.Text); // Get the value of the Secret Settings password field input and convert it to a usable form (bytes)
-					byte[] hash = sha.ComputeHash(textData); // Compute the Sha256 hash of the input.
-					hashedvalue = BitConverter.ToString(hash).Replace("-", String.Empty); // Convert the calculated hash to a useable format and store it in the hashedvalue variable
-				}
-				if (hashedvalue == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") // If the hashed value of the text matches this predefined value (AKA the correct password):
-				{
-					btnSecretEnable.Enabled = true; // Enable the control buttons
-					btnSecretDisable.Enabled = true; // Enable the control buttons
-				}
-				else
-				{
-					btnSecretEnable.Enabled = false; // Disable the control buttons
-					btnSecretDisable.Enabled = false; // Disable the control buttons
-					btnSecretDisable.Checked = true; // Check the Disabled button
-				}
-
-				if (btnSecretEnable.Enabled == false) // If the Enabled button is not pressed:
-				{
-					mnuSecret.Enabled = false; // Disable the Secret Settings menu item
-				}
-			}
-
-			txtSecretPassword.Text = ""; // Clear the text box when buttons are pressed
-			if (ReferenceEquals(sender, btnSecretEnable)) // If the event is caused by the Enable button:
-			{
-				mnuSecret.Enabled = true; // Enable the Secret menu
-				btnSecretEnable.Checked = true; // Check the Enabled button
-			}
-
-			if (ReferenceEquals(sender, btnSecretDisable)) // If the event is caused by the Disable button:
-			{
-				mnuSecret.Enabled = false; // Disable the Secret menu
-				btnSecretDisable.Checked = true; // Check the Disabled button
-			}
-			// 
 		}
 		public void PageSelect(object sender, EventArgs e)
 		{
 			tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
-		}
-		public void Temperature(object sender, EventArgs e)
-		{
-			if (ReferenceEquals(sender, mnuTemperatureCelsius)) //Set the buttons' appearances based on their checked state
-			{
-				btnCelsius.Checked = true; // ...
-			}
-			else if (ReferenceEquals(sender, mnuTemperatureFahrenheit)) // ...
-			{
-				btnFahrenheit.Checked = true; // ...
-			}
-			if (!btnCelsius.Checked & !btnFahrenheit.Checked) // ...
-			{
-				btnCelsius.Checked = true; // ...
-			}
-			double temp = 0; // Declare Variables
-			var roundamount = 0; // ...
-			if (txtTemperature.Text.Contains(DecimalChar)) // Check for the decimal character
-			{
-				if (txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != DecimalChar) // Check whether there are numbers on each side of the decimal
-				{
-					string[] words = txtTemperature.Text.Split(DecimalChar.ToCharArray()); // Split the string based on decimal position
-					roundamount = words[1].Length; // Store the amount of precision
-				}
-			}
-			else
-			{
-				roundamount = 0; // If there is no decimal, do not round decimals in the answer
-			}
-			if (double.TryParse(txtTemperature.Text, out var tempcheck)) // Check whether the temperature is numeric
-			{
-				temp = tempcheck; // Assign the temperature value if it is numeric
-			}
-			if (btnFahrenheit.Checked) // ...
-			{
-				lblCelsiusDisplay.Text = $"{Math.Round((temp - 32) * 5 / 9, roundamount)} °C"; // Set the Celsius value using the proper math and degree of precision
-				lblFahrenheitDisplay.Text = $"{Math.Round(temp, roundamount)} °F"; // Set the Fahrenheit value using the proper degree of precision
-			}
-			else if (btnCelsius.Checked) // ...
-			{
-				lblCelsiusDisplay.Text = $"{Math.Round(temp, roundamount)} °C";  // Set the Celsius value using the proper degree of precision
-				lblFahrenheitDisplay.Text = $"{Math.Round((temp * 9 / 5) + 32, roundamount)} °F"; // Set the Fahrenheit value using the proper math and degree of precision
-			}
-		}
-		public void Digits(object sender, KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
-		{
-			lblDigitsCount.Text = txtNumber.Text.Length.ToString(); // Set the length based on the string length
-			lblDigitsListEvens.Text = ""; // Clear the Even Number List (happens each keypress)
-			lblDigitsListOdds.Text = ""; // Clear the Odd Number List (happens each keypress)
-			for (int i = 0; i < txtNumber.Text.Length; i++) // Run the following code for each character in the text box, and note the index of the character.
-			{
-				char c = txtNumber.Text[i];
-				if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 0) // Check if the number is even
-				{
-					lblDigitsListEvens.Text += $"Digit {i + 1}: {c}\r\n"; // Add it to the even list in the proper format
-				}
-				else if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 1) // Check if the number is even
-				{
-					lblDigitsListOdds.Text += $"Digit {i + 1}: {c}\r\n"; // Add it to the odd list in the proper format
-				}
-			}
-		}
-		public void ChangeMaker(object sender, EventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
-		{
-			string[] decimals = txtPaidAmount.Text.Split(DecimalChar.ToCharArray()); // Split the input using the spaces as separators
-			int Bills = 0;
-			int Coins = 0;
-			if (int.TryParse(decimals[0], out int BillsAmount)) // Check whether the first substring is a number
-			{
-				Bills = BillsAmount; // Assign the width value to the first substring if numeric
-			}
-			if (decimals.Length > 1) // Ensure there is more than one substring
-			{
-				if (int.TryParse(decimals[1], out int CoinsAmount)) // Check whether the second substring is a number
-				{
-					Coins = CoinsAmount; // Assign the width value to the first substring if numeric
-				}
-			}
-			lblHundredsCount.Text = (Bills / 100).ToString(); // Integer division to determine how many whole 100s the dollar value can be divided by
-			lblFiftiesCount.Text = (Bills % 100 / 50).ToString(); // Use mod division to determine the remainder after checking for hundreds, then integer division to see how many whole 50s the number can be divided by
-			lblTwentiesCount.Text = (Bills % 100 % 50 / 20).ToString(); // ...
-			lblTensCount.Text = (Bills % 100 % 50 % 20 / 10).ToString(); // ...
-			lblFivesCount.Text = (Bills % 100 % 50 % 20 % 10 / 5).ToString(); // ...
-			lblOnesCount.Text = (Bills % 100 % 50 % 20 % 10 % 5 / 1).ToString(); // ...
-			lblQuartersCount.Text = (Coins / 25).ToString(); // Perform the same process for the coins
-			lblDimesCount.Text = (Coins % 25 / 10).ToString(); // ...
-			lblNickelsCount.Text = (Coins % 25 % 10 / 5).ToString(); // ...
-			lblPenniesCount.Text = (Coins % 25 % 10 % 5 / 1).ToString(); // ...
-		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
-		{
-			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
-				return; // -or else discard it
-			if (e.KeyChar.ToString() == DecimalChar) // If the pressed key is the user's decimal separator
-			{
-				if (!(ReferenceEquals(sender, txtNumber) | ReferenceEquals(sender, txtPizzaSize)))
-				{
-					if (textBox.Text.Contains(DecimalChar)) // If there are not multiple number groups and there is already a decimal separator
-					{
-						e.Handled = true; // Discard the decimal separator input
-					}
-				}
-				else
-				{
-					e.Handled = true;
-				}
-			}
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace, non-number character is pressed
-			{
-				if (!(ReferenceEquals(sender, txtNumber) | ReferenceEquals(sender, txtPizzaSize) | ReferenceEquals(sender, txtPizzaTip)))
-				{
-					if (e.KeyChar != '-')
-					{
-						e.Handled = true; // Discard the character input
-					}
-					else if (textBox.SelectionStart != 0)
-					{
-						e.Handled = true;
-					}
-				}
-				else
-				{
-					e.Handled = true;
-				}
-			}
-			if (sender == txtPaidAmount | sender == txtPizzaTip)
-			{
-				string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray()); // Split the input using the spaces as separators
-				if (decimals.Length > 1 && e.KeyChar != '\b')
-				{
-					if (decimals[1].Length > 1)
-					{
-						if (textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
-						{
-							e.Handled = true;
-						}
-					}
-				}
-			}
-		}
-		public void Pizza(object sender, EventArgs e) // Event handler for keypresses within the rectangle calculator input field
-		{
-			if (ReferenceEquals(sender, mnuPizzaDelivery)) //Set the buttons' appearances based on their checked state
-			{
-				btnDelivery.Checked = true; // ...
-			}
-			else if (ReferenceEquals(sender, mnuPizzaTakeout)) // ...
-			{
-				btnTakeout.Checked = true; // ...
-			}
-			if (!btnDelivery.Checked & !btnTakeout.Checked) // ...
-			{
-				btnDelivery.Checked = true; // ...
-			}
-			if (ReferenceEquals(sender, mnuPizzaDollars)) // ...
-			{
-				btnDollars.Checked = true; // ...
-			}
-			else if (ReferenceEquals(sender, mnuPizzaPercent)) // ...
-			{
-				btnPercent.Checked = true; // ...
-			}
-			if (!btnDollars.Checked & !btnPercent.Checked) // ...
-			{
-				btnPercent.Checked = true; // ...
-			}
-			int Size = 0;
-			double Tip = 0;
-			if (int.TryParse(txtPizzaSize.Text, out int SizeText)) // Ensure the value is numeric
-			{
-				Size = SizeText;
-			}
-			if (double.TryParse(txtPizzaTip.Text, out double TipText)) // Ensure the value is numeric
-			{
-				Tip = TipText;
-			}
-			double Cost = 0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5); // Do math to get the proper price for a pizza before a tip
-			if (Size != 0)
-			{
-				lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); // Add a tip in dollars or percent based on the selected option and ensure it is rounded to the nearest penny
-			}
-			if (Size == 0)
-			{
-				pnlPizzaViewer.BackgroundImage = null; // hide the image if no size is given
-				lblPizzaCostAmount.Text = "Not Enough Information";
-			}
-			else if (Size < 12) // set the proper image for the given size
-			{
-				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"SmallPizza.png".ToString()]; // ...
-			}
-			else if (Size > 13)
-			{
-				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"LargePizza.png".ToString()]; // ...
-			}
-			else if (Size is not 0)
-			{
-				pnlPizzaViewer.BackgroundImage = imgFavoriteImages.Images[$"MediumPizza.png".ToString()]; // ...
-			}
 		}
 		public class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
 		{
@@ -496,7 +216,6 @@ namespace Mathre
 					return SystemColor; // Use the stored system accent color to replace the default color
 				}
 			}
-
 			public override Color MenuItemSelected // Override the MenuItemSelected Color
 			{
 				get
@@ -504,7 +223,6 @@ namespace Mathre
 					return SystemColor; // Use the stored system accent color to replace the default color
 				}
 			}
-
 			public override Color MenuBorder // Override the MenuBorder Color
 			{
 				get
@@ -512,7 +230,6 @@ namespace Mathre
 					return SystemColor; // Use the stored system accent color to replace the default color
 				}
 			}
-			// 
 		}
 		public void PaintPanel(object sender, PaintEventArgs p)
 		{
