@@ -1,3 +1,4 @@
+// Enter icon sourced from https://icons8.com/icon/62334/enter-mac-key
 using System;
 using System.Globalization;
 using System.Linq;

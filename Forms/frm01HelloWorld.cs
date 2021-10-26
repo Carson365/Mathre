@@ -1,3 +1,4 @@
+// Flag icons are sourced from the free icon set at https://www.iconfinder.com/iconsets/flags-37
 using Microsoft.VisualBasic;
 using System;
 using System.Linq;

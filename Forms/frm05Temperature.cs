@@ -63,32 +63,32 @@ namespace Mathre
 			}
 			if (btnFahrenheit.Checked)
 			{
-				lblCelsiusDisplay.Text = $"{Math.Round((temp - 32) * 5 / 9, roundamount)} °C"; // Set the Celsius value using the proper math and degree of precision
-				lblFahrenheitDisplay.Text = $"{Math.Round(temp, roundamount)} °F"; // Set the Fahrenheit value using the proper degree of precision
+				lblCelsiusDisplay.Text = $"{Math.Round((temp - 32) * 5 / 9, roundamount)} °C";
+				lblFahrenheitDisplay.Text = $"{Math.Round(temp, roundamount)} °F";
 			}
-			else if (btnCelsius.Checked) // ...
+			else if (btnCelsius.Checked)
 			{
-				lblCelsiusDisplay.Text = $"{Math.Round(temp, roundamount)} °C";  // Set the Celsius value using the proper degree of precision
-				lblFahrenheitDisplay.Text = $"{Math.Round((temp * 9 / 5) + 32, roundamount)} °F"; // Set the Fahrenheit value using the proper math and degree of precision
+				lblCelsiusDisplay.Text = $"{Math.Round(temp, roundamount)} °C";
+				lblFahrenheitDisplay.Text = $"{Math.Round((temp * 9 / 5) + 32, roundamount)} °F";
 			}
 		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		public void NumericalKeypress(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
+			if (sender is not TextBoxBase textBox)
 				return; // -or else discard it
-			if (e.KeyChar.ToString() == DecimalChar) // If the pressed key is the user's decimal separator
+			if (e.KeyChar.ToString() == DecimalChar)
 			{
-				if (textBox.Text.Contains(DecimalChar)) // If there are not multiple number groups and there is already a decimal separator
+				if (textBox.Text.Contains(DecimalChar))
 				{
-					e.Handled = true; // Discard the decimal separator input
+					e.Handled = true;
 				}
 			}
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace, non-number character is pressed
+			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
 			{
 				if (e.KeyChar != '-')
 				{
-					e.Handled = true; // Discard the character input
+					e.Handled = true;
 				}
 				else if (textBox.SelectionStart != 0)
 				{

@@ -15,7 +15,7 @@ namespace Mathre
 			txtNumber.KeyUp += Digits;
 			txtNumber.KeyPress += NumericalKeypress;
 		}
-		public void FormLoad(object sender, EventArgs e) //Formload event handler
+		public void FormLoad(object sender, EventArgs e)
 		{
 			lblDigitsListOdds.Text = "";
 			lblDigitsListEvens.Text = "";
@@ -26,29 +26,29 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
-		public void Digits(object sender, KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
+		public void Digits(object sender, KeyEventArgs e)
 		{
-			lblDigitsCount.Text = txtNumber.Text.Length.ToString(); // Set the length based on the string length
-			lblDigitsListEvens.Text = ""; // Clear the Even Number List (happens each keypress)
-			lblDigitsListOdds.Text = ""; // Clear the Odd Number List (happens each keypress)
-			for (int i = 0; i < txtNumber.Text.Length; i++) // Run the following code for each character in the text box, and note the index of the character.
+			lblDigitsCount.Text = txtNumber.Text.Length.ToString();
+			lblDigitsListEvens.Text = "";
+			lblDigitsListOdds.Text = "";
+			for (int i = 0; i < txtNumber.Text.Length; i++)
 			{
 				char c = txtNumber.Text[i];
-				if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 0) // Check if the number is even
+				if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 0)
 				{
-					lblDigitsListEvens.Text += $"Digit {i + 1}: {c}\r\n"; // Add it to the even list in the proper format
+					lblDigitsListEvens.Text += $"Digit {i + 1}: {c}\r\n";
 				}
-				else if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 1) // Check if the number is even
+				else if ((txtNumber.Text.IndexOf(c, i) + 1) % 2 == 1)
 				{
-					lblDigitsListOdds.Text += $"Digit {i + 1}: {c}\r\n"; // Add it to the odd list in the proper format
+					lblDigitsListOdds.Text += $"Digit {i + 1}: {c}\r\n";
 				}
 			}
 		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		public void NumericalKeypress(object sender, KeyPressEventArgs e)
 		{
-			if (sender is not TextBoxBase) // Ensure the sender is the input form -
-				return; // -or else discard it
-			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace, non-number character is pressed
+			if (sender is not TextBoxBase)
+				return;
+			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
 			{
 				e.Handled = true;
 			}

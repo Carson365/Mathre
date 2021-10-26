@@ -1,3 +1,7 @@
+// Images for the Pizza page were sourced from the below links:
+// Small: https://preview.redd.it/rkt6dt3nf1841.jpg?auto=webp&s=28216c881e0906e1c893cd7e0bc8290b25151e3c
+// Medium : https://image.mlive.com/home/mlive-media/width2048/img/food_impact/photo/hungry-howies-pizza-21b1ef848c80e115.jpg
+// Large: https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BCUKGOJJYRABVPC7IK3422PWBE.jpg
 using System;
 using System.Globalization;
 using System.Linq;
@@ -21,7 +25,7 @@ namespace Mathre
 			txtPizzaTip.KeyPress += NumericalKeypress;
 			txtPizzaSize.KeyPress += NumericalKeypress;
 		}
-		public void FormLoad(object sender, EventArgs e) //Formload event handler
+		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
 			ThisForm = Application.OpenForms.OfType<FrmPizza>().Single();
@@ -30,77 +34,77 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
-		public void Pizza(object sender, EventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		public void Pizza(object sender, EventArgs e)
 		{
-			if (ReferenceEquals(sender, BaseForm.mnuPizzaDelivery)) //Set the buttons' appearances based on their checked state
+			if (ReferenceEquals(sender, BaseForm.mnuPizzaDelivery))
 			{
-				ThisForm.btnDelivery.Checked = true; // ...
+				ThisForm.btnDelivery.Checked = true;
 			}
-			else if (ReferenceEquals(sender, BaseForm.mnuPizzaTakeout)) // ...
+			else if (ReferenceEquals(sender, BaseForm.mnuPizzaTakeout))
 			{
-				ThisForm.btnTakeout.Checked = true; // ...
+				ThisForm.btnTakeout.Checked = true;
 			}
-			if (!btnDelivery.Checked & !btnTakeout.Checked) // ...
+			if (!btnDelivery.Checked & !btnTakeout.Checked)
 			{
-				btnDelivery.Checked = true; // ...
+				btnDelivery.Checked = true;
 			}
-			if (ReferenceEquals(sender, BaseForm.mnuPizzaDollars)) // ...
+			if (ReferenceEquals(sender, BaseForm.mnuPizzaDollars))
 			{
-				ThisForm.btnDollars.Checked = true; // ...
+				ThisForm.btnDollars.Checked = true;
 			}
-			else if (ReferenceEquals(sender, BaseForm.mnuPizzaPercent)) // ...
+			else if (ReferenceEquals(sender, BaseForm.mnuPizzaPercent))
 			{
-				ThisForm.btnPercent.Checked = true; // ...
+				ThisForm.btnPercent.Checked = true;
 			}
-			if (!btnDollars.Checked & !btnPercent.Checked) // ...
+			if (!btnDollars.Checked & !btnPercent.Checked)
 			{
-				btnPercent.Checked = true; // ...
+				btnPercent.Checked = true;
 			}
 			int Size = 0;
 			double Tip = 0;
-			if (int.TryParse(txtPizzaSize.Text, out int SizeText)) // Ensure the value is numeric
+			if (int.TryParse(txtPizzaSize.Text, out int SizeText))
 			{
 				Size = SizeText;
 			}
-			if (double.TryParse(txtPizzaTip.Text, out double TipText)) // Ensure the value is numeric
+			if (double.TryParse(txtPizzaTip.Text, out double TipText))
 			{
 				Tip = TipText;
 			}
-			double Cost = 0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5); // Do math to get the proper price for a pizza before a tip
+			double Cost = 0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5);
 			if (Size != 0)
 			{
-				lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); // Add a tip in dollars or percent based on the selected option and ensure it is rounded to the nearest penny
+				lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString();
 			}
 			if (Size == 0)
 			{
-				pnlPizzaViewer.BackgroundImage = null; // hide the image if no size is given
+				pnlPizzaViewer.BackgroundImage = null;
 				lblPizzaCostAmount.Text = "Not Enough Information";
 			}
-			else if (Size < 12) // set the proper image for the given size
+			else if (Size < 12)
 			{
-				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["SmallPizza.png".ToString()]; // ...
+				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["SmallPizza.png".ToString()];
 			}
 			else if (Size > 13)
 			{
-				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["LargePizza.png".ToString()]; // ...
+				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["LargePizza.png".ToString()];
 			}
 			else if (Size is not 0)
 			{
-				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["MediumPizza.png".ToString()]; // ...
+				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["MediumPizza.png".ToString()];
 			}
 		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
+		public void NumericalKeypress(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
-				return; // -or else discard it
-			if (e.KeyChar.ToString() == DecimalChar) // If the pressed key is the user's decimal separator
+			if (sender is not TextBoxBase textBox)
+				return;
+			if (e.KeyChar.ToString() == DecimalChar)
 			{
 				if (ReferenceEquals(sender, txtPizzaTip))
 				{
-					if (textBox.Text.Contains(DecimalChar)) // If there are not multiple number groups and there is already a decimal separator
+					if (textBox.Text.Contains(DecimalChar))
 					{
-						e.Handled = true; // Discard the decimal separator input
+						e.Handled = true;
 					}
 				}
 				else
@@ -108,13 +112,13 @@ namespace Mathre
 					e.Handled = true;
 				}
 			}
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace, non-number character is pressed
+			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
 			{
 				e.Handled = true;
 			}
 			if (sender == txtPizzaTip)
 			{
-				string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray()); // Split the input using the spaces as separators
+				string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
 				if (decimals.Length > 1 && e.KeyChar != '\b')
 				{
 					if (decimals[1].Length > 1)
