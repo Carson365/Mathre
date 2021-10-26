@@ -31,8 +31,8 @@ namespace Mathre
 		{
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnlMySchool = new System.Windows.Forms.Panel();
-            this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
+            this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
             this.lblMySchoolTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -60,21 +60,10 @@ namespace Mathre
             this.pnlMySchool.Controls.Add(this.picMySchoolMascot);
             this.pnlMySchool.Controls.Add(this.lblMySchoolMascot);
             this.pnlMySchool.Controls.Add(this.btnMySchoolToggleMascot);
-            this.pnlMySchool.Location = new System.Drawing.Point(287, 195);
+            this.pnlMySchool.Location = new System.Drawing.Point(287, 165);
             this.pnlMySchool.Name = "pnlMySchool";
             this.pnlMySchool.Size = new System.Drawing.Size(426, 105);
             this.pnlMySchool.TabIndex = 31;
-            // 
-            // lblMySchoolMascot
-            // 
-            this.lblMySchoolMascot.AutoSize = true;
-            this.lblMySchoolMascot.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolMascot.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.lblMySchoolMascot.Location = new System.Drawing.Point(50, 27);
-            this.lblMySchoolMascot.Name = "lblMySchoolMascot";
-            this.lblMySchoolMascot.Size = new System.Drawing.Size(134, 18);
-            this.lblMySchoolMascot.TabIndex = 10;
-            this.lblMySchoolMascot.Text = "Mascot: Roughriders";
             // 
             // picMySchoolMascot
             // 
@@ -87,6 +76,17 @@ namespace Mathre
             this.picMySchoolMascot.TabIndex = 13;
             this.picMySchoolMascot.TabStop = false;
             this.picMySchoolMascot.Visible = false;
+            // 
+            // lblMySchoolMascot
+            // 
+            this.lblMySchoolMascot.AutoSize = true;
+            this.lblMySchoolMascot.Font = new System.Drawing.Font("Microsoft PhagsPa", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMySchoolMascot.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.lblMySchoolMascot.Location = new System.Drawing.Point(50, 27);
+            this.lblMySchoolMascot.Name = "lblMySchoolMascot";
+            this.lblMySchoolMascot.Size = new System.Drawing.Size(134, 18);
+            this.lblMySchoolMascot.TabIndex = 10;
+            this.lblMySchoolMascot.Text = "Mascot: Roughriders";
             // 
             // btnMySchoolToggleMascot
             // 
@@ -101,7 +101,7 @@ namespace Mathre
             // 
             this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolTitle.Location = new System.Drawing.Point(252, 125);
+            this.lblMySchoolTitle.Location = new System.Drawing.Point(252, 95);
             this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblMySchoolTitle.Name = "lblMySchoolTitle";
             this.lblMySchoolTitle.Size = new System.Drawing.Size(496, 50);
