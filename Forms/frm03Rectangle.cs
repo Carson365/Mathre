@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
@@ -46,10 +46,6 @@ namespace Mathre
 				{
 					Width = WidthValue; // Assign the width value to the first substring if numeric
 				}
-			}
-			if ((ReferenceEquals(sender, btnRectangleCalculate)) || (ReferenceEquals(sender, main.mnuRectangleCalculate))) // If the Calculate button is pressed
-			{
-				Rectangle(Placeholder, null); // Run the rectangle calculator with the values from the input field
 			}
 			if (ReferenceEquals(sender, Placeholder) || ReferenceEquals(sender, txtRectangleDimensions)) // If the rectangle needs to be calculated and visualized
 			{
