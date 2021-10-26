@@ -2,13 +2,12 @@ using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace Mathre
 {
 	public partial class FrmTemperature : Form
 	{
-		public static FrmMathre main;
-		public static FrmTemperature TC;
+		public static FrmMathre BaseForm;
+		public static FrmTemperature ThisForm;
 		public FrmTemperature()
 		{
 			InitializeComponent();
@@ -20,49 +19,49 @@ namespace Mathre
 			txtTemperature.KeyUp += Temperature;
 			txtTemperature.KeyPress += NumericalKeypress;
 		}
-		public void FormLoad(object sender, EventArgs e) //Formload event handler
+		public void FormLoad(object sender, EventArgs e)
 		{
-			main = Application.OpenForms.OfType<FrmMathre>().Single();
-			TC = Application.OpenForms.OfType<FrmTemperature>().Single();
+			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			ThisForm = Application.OpenForms.OfType<FrmTemperature>().Single();
 			foreach (Control c in Controls)
 			{
-				main.GetAllControls(c);
+				BaseForm.GetAllControls(c);
 			}
 		}
 		public void Temperature(object sender, EventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (ReferenceEquals(sender, main.mnuTemperatureCelsius)) //Set the buttons' appearances based on their checked state
+			if (ReferenceEquals(sender, BaseForm.mnuTemperatureCelsius))
 			{
-				TC.btnCelsius.Checked = true; // ...
+				ThisForm.btnCelsius.Checked = true;
 			}
-			else if (ReferenceEquals(sender, main.mnuTemperatureFahrenheit)) // ...
+			else if (ReferenceEquals(sender, BaseForm.mnuTemperatureFahrenheit))
 			{
-				TC.btnFahrenheit.Checked = true; // ...
+				ThisForm.btnFahrenheit.Checked = true;
 			}
-			if (!btnCelsius.Checked & !btnFahrenheit.Checked) // ...
+			if (!btnCelsius.Checked & !btnFahrenheit.Checked)
 			{
-				btnCelsius.Checked = true; // ...
+				btnCelsius.Checked = true;
 			}
-			double temp = 0; // Declare Variables
-			var roundamount = 0; // ...
-			if (txtTemperature.Text.Contains(DecimalChar)) // Check for the decimal character
+			double temp = 0;
+			var roundamount = 0;
+			if (txtTemperature.Text.Contains(DecimalChar))
 			{
-				if (txtTemperature.Text[TC.txtTemperature.Text.Length - 1].ToString() != DecimalChar) // Check whether there are numbers on each side of the decimal
+				if (txtTemperature.Text[ThisForm.txtTemperature.Text.Length - 1].ToString() != DecimalChar)
 				{
-					string[] words = txtTemperature.Text.Split(DecimalChar.ToCharArray()); // Split the string based on decimal position
-					roundamount = words[1].Length; // Store the amount of precision
+					string[] words = txtTemperature.Text.Split(DecimalChar.ToCharArray());
+					roundamount = words[1].Length;
 				}
 			}
 			else
 			{
-				roundamount = 0; // If there is no decimal, do not round decimals in the answer
+				roundamount = 0;
 			}
-			if (double.TryParse(txtTemperature.Text, out var tempcheck)) // Check whether the temperature is numeric
+			if (double.TryParse(txtTemperature.Text, out var tempcheck))
 			{
-				temp = tempcheck; // Assign the temperature value if it is numeric
+				temp = tempcheck;
 			}
-			if (btnFahrenheit.Checked) // ...
+			if (btnFahrenheit.Checked)
 			{
 				lblCelsiusDisplay.Text = $"{Math.Round((temp - 32) * 5 / 9, roundamount)} °C"; // Set the Celsius value using the proper math and degree of precision
 				lblFahrenheitDisplay.Text = $"{Math.Round(temp, roundamount)} °F"; // Set the Fahrenheit value using the proper degree of precision

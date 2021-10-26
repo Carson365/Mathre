@@ -7,8 +7,8 @@ namespace Mathre
 	public partial class FrmHelloWorld : Form
 	{
 		public static string StartingLanguage;
-		public static FrmMathre main;
-		public static FrmHelloWorld HW;
+		public static FrmMathre BaseForm;
+		public static FrmHelloWorld ThisForm;
 
 		public FrmHelloWorld()
 		{
@@ -19,43 +19,43 @@ namespace Mathre
 			btnHelloWorldGerman.Click += HelloWorld;
 			btnHelloWorldEnglish.Click += HelloWorld;
 		}
-		public void FormLoad(object sender, EventArgs e) //Formload event handler
+		public void FormLoad(object sender, EventArgs e)
 		{
-			main = Application.OpenForms.OfType<FrmMathre>().Single();
-			HW = Application.OpenForms.OfType<FrmHelloWorld>().Single();
+			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			ThisForm = Application.OpenForms.OfType<FrmHelloWorld>().Single();
 			foreach (Control c in Controls)
 			{
-				main.GetAllControls(this);
+				BaseForm.GetAllControls(this);
 			}
-			StartingLanguage = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
+			StartingLanguage = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name;
 		}
 		public void HelloWorld(object sender, EventArgs e)
 		{
-			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, main.mnuHelloWorldLanguageEnglish))
+			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageEnglish))
 			{
-				HW.btnHelloWorldEnglish.Checked = true;
-				HW.lblHelloWorldTitle.Text = "Hello World"; // Sets lblHelloWorld to English
+				ThisForm.btnHelloWorldEnglish.Checked = true;
+				ThisForm.lblHelloWorldTitle.Text = "Hello World";
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, main.mnuHelloWorldLanguageFrench)) // If the event is caused by the French button or menu item:
+			else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageFrench))
 			{
-				HW.btnHelloWorldFrench.Checked = true;
-				HW.lblHelloWorldTitle.Text = "Bonjour le Monde"; // Sets lblHelloWorld to French
+				ThisForm.btnHelloWorldFrench.Checked = true;
+				ThisForm.lblHelloWorldTitle.Text = "Bonjour le Monde";
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, main.mnuHelloWorldLanguageGerman)) // If the event is caused by the German button or menu item:
+			else if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageGerman))
 			{
-				HW.btnHelloWorldGerman.Checked = true;
-				HW.lblHelloWorldTitle.Text = "Hallo Welt"; // Sets lblHelloWorld to German
+				ThisForm.btnHelloWorldGerman.Checked = true;
+				ThisForm.lblHelloWorldTitle.Text = "Hallo Welt";
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, main.mnuHelloWorldReset))  // If the event is caused by the Reset button or menu item:
+			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, BaseForm.mnuHelloWorldReset))
 			{
-				HelloWorld(pnlHelloWorld.Controls[StartingLanguage], null); // Call back to the Buttons Sub with the pre-stored initially checked radio button substituted as sender in order to reset both the buttons and the label to their initial value
+				HelloWorld(pnlHelloWorld.Controls[StartingLanguage], null);
 			}
-			else if (ReferenceEquals(sender, main.mnuRandomify))
+			else if (ReferenceEquals(sender, BaseForm.mnuRandomify))
 			{
-				HW.btnHelloWorldEnglish.Checked = false;
-				HW.btnHelloWorldFrench.Checked = false;
-				HW.btnHelloWorldGerman.Checked = false;
-				HW.lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString(); // Uses a random value between 0 and 1 with modification to 'randomify' the lblHelloWorld value
+				ThisForm.btnHelloWorldEnglish.Checked = false;
+				ThisForm.btnHelloWorldFrench.Checked = false;
+				ThisForm.btnHelloWorldGerman.Checked = false;
+				ThisForm.lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString();
 			}
 		}
 	}

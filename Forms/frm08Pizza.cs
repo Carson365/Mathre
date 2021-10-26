@@ -2,13 +2,12 @@ using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace Mathre
 {
 	public partial class FrmPizza : Form
 	{
-		public static FrmMathre main;
-		public static FrmPizza PD;
+		public static FrmMathre BaseForm;
+		public static FrmPizza ThisForm;
 		public FrmPizza()
 		{
 			InitializeComponent();
@@ -24,34 +23,34 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
-			main = Application.OpenForms.OfType<FrmMathre>().Single();
-			PD = Application.OpenForms.OfType<FrmPizza>().Single();
+			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			ThisForm = Application.OpenForms.OfType<FrmPizza>().Single();
 			foreach (Control c in Controls)
 			{
-				main.GetAllControls(c);
+				BaseForm.GetAllControls(c);
 			}
 		}
 		public void Pizza(object sender, EventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
-			if (ReferenceEquals(sender, main.mnuPizzaDelivery)) //Set the buttons' appearances based on their checked state
+			if (ReferenceEquals(sender, BaseForm.mnuPizzaDelivery)) //Set the buttons' appearances based on their checked state
 			{
-				PD.btnDelivery.Checked = true; // ...
+				ThisForm.btnDelivery.Checked = true; // ...
 			}
-			else if (ReferenceEquals(sender, main.mnuPizzaTakeout)) // ...
+			else if (ReferenceEquals(sender, BaseForm.mnuPizzaTakeout)) // ...
 			{
-				PD.btnTakeout.Checked = true; // ...
+				ThisForm.btnTakeout.Checked = true; // ...
 			}
 			if (!btnDelivery.Checked & !btnTakeout.Checked) // ...
 			{
 				btnDelivery.Checked = true; // ...
 			}
-			if (ReferenceEquals(sender, main.mnuPizzaDollars)) // ...
+			if (ReferenceEquals(sender, BaseForm.mnuPizzaDollars)) // ...
 			{
-				PD.btnDollars.Checked = true; // ...
+				ThisForm.btnDollars.Checked = true; // ...
 			}
-			else if (ReferenceEquals(sender, main.mnuPizzaPercent)) // ...
+			else if (ReferenceEquals(sender, BaseForm.mnuPizzaPercent)) // ...
 			{
-				PD.btnPercent.Checked = true; // ...
+				ThisForm.btnPercent.Checked = true; // ...
 			}
 			if (!btnDollars.Checked & !btnPercent.Checked) // ...
 			{
@@ -79,15 +78,15 @@ namespace Mathre
 			}
 			else if (Size < 12) // set the proper image for the given size
 			{
-				pnlPizzaViewer.BackgroundImage = main.imgFavoriteImages.Images["SmallPizza.png".ToString()]; // ...
+				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["SmallPizza.png".ToString()]; // ...
 			}
 			else if (Size > 13)
 			{
-				pnlPizzaViewer.BackgroundImage = main.imgFavoriteImages.Images["LargePizza.png".ToString()]; // ...
+				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["LargePizza.png".ToString()]; // ...
 			}
 			else if (Size is not 0)
 			{
-				pnlPizzaViewer.BackgroundImage = main.imgFavoriteImages.Images["MediumPizza.png".ToString()]; // ...
+				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["MediumPizza.png".ToString()]; // ...
 			}
 		}
 		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field

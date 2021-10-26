@@ -6,8 +6,8 @@ namespace Mathre
 {
 	public partial class FrmDigits : Form
 	{
-		public static FrmMathre main;
-		public static FrmDigits DS;
+		public static FrmMathre BaseForm;
+		public static FrmDigits ThisForm;
 		public FrmDigits()
 		{
 			InitializeComponent();
@@ -17,11 +17,13 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
-			main = Application.OpenForms.OfType<FrmMathre>().Single();
-			DS = Application.OpenForms.OfType<FrmDigits>().Single();
+			lblDigitsListOdds.Text = "";
+			lblDigitsListEvens.Text = "";
+			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			ThisForm = Application.OpenForms.OfType<FrmDigits>().Single();
 			foreach (Control c in Controls)
 			{
-				main.GetAllControls(c);
+				BaseForm.GetAllControls(c);
 			}
 		}
 		public void Digits(object sender, KeyEventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)
@@ -44,7 +46,7 @@ namespace Mathre
 		}
 		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
-			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
+			if (sender is not TextBoxBase) // Ensure the sender is the input form -
 				return; // -or else discard it
 			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) // If a non-backspace, non-number character is pressed
 			{

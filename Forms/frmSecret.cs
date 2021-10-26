@@ -6,8 +6,8 @@ namespace Mathre
 {
 	public partial class FrmSecret : Form
 	{
-		public static FrmMathre main;
-		public static FrmSecret SS;
+		public static FrmMathre BaseForm;
+		public static FrmSecret ThisForm;
 		public FrmSecret()
 		{
 			InitializeComponent();
@@ -18,11 +18,11 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
-			main = Application.OpenForms.OfType<FrmMathre>().Single();
-			SS = Application.OpenForms.OfType<FrmSecret>().Single();
+			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			ThisForm = Application.OpenForms.OfType<FrmSecret>().Single();
 			foreach (Control c in Controls)
 			{
-				main.GetAllControls(c);
+				BaseForm.GetAllControls(c);
 			}
 		}
 		public void SecretHandler(object sender, EventArgs e) // Event handler for the functions on the Secret Settings page
@@ -53,7 +53,7 @@ namespace Mathre
 
 				if (btnSecretEnable.Enabled == false) // If the Enabled button is not pressed:
 				{
-					main.mnuSecret.Enabled = false; // Disable the Secret Settings menu item
+					BaseForm.mnuSecret.Enabled = false; // Disable the Secret Settings menu item
 				}
 			}
 
@@ -63,19 +63,19 @@ namespace Mathre
 
 			if (ReferenceEquals(sender, btnSecretEnable)) // If the event is caused by the Enable button:
 			{
-				main.mnuSecret.Enabled = true; // Enable the Secret menu
+				BaseForm.mnuSecret.Enabled = true; // Enable the Secret menu
 				btnSecretEnable.Checked = true; // Check the Enabled button
 			}
 
 			if (ReferenceEquals(sender, btnSecretDisable)) // If the event is caused by the Disable button:
 			{
-				main.mnuSecret.Enabled = false; // Disable the Secret menu
+				BaseForm.mnuSecret.Enabled = false; // Disable the Secret menu
 				btnSecretDisable.Checked = true; // Check the Disabled button
 			}
 		}
 		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
 		{
-			if (sender is not TextBoxBase textBox) // Ensure the sender is the input form -
+			if (sender is not TextBoxBase) // Ensure the sender is the input form -
 				return; // -or else discard it
 			SecretHandler(txtSecretPassword, null);
 		}

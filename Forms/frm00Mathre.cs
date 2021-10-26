@@ -19,45 +19,22 @@
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
-using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-
 	public partial class FrmMathre : Form
 	{
-		public static string StartingValue; // Define a global variable to store the starting value of the lblHelloWorld Label
-		public static string AccentColor; // Define a global variable to store the starting value of the System Accent Color
-		public static Color SystemColor; // Define a global color to store the converted value of the System Accent Color
-		public static bool hidden; // Define a global variable to acknowledge whether the Secret Settings page is hidden
-		public object Placeholder; // Define a global object to use to send blank events between event handlers
-		public static Rectangle Rect; // Define a global rectangle to use for measurements
-		public static string DecimalChar;
+		public static string AccentColor;
+		public static Color SystemColor;
+		public static bool hidden;
 		public static Size FormSize;
-		public static FrmMathre main;
-		public static FrmSecret SS;
-		public static FrmHelloWorld HW;
-		public static FrmMySchool MS;
-		public static FrmRectangle RC;
-		public static FrmMyFavorites MF;
-		public static FrmTemperature TC;
-		public static FrmDigits DS;
-		public static FrmChange CM;
-		public static FrmPizza PD;
 		public FrmMathre()
 		{
 			InitializeComponent();
-			FrmSecret SS = new();
 			FrmHelloWorld HW = new();
 			FrmMySchool MS = new();
-			FrmRectangle RC = new();
-			FrmMyFavorites MF = new();
 			FrmTemperature TC = new();
-			FrmDigits DS = new();
-			FrmChange CM = new();
 			FrmPizza PD = new();
-			// The following are all event handlers. They assign the event (left) to its handler (right)
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
 			mnuExit.Click += Exit;
@@ -76,27 +53,23 @@ namespace Mathre
 			Shown += FormShown;
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
+			tabMathre.KeyDown += StopArrows;
 		}
-		public void FormLoad(object sender, EventArgs e) //Formload event handler
+		public void FormLoad(object sender, EventArgs e)
 		{
-			main = Application.OpenForms.OfType<FrmMathre>().Single();
-			DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			lblDigitsListOdds.Text = "";
-			lblDigitsListEvens.Text = "";
-			tabMathre.TabPages.Remove(tabSecret); // Hide the secret settings tab
-			hidden = true; // Mark the secret settings hidden variable as true
-			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable()); // Use the custom color table to color the menu items, rather than using the default one
-			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM"); // Navigate to this windows directory key
-			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor")); // Set the systemcolor variable to the value of the AccentColor field within the windows directory key
-			ColorKey.Close(); // Stop registry access
-			KeyPreview = true; // Ensure key inputs on the form are being tracked
-			StartingValue = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name; // Store the default checked radio button in grpHelloWorld
-			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor)); // Translate the system accent color to a usable format
+			tabMathre.TabPages.Remove(tabSecret);
+			hidden = true;
+			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
+			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
+			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor"));
+			ColorKey.Close();
+			//KeyPreview = true;
+			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
 			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
-			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) // Recursion point
+			foreach (var ToolStripMenuItem in mnuBaseLayer.Items)
 			{
-				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem); // Call on the next function to run
-			} // Begin recursion
+				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem);
+			}
 			foreach (ToolStripItem FavoriteItem in mnuFavorites.DropDownItems)
 			{
 				FrmMyFavorites MF = new();
@@ -158,76 +131,102 @@ namespace Mathre
 		{
 			Close();
 		}
-		public void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem) // ToolStripMenuItem.DropDown.Keydown doesn't work unless you add an alias (ToolStripMenuItem) for ToolStripMenuItem
+		public void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem)
 		{
-			foreach (var ToolStripItem in ToolStripMenuItem.DropDownItems) // Recursion point
+			foreach (var ToolStripItem in ToolStripMenuItem.DropDownItems)
 			{
-				if (ToolStripItem is ToolStripMenuItem ToolstripItem) // For the menu items that don't have key input tracking -
+				if (ToolStripItem is ToolStripMenuItem ToolstripItem)
 				{
-					ToolStripMenuItem.DropDown.KeyDown += KeyboardShortcuts; // - add a function to track key inputs (under the name of the main form's, for simplicity)
-					AddMenuItemHandlers(ToolstripItem); // Call back to the above sub to repeat this code on the next menu item
+					ToolStripMenuItem.DropDown.KeyDown += KeyboardShortcuts;
+					AddMenuItemHandlers(ToolstripItem);
 				}
-			} // Begin recursion
+			}
 		}
-		public void KeyboardShortcuts(object sender, KeyEventArgs e) // Event handler for keypresses made within the form (which now includes keypresses from the menu items)
+		public void StopArrows(object sender, KeyEventArgs e)
 		{
-			if (e.Control & e.KeyCode == Keys.S) // Add Control+S shortcut
+			if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
 			{
-				if (hidden == true) // Ensure the secret settings tab is hidden
+				e.Handled = true;
+			}
+		}
+		public void KeyboardShortcuts(object sender, KeyEventArgs e)
+		{
+			FrmHelloWorld HW = new();
+			if (e.Control & e.KeyCode == Keys.S)
+			{
+				if (hidden == true)
 				{
-					tabMathre.Controls.Add(tabSecret); // Unhide the secret settings tab
+					tabMathre.Controls.Add(tabSecret);
 					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 500);
-					tabMathre.SelectedTab = tabSecret; // Select the secret settings tab
-					hidden = false; // Mark the secret settings tab as shown
+					tabMathre.SelectedTab = tabSecret;
+					hidden = false;
 				}
-				else if (hidden == false)  // Ensure the secret settings tab is not hidden
+				else if (hidden == false)
 				{
-					tabMathre.Controls.Remove(tabSecret); // Hide the secret settings tab
-					hidden = true; // Mark the secret settings tab as hidden
+					tabMathre.Controls.Remove(tabSecret);
+					hidden = true;
 				}
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			}
 			//
-			if (e.Control & e.KeyCode == Keys.R & mnuSecret.Enabled) // Add Control+R shortcut, dependent on the secret menu being enabled
+			if (e.Control & e.KeyCode == Keys.R & mnuSecret.Enabled)
 			{
-				HW.HelloWorld(mnuRandomify, null); // Use shortcut to quickly run the randomize function
+				HW.HelloWorld(mnuRandomify, null);
 			}
 			// 
-			if (e.Control & e.Shift & e.KeyCode == Keys.R) // Add Control+Shift+R shortcut
+			if (e.Control & e.Shift & e.KeyCode == Keys.R)
 			{
-				HW.HelloWorld(mnuHelloWorldReset, null); // Use shortcut to reset the lblHelloWorld to its stored value by pressing the reset button
+				HW.HelloWorld(mnuHelloWorldReset, null);
 			}
 			//
-			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D9)) // Add Control+Number shortcut for each tab page, and no more than the amout of pages
+			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D8))
 			{
-				tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1]; // Navigate to the tab of the key pressed by converting the key value to a number and then subtracting 1 to adjust for the indexing starting at 0
+				tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1];
+			}
+			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode == Keys.D9))
+			{
+				tabMathre.SelectedTab = tabMathre.TabPages[tabMathre.TabCount - 1];
+			}
+			if (e.Control & e.KeyCode == Keys.Left)
+			{
+				if (tabMathre.SelectedIndex > 0)
+				{
+					tabMathre.SelectedIndex--;
+				}
+			}
+			if (e.Control & e.KeyCode == Keys.Right)
+			{
+				if (tabMathre.SelectedIndex < tabMathre.TabCount - 1)
+				{
+					tabMathre.SelectedIndex++;
+				}
 			}
 		}
 		public void PageSelect(object sender, EventArgs e)
 		{
 			tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
 		}
-		public class MenuColorTable : ProfessionalColorTable // Custom Color table for theming
+		public class MenuColorTable : ProfessionalColorTable
 		{
-			public override Color MenuItemBorder // Override the MenuItemBorder Color
+			public override Color MenuItemBorder
 			{
 				get
 				{
-					return SystemColor; // Use the stored system accent color to replace the default color
+					return SystemColor;
 				}
 			}
-			public override Color MenuItemSelected // Override the MenuItemSelected Color
+			public override Color MenuItemSelected
 			{
 				get
 				{
-					return SystemColor; // Use the stored system accent color to replace the default color
+					return SystemColor;
 				}
 			}
-			public override Color MenuBorder // Override the MenuBorder Color
+			public override Color MenuBorder
 			{
 				get
 				{
-					return SystemColor; // Use the stored system accent color to replace the default color
+					return SystemColor;
 				}
 			}
 		}

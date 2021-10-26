@@ -7,8 +7,8 @@ namespace Mathre
 {
 	public partial class FrmChange : Form
 	{
-		public static FrmMathre main;
-		public static FrmChange CM;
+		public static FrmMathre BaseForm;
+		public static FrmChange ThisForm;
 		public FrmChange()
 		{
 			InitializeComponent();
@@ -18,11 +18,11 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
-			main = Application.OpenForms.OfType<FrmMathre>().Single();
-			CM = Application.OpenForms.OfType<FrmChange>().Single();
+			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			ThisForm = Application.OpenForms.OfType<FrmChange>().Single();
 			foreach (Control c in Controls)
 			{
-				main.GetAllControls(c);
+				BaseForm.GetAllControls(c);
 			}
 		}
 		public void ChangeMaker(object sender, EventArgs e) // Event Handler for keypresses in the Digits text box (pre-filtered to be only in the proper format)

@@ -2,40 +2,39 @@
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
-
 namespace Mathre
 {
 	public partial class FrmMySchool : Form
 	{
-		public static FrmMathre main;
-		public static FrmMySchool MS;
+		public static FrmMathre BaseForm;
+		public static FrmMySchool ThisForm;
 		public FrmMySchool()
 		{
 			InitializeComponent();
 			btnMySchoolToggleMascot.Click += MySchool;
 			Load += FormLoad;
 		}
-		public void FormLoad(object sender, EventArgs e) //Formload event handler
+		public void FormLoad(object sender, EventArgs e)
 		{
-			main = Application.OpenForms.OfType<FrmMathre>().Single();
-			MS = Application.OpenForms.OfType<FrmMySchool>().Single();
+			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			ThisForm = Application.OpenForms.OfType<FrmMySchool>().Single();
 			foreach (Control c in Controls)
 			{
-				main.GetAllControls(c);
+				BaseForm.GetAllControls(c);
 			}
 		}
 		public void MySchool(object sender, EventArgs e)
 		{
-			if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, main.mnuMySchoolToggleMascot)) // If the event is caused by the ToggleMascot button or menu item:
+			if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, BaseForm.mnuMySchoolToggleMascot))
 			{
-				MS.picMySchoolMascot.Visible = !MS.picMySchoolMascot.Visible; // Inverts the visibility of the mascot image
-				if (MS.lblMySchoolMascot.ForeColor != Color.Black) // Inverts the text color
+				ThisForm.picMySchoolMascot.Visible = !ThisForm.picMySchoolMascot.Visible;
+				if (ThisForm.lblMySchoolMascot.ForeColor != Color.Black)
 				{
-					MS.lblMySchoolMascot.ForeColor = Color.Black;
+					ThisForm.lblMySchoolMascot.ForeColor = Color.Black;
 				}
 				else
 				{
-					MS.lblMySchoolMascot.ForeColor = Color.DimGray;
+					ThisForm.lblMySchoolMascot.ForeColor = Color.DimGray;
 				}
 			}
 		}
