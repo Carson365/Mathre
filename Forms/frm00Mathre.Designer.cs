@@ -143,6 +143,17 @@ namespace Mathre
             this.lblDigitsCountLabel = new System.Windows.Forms.Label();
             this.lblDigitsTitle = new System.Windows.Forms.Label();
             this.tabTemperature = new System.Windows.Forms.TabPage();
+            this.pnlTemperatureResults = new System.Windows.Forms.Panel();
+            this.lblCelsiusDisplay = new System.Windows.Forms.Label();
+            this.lblFahrenheitDisplayLabel = new System.Windows.Forms.Label();
+            this.lblFahrenheitDisplay = new System.Windows.Forms.Label();
+            this.lblCelsiusDisplayLabel = new System.Windows.Forms.Label();
+            this.pnlTemperature = new System.Windows.Forms.Panel();
+            this.btnCelsius = new System.Windows.Forms.RadioButton();
+            this.txtTemperature = new System.Windows.Forms.TextBox();
+            this.btnFahrenheit = new System.Windows.Forms.RadioButton();
+            this.lblTemperature = new System.Windows.Forms.Label();
+            this.lblTemperatureTitle = new System.Windows.Forms.Label();
             this.tabMyFavorites = new System.Windows.Forms.TabPage();
             this.pnlFavoriteDisplay = new System.Windows.Forms.Panel();
             this.pnlFavoriteImage = new System.Windows.Forms.Panel();
@@ -184,17 +195,6 @@ namespace Mathre
             this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
             this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
             this.btnHelloWorldReset = new System.Windows.Forms.Button();
-            this.pnlTemperatureResults = new System.Windows.Forms.Panel();
-            this.lblCelsiusDisplay = new System.Windows.Forms.Label();
-            this.lblFahrenheitDisplayLabel = new System.Windows.Forms.Label();
-            this.lblFahrenheitDisplay = new System.Windows.Forms.Label();
-            this.lblCelsiusDisplayLabel = new System.Windows.Forms.Label();
-            this.pnlTemperature = new System.Windows.Forms.Panel();
-            this.btnCelsius = new System.Windows.Forms.RadioButton();
-            this.txtTemperature = new System.Windows.Forms.TextBox();
-            this.btnFahrenheit = new System.Windows.Forms.RadioButton();
-            this.lblTemperature = new System.Windows.Forms.Label();
-            this.lblTemperatureTitle = new System.Windows.Forms.Label();
             this.mnuBaseLayer.SuspendLayout();
             this.tabSecret.SuspendLayout();
             this.pnlSecret.SuspendLayout();
@@ -211,6 +211,8 @@ namespace Mathre
             this.pnlDigitsResultsDisplay.SuspendLayout();
             this.pnlDigits.SuspendLayout();
             this.tabTemperature.SuspendLayout();
+            this.pnlTemperatureResults.SuspendLayout();
+            this.pnlTemperature.SuspendLayout();
             this.tabMyFavorites.SuspendLayout();
             this.pnlFavoriteDisplay.SuspendLayout();
             this.pnlFavoriteControls.SuspendLayout();
@@ -226,8 +228,6 @@ namespace Mathre
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
-            this.pnlTemperatureResults.SuspendLayout();
-            this.pnlTemperature.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuBaseLayer
@@ -373,7 +373,7 @@ namespace Mathre
             // mnuRectangleCalculate
             // 
             this.mnuRectangleCalculate.Name = "mnuRectangleCalculate";
-            this.mnuRectangleCalculate.Size = new System.Drawing.Size(123, 22);
+            this.mnuRectangleCalculate.Size = new System.Drawing.Size(180, 22);
             this.mnuRectangleCalculate.Text = "Calculate";
             // 
             // mnuFavorites
@@ -391,31 +391,31 @@ namespace Mathre
             // mnuFavoriteActor
             // 
             this.mnuFavoriteActor.Name = "mnuFavoriteActor";
-            this.mnuFavoriteActor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteActor.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteActor.Text = "Actor";
             // 
             // mnuFavoriteMovie
             // 
             this.mnuFavoriteMovie.Name = "mnuFavoriteMovie";
-            this.mnuFavoriteMovie.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteMovie.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteMovie.Text = "Movie";
             // 
             // mnuFavoriteFruit
             // 
             this.mnuFavoriteFruit.Name = "mnuFavoriteFruit";
-            this.mnuFavoriteFruit.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteFruit.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteFruit.Text = "Fruit";
             // 
             // mnuFavoriteHobby
             // 
             this.mnuFavoriteHobby.Name = "mnuFavoriteHobby";
-            this.mnuFavoriteHobby.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteHobby.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteHobby.Text = "Hobby";
             // 
             // mnuFavoriteColor
             // 
             this.mnuFavoriteColor.Name = "mnuFavoriteColor";
-            this.mnuFavoriteColor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteColor.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteColor.Text = "Color";
             // 
             // mnuTemperature
@@ -430,13 +430,13 @@ namespace Mathre
             // mnuTemperatureFahrenheit
             // 
             this.mnuTemperatureFahrenheit.Name = "mnuTemperatureFahrenheit";
-            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(130, 22);
+            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(180, 22);
             this.mnuTemperatureFahrenheit.Text = "Fahrenheit";
             // 
             // mnuTemperatureCelsius
             // 
             this.mnuTemperatureCelsius.Name = "mnuTemperatureCelsius";
-            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(130, 22);
+            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(180, 22);
             this.mnuTemperatureCelsius.Text = "Celsius";
             // 
             // mnuDigits
@@ -450,7 +450,7 @@ namespace Mathre
             // mnuDigitsCalculate
             // 
             this.mnuDigitsCalculate.Name = "mnuDigitsCalculate";
-            this.mnuDigitsCalculate.Size = new System.Drawing.Size(123, 22);
+            this.mnuDigitsCalculate.Size = new System.Drawing.Size(180, 22);
             this.mnuDigitsCalculate.Text = "Calculate";
             // 
             // mnuChange
@@ -464,7 +464,7 @@ namespace Mathre
             // mnuChangeCalculate
             // 
             this.mnuChangeCalculate.Name = "mnuChangeCalculate";
-            this.mnuChangeCalculate.Size = new System.Drawing.Size(123, 22);
+            this.mnuChangeCalculate.Size = new System.Drawing.Size(180, 22);
             this.mnuChangeCalculate.Text = "Calculate";
             // 
             // mnuPizza
@@ -481,25 +481,25 @@ namespace Mathre
             // mnuPizzaDelivery
             // 
             this.mnuPizzaDelivery.Name = "mnuPizzaDelivery";
-            this.mnuPizzaDelivery.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaDelivery.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaDelivery.Text = "Delivery";
             // 
             // mnuPizzaTakeout
             // 
             this.mnuPizzaTakeout.Name = "mnuPizzaTakeout";
-            this.mnuPizzaTakeout.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaTakeout.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaTakeout.Text = "Takeout";
             // 
             // mnuPizzaDollars
             // 
             this.mnuPizzaDollars.Name = "mnuPizzaDollars";
-            this.mnuPizzaDollars.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaDollars.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaDollars.Text = "Dollars";
             // 
             // mnuPizzaPercent
             // 
             this.mnuPizzaPercent.Name = "mnuPizzaPercent";
-            this.mnuPizzaPercent.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaPercent.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaPercent.Text = "Percent";
             // 
             // mnuExit
@@ -825,7 +825,7 @@ namespace Mathre
             this.tabChange.Controls.Add(this.lblChangeMakerTitle);
             this.tabChange.Location = new System.Drawing.Point(4, 22);
             this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(976, 1011);
+            this.tabChange.Size = new System.Drawing.Size(976, 0);
             this.tabChange.TabIndex = 8;
             this.tabChange.Text = "Change Maker";
             this.tabChange.UseVisualStyleBackColor = true;
@@ -1143,7 +1143,7 @@ namespace Mathre
             this.tabDigits.Controls.Add(this.lblDigitsTitle);
             this.tabDigits.Location = new System.Drawing.Point(4, 22);
             this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(976, 1011);
+            this.tabDigits.Size = new System.Drawing.Size(976, 0);
             this.tabDigits.TabIndex = 7;
             this.tabDigits.Text = "Digit Separator";
             this.tabDigits.UseVisualStyleBackColor = true;
@@ -1274,10 +1274,136 @@ namespace Mathre
             this.tabTemperature.Controls.Add(this.lblTemperatureTitle);
             this.tabTemperature.Location = new System.Drawing.Point(4, 22);
             this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(976, 1011);
+            this.tabTemperature.Size = new System.Drawing.Size(976, 0);
             this.tabTemperature.TabIndex = 6;
             this.tabTemperature.Text = "Temperature Converter";
             this.tabTemperature.UseVisualStyleBackColor = true;
+            // 
+            // pnlTemperatureResults
+            // 
+            this.pnlTemperatureResults.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlTemperatureResults.BackColor = System.Drawing.Color.Transparent;
+            this.pnlTemperatureResults.Controls.Add(this.lblCelsiusDisplay);
+            this.pnlTemperatureResults.Controls.Add(this.lblFahrenheitDisplayLabel);
+            this.pnlTemperatureResults.Controls.Add(this.lblFahrenheitDisplay);
+            this.pnlTemperatureResults.Controls.Add(this.lblCelsiusDisplayLabel);
+            this.pnlTemperatureResults.Location = new System.Drawing.Point(256, 442);
+            this.pnlTemperatureResults.Name = "pnlTemperatureResults";
+            this.pnlTemperatureResults.Size = new System.Drawing.Size(426, 81);
+            this.pnlTemperatureResults.TabIndex = 33;
+            // 
+            // lblCelsiusDisplay
+            // 
+            this.lblCelsiusDisplay.AutoSize = true;
+            this.lblCelsiusDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCelsiusDisplay.Location = new System.Drawing.Point(199, 46);
+            this.lblCelsiusDisplay.Name = "lblCelsiusDisplay";
+            this.lblCelsiusDisplay.Size = new System.Drawing.Size(78, 15);
+            this.lblCelsiusDisplay.TabIndex = 17;
+            this.lblCelsiusDisplay.Text = "Temperature";
+            this.lblCelsiusDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblFahrenheitDisplayLabel
+            // 
+            this.lblFahrenheitDisplayLabel.AutoSize = true;
+            this.lblFahrenheitDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFahrenheitDisplayLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblFahrenheitDisplayLabel.Location = new System.Drawing.Point(18, 17);
+            this.lblFahrenheitDisplayLabel.Name = "lblFahrenheitDisplayLabel";
+            this.lblFahrenheitDisplayLabel.Size = new System.Drawing.Size(201, 20);
+            this.lblFahrenheitDisplayLabel.TabIndex = 14;
+            this.lblFahrenheitDisplayLabel.Text = "Temperature in Fahrenheit:";
+            // 
+            // lblFahrenheitDisplay
+            // 
+            this.lblFahrenheitDisplay.AutoSize = true;
+            this.lblFahrenheitDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFahrenheitDisplay.Location = new System.Drawing.Point(225, 20);
+            this.lblFahrenheitDisplay.Name = "lblFahrenheitDisplay";
+            this.lblFahrenheitDisplay.Size = new System.Drawing.Size(78, 15);
+            this.lblFahrenheitDisplay.TabIndex = 16;
+            this.lblFahrenheitDisplay.Text = "Temperature";
+            this.lblFahrenheitDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCelsiusDisplayLabel
+            // 
+            this.lblCelsiusDisplayLabel.AutoSize = true;
+            this.lblCelsiusDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCelsiusDisplayLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCelsiusDisplayLabel.Location = new System.Drawing.Point(18, 43);
+            this.lblCelsiusDisplayLabel.Name = "lblCelsiusDisplayLabel";
+            this.lblCelsiusDisplayLabel.Size = new System.Drawing.Size(175, 20);
+            this.lblCelsiusDisplayLabel.TabIndex = 15;
+            this.lblCelsiusDisplayLabel.Text = "Temperature in Celsius:";
+            // 
+            // pnlTemperature
+            // 
+            this.pnlTemperature.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlTemperature.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlTemperature.Controls.Add(this.btnCelsius);
+            this.pnlTemperature.Controls.Add(this.txtTemperature);
+            this.pnlTemperature.Controls.Add(this.btnFahrenheit);
+            this.pnlTemperature.Controls.Add(this.lblTemperature);
+            this.pnlTemperature.Location = new System.Drawing.Point(256, 549);
+            this.pnlTemperature.Name = "pnlTemperature";
+            this.pnlTemperature.Size = new System.Drawing.Size(426, 105);
+            this.pnlTemperature.TabIndex = 32;
+            // 
+            // btnCelsius
+            // 
+            this.btnCelsius.AutoSize = true;
+            this.btnCelsius.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCelsius.Location = new System.Drawing.Point(275, 61);
+            this.btnCelsius.Name = "btnCelsius";
+            this.btnCelsius.Size = new System.Drawing.Size(78, 24);
+            this.btnCelsius.TabIndex = 26;
+            this.btnCelsius.Text = "Celsius";
+            this.btnCelsius.UseVisualStyleBackColor = true;
+            // 
+            // txtTemperature
+            // 
+            this.txtTemperature.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTemperature.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTemperature.Location = new System.Drawing.Point(148, 13);
+            this.txtTemperature.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTemperature.Name = "txtTemperature";
+            this.txtTemperature.Size = new System.Drawing.Size(269, 26);
+            this.txtTemperature.TabIndex = 13;
+            // 
+            // btnFahrenheit
+            // 
+            this.btnFahrenheit.AutoSize = true;
+            this.btnFahrenheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFahrenheit.Location = new System.Drawing.Point(73, 61);
+            this.btnFahrenheit.Name = "btnFahrenheit";
+            this.btnFahrenheit.Size = new System.Drawing.Size(104, 24);
+            this.btnFahrenheit.TabIndex = 25;
+            this.btnFahrenheit.Text = "Fahrenheit";
+            this.btnFahrenheit.UseVisualStyleBackColor = true;
+            // 
+            // lblTemperature
+            // 
+            this.lblTemperature.AutoSize = true;
+            this.lblTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperature.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTemperature.Location = new System.Drawing.Point(18, 16);
+            this.lblTemperature.Name = "lblTemperature";
+            this.lblTemperature.Size = new System.Drawing.Size(104, 20);
+            this.lblTemperature.TabIndex = 9;
+            this.lblTemperature.Text = "Temperature:";
+            // 
+            // lblTemperatureTitle
+            // 
+            this.lblTemperatureTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTemperatureTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTemperatureTitle.Location = new System.Drawing.Point(175, 357);
+            this.lblTemperatureTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTemperatureTitle.Name = "lblTemperatureTitle";
+            this.lblTemperatureTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTemperatureTitle.TabIndex = 31;
+            this.lblTemperatureTitle.Text = "Temperature Converter";
+            this.lblTemperatureTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabMyFavorites
             // 
@@ -1286,7 +1412,7 @@ namespace Mathre
             this.tabMyFavorites.Controls.Add(this.lblFavoriteTitle);
             this.tabMyFavorites.Location = new System.Drawing.Point(4, 22);
             this.tabMyFavorites.Name = "tabMyFavorites";
-            this.tabMyFavorites.Size = new System.Drawing.Size(976, 812);
+            this.tabMyFavorites.Size = new System.Drawing.Size(976, 0);
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
@@ -1761,132 +1887,6 @@ namespace Mathre
             this.btnHelloWorldReset.Text = "Reset";
             this.btnHelloWorldReset.UseVisualStyleBackColor = true;
             // 
-            // pnlTemperatureResults
-            // 
-            this.pnlTemperatureResults.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlTemperatureResults.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTemperatureResults.Controls.Add(this.lblCelsiusDisplay);
-            this.pnlTemperatureResults.Controls.Add(this.lblFahrenheitDisplayLabel);
-            this.pnlTemperatureResults.Controls.Add(this.lblFahrenheitDisplay);
-            this.pnlTemperatureResults.Controls.Add(this.lblCelsiusDisplayLabel);
-            this.pnlTemperatureResults.Location = new System.Drawing.Point(256, 442);
-            this.pnlTemperatureResults.Name = "pnlTemperatureResults";
-            this.pnlTemperatureResults.Size = new System.Drawing.Size(426, 81);
-            this.pnlTemperatureResults.TabIndex = 33;
-            // 
-            // lblCelsiusDisplay
-            // 
-            this.lblCelsiusDisplay.AutoSize = true;
-            this.lblCelsiusDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCelsiusDisplay.Location = new System.Drawing.Point(199, 46);
-            this.lblCelsiusDisplay.Name = "lblCelsiusDisplay";
-            this.lblCelsiusDisplay.Size = new System.Drawing.Size(78, 15);
-            this.lblCelsiusDisplay.TabIndex = 17;
-            this.lblCelsiusDisplay.Text = "Temperature";
-            this.lblCelsiusDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblFahrenheitDisplayLabel
-            // 
-            this.lblFahrenheitDisplayLabel.AutoSize = true;
-            this.lblFahrenheitDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFahrenheitDisplayLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFahrenheitDisplayLabel.Location = new System.Drawing.Point(18, 17);
-            this.lblFahrenheitDisplayLabel.Name = "lblFahrenheitDisplayLabel";
-            this.lblFahrenheitDisplayLabel.Size = new System.Drawing.Size(201, 20);
-            this.lblFahrenheitDisplayLabel.TabIndex = 14;
-            this.lblFahrenheitDisplayLabel.Text = "Temperature in Fahrenheit:";
-            // 
-            // lblFahrenheitDisplay
-            // 
-            this.lblFahrenheitDisplay.AutoSize = true;
-            this.lblFahrenheitDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFahrenheitDisplay.Location = new System.Drawing.Point(225, 20);
-            this.lblFahrenheitDisplay.Name = "lblFahrenheitDisplay";
-            this.lblFahrenheitDisplay.Size = new System.Drawing.Size(78, 15);
-            this.lblFahrenheitDisplay.TabIndex = 16;
-            this.lblFahrenheitDisplay.Text = "Temperature";
-            this.lblFahrenheitDisplay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblCelsiusDisplayLabel
-            // 
-            this.lblCelsiusDisplayLabel.AutoSize = true;
-            this.lblCelsiusDisplayLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCelsiusDisplayLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCelsiusDisplayLabel.Location = new System.Drawing.Point(18, 43);
-            this.lblCelsiusDisplayLabel.Name = "lblCelsiusDisplayLabel";
-            this.lblCelsiusDisplayLabel.Size = new System.Drawing.Size(175, 20);
-            this.lblCelsiusDisplayLabel.TabIndex = 15;
-            this.lblCelsiusDisplayLabel.Text = "Temperature in Celsius:";
-            // 
-            // pnlTemperature
-            // 
-            this.pnlTemperature.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlTemperature.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlTemperature.Controls.Add(this.btnCelsius);
-            this.pnlTemperature.Controls.Add(this.txtTemperature);
-            this.pnlTemperature.Controls.Add(this.btnFahrenheit);
-            this.pnlTemperature.Controls.Add(this.lblTemperature);
-            this.pnlTemperature.Location = new System.Drawing.Point(256, 549);
-            this.pnlTemperature.Name = "pnlTemperature";
-            this.pnlTemperature.Size = new System.Drawing.Size(426, 105);
-            this.pnlTemperature.TabIndex = 32;
-            // 
-            // btnCelsius
-            // 
-            this.btnCelsius.AutoSize = true;
-            this.btnCelsius.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCelsius.Location = new System.Drawing.Point(275, 61);
-            this.btnCelsius.Name = "btnCelsius";
-            this.btnCelsius.Size = new System.Drawing.Size(78, 24);
-            this.btnCelsius.TabIndex = 26;
-            this.btnCelsius.Text = "Celsius";
-            this.btnCelsius.UseVisualStyleBackColor = true;
-            // 
-            // txtTemperature
-            // 
-            this.txtTemperature.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTemperature.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemperature.Location = new System.Drawing.Point(148, 13);
-            this.txtTemperature.Margin = new System.Windows.Forms.Padding(0);
-            this.txtTemperature.Name = "txtTemperature";
-            this.txtTemperature.Size = new System.Drawing.Size(269, 26);
-            this.txtTemperature.TabIndex = 13;
-            // 
-            // btnFahrenheit
-            // 
-            this.btnFahrenheit.AutoSize = true;
-            this.btnFahrenheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFahrenheit.Location = new System.Drawing.Point(73, 61);
-            this.btnFahrenheit.Name = "btnFahrenheit";
-            this.btnFahrenheit.Size = new System.Drawing.Size(104, 24);
-            this.btnFahrenheit.TabIndex = 25;
-            this.btnFahrenheit.Text = "Fahrenheit";
-            this.btnFahrenheit.UseVisualStyleBackColor = true;
-            // 
-            // lblTemperature
-            // 
-            this.lblTemperature.AutoSize = true;
-            this.lblTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperature.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTemperature.Location = new System.Drawing.Point(18, 16);
-            this.lblTemperature.Name = "lblTemperature";
-            this.lblTemperature.Size = new System.Drawing.Size(104, 20);
-            this.lblTemperature.TabIndex = 9;
-            this.lblTemperature.Text = "Temperature:";
-            // 
-            // lblTemperatureTitle
-            // 
-            this.lblTemperatureTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTemperatureTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperatureTitle.Location = new System.Drawing.Point(175, 357);
-            this.lblTemperatureTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTemperatureTitle.Name = "lblTemperatureTitle";
-            this.lblTemperatureTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblTemperatureTitle.TabIndex = 31;
-            this.lblTemperatureTitle.Text = "Temperature Converter";
-            this.lblTemperatureTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // FrmMathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1929,6 +1929,10 @@ namespace Mathre
             this.pnlDigits.ResumeLayout(false);
             this.pnlDigits.PerformLayout();
             this.tabTemperature.ResumeLayout(false);
+            this.pnlTemperatureResults.ResumeLayout(false);
+            this.pnlTemperatureResults.PerformLayout();
+            this.pnlTemperature.ResumeLayout(false);
+            this.pnlTemperature.PerformLayout();
             this.tabMyFavorites.ResumeLayout(false);
             this.pnlFavoriteDisplay.ResumeLayout(false);
             this.pnlFavoriteControls.ResumeLayout(false);
@@ -1948,10 +1952,6 @@ namespace Mathre
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
-            this.pnlTemperatureResults.ResumeLayout(false);
-            this.pnlTemperatureResults.PerformLayout();
-            this.pnlTemperature.ResumeLayout(false);
-            this.pnlTemperature.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1965,28 +1965,7 @@ namespace Mathre
         internal ToolStripMenuItem mnuTechnicolor;
         internal ToolStripMenuItem mnuRandomify;
         internal ToolStripMenuItem mnuView;
-        private ToolStripMenuItem mnuExit;
 		private ImageList imgFavoriteImages;
-		private ToolStripMenuItem mnuRectangle;
-		private ToolStripMenuItem mnuRectangleCalculate;
-		private ToolStripMenuItem mnuFavorites;
-		private ToolStripMenuItem mnuFavoriteActor;
-		private ToolStripMenuItem mnuFavoriteMovie;
-		private ToolStripMenuItem mnuFavoriteFruit;
-		private ToolStripMenuItem mnuFavoriteColor;
-		private ToolStripMenuItem mnuFavoriteHobby;
-		private ToolStripMenuItem mnuTemperature;
-		private ToolStripMenuItem mnuTemperatureFahrenheit;
-		private ToolStripMenuItem mnuTemperatureCelsius;
-		private ToolStripMenuItem mnuDigits;
-		private ToolStripMenuItem mnuDigitsCalculate;
-		private ToolStripMenuItem mnuChange;
-		private ToolStripMenuItem mnuChangeCalculate;
-		private ToolStripMenuItem mnuPizza;
-		private ToolStripMenuItem mnuPizzaTakeout;
-		private ToolStripMenuItem mnuPizzaDelivery;
-		private ToolStripMenuItem mnuPizzaDollars;
-		private ToolStripMenuItem mnuPizzaPercent;
 		internal TabPage tabSecret;
 		private Panel pnlSecret;
 		internal RadioButton btnSecretDisable;
@@ -2113,5 +2092,26 @@ namespace Mathre
 		private RadioButton btnFahrenheit;
 		internal Label lblTemperature;
 		internal Label lblTemperatureTitle;
+		public ToolStripMenuItem mnuExit;
+		public ToolStripMenuItem mnuRectangle;
+		public ToolStripMenuItem mnuRectangleCalculate;
+		public ToolStripMenuItem mnuFavorites;
+		public ToolStripMenuItem mnuFavoriteActor;
+		public ToolStripMenuItem mnuFavoriteMovie;
+		public ToolStripMenuItem mnuFavoriteFruit;
+		public ToolStripMenuItem mnuFavoriteColor;
+		public ToolStripMenuItem mnuFavoriteHobby;
+		public ToolStripMenuItem mnuTemperature;
+		public ToolStripMenuItem mnuTemperatureFahrenheit;
+		public ToolStripMenuItem mnuTemperatureCelsius;
+		public ToolStripMenuItem mnuDigits;
+		public ToolStripMenuItem mnuDigitsCalculate;
+		public ToolStripMenuItem mnuChange;
+		public ToolStripMenuItem mnuChangeCalculate;
+		public ToolStripMenuItem mnuPizza;
+		public ToolStripMenuItem mnuPizzaTakeout;
+		public ToolStripMenuItem mnuPizzaDelivery;
+		public ToolStripMenuItem mnuPizzaDollars;
+		public ToolStripMenuItem mnuPizzaPercent;
 	}
 }
