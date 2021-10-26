@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -57,8 +57,8 @@ namespace Mathre
 				MF.pnlFavoriteImage.BackgroundImage = null;
 				MF.pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
 			}
-			MF.lblFavoriteTitle.Text = $"My Favorite {MF.pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
-			MF.pnlFavoriteImage.BackgroundImage = main.imgFavoriteImages.Images[$"{MF.pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
+			lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
+			pnlFavoriteImage.BackgroundImage = main.imgFavoriteImages.Images[$"{MF.pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 		}
 	}
 }
