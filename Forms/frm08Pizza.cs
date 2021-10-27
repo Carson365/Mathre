@@ -61,16 +61,16 @@ namespace Mathre
 				btnPercent.Checked = true;
 			}
 			int Size = 0;
-			double Tip = 0;
+			decimal Tip = 0;
 			if (int.TryParse(txtPizzaSize.Text, out int SizeText))
 			{
 				Size = SizeText;
 			}
-			if (double.TryParse(txtPizzaTip.Text, out double TipText))
+			if (decimal.TryParse(txtPizzaTip.Text, out decimal TipText))
 			{
 				Tip = TipText;
 			}
-			double Cost = 0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5);
+			decimal Cost = (decimal)(0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5));
 			if (Size != 0)
 			{
 				lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString();

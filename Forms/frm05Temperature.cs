@@ -55,7 +55,7 @@ namespace Mathre
 			}
 			else
 			{
-				roundamount = 0;
+				roundamount = 2;
 			}
 			if (double.TryParse(txtTemperature.Text, out var tempcheck))
 			{

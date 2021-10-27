@@ -14,7 +14,7 @@ namespace Mathre
 			Load += FormLoad;
 			btnSecretDisable.Click += SecretHandler;
 			btnSecretEnable.Click += SecretHandler;
-			txtSecretPassword.KeyPress += NumericalKeypress;
+			txtSecretPassword.KeyUp += SecretHandler;
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
@@ -37,7 +37,6 @@ namespace Mathre
 					byte[] textData = System.Text.Encoding.UTF8.GetBytes(txtSecretPassword.Text); // Get the value of the Secret Settings password field input and convert it to a usable form (bytes)
 					byte[] hash = sha.ComputeHash(textData); // Compute the Sha256 hash of the input.
 					hashedvalue = BitConverter.ToString(hash).Replace("-", String.Empty); // Convert the calculated hash to a useable format and store it in the hashedvalue variable
-					Console.WriteLine(hashedvalue);
 				}
 				if (hashedvalue == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") // If the hashed value of the text matches this predefined value (AKA the correct password):
 				{
@@ -72,12 +71,6 @@ namespace Mathre
 				BaseForm.mnuSecret.Enabled = false; // Disable the Secret menu
 				btnSecretDisable.Checked = true; // Check the Disabled button
 			}
-		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e) // Event handler for keypresses within the rectangle calculator input field
-		{
-			if (sender is not TextBoxBase) // Ensure the sender is the input form -
-				return; // -or else discard it
-			SecretHandler(txtSecretPassword, null);
 		}
 	}
 }

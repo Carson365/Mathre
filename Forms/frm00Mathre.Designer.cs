@@ -41,8 +41,14 @@ namespace Mathre
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMathre));
             this.mnuBaseLayer = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSecret = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRecolor = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRandomify = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguage = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldReset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchool = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchoolToggleMascot = new System.Windows.Forms.ToolStripMenuItem();
@@ -66,6 +72,11 @@ namespace Mathre
             this.mnuPizzaTakeout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPizzaDollars = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPizzaPercent = new System.Windows.Forms.ToolStripMenuItem();
+            this.calculateMyGradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculateMethod1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculateMethod2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculateMethod3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculateMethod4 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,14 +93,7 @@ namespace Mathre
             this.tabMySchool = new System.Windows.Forms.TabPage();
             this.tabMathre = new System.Windows.Forms.TabControl();
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRecolor = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRandomify = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuSecret = new System.Windows.Forms.ToolStripMenuItem();
-            this.calculateMyGradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabGrade = new System.Windows.Forms.TabPage();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -128,6 +132,29 @@ namespace Mathre
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
             // 
+            // mnuSecret
+            // 
+            this.mnuSecret.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRecolor,
+            this.mnuRandomify});
+            this.mnuSecret.Enabled = false;
+            this.mnuSecret.Name = "mnuSecret";
+            this.mnuSecret.Size = new System.Drawing.Size(195, 22);
+            this.mnuSecret.Text = "Super Secret Settings";
+            // 
+            // mnuRecolor
+            // 
+            this.mnuRecolor.Enabled = false;
+            this.mnuRecolor.Name = "mnuRecolor";
+            this.mnuRecolor.Size = new System.Drawing.Size(132, 22);
+            this.mnuRecolor.Text = "Recolor";
+            // 
+            // mnuRandomify
+            // 
+            this.mnuRandomify.Name = "mnuRandomify";
+            this.mnuRandomify.Size = new System.Drawing.Size(132, 22);
+            this.mnuRandomify.Text = "Randomify";
+            // 
             // mnuHelloWorld
             // 
             this.mnuHelloWorld.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -146,6 +173,27 @@ namespace Mathre
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
             this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
+            // 
+            // mnuHelloWorldLanguageEnglish
+            // 
+            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
+            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Text = "English";
+            // 
+            // mnuHelloWorldLanguageFrench
+            // 
+            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Text = "French";
+            // 
+            // mnuHelloWorldLanguageGerman
+            // 
+            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Text = "German";
             // 
             // mnuHelloWorldReset
             // 
@@ -235,13 +283,13 @@ namespace Mathre
             // mnuTemperatureFahrenheit
             // 
             this.mnuTemperatureFahrenheit.Name = "mnuTemperatureFahrenheit";
-            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(180, 22);
+            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(130, 22);
             this.mnuTemperatureFahrenheit.Text = "Fahrenheit";
             // 
             // mnuTemperatureCelsius
             // 
             this.mnuTemperatureCelsius.Name = "mnuTemperatureCelsius";
-            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(180, 22);
+            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(130, 22);
             this.mnuTemperatureCelsius.Text = "Celsius";
             // 
             // mnuDigits
@@ -306,6 +354,41 @@ namespace Mathre
             this.mnuPizzaPercent.Name = "mnuPizzaPercent";
             this.mnuPizzaPercent.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaPercent.Text = "Percent";
+            // 
+            // calculateMyGradeToolStripMenuItem
+            // 
+            this.calculateMyGradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuCalculateMethod1,
+            this.mnuCalculateMethod2,
+            this.mnuCalculateMethod3,
+            this.mnuCalculateMethod4});
+            this.calculateMyGradeToolStripMenuItem.Name = "calculateMyGradeToolStripMenuItem";
+            this.calculateMyGradeToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.calculateMyGradeToolStripMenuItem.Text = "Calculate My Grade";
+            // 
+            // mnuCalculateMethod1
+            // 
+            this.mnuCalculateMethod1.Name = "mnuCalculateMethod1";
+            this.mnuCalculateMethod1.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod1.Text = "Method 1";
+            // 
+            // mnuCalculateMethod2
+            // 
+            this.mnuCalculateMethod2.Name = "mnuCalculateMethod2";
+            this.mnuCalculateMethod2.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod2.Text = "Method 2";
+            // 
+            // mnuCalculateMethod3
+            // 
+            this.mnuCalculateMethod3.Name = "mnuCalculateMethod3";
+            this.mnuCalculateMethod3.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod3.Text = "Method 3";
+            // 
+            // mnuCalculateMethod4
+            // 
+            this.mnuCalculateMethod4.Name = "mnuCalculateMethod4";
+            this.mnuCalculateMethod4.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod4.Text = "Method 4";
             // 
             // mnuExit
             // 
@@ -445,7 +528,7 @@ namespace Mathre
             this.tabMathre.Controls.Add(this.tabDigits);
             this.tabMathre.Controls.Add(this.tabChange);
             this.tabMathre.Controls.Add(this.tabPizza);
-            this.tabMathre.Controls.Add(this.tabPage1);
+            this.tabMathre.Controls.Add(this.tabGrade);
             this.tabMathre.Controls.Add(this.tabUnknown);
             this.tabMathre.Controls.Add(this.tabSecret);
             this.tabMathre.Dock = System.Windows.Forms.DockStyle.Top;
@@ -468,64 +551,14 @@ namespace Mathre
             this.tabHelloWorld.TabIndex = 0;
             this.tabHelloWorld.Text = "Hello World";
             // 
-            // tabPage1
+            // tabGrade
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(976, 0);
-            this.tabPage1.TabIndex = 10;
-            this.tabPage1.Text = "Calculate My Grade";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // mnuHelloWorldLanguageEnglish
-            // 
-            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
-            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageEnglish.Text = "English";
-            // 
-            // mnuHelloWorldLanguageFrench
-            // 
-            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageFrench.Text = "French";
-            // 
-            // mnuHelloWorldLanguageGerman
-            // 
-            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageGerman.Text = "German";
-            // 
-            // mnuRecolor
-            // 
-            this.mnuRecolor.Enabled = false;
-            this.mnuRecolor.Name = "mnuRecolor";
-            this.mnuRecolor.Size = new System.Drawing.Size(180, 22);
-            this.mnuRecolor.Text = "Recolor";
-            // 
-            // mnuRandomify
-            // 
-            this.mnuRandomify.Name = "mnuRandomify";
-            this.mnuRandomify.Size = new System.Drawing.Size(180, 22);
-            this.mnuRandomify.Text = "Randomify";
-            // 
-            // mnuSecret
-            // 
-            this.mnuSecret.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuRecolor,
-            this.mnuRandomify});
-            this.mnuSecret.Enabled = false;
-            this.mnuSecret.Name = "mnuSecret";
-            this.mnuSecret.Size = new System.Drawing.Size(195, 22);
-            this.mnuSecret.Text = "Super Secret Settings";
-            // 
-            // calculateMyGradeToolStripMenuItem
-            // 
-            this.calculateMyGradeToolStripMenuItem.Name = "calculateMyGradeToolStripMenuItem";
-            this.calculateMyGradeToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.calculateMyGradeToolStripMenuItem.Text = "Calculate My Grade";
+            this.tabGrade.Location = new System.Drawing.Point(4, 22);
+            this.tabGrade.Name = "tabGrade";
+            this.tabGrade.Size = new System.Drawing.Size(976, 0);
+            this.tabGrade.TabIndex = 10;
+            this.tabGrade.Text = "Calculate My Grade";
+            this.tabGrade.UseVisualStyleBackColor = true;
             // 
             // FrmMathre
             // 
@@ -597,10 +630,14 @@ namespace Mathre
 		public ToolStripMenuItem mnuPizzaPercent;
 		public MenuStrip mnuBaseLayer;
 		public ImageList imgFavoriteImages;
-		private TabPage tabPage1;
+		private TabPage tabGrade;
 		internal ToolStripMenuItem mnuSecret;
 		internal ToolStripMenuItem mnuRecolor;
 		internal ToolStripMenuItem mnuRandomify;
-		private ToolStripMenuItem calculateMyGradeToolStripMenuItem;
+		public ToolStripMenuItem calculateMyGradeToolStripMenuItem;
+		public ToolStripMenuItem mnuCalculateMethod1;
+		public ToolStripMenuItem mnuCalculateMethod2;
+		public ToolStripMenuItem mnuCalculateMethod3;
+		public ToolStripMenuItem mnuCalculateMethod4;
 	}
 }

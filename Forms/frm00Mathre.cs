@@ -17,6 +17,7 @@ namespace Mathre
 			FrmMySchool MS = new();
 			FrmTemperature TC = new();
 			FrmPizza PD = new();
+			FrmGrade GC = new();
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
 			mnuExit.Click += Exit;
@@ -36,6 +37,10 @@ namespace Mathre
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
 			tabMathre.KeyDown += StopArrows;
+			mnuCalculateMethod1.Click += GC.ButtonSelector;
+			mnuCalculateMethod2.Click += GC.ButtonSelector;
+			mnuCalculateMethod3.Click += GC.ButtonSelector;
+			mnuCalculateMethod4.Click += GC.ButtonSelector;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
