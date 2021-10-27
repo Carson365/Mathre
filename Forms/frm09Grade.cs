@@ -60,6 +60,10 @@ namespace Mathre
 				{
 					lblPassFail.Text = "";
 				}
+				if (Points == 0 && Total == 0)
+				{
+					lblPassFail.Text = "";
+				}
 			}
 
 			if (btnMethod2.Checked)
@@ -94,7 +98,7 @@ namespace Mathre
 				}
 				else
 				{
-					lblPassFail.Text = "Fail. Study More.";
+					lblPassFail.Text = "Fail. F.";
 				}
 			}
 
@@ -106,10 +110,29 @@ namespace Mathre
 					> 83.50 => "Pass! B!",
 					> 73.50 => "Pass! C!",
 					> 63.50 => "Pass! D!",
-					< 63.50 => "Fail. Study More.",
+					< 63.50 => "Fail. F.",
 					double.NaN => "",
 					_ => "",
 				};
+			}
+		}
+		public void ButtonSelector(object sender, EventArgs e)
+		{
+			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod1))
+			{
+				ThisForm.btnMethod1.Checked = true;
+			}
+			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod2))
+			{
+				ThisForm.btnMethod2.Checked = true;
+			}
+			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod3))
+			{
+				ThisForm.btnMethod3.Checked = true;
+			}
+			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod4))
+			{
+				ThisForm.btnMethod4.Checked = true;
 			}
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
