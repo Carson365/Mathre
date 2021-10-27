@@ -1,4 +1,4 @@
-﻿
+
 namespace Mathre
 {
 	partial class FrmGrade
@@ -32,19 +32,19 @@ namespace Mathre
             this.pnlGradeFrame = new System.Windows.Forms.Panel();
             this.lblGradeTitle = new System.Windows.Forms.Label();
             this.pnlPizzaCost = new System.Windows.Forms.Panel();
+            this.lblPassFail = new System.Windows.Forms.Label();
             this.lblScoreDisplay = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.pnlGrade = new System.Windows.Forms.Panel();
-            this.pnlDiningType = new System.Windows.Forms.Panel();
-            this.btnMethod1 = new System.Windows.Forms.RadioButton();
-            this.btnMethod2 = new System.Windows.Forms.RadioButton();
             this.lblPoints = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.btnMethod4 = new System.Windows.Forms.RadioButton();
-            this.btnMethod3 = new System.Windows.Forms.RadioButton();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtPoints = new System.Windows.Forms.TextBox();
-            this.lblPassFail = new System.Windows.Forms.Label();
+            this.pnlDiningType = new System.Windows.Forms.Panel();
+            this.btnMethod4 = new System.Windows.Forms.RadioButton();
+            this.btnMethod3 = new System.Windows.Forms.RadioButton();
+            this.btnMethod1 = new System.Windows.Forms.RadioButton();
+            this.btnMethod2 = new System.Windows.Forms.RadioButton();
             this.pnlGradeFrame.SuspendLayout();
             this.pnlPizzaCost.SuspendLayout();
             this.pnlGrade.SuspendLayout();
@@ -89,6 +89,17 @@ namespace Mathre
             this.pnlPizzaCost.Size = new System.Drawing.Size(426, 81);
             this.pnlPizzaCost.TabIndex = 35;
             // 
+            // lblPassFail
+            // 
+            this.lblPassFail.AutoSize = true;
+            this.lblPassFail.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassFail.Location = new System.Drawing.Point(202, 25);
+            this.lblPassFail.Name = "lblPassFail";
+            this.lblPassFail.Size = new System.Drawing.Size(77, 30);
+            this.lblPassFail.TabIndex = 17;
+            this.lblPassFail.Text = "Pass!";
+            this.lblPassFail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // lblScoreDisplay
             // 
             this.lblScoreDisplay.AutoSize = true;
@@ -125,40 +136,6 @@ namespace Mathre
             this.pnlGrade.Size = new System.Drawing.Size(426, 105);
             this.pnlGrade.TabIndex = 34;
             // 
-            // pnlDiningType
-            // 
-            this.pnlDiningType.Controls.Add(this.btnMethod4);
-            this.pnlDiningType.Controls.Add(this.btnMethod3);
-            this.pnlDiningType.Controls.Add(this.btnMethod1);
-            this.pnlDiningType.Controls.Add(this.btnMethod2);
-            this.pnlDiningType.Location = new System.Drawing.Point(210, 15);
-            this.pnlDiningType.Name = "pnlDiningType";
-            this.pnlDiningType.Size = new System.Drawing.Size(209, 75);
-            this.pnlDiningType.TabIndex = 33;
-            this.pnlDiningType.Tag = "Transparent";
-            // 
-            // btnMethod1
-            // 
-            this.btnMethod1.AutoSize = true;
-            this.btnMethod1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod1.Location = new System.Drawing.Point(3, 3);
-            this.btnMethod1.Name = "btnMethod1";
-            this.btnMethod1.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod1.TabIndex = 25;
-            this.btnMethod1.Text = "Method 1";
-            this.btnMethod1.UseVisualStyleBackColor = true;
-            // 
-            // btnMethod2
-            // 
-            this.btnMethod2.AutoSize = true;
-            this.btnMethod2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod2.Location = new System.Drawing.Point(112, 4);
-            this.btnMethod2.Name = "btnMethod2";
-            this.btnMethod2.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod2.TabIndex = 26;
-            this.btnMethod2.Text = "Method 2";
-            this.btnMethod2.UseVisualStyleBackColor = true;
-            // 
             // lblPoints
             // 
             this.lblPoints.AutoSize = true;
@@ -180,28 +157,6 @@ namespace Mathre
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(134, 26);
             this.txtTotal.TabIndex = 30;
-            // 
-            // btnMethod4
-            // 
-            this.btnMethod4.AutoSize = true;
-            this.btnMethod4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod4.Location = new System.Drawing.Point(112, 48);
-            this.btnMethod4.Name = "btnMethod4";
-            this.btnMethod4.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod4.TabIndex = 32;
-            this.btnMethod4.Text = "Method 4";
-            this.btnMethod4.UseVisualStyleBackColor = true;
-            // 
-            // btnMethod3
-            // 
-            this.btnMethod3.AutoSize = true;
-            this.btnMethod3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod3.Location = new System.Drawing.Point(3, 48);
-            this.btnMethod3.Name = "btnMethod3";
-            this.btnMethod3.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod3.TabIndex = 31;
-            this.btnMethod3.Text = "Method 3";
-            this.btnMethod3.UseVisualStyleBackColor = true;
             // 
             // lblTotal
             // 
@@ -225,16 +180,61 @@ namespace Mathre
             this.txtPoints.Size = new System.Drawing.Size(133, 26);
             this.txtPoints.TabIndex = 13;
             // 
-            // lblPassFail
+            // pnlDiningType
             // 
-            this.lblPassFail.AutoSize = true;
-            this.lblPassFail.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPassFail.Location = new System.Drawing.Point(202, 25);
-            this.lblPassFail.Name = "lblPassFail";
-            this.lblPassFail.Size = new System.Drawing.Size(77, 30);
-            this.lblPassFail.TabIndex = 17;
-            this.lblPassFail.Text = "Pass!";
-            this.lblPassFail.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pnlDiningType.Controls.Add(this.btnMethod4);
+            this.pnlDiningType.Controls.Add(this.btnMethod3);
+            this.pnlDiningType.Controls.Add(this.btnMethod1);
+            this.pnlDiningType.Controls.Add(this.btnMethod2);
+            this.pnlDiningType.Location = new System.Drawing.Point(210, 15);
+            this.pnlDiningType.Name = "pnlDiningType";
+            this.pnlDiningType.Size = new System.Drawing.Size(209, 75);
+            this.pnlDiningType.TabIndex = 33;
+            this.pnlDiningType.Tag = "Transparent";
+            // 
+            // btnMethod4
+            // 
+            this.btnMethod4.AutoSize = true;
+            this.btnMethod4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMethod4.Location = new System.Drawing.Point(112, 48);
+            this.btnMethod4.Name = "btnMethod4";
+            this.btnMethod4.Size = new System.Drawing.Size(94, 24);
+            this.btnMethod4.TabIndex = 32;
+            this.btnMethod4.Text = "Method 4";
+            this.btnMethod4.UseVisualStyleBackColor = true;
+            // 
+            // btnMethod3
+            // 
+            this.btnMethod3.AutoSize = true;
+            this.btnMethod3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMethod3.Location = new System.Drawing.Point(3, 48);
+            this.btnMethod3.Name = "btnMethod3";
+            this.btnMethod3.Size = new System.Drawing.Size(94, 24);
+            this.btnMethod3.TabIndex = 31;
+            this.btnMethod3.Text = "Method 3";
+            this.btnMethod3.UseVisualStyleBackColor = true;
+            // 
+            // btnMethod1
+            // 
+            this.btnMethod1.AutoSize = true;
+            this.btnMethod1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMethod1.Location = new System.Drawing.Point(3, 3);
+            this.btnMethod1.Name = "btnMethod1";
+            this.btnMethod1.Size = new System.Drawing.Size(94, 24);
+            this.btnMethod1.TabIndex = 25;
+            this.btnMethod1.Text = "Method 1";
+            this.btnMethod1.UseVisualStyleBackColor = true;
+            // 
+            // btnMethod2
+            // 
+            this.btnMethod2.AutoSize = true;
+            this.btnMethod2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnMethod2.Location = new System.Drawing.Point(112, 4);
+            this.btnMethod2.Name = "btnMethod2";
+            this.btnMethod2.Size = new System.Drawing.Size(94, 24);
+            this.btnMethod2.TabIndex = 26;
+            this.btnMethod2.Text = "Method 2";
+            this.btnMethod2.UseVisualStyleBackColor = true;
             // 
             // FrmGrade
             // 
