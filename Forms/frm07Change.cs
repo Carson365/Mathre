@@ -14,7 +14,7 @@ namespace Mathre
 			InitializeComponent();
 			Load += FormLoad;
 			txtPaidAmount.KeyUp += ChangeMaker;
-			txtPaidAmount.KeyPress += NumericalKeypress;
+			txtPaidAmount.KeyPress += InputFormatter;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -53,7 +53,7 @@ namespace Mathre
 			lblNickelsCount.Text = (Coins % 25 % 10 / 5).ToString();
 			lblPenniesCount.Text = (Coins % 25 % 10 % 5 / 1).ToString();
 		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e)
+		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (sender is not TextBoxBase textBox)

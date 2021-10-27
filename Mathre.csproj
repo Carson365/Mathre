@@ -140,6 +140,12 @@
     <Compile Include="Forms\frm03Rectangle.Designer.cs">
       <DependentUpon>frm03Rectangle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm09Grade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm09Grade.Designer.cs">
+      <DependentUpon>frm09Grade.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -216,6 +222,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm03Rectangle.resx">
       <DependentUpon>frm03Rectangle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm09Grade.resx">
+      <DependentUpon>frm09Grade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>

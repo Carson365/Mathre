@@ -22,8 +22,8 @@ namespace Mathre
 			btnTakeout.CheckedChanged += Pizza;
 			btnPercent.CheckedChanged += Pizza;
 			btnDollars.CheckedChanged += Pizza;
-			txtPizzaTip.KeyPress += NumericalKeypress;
-			txtPizzaSize.KeyPress += NumericalKeypress;
+			txtPizzaTip.KeyPress += InputFormatter;
+			txtPizzaSize.KeyPress += InputFormatter;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -93,7 +93,7 @@ namespace Mathre
 				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["MediumPizza.png".ToString()];
 			}
 		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e)
+		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (sender is not TextBoxBase textBox)

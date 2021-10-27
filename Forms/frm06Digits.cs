@@ -13,7 +13,7 @@ namespace Mathre
 			InitializeComponent();
 			Load += FormLoad;
 			txtNumber.KeyUp += Digits;
-			txtNumber.KeyPress += NumericalKeypress;
+			txtNumber.KeyPress += InputFormatter;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -44,7 +44,7 @@ namespace Mathre
 				}
 			}
 		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e)
+		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			if (sender is not TextBoxBase)
 				return;

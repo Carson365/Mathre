@@ -17,7 +17,7 @@ namespace Mathre
 			btnFahrenheit.CheckedChanged += Temperature;
 			btnCelsius.CheckedChanged += Temperature;
 			txtTemperature.KeyUp += Temperature;
-			txtTemperature.KeyPress += NumericalKeypress;
+			txtTemperature.KeyPress += InputFormatter;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -72,7 +72,7 @@ namespace Mathre
 				lblFahrenheitDisplay.Text = $"{Math.Round((temp * 9 / 5) + 32, roundamount)} °F";
 			}
 		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e)
+		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (sender is not TextBoxBase textBox)

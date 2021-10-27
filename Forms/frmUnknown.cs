@@ -21,5 +21,14 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
+		public void NumericalKeypress(object sender, KeyPressEventArgs e)
+		{
+			if (sender is not TextBoxBase)
+				return;
+			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
+			{
+				e.Handled = true;
+			}
+		}
 	}
 }
