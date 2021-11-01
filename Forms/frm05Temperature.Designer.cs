@@ -1,4 +1,4 @@
-﻿
+
 namespace Mathre
 {
 	partial class FrmTemperature
@@ -68,7 +68,7 @@ namespace Mathre
             this.pnlTemperatureResults.Controls.Add(this.lblFahrenheitDisplayLabel);
             this.pnlTemperatureResults.Controls.Add(this.lblFahrenheitDisplay);
             this.pnlTemperatureResults.Controls.Add(this.lblCelsiusDisplayLabel);
-            this.pnlTemperatureResults.Location = new System.Drawing.Point(287, 296);
+            this.pnlTemperatureResults.Location = new System.Drawing.Point(287, 276);
             this.pnlTemperatureResults.Name = "pnlTemperatureResults";
             this.pnlTemperatureResults.Size = new System.Drawing.Size(426, 81);
             this.pnlTemperatureResults.TabIndex = 36;
