@@ -36,6 +36,9 @@ namespace Mathre
             this.lblScoreDisplay = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.pnlGrade = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.btnMethod5 = new System.Windows.Forms.Button();
             this.lblPoints = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -45,9 +48,12 @@ namespace Mathre
             this.btnMethod3 = new System.Windows.Forms.RadioButton();
             this.btnMethod1 = new System.Windows.Forms.RadioButton();
             this.btnMethod2 = new System.Windows.Forms.RadioButton();
+            this.lblGradesEnteredCount = new System.Windows.Forms.Label();
+            this.lblGradesEntered = new System.Windows.Forms.Label();
             this.pnlGradeFrame.SuspendLayout();
             this.pnlPizzaCost.SuspendLayout();
             this.pnlGrade.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,7 +90,7 @@ namespace Mathre
             this.pnlPizzaCost.Controls.Add(this.lblPassFail);
             this.pnlPizzaCost.Controls.Add(this.lblScoreDisplay);
             this.pnlPizzaCost.Controls.Add(this.lblScore);
-            this.pnlPizzaCost.Location = new System.Drawing.Point(287, 286);
+            this.pnlPizzaCost.Location = new System.Drawing.Point(287, 326);
             this.pnlPizzaCost.Name = "pnlPizzaCost";
             this.pnlPizzaCost.Size = new System.Drawing.Size(426, 81);
             this.pnlPizzaCost.TabIndex = 35;
@@ -126,6 +132,9 @@ namespace Mathre
             // 
             this.pnlGrade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlGrade.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlGrade.Controls.Add(this.panel1);
+            this.pnlGrade.Controls.Add(this.button1);
+            this.pnlGrade.Controls.Add(this.btnMethod5);
             this.pnlGrade.Controls.Add(this.lblPoints);
             this.pnlGrade.Controls.Add(this.txtTotal);
             this.pnlGrade.Controls.Add(this.lblTotal);
@@ -133,8 +142,38 @@ namespace Mathre
             this.pnlGrade.Controls.Add(this.pnlDiningType);
             this.pnlGrade.Location = new System.Drawing.Point(287, 165);
             this.pnlGrade.Name = "pnlGrade";
-            this.pnlGrade.Size = new System.Drawing.Size(426, 105);
+            this.pnlGrade.Size = new System.Drawing.Size(426, 155);
             this.pnlGrade.TabIndex = 34;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblGradesEntered);
+            this.panel1.Controls.Add(this.lblGradesEnteredCount);
+            this.panel1.Location = new System.Drawing.Point(210, 83);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(209, 65);
+            this.panel1.TabIndex = 34;
+            this.panel1.Tag = "Black";
+            // 
+            // button1
+            // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.button1.Location = new System.Drawing.Point(9, 125);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(199, 23);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Calculate with Method 5";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // btnMethod5
+            // 
+            this.btnMethod5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMethod5.Location = new System.Drawing.Point(9, 83);
+            this.btnMethod5.Name = "btnMethod5";
+            this.btnMethod5.Size = new System.Drawing.Size(199, 23);
+            this.btnMethod5.TabIndex = 36;
+            this.btnMethod5.Text = "Calculate with Method 5";
+            this.btnMethod5.UseVisualStyleBackColor = true;
             // 
             // lblPoints
             // 
@@ -152,7 +191,7 @@ namespace Mathre
             this.txtTotal.BackColor = System.Drawing.SystemColors.Window;
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(74, 64);
+            this.txtTotal.Location = new System.Drawing.Point(74, 54);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(0);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(134, 26);
@@ -163,7 +202,7 @@ namespace Mathre
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotal.Location = new System.Drawing.Point(27, 67);
+            this.lblTotal.Location = new System.Drawing.Point(27, 57);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(44, 20);
             this.lblTotal.TabIndex = 27;
@@ -188,7 +227,7 @@ namespace Mathre
             this.pnlDiningType.Controls.Add(this.btnMethod2);
             this.pnlDiningType.Location = new System.Drawing.Point(210, 15);
             this.pnlDiningType.Name = "pnlDiningType";
-            this.pnlDiningType.Size = new System.Drawing.Size(209, 75);
+            this.pnlDiningType.Size = new System.Drawing.Size(209, 65);
             this.pnlDiningType.TabIndex = 33;
             this.pnlDiningType.Tag = "Transparent";
             // 
@@ -196,7 +235,7 @@ namespace Mathre
             // 
             this.btnMethod4.AutoSize = true;
             this.btnMethod4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod4.Location = new System.Drawing.Point(112, 48);
+            this.btnMethod4.Location = new System.Drawing.Point(112, 38);
             this.btnMethod4.Name = "btnMethod4";
             this.btnMethod4.Size = new System.Drawing.Size(94, 24);
             this.btnMethod4.TabIndex = 32;
@@ -207,7 +246,7 @@ namespace Mathre
             // 
             this.btnMethod3.AutoSize = true;
             this.btnMethod3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod3.Location = new System.Drawing.Point(3, 48);
+            this.btnMethod3.Location = new System.Drawing.Point(3, 38);
             this.btnMethod3.Name = "btnMethod3";
             this.btnMethod3.Size = new System.Drawing.Size(94, 24);
             this.btnMethod3.TabIndex = 31;
@@ -236,6 +275,24 @@ namespace Mathre
             this.btnMethod2.Text = "Method 2";
             this.btnMethod2.UseVisualStyleBackColor = true;
             // 
+            // lblGradesEnteredCount
+            // 
+            this.lblGradesEnteredCount.AutoSize = true;
+            this.lblGradesEnteredCount.Location = new System.Drawing.Point(109, 29);
+            this.lblGradesEnteredCount.Name = "lblGradesEnteredCount";
+            this.lblGradesEnteredCount.Size = new System.Drawing.Size(35, 13);
+            this.lblGradesEnteredCount.TabIndex = 0;
+            this.lblGradesEnteredCount.Text = "Count";
+            // 
+            // lblGradesEntered
+            // 
+            this.lblGradesEntered.AutoSize = true;
+            this.lblGradesEntered.Location = new System.Drawing.Point(19, 29);
+            this.lblGradesEntered.Name = "lblGradesEntered";
+            this.lblGradesEntered.Size = new System.Drawing.Size(84, 13);
+            this.lblGradesEntered.TabIndex = 1;
+            this.lblGradesEntered.Text = "Grades Entered:";
+            // 
             // FrmGrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +307,8 @@ namespace Mathre
             this.pnlPizzaCost.PerformLayout();
             this.pnlGrade.ResumeLayout(false);
             this.pnlGrade.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.pnlDiningType.ResumeLayout(false);
             this.pnlDiningType.PerformLayout();
             this.ResumeLayout(false);
@@ -274,5 +333,10 @@ namespace Mathre
 		private System.Windows.Forms.RadioButton btnMethod1;
 		private System.Windows.Forms.RadioButton btnMethod2;
 		private System.Windows.Forms.Label lblPassFail;
+		private System.Windows.Forms.Button btnMethod5;
+		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Label lblGradesEntered;
+		private System.Windows.Forms.Label lblGradesEnteredCount;
 	}
 }
