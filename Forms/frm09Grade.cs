@@ -20,6 +20,7 @@ namespace Mathre
 			btnMethod2.Click += GradeCalculator;
 			btnMethod3.Click += GradeCalculator;
 			btnMethod4.Click += GradeCalculator;
+			btnMethod5.Click += GradeCalculator;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -111,7 +112,7 @@ namespace Mathre
 				}
 			}
 			// /\/\/\/\/\/\
-			// \/\/\/ (For method 3) Show the proper grade for the percentage\/\/\/
+			// \/\/\/ (For method 4) Show the proper grade for the percentage\/\/\/
 			if (btnMethod4.Checked)
 			{
 				lblPassFail.Text = (double)Math.Round((Points / Total * 100), 2) switch
@@ -126,6 +127,24 @@ namespace Mathre
 				};
 			}
 			// /\/\/\/\/\/\
+			// \/\/\/ (For method 5) Show the proper grade for the percentage\/\/\/
+			if (ReferenceEquals(sender, btnMethod5))
+			{
+				var abc = "";
+				abc = (double)Math.Round((Points / Total * 100), 2) switch
+				{
+					> 91.50 => "Pass! A!",
+					> 83.50 => "Pass! B!",
+					> 73.50 => "Pass! C!",
+					> 63.50 => "Pass! D!",
+					< 63.50 => "Fail. F.",
+					double.NaN => "Error",
+					_ => "Error",
+				};
+				MessageBox.Show(abc, "                                        Result                                        ");
+			}
+			// /\/\/\/\/\/\
+			lblGradesEnteredCount.Text = "1";
 		}
 		// \/\/\/ Set the buttons checked if their respective menu items are pressed \/\/\/
 		public void ButtonSelector(object sender, EventArgs e)
