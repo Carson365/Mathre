@@ -1,4 +1,4 @@
-﻿
+
 namespace Mathre
 {
 	partial class FrmRectangle
@@ -34,6 +34,7 @@ namespace Mathre
             this.pnlRectangleContainer = new System.Windows.Forms.Panel();
             this.lblRectangleError = new System.Windows.Forms.Label();
             this.pnlRectangle = new System.Windows.Forms.Panel();
+            this.lblRectangleTitle = new System.Windows.Forms.Label();
             this.pnlRectangleControls = new System.Windows.Forms.Panel();
             this.btnRectangleCalculate = new System.Windows.Forms.Button();
             this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
@@ -42,7 +43,6 @@ namespace Mathre
             this.lblRectanglePerimiterTitle = new System.Windows.Forms.Label();
             this.lblRectangleArea = new System.Windows.Forms.Label();
             this.lblRectanglePerimeter = new System.Windows.Forms.Label();
-            this.lblRectangleTitle = new System.Windows.Forms.Label();
             this.pnlHelloWorldFrame.SuspendLayout();
             this.pnlRectangleContainer.SuspendLayout();
             this.pnlRectangleControls.SuspendLayout();
@@ -68,7 +68,7 @@ namespace Mathre
             this.pnlRectangleContainer.BackColor = System.Drawing.Color.Transparent;
             this.pnlRectangleContainer.Controls.Add(this.lblRectangleError);
             this.pnlRectangleContainer.Controls.Add(this.pnlRectangle);
-            this.pnlRectangleContainer.Location = new System.Drawing.Point(287, 286);
+            this.pnlRectangleContainer.Location = new System.Drawing.Point(287, 276);
             this.pnlRectangleContainer.Name = "pnlRectangleContainer";
             this.pnlRectangleContainer.Size = new System.Drawing.Size(426, 136);
             this.pnlRectangleContainer.TabIndex = 33;
@@ -96,6 +96,18 @@ namespace Mathre
             this.pnlRectangle.Size = new System.Drawing.Size(100, 100);
             this.pnlRectangle.TabIndex = 27;
             this.pnlRectangle.Tag = "Black";
+            // 
+            // lblRectangleTitle
+            // 
+            this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRectangleTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblRectangleTitle.Name = "lblRectangleTitle";
+            this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblRectangleTitle.TabIndex = 31;
+            this.lblRectangleTitle.Text = "Rectangle Calculator";
+            this.lblRectangleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlRectangleControls
             // 
@@ -191,18 +203,6 @@ namespace Mathre
             this.lblRectanglePerimeter.TabIndex = 24;
             this.lblRectanglePerimeter.Text = "Perimeter";
             this.lblRectanglePerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblRectangleTitle
-            // 
-            this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblRectangleTitle.Name = "lblRectangleTitle";
-            this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblRectangleTitle.TabIndex = 31;
-            this.lblRectangleTitle.Text = "Rectangle Calculator";
-            this.lblRectangleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmRectangle
             // 
