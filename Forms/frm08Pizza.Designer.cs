@@ -1,4 +1,4 @@
-﻿
+
 namespace Mathre
 {
 	partial class FrmPizza
@@ -86,7 +86,7 @@ namespace Mathre
             this.pnlPizzaCost.Controls.Add(this.pnlPizzaViewer);
             this.pnlPizzaCost.Controls.Add(this.lblPizzaCostAmount);
             this.pnlPizzaCost.Controls.Add(this.lblPizzaCost);
-            this.pnlPizzaCost.Location = new System.Drawing.Point(287, 286);
+            this.pnlPizzaCost.Location = new System.Drawing.Point(287, 276);
             this.pnlPizzaCost.Name = "pnlPizzaCost";
             this.pnlPizzaCost.Size = new System.Drawing.Size(426, 81);
             this.pnlPizzaCost.TabIndex = 35;
