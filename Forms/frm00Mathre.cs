@@ -41,6 +41,8 @@ namespace Mathre
 			mnuCalculateMethod2.Click += GC.ButtonSelector;
 			mnuCalculateMethod3.Click += GC.ButtonSelector;
 			mnuCalculateMethod4.Click += GC.ButtonSelector;
+			mnuCalculateMethod5.Click += GC.ButtonSelector;
+			mnuCalculateRandom.Click += GC.ButtonSelector;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{

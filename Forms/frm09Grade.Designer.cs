@@ -37,7 +37,9 @@ namespace Mathre
             this.lblScore = new System.Windows.Forms.Label();
             this.pnlGrade = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lblGradesEntered = new System.Windows.Forms.Label();
+            this.lblGradesEnteredCount = new System.Windows.Forms.Label();
+            this.btnRandom = new System.Windows.Forms.Button();
             this.btnMethod5 = new System.Windows.Forms.Button();
             this.lblPoints = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
@@ -48,8 +50,6 @@ namespace Mathre
             this.btnMethod3 = new System.Windows.Forms.RadioButton();
             this.btnMethod1 = new System.Windows.Forms.RadioButton();
             this.btnMethod2 = new System.Windows.Forms.RadioButton();
-            this.lblGradesEnteredCount = new System.Windows.Forms.Label();
-            this.lblGradesEntered = new System.Windows.Forms.Label();
             this.pnlGradeFrame.SuspendLayout();
             this.pnlPizzaCost.SuspendLayout();
             this.pnlGrade.SuspendLayout();
@@ -133,7 +133,7 @@ namespace Mathre
             this.pnlGrade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlGrade.BackColor = System.Drawing.SystemColors.Control;
             this.pnlGrade.Controls.Add(this.panel1);
-            this.pnlGrade.Controls.Add(this.button1);
+            this.pnlGrade.Controls.Add(this.btnRandom);
             this.pnlGrade.Controls.Add(this.btnMethod5);
             this.pnlGrade.Controls.Add(this.lblPoints);
             this.pnlGrade.Controls.Add(this.txtTotal);
@@ -155,20 +155,38 @@ namespace Mathre
             this.panel1.TabIndex = 34;
             this.panel1.Tag = "Black";
             // 
-            // button1
+            // lblGradesEntered
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Location = new System.Drawing.Point(9, 125);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(199, 23);
-            this.button1.TabIndex = 37;
-            this.button1.Text = "Calculate with Method 5";
-            this.button1.UseVisualStyleBackColor = true;
+            this.lblGradesEntered.AutoSize = true;
+            this.lblGradesEntered.Location = new System.Drawing.Point(7, 26);
+            this.lblGradesEntered.Name = "lblGradesEntered";
+            this.lblGradesEntered.Size = new System.Drawing.Size(154, 13);
+            this.lblGradesEntered.TabIndex = 1;
+            this.lblGradesEntered.Text = "Grades Entered with Method 5:";
+            // 
+            // lblGradesEnteredCount
+            // 
+            this.lblGradesEnteredCount.AutoSize = true;
+            this.lblGradesEnteredCount.Location = new System.Drawing.Point(167, 26);
+            this.lblGradesEnteredCount.Name = "lblGradesEnteredCount";
+            this.lblGradesEnteredCount.Size = new System.Drawing.Size(35, 13);
+            this.lblGradesEnteredCount.TabIndex = 0;
+            this.lblGradesEnteredCount.Text = "Count";
+            // 
+            // btnRandom
+            // 
+            this.btnRandom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRandom.Location = new System.Drawing.Point(9, 123);
+            this.btnRandom.Name = "btnRandom";
+            this.btnRandom.Size = new System.Drawing.Size(199, 23);
+            this.btnRandom.TabIndex = 37;
+            this.btnRandom.Text = "Calculate Random Grade";
+            this.btnRandom.UseVisualStyleBackColor = true;
             // 
             // btnMethod5
             // 
             this.btnMethod5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMethod5.Location = new System.Drawing.Point(9, 83);
+            this.btnMethod5.Location = new System.Drawing.Point(9, 86);
             this.btnMethod5.Name = "btnMethod5";
             this.btnMethod5.Size = new System.Drawing.Size(199, 23);
             this.btnMethod5.TabIndex = 36;
@@ -180,7 +198,7 @@ namespace Mathre
             this.lblPoints.AutoSize = true;
             this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPoints.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPoints.Location = new System.Drawing.Point(20, 18);
+            this.lblPoints.Location = new System.Drawing.Point(18, 19);
             this.lblPoints.Name = "lblPoints";
             this.lblPoints.Size = new System.Drawing.Size(53, 20);
             this.lblPoints.TabIndex = 9;
@@ -191,10 +209,10 @@ namespace Mathre
             this.txtTotal.BackColor = System.Drawing.SystemColors.Window;
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(74, 54);
+            this.txtTotal.Location = new System.Drawing.Point(74, 53);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(0);
             this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(134, 26);
+            this.txtTotal.Size = new System.Drawing.Size(133, 26);
             this.txtTotal.TabIndex = 30;
             // 
             // lblTotal
@@ -202,7 +220,7 @@ namespace Mathre
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotal.Location = new System.Drawing.Point(27, 57);
+            this.lblTotal.Location = new System.Drawing.Point(27, 56);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(44, 20);
             this.lblTotal.TabIndex = 27;
@@ -213,7 +231,7 @@ namespace Mathre
             this.txtPoints.BackColor = System.Drawing.SystemColors.Window;
             this.txtPoints.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPoints.Location = new System.Drawing.Point(75, 15);
+            this.txtPoints.Location = new System.Drawing.Point(74, 16);
             this.txtPoints.Margin = new System.Windows.Forms.Padding(0);
             this.txtPoints.Name = "txtPoints";
             this.txtPoints.Size = new System.Drawing.Size(133, 26);
@@ -275,24 +293,6 @@ namespace Mathre
             this.btnMethod2.Text = "Method 2";
             this.btnMethod2.UseVisualStyleBackColor = true;
             // 
-            // lblGradesEnteredCount
-            // 
-            this.lblGradesEnteredCount.AutoSize = true;
-            this.lblGradesEnteredCount.Location = new System.Drawing.Point(109, 29);
-            this.lblGradesEnteredCount.Name = "lblGradesEnteredCount";
-            this.lblGradesEnteredCount.Size = new System.Drawing.Size(35, 13);
-            this.lblGradesEnteredCount.TabIndex = 0;
-            this.lblGradesEnteredCount.Text = "Count";
-            // 
-            // lblGradesEntered
-            // 
-            this.lblGradesEntered.AutoSize = true;
-            this.lblGradesEntered.Location = new System.Drawing.Point(19, 29);
-            this.lblGradesEntered.Name = "lblGradesEntered";
-            this.lblGradesEntered.Size = new System.Drawing.Size(84, 13);
-            this.lblGradesEntered.TabIndex = 1;
-            this.lblGradesEntered.Text = "Grades Entered:";
-            // 
             // FrmGrade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -335,7 +335,7 @@ namespace Mathre
 		private System.Windows.Forms.Label lblPassFail;
 		private System.Windows.Forms.Button btnMethod5;
 		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Button button1;
+		private System.Windows.Forms.Button btnRandom;
 		private System.Windows.Forms.Label lblGradesEntered;
 		private System.Windows.Forms.Label lblGradesEnteredCount;
 	}

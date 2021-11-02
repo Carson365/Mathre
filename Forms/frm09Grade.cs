@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -8,6 +9,7 @@ namespace Mathre
 	{
 		public static FrmMathre BaseForm;
 		public static FrmGrade ThisForm;
+		public static int abc = 0;
 		public FrmGrade()
 		{
 			InitializeComponent();
@@ -21,6 +23,7 @@ namespace Mathre
 			btnMethod3.Click += GradeCalculator;
 			btnMethod4.Click += GradeCalculator;
 			btnMethod5.Click += GradeCalculator;
+			btnRandom.Click += GradeCalculator;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -130,8 +133,8 @@ namespace Mathre
 			// \/\/\/ (For method 5) Show the proper grade for the percentage\/\/\/
 			if (ReferenceEquals(sender, btnMethod5))
 			{
-				var abc = "";
-				abc = (double)Math.Round((Points / Total * 100), 2) switch
+				abc ++;
+				string result = (double)Math.Round((Points / Total * 100), 2) switch
 				{
 					> 91.50 => "Pass! A!",
 					> 83.50 => "Pass! B!",
@@ -141,10 +144,19 @@ namespace Mathre
 					double.NaN => "Error",
 					_ => "Error",
 				};
-				MessageBox.Show(abc, "                                        Result                                        ");
+				lblGradesEnteredCount.Text = $"{abc}";
+				MessageBox.Show(result, "                                        Result                                        ");
 			}
 			// /\/\/\/\/\/\
-			lblGradesEnteredCount.Text = "1";
+			// \/\/\/ (For random method) Show a random percentage\/\/\/
+			if (ReferenceEquals(sender, btnRandom))
+			{
+				double score = Math.Round(100 * VBMath.Rnd());
+				txtPoints.Text = $"{score}";
+				txtTotal.Text = $"{score + Math.Round(11*VBMath.Rnd())}";
+				GradeCalculator(null, null);
+			}
+			// /\/\/\/\/\/\
 		}
 		// \/\/\/ Set the buttons checked if their respective menu items are pressed \/\/\/
 		public void ButtonSelector(object sender, EventArgs e)
@@ -164,6 +176,14 @@ namespace Mathre
 			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod4))
 			{
 				ThisForm.btnMethod4.Checked = true;
+			}
+			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod5))
+			{
+				ThisForm.GradeCalculator(ThisForm.btnMethod5, null);
+			}
+			if (ReferenceEquals(sender, BaseForm.mnuCalculateRandom))
+			{
+				ThisForm.GradeCalculator(ThisForm.btnRandom, null);
 			}
 		}
 		// /\/\/\/\/\/\

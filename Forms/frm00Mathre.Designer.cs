@@ -94,6 +94,8 @@ namespace Mathre
             this.tabMathre = new System.Windows.Forms.TabControl();
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
             this.tabGrade = new System.Windows.Forms.TabPage();
+            this.mnuCalculateMethod5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculateRandom = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -334,25 +336,25 @@ namespace Mathre
             // mnuPizzaDelivery
             // 
             this.mnuPizzaDelivery.Name = "mnuPizzaDelivery";
-            this.mnuPizzaDelivery.Size = new System.Drawing.Size(180, 22);
+            this.mnuPizzaDelivery.Size = new System.Drawing.Size(116, 22);
             this.mnuPizzaDelivery.Text = "Delivery";
             // 
             // mnuPizzaTakeout
             // 
             this.mnuPizzaTakeout.Name = "mnuPizzaTakeout";
-            this.mnuPizzaTakeout.Size = new System.Drawing.Size(180, 22);
+            this.mnuPizzaTakeout.Size = new System.Drawing.Size(116, 22);
             this.mnuPizzaTakeout.Text = "Takeout";
             // 
             // mnuPizzaDollars
             // 
             this.mnuPizzaDollars.Name = "mnuPizzaDollars";
-            this.mnuPizzaDollars.Size = new System.Drawing.Size(180, 22);
+            this.mnuPizzaDollars.Size = new System.Drawing.Size(116, 22);
             this.mnuPizzaDollars.Text = "Dollars";
             // 
             // mnuPizzaPercent
             // 
             this.mnuPizzaPercent.Name = "mnuPizzaPercent";
-            this.mnuPizzaPercent.Size = new System.Drawing.Size(180, 22);
+            this.mnuPizzaPercent.Size = new System.Drawing.Size(116, 22);
             this.mnuPizzaPercent.Text = "Percent";
             // 
             // calculateMyGradeToolStripMenuItem
@@ -361,7 +363,9 @@ namespace Mathre
             this.mnuCalculateMethod1,
             this.mnuCalculateMethod2,
             this.mnuCalculateMethod3,
-            this.mnuCalculateMethod4});
+            this.mnuCalculateMethod4,
+            this.mnuCalculateMethod5,
+            this.mnuCalculateRandom});
             this.calculateMyGradeToolStripMenuItem.Name = "calculateMyGradeToolStripMenuItem";
             this.calculateMyGradeToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.calculateMyGradeToolStripMenuItem.Text = "Calculate My Grade";
@@ -560,6 +564,18 @@ namespace Mathre
             this.tabGrade.Text = "Calculate My Grade";
             this.tabGrade.UseVisualStyleBackColor = true;
             // 
+            // mnuCalculateMethod5
+            // 
+            this.mnuCalculateMethod5.Name = "mnuCalculateMethod5";
+            this.mnuCalculateMethod5.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod5.Text = "Method 5";
+            // 
+            // mnuCalculateRandom
+            // 
+            this.mnuCalculateRandom.Name = "mnuCalculateRandom";
+            this.mnuCalculateRandom.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateRandom.Text = "Random";
+            // 
             // FrmMathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -639,5 +655,7 @@ namespace Mathre
 		public ToolStripMenuItem mnuCalculateMethod2;
 		public ToolStripMenuItem mnuCalculateMethod3;
 		public ToolStripMenuItem mnuCalculateMethod4;
+		public ToolStripMenuItem mnuCalculateMethod5;
+		public ToolStripMenuItem mnuCalculateRandom;
 	}
 }
