@@ -77,6 +77,8 @@ namespace Mathre
             this.mnuCalculateMethod2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod3 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculateMethod5 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculateRandom = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,8 +96,7 @@ namespace Mathre
             this.tabMathre = new System.Windows.Forms.TabControl();
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
             this.tabGrade = new System.Windows.Forms.TabPage();
-            this.mnuCalculateMethod5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCalculateRandom = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabVideoGames = new System.Windows.Forms.TabPage();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -112,7 +113,7 @@ namespace Mathre
             this.mnuBaseLayer.Name = "mnuBaseLayer";
             this.mnuBaseLayer.Padding = new System.Windows.Forms.Padding(0);
             this.mnuBaseLayer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mnuBaseLayer.Size = new System.Drawing.Size(984, 24);
+            this.mnuBaseLayer.Size = new System.Drawing.Size(1095, 24);
             this.mnuBaseLayer.TabIndex = 0;
             this.mnuBaseLayer.Text = "Menu";
             // 
@@ -373,26 +374,38 @@ namespace Mathre
             // mnuCalculateMethod1
             // 
             this.mnuCalculateMethod1.Name = "mnuCalculateMethod1";
-            this.mnuCalculateMethod1.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod1.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod1.Text = "Method 1";
             // 
             // mnuCalculateMethod2
             // 
             this.mnuCalculateMethod2.Name = "mnuCalculateMethod2";
-            this.mnuCalculateMethod2.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod2.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod2.Text = "Method 2";
             // 
             // mnuCalculateMethod3
             // 
             this.mnuCalculateMethod3.Name = "mnuCalculateMethod3";
-            this.mnuCalculateMethod3.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod3.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod3.Text = "Method 3";
             // 
             // mnuCalculateMethod4
             // 
             this.mnuCalculateMethod4.Name = "mnuCalculateMethod4";
-            this.mnuCalculateMethod4.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod4.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod4.Text = "Method 4";
+            // 
+            // mnuCalculateMethod5
+            // 
+            this.mnuCalculateMethod5.Name = "mnuCalculateMethod5";
+            this.mnuCalculateMethod5.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod5.Text = "Method 5";
+            // 
+            // mnuCalculateRandom
+            // 
+            this.mnuCalculateRandom.Name = "mnuCalculateRandom";
+            this.mnuCalculateRandom.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateRandom.Text = "Random";
             // 
             // mnuExit
             // 
@@ -533,6 +546,7 @@ namespace Mathre
             this.tabMathre.Controls.Add(this.tabChange);
             this.tabMathre.Controls.Add(this.tabPizza);
             this.tabMathre.Controls.Add(this.tabGrade);
+            this.tabMathre.Controls.Add(this.tabVideoGames);
             this.tabMathre.Controls.Add(this.tabUnknown);
             this.tabMathre.Controls.Add(this.tabSecret);
             this.tabMathre.Dock = System.Windows.Forms.DockStyle.Top;
@@ -540,7 +554,7 @@ namespace Mathre
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
             this.tabMathre.Name = "tabMathre";
             this.tabMathre.SelectedIndex = 0;
-            this.tabMathre.Size = new System.Drawing.Size(984, 21);
+            this.tabMathre.Size = new System.Drawing.Size(1095, 21);
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabMathre.TabIndex = 4;
             this.tabMathre.Tag = "";
@@ -551,7 +565,7 @@ namespace Mathre
             this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
             this.tabHelloWorld.Margin = new System.Windows.Forms.Padding(0);
             this.tabHelloWorld.Name = "tabHelloWorld";
-            this.tabHelloWorld.Size = new System.Drawing.Size(976, 0);
+            this.tabHelloWorld.Size = new System.Drawing.Size(1087, 0);
             this.tabHelloWorld.TabIndex = 0;
             this.tabHelloWorld.Text = "Hello World";
             // 
@@ -564,17 +578,14 @@ namespace Mathre
             this.tabGrade.Text = "Calculate My Grade";
             this.tabGrade.UseVisualStyleBackColor = true;
             // 
-            // mnuCalculateMethod5
+            // tabVideoGames
             // 
-            this.mnuCalculateMethod5.Name = "mnuCalculateMethod5";
-            this.mnuCalculateMethod5.Size = new System.Drawing.Size(180, 22);
-            this.mnuCalculateMethod5.Text = "Method 5";
-            // 
-            // mnuCalculateRandom
-            // 
-            this.mnuCalculateRandom.Name = "mnuCalculateRandom";
-            this.mnuCalculateRandom.Size = new System.Drawing.Size(180, 22);
-            this.mnuCalculateRandom.Text = "Random";
+            this.tabVideoGames.Location = new System.Drawing.Point(4, 22);
+            this.tabVideoGames.Name = "tabVideoGames";
+            this.tabVideoGames.Size = new System.Drawing.Size(976, 0);
+            this.tabVideoGames.TabIndex = 11;
+            this.tabVideoGames.Text = "Video Game Orders";
+            this.tabVideoGames.UseVisualStyleBackColor = true;
             // 
             // FrmMathre
             // 
@@ -582,7 +593,7 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(1095, 461);
             this.Controls.Add(this.tabMathre);
             this.Controls.Add(this.mnuBaseLayer);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -657,5 +668,6 @@ namespace Mathre
 		public ToolStripMenuItem mnuCalculateMethod4;
 		public ToolStripMenuItem mnuCalculateMethod5;
 		public ToolStripMenuItem mnuCalculateRandom;
+		private TabPage tabVideoGames;
 	}
 }
