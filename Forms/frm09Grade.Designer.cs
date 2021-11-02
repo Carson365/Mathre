@@ -31,7 +31,7 @@ namespace Mathre
 		{
             this.pnlGradeFrame = new System.Windows.Forms.Panel();
             this.lblGradeTitle = new System.Windows.Forms.Label();
-            this.pnlPizzaCost = new System.Windows.Forms.Panel();
+            this.pnlGradeDisplay = new System.Windows.Forms.Panel();
             this.lblPassFail = new System.Windows.Forms.Label();
             this.lblScoreDisplay = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
@@ -51,7 +51,7 @@ namespace Mathre
             this.btnMethod1 = new System.Windows.Forms.RadioButton();
             this.btnMethod2 = new System.Windows.Forms.RadioButton();
             this.pnlGradeFrame.SuspendLayout();
-            this.pnlPizzaCost.SuspendLayout();
+            this.pnlGradeDisplay.SuspendLayout();
             this.pnlGrade.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
@@ -64,7 +64,7 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlGradeFrame.BackColor = System.Drawing.Color.Transparent;
             this.pnlGradeFrame.Controls.Add(this.lblGradeTitle);
-            this.pnlGradeFrame.Controls.Add(this.pnlPizzaCost);
+            this.pnlGradeFrame.Controls.Add(this.pnlGradeDisplay);
             this.pnlGradeFrame.Controls.Add(this.pnlGrade);
             this.pnlGradeFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlGradeFrame.Name = "pnlGradeFrame";
@@ -83,17 +83,17 @@ namespace Mathre
             this.lblGradeTitle.Text = "Grade Calculator";
             this.lblGradeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlPizzaCost
+            // pnlGradeDisplay
             // 
-            this.pnlPizzaCost.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlPizzaCost.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPizzaCost.Controls.Add(this.lblPassFail);
-            this.pnlPizzaCost.Controls.Add(this.lblScoreDisplay);
-            this.pnlPizzaCost.Controls.Add(this.lblScore);
-            this.pnlPizzaCost.Location = new System.Drawing.Point(287, 326);
-            this.pnlPizzaCost.Name = "pnlPizzaCost";
-            this.pnlPizzaCost.Size = new System.Drawing.Size(426, 81);
-            this.pnlPizzaCost.TabIndex = 35;
+            this.pnlGradeDisplay.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlGradeDisplay.BackColor = System.Drawing.Color.Transparent;
+            this.pnlGradeDisplay.Controls.Add(this.lblPassFail);
+            this.pnlGradeDisplay.Controls.Add(this.lblScoreDisplay);
+            this.pnlGradeDisplay.Controls.Add(this.lblScore);
+            this.pnlGradeDisplay.Location = new System.Drawing.Point(287, 326);
+            this.pnlGradeDisplay.Name = "pnlGradeDisplay";
+            this.pnlGradeDisplay.Size = new System.Drawing.Size(426, 81);
+            this.pnlGradeDisplay.TabIndex = 35;
             // 
             // lblPassFail
             // 
@@ -303,8 +303,8 @@ namespace Mathre
             this.Name = "FrmGrade";
             this.Text = "Grade Calculator";
             this.pnlGradeFrame.ResumeLayout(false);
-            this.pnlPizzaCost.ResumeLayout(false);
-            this.pnlPizzaCost.PerformLayout();
+            this.pnlGradeDisplay.ResumeLayout(false);
+            this.pnlGradeDisplay.PerformLayout();
             this.pnlGrade.ResumeLayout(false);
             this.pnlGrade.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -319,7 +319,7 @@ namespace Mathre
 
 		public System.Windows.Forms.Panel pnlGradeFrame;
 		internal System.Windows.Forms.Label lblGradeTitle;
-		private System.Windows.Forms.Panel pnlPizzaCost;
+		private System.Windows.Forms.Panel pnlGradeDisplay;
 		private System.Windows.Forms.Label lblScoreDisplay;
 		internal System.Windows.Forms.Label lblScore;
 		private System.Windows.Forms.Panel pnlGrade;
