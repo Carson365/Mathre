@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
@@ -19,15 +19,6 @@ namespace Mathre
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);
-			}
-		}
-		public void NumericalKeypress(object sender, KeyPressEventArgs e)
-		{
-			if (sender is not TextBoxBase)
-				return;
-			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
-			{
-				e.Handled = true;
 			}
 		}
 	}
