@@ -1,16 +1,17 @@
 //
 // SOURCES:
 //
-// Stardew / PS4 : https://m.media-amazon.com/images/I/81VgMy0mHYL._SL1500_.jpg / http://www.simpleimageresizer.com/_uploads/photos/b409afe6/81VgMy0mHYL._SL1500__x100.jpg
-// Stardew / XB1 : https://m.media-amazon.com/images/I/81ELSb3bhGL._SL1500_.jpg / http://www.simpleimageresizer.com/_uploads/photos/b409afe6/81ELSb3bhGL._SL1500__x100.jpg
-// Minecraft / PS4 : https://media.gamestop.com/i/gamestop/11098604/Minecraft-Starter-Collection---PlayStation-4 / http://www.simpleimageresizer.com/_uploads/photos/b409afe6/Minecraft-Starter-Collection---PlayStation-4_x100.jpg
-// Minecraft / XB1 : https://m.media-amazon.com/images/I/71QpSBZtkqL._SL1106_.jpg / http://www.simpleimageresizer.com/_uploads/photos/b409afe6/71QpSBZtkqL._SL1106__x100.jpg
-// Doom / PS4 : https://m.media-amazon.com/images/I/91uV7r7aAhL._SX385_.jpg / http://www.simpleimageresizer.com/_uploads/photos/b409afe6/91uV7r7aAhL._SX385__x100.jpg
-// Doom / XB1 : https://media.gamestop.com/i/gamestop/10123072/DOOM / http://www.simpleimageresizer.com/_uploads/photos/b409afe6/DOOM_x100.jpg
+// Stardew / PS4 : https://m.media-amazon.com/images/I/81VgMy0mHYL._SL100_.jpg
+// Stardew / XB1 : https://m.media-amazon.com/images/I/81ELSb3bhGL._SL100_.jpg
+// Minecraft / PS4 : https://m.media-amazon.com/images/I/71AKO+U6F6L._SL100_.jpg
+// Minecraft / XB1 : https://m.media-amazon.com/images/I/71QpSBZtkqL._SL100_.jpg
+// Doom / PS4 : https://m.media-amazon.com/images/I/91uV7r7aAhL._SL100_.jpg
+// Doom / XB1 : https://m.media-amazon.com/images/I/61bF5-QAX+L._SL100_.jpg
 //
 //
 //
 using System;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
@@ -23,6 +24,8 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
+			btnPS4.Click += ImageSetter;
+			btnXB1.Click += ImageSetter;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -31,6 +34,23 @@ namespace Mathre
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);
+			}
+			ImageSetter(null, null);
+		}
+		public void ImageSetter(object sender, EventArgs e)
+		{
+			
+			if (btnPS4.Checked)
+			{
+				pnlDoom.BackgroundImage = imgGames.Images["Doom-PS4.jpg"];
+				pnlMinecraft.BackgroundImage = imgGames.Images["Minecraft-PS4.jpg"];
+				pnlStardew.BackgroundImage = imgGames.Images["Stardew-PS4.jpg"];
+			}
+			else
+			{
+				pnlDoom.BackgroundImage = imgGames.Images["Doom-XB1.jpg"];
+				pnlMinecraft.BackgroundImage = imgGames.Images["Minecraft-XB1.jpg"];
+				pnlStardew.BackgroundImage = imgGames.Images["Stardew-XB1.jpg"];
 			}
 		}
 	}

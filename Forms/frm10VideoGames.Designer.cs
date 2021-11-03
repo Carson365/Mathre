@@ -33,7 +33,13 @@ namespace Mathre
             this.pnlVideoGamesFrame = new System.Windows.Forms.Panel();
             this.lblVideoGamesTitle = new System.Windows.Forms.Label();
             this.pnlVideoGamesDisplay = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.btnXB1 = new System.Windows.Forms.RadioButton();
+            this.btnPS4 = new System.Windows.Forms.RadioButton();
             this.pnlVideoGames = new System.Windows.Forms.Panel();
+            this.pnlMinecraft = new System.Windows.Forms.Panel();
+            this.pnlStardew = new System.Windows.Forms.Panel();
+            this.pnlDoom = new System.Windows.Forms.Panel();
             this.pnlDiningType = new System.Windows.Forms.Panel();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,18 +47,12 @@ namespace Mathre
             this.label1 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.imgGames = new System.Windows.Forms.ImageList(this.components);
             this.pnlVideoGamesFrame.SuspendLayout();
             this.pnlVideoGamesDisplay.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.pnlVideoGames.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
-            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlVideoGamesFrame
@@ -91,18 +91,77 @@ namespace Mathre
             this.pnlVideoGamesDisplay.Size = new System.Drawing.Size(426, 81);
             this.pnlVideoGamesDisplay.TabIndex = 35;
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.btnXB1);
+            this.panel4.Controls.Add(this.btnPS4);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(122, 75);
+            this.panel4.TabIndex = 0;
+            this.panel4.Tag = "Black";
+            // 
+            // btnXB1
+            // 
+            this.btnXB1.AutoSize = true;
+            this.btnXB1.Location = new System.Drawing.Point(25, 44);
+            this.btnXB1.Name = "btnXB1";
+            this.btnXB1.Size = new System.Drawing.Size(72, 17);
+            this.btnXB1.TabIndex = 1;
+            this.btnXB1.Text = "Xbox One";
+            this.btnXB1.UseVisualStyleBackColor = true;
+            // 
+            // btnPS4
+            // 
+            this.btnPS4.AutoSize = true;
+            this.btnPS4.Checked = true;
+            this.btnPS4.Location = new System.Drawing.Point(19, 13);
+            this.btnPS4.Name = "btnPS4";
+            this.btnPS4.Size = new System.Drawing.Size(85, 17);
+            this.btnPS4.TabIndex = 0;
+            this.btnPS4.TabStop = true;
+            this.btnPS4.Text = "Playstation 4";
+            this.btnPS4.UseVisualStyleBackColor = true;
+            // 
             // pnlVideoGames
             // 
             this.pnlVideoGames.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlVideoGames.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlVideoGames.Controls.Add(this.panel3);
-            this.pnlVideoGames.Controls.Add(this.panel2);
-            this.pnlVideoGames.Controls.Add(this.panel1);
+            this.pnlVideoGames.Controls.Add(this.pnlMinecraft);
+            this.pnlVideoGames.Controls.Add(this.pnlStardew);
+            this.pnlVideoGames.Controls.Add(this.pnlDoom);
             this.pnlVideoGames.Controls.Add(this.pnlDiningType);
             this.pnlVideoGames.Location = new System.Drawing.Point(287, 165);
             this.pnlVideoGames.Name = "pnlVideoGames";
             this.pnlVideoGames.Size = new System.Drawing.Size(426, 155);
             this.pnlVideoGames.TabIndex = 34;
+            // 
+            // pnlMinecraft
+            // 
+            this.pnlMinecraft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlMinecraft.Location = new System.Drawing.Point(321, 6);
+            this.pnlMinecraft.Name = "pnlMinecraft";
+            this.pnlMinecraft.Size = new System.Drawing.Size(80, 100);
+            this.pnlMinecraft.TabIndex = 36;
+            this.pnlMinecraft.Tag = "Black";
+            // 
+            // pnlStardew
+            // 
+            this.pnlStardew.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlStardew.Location = new System.Drawing.Point(183, 6);
+            this.pnlStardew.Name = "pnlStardew";
+            this.pnlStardew.Size = new System.Drawing.Size(80, 100);
+            this.pnlStardew.TabIndex = 35;
+            this.pnlStardew.Tag = "Black";
+            // 
+            // pnlDoom
+            // 
+            this.pnlDoom.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlDoom.Location = new System.Drawing.Point(45, 6);
+            this.pnlDoom.Name = "pnlDoom";
+            this.pnlDoom.Size = new System.Drawing.Size(80, 100);
+            this.pnlDoom.TabIndex = 34;
+            this.pnlDoom.Tag = "Black";
             // 
             // pnlDiningType
             // 
@@ -190,72 +249,16 @@ namespace Mathre
             this.lblTotal.TabIndex = 27;
             this.lblTotal.Text = "Total";
             // 
-            // imageList1
+            // imgGames
             // 
-            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.imageList1.Images.SetKeyName(0, "Stardew-XB1.jpg");
-            this.imageList1.Images.SetKeyName(1, "Stardew-PS4.jpg");
-            this.imageList1.Images.SetKeyName(2, "Doom-XB1.jpg");
-            this.imageList1.Images.SetKeyName(3, "Doom-PS4.jpg");
-            this.imageList1.Images.SetKeyName(4, "Minecraft-XB1.jpg");
-            this.imageList1.Images.SetKeyName(5, "Minecraft-PS4.jpg");
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(25, 6);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(100, 100);
-            this.panel1.TabIndex = 34;
-            this.panel1.Tag = "Black";
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(163, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(100, 100);
-            this.panel2.TabIndex = 35;
-            this.panel2.Tag = "Black";
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(301, 6);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(100, 100);
-            this.panel3.TabIndex = 36;
-            this.panel3.Tag = "Black";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.radioButton2);
-            this.panel4.Controls.Add(this.radioButton1);
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(122, 75);
-            this.panel4.TabIndex = 0;
-            this.panel4.Tag = "Black";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(19, 13);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(85, 17);
-            this.radioButton1.TabIndex = 0;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Playstation 4";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(25, 44);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(72, 17);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Xbox One";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.imgGames.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgGames.ImageStream")));
+            this.imgGames.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgGames.Images.SetKeyName(0, "Doom-XB1.jpg");
+            this.imgGames.Images.SetKeyName(1, "Minecraft-XB1.jpg");
+            this.imgGames.Images.SetKeyName(2, "Stardew-XB1.jpg");
+            this.imgGames.Images.SetKeyName(3, "Stardew-PS4.jpg");
+            this.imgGames.Images.SetKeyName(4, "Minecraft-PS4.jpg");
+            this.imgGames.Images.SetKeyName(5, "Doom-PS4.jpg");
             // 
             // FrmVideoGames
             // 
@@ -268,11 +271,11 @@ namespace Mathre
             this.Text = "Video Game Orders";
             this.pnlVideoGamesFrame.ResumeLayout(false);
             this.pnlVideoGamesDisplay.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.pnlVideoGames.ResumeLayout(false);
             this.pnlDiningType.ResumeLayout(false);
             this.pnlDiningType.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -291,11 +294,11 @@ namespace Mathre
 		internal System.Windows.Forms.TextBox textBox1;
 		internal System.Windows.Forms.Label label1;
 		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.RadioButton radioButton2;
-		private System.Windows.Forms.RadioButton radioButton1;
-		private System.Windows.Forms.Panel panel3;
-		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.ImageList imageList1;
+		private System.Windows.Forms.RadioButton btnXB1;
+		private System.Windows.Forms.RadioButton btnPS4;
+		private System.Windows.Forms.Panel pnlMinecraft;
+		private System.Windows.Forms.Panel pnlStardew;
+		private System.Windows.Forms.Panel pnlDoom;
+		private System.Windows.Forms.ImageList imgGames;
 	}
 }

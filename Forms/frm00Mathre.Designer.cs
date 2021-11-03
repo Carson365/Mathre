@@ -46,9 +46,6 @@ namespace Mathre
             this.mnuRandomify = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguage = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldReset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchool = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchoolToggleMascot = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,7 +79,6 @@ namespace Mathre
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.tabSecret = new System.Windows.Forms.TabPage();
             this.tabUnknown = new System.Windows.Forms.TabPage();
             this.tabPizza = new System.Windows.Forms.TabPage();
@@ -97,6 +93,10 @@ namespace Mathre
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
             this.tabGrade = new System.Windows.Forms.TabPage();
             this.tabVideoGames = new System.Windows.Forms.TabPage();
+            this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
+            this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -176,27 +176,6 @@ namespace Mathre
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
             this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
-            // 
-            // mnuHelloWorldLanguageEnglish
-            // 
-            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
-            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageEnglish.Text = "English";
-            // 
-            // mnuHelloWorldLanguageFrench
-            // 
-            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageFrench.Text = "French";
-            // 
-            // mnuHelloWorldLanguageGerman
-            // 
-            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageGerman.Text = "German";
             // 
             // mnuHelloWorldReset
             // 
@@ -426,23 +405,11 @@ namespace Mathre
             this.mnuView.Size = new System.Drawing.Size(44, 24);
             this.mnuView.Text = "View";
             // 
-            // imgFavoriteImages
-            // 
-            this.imgFavoriteImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgFavoriteImages.ImageStream")));
-            this.imgFavoriteImages.TransparentColor = System.Drawing.Color.Transparent;
-            this.imgFavoriteImages.Images.SetKeyName(0, "Actor.jpg");
-            this.imgFavoriteImages.Images.SetKeyName(1, "Fruit.jpg");
-            this.imgFavoriteImages.Images.SetKeyName(2, "Hobby.jpg");
-            this.imgFavoriteImages.Images.SetKeyName(3, "Movie.jpg");
-            this.imgFavoriteImages.Images.SetKeyName(4, "LargePizza.png");
-            this.imgFavoriteImages.Images.SetKeyName(5, "MediumPizza.png");
-            this.imgFavoriteImages.Images.SetKeyName(6, "SmallPizza.png");
-            // 
             // tabSecret
             // 
             this.tabSecret.Location = new System.Drawing.Point(4, 22);
             this.tabSecret.Name = "tabSecret";
-            this.tabSecret.Size = new System.Drawing.Size(976, 0);
+            this.tabSecret.Size = new System.Drawing.Size(1087, 0);
             this.tabSecret.TabIndex = 3;
             this.tabSecret.Text = "Secret Settings Page";
             this.tabSecret.UseVisualStyleBackColor = true;
@@ -452,7 +419,7 @@ namespace Mathre
             this.tabUnknown.Location = new System.Drawing.Point(4, 22);
             this.tabUnknown.Margin = new System.Windows.Forms.Padding(0);
             this.tabUnknown.Name = "tabUnknown";
-            this.tabUnknown.Size = new System.Drawing.Size(976, 0);
+            this.tabUnknown.Size = new System.Drawing.Size(1087, 0);
             this.tabUnknown.TabIndex = 2;
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
@@ -461,7 +428,7 @@ namespace Mathre
             // 
             this.tabPizza.Location = new System.Drawing.Point(4, 22);
             this.tabPizza.Name = "tabPizza";
-            this.tabPizza.Size = new System.Drawing.Size(976, 0);
+            this.tabPizza.Size = new System.Drawing.Size(1087, 0);
             this.tabPizza.TabIndex = 9;
             this.tabPizza.Tag = "";
             this.tabPizza.Text = "Pizza Delivery";
@@ -472,7 +439,7 @@ namespace Mathre
             this.tabChange.Controls.Add(this.lblChangeMakerTitle);
             this.tabChange.Location = new System.Drawing.Point(4, 22);
             this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(976, 0);
+            this.tabChange.Size = new System.Drawing.Size(1087, 0);
             this.tabChange.TabIndex = 8;
             this.tabChange.Text = "Change Maker";
             this.tabChange.UseVisualStyleBackColor = true;
@@ -493,7 +460,7 @@ namespace Mathre
             // 
             this.tabDigits.Location = new System.Drawing.Point(4, 22);
             this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(976, 0);
+            this.tabDigits.Size = new System.Drawing.Size(1087, 0);
             this.tabDigits.TabIndex = 7;
             this.tabDigits.Text = "Digit Separator";
             this.tabDigits.UseVisualStyleBackColor = true;
@@ -502,7 +469,7 @@ namespace Mathre
             // 
             this.tabTemperature.Location = new System.Drawing.Point(4, 22);
             this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(976, 0);
+            this.tabTemperature.Size = new System.Drawing.Size(1087, 0);
             this.tabTemperature.TabIndex = 6;
             this.tabTemperature.Text = "Temperature Converter";
             this.tabTemperature.UseVisualStyleBackColor = true;
@@ -511,7 +478,7 @@ namespace Mathre
             // 
             this.tabMyFavorites.Location = new System.Drawing.Point(4, 22);
             this.tabMyFavorites.Name = "tabMyFavorites";
-            this.tabMyFavorites.Size = new System.Drawing.Size(976, 0);
+            this.tabMyFavorites.Size = new System.Drawing.Size(1087, 0);
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
@@ -520,7 +487,7 @@ namespace Mathre
             // 
             this.tabRectangle.Location = new System.Drawing.Point(4, 22);
             this.tabRectangle.Name = "tabRectangle";
-            this.tabRectangle.Size = new System.Drawing.Size(976, 0);
+            this.tabRectangle.Size = new System.Drawing.Size(1087, 0);
             this.tabRectangle.TabIndex = 4;
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
@@ -530,7 +497,7 @@ namespace Mathre
             this.tabMySchool.Location = new System.Drawing.Point(4, 22);
             this.tabMySchool.Name = "tabMySchool";
             this.tabMySchool.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMySchool.Size = new System.Drawing.Size(976, 0);
+            this.tabMySchool.Size = new System.Drawing.Size(1087, 0);
             this.tabMySchool.TabIndex = 1;
             this.tabMySchool.Text = "My School";
             this.tabMySchool.UseVisualStyleBackColor = true;
@@ -573,7 +540,7 @@ namespace Mathre
             // 
             this.tabGrade.Location = new System.Drawing.Point(4, 22);
             this.tabGrade.Name = "tabGrade";
-            this.tabGrade.Size = new System.Drawing.Size(976, 0);
+            this.tabGrade.Size = new System.Drawing.Size(1087, 0);
             this.tabGrade.TabIndex = 10;
             this.tabGrade.Text = "Calculate My Grade";
             this.tabGrade.UseVisualStyleBackColor = true;
@@ -582,10 +549,43 @@ namespace Mathre
             // 
             this.tabVideoGames.Location = new System.Drawing.Point(4, 22);
             this.tabVideoGames.Name = "tabVideoGames";
-            this.tabVideoGames.Size = new System.Drawing.Size(976, 0);
+            this.tabVideoGames.Size = new System.Drawing.Size(1087, 0);
             this.tabVideoGames.TabIndex = 11;
             this.tabVideoGames.Text = "Video Game Orders";
             this.tabVideoGames.UseVisualStyleBackColor = true;
+            // 
+            // mnuHelloWorldLanguageEnglish
+            // 
+            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
+            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Text = "English";
+            // 
+            // mnuHelloWorldLanguageFrench
+            // 
+            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Text = "French";
+            // 
+            // mnuHelloWorldLanguageGerman
+            // 
+            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Text = "German";
+            // 
+            // imgFavoriteImages
+            // 
+            this.imgFavoriteImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgFavoriteImages.ImageStream")));
+            this.imgFavoriteImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgFavoriteImages.Images.SetKeyName(0, "Actor.jpg");
+            this.imgFavoriteImages.Images.SetKeyName(1, "Fruit.jpg");
+            this.imgFavoriteImages.Images.SetKeyName(2, "Hobby.jpg");
+            this.imgFavoriteImages.Images.SetKeyName(3, "Movie.jpg");
+            this.imgFavoriteImages.Images.SetKeyName(4, "LargePizza.png");
+            this.imgFavoriteImages.Images.SetKeyName(5, "MediumPizza.png");
+            this.imgFavoriteImages.Images.SetKeyName(6, "SmallPizza.png");
             // 
             // FrmMathre
             // 
@@ -656,7 +656,6 @@ namespace Mathre
 		public ToolStripMenuItem mnuPizzaDollars;
 		public ToolStripMenuItem mnuPizzaPercent;
 		public MenuStrip mnuBaseLayer;
-		public ImageList imgFavoriteImages;
 		private TabPage tabGrade;
 		internal ToolStripMenuItem mnuSecret;
 		internal ToolStripMenuItem mnuRecolor;
@@ -669,5 +668,6 @@ namespace Mathre
 		public ToolStripMenuItem mnuCalculateMethod5;
 		public ToolStripMenuItem mnuCalculateRandom;
 		private TabPage tabVideoGames;
+		public ImageList imgFavoriteImages;
 	}
 }
