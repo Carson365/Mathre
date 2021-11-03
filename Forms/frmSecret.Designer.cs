@@ -1,11 +1,30 @@
-
 namespace Mathre
 {
 	partial class FrmSecret
 	{
 		/// <summary>
 		/// Required designer variable.
-	protected override void Dispose(bool disposing)
+		/// </summary>
+		private System.ComponentModel.IContainer components = null;
+
+		/// <summary>
+		/// Clean up any resources being used.
+		/// </summary>
+		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		protected override void Dispose(bool disposing)
+		{
+			if (disposing && (components != null))
+			{
+				components.Dispose();
+			}
+			base.Dispose(disposing);
+		}
+
+		#region Windows Form Designer generated code
+
+		/// <summary>
+		/// Required method for Designer support - do not modify
+		/// the contents of this method with the code editor.
 		/// </summary>
 		private void InitializeComponent()
 		{
@@ -105,3 +124,29 @@ namespace Mathre
             this.lblSecretTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmSecret
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.Controls.Add(this.pnlSecretFrame);
+            this.Name = "FrmSecret";
+            this.Text = "Secret Settings Page";
+            this.pnlSecretFrame.ResumeLayout(false);
+            this.pnlSecret.ResumeLayout(false);
+            this.pnlSecret.PerformLayout();
+            this.ResumeLayout(false);
+
+		}
+
+		#endregion
+
+		public System.Windows.Forms.Panel pnlSecretFrame;
+		private System.Windows.Forms.Panel pnlSecret;
+		internal System.Windows.Forms.RadioButton btnSecretDisable;
+		internal System.Windows.Forms.Label lblSecretPrompt;
+		internal System.Windows.Forms.RadioButton btnSecretEnable;
+		internal System.Windows.Forms.TextBox txtSecretPassword;
+		internal System.Windows.Forms.Label lblSecretTitle;
+	}
+}
