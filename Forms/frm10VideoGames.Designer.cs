@@ -33,6 +33,7 @@ namespace Mathre
             this.pnlVideoGamesFrame = new System.Windows.Forms.Panel();
             this.lblVideoGamesTitle = new System.Windows.Forms.Label();
             this.pnlVideoGamesDisplay = new System.Windows.Forms.Panel();
+            this.lblCost = new System.Windows.Forms.Label();
             this.lblCostText = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btnXB1 = new System.Windows.Forms.RadioButton();
@@ -49,7 +50,6 @@ namespace Mathre
             this.txtDoom = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.imgGames = new System.Windows.Forms.ImageList(this.components);
-            this.lblCost = new System.Windows.Forms.Label();
             this.pnlVideoGamesFrame.SuspendLayout();
             this.pnlVideoGamesDisplay.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -95,13 +95,22 @@ namespace Mathre
             this.pnlVideoGamesDisplay.Size = new System.Drawing.Size(426, 81);
             this.pnlVideoGamesDisplay.TabIndex = 35;
             // 
+            // lblCost
+            // 
+            this.lblCost.Location = new System.Drawing.Point(300, 3);
+            this.lblCost.Name = "lblCost";
+            this.lblCost.Size = new System.Drawing.Size(70, 75);
+            this.lblCost.TabIndex = 2;
+            this.lblCost.Text = "lblCost";
+            this.lblCost.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // lblCostText
             // 
             this.lblCostText.Location = new System.Drawing.Point(172, 3);
             this.lblCostText.Name = "lblCostText";
             this.lblCostText.Size = new System.Drawing.Size(132, 75);
             this.lblCostText.TabIndex = 1;
-            this.lblCostText.Text = "Cost";
+            this.lblCostText.Text = "lblCostText";
             this.lblCostText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panel4
@@ -272,15 +281,6 @@ namespace Mathre
             this.imgGames.Images.SetKeyName(3, "Stardew-PS4.jpg");
             this.imgGames.Images.SetKeyName(4, "Minecraft-PS4.jpg");
             this.imgGames.Images.SetKeyName(5, "Doom-PS4.jpg");
-            // 
-            // lblCost
-            // 
-            this.lblCost.Location = new System.Drawing.Point(300, 3);
-            this.lblCost.Name = "lblCost";
-            this.lblCost.Size = new System.Drawing.Size(62, 75);
-            this.lblCost.TabIndex = 2;
-            this.lblCost.Text = "Cost";
-            this.lblCost.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // FrmVideoGames
             // 
