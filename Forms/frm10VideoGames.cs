@@ -39,7 +39,12 @@ namespace Mathre
 			lblCost.Text = "";
 			lblCostText.Text = "";
 		}
-		public void Transfer(object sender, EventArgs e)
+		//
+		//
+		// Begin Assignment Code
+		//
+		//
+		public void Transfer(object sender, EventArgs e) // Allow menu items to run their respective functions across forms
 		{
 			if (ReferenceEquals(sender, BaseForm.mnuXB1))
 			{
@@ -51,7 +56,7 @@ namespace Mathre
 			}
 			ThisForm.ImageSetter(null, null);
 		}
-		public void ImageSetter(object sender, EventArgs e)
+		public void ImageSetter(object sender, EventArgs e) // Set the proper images depending on whether Xbox or Playstation is selected
 		{
 			
 			if (btnPS4.Checked)
@@ -67,34 +72,34 @@ namespace Mathre
 				pnlStardew.BackgroundImage = imgGames.Images["Stardew-XB1.jpg"];
 			}
 		}
-		public void Cost(object sender, EventArgs e)
+		public void Cost(object sender, EventArgs e) // Cost calculator and display
 		{
 			int Doom = int.Parse(txtDoom.Text);
 			int Stardew = int.Parse(txtStardew.Text);
 			int Minecraft = int.Parse(txtMinecraft.Text);
-			if (txtDoom.Text != "" | txtStardew.Text != "" | txtMinecraft.Text != "")
+			if (txtDoom.Text != "" | txtStardew.Text != "" | txtMinecraft.Text != "") // Ensure the input is not null
 			{
-				int A = (Doom+Minecraft+Stardew);
-				string B = A switch { not 1 => "s", _ => "" };
-				int C = (A / 3);
-				string D = C switch { not 1 => "es", _ => "" };
-				double E = (A % 3);
-				string F = (A % 3) switch { not 1 => "s", _ => "" };
-				lblCostText.Text = $"Order {A} Game{B} :\n Tax @ 6.75% :\n {C} box{D} :\n {E} Envelope{F} :\n Total :";
-				double A2 = (Convert.ToDouble(A) * 59.99);
-				double B2 = A2 * 0.0675;
-				double C2 = C;
-				double D2 = E * 0.5;
-				double E2 = A2 + B2 + C2 + D2;
-				lblCost.Text = $" {A2:C}\n {B2:C}\n {C2:C}\n {D2:C}\n {E2:C}";
+				int A = (Doom+Minecraft+Stardew); // Calculate the amount of games
+				string B = A switch { not 1 => "s", _ => "" }; // Grammar
+				int C = (A / 3); // Calculate the amount of boxes
+				string D = C switch { not 1 => "es", _ => "" }; // Grammar
+				double E = (A % 3); // Calculate the amount of envelopes
+				string F = (A % 3) switch { not 1 => "s", _ => "" }; // Grammar
+				lblCostText.Text = $"Order {A} Game{B} :\n Tax @ 6.75% :\n {C} box{D} :\n {E} Envelope{F} :\n Total :"; // Build the display with the calculated values
+				double A2 = (Convert.ToDouble(A) * 59.99); // Calculate base cost
+				double B2 = A2 * 0.0675; // Calculate tax cost
+				double C2 = C; // Calculate cost of boxes
+				double D2 = E * 0.5; // Calculate envelope costs
+				double E2 = A2 + B2 + C2 + D2; // Calculate the total cost
+				lblCost.Text = $" {A2:C}\n {B2:C}\n {C2:C}\n {D2:C}\n {E2:C}"; // Build the Cost display with the calculated values
 			}
-			else
+			else // clear the display if the value goes null
 			{
 				lblCostText.Text = "";
 				lblCost.Text = "";
 			}
 		}
-		public void InputFormatter(object sender, KeyPressEventArgs e)
+		public void InputFormatter(object sender, KeyPressEventArgs e) // Ensure the text put into the textboxes is only numerical and has no more than 3 digits.
 		{
 			if (sender is not TextBoxBase textBox)
 				return;
