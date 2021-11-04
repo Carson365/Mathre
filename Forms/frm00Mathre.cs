@@ -18,6 +18,7 @@ namespace Mathre
 			FrmTemperature TC = new();
 			FrmPizza PD = new();
 			FrmGrade GC = new();
+			FrmVideoGames VG = new();
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
 			mnuExit.Click += Exit;
@@ -43,6 +44,8 @@ namespace Mathre
 			mnuCalculateMethod4.Click += GC.ButtonSelector;
 			mnuCalculateMethod5.Click += GC.ButtonSelector;
 			mnuCalculateRandom.Click += GC.ButtonSelector;
+			mnuPS4.Click += VG.Transfer;
+			mnuXB1.Click += VG.Transfer;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
