@@ -46,6 +46,9 @@ namespace Mathre
             this.mnuRandomify = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguage = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldReset = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchool = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchoolToggleMascot = new System.Windows.Forms.ToolStripMenuItem();
@@ -93,10 +96,10 @@ namespace Mathre
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
             this.tabGrade = new System.Windows.Forms.TabPage();
             this.tabVideoGames = new System.Windows.Forms.TabPage();
-            this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
+            this.videoGameOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPS4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuXB1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -130,7 +133,8 @@ namespace Mathre
             this.mnuChange,
             this.mnuPizza,
             this.calculateMyGradeToolStripMenuItem,
-            this.mnuExit});
+            this.mnuExit,
+            this.videoGameOrdersToolStripMenuItem});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
@@ -176,6 +180,27 @@ namespace Mathre
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
             this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
+            // 
+            // mnuHelloWorldLanguageEnglish
+            // 
+            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
+            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Text = "English";
+            // 
+            // mnuHelloWorldLanguageFrench
+            // 
+            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Text = "French";
+            // 
+            // mnuHelloWorldLanguageGerman
+            // 
+            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Text = "German";
             // 
             // mnuHelloWorldReset
             // 
@@ -554,27 +579,6 @@ namespace Mathre
             this.tabVideoGames.Text = "Video Game Orders";
             this.tabVideoGames.UseVisualStyleBackColor = true;
             // 
-            // mnuHelloWorldLanguageEnglish
-            // 
-            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
-            this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageEnglish.Text = "English";
-            // 
-            // mnuHelloWorldLanguageFrench
-            // 
-            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageFrench.Text = "French";
-            // 
-            // mnuHelloWorldLanguageGerman
-            // 
-            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
-            this.mnuHelloWorldLanguageGerman.Text = "German";
-            // 
             // imgFavoriteImages
             // 
             this.imgFavoriteImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgFavoriteImages.ImageStream")));
@@ -586,6 +590,27 @@ namespace Mathre
             this.imgFavoriteImages.Images.SetKeyName(4, "LargePizza.png");
             this.imgFavoriteImages.Images.SetKeyName(5, "MediumPizza.png");
             this.imgFavoriteImages.Images.SetKeyName(6, "SmallPizza.png");
+            // 
+            // videoGameOrdersToolStripMenuItem
+            // 
+            this.videoGameOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuPS4,
+            this.mnuXB1});
+            this.videoGameOrdersToolStripMenuItem.Name = "videoGameOrdersToolStripMenuItem";
+            this.videoGameOrdersToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.videoGameOrdersToolStripMenuItem.Text = "Video Game Orders";
+            // 
+            // mnuPS4
+            // 
+            this.mnuPS4.Name = "mnuPS4";
+            this.mnuPS4.Size = new System.Drawing.Size(180, 22);
+            this.mnuPS4.Text = "Playstation 4";
+            // 
+            // mnuXB1
+            // 
+            this.mnuXB1.Name = "mnuXB1";
+            this.mnuXB1.Size = new System.Drawing.Size(180, 22);
+            this.mnuXB1.Text = "Xbox One";
             // 
             // FrmMathre
             // 
@@ -669,5 +694,8 @@ namespace Mathre
 		public ToolStripMenuItem mnuCalculateRandom;
 		private TabPage tabVideoGames;
 		public ImageList imgFavoriteImages;
+		public ToolStripMenuItem videoGameOrdersToolStripMenuItem;
+		public ToolStripMenuItem mnuPS4;
+		public ToolStripMenuItem mnuXB1;
 	}
 }
