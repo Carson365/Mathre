@@ -35,7 +35,7 @@ namespace Mathre
             this.pnlVideoGamesDisplay = new System.Windows.Forms.Panel();
             this.lblCost = new System.Windows.Forms.Label();
             this.lblCostText = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlConsole = new System.Windows.Forms.Panel();
             this.btnXB1 = new System.Windows.Forms.RadioButton();
             this.btnPS4 = new System.Windows.Forms.RadioButton();
             this.pnlVideoGames = new System.Windows.Forms.Panel();
@@ -44,15 +44,15 @@ namespace Mathre
             this.pnlDoom = new System.Windows.Forms.Panel();
             this.pnlDiningType = new System.Windows.Forms.Panel();
             this.txtMinecraft = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblTotalMinecraft = new System.Windows.Forms.Label();
             this.txtStardew = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTotalStardew = new System.Windows.Forms.Label();
             this.txtDoom = new System.Windows.Forms.TextBox();
-            this.lblTotal = new System.Windows.Forms.Label();
+            this.lblTotalDoom = new System.Windows.Forms.Label();
             this.imgGames = new System.Windows.Forms.ImageList(this.components);
             this.pnlVideoGamesFrame.SuspendLayout();
             this.pnlVideoGamesDisplay.SuspendLayout();
-            this.panel4.SuspendLayout();
+            this.pnlConsole.SuspendLayout();
             this.pnlVideoGames.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
             this.SuspendLayout();
@@ -89,7 +89,7 @@ namespace Mathre
             this.pnlVideoGamesDisplay.BackColor = System.Drawing.Color.Transparent;
             this.pnlVideoGamesDisplay.Controls.Add(this.lblCost);
             this.pnlVideoGamesDisplay.Controls.Add(this.lblCostText);
-            this.pnlVideoGamesDisplay.Controls.Add(this.panel4);
+            this.pnlVideoGamesDisplay.Controls.Add(this.pnlConsole);
             this.pnlVideoGamesDisplay.Location = new System.Drawing.Point(287, 326);
             this.pnlVideoGamesDisplay.Name = "pnlVideoGamesDisplay";
             this.pnlVideoGamesDisplay.Size = new System.Drawing.Size(426, 81);
@@ -113,15 +113,15 @@ namespace Mathre
             this.lblCostText.Text = "lblCostText";
             this.lblCostText.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // panel4
+            // pnlConsole
             // 
-            this.panel4.Controls.Add(this.btnXB1);
-            this.panel4.Controls.Add(this.btnPS4);
-            this.panel4.Location = new System.Drawing.Point(3, 3);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(122, 75);
-            this.panel4.TabIndex = 0;
-            this.panel4.Tag = "Black";
+            this.pnlConsole.Controls.Add(this.btnXB1);
+            this.pnlConsole.Controls.Add(this.btnPS4);
+            this.pnlConsole.Location = new System.Drawing.Point(3, 3);
+            this.pnlConsole.Name = "pnlConsole";
+            this.pnlConsole.Size = new System.Drawing.Size(122, 75);
+            this.pnlConsole.TabIndex = 0;
+            this.pnlConsole.Tag = "Black";
             // 
             // btnXB1
             // 
@@ -188,11 +188,11 @@ namespace Mathre
             // pnlDiningType
             // 
             this.pnlDiningType.Controls.Add(this.txtMinecraft);
-            this.pnlDiningType.Controls.Add(this.label2);
+            this.pnlDiningType.Controls.Add(this.lblTotalMinecraft);
             this.pnlDiningType.Controls.Add(this.txtStardew);
-            this.pnlDiningType.Controls.Add(this.label1);
+            this.pnlDiningType.Controls.Add(this.lblTotalStardew);
             this.pnlDiningType.Controls.Add(this.txtDoom);
-            this.pnlDiningType.Controls.Add(this.lblTotal);
+            this.pnlDiningType.Controls.Add(this.lblTotalDoom);
             this.pnlDiningType.Location = new System.Drawing.Point(3, 112);
             this.pnlDiningType.Name = "pnlDiningType";
             this.pnlDiningType.Size = new System.Drawing.Size(420, 40);
@@ -211,17 +211,17 @@ namespace Mathre
             this.txtMinecraft.Size = new System.Drawing.Size(58, 26);
             this.txtMinecraft.TabIndex = 34;
             // 
-            // label2
+            // lblTotalMinecraft
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label2.Location = new System.Drawing.Point(293, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 20);
-            this.label2.TabIndex = 33;
-            this.label2.Text = "Total";
+            this.lblTotalMinecraft.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalMinecraft.AutoSize = true;
+            this.lblTotalMinecraft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalMinecraft.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalMinecraft.Location = new System.Drawing.Point(293, 10);
+            this.lblTotalMinecraft.Name = "lblTotalMinecraft";
+            this.lblTotalMinecraft.Size = new System.Drawing.Size(44, 20);
+            this.lblTotalMinecraft.TabIndex = 33;
+            this.lblTotalMinecraft.Text = "Total";
             // 
             // txtStardew
             // 
@@ -235,17 +235,17 @@ namespace Mathre
             this.txtStardew.Size = new System.Drawing.Size(58, 26);
             this.txtStardew.TabIndex = 32;
             // 
-            // label1
+            // lblTotalStardew
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(155, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 20);
-            this.label1.TabIndex = 31;
-            this.label1.Text = "Total";
+            this.lblTotalStardew.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalStardew.AutoSize = true;
+            this.lblTotalStardew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalStardew.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalStardew.Location = new System.Drawing.Point(155, 10);
+            this.lblTotalStardew.Name = "lblTotalStardew";
+            this.lblTotalStardew.Size = new System.Drawing.Size(44, 20);
+            this.lblTotalStardew.TabIndex = 31;
+            this.lblTotalStardew.Text = "Total";
             // 
             // txtDoom
             // 
@@ -259,17 +259,17 @@ namespace Mathre
             this.txtDoom.Size = new System.Drawing.Size(58, 26);
             this.txtDoom.TabIndex = 30;
             // 
-            // lblTotal
+            // lblTotalDoom
             // 
-            this.lblTotal.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTotal.AutoSize = true;
-            this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotal.Location = new System.Drawing.Point(17, 10);
-            this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(44, 20);
-            this.lblTotal.TabIndex = 27;
-            this.lblTotal.Text = "Total";
+            this.lblTotalDoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTotalDoom.AutoSize = true;
+            this.lblTotalDoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalDoom.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalDoom.Location = new System.Drawing.Point(17, 10);
+            this.lblTotalDoom.Name = "lblTotalDoom";
+            this.lblTotalDoom.Size = new System.Drawing.Size(44, 20);
+            this.lblTotalDoom.TabIndex = 27;
+            this.lblTotalDoom.Text = "Total";
             // 
             // imgGames
             // 
@@ -293,8 +293,8 @@ namespace Mathre
             this.Text = "Video Game Orders";
             this.pnlVideoGamesFrame.ResumeLayout(false);
             this.pnlVideoGamesDisplay.ResumeLayout(false);
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
+            this.pnlConsole.ResumeLayout(false);
+            this.pnlConsole.PerformLayout();
             this.pnlVideoGames.ResumeLayout(false);
             this.pnlDiningType.ResumeLayout(false);
             this.pnlDiningType.PerformLayout();
@@ -309,13 +309,13 @@ namespace Mathre
 		private System.Windows.Forms.Panel pnlVideoGamesDisplay;
 		private System.Windows.Forms.Panel pnlVideoGames;
 		internal System.Windows.Forms.TextBox txtDoom;
-		internal System.Windows.Forms.Label lblTotal;
+		internal System.Windows.Forms.Label lblTotalDoom;
 		private System.Windows.Forms.Panel pnlDiningType;
 		internal System.Windows.Forms.TextBox txtMinecraft;
-		internal System.Windows.Forms.Label label2;
+		internal System.Windows.Forms.Label lblTotalMinecraft;
 		internal System.Windows.Forms.TextBox txtStardew;
-		internal System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Panel panel4;
+		internal System.Windows.Forms.Label lblTotalStardew;
+		private System.Windows.Forms.Panel pnlConsole;
 		private System.Windows.Forms.RadioButton btnXB1;
 		private System.Windows.Forms.RadioButton btnPS4;
 		private System.Windows.Forms.Panel pnlMinecraft;
