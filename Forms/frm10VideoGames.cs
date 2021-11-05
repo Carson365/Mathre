@@ -74,9 +74,21 @@ namespace Mathre
 		}
 		public void Cost(object sender, EventArgs e) // Cost calculator and display
 		{
-			int Doom = int.Parse(txtDoom.Text);
-			int Stardew = int.Parse(txtStardew.Text);
-			int Minecraft = int.Parse(txtMinecraft.Text);
+			int Doom = 0;
+			if (int.TryParse(txtDoom.Text, out int DoomCount))
+			{
+				Doom = DoomCount;
+			}
+			int Stardew = 0;
+			if (int.TryParse(txtStardew.Text, out int StardewCount))
+			{
+				Stardew = StardewCount;
+			}
+			int Minecraft = 0;
+			if (int.TryParse(txtMinecraft.Text, out int MinecraftCount))
+			{
+				Minecraft = MinecraftCount;
+			}
 			if (txtDoom.Text != "" | txtStardew.Text != "" | txtMinecraft.Text != "") // Ensure the input is not null
 			{
 				int A = (Doom+Minecraft+Stardew); // Calculate the amount of games
