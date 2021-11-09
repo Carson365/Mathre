@@ -54,9 +54,10 @@ namespace Mathre
             this.pnlSecretFrame.Controls.Add(this.pnlFavoriteDisplay);
             this.pnlSecretFrame.Controls.Add(this.pnlFavoriteControls);
             this.pnlSecretFrame.Controls.Add(this.lblFavoriteTitle);
-            this.pnlSecretFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlSecretFrame.Location = new System.Drawing.Point(-9, -23);
+            this.pnlSecretFrame.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlSecretFrame.Name = "pnlSecretFrame";
-            this.pnlSecretFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlSecretFrame.Size = new System.Drawing.Size(1167, 577);
             this.pnlSecretFrame.TabIndex = 33;
             // 
             // pnlFavoriteDisplay
@@ -65,29 +66,32 @@ namespace Mathre
             this.pnlFavoriteDisplay.BackColor = System.Drawing.Color.Transparent;
             this.pnlFavoriteDisplay.Controls.Add(this.pnlFavoriteImage);
             this.pnlFavoriteDisplay.Controls.Add(this.lblFavoriteInfo);
-            this.pnlFavoriteDisplay.Location = new System.Drawing.Point(287, 276);
+            this.pnlFavoriteDisplay.Location = new System.Drawing.Point(335, 318);
+            this.pnlFavoriteDisplay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlFavoriteDisplay.Name = "pnlFavoriteDisplay";
-            this.pnlFavoriteDisplay.Size = new System.Drawing.Size(426, 136);
+            this.pnlFavoriteDisplay.Size = new System.Drawing.Size(497, 157);
             this.pnlFavoriteDisplay.TabIndex = 36;
             // 
             // pnlFavoriteImage
             // 
             this.pnlFavoriteImage.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlFavoriteImage.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFavoriteImage.Location = new System.Drawing.Point(19, 18);
+            this.pnlFavoriteImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlFavoriteImage.Location = new System.Drawing.Point(22, 21);
+            this.pnlFavoriteImage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlFavoriteImage.Name = "pnlFavoriteImage";
-            this.pnlFavoriteImage.Size = new System.Drawing.Size(100, 100);
+            this.pnlFavoriteImage.Size = new System.Drawing.Size(117, 115);
             this.pnlFavoriteImage.TabIndex = 26;
             // 
             // lblFavoriteInfo
             // 
             this.lblFavoriteInfo.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblFavoriteInfo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblFavoriteInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFavoriteInfo.Location = new System.Drawing.Point(137, 18);
+            this.lblFavoriteInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFavoriteInfo.Location = new System.Drawing.Point(160, 21);
             this.lblFavoriteInfo.Margin = new System.Windows.Forms.Padding(0);
             this.lblFavoriteInfo.Name = "lblFavoriteInfo";
-            this.lblFavoriteInfo.Size = new System.Drawing.Size(270, 100);
+            this.lblFavoriteInfo.Size = new System.Drawing.Size(315, 115);
             this.lblFavoriteInfo.TabIndex = 20;
             this.lblFavoriteInfo.Text = "My Favorite __________";
             this.lblFavoriteInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,16 +105,18 @@ namespace Mathre
             this.pnlFavoriteControls.Controls.Add(this.btnFavoriteColor);
             this.pnlFavoriteControls.Controls.Add(this.btnFavoriteActor);
             this.pnlFavoriteControls.Controls.Add(this.btnFavoriteFruit);
-            this.pnlFavoriteControls.Location = new System.Drawing.Point(287, 165);
+            this.pnlFavoriteControls.Location = new System.Drawing.Point(335, 190);
+            this.pnlFavoriteControls.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.pnlFavoriteControls.Name = "pnlFavoriteControls";
-            this.pnlFavoriteControls.Size = new System.Drawing.Size(426, 105);
+            this.pnlFavoriteControls.Size = new System.Drawing.Size(497, 121);
             this.pnlFavoriteControls.TabIndex = 34;
             // 
             // btnFavoriteMovie
             // 
             this.btnFavoriteMovie.AutoSize = true;
-            this.btnFavoriteMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteMovie.Location = new System.Drawing.Point(102, 55);
+            this.btnFavoriteMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFavoriteMovie.Location = new System.Drawing.Point(119, 63);
+            this.btnFavoriteMovie.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnFavoriteMovie.Name = "btnFavoriteMovie";
             this.btnFavoriteMovie.Size = new System.Drawing.Size(68, 24);
             this.btnFavoriteMovie.TabIndex = 24;
@@ -120,8 +126,9 @@ namespace Mathre
             // btnFavoriteHobby
             // 
             this.btnFavoriteHobby.AutoSize = true;
-            this.btnFavoriteHobby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteHobby.Location = new System.Drawing.Point(252, 55);
+            this.btnFavoriteHobby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFavoriteHobby.Location = new System.Drawing.Point(294, 63);
+            this.btnFavoriteHobby.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnFavoriteHobby.Name = "btnFavoriteHobby";
             this.btnFavoriteHobby.Size = new System.Drawing.Size(73, 24);
             this.btnFavoriteHobby.TabIndex = 21;
@@ -131,8 +138,9 @@ namespace Mathre
             // btnFavoriteColor
             // 
             this.btnFavoriteColor.AutoSize = true;
-            this.btnFavoriteColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteColor.Location = new System.Drawing.Point(334, 26);
+            this.btnFavoriteColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFavoriteColor.Location = new System.Drawing.Point(390, 30);
+            this.btnFavoriteColor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnFavoriteColor.Name = "btnFavoriteColor";
             this.btnFavoriteColor.Size = new System.Drawing.Size(64, 24);
             this.btnFavoriteColor.TabIndex = 22;
@@ -142,8 +150,9 @@ namespace Mathre
             // btnFavoriteActor
             // 
             this.btnFavoriteActor.AutoSize = true;
-            this.btnFavoriteActor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteActor.Location = new System.Drawing.Point(28, 26);
+            this.btnFavoriteActor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFavoriteActor.Location = new System.Drawing.Point(33, 30);
+            this.btnFavoriteActor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnFavoriteActor.Name = "btnFavoriteActor";
             this.btnFavoriteActor.Size = new System.Drawing.Size(65, 24);
             this.btnFavoriteActor.TabIndex = 20;
@@ -153,8 +162,9 @@ namespace Mathre
             // btnFavoriteFruit
             // 
             this.btnFavoriteFruit.AutoSize = true;
-            this.btnFavoriteFruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteFruit.Location = new System.Drawing.Point(184, 26);
+            this.btnFavoriteFruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.btnFavoriteFruit.Location = new System.Drawing.Point(215, 30);
+            this.btnFavoriteFruit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.btnFavoriteFruit.Name = "btnFavoriteFruit";
             this.btnFavoriteFruit.Size = new System.Drawing.Size(59, 24);
             this.btnFavoriteFruit.TabIndex = 23;
@@ -164,22 +174,23 @@ namespace Mathre
             // lblFavoriteTitle
             // 
             this.lblFavoriteTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFavoriteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFavoriteTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblFavoriteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblFavoriteTitle.Location = new System.Drawing.Point(218, 110);
             this.lblFavoriteTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblFavoriteTitle.Name = "lblFavoriteTitle";
-            this.lblFavoriteTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblFavoriteTitle.Size = new System.Drawing.Size(730, 59);
             this.lblFavoriteTitle.TabIndex = 33;
             this.lblFavoriteTitle.Text = "My Favorite __________";
             this.lblFavoriteTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmMyFavorites
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(1148, 532);
             this.Controls.Add(this.pnlSecretFrame);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "FrmMyFavorites";
             this.Text = "My Favorites";
             this.pnlSecretFrame.ResumeLayout(false);

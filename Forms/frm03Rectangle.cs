@@ -14,7 +14,6 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			btnRectangleCalculate.Click += Rectangle;
 			txtRectangleDimensions.KeyPress += Rectangle;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			KeyDown += KeyboardShortcuts;

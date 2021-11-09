@@ -80,6 +80,9 @@ namespace Mathre
             this.mnuCalculateMethod5 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateRandom = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.videoGameOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPS4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuXB1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSecret = new System.Windows.Forms.TabPage();
@@ -97,9 +100,6 @@ namespace Mathre
             this.tabGrade = new System.Windows.Forms.TabPage();
             this.tabVideoGames = new System.Windows.Forms.TabPage();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
-            this.videoGameOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPS4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuXB1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -116,7 +116,7 @@ namespace Mathre
             this.mnuBaseLayer.Name = "mnuBaseLayer";
             this.mnuBaseLayer.Padding = new System.Windows.Forms.Padding(0);
             this.mnuBaseLayer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mnuBaseLayer.Size = new System.Drawing.Size(1095, 24);
+            this.mnuBaseLayer.Size = new System.Drawing.Size(1278, 24);
             this.mnuBaseLayer.TabIndex = 0;
             this.mnuBaseLayer.Text = "Menu";
             // 
@@ -178,34 +178,34 @@ namespace Mathre
             this.mnuHelloWorldLanguageFrench,
             this.mnuHelloWorldLanguageGerman});
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
-            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
             // 
             // mnuHelloWorldLanguageEnglish
             // 
-            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
+            this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.Properties.Resources.EnglishAtScale;
             this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageEnglish.Text = "English";
             // 
             // mnuHelloWorldLanguageFrench
             // 
-            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.mnuHelloWorldLanguageFrench.Image = global::Mathre.Properties.Resources.French;
             this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageFrench.Text = "French";
             // 
             // mnuHelloWorldLanguageGerman
             // 
-            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.mnuHelloWorldLanguageGerman.Image = global::Mathre.Properties.Resources.German;
             this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageGerman.Text = "German";
             // 
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
-            this.mnuHelloWorldReset.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldReset.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldReset.Text = "Reset";
             // 
             // mnuMySchool
@@ -417,6 +417,27 @@ namespace Mathre
             this.mnuExit.Size = new System.Drawing.Size(195, 22);
             this.mnuExit.Text = "Exit";
             // 
+            // videoGameOrdersToolStripMenuItem
+            // 
+            this.videoGameOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuPS4,
+            this.mnuXB1});
+            this.videoGameOrdersToolStripMenuItem.Name = "videoGameOrdersToolStripMenuItem";
+            this.videoGameOrdersToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.videoGameOrdersToolStripMenuItem.Text = "Video Game Orders";
+            // 
+            // mnuPS4
+            // 
+            this.mnuPS4.Name = "mnuPS4";
+            this.mnuPS4.Size = new System.Drawing.Size(141, 22);
+            this.mnuPS4.Text = "Playstation 4";
+            // 
+            // mnuXB1
+            // 
+            this.mnuXB1.Name = "mnuXB1";
+            this.mnuXB1.Size = new System.Drawing.Size(141, 22);
+            this.mnuXB1.Text = "Xbox One";
+            // 
             // mnuEdit
             // 
             this.mnuEdit.Enabled = false;
@@ -432,28 +453,30 @@ namespace Mathre
             // 
             // tabSecret
             // 
-            this.tabSecret.Location = new System.Drawing.Point(4, 22);
+            this.tabSecret.Location = new System.Drawing.Point(4, 24);
+            this.tabSecret.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabSecret.Name = "tabSecret";
-            this.tabSecret.Size = new System.Drawing.Size(1087, 0);
+            this.tabSecret.Size = new System.Drawing.Size(1270, 0);
             this.tabSecret.TabIndex = 3;
             this.tabSecret.Text = "Secret Settings Page";
             this.tabSecret.UseVisualStyleBackColor = true;
             // 
             // tabUnknown
             // 
-            this.tabUnknown.Location = new System.Drawing.Point(4, 22);
+            this.tabUnknown.Location = new System.Drawing.Point(4, 24);
             this.tabUnknown.Margin = new System.Windows.Forms.Padding(0);
             this.tabUnknown.Name = "tabUnknown";
-            this.tabUnknown.Size = new System.Drawing.Size(1087, 0);
+            this.tabUnknown.Size = new System.Drawing.Size(1270, 0);
             this.tabUnknown.TabIndex = 2;
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
             // 
             // tabPizza
             // 
-            this.tabPizza.Location = new System.Drawing.Point(4, 22);
+            this.tabPizza.Location = new System.Drawing.Point(4, 24);
+            this.tabPizza.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabPizza.Name = "tabPizza";
-            this.tabPizza.Size = new System.Drawing.Size(1087, 0);
+            this.tabPizza.Size = new System.Drawing.Size(1270, 0);
             this.tabPizza.TabIndex = 9;
             this.tabPizza.Tag = "";
             this.tabPizza.Text = "Pizza Delivery";
@@ -462,9 +485,10 @@ namespace Mathre
             // tabChange
             // 
             this.tabChange.Controls.Add(this.lblChangeMakerTitle);
-            this.tabChange.Location = new System.Drawing.Point(4, 22);
+            this.tabChange.Location = new System.Drawing.Point(4, 24);
+            this.tabChange.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(1087, 0);
+            this.tabChange.Size = new System.Drawing.Size(1270, 0);
             this.tabChange.TabIndex = 8;
             this.tabChange.Text = "Change Maker";
             this.tabChange.UseVisualStyleBackColor = true;
@@ -472,57 +496,62 @@ namespace Mathre
             // lblChangeMakerTitle
             // 
             this.lblChangeMakerTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblChangeMakerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeMakerTitle.Location = new System.Drawing.Point(94, 801);
+            this.lblChangeMakerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblChangeMakerTitle.Location = new System.Drawing.Point(110, 924);
             this.lblChangeMakerTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblChangeMakerTitle.Name = "lblChangeMakerTitle";
-            this.lblChangeMakerTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblChangeMakerTitle.Size = new System.Drawing.Size(730, 59);
             this.lblChangeMakerTitle.TabIndex = 20;
             this.lblChangeMakerTitle.Text = "Change Maker";
             this.lblChangeMakerTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tabDigits
             // 
-            this.tabDigits.Location = new System.Drawing.Point(4, 22);
+            this.tabDigits.Location = new System.Drawing.Point(4, 24);
+            this.tabDigits.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(1087, 0);
+            this.tabDigits.Size = new System.Drawing.Size(1270, 0);
             this.tabDigits.TabIndex = 7;
             this.tabDigits.Text = "Digit Separator";
             this.tabDigits.UseVisualStyleBackColor = true;
             // 
             // tabTemperature
             // 
-            this.tabTemperature.Location = new System.Drawing.Point(4, 22);
+            this.tabTemperature.Location = new System.Drawing.Point(4, 24);
+            this.tabTemperature.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(1087, 0);
+            this.tabTemperature.Size = new System.Drawing.Size(1270, 0);
             this.tabTemperature.TabIndex = 6;
             this.tabTemperature.Text = "Temperature Converter";
             this.tabTemperature.UseVisualStyleBackColor = true;
             // 
             // tabMyFavorites
             // 
-            this.tabMyFavorites.Location = new System.Drawing.Point(4, 22);
+            this.tabMyFavorites.Location = new System.Drawing.Point(4, 24);
+            this.tabMyFavorites.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabMyFavorites.Name = "tabMyFavorites";
-            this.tabMyFavorites.Size = new System.Drawing.Size(1087, 0);
+            this.tabMyFavorites.Size = new System.Drawing.Size(1270, 0);
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
             // 
             // tabRectangle
             // 
-            this.tabRectangle.Location = new System.Drawing.Point(4, 22);
+            this.tabRectangle.Location = new System.Drawing.Point(4, 24);
+            this.tabRectangle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabRectangle.Name = "tabRectangle";
-            this.tabRectangle.Size = new System.Drawing.Size(1087, 0);
+            this.tabRectangle.Size = new System.Drawing.Size(1270, 0);
             this.tabRectangle.TabIndex = 4;
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
             // 
             // tabMySchool
             // 
-            this.tabMySchool.Location = new System.Drawing.Point(4, 22);
+            this.tabMySchool.Location = new System.Drawing.Point(4, 24);
+            this.tabMySchool.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabMySchool.Name = "tabMySchool";
-            this.tabMySchool.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMySchool.Size = new System.Drawing.Size(1087, 0);
+            this.tabMySchool.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.tabMySchool.Size = new System.Drawing.Size(1270, 0);
             this.tabMySchool.TabIndex = 1;
             this.tabMySchool.Text = "My School";
             this.tabMySchool.UseVisualStyleBackColor = true;
@@ -546,7 +575,7 @@ namespace Mathre
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
             this.tabMathre.Name = "tabMathre";
             this.tabMathre.SelectedIndex = 0;
-            this.tabMathre.Size = new System.Drawing.Size(1095, 21);
+            this.tabMathre.Size = new System.Drawing.Size(1278, 24);
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabMathre.TabIndex = 4;
             this.tabMathre.Tag = "";
@@ -554,33 +583,36 @@ namespace Mathre
             // tabHelloWorld
             // 
             this.tabHelloWorld.BackColor = System.Drawing.Color.Transparent;
-            this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
+            this.tabHelloWorld.Location = new System.Drawing.Point(4, 24);
             this.tabHelloWorld.Margin = new System.Windows.Forms.Padding(0);
             this.tabHelloWorld.Name = "tabHelloWorld";
-            this.tabHelloWorld.Size = new System.Drawing.Size(1087, 0);
+            this.tabHelloWorld.Size = new System.Drawing.Size(1270, 0);
             this.tabHelloWorld.TabIndex = 0;
             this.tabHelloWorld.Text = "Hello World";
             // 
             // tabGrade
             // 
-            this.tabGrade.Location = new System.Drawing.Point(4, 22);
+            this.tabGrade.Location = new System.Drawing.Point(4, 24);
+            this.tabGrade.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabGrade.Name = "tabGrade";
-            this.tabGrade.Size = new System.Drawing.Size(1087, 0);
+            this.tabGrade.Size = new System.Drawing.Size(1270, 0);
             this.tabGrade.TabIndex = 10;
             this.tabGrade.Text = "Calculate My Grade";
             this.tabGrade.UseVisualStyleBackColor = true;
             // 
             // tabVideoGames
             // 
-            this.tabVideoGames.Location = new System.Drawing.Point(4, 22);
+            this.tabVideoGames.Location = new System.Drawing.Point(4, 24);
+            this.tabVideoGames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.tabVideoGames.Name = "tabVideoGames";
-            this.tabVideoGames.Size = new System.Drawing.Size(1087, 0);
+            this.tabVideoGames.Size = new System.Drawing.Size(1270, 0);
             this.tabVideoGames.TabIndex = 11;
             this.tabVideoGames.Text = "Video Game Orders";
             this.tabVideoGames.UseVisualStyleBackColor = true;
             // 
             // imgFavoriteImages
             // 
+            this.imgFavoriteImages.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
             this.imgFavoriteImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgFavoriteImages.ImageStream")));
             this.imgFavoriteImages.TransparentColor = System.Drawing.Color.Transparent;
             this.imgFavoriteImages.Images.SetKeyName(0, "Actor.jpg");
@@ -591,40 +623,20 @@ namespace Mathre
             this.imgFavoriteImages.Images.SetKeyName(5, "MediumPizza.png");
             this.imgFavoriteImages.Images.SetKeyName(6, "SmallPizza.png");
             // 
-            // videoGameOrdersToolStripMenuItem
-            // 
-            this.videoGameOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuPS4,
-            this.mnuXB1});
-            this.videoGameOrdersToolStripMenuItem.Name = "videoGameOrdersToolStripMenuItem";
-            this.videoGameOrdersToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.videoGameOrdersToolStripMenuItem.Text = "Video Game Orders";
-            // 
-            // mnuPS4
-            // 
-            this.mnuPS4.Name = "mnuPS4";
-            this.mnuPS4.Size = new System.Drawing.Size(180, 22);
-            this.mnuPS4.Text = "Playstation 4";
-            // 
-            // mnuXB1
-            // 
-            this.mnuXB1.Name = "mnuXB1";
-            this.mnuXB1.Size = new System.Drawing.Size(180, 22);
-            this.mnuXB1.Text = "Xbox One";
-            // 
             // FrmMathre
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1095, 461);
+            this.ClientSize = new System.Drawing.Size(1278, 532);
             this.Controls.Add(this.tabMathre);
             this.Controls.Add(this.mnuBaseLayer);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuBaseLayer;
-            this.MinimumSize = new System.Drawing.Size(1000, 500);
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MinimumSize = new System.Drawing.Size(1164, 571);
             this.Name = "FrmMathre";
             this.Text = "Hello World";
             this.Load += new System.EventHandler(this.FormLoad);

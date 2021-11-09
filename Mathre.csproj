@@ -1,20 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{589A2A13-4BEA-06C0-17C9-357656E50C18}</ProjectGuid>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <StartupObject>Mathre.My.MyApplication</StartupObject>
-    <RootNamespace>Mathre</RootNamespace>
-    <AssemblyName>Mathre</AssemblyName>
-    <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(ProjectDir)**\*.vb</DefaultItemExcludes>
     <LangVersion>latest</LangVersion>
@@ -32,14 +21,14 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <OutputPath>bin\Debug\</OutputPath>
     <DocumentationFile>
     </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
@@ -48,12 +37,8 @@
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>bin\Release\Mathre.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <LangVersion>preview</LangVersion>
@@ -71,20 +56,6 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Net.Http" />
-  </ItemGroup>
-  <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -98,184 +69,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\frm07Change.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm07Change.Designer.cs">
-      <DependentUpon>frm07Change.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm06Digits.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm06Digits.Designer.cs">
-      <DependentUpon>frm06Digits.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm01HelloWorld.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm01HelloWorld.Designer.cs">
-      <DependentUpon>frm01HelloWorld.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm04MyFavorites.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm04MyFavorites.Designer.cs">
-      <DependentUpon>frm04MyFavorites.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm02MySchool.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm02MySchool.Designer.cs">
-      <DependentUpon>frm02MySchool.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm08Pizza.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm08Pizza.Designer.cs">
-      <DependentUpon>frm08Pizza.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm03Rectangle.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm03Rectangle.Designer.cs">
-      <DependentUpon>frm03Rectangle.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm09Grade.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm09Grade.Designer.cs">
-      <DependentUpon>frm09Grade.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmSecret.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmSecret.Designer.cs">
-      <DependentUpon>frmSecret.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm05Temperature.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm05Temperature.Designer.cs">
-      <DependentUpon>frm05Temperature.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frmUnknown.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frmUnknown.Designer.cs">
-      <DependentUpon>frmUnknown.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\frm10VideoGames.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm10VideoGames.Designer.cs">
-      <DependentUpon>frm10VideoGames.cs</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\MyNamespace.Dynamic.Designer.cs" />
-    <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
-    <Compile Include="My Project\MyNamespace.Static.2.Designer.cs" />
-    <Compile Include="My Project\MyNamespace.Static.3.Designer.cs" />
-    <Compile Include="Forms\frm00Mathre.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\frm00Mathre.Designer.cs">
-      <DependentUpon>frm00Mathre.cs</DependentUpon>
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="My Project\AssemblyInfo.cs" />
-    <Compile Include="My Project\Application.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Application.myapp</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-    <Compile Include="Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="My Project\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Forms\frm07Change.resx">
-      <DependentUpon>frm07Change.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm06Digits.resx">
-      <DependentUpon>frm06Digits.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm01HelloWorld.resx">
-      <DependentUpon>frm01HelloWorld.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm00Mathre.resx">
-      <DependentUpon>frm00Mathre.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm04MyFavorites.resx">
-      <DependentUpon>frm04MyFavorites.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm02MySchool.resx">
-      <DependentUpon>frm02MySchool.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm08Pizza.resx">
-      <DependentUpon>frm08Pizza.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm03Rectangle.resx">
-      <DependentUpon>frm03Rectangle.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm09Grade.resx">
-      <DependentUpon>frm09Grade.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmSecret.resx">
-      <DependentUpon>frmSecret.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm05Temperature.resx">
-      <DependentUpon>frm05Temperature.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frmUnknown.resx">
-      <DependentUpon>frmUnknown.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm10VideoGames.resx">
-      <DependentUpon>frm10VideoGames.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <CustomToolNamespace>Mathre.My.Resources</CustomToolNamespace>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include=".editorconfig" />
-    <None Include="My Project\Application.myapp">
+    <None Update="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.cs</LastGenOutput>
     </None>
-    <None Include="My Project\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <CustomToolNamespace>Mathre.My</CustomToolNamespace>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Resources\English.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\German.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\French.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -290,28 +87,26 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\English1.png" />
+    <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
+    <PackageReference Include="Microsoft.DotNet.UpgradeAssistant.Extensions.Default.Analyzers" Version="0.3.252501">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="6.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\RedRiver.png" />
+    <EmbeddedResource Remove="My Project\Resources.resx" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\EnterKey.png" />
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\LargePizza.png" />
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MediumPizza.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SmallPizza.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Image1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Stardew-PS4.jpg" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

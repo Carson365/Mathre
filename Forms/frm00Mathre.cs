@@ -1,15 +1,16 @@
 using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 namespace Mathre
 {
 	public partial class FrmMathre : Form
 	{
-		public static string AccentColor;
-		public static Color SystemColor;
-		public static bool hidden;
-		public static Size FormSize;
+		private static string AccentColor;
+		private static Color SystemColor;
+		private static bool hidden;
+		private static Size FormSize;
 		public FrmMathre()
 		{
 			InitializeComponent();
@@ -52,10 +53,12 @@ namespace Mathre
 			tabMathre.TabPages.Remove(tabSecret);
 			hidden = true;
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
-			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
-			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor"));
-			ColorKey.Close();
-			//KeyPreview = true;
+			if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+			{
+				var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
+				AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor"));
+				ColorKey.Close();
+			}
 			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
 			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items)
