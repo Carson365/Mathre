@@ -12,8 +12,8 @@ namespace Mathre
 {
 	public partial class FrmVideoGames : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmVideoGames ThisForm;
+		private static FrmMathre BaseForm;
+		private static FrmVideoGames ThisForm;
 		public FrmVideoGames()
 		{
 			InitializeComponent();
@@ -58,7 +58,7 @@ namespace Mathre
 		}
 		public void ImageSetter(object sender, EventArgs e) // Set the proper images depending on whether Xbox or Playstation is selected
 		{
-			
+
 			if (btnPS4.Checked)
 			{
 				pnlDoom.BackgroundImage = imgGames.Images["Doom-PS4.jpg"];
@@ -91,7 +91,7 @@ namespace Mathre
 			}
 			if (txtDoom.Text != "" | txtStardew.Text != "" | txtMinecraft.Text != "") // Ensure the input is not null
 			{
-				int A = (Doom+Minecraft+Stardew); // Calculate the amount of games
+				int A = (Doom + Minecraft + Stardew); // Calculate the amount of games
 				string B = A switch { not 1 => "s", _ => "" }; // Grammar
 				int C = (A / 3); // Calculate the amount of boxes
 				string D = C switch { not 1 => "es", _ => "" }; // Grammar
@@ -121,7 +121,7 @@ namespace Mathre
 			}
 			if (textBox.Text.Length == 3 && e.KeyChar != '\b')
 			{
-						e.Handled = true;
+				e.Handled = true;
 			}
 			if (textBox.Text.Length == 0 && e.KeyChar == '0')
 			{

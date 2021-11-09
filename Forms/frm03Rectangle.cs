@@ -8,8 +8,7 @@ namespace Mathre
 	public partial class FrmRectangle : Form
 	{
 		public object Placeholder;
-		public static FrmMathre BaseForm;
-		public static FrmRectangle ThisForm;
+		private static FrmMathre BaseForm;
 		public FrmRectangle()
 		{
 			InitializeComponent();
@@ -22,7 +21,6 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmRectangle>().Single();
 			lblRectangleError.Visible = false;
 			pnlRectangle.Visible = false;
 			foreach (Control c in Controls)
@@ -115,7 +113,7 @@ namespace Mathre
 			}
 			if (sender is not TextBoxBase textBox)
 				return;
-			if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x"))
+			if (txtRectangleDimensions.SelectedText.Contains(' ') || txtRectangleDimensions.SelectedText.Contains('x'))
 			{
 				if (e.KeyChar == '\b')
 				{
