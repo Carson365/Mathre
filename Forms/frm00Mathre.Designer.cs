@@ -72,7 +72,7 @@ namespace Mathre
             this.mnuPizzaTakeout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPizzaDollars = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPizzaPercent = new System.Windows.Forms.ToolStripMenuItem();
-            this.calculateMyGradeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuGrade = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod3 = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +80,9 @@ namespace Mathre
             this.mnuCalculateMethod5 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateRandom = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.videoGameOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPS4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuXB1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSecret = new System.Windows.Forms.TabPage();
@@ -96,10 +99,8 @@ namespace Mathre
             this.tabHelloWorld = new System.Windows.Forms.TabPage();
             this.tabGrade = new System.Windows.Forms.TabPage();
             this.tabVideoGames = new System.Windows.Forms.TabPage();
+            this.tabRPS = new System.Windows.Forms.TabPage();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
-            this.videoGameOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPS4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuXB1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -116,7 +117,7 @@ namespace Mathre
             this.mnuBaseLayer.Name = "mnuBaseLayer";
             this.mnuBaseLayer.Padding = new System.Windows.Forms.Padding(0);
             this.mnuBaseLayer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mnuBaseLayer.Size = new System.Drawing.Size(1095, 24);
+            this.mnuBaseLayer.Size = new System.Drawing.Size(1154, 24);
             this.mnuBaseLayer.TabIndex = 0;
             this.mnuBaseLayer.Text = "Menu";
             // 
@@ -132,7 +133,7 @@ namespace Mathre
             this.mnuDigits,
             this.mnuChange,
             this.mnuPizza,
-            this.calculateMyGradeToolStripMenuItem,
+            this.mnuGrade,
             this.mnuExit,
             this.videoGameOrdersToolStripMenuItem});
             this.mnuFile.Name = "mnuFile";
@@ -362,53 +363,53 @@ namespace Mathre
             this.mnuPizzaPercent.Size = new System.Drawing.Size(116, 22);
             this.mnuPizzaPercent.Text = "Percent";
             // 
-            // calculateMyGradeToolStripMenuItem
+            // mnuGrade
             // 
-            this.calculateMyGradeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuGrade.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCalculateMethod1,
             this.mnuCalculateMethod2,
             this.mnuCalculateMethod3,
             this.mnuCalculateMethod4,
             this.mnuCalculateMethod5,
             this.mnuCalculateRandom});
-            this.calculateMyGradeToolStripMenuItem.Name = "calculateMyGradeToolStripMenuItem";
-            this.calculateMyGradeToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.calculateMyGradeToolStripMenuItem.Text = "Calculate My Grade";
+            this.mnuGrade.Name = "mnuGrade";
+            this.mnuGrade.Size = new System.Drawing.Size(195, 22);
+            this.mnuGrade.Text = "Calculate My Grade";
             // 
             // mnuCalculateMethod1
             // 
             this.mnuCalculateMethod1.Name = "mnuCalculateMethod1";
-            this.mnuCalculateMethod1.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod1.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod1.Text = "Method 1";
             // 
             // mnuCalculateMethod2
             // 
             this.mnuCalculateMethod2.Name = "mnuCalculateMethod2";
-            this.mnuCalculateMethod2.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod2.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod2.Text = "Method 2";
             // 
             // mnuCalculateMethod3
             // 
             this.mnuCalculateMethod3.Name = "mnuCalculateMethod3";
-            this.mnuCalculateMethod3.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod3.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod3.Text = "Method 3";
             // 
             // mnuCalculateMethod4
             // 
             this.mnuCalculateMethod4.Name = "mnuCalculateMethod4";
-            this.mnuCalculateMethod4.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod4.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod4.Text = "Method 4";
             // 
             // mnuCalculateMethod5
             // 
             this.mnuCalculateMethod5.Name = "mnuCalculateMethod5";
-            this.mnuCalculateMethod5.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod5.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod5.Text = "Method 5";
             // 
             // mnuCalculateRandom
             // 
             this.mnuCalculateRandom.Name = "mnuCalculateRandom";
-            this.mnuCalculateRandom.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateRandom.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateRandom.Text = "Random";
             // 
             // mnuExit
@@ -416,6 +417,27 @@ namespace Mathre
             this.mnuExit.Name = "mnuExit";
             this.mnuExit.Size = new System.Drawing.Size(195, 22);
             this.mnuExit.Text = "Exit";
+            // 
+            // videoGameOrdersToolStripMenuItem
+            // 
+            this.videoGameOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuPS4,
+            this.mnuXB1});
+            this.videoGameOrdersToolStripMenuItem.Name = "videoGameOrdersToolStripMenuItem";
+            this.videoGameOrdersToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.videoGameOrdersToolStripMenuItem.Text = "Video Game Orders";
+            // 
+            // mnuPS4
+            // 
+            this.mnuPS4.Name = "mnuPS4";
+            this.mnuPS4.Size = new System.Drawing.Size(141, 22);
+            this.mnuPS4.Text = "Playstation 4";
+            // 
+            // mnuXB1
+            // 
+            this.mnuXB1.Name = "mnuXB1";
+            this.mnuXB1.Size = new System.Drawing.Size(141, 22);
+            this.mnuXB1.Text = "Xbox One";
             // 
             // mnuEdit
             // 
@@ -434,7 +456,7 @@ namespace Mathre
             // 
             this.tabSecret.Location = new System.Drawing.Point(4, 22);
             this.tabSecret.Name = "tabSecret";
-            this.tabSecret.Size = new System.Drawing.Size(1087, 0);
+            this.tabSecret.Size = new System.Drawing.Size(1146, 0);
             this.tabSecret.TabIndex = 3;
             this.tabSecret.Text = "Secret Settings Page";
             this.tabSecret.UseVisualStyleBackColor = true;
@@ -444,7 +466,7 @@ namespace Mathre
             this.tabUnknown.Location = new System.Drawing.Point(4, 22);
             this.tabUnknown.Margin = new System.Windows.Forms.Padding(0);
             this.tabUnknown.Name = "tabUnknown";
-            this.tabUnknown.Size = new System.Drawing.Size(1087, 0);
+            this.tabUnknown.Size = new System.Drawing.Size(1146, 0);
             this.tabUnknown.TabIndex = 2;
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
@@ -453,7 +475,7 @@ namespace Mathre
             // 
             this.tabPizza.Location = new System.Drawing.Point(4, 22);
             this.tabPizza.Name = "tabPizza";
-            this.tabPizza.Size = new System.Drawing.Size(1087, 0);
+            this.tabPizza.Size = new System.Drawing.Size(1146, 0);
             this.tabPizza.TabIndex = 9;
             this.tabPizza.Tag = "";
             this.tabPizza.Text = "Pizza Delivery";
@@ -464,7 +486,7 @@ namespace Mathre
             this.tabChange.Controls.Add(this.lblChangeMakerTitle);
             this.tabChange.Location = new System.Drawing.Point(4, 22);
             this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(1087, 0);
+            this.tabChange.Size = new System.Drawing.Size(1146, 0);
             this.tabChange.TabIndex = 8;
             this.tabChange.Text = "Change Maker";
             this.tabChange.UseVisualStyleBackColor = true;
@@ -485,7 +507,7 @@ namespace Mathre
             // 
             this.tabDigits.Location = new System.Drawing.Point(4, 22);
             this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(1087, 0);
+            this.tabDigits.Size = new System.Drawing.Size(1146, 0);
             this.tabDigits.TabIndex = 7;
             this.tabDigits.Text = "Digit Separator";
             this.tabDigits.UseVisualStyleBackColor = true;
@@ -494,7 +516,7 @@ namespace Mathre
             // 
             this.tabTemperature.Location = new System.Drawing.Point(4, 22);
             this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(1087, 0);
+            this.tabTemperature.Size = new System.Drawing.Size(1146, 0);
             this.tabTemperature.TabIndex = 6;
             this.tabTemperature.Text = "Temperature Converter";
             this.tabTemperature.UseVisualStyleBackColor = true;
@@ -503,7 +525,7 @@ namespace Mathre
             // 
             this.tabMyFavorites.Location = new System.Drawing.Point(4, 22);
             this.tabMyFavorites.Name = "tabMyFavorites";
-            this.tabMyFavorites.Size = new System.Drawing.Size(1087, 0);
+            this.tabMyFavorites.Size = new System.Drawing.Size(1146, 0);
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
@@ -512,7 +534,7 @@ namespace Mathre
             // 
             this.tabRectangle.Location = new System.Drawing.Point(4, 22);
             this.tabRectangle.Name = "tabRectangle";
-            this.tabRectangle.Size = new System.Drawing.Size(1087, 0);
+            this.tabRectangle.Size = new System.Drawing.Size(1146, 0);
             this.tabRectangle.TabIndex = 4;
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
@@ -521,8 +543,7 @@ namespace Mathre
             // 
             this.tabMySchool.Location = new System.Drawing.Point(4, 22);
             this.tabMySchool.Name = "tabMySchool";
-            this.tabMySchool.Padding = new System.Windows.Forms.Padding(3);
-            this.tabMySchool.Size = new System.Drawing.Size(1087, 0);
+            this.tabMySchool.Size = new System.Drawing.Size(1146, 0);
             this.tabMySchool.TabIndex = 1;
             this.tabMySchool.Text = "My School";
             this.tabMySchool.UseVisualStyleBackColor = true;
@@ -539,6 +560,7 @@ namespace Mathre
             this.tabMathre.Controls.Add(this.tabPizza);
             this.tabMathre.Controls.Add(this.tabGrade);
             this.tabMathre.Controls.Add(this.tabVideoGames);
+            this.tabMathre.Controls.Add(this.tabRPS);
             this.tabMathre.Controls.Add(this.tabUnknown);
             this.tabMathre.Controls.Add(this.tabSecret);
             this.tabMathre.Dock = System.Windows.Forms.DockStyle.Top;
@@ -546,7 +568,7 @@ namespace Mathre
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
             this.tabMathre.Name = "tabMathre";
             this.tabMathre.SelectedIndex = 0;
-            this.tabMathre.Size = new System.Drawing.Size(1095, 21);
+            this.tabMathre.Size = new System.Drawing.Size(1154, 21);
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabMathre.TabIndex = 4;
             this.tabMathre.Tag = "";
@@ -555,9 +577,8 @@ namespace Mathre
             // 
             this.tabHelloWorld.BackColor = System.Drawing.Color.Transparent;
             this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
-            this.tabHelloWorld.Margin = new System.Windows.Forms.Padding(0);
             this.tabHelloWorld.Name = "tabHelloWorld";
-            this.tabHelloWorld.Size = new System.Drawing.Size(1087, 0);
+            this.tabHelloWorld.Size = new System.Drawing.Size(1146, 0);
             this.tabHelloWorld.TabIndex = 0;
             this.tabHelloWorld.Text = "Hello World";
             // 
@@ -565,7 +586,7 @@ namespace Mathre
             // 
             this.tabGrade.Location = new System.Drawing.Point(4, 22);
             this.tabGrade.Name = "tabGrade";
-            this.tabGrade.Size = new System.Drawing.Size(1087, 0);
+            this.tabGrade.Size = new System.Drawing.Size(1146, 0);
             this.tabGrade.TabIndex = 10;
             this.tabGrade.Text = "Calculate My Grade";
             this.tabGrade.UseVisualStyleBackColor = true;
@@ -574,10 +595,19 @@ namespace Mathre
             // 
             this.tabVideoGames.Location = new System.Drawing.Point(4, 22);
             this.tabVideoGames.Name = "tabVideoGames";
-            this.tabVideoGames.Size = new System.Drawing.Size(1087, 0);
+            this.tabVideoGames.Size = new System.Drawing.Size(1146, 0);
             this.tabVideoGames.TabIndex = 11;
             this.tabVideoGames.Text = "Video Game Orders";
             this.tabVideoGames.UseVisualStyleBackColor = true;
+            // 
+            // tabRPS
+            // 
+            this.tabRPS.Location = new System.Drawing.Point(4, 22);
+            this.tabRPS.Name = "tabRPS";
+            this.tabRPS.Size = new System.Drawing.Size(1146, 0);
+            this.tabRPS.TabIndex = 12;
+            this.tabRPS.Text = "Rock Paper Scissors";
+            this.tabRPS.UseVisualStyleBackColor = true;
             // 
             // imgFavoriteImages
             // 
@@ -591,37 +621,14 @@ namespace Mathre
             this.imgFavoriteImages.Images.SetKeyName(5, "MediumPizza.png");
             this.imgFavoriteImages.Images.SetKeyName(6, "SmallPizza.png");
             // 
-            // videoGameOrdersToolStripMenuItem
-            // 
-            this.videoGameOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuPS4,
-            this.mnuXB1});
-            this.videoGameOrdersToolStripMenuItem.Name = "videoGameOrdersToolStripMenuItem";
-            this.videoGameOrdersToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.videoGameOrdersToolStripMenuItem.Text = "Video Game Orders";
-            // 
-            // mnuPS4
-            // 
-            this.mnuPS4.Name = "mnuPS4";
-            this.mnuPS4.Size = new System.Drawing.Size(180, 22);
-            this.mnuPS4.Text = "Playstation 4";
-            // 
-            // mnuXB1
-            // 
-            this.mnuXB1.Name = "mnuXB1";
-            this.mnuXB1.Size = new System.Drawing.Size(180, 22);
-            this.mnuXB1.Text = "Xbox One";
-            // 
             // FrmMathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1095, 461);
+            this.ClientSize = new System.Drawing.Size(1154, 461);
             this.Controls.Add(this.tabMathre);
             this.Controls.Add(this.mnuBaseLayer);
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuBaseLayer;
             this.MinimumSize = new System.Drawing.Size(1000, 500);
@@ -645,11 +652,7 @@ namespace Mathre
 		internal Label lblChangeMakerTitle;
 		private TabPage tabDigits;
 		private TabPage tabTemperature;
-		internal TabPage tabMyFavorites;
-		internal TabPage tabRectangle;
-		internal TabPage tabMySchool;
 		internal TabControl tabMathre;
-		internal TabPage tabHelloWorld;
 		public ToolStripMenuItem mnuFile;
 		public ToolStripMenuItem mnuHelloWorld;
 		public ToolStripMenuItem mnuHelloWorldLanguage;
@@ -685,7 +688,7 @@ namespace Mathre
 		internal ToolStripMenuItem mnuSecret;
 		internal ToolStripMenuItem mnuRecolor;
 		internal ToolStripMenuItem mnuRandomify;
-		public ToolStripMenuItem calculateMyGradeToolStripMenuItem;
+		public ToolStripMenuItem mnuGrade;
 		public ToolStripMenuItem mnuCalculateMethod1;
 		public ToolStripMenuItem mnuCalculateMethod2;
 		public ToolStripMenuItem mnuCalculateMethod3;
@@ -697,5 +700,10 @@ namespace Mathre
 		public ToolStripMenuItem videoGameOrdersToolStripMenuItem;
 		public ToolStripMenuItem mnuPS4;
 		public ToolStripMenuItem mnuXB1;
+		internal TabPage tabRPS;
+		private TabPage tabMyFavorites;
+		private TabPage tabRectangle;
+		private TabPage tabMySchool;
+		private TabPage tabHelloWorld;
 	}
 }

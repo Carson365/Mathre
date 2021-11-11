@@ -146,6 +146,12 @@
     <Compile Include="Forms\frm09Grade.Designer.cs">
       <DependentUpon>frm09Grade.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm11RPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm11RPS.Designer.cs">
+      <DependentUpon>frm11RPS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,9 @@
     <EmbeddedResource Include="Forms\frm09Grade.resx">
       <DependentUpon>frm09Grade.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm11RPS.resx">
+      <DependentUpon>frm11RPS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>
     </EmbeddedResource>
@@ -312,6 +321,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Stardew-PS4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockPS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RockPS2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RPaperS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RPaperS2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RPS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RPScissors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RPScissors2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -30,7 +30,7 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             this.pnlSecretFrame = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlChangeList = new System.Windows.Forms.Panel();
             this.lblOnesCount = new System.Windows.Forms.Label();
             this.lblHundreds = new System.Windows.Forms.Label();
             this.lblQuartersCount = new System.Windows.Forms.Label();
@@ -57,7 +57,7 @@ namespace Mathre
             this.lblPaidAmount = new System.Windows.Forms.Label();
             this.lblChangeMakerTitle = new System.Windows.Forms.Label();
             this.pnlSecretFrame.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.pnlChangeList.SuspendLayout();
             this.pnlChangeMaker.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,7 +67,7 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlSecretFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSecretFrame.Controls.Add(this.panel3);
+            this.pnlSecretFrame.Controls.Add(this.pnlChangeList);
             this.pnlSecretFrame.Controls.Add(this.pnlChangeMaker);
             this.pnlSecretFrame.Controls.Add(this.lblChangeMakerTitle);
             this.pnlSecretFrame.Location = new System.Drawing.Point(-8, -20);
@@ -75,35 +75,35 @@ namespace Mathre
             this.pnlSecretFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlSecretFrame.TabIndex = 33;
             // 
-            // panel3
+            // pnlChangeList
             // 
-            this.panel3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel3.BackColor = System.Drawing.Color.Transparent;
-            this.panel3.Controls.Add(this.lblOnesCount);
-            this.panel3.Controls.Add(this.lblHundreds);
-            this.panel3.Controls.Add(this.lblQuartersCount);
-            this.panel3.Controls.Add(this.lblChange);
-            this.panel3.Controls.Add(this.lblDimesCount);
-            this.panel3.Controls.Add(this.lblHundredsCount);
-            this.panel3.Controls.Add(this.lblNickelsCount);
-            this.panel3.Controls.Add(this.lblFifties);
-            this.panel3.Controls.Add(this.lblPenniesCount);
-            this.panel3.Controls.Add(this.lblTwenties);
-            this.panel3.Controls.Add(this.lblFivesCount);
-            this.panel3.Controls.Add(this.lblTens);
-            this.panel3.Controls.Add(this.lblTensCount);
-            this.panel3.Controls.Add(this.lblFives);
-            this.panel3.Controls.Add(this.lblTwentiesCount);
-            this.panel3.Controls.Add(this.lblOnes);
-            this.panel3.Controls.Add(this.lblFiftiesCount);
-            this.panel3.Controls.Add(this.lblQuarters);
-            this.panel3.Controls.Add(this.lblPennies);
-            this.panel3.Controls.Add(this.lblDimes);
-            this.panel3.Controls.Add(this.lblNickels);
-            this.panel3.Location = new System.Drawing.Point(287, 276);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(426, 136);
-            this.panel3.TabIndex = 35;
+            this.pnlChangeList.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlChangeList.BackColor = System.Drawing.Color.Transparent;
+            this.pnlChangeList.Controls.Add(this.lblOnesCount);
+            this.pnlChangeList.Controls.Add(this.lblHundreds);
+            this.pnlChangeList.Controls.Add(this.lblQuartersCount);
+            this.pnlChangeList.Controls.Add(this.lblChange);
+            this.pnlChangeList.Controls.Add(this.lblDimesCount);
+            this.pnlChangeList.Controls.Add(this.lblHundredsCount);
+            this.pnlChangeList.Controls.Add(this.lblNickelsCount);
+            this.pnlChangeList.Controls.Add(this.lblFifties);
+            this.pnlChangeList.Controls.Add(this.lblPenniesCount);
+            this.pnlChangeList.Controls.Add(this.lblTwenties);
+            this.pnlChangeList.Controls.Add(this.lblFivesCount);
+            this.pnlChangeList.Controls.Add(this.lblTens);
+            this.pnlChangeList.Controls.Add(this.lblTensCount);
+            this.pnlChangeList.Controls.Add(this.lblFives);
+            this.pnlChangeList.Controls.Add(this.lblTwentiesCount);
+            this.pnlChangeList.Controls.Add(this.lblOnes);
+            this.pnlChangeList.Controls.Add(this.lblFiftiesCount);
+            this.pnlChangeList.Controls.Add(this.lblQuarters);
+            this.pnlChangeList.Controls.Add(this.lblPennies);
+            this.pnlChangeList.Controls.Add(this.lblDimes);
+            this.pnlChangeList.Controls.Add(this.lblNickels);
+            this.pnlChangeList.Location = new System.Drawing.Point(287, 276);
+            this.pnlChangeList.Name = "pnlChangeList";
+            this.pnlChangeList.Size = new System.Drawing.Size(426, 136);
+            this.pnlChangeList.TabIndex = 35;
             // 
             // lblOnesCount
             // 
@@ -391,8 +391,8 @@ namespace Mathre
             this.Name = "FrmChange";
             this.Text = "Change Maker";
             this.pnlSecretFrame.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.pnlChangeList.ResumeLayout(false);
+            this.pnlChangeList.PerformLayout();
             this.pnlChangeMaker.ResumeLayout(false);
             this.pnlChangeMaker.PerformLayout();
             this.ResumeLayout(false);
@@ -402,7 +402,7 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlSecretFrame;
-		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.Panel pnlChangeList;
 		private System.Windows.Forms.Label lblOnesCount;
 		internal System.Windows.Forms.Label lblHundreds;
 		private System.Windows.Forms.Label lblQuartersCount;

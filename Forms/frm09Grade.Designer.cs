@@ -149,7 +149,7 @@ namespace Mathre
             // 
             this.panel1.Controls.Add(this.lblGradesEntered);
             this.panel1.Controls.Add(this.lblGradesEnteredCount);
-            this.panel1.Location = new System.Drawing.Point(210, 83);
+            this.panel1.Location = new System.Drawing.Point(210, 79);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(209, 65);
             this.panel1.TabIndex = 34;
@@ -176,7 +176,7 @@ namespace Mathre
             // btnRandom
             // 
             this.btnRandom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRandom.Location = new System.Drawing.Point(9, 123);
+            this.btnRandom.Location = new System.Drawing.Point(9, 119);
             this.btnRandom.Name = "btnRandom";
             this.btnRandom.Size = new System.Drawing.Size(199, 23);
             this.btnRandom.TabIndex = 37;
@@ -186,7 +186,7 @@ namespace Mathre
             // btnMethod5
             // 
             this.btnMethod5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMethod5.Location = new System.Drawing.Point(9, 86);
+            this.btnMethod5.Location = new System.Drawing.Point(9, 82);
             this.btnMethod5.Name = "btnMethod5";
             this.btnMethod5.Size = new System.Drawing.Size(199, 23);
             this.btnMethod5.TabIndex = 36;
@@ -198,7 +198,7 @@ namespace Mathre
             this.lblPoints.AutoSize = true;
             this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPoints.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblPoints.Location = new System.Drawing.Point(18, 19);
+            this.lblPoints.Location = new System.Drawing.Point(18, 15);
             this.lblPoints.Name = "lblPoints";
             this.lblPoints.Size = new System.Drawing.Size(53, 20);
             this.lblPoints.TabIndex = 9;
@@ -209,7 +209,7 @@ namespace Mathre
             this.txtTotal.BackColor = System.Drawing.SystemColors.Window;
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(74, 53);
+            this.txtTotal.Location = new System.Drawing.Point(74, 49);
             this.txtTotal.Margin = new System.Windows.Forms.Padding(0);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(133, 26);
@@ -220,7 +220,7 @@ namespace Mathre
             this.lblTotal.AutoSize = true;
             this.lblTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTotal.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTotal.Location = new System.Drawing.Point(27, 56);
+            this.lblTotal.Location = new System.Drawing.Point(27, 52);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(44, 20);
             this.lblTotal.TabIndex = 27;
@@ -231,7 +231,7 @@ namespace Mathre
             this.txtPoints.BackColor = System.Drawing.SystemColors.Window;
             this.txtPoints.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPoints.Location = new System.Drawing.Point(74, 16);
+            this.txtPoints.Location = new System.Drawing.Point(74, 12);
             this.txtPoints.Margin = new System.Windows.Forms.Padding(0);
             this.txtPoints.Name = "txtPoints";
             this.txtPoints.Size = new System.Drawing.Size(133, 26);
@@ -243,7 +243,7 @@ namespace Mathre
             this.pnlDiningType.Controls.Add(this.btnMethod3);
             this.pnlDiningType.Controls.Add(this.btnMethod1);
             this.pnlDiningType.Controls.Add(this.btnMethod2);
-            this.pnlDiningType.Location = new System.Drawing.Point(210, 15);
+            this.pnlDiningType.Location = new System.Drawing.Point(210, 11);
             this.pnlDiningType.Name = "pnlDiningType";
             this.pnlDiningType.Size = new System.Drawing.Size(209, 65);
             this.pnlDiningType.TabIndex = 33;

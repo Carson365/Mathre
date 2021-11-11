@@ -96,10 +96,11 @@ namespace Mathre
             this.pnlPizzaViewer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlPizzaViewer.BackColor = System.Drawing.Color.Transparent;
             this.pnlPizzaViewer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pnlPizzaViewer.Location = new System.Drawing.Point(348, 3);
+            this.pnlPizzaViewer.Location = new System.Drawing.Point(351, 5);
             this.pnlPizzaViewer.Name = "pnlPizzaViewer";
-            this.pnlPizzaViewer.Size = new System.Drawing.Size(75, 75);
+            this.pnlPizzaViewer.Size = new System.Drawing.Size(70, 70);
             this.pnlPizzaViewer.TabIndex = 29;
+            this.pnlPizzaViewer.Tag = "Black";
             // 
             // lblPizzaCostAmount
             // 
@@ -144,7 +145,7 @@ namespace Mathre
             this.pnlDiningType.Controls.Add(this.btnDelivery);
             this.pnlDiningType.Location = new System.Drawing.Point(220, 12);
             this.pnlDiningType.Name = "pnlDiningType";
-            this.pnlDiningType.Size = new System.Drawing.Size(199, 24);
+            this.pnlDiningType.Size = new System.Drawing.Size(199, 42);
             this.pnlDiningType.TabIndex = 33;
             this.pnlDiningType.Tag = "Transparent";
             // 
@@ -198,7 +199,7 @@ namespace Mathre
             this.pnlTip.Controls.Add(this.btnDollars);
             this.pnlTip.Location = new System.Drawing.Point(220, 60);
             this.pnlTip.Name = "pnlTip";
-            this.pnlTip.Size = new System.Drawing.Size(199, 24);
+            this.pnlTip.Size = new System.Drawing.Size(199, 42);
             this.pnlTip.TabIndex = 27;
             this.pnlTip.Tag = "Transparent";
             // 

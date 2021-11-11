@@ -60,7 +60,7 @@ namespace Mathre
 			}
 			// /\/\/\/\/\/\
 			lblScoreDisplay.Text = $"{Math.Round((Points / Total * 100), 2)} Percent"; // Display the percentage
-			// \/\/\/ (For method 1) Show the 'Pass' text if the score is above the passing minimum, otherwise show blank text if it is zero or below the passing percentage \/\/\/
+																					   // \/\/\/ (For method 1) Show the 'Pass' text if the score is above the passing minimum, otherwise show blank text if it is zero or below the passing percentage \/\/\/
 			if (btnMethod1.Checked)
 			{
 				if (Math.Round((Points / Total * 100), 2) > 63.50)
@@ -133,7 +133,7 @@ namespace Mathre
 			// \/\/\/ (For method 5) Show the proper grade for the percentage\/\/\/
 			if (ReferenceEquals(sender, btnMethod5))
 			{
-				abc ++;
+				abc++;
 				string result = (double)Math.Round((Points / Total * 100), 2) switch
 				{
 					> 91.50 => "Pass! A!",
@@ -153,7 +153,7 @@ namespace Mathre
 			{
 				double score = Math.Round(100 * VBMath.Rnd());
 				txtPoints.Text = $"{score}";
-				txtTotal.Text = $"{score + Math.Round(11*VBMath.Rnd())}";
+				txtTotal.Text = $"{score + Math.Round(11 * VBMath.Rnd())}";
 				GradeCalculator(null, null);
 			}
 			// /\/\/\/\/\/\

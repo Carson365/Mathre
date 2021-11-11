@@ -16,8 +16,6 @@ namespace Mathre
 			FrmHelloWorld HW = new();
 			FrmMySchool MS = new();
 			FrmTemperature TC = new();
-			FrmPizza PD = new();
-			FrmGrade GC = new();
 			FrmVideoGames VG = new();
 			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
@@ -28,22 +26,12 @@ namespace Mathre
 			mnuHelloWorldLanguageFrench.Click += HW.HelloWorld;
 			mnuHelloWorldLanguageEnglish.Click += HW.HelloWorld;
 			mnuRandomify.Click += HW.HelloWorld;
-			mnuPizzaDelivery.Click += PD.Pizza;
-			mnuPizzaTakeout.Click += PD.Pizza;
-			mnuPizzaPercent.Click += PD.Pizza;
-			mnuPizzaDollars.Click += PD.Pizza;
 			mnuTemperatureFahrenheit.Click += TC.Temperature;
 			mnuTemperatureCelsius.Click += TC.Temperature;
 			Shown += FormShown;
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
 			tabMathre.KeyDown += StopArrows;
-			mnuCalculateMethod1.Click += GC.ButtonSelector;
-			mnuCalculateMethod2.Click += GC.ButtonSelector;
-			mnuCalculateMethod3.Click += GC.ButtonSelector;
-			mnuCalculateMethod4.Click += GC.ButtonSelector;
-			mnuCalculateMethod5.Click += GC.ButtonSelector;
-			mnuCalculateRandom.Click += GC.ButtonSelector;
 			mnuPS4.Click += VG.Transfer;
 			mnuXB1.Click += VG.Transfer;
 		}
@@ -62,10 +50,20 @@ namespace Mathre
 			{
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem);
 			}
-			foreach (ToolStripItem FavoriteItem in mnuFavorites.DropDownItems)
+			foreach (ToolStripItem Item in mnuFavorites.DropDownItems)
 			{
 				FrmMyFavorites MF = new();
-				FavoriteItem.Click += MF.Favorites;
+				Item.Click += MF.Favorites;
+			}
+			foreach (ToolStripItem Item in mnuGrade.DropDownItems)
+			{
+				FrmGrade GC = new();
+				Item.Click += GC.ButtonSelector;
+			}
+			foreach (ToolStripItem Item in mnuPizza.DropDownItems)
+			{
+				FrmPizza PD = new();
+				Item.Click += PD.Pizza;
 			}
 			foreach (Control c in Controls)
 			{

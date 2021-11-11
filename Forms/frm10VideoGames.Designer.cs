@@ -117,16 +117,16 @@ namespace Mathre
             // 
             this.pnlConsole.Controls.Add(this.btnXB1);
             this.pnlConsole.Controls.Add(this.btnPS4);
-            this.pnlConsole.Location = new System.Drawing.Point(3, 3);
+            this.pnlConsole.Location = new System.Drawing.Point(13, 13);
             this.pnlConsole.Name = "pnlConsole";
-            this.pnlConsole.Size = new System.Drawing.Size(122, 75);
+            this.pnlConsole.Size = new System.Drawing.Size(102, 55);
             this.pnlConsole.TabIndex = 0;
             this.pnlConsole.Tag = "Black";
             // 
             // btnXB1
             // 
             this.btnXB1.AutoSize = true;
-            this.btnXB1.Location = new System.Drawing.Point(25, 44);
+            this.btnXB1.Location = new System.Drawing.Point(15, 30);
             this.btnXB1.Name = "btnXB1";
             this.btnXB1.Size = new System.Drawing.Size(72, 17);
             this.btnXB1.TabIndex = 1;
@@ -137,7 +137,7 @@ namespace Mathre
             // 
             this.btnPS4.AutoSize = true;
             this.btnPS4.Checked = true;
-            this.btnPS4.Location = new System.Drawing.Point(19, 13);
+            this.btnPS4.Location = new System.Drawing.Point(9, 8);
             this.btnPS4.Name = "btnPS4";
             this.btnPS4.Size = new System.Drawing.Size(85, 17);
             this.btnPS4.TabIndex = 0;
