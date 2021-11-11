@@ -29,7 +29,7 @@ namespace Mathre
 			}
 			foreach (RadioButton Button in pnlFavoriteControls.Controls)
 			{
-				Button.Click += Favorites;
+				Button.CheckedChanged += Favorites;
 			}
 		}
 		public void Favorites(object sender, EventArgs e)
@@ -39,30 +39,25 @@ namespace Mathre
 				RadioButton b = (RadioButton)ThisForm.pnlFavoriteControls.Controls[$"btnFavorite{sender}"];
 				b.Checked = true;
 			}
-			if (ReferenceEquals(sender, btnFavoriteActor) | ReferenceEquals(sender, BaseForm.mnuFavoriteActor))
+			if (sender is RadioButton button)
 			{
-				ThisForm.lblFavoriteInfo.Text = "My favorite actor is Tom Hiddleston. \n He has starred and appeared in several films, but his most famous role is that of Loki in Marvel's MCU.";
+				ThisForm.lblFavoriteInfo.Text = button.Parent.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked)?.Name.ToString() switch
+				{
+					"btnFavoriteActor" => "My favorite actor is Tom Hiddleston. \n He has starred and appeared in several films, but his most famous role is that of Loki in Marvel's MCU.",
+					"btnFavoriteMovie" => "My favorite movie is The Imitation Game. \n it follows the work and life of Alan Turing, a revolutionary code-breaker and very early computer scientist.",
+					"btnFavoriteFruit" => "My favorite fruit is any stone fruit. \n The stone fruit family includes raspberries and blackberries, as well as peaches, plums, cherries, and other great fruits.",
+					"btnFavoriteHobby" => "My favorite hobby is remote control. \n Remote control cars are very fun to drive and work on, and despite their high price they are an easy hobby to get into.",
+					"btnFavoriteColor" => "My favorite color is purple. \n It can complement a variety of other colors, works well to convey many different ideas or emotions, and it looks good.",
+					_ => throw new NotImplementedException(),
+				};
+				if (ReferenceEquals(sender, btnFavoriteColor))
+				{
+					ThisForm.pnlFavoriteImage.BackgroundImage = null;
+					ThisForm.pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
+				}
+				lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
+				pnlFavoriteImage.BackgroundImage = BaseForm.imgFavoriteImages.Images[$"{ThisForm.pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 			}
-			else if (ReferenceEquals(sender, btnFavoriteMovie) | ReferenceEquals(sender, BaseForm.mnuFavoriteMovie))
-			{
-				ThisForm.lblFavoriteInfo.Text = "My favorite movie is The Imitation Game. \n it follows the work and life of Alan Turing, a revolutionary code-breaker and very early computer scientist.";
-			}
-			else if (ReferenceEquals(sender, btnFavoriteFruit) | ReferenceEquals(sender, BaseForm.mnuFavoriteFruit))
-			{
-				ThisForm.lblFavoriteInfo.Text = "My favorite fruit is any stone fruit. \n The stone fruit family includes raspberries and blackberries, as well as peaches, plums, cherries, and other great fruits.";
-			}
-			else if (ReferenceEquals(sender, btnFavoriteHobby) | ReferenceEquals(sender, BaseForm.mnuFavoriteHobby))
-			{
-				ThisForm.lblFavoriteInfo.Text = "My favorite hobby is remote control. \n Remote control cars are very fun to drive and work on, and despite their high price they are an easy hobby to get into.";
-			}
-			else if (ReferenceEquals(sender, btnFavoriteColor) | ReferenceEquals(sender, BaseForm.mnuFavoriteColor))
-			{
-				ThisForm.lblFavoriteInfo.Text = "My favorite color is purple. \n It can complement a variety of other colors, works well to convey many different ideas or emotions, and it looks good.";
-				ThisForm.pnlFavoriteImage.BackgroundImage = null;
-				ThisForm.pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
-			}
-			lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
-			pnlFavoriteImage.BackgroundImage = BaseForm.imgFavoriteImages.Images[$"{ThisForm.pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 		}
 	}
 }
