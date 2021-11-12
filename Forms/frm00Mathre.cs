@@ -155,9 +155,20 @@ namespace Mathre
 				if (hidden == true)
 				{
 					tabMathre.Controls.Add(tabSecret);
+
 					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 500);
 					tabMathre.SelectedTab = tabSecret;
 					hidden = false;
+					//var form = Activator.CreateInstance(Type.GetType("Mathre." + "FrmSecret")) as Form;
+					//form.Size = FormSize;
+					//form.FormBorderStyle = FormBorderStyle.None;
+					//form.Left = 0;
+					//form.Top = 45;
+					//form.TopLevel = false;
+					//form.Visible = true;
+					//this.Controls.Add(form);
+					//form.Focus();
+					//Resized(null, null);
 				}
 				else if (hidden == false)
 				{

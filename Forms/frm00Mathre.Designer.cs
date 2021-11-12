@@ -105,6 +105,7 @@ namespace Mathre
             this.tabVideoGames = new System.Windows.Forms.TabPage();
             this.tabRPS = new System.Windows.Forms.TabPage();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
+            this.tabHurricane = new System.Windows.Forms.TabPage();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -121,7 +122,7 @@ namespace Mathre
             this.mnuBaseLayer.Name = "mnuBaseLayer";
             this.mnuBaseLayer.Padding = new System.Windows.Forms.Padding(0);
             this.mnuBaseLayer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mnuBaseLayer.Size = new System.Drawing.Size(1154, 24);
+            this.mnuBaseLayer.Size = new System.Drawing.Size(1214, 24);
             this.mnuBaseLayer.TabIndex = 0;
             this.mnuBaseLayer.Text = "Menu";
             // 
@@ -594,6 +595,7 @@ namespace Mathre
             this.tabMathre.Controls.Add(this.tabGrade);
             this.tabMathre.Controls.Add(this.tabVideoGames);
             this.tabMathre.Controls.Add(this.tabRPS);
+            this.tabMathre.Controls.Add(this.tabHurricane);
             this.tabMathre.Controls.Add(this.tabUnknown);
             this.tabMathre.Controls.Add(this.tabSecret);
             this.tabMathre.Dock = System.Windows.Forms.DockStyle.Top;
@@ -601,7 +603,7 @@ namespace Mathre
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
             this.tabMathre.Name = "tabMathre";
             this.tabMathre.SelectedIndex = 0;
-            this.tabMathre.Size = new System.Drawing.Size(1154, 21);
+            this.tabMathre.Size = new System.Drawing.Size(1214, 21);
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabMathre.TabIndex = 4;
             this.tabMathre.Tag = "";
@@ -611,7 +613,7 @@ namespace Mathre
             this.tabHelloWorld.BackColor = System.Drawing.Color.Transparent;
             this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
             this.tabHelloWorld.Name = "tabHelloWorld";
-            this.tabHelloWorld.Size = new System.Drawing.Size(1146, 0);
+            this.tabHelloWorld.Size = new System.Drawing.Size(1206, 0);
             this.tabHelloWorld.TabIndex = 0;
             this.tabHelloWorld.Text = "Hello World";
             // 
@@ -654,17 +656,26 @@ namespace Mathre
             this.imgFavoriteImages.Images.SetKeyName(5, "MediumPizza.png");
             this.imgFavoriteImages.Images.SetKeyName(6, "SmallPizza.png");
             // 
+            // tabHurricane
+            // 
+            this.tabHurricane.Location = new System.Drawing.Point(4, 22);
+            this.tabHurricane.Name = "tabHurricane";
+            this.tabHurricane.Size = new System.Drawing.Size(1206, 0);
+            this.tabHurricane.TabIndex = 13;
+            this.tabHurricane.Text = "Hurricane!";
+            this.tabHurricane.UseVisualStyleBackColor = true;
+            // 
             // FrmMathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1154, 461);
+            this.ClientSize = new System.Drawing.Size(1214, 461);
             this.Controls.Add(this.tabMathre);
             this.Controls.Add(this.mnuBaseLayer);
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuBaseLayer;
-            this.MinimumSize = new System.Drawing.Size(1000, 500);
+            this.MinimumSize = new System.Drawing.Size(1230, 500);
             this.Name = "FrmMathre";
             this.Text = "Mathre";
             this.Load += new System.EventHandler(this.FormLoad);
@@ -742,5 +753,6 @@ namespace Mathre
 		private ToolStripMenuItem mnuRockPS;
 		private ToolStripMenuItem mnuRPaperS;
 		private ToolStripMenuItem mnuRPScissors;
+		private TabPage tabHurricane;
 	}
 }

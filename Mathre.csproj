@@ -152,6 +152,12 @@
     <Compile Include="Forms\frm11RPS.Designer.cs">
       <DependentUpon>frm11RPS.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm12Hurricane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm12Hurricane.Designer.cs">
+      <DependentUpon>frm12Hurricane.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     <EmbeddedResource Include="Forms\frm11RPS.resx">
       <DependentUpon>frm11RPS.cs</DependentUpon>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm12Hurricane.resx">
+      <DependentUpon>frm12Hurricane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>
