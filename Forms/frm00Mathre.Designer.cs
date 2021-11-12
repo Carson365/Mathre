@@ -83,6 +83,10 @@ namespace Mathre
             this.videoGameOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPS4 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuXB1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRPS = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRockPS = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRPaperS = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRPScissors = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSecret = new System.Windows.Forms.TabPage();
@@ -135,7 +139,8 @@ namespace Mathre
             this.mnuPizza,
             this.mnuGrade,
             this.mnuExit,
-            this.videoGameOrdersToolStripMenuItem});
+            this.videoGameOrdersToolStripMenuItem,
+            this.mnuRPS});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
@@ -379,37 +384,37 @@ namespace Mathre
             // mnuCalculateMethod1
             // 
             this.mnuCalculateMethod1.Name = "mnuCalculateMethod1";
-            this.mnuCalculateMethod1.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod1.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod1.Text = "Method 1";
             // 
             // mnuCalculateMethod2
             // 
             this.mnuCalculateMethod2.Name = "mnuCalculateMethod2";
-            this.mnuCalculateMethod2.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod2.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod2.Text = "Method 2";
             // 
             // mnuCalculateMethod3
             // 
             this.mnuCalculateMethod3.Name = "mnuCalculateMethod3";
-            this.mnuCalculateMethod3.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod3.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod3.Text = "Method 3";
             // 
             // mnuCalculateMethod4
             // 
             this.mnuCalculateMethod4.Name = "mnuCalculateMethod4";
-            this.mnuCalculateMethod4.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod4.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod4.Text = "Method 4";
             // 
             // mnuCalculateMethod5
             // 
             this.mnuCalculateMethod5.Name = "mnuCalculateMethod5";
-            this.mnuCalculateMethod5.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateMethod5.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateMethod5.Text = "Method 5";
             // 
             // mnuCalculateRandom
             // 
             this.mnuCalculateRandom.Name = "mnuCalculateRandom";
-            this.mnuCalculateRandom.Size = new System.Drawing.Size(180, 22);
+            this.mnuCalculateRandom.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateRandom.Text = "Random";
             // 
             // mnuExit
@@ -438,6 +443,34 @@ namespace Mathre
             this.mnuXB1.Name = "mnuXB1";
             this.mnuXB1.Size = new System.Drawing.Size(141, 22);
             this.mnuXB1.Text = "Xbox One";
+            // 
+            // mnuRPS
+            // 
+            this.mnuRPS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRockPS,
+            this.mnuRPaperS,
+            this.mnuRPScissors});
+            this.mnuRPS.Name = "mnuRPS";
+            this.mnuRPS.Size = new System.Drawing.Size(195, 22);
+            this.mnuRPS.Text = "Rock Paper Scissors";
+            // 
+            // mnuRockPS
+            // 
+            this.mnuRockPS.Name = "mnuRockPS";
+            this.mnuRockPS.Size = new System.Drawing.Size(115, 22);
+            this.mnuRockPS.Text = "Rock";
+            // 
+            // mnuRPaperS
+            // 
+            this.mnuRPaperS.Name = "mnuRPaperS";
+            this.mnuRPaperS.Size = new System.Drawing.Size(115, 22);
+            this.mnuRPaperS.Text = "Paper";
+            // 
+            // mnuRPScissors
+            // 
+            this.mnuRPScissors.Name = "mnuRPScissors";
+            this.mnuRPScissors.Size = new System.Drawing.Size(115, 22);
+            this.mnuRPScissors.Text = "Scissors";
             // 
             // mnuEdit
             // 
@@ -633,7 +666,7 @@ namespace Mathre
             this.MainMenuStrip = this.mnuBaseLayer;
             this.MinimumSize = new System.Drawing.Size(1000, 500);
             this.Name = "FrmMathre";
-            this.Text = "Hello World";
+            this.Text = "Mathre";
             this.Load += new System.EventHandler(this.FormLoad);
             this.mnuBaseLayer.ResumeLayout(false);
             this.mnuBaseLayer.PerformLayout();
@@ -705,5 +738,9 @@ namespace Mathre
 		private TabPage tabRectangle;
 		private TabPage tabMySchool;
 		private TabPage tabHelloWorld;
+		private ToolStripMenuItem mnuRPS;
+		private ToolStripMenuItem mnuRockPS;
+		private ToolStripMenuItem mnuRPaperS;
+		private ToolStripMenuItem mnuRPScissors;
 	}
 }

@@ -29,17 +29,17 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.SuspendLayout();
-			// 
-			// FrmUnknown
-			// 
-			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-			this.ClientSize = new System.Drawing.Size(984, 461);
-			this.Name = "FrmUnknown";
-			this.Text = "Unknown";
-			this.ResumeLayout(false);
+            this.SuspendLayout();
+            // 
+            // FrmUnknown
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.Name = "FrmUnknown";
+            this.Text = "Unknown";
+            this.ResumeLayout(false);
 
 		}
 

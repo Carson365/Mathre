@@ -28,17 +28,16 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPS));
             this.pnlRPS = new System.Windows.Forms.Panel();
             this.pnlRPSGame = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.pnlComputer = new System.Windows.Forms.Panel();
             this.pnlRPSChoice2 = new System.Windows.Forms.Panel();
             this.btnRock2 = new System.Windows.Forms.RadioButton();
             this.btnPaper2 = new System.Windows.Forms.RadioButton();
             this.btnScissors2 = new System.Windows.Forms.RadioButton();
             this.picRPS2 = new System.Windows.Forms.PictureBox();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
+            this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlRPSChoice = new System.Windows.Forms.Panel();
             this.btnRock = new System.Windows.Forms.RadioButton();
             this.btnPaper = new System.Windows.Forms.RadioButton();
@@ -57,10 +56,10 @@
             this.lblRPSTitle = new System.Windows.Forms.Label();
             this.pnlRPS.SuspendLayout();
             this.pnlRPSGame.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlComputer.SuspendLayout();
             this.pnlRPSChoice2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).BeginInit();
-            this.panel4.SuspendLayout();
+            this.pnlPlayer.SuspendLayout();
             this.pnlRPSChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRPS)).BeginInit();
             this.pnlRPSSelect.SuspendLayout();
@@ -85,29 +84,21 @@
             // 
             this.pnlRPSGame.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlRPSGame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlRPSGame.Controls.Add(this.panel1);
-            this.pnlRPSGame.Controls.Add(this.panel4);
+            this.pnlRPSGame.Controls.Add(this.pnlComputer);
+            this.pnlRPSGame.Controls.Add(this.pnlPlayer);
             this.pnlRPSGame.Location = new System.Drawing.Point(287, 276);
             this.pnlRPSGame.Name = "pnlRPSGame";
             this.pnlRPSGame.Size = new System.Drawing.Size(426, 136);
             this.pnlRPSGame.TabIndex = 35;
             // 
-            // panel1
+            // pnlComputer
             // 
-            this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.pnlRPSChoice2);
-            this.panel1.Controls.Add(this.picRPS2);
-            this.panel1.Location = new System.Drawing.Point(212, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(214, 136);
-            this.panel1.TabIndex = 14;
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(212, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(214, 136);
-            this.panel3.TabIndex = 13;
+            this.pnlComputer.Controls.Add(this.pnlRPSChoice2);
+            this.pnlComputer.Controls.Add(this.picRPS2);
+            this.pnlComputer.Location = new System.Drawing.Point(212, 0);
+            this.pnlComputer.Name = "pnlComputer";
+            this.pnlComputer.Size = new System.Drawing.Size(214, 136);
+            this.pnlComputer.TabIndex = 14;
             // 
             // pnlRPSChoice2
             // 
@@ -123,14 +114,16 @@
             // btnRock2
             // 
             this.btnRock2.AutoSize = true;
+            this.btnRock2.BackColor = System.Drawing.Color.Transparent;
             this.btnRock2.Enabled = false;
+            this.btnRock2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnRock2.Location = new System.Drawing.Point(5, 8);
             this.btnRock2.Name = "btnRock2";
             this.btnRock2.Size = new System.Drawing.Size(51, 17);
             this.btnRock2.TabIndex = 5;
             this.btnRock2.TabStop = true;
             this.btnRock2.Text = "Rock";
-            this.btnRock2.UseVisualStyleBackColor = true;
+            this.btnRock2.UseVisualStyleBackColor = false;
             // 
             // btnPaper2
             // 
@@ -158,7 +151,7 @@
             // 
             // picRPS2
             // 
-            this.picRPS2.Image = global::Mathre.My.Resources.Resources.RPS;
+            this.picRPS2.Image = ((System.Drawing.Image)(resources.GetObject("picRPS2.Image")));
             this.picRPS2.Location = new System.Drawing.Point(9, 11);
             this.picRPS2.Name = "picRPS2";
             this.picRPS2.Size = new System.Drawing.Size(180, 76);
@@ -166,22 +159,14 @@
             this.picRPS2.TabIndex = 4;
             this.picRPS2.TabStop = false;
             // 
-            // panel4
+            // pnlPlayer
             // 
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Controls.Add(this.pnlRPSChoice);
-            this.panel4.Controls.Add(this.picRPS);
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(214, 136);
-            this.panel4.TabIndex = 12;
-            // 
-            // panel5
-            // 
-            this.panel5.Location = new System.Drawing.Point(212, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(214, 136);
-            this.panel5.TabIndex = 13;
+            this.pnlPlayer.Controls.Add(this.pnlRPSChoice);
+            this.pnlPlayer.Controls.Add(this.picRPS);
+            this.pnlPlayer.Location = new System.Drawing.Point(0, 0);
+            this.pnlPlayer.Name = "pnlPlayer";
+            this.pnlPlayer.Size = new System.Drawing.Size(214, 136);
+            this.pnlPlayer.TabIndex = 12;
             // 
             // pnlRPSChoice
             // 
@@ -229,7 +214,7 @@
             // 
             // picRPS
             // 
-            this.picRPS.Image = global::Mathre.My.Resources.Resources.RPS;
+            this.picRPS.Image = ((System.Drawing.Image)(resources.GetObject("picRPS.Image")));
             this.picRPS.Location = new System.Drawing.Point(9, 11);
             this.picRPS.Name = "picRPS";
             this.picRPS.Size = new System.Drawing.Size(180, 76);
@@ -360,11 +345,11 @@
             this.Text = "Rock Paper Scissors";
             this.pnlRPS.ResumeLayout(false);
             this.pnlRPSGame.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
+            this.pnlComputer.ResumeLayout(false);
             this.pnlRPSChoice2.ResumeLayout(false);
             this.pnlRPSChoice2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).EndInit();
-            this.panel4.ResumeLayout(false);
+            this.pnlPlayer.ResumeLayout(false);
             this.pnlRPSChoice.ResumeLayout(false);
             this.pnlRPSChoice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRPS)).EndInit();
@@ -386,11 +371,9 @@
 		private System.Windows.Forms.RadioButton btnPaper;
 		private System.Windows.Forms.RadioButton btnScissors;
 		private System.Windows.Forms.RadioButton btnRock;
-		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.Panel panel5;
+		private System.Windows.Forms.Panel pnlPlayer;
 		private System.Windows.Forms.Panel pnlRPSGame;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Panel panel3;
+		private System.Windows.Forms.Panel pnlComputer;
 		private System.Windows.Forms.Panel pnlRPSChoice2;
 		private System.Windows.Forms.RadioButton btnPaper2;
 		private System.Windows.Forms.RadioButton btnScissors2;
