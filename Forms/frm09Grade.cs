@@ -7,8 +7,8 @@ namespace Mathre
 {
 	public partial class FrmGrade : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmGrade ThisForm;
+		private FrmMathre BaseForm;
+		private FrmGrade ThisForm;
 		public static int abc = 0;
 		public FrmGrade()
 		{

@@ -7,8 +7,7 @@ namespace Mathre
 {
 	public partial class FrmChange : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmChange ThisForm;
+		private FrmMathre BaseForm;
 		public FrmChange()
 		{
 			InitializeComponent();
@@ -19,7 +18,6 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmChange>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

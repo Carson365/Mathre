@@ -12,8 +12,8 @@ namespace Mathre
 {
 	public partial class FrmMyFavorites : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmMyFavorites ThisForm;
+		private FrmMathre BaseForm;
+		private FrmMyFavorites ThisForm;
 		public FrmMyFavorites()
 		{
 			InitializeComponent();
@@ -36,8 +36,7 @@ namespace Mathre
 		{
 			if (sender.GetType().ToString().Contains("Menu"))
 			{
-				RadioButton b = (RadioButton)ThisForm.pnlFavoriteControls.Controls[$"btnFavorite{sender}"];
-				b.Checked = true;
+				((RadioButton)ThisForm.pnlFavoriteControls.Controls[$"btnFavorite{sender}"]).Checked = true;
 			}
 			if (sender is RadioButton button)
 			{

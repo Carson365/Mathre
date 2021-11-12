@@ -6,8 +6,7 @@ namespace Mathre
 {
 	public partial class FrmDigits : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmDigits ThisForm;
+		private FrmMathre BaseForm;
 		public FrmDigits()
 		{
 			InitializeComponent();
@@ -20,7 +19,6 @@ namespace Mathre
 			lblDigitsListOdds.Text = "";
 			lblDigitsListEvens.Text = "";
 			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmDigits>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

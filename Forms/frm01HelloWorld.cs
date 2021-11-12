@@ -7,9 +7,9 @@ namespace Mathre
 {
 	public partial class FrmHelloWorld : Form
 	{
-		public static string StartingLanguage;
-		public static FrmMathre BaseForm;
-		public static FrmHelloWorld ThisForm;
+		private string StartingLanguage;
+		private FrmMathre BaseForm;
+		private FrmHelloWorld ThisForm;
 
 		public FrmHelloWorld()
 		{

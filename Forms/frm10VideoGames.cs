@@ -12,8 +12,8 @@ namespace Mathre
 {
 	public partial class FrmVideoGames : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmVideoGames ThisForm;
+		private FrmMathre BaseForm;
+		private FrmVideoGames ThisForm;
 		public FrmVideoGames()
 		{
 			InitializeComponent();

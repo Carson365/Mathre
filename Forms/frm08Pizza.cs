@@ -10,8 +10,8 @@ namespace Mathre
 {
 	public partial class FrmPizza : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmPizza ThisForm;
+		private FrmMathre BaseForm;
+		private FrmPizza ThisForm;
 		public FrmPizza()
 		{
 			InitializeComponent();

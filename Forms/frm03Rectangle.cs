@@ -7,9 +7,8 @@ namespace Mathre
 {
 	public partial class FrmRectangle : Form
 	{
-		public object Placeholder;
-		public static FrmMathre BaseForm;
-		public static FrmRectangle ThisForm;
+		private readonly object Placeholder;
+		private FrmMathre BaseForm;
 		public FrmRectangle()
 		{
 			InitializeComponent();
@@ -23,7 +22,6 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmRectangle>().Single();
 			lblRectangleError.Visible = false;
 			pnlRectangle.Visible = false;
 			foreach (Control c in Controls)

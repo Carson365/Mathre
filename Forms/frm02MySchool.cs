@@ -7,8 +7,8 @@ namespace Mathre
 {
 	public partial class FrmMySchool : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmMySchool ThisForm;
+		private FrmMathre BaseForm;
+		private FrmMySchool ThisForm;
 		public FrmMySchool()
 		{
 			InitializeComponent();
