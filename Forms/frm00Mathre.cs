@@ -6,10 +6,10 @@ namespace Mathre
 {
 	public partial class FrmMathre : Form
 	{
-		public static string AccentColor;
-		public static Color SystemColor;
-		public static bool hidden;
-		public static Size FormSize;
+		private string AccentColor;
+		private static Color SystemColor;
+		private bool hidden;
+		private Size FormSize;
 		public FrmMathre()
 		{
 			InitializeComponent();
@@ -17,7 +17,6 @@ namespace Mathre
 			FrmMySchool MS = new();
 			FrmTemperature TC = new();
 			FrmVideoGames VG = new();
-			Load += FormLoad;
 			KeyDown += KeyboardShortcuts;
 			mnuExit.Click += Exit;
 			mnuMySchoolToggleMascot.Click += MS.MySchool;
@@ -28,7 +27,6 @@ namespace Mathre
 			mnuRandomify.Click += HW.HelloWorld;
 			mnuTemperatureFahrenheit.Click += TC.Temperature;
 			mnuTemperatureCelsius.Click += TC.Temperature;
-			Shown += FormShown;
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
 			tabMathre.KeyDown += StopArrows;
@@ -69,6 +67,34 @@ namespace Mathre
 			{
 				GetAllControls(this);
 			}
+			foreach (ToolStripItem Item in mnuRPS.DropDownItems)
+			{
+				FrmRPS RG = new();
+				Item.Click += RG.MenuHandler;
+			}
+			foreach (TabPage c in tabMathre.TabPages)
+			{
+				ToolStripMenuItem item = new();
+				item.Name = c.Name.ToString().Replace("tab", "mnuView");
+				item.Text = c.Text.ToString();
+				item.Click += new EventHandler(PageSelect);
+				mnuView.DropDownItems.Add(item);
+			}
+			foreach (TabPage Page in tabMathre.TabPages)
+			{
+				Console.WriteLine(Application.OpenForms);
+				var form = Activator.CreateInstance(Type.GetType("Mathre." + Page.Name.Replace("tab", "Frm"))) as Form;
+				form.Size = FormSize;
+				form.FormBorderStyle = FormBorderStyle.None;
+				form.Left = 0;
+				form.Top = 45;
+				form.TopLevel = false;
+				form.Visible = true;
+				this.Controls.Add(form);
+				form.Focus();
+				Resized(null, null);
+			}
+			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 		}
 		public void GetAllControls(Control container)
 		{
@@ -81,41 +107,23 @@ namespace Mathre
 				}
 			}
 		}
-		public void FormShown(object sender, EventArgs e)
-		{
-			foreach (TabPage c in tabMathre.TabPages)
-			{
-				ToolStripMenuItem item = new();
-				item.Name = c.Name.ToString().Replace("tab", "mnuView");
-				item.Text = c.Text.ToString();
-				item.Click += new EventHandler(PageSelect);
-				mnuView.DropDownItems.Add(item);
-			}
-			FormManager(null, null);
-		}
 		public void FormManager(object sender, EventArgs e)
 		{
-			var type = Type.GetType("Mathre." + tabMathre.SelectedTab.Name.Replace("tab", "Frm"));
-			if (type != null)
-			{
-				var form = Activator.CreateInstance(type) as Form;
-				form.Size = FormSize;
-				form.FormBorderStyle = FormBorderStyle.None;
-				form.Left = 0;
-				form.Top = 45;
-				form.TopLevel = false;
-				form.Visible = true;
-				this.Controls.Add(form);
-				form.Focus();
-				Resized(null, null);
-			}
 			for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
 			{
 				if (Application.OpenForms[i].Name != "FrmMathre" && Application.OpenForms[i].Name != tabMathre.SelectedTab.Name.Replace("tab", "Frm"))
 				{
-					Application.OpenForms[i].Close();
+					Application.OpenForms[i].Hide();
+				}
+				else if (Application.OpenForms[i].Name != "FrmMathre")
+				{
+					Application.OpenForms[i].Show();
 				}
 			}
+		}
+		public void PageSelect(object sender, EventArgs e)
+		{
+			tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
 		}
 		public void Exit(object sender, EventArgs e)
 		{
@@ -191,10 +199,6 @@ namespace Mathre
 					tabMathre.SelectedIndex++;
 				}
 			}
-		}
-		public void PageSelect(object sender, EventArgs e)
-		{
-			tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
 		}
 		public class MenuColorTable : ProfessionalColorTable
 		{
