@@ -1,4 +1,4 @@
-﻿// RPS Image: https://www.nicepng.com/png/full/111-1113460_rock-paper-scissors-rock-paper-scissors-svg.png (Modified in various ways with paint.net)
+// RPS Image: https://www.nicepng.com/png/full/111-1113460_rock-paper-scissors-rock-paper-scissors-svg.png (Modified in various ways with paint.net)
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -6,8 +6,8 @@ namespace Mathre
 {
 	public partial class FrmRPS : Form
 	{
-		private FrmMathre BaseForm;
-		private FrmRPS ThisForm;
+		public static FrmMathre BaseForm;
+		public static FrmRPS ThisForm;
 		private int playerscore = 0;
 		private int computerscore = 0;
 		private int drawamount = 0;
