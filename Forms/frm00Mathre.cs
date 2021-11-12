@@ -35,7 +35,6 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			tabMathre.TabPages.Remove(tabSecret);
 			hidden = true;
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
@@ -93,6 +92,7 @@ namespace Mathre
 				form.Focus();
 				Resized(null, null);
 			}
+			tabMathre.TabPages.Remove(tabSecret);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 		}
 		public void GetAllControls(Control container)
