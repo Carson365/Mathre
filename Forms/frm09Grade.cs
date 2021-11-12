@@ -7,8 +7,8 @@ namespace Mathre
 {
 	public partial class FrmGrade : Form
 	{
-		private FrmMathre BaseForm;
-		private FrmGrade ThisForm;
+		public static FrmMathre BaseForm;
+		public static FrmGrade ThisForm;
 		public static int abc = 0;
 		public FrmGrade()
 		{
@@ -161,30 +161,16 @@ namespace Mathre
 		// \/\/\/ Set the buttons checked if their respective menu items are pressed \/\/\/
 		public void ButtonSelector(object sender, EventArgs e)
 		{
-			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod1))
+			Action a = $"{sender}" switch
 			{
-				ThisForm.btnMethod1.Checked = true;
-			}
-			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod2))
-			{
-				ThisForm.btnMethod2.Checked = true;
-			}
-			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod3))
-			{
-				ThisForm.btnMethod3.Checked = true;
-			}
-			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod4))
-			{
-				ThisForm.btnMethod4.Checked = true;
-			}
-			if (ReferenceEquals(sender, BaseForm.mnuCalculateMethod5))
-			{
-				ThisForm.GradeCalculator(ThisForm.btnMethod5, null);
-			}
-			if (ReferenceEquals(sender, BaseForm.mnuCalculateRandom))
-			{
-				ThisForm.GradeCalculator(ThisForm.btnRandom, null);
-			}
+				"Method 1" => () => ThisForm.btnMethod1.PerformClick(),
+				"Method 2" => () => ThisForm.btnMethod2.PerformClick(),
+				"Method 3" => () => ThisForm.btnMethod3.PerformClick(),
+				"Method 4" => () => ThisForm.btnMethod4.PerformClick(),
+				"Method 5" => () => ThisForm.GradeCalculator(ThisForm.btnMethod5, null),
+				_ => () => ThisForm.GradeCalculator(ThisForm.btnRandom, null)
+			};
+			a.Invoke();
 		}
 		// /\/\/\/\/\/\
 		//
@@ -244,7 +230,6 @@ namespace Mathre
 					}
 
 				}
-				Console.WriteLine(decimals.Length);
 			}
 			if (textBox.Text.Length == 0 && e.KeyChar == '0')
 			{

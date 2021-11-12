@@ -6,8 +6,8 @@ namespace Mathre
 {
 	public partial class FrmTemperature : Form
 	{
-		private FrmMathre BaseForm;
-		private FrmTemperature ThisForm;
+		public static FrmMathre BaseForm;
+		public static FrmTemperature ThisForm;
 		public FrmTemperature()
 		{
 			InitializeComponent();

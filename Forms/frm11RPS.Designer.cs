@@ -54,6 +54,14 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPlayer = new System.Windows.Forms.Label();
             this.lblRPSTitle = new System.Windows.Forms.Label();
+            this.chbDisableMessagebox = new System.Windows.Forms.CheckBox();
+            this.lblWinIndicator = new System.Windows.Forms.Label();
+            this.pnlWager = new System.Windows.Forms.Panel();
+            this.lblWagerTitle = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblPoints = new System.Windows.Forms.Label();
+            this.lblWager = new System.Windows.Forms.Label();
+            this.numWager = new System.Windows.Forms.NumericUpDown();
             this.pnlRPS.SuspendLayout();
             this.pnlRPSGame.SuspendLayout();
             this.pnlComputer.SuspendLayout();
@@ -64,6 +72,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picRPS)).BeginInit();
             this.pnlRPSSelect.SuspendLayout();
             this.pnlScoreDisplay.SuspendLayout();
+            this.pnlWager.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWager)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRPS
@@ -226,6 +236,9 @@
             // 
             this.pnlRPSSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlRPSSelect.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlRPSSelect.Controls.Add(this.pnlWager);
+            this.pnlRPSSelect.Controls.Add(this.lblWinIndicator);
+            this.pnlRPSSelect.Controls.Add(this.chbDisableMessagebox);
             this.pnlRPSSelect.Controls.Add(this.pnlScoreDisplay);
             this.pnlRPSSelect.Location = new System.Drawing.Point(287, 165);
             this.pnlRPSSelect.Name = "pnlRPSSelect";
@@ -334,6 +347,83 @@
             this.lblRPSTitle.Text = "Rock Paper Scissors";
             this.lblRPSTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // chbDisableMessagebox
+            // 
+            this.chbDisableMessagebox.AutoSize = true;
+            this.chbDisableMessagebox.Location = new System.Drawing.Point(14, 75);
+            this.chbDisableMessagebox.Name = "chbDisableMessagebox";
+            this.chbDisableMessagebox.Size = new System.Drawing.Size(126, 17);
+            this.chbDisableMessagebox.TabIndex = 4;
+            this.chbDisableMessagebox.Text = "Enable Message Box";
+            this.chbDisableMessagebox.UseVisualStyleBackColor = true;
+            // 
+            // lblWinIndicator
+            // 
+            this.lblWinIndicator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinIndicator.Location = new System.Drawing.Point(11, 13);
+            this.lblWinIndicator.Name = "lblWinIndicator";
+            this.lblWinIndicator.Size = new System.Drawing.Size(121, 59);
+            this.lblWinIndicator.TabIndex = 5;
+            this.lblWinIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlWager
+            // 
+            this.pnlWager.Controls.Add(this.numWager);
+            this.pnlWager.Controls.Add(this.lblWager);
+            this.pnlWager.Controls.Add(this.lblPoints);
+            this.pnlWager.Controls.Add(this.lblScore);
+            this.pnlWager.Controls.Add(this.lblWagerTitle);
+            this.pnlWager.Location = new System.Drawing.Point(138, 13);
+            this.pnlWager.Name = "pnlWager";
+            this.pnlWager.Size = new System.Drawing.Size(105, 79);
+            this.pnlWager.TabIndex = 6;
+            // 
+            // lblWagerTitle
+            // 
+            this.lblWagerTitle.AutoSize = true;
+            this.lblWagerTitle.Location = new System.Drawing.Point(4, 8);
+            this.lblWagerTitle.Name = "lblWagerTitle";
+            this.lblWagerTitle.Size = new System.Drawing.Size(96, 13);
+            this.lblWagerTitle.TabIndex = 0;
+            this.lblWagerTitle.Text = "Wager Your Points";
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Location = new System.Drawing.Point(3, 47);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(19, 13);
+            this.lblScore.TabIndex = 1;
+            this.lblScore.Text = "20";
+            // 
+            // lblPoints
+            // 
+            this.lblPoints.AutoSize = true;
+            this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoints.Location = new System.Drawing.Point(3, 31);
+            this.lblPoints.Name = "lblPoints";
+            this.lblPoints.Size = new System.Drawing.Size(36, 13);
+            this.lblPoints.TabIndex = 2;
+            this.lblPoints.Text = "Points";
+            // 
+            // lblWager
+            // 
+            this.lblWager.AutoSize = true;
+            this.lblWager.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWager.Location = new System.Drawing.Point(63, 31);
+            this.lblWager.Name = "lblWager";
+            this.lblWager.Size = new System.Drawing.Size(39, 13);
+            this.lblWager.TabIndex = 3;
+            this.lblWager.Text = "Wager";
+            // 
+            // numWager
+            // 
+            this.numWager.Location = new System.Drawing.Point(61, 47);
+            this.numWager.Name = "numWager";
+            this.numWager.Size = new System.Drawing.Size(41, 20);
+            this.numWager.TabIndex = 5;
+            // 
             // FrmRPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -354,8 +444,12 @@
             this.pnlRPSChoice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRPS)).EndInit();
             this.pnlRPSSelect.ResumeLayout(false);
+            this.pnlRPSSelect.PerformLayout();
             this.pnlScoreDisplay.ResumeLayout(false);
             this.pnlScoreDisplay.PerformLayout();
+            this.pnlWager.ResumeLayout(false);
+            this.pnlWager.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numWager)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -387,5 +481,13 @@
 		private System.Windows.Forms.Label lblPlayer;
 		private System.Windows.Forms.Label lblDrawCount;
 		private System.Windows.Forms.Label lblDraw;
+		private System.Windows.Forms.Label lblWinIndicator;
+		private System.Windows.Forms.CheckBox chbDisableMessagebox;
+		private System.Windows.Forms.Panel pnlWager;
+		private System.Windows.Forms.NumericUpDown numWager;
+		private System.Windows.Forms.Label lblWager;
+		private System.Windows.Forms.Label lblPoints;
+		private System.Windows.Forms.Label lblScore;
+		private System.Windows.Forms.Label lblWagerTitle;
 	}
 }

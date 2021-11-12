@@ -8,8 +8,8 @@ namespace Mathre
 	public partial class FrmHelloWorld : Form
 	{
 		private string StartingLanguage;
-		private FrmMathre BaseForm;
-		private FrmHelloWorld ThisForm;
+		public static FrmMathre BaseForm;
+		public static FrmHelloWorld ThisForm;
 
 		public FrmHelloWorld()
 		{
@@ -42,7 +42,7 @@ namespace Mathre
 				ThisForm.btnHelloWorldFrench.Checked = true;
 				ThisForm.lblHelloWorldTitle.Text = "Bonjour le Monde";
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageGerman))
+			if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageGerman))
 			{
 				ThisForm.btnHelloWorldGerman.Checked = true;
 				ThisForm.lblHelloWorldTitle.Text = "Hallo Welt";

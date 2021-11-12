@@ -41,7 +41,7 @@ namespace Mathre
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
 			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor"));
 			ColorKey.Close();
-			//KeyPreview = true;
+			KeyPreview = true;
 			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
 			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items)
@@ -82,7 +82,6 @@ namespace Mathre
 			}
 			foreach (TabPage Page in tabMathre.TabPages)
 			{
-				Console.WriteLine(Application.OpenForms);
 				var form = Activator.CreateInstance(Type.GetType("Mathre." + Page.Name.Replace("tab", "Frm"))) as Form;
 				form.Size = FormSize;
 				form.FormBorderStyle = FormBorderStyle.None;
@@ -149,6 +148,7 @@ namespace Mathre
 		}
 		public void KeyboardShortcuts(object sender, KeyEventArgs e)
 		{
+			e.Handled = true;
 			FrmHelloWorld HW = new();
 			if (e.Control & e.KeyCode == Keys.S)
 			{

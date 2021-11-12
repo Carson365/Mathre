@@ -6,7 +6,7 @@ namespace Mathre
 {
 	public partial class FrmDigits : Form
 	{
-		private FrmMathre BaseForm;
+		public static FrmMathre BaseForm;
 		public FrmDigits()
 		{
 			InitializeComponent();

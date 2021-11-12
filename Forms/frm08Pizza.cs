@@ -10,8 +10,8 @@ namespace Mathre
 {
 	public partial class FrmPizza : Form
 	{
-		private FrmMathre BaseForm;
-		private FrmPizza ThisForm;
+		public static FrmMathre BaseForm;
+		public static FrmPizza ThisForm;
 		public FrmPizza()
 		{
 			InitializeComponent();
@@ -36,25 +36,19 @@ namespace Mathre
 		}
 		public void Pizza(object sender, EventArgs e)
 		{
-			if (ReferenceEquals(sender, BaseForm.mnuPizzaDelivery))
+			Action a = $"{sender}" switch
 			{
-				ThisForm.btnDelivery.Checked = true;
-			}
-			else if (ReferenceEquals(sender, BaseForm.mnuPizzaTakeout))
-			{
-				ThisForm.btnTakeout.Checked = true;
-			}
+				"Delivery" => () => ThisForm.btnDelivery.PerformClick(),
+				"Takeout" => () => ThisForm.btnTakeout.PerformClick(),
+				"Dollars" => () => ThisForm.btnDollars.PerformClick(),
+				"Percent" => () => ThisForm.btnPercent.PerformClick(),
+				_ => () => { }
+				,
+			};
+			a.Invoke();
 			if (!btnDelivery.Checked & !btnTakeout.Checked)
 			{
 				btnDelivery.Checked = true;
-			}
-			if (ReferenceEquals(sender, BaseForm.mnuPizzaDollars))
-			{
-				ThisForm.btnDollars.Checked = true;
-			}
-			else if (ReferenceEquals(sender, BaseForm.mnuPizzaPercent))
-			{
-				ThisForm.btnPercent.Checked = true;
 			}
 			if (!btnDollars.Checked & !btnPercent.Checked)
 			{
@@ -77,21 +71,15 @@ namespace Mathre
 			}
 			if (Size == 0)
 			{
-				pnlPizzaViewer.BackgroundImage = null;
 				lblPizzaCostAmount.Text = "Not Enough Information";
 			}
-			else if (Size < 12)
+			pnlPizzaViewer.BackgroundImage = Size switch
 			{
-				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["SmallPizza.png".ToString()];
-			}
-			else if (Size > 13)
-			{
-				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["LargePizza.png".ToString()];
-			}
-			else if (Size is not 0)
-			{
-				pnlPizzaViewer.BackgroundImage = BaseForm.imgFavoriteImages.Images["MediumPizza.png".ToString()];
-			}
+				0 => null,
+				> 13 => BaseForm.imgFavoriteImages.Images["LargePizza.png".ToString()],
+				< 12 => BaseForm.imgFavoriteImages.Images["SmallPizza.png".ToString()],
+				_ => BaseForm.imgFavoriteImages.Images["MediumPizza.png".ToString()],
+			};
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{

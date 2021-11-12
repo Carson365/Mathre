@@ -7,8 +7,9 @@ namespace Mathre
 {
 	public partial class FrmRectangle : Form
 	{
-		private readonly object Placeholder;
-		private FrmMathre BaseForm;
+		public static object Placeholder;
+		public static FrmMathre BaseForm;
+		public static FrmRectangle ThisForm;
 		public FrmRectangle()
 		{
 			InitializeComponent();
@@ -16,7 +17,6 @@ namespace Mathre
 			btnRectangleCalculate.Click += Rectangle;
 			txtRectangleDimensions.KeyPress += Rectangle;
 			txtRectangleDimensions.TextChanged += Rectangle;
-			KeyDown += KeyboardShortcuts;
 			txtRectangleDimensions.KeyPress += RectangleKeypress;
 		}
 		public void FormLoad(object sender, EventArgs e)
@@ -28,6 +28,7 @@ namespace Mathre
 			{
 				BaseForm.GetAllControls(c);
 			}
+			KeyPreview = true;
 		}
 		public void Rectangle(object sender, EventArgs e)
 		{
@@ -47,8 +48,8 @@ namespace Mathre
 			}
 			if (ReferenceEquals(sender, Placeholder) || ReferenceEquals(sender, txtRectangleDimensions))
 			{
-				var ratioX = (double)pnlRectangle.MaximumSize.Width / Width;
-				var ratioY = (double)pnlRectangle.MaximumSize.Height / Height;
+				var ratioX = pnlRectangle.MaximumSize.Width / Width;
+				var ratioY = pnlRectangle.MaximumSize.Height / Height;
 				var ratio = Math.Min(ratioX, ratioY);
 				var newWidth = (int)(Width * ratio);
 				var newHeight = (int)(Height * ratio);
@@ -76,24 +77,6 @@ namespace Mathre
 				{
 					lblRectangleArea.Text = (Width * Height).ToString();
 					lblRectanglePerimeter.Text = (2 * Width + 2 * Height).ToString();
-				}
-			}
-		}
-		public void KeyboardShortcuts(object sender, KeyEventArgs e)
-		{
-			if (txtRectangleDimensions.ContainsFocus)
-			{
-				if (e.KeyCode == Keys.Enter)
-				{
-					Rectangle(Placeholder, null);
-				}
-				if (e.KeyCode == Keys.Delete)
-				{
-					e.Handled = true;
-				}
-				if (e.KeyCode == Keys.Control)
-				{
-					e.Handled = true;
 				}
 			}
 		}

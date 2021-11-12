@@ -12,8 +12,8 @@ namespace Mathre
 {
 	public partial class FrmVideoGames : Form
 	{
-		private FrmMathre BaseForm;
-		private FrmVideoGames ThisForm;
+		public static FrmMathre BaseForm;
+		public static FrmVideoGames ThisForm;
 		public FrmVideoGames()
 		{
 			InitializeComponent();
@@ -39,22 +39,9 @@ namespace Mathre
 			lblCost.Text = "";
 			lblCostText.Text = "";
 		}
-		//
-		//
-		// Begin Assignment Code
-		//
-		//
 		public void Transfer(object sender, EventArgs e) // Allow menu items to run their respective functions across forms
 		{
-			if (ReferenceEquals(sender, BaseForm.mnuXB1))
-			{
-				ThisForm.btnXB1.Checked = true;
-			}
-			else if (ReferenceEquals(sender, BaseForm.mnuPS4))
-			{
-				ThisForm.btnPS4.Checked = true;
-			}
-			ThisForm.ImageSetter(null, null);
+			((RadioButton)ThisForm.pnlConsole.Controls[$"{((ToolStripItem)sender).Name.Replace("mnu", "btn")}"]).PerformClick();
 		}
 		public void ImageSetter(object sender, EventArgs e) // Set the proper images depending on whether Xbox or Playstation is selected
 		{

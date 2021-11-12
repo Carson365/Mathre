@@ -12,8 +12,8 @@ namespace Mathre
 {
 	public partial class FrmMyFavorites : Form
 	{
-		private FrmMathre BaseForm;
-		private FrmMyFavorites ThisForm;
+		public static FrmMathre BaseForm;
+		public static FrmMyFavorites ThisForm;
 		public FrmMyFavorites()
 		{
 			InitializeComponent();

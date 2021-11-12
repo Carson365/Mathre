@@ -6,12 +6,13 @@ namespace Mathre
 {
 	public partial class FrmRPS : Form
 	{
-		private FrmMathre BaseForm;
-		private FrmRPS ThisForm;
+		public static FrmMathre BaseForm;
+		public static FrmRPS ThisForm;
 		private int playerscore = 0;
 		private int computerscore = 0;
 		private int drawamount = 0;
-		// NOTE: Set these to static in order to preserve the values when the form is loaded/unloaded
+		private int points = 20;
+		private int wager = 0;
 		public FrmRPS()
 		{
 			InitializeComponent();
@@ -39,28 +40,35 @@ namespace Mathre
 		// \/ \/ \/  Sets the computer choice and tallies the scores for each player input
 		public void RPSGame(object sender, EventArgs e)
 		{
+			wager = (int)numWager.Value;
 			Random rnd = new();
 			int choice = rnd.Next(0, 3);
 			pnlRPSChoice2.Controls.OfType<RadioButton>().ElementAt(choice).Checked = true;
 			if ((btnRock.Checked && btnScissors2.Checked) || (btnPaper.Checked && btnRock2.Checked) || (btnScissors.Checked && btnPaper2.Checked))
 			{
 				playerscore++;
-				MessageBox.Show("Win!!", "                                        Result                                        ");
 				lblPlayerScore.Text = $"{playerscore}";
+				lblTotalGames.Text = $"{computerscore + playerscore + drawamount}";
+				points += wager; //Accumulator
+				lblScore.Text = points.ToString();
+				Message("Win!!", null); // Subprocedure
 			}
 			else if ((btnRock2.Checked && btnScissors.Checked) || (btnPaper2.Checked && btnRock.Checked) || (btnScissors2.Checked && btnPaper.Checked))
 			{
 				computerscore++;
-				MessageBox.Show("Lose.", "                                        Result                                        ");
 				lblComputerScore.Text = $"{computerscore}";
+				lblTotalGames.Text = $"{computerscore + playerscore + drawamount}";
+				points -= wager; //Accumulator
+				lblScore.Text = points.ToString();
+				Message("Lose.", null); // Subprocedure
 			}
 			else
 			{
 				drawamount++;
-				MessageBox.Show("Draw!", "                                        Result                                        ");
 				lblDrawCount.Text = $"{drawamount}";
+				lblTotalGames.Text = $"{computerscore + playerscore + drawamount}";
+				Message("Draw!", null); // Subprocedure
 			}
-			lblTotalGames.Text = $"{computerscore + playerscore + drawamount}";
 		}
 		// \/ \/ \/ Sets the proper image for the selected action, for both the player and the computer.
 		public void RPSSelect(object sender, EventArgs e)
@@ -83,6 +91,15 @@ namespace Mathre
 		public void MenuHandler(object sender, EventArgs e)
 		{
 			((RadioButton)ThisForm.pnlRPSChoice.Controls[$"btn{sender}"]).PerformClick();
+		}
+		// \/ \/ \/ Display the messagebox if desired
+		public void Message(object sender, EventArgs e)
+		{
+			lblWinIndicator.Text = $"{sender}";
+			if (chbDisableMessagebox.Checked) // Checkbox
+			{
+				MessageBox.Show($"{sender}", "                                        Result                                        ");
+			}
 		}
 	}
 }

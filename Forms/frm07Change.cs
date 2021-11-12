@@ -7,7 +7,7 @@ namespace Mathre
 {
 	public partial class FrmChange : Form
 	{
-		private FrmMathre BaseForm;
+		public static FrmMathre BaseForm;
 		public FrmChange()
 		{
 			InitializeComponent();
