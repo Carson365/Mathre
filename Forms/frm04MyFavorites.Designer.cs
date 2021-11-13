@@ -29,6 +29,8 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMyFavorites));
             this.pnlSecretFrame = new System.Windows.Forms.Panel();
             this.pnlFavoriteDisplay = new System.Windows.Forms.Panel();
             this.pnlFavoriteImage = new System.Windows.Forms.Panel();
@@ -40,6 +42,7 @@ namespace Mathre
             this.btnFavoriteActor = new System.Windows.Forms.RadioButton();
             this.btnFavoriteFruit = new System.Windows.Forms.RadioButton();
             this.lblFavoriteTitle = new System.Windows.Forms.Label();
+            this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.pnlSecretFrame.SuspendLayout();
             this.pnlFavoriteDisplay.SuspendLayout();
             this.pnlFavoriteControls.SuspendLayout();
@@ -173,6 +176,15 @@ namespace Mathre
             this.lblFavoriteTitle.Text = "My Favorite __________";
             this.lblFavoriteTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // imgFavoriteImages
+            // 
+            this.imgFavoriteImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgFavoriteImages.ImageStream")));
+            this.imgFavoriteImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgFavoriteImages.Images.SetKeyName(0, "Actor.jpg");
+            this.imgFavoriteImages.Images.SetKeyName(1, "Fruit.jpg");
+            this.imgFavoriteImages.Images.SetKeyName(2, "Hobby.jpg");
+            this.imgFavoriteImages.Images.SetKeyName(3, "Movie.jpg");
+            // 
             // FrmMyFavorites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,5 +215,6 @@ namespace Mathre
 		private System.Windows.Forms.Panel pnlFavoriteDisplay;
 		private System.Windows.Forms.Panel pnlFavoriteImage;
 		internal System.Windows.Forms.Label lblFavoriteInfo;
+		public System.Windows.Forms.ImageList imgFavoriteImages;
 	}
 }

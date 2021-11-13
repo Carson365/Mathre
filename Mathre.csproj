@@ -317,41 +317,5 @@
   <ItemGroup>
     <None Include="Resources\EnterKey.png" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\LargePizza.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\MediumPizza.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\SmallPizza.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Image1.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Stardew-PS4.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RockPS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RockPS2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RPaperS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RPaperS2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RPS.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RPScissors.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\RPScissors2.png" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

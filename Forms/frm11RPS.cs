@@ -36,6 +36,8 @@ namespace Mathre
 			{
 				BaseForm.GetAllControls(c);
 			}
+			picRPS.Image = imgRPS.Images["RPS.png"];
+			picRPS2.Image = imgRPS.Images["RPS.png"];
 		}
 		// \/ \/ \/  Sets the computer choice and tallies the scores for each player input
 		public void RPSGame(object sender, EventArgs e)
@@ -77,12 +79,12 @@ namespace Mathre
 			{
 				((RadioButton)sender).Parent.Parent.Controls.OfType<PictureBox>().Single().Image = ((RadioButton)sender).Name switch
 				{
-					"btnRock" => My.Resources.Resources.RockPS,
-					"btnPaper" => My.Resources.Resources.RPaperS,
-					"btnScissors" => My.Resources.Resources.RPScissors,
-					"btnRock2" => My.Resources.Resources.RockPS2,
-					"btnPaper2" => My.Resources.Resources.RPaperS2,
-					"btnScissors2" => My.Resources.Resources.RPScissors2,
+					"btnRock" => imgRPS.Images["RockPS.png"],
+					"btnPaper" => imgRPS.Images["RPaperS.png"],
+					"btnScissors" => imgRPS.Images["RPScissors.png"],
+					"btnRock2" => imgRPS.Images["RockPS2.png"],
+					"btnPaper2" => imgRPS.Images["RPaperS2.png"],
+					"btnScissors2" => imgRPS.Images["RPScissors2.png"],
 					_ => throw new NotImplementedException()
 				};
 			}

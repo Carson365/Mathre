@@ -29,6 +29,8 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPizza));
             this.pnlSecretFrame = new System.Windows.Forms.Panel();
             this.lblPizzaTitle = new System.Windows.Forms.Label();
             this.pnlPizzaCost = new System.Windows.Forms.Panel();
@@ -46,6 +48,7 @@ namespace Mathre
             this.btnDollars = new System.Windows.Forms.RadioButton();
             this.lblPizzaTip = new System.Windows.Forms.Label();
             this.txtPizzaSize = new System.Windows.Forms.TextBox();
+            this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.pnlSecretFrame.SuspendLayout();
             this.pnlPizzaCost.SuspendLayout();
             this.pnlPizza.SuspendLayout();
@@ -247,6 +250,14 @@ namespace Mathre
             this.txtPizzaSize.Size = new System.Drawing.Size(90, 26);
             this.txtPizzaSize.TabIndex = 13;
             // 
+            // imgFavoriteImages
+            // 
+            this.imgFavoriteImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgFavoriteImages.ImageStream")));
+            this.imgFavoriteImages.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgFavoriteImages.Images.SetKeyName(0, "LargePizza.png");
+            this.imgFavoriteImages.Images.SetKeyName(1, "MediumPizza.png");
+            this.imgFavoriteImages.Images.SetKeyName(2, "SmallPizza.png");
+            // 
             // FrmPizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,5 +299,6 @@ namespace Mathre
 		internal System.Windows.Forms.Label lblPizzaTip;
 		internal System.Windows.Forms.TextBox txtPizzaSize;
 		internal System.Windows.Forms.Label lblPizzaTitle;
+		public System.Windows.Forms.ImageList imgFavoriteImages;
 	}
 }

@@ -55,7 +55,7 @@ namespace Mathre
 					ThisForm.pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
 				}
 				lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
-				pnlFavoriteImage.BackgroundImage = BaseForm.imgFavoriteImages.Images[$"{ThisForm.pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
+				pnlFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 			}
 		}
 	}

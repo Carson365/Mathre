@@ -28,10 +28,15 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHurricane));
             this.pnlSecretFrame = new System.Windows.Forms.Panel();
             this.lblHurricaneTitle = new System.Windows.Forms.Label();
             this.pnlHurricaneOutput = new System.Windows.Forms.Panel();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblKnots = new System.Windows.Forms.Label();
+            this.lblKnotsLabel = new System.Windows.Forms.Label();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.lblCategoryLabel = new System.Windows.Forms.Label();
             this.lblType = new System.Windows.Forms.Label();
             this.lblTypeLabel = new System.Windows.Forms.Label();
             this.lblNameLabel = new System.Windows.Forms.Label();
@@ -39,16 +44,15 @@
             this.btnGenerate = new System.Windows.Forms.Button();
             this.btnRandom = new System.Windows.Forms.Button();
             this.lblSpeed = new System.Windows.Forms.Label();
-            this.lblMPH = new System.Windows.Forms.TextBox();
-            this.lblCategoryLabel = new System.Windows.Forms.Label();
-            this.lblDamageLabel = new System.Windows.Forms.Label();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.lblDamage = new System.Windows.Forms.Label();
-            this.lblKnotsLabel = new System.Windows.Forms.Label();
-            this.lblKnots = new System.Windows.Forms.Label();
+            this.txtMPH = new System.Windows.Forms.TextBox();
+            this.chbDamage = new System.Windows.Forms.CheckBox();
+            this.imgHurricanes = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.llbName = new System.Windows.Forms.LinkLabel();
             this.pnlSecretFrame.SuspendLayout();
             this.pnlHurricaneOutput.SuspendLayout();
             this.pnlHurricaneInput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlSecretFrame
@@ -81,13 +85,13 @@
             // 
             this.pnlHurricaneOutput.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlHurricaneOutput.BackColor = System.Drawing.Color.Transparent;
+            this.pnlHurricaneOutput.Controls.Add(this.llbName);
+            this.pnlHurricaneOutput.Controls.Add(this.pictureBox1);
+            this.pnlHurricaneOutput.Controls.Add(this.chbDamage);
             this.pnlHurricaneOutput.Controls.Add(this.lblKnots);
             this.pnlHurricaneOutput.Controls.Add(this.lblKnotsLabel);
-            this.pnlHurricaneOutput.Controls.Add(this.lblDamage);
             this.pnlHurricaneOutput.Controls.Add(this.lblCategory);
-            this.pnlHurricaneOutput.Controls.Add(this.lblDamageLabel);
             this.pnlHurricaneOutput.Controls.Add(this.lblCategoryLabel);
-            this.pnlHurricaneOutput.Controls.Add(this.lblName);
             this.pnlHurricaneOutput.Controls.Add(this.lblType);
             this.pnlHurricaneOutput.Controls.Add(this.lblTypeLabel);
             this.pnlHurricaneOutput.Controls.Add(this.lblNameLabel);
@@ -96,25 +100,59 @@
             this.pnlHurricaneOutput.Size = new System.Drawing.Size(426, 136);
             this.pnlHurricaneOutput.TabIndex = 35;
             // 
-            // lblName
+            // lblKnots
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(126, 8);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(51, 20);
-            this.lblName.TabIndex = 30;
-            this.lblName.Text = "label1";
+            this.lblKnots.AutoSize = true;
+            this.lblKnots.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKnots.Location = new System.Drawing.Point(223, 38);
+            this.lblKnots.Name = "lblKnots";
+            this.lblKnots.Size = new System.Drawing.Size(14, 15);
+            this.lblKnots.TabIndex = 36;
+            this.lblKnots.Text = "0";
+            this.lblKnots.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblKnotsLabel
+            // 
+            this.lblKnotsLabel.AutoSize = true;
+            this.lblKnotsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblKnotsLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblKnotsLabel.Location = new System.Drawing.Point(163, 35);
+            this.lblKnotsLabel.Name = "lblKnotsLabel";
+            this.lblKnotsLabel.Size = new System.Drawing.Size(54, 20);
+            this.lblKnotsLabel.TabIndex = 35;
+            this.lblKnotsLabel.Text = "Knots:";
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.AutoSize = true;
+            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.Location = new System.Drawing.Point(246, 88);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(14, 15);
+            this.lblCategory.TabIndex = 33;
+            this.lblCategory.Text = "0";
+            this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblCategoryLabel
+            // 
+            this.lblCategoryLabel.AutoSize = true;
+            this.lblCategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategoryLabel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblCategoryLabel.Location = new System.Drawing.Point(163, 85);
+            this.lblCategoryLabel.Name = "lblCategoryLabel";
+            this.lblCategoryLabel.Size = new System.Drawing.Size(77, 20);
+            this.lblCategoryLabel.TabIndex = 31;
+            this.lblCategoryLabel.Text = "Category:";
             // 
             // lblType
             // 
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblType.Location = new System.Drawing.Point(119, 61);
+            this.lblType.Location = new System.Drawing.Point(216, 63);
             this.lblType.Name = "lblType";
-            this.lblType.Size = new System.Drawing.Size(137, 15);
+            this.lblType.Size = new System.Drawing.Size(14, 15);
             this.lblType.TabIndex = 16;
-            this.lblType.Text = "Not Enough Information";
+            this.lblType.Text = "0";
             this.lblType.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblTypeLabel
@@ -122,22 +160,22 @@
             this.lblTypeLabel.AutoSize = true;
             this.lblTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTypeLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTypeLabel.Location = new System.Drawing.Point(19, 58);
+            this.lblTypeLabel.Location = new System.Drawing.Point(163, 60);
             this.lblTypeLabel.Name = "lblTypeLabel";
-            this.lblTypeLabel.Size = new System.Drawing.Size(94, 20);
+            this.lblTypeLabel.Size = new System.Drawing.Size(47, 20);
             this.lblTypeLabel.TabIndex = 14;
-            this.lblTypeLabel.Text = "Storm Type:";
+            this.lblTypeLabel.Text = "Type:";
             // 
             // lblNameLabel
             // 
             this.lblNameLabel.AutoSize = true;
             this.lblNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNameLabel.Location = new System.Drawing.Point(18, 8);
+            this.lblNameLabel.Location = new System.Drawing.Point(162, 10);
             this.lblNameLabel.Name = "lblNameLabel";
-            this.lblNameLabel.Size = new System.Drawing.Size(102, 20);
+            this.lblNameLabel.Size = new System.Drawing.Size(55, 20);
             this.lblNameLabel.TabIndex = 27;
-            this.lblNameLabel.Text = "Storm Name:";
+            this.lblNameLabel.Text = "Name:";
             // 
             // pnlHurricaneInput
             // 
@@ -146,7 +184,7 @@
             this.pnlHurricaneInput.Controls.Add(this.btnGenerate);
             this.pnlHurricaneInput.Controls.Add(this.btnRandom);
             this.pnlHurricaneInput.Controls.Add(this.lblSpeed);
-            this.pnlHurricaneInput.Controls.Add(this.lblMPH);
+            this.pnlHurricaneInput.Controls.Add(this.txtMPH);
             this.pnlHurricaneInput.Location = new System.Drawing.Point(287, 165);
             this.pnlHurricaneInput.Name = "pnlHurricaneInput";
             this.pnlHurricaneInput.Size = new System.Drawing.Size(426, 105);
@@ -154,18 +192,18 @@
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(71, 64);
+            this.btnGenerate.Location = new System.Drawing.Point(263, 64);
             this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(92, 23);
+            this.btnGenerate.Size = new System.Drawing.Size(141, 23);
             this.btnGenerate.TabIndex = 29;
-            this.btnGenerate.Text = "Generate Storm";
+            this.btnGenerate.Text = "Calculate Storm Impact";
             this.btnGenerate.UseVisualStyleBackColor = true;
             // 
             // btnRandom
             // 
-            this.btnRandom.Location = new System.Drawing.Point(264, 64);
+            this.btnRandom.Location = new System.Drawing.Point(22, 64);
             this.btnRandom.Name = "btnRandom";
-            this.btnRandom.Size = new System.Drawing.Size(92, 23);
+            this.btnRandom.Size = new System.Drawing.Size(141, 23);
             this.btnRandom.TabIndex = 28;
             this.btnRandom.Text = "Random Storm";
             this.btnRandom.UseVisualStyleBackColor = true;
@@ -181,82 +219,61 @@
             this.lblSpeed.TabIndex = 9;
             this.lblSpeed.Text = "Wind Speed (mph):";
             // 
-            // lblMPH
+            // txtMPH
             // 
-            this.lblMPH.BackColor = System.Drawing.SystemColors.Window;
-            this.lblMPH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblMPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMPH.Location = new System.Drawing.Point(166, 14);
-            this.lblMPH.Margin = new System.Windows.Forms.Padding(0);
-            this.lblMPH.Name = "lblMPH";
-            this.lblMPH.Size = new System.Drawing.Size(253, 26);
-            this.lblMPH.TabIndex = 13;
+            this.txtMPH.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMPH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMPH.Location = new System.Drawing.Point(166, 14);
+            this.txtMPH.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMPH.Name = "txtMPH";
+            this.txtMPH.Size = new System.Drawing.Size(253, 26);
+            this.txtMPH.TabIndex = 13;
             // 
-            // lblCategoryLabel
+            // chbDamage
             // 
-            this.lblCategoryLabel.AutoSize = true;
-            this.lblCategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategoryLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCategoryLabel.Location = new System.Drawing.Point(19, 83);
-            this.lblCategoryLabel.Name = "lblCategoryLabel";
-            this.lblCategoryLabel.Size = new System.Drawing.Size(124, 20);
-            this.lblCategoryLabel.TabIndex = 31;
-            this.lblCategoryLabel.Text = "Storm Category:";
+            this.chbDamage.AutoSize = true;
+            this.chbDamage.Location = new System.Drawing.Point(167, 110);
+            this.chbDamage.Name = "chbDamage";
+            this.chbDamage.Size = new System.Drawing.Size(151, 17);
+            this.chbDamage.TabIndex = 37;
+            this.chbDamage.Text = "Display Expected Damage";
+            this.chbDamage.UseVisualStyleBackColor = true;
             // 
-            // lblDamageLabel
+            // imgHurricanes
             // 
-            this.lblDamageLabel.AutoSize = true;
-            this.lblDamageLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDamageLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblDamageLabel.Location = new System.Drawing.Point(19, 108);
-            this.lblDamageLabel.Name = "lblDamageLabel";
-            this.lblDamageLabel.Size = new System.Drawing.Size(121, 20);
-            this.lblDamageLabel.TabIndex = 32;
-            this.lblDamageLabel.Text = "Storm Damage:";
+            this.imgHurricanes.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgHurricanes.ImageStream")));
+            this.imgHurricanes.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgHurricanes.Images.SetKeyName(0, "Cat1.png");
+            this.imgHurricanes.Images.SetKeyName(1, "Cat2.png");
+            this.imgHurricanes.Images.SetKeyName(2, "Cat3.png");
+            this.imgHurricanes.Images.SetKeyName(3, "Cat4.png");
+            this.imgHurricanes.Images.SetKeyName(4, "Cat5.png");
+            this.imgHurricanes.Images.SetKeyName(5, "TS0.png");
+            this.imgHurricanes.Images.SetKeyName(6, "TD0.png");
             // 
-            // lblCategory
+            // pictureBox1
             // 
-            this.lblCategory.AutoSize = true;
-            this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(149, 86);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(137, 15);
-            this.lblCategory.TabIndex = 33;
-            this.lblCategory.Text = "Not Enough Information";
-            this.lblCategory.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.pictureBox1.Location = new System.Drawing.Point(22, 10);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(117, 117);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabStop = false;
             // 
-            // lblDamage
+            // llbName
             // 
-            this.lblDamage.AutoSize = true;
-            this.lblDamage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDamage.Location = new System.Drawing.Point(146, 111);
-            this.lblDamage.Name = "lblDamage";
-            this.lblDamage.Size = new System.Drawing.Size(137, 15);
-            this.lblDamage.TabIndex = 34;
-            this.lblDamage.Text = "Not Enough Information";
-            this.lblDamage.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // lblKnotsLabel
-            // 
-            this.lblKnotsLabel.AutoSize = true;
-            this.lblKnotsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKnotsLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblKnotsLabel.Location = new System.Drawing.Point(19, 33);
-            this.lblKnotsLabel.Name = "lblKnotsLabel";
-            this.lblKnotsLabel.Size = new System.Drawing.Size(101, 20);
-            this.lblKnotsLabel.TabIndex = 35;
-            this.lblKnotsLabel.Text = "Storm Knots:";
-            // 
-            // lblKnots
-            // 
-            this.lblKnots.AutoSize = true;
-            this.lblKnots.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKnots.Location = new System.Drawing.Point(126, 36);
-            this.lblKnots.Name = "lblKnots";
-            this.lblKnots.Size = new System.Drawing.Size(137, 15);
-            this.lblKnots.TabIndex = 36;
-            this.lblKnots.Text = "Not Enough Information";
-            this.lblKnots.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.llbName.ActiveLinkColor = System.Drawing.Color.DodgerBlue;
+            this.llbName.AutoSize = true;
+            this.llbName.DisabledLinkColor = System.Drawing.Color.Black;
+            this.llbName.Enabled = false;
+            this.llbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llbName.Location = new System.Drawing.Point(223, 10);
+            this.llbName.Name = "llbName";
+            this.llbName.Size = new System.Drawing.Size(51, 20);
+            this.llbName.TabIndex = 39;
+            this.llbName.TabStop = true;
+            this.llbName.Text = "Name";
             // 
             // FrmHurricane
             // 
@@ -272,6 +289,7 @@
             this.pnlHurricaneOutput.PerformLayout();
             this.pnlHurricaneInput.ResumeLayout(false);
             this.pnlHurricaneInput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -286,15 +304,16 @@
 		private System.Windows.Forms.Panel pnlHurricaneInput;
 		internal System.Windows.Forms.Label lblSpeed;
 		internal System.Windows.Forms.Label lblNameLabel;
-		internal System.Windows.Forms.TextBox lblMPH;
-		private System.Windows.Forms.Label lblName;
+		internal System.Windows.Forms.TextBox txtMPH;
 		private System.Windows.Forms.Button btnGenerate;
 		private System.Windows.Forms.Button btnRandom;
-		internal System.Windows.Forms.Label lblDamageLabel;
 		internal System.Windows.Forms.Label lblCategoryLabel;
-		private System.Windows.Forms.Label lblDamage;
 		private System.Windows.Forms.Label lblCategory;
 		private System.Windows.Forms.Label lblKnots;
 		internal System.Windows.Forms.Label lblKnotsLabel;
+		private System.Windows.Forms.CheckBox chbDamage;
+		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.ImageList imgHurricanes;
+		private System.Windows.Forms.LinkLabel llbName;
 	}
 }

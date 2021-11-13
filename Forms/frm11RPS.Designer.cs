@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPS));
             this.pnlRPS = new System.Windows.Forms.Panel();
             this.pnlRPSGame = new System.Windows.Forms.Panel();
@@ -36,14 +37,20 @@
             this.btnRock2 = new System.Windows.Forms.RadioButton();
             this.btnPaper2 = new System.Windows.Forms.RadioButton();
             this.btnScissors2 = new System.Windows.Forms.RadioButton();
-            this.picRPS2 = new System.Windows.Forms.PictureBox();
             this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlRPSChoice = new System.Windows.Forms.Panel();
             this.btnRock = new System.Windows.Forms.RadioButton();
             this.btnPaper = new System.Windows.Forms.RadioButton();
             this.btnScissors = new System.Windows.Forms.RadioButton();
-            this.picRPS = new System.Windows.Forms.PictureBox();
             this.pnlRPSSelect = new System.Windows.Forms.Panel();
+            this.pnlWager = new System.Windows.Forms.Panel();
+            this.numWager = new System.Windows.Forms.NumericUpDown();
+            this.lblWager = new System.Windows.Forms.Label();
+            this.lblPoints = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
+            this.lblWagerTitle = new System.Windows.Forms.Label();
+            this.lblWinIndicator = new System.Windows.Forms.Label();
+            this.chbDisableMessagebox = new System.Windows.Forms.CheckBox();
             this.pnlScoreDisplay = new System.Windows.Forms.Panel();
             this.lblDrawCount = new System.Windows.Forms.Label();
             this.lblComputerScore = new System.Windows.Forms.Label();
@@ -54,26 +61,21 @@
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPlayer = new System.Windows.Forms.Label();
             this.lblRPSTitle = new System.Windows.Forms.Label();
-            this.chbDisableMessagebox = new System.Windows.Forms.CheckBox();
-            this.lblWinIndicator = new System.Windows.Forms.Label();
-            this.pnlWager = new System.Windows.Forms.Panel();
-            this.lblWagerTitle = new System.Windows.Forms.Label();
-            this.lblScore = new System.Windows.Forms.Label();
-            this.lblPoints = new System.Windows.Forms.Label();
-            this.lblWager = new System.Windows.Forms.Label();
-            this.numWager = new System.Windows.Forms.NumericUpDown();
+            this.imgRPS = new System.Windows.Forms.ImageList(this.components);
+            this.picRPS2 = new System.Windows.Forms.PictureBox();
+            this.picRPS = new System.Windows.Forms.PictureBox();
             this.pnlRPS.SuspendLayout();
             this.pnlRPSGame.SuspendLayout();
             this.pnlComputer.SuspendLayout();
             this.pnlRPSChoice2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).BeginInit();
             this.pnlPlayer.SuspendLayout();
             this.pnlRPSChoice.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS)).BeginInit();
             this.pnlRPSSelect.SuspendLayout();
-            this.pnlScoreDisplay.SuspendLayout();
             this.pnlWager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).BeginInit();
+            this.pnlScoreDisplay.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlRPS
@@ -159,16 +161,6 @@
             this.btnScissors2.Text = "Scissors";
             this.btnScissors2.UseVisualStyleBackColor = true;
             // 
-            // picRPS2
-            // 
-            this.picRPS2.Image = ((System.Drawing.Image)(resources.GetObject("picRPS2.Image")));
-            this.picRPS2.Location = new System.Drawing.Point(9, 11);
-            this.picRPS2.Name = "picRPS2";
-            this.picRPS2.Size = new System.Drawing.Size(180, 76);
-            this.picRPS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picRPS2.TabIndex = 4;
-            this.picRPS2.TabStop = false;
-            // 
             // pnlPlayer
             // 
             this.pnlPlayer.Controls.Add(this.pnlRPSChoice);
@@ -222,16 +214,6 @@
             this.btnScissors.Text = "Scissors";
             this.btnScissors.UseVisualStyleBackColor = true;
             // 
-            // picRPS
-            // 
-            this.picRPS.Image = ((System.Drawing.Image)(resources.GetObject("picRPS.Image")));
-            this.picRPS.Location = new System.Drawing.Point(9, 11);
-            this.picRPS.Name = "picRPS";
-            this.picRPS.Size = new System.Drawing.Size(180, 76);
-            this.picRPS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picRPS.TabIndex = 4;
-            this.picRPS.TabStop = false;
-            // 
             // pnlRPSSelect
             // 
             this.pnlRPSSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -244,6 +226,83 @@
             this.pnlRPSSelect.Name = "pnlRPSSelect";
             this.pnlRPSSelect.Size = new System.Drawing.Size(426, 105);
             this.pnlRPSSelect.TabIndex = 34;
+            // 
+            // pnlWager
+            // 
+            this.pnlWager.Controls.Add(this.numWager);
+            this.pnlWager.Controls.Add(this.lblWager);
+            this.pnlWager.Controls.Add(this.lblPoints);
+            this.pnlWager.Controls.Add(this.lblScore);
+            this.pnlWager.Controls.Add(this.lblWagerTitle);
+            this.pnlWager.Location = new System.Drawing.Point(138, 13);
+            this.pnlWager.Name = "pnlWager";
+            this.pnlWager.Size = new System.Drawing.Size(105, 79);
+            this.pnlWager.TabIndex = 6;
+            // 
+            // numWager
+            // 
+            this.numWager.Location = new System.Drawing.Point(61, 47);
+            this.numWager.Name = "numWager";
+            this.numWager.Size = new System.Drawing.Size(41, 20);
+            this.numWager.TabIndex = 5;
+            // 
+            // lblWager
+            // 
+            this.lblWager.AutoSize = true;
+            this.lblWager.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWager.Location = new System.Drawing.Point(63, 31);
+            this.lblWager.Name = "lblWager";
+            this.lblWager.Size = new System.Drawing.Size(39, 13);
+            this.lblWager.TabIndex = 3;
+            this.lblWager.Text = "Wager";
+            // 
+            // lblPoints
+            // 
+            this.lblPoints.AutoSize = true;
+            this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoints.Location = new System.Drawing.Point(3, 31);
+            this.lblPoints.Name = "lblPoints";
+            this.lblPoints.Size = new System.Drawing.Size(36, 13);
+            this.lblPoints.TabIndex = 2;
+            this.lblPoints.Text = "Points";
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Location = new System.Drawing.Point(3, 47);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(19, 13);
+            this.lblScore.TabIndex = 1;
+            this.lblScore.Text = "20";
+            // 
+            // lblWagerTitle
+            // 
+            this.lblWagerTitle.AutoSize = true;
+            this.lblWagerTitle.Location = new System.Drawing.Point(4, 8);
+            this.lblWagerTitle.Name = "lblWagerTitle";
+            this.lblWagerTitle.Size = new System.Drawing.Size(96, 13);
+            this.lblWagerTitle.TabIndex = 0;
+            this.lblWagerTitle.Text = "Wager Your Points";
+            // 
+            // lblWinIndicator
+            // 
+            this.lblWinIndicator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinIndicator.Location = new System.Drawing.Point(11, 13);
+            this.lblWinIndicator.Name = "lblWinIndicator";
+            this.lblWinIndicator.Size = new System.Drawing.Size(121, 59);
+            this.lblWinIndicator.TabIndex = 5;
+            this.lblWinIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chbDisableMessagebox
+            // 
+            this.chbDisableMessagebox.AutoSize = true;
+            this.chbDisableMessagebox.Location = new System.Drawing.Point(14, 75);
+            this.chbDisableMessagebox.Name = "chbDisableMessagebox";
+            this.chbDisableMessagebox.Size = new System.Drawing.Size(126, 17);
+            this.chbDisableMessagebox.TabIndex = 4;
+            this.chbDisableMessagebox.Text = "Enable Message Box";
+            this.chbDisableMessagebox.UseVisualStyleBackColor = true;
             // 
             // pnlScoreDisplay
             // 
@@ -347,82 +406,39 @@
             this.lblRPSTitle.Text = "Rock Paper Scissors";
             this.lblRPSTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chbDisableMessagebox
+            // imgRPS
             // 
-            this.chbDisableMessagebox.AutoSize = true;
-            this.chbDisableMessagebox.Location = new System.Drawing.Point(14, 75);
-            this.chbDisableMessagebox.Name = "chbDisableMessagebox";
-            this.chbDisableMessagebox.Size = new System.Drawing.Size(126, 17);
-            this.chbDisableMessagebox.TabIndex = 4;
-            this.chbDisableMessagebox.Text = "Enable Message Box";
-            this.chbDisableMessagebox.UseVisualStyleBackColor = true;
+            this.imgRPS.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgRPS.ImageStream")));
+            this.imgRPS.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgRPS.Images.SetKeyName(0, "RockPS.png");
+            this.imgRPS.Images.SetKeyName(1, "RockPS2.png");
+            this.imgRPS.Images.SetKeyName(2, "RPaperS.png");
+            this.imgRPS.Images.SetKeyName(3, "RPaperS2.png");
+            this.imgRPS.Images.SetKeyName(4, "RPS.png");
+            this.imgRPS.Images.SetKeyName(5, "RPScissors.png");
+            this.imgRPS.Images.SetKeyName(6, "RPScissors2.png");
             // 
-            // lblWinIndicator
+            // picRPS2
             // 
-            this.lblWinIndicator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinIndicator.Location = new System.Drawing.Point(11, 13);
-            this.lblWinIndicator.Name = "lblWinIndicator";
-            this.lblWinIndicator.Size = new System.Drawing.Size(121, 59);
-            this.lblWinIndicator.TabIndex = 5;
-            this.lblWinIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.picRPS2.ErrorImage = null;
+            this.picRPS2.InitialImage = null;
+            this.picRPS2.Location = new System.Drawing.Point(9, 11);
+            this.picRPS2.Name = "picRPS2";
+            this.picRPS2.Size = new System.Drawing.Size(180, 76);
+            this.picRPS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picRPS2.TabIndex = 4;
+            this.picRPS2.TabStop = false;
             // 
-            // pnlWager
+            // picRPS
             // 
-            this.pnlWager.Controls.Add(this.numWager);
-            this.pnlWager.Controls.Add(this.lblWager);
-            this.pnlWager.Controls.Add(this.lblPoints);
-            this.pnlWager.Controls.Add(this.lblScore);
-            this.pnlWager.Controls.Add(this.lblWagerTitle);
-            this.pnlWager.Location = new System.Drawing.Point(138, 13);
-            this.pnlWager.Name = "pnlWager";
-            this.pnlWager.Size = new System.Drawing.Size(105, 79);
-            this.pnlWager.TabIndex = 6;
-            // 
-            // lblWagerTitle
-            // 
-            this.lblWagerTitle.AutoSize = true;
-            this.lblWagerTitle.Location = new System.Drawing.Point(4, 8);
-            this.lblWagerTitle.Name = "lblWagerTitle";
-            this.lblWagerTitle.Size = new System.Drawing.Size(96, 13);
-            this.lblWagerTitle.TabIndex = 0;
-            this.lblWagerTitle.Text = "Wager Your Points";
-            // 
-            // lblScore
-            // 
-            this.lblScore.AutoSize = true;
-            this.lblScore.Location = new System.Drawing.Point(3, 47);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(19, 13);
-            this.lblScore.TabIndex = 1;
-            this.lblScore.Text = "20";
-            // 
-            // lblPoints
-            // 
-            this.lblPoints.AutoSize = true;
-            this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPoints.Location = new System.Drawing.Point(3, 31);
-            this.lblPoints.Name = "lblPoints";
-            this.lblPoints.Size = new System.Drawing.Size(36, 13);
-            this.lblPoints.TabIndex = 2;
-            this.lblPoints.Text = "Points";
-            // 
-            // lblWager
-            // 
-            this.lblWager.AutoSize = true;
-            this.lblWager.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWager.Location = new System.Drawing.Point(63, 31);
-            this.lblWager.Name = "lblWager";
-            this.lblWager.Size = new System.Drawing.Size(39, 13);
-            this.lblWager.TabIndex = 3;
-            this.lblWager.Text = "Wager";
-            // 
-            // numWager
-            // 
-            this.numWager.Location = new System.Drawing.Point(61, 47);
-            this.numWager.Name = "numWager";
-            this.numWager.Size = new System.Drawing.Size(41, 20);
-            this.numWager.TabIndex = 5;
+            this.picRPS.ErrorImage = null;
+            this.picRPS.InitialImage = null;
+            this.picRPS.Location = new System.Drawing.Point(9, 11);
+            this.picRPS.Name = "picRPS";
+            this.picRPS.Size = new System.Drawing.Size(180, 76);
+            this.picRPS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picRPS.TabIndex = 4;
+            this.picRPS.TabStop = false;
             // 
             // FrmRPS
             // 
@@ -438,18 +454,18 @@
             this.pnlComputer.ResumeLayout(false);
             this.pnlRPSChoice2.ResumeLayout(false);
             this.pnlRPSChoice2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).EndInit();
             this.pnlPlayer.ResumeLayout(false);
             this.pnlRPSChoice.ResumeLayout(false);
             this.pnlRPSChoice.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS)).EndInit();
             this.pnlRPSSelect.ResumeLayout(false);
             this.pnlRPSSelect.PerformLayout();
-            this.pnlScoreDisplay.ResumeLayout(false);
-            this.pnlScoreDisplay.PerformLayout();
             this.pnlWager.ResumeLayout(false);
             this.pnlWager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).EndInit();
+            this.pnlScoreDisplay.ResumeLayout(false);
+            this.pnlScoreDisplay.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -489,5 +505,6 @@
 		private System.Windows.Forms.Label lblPoints;
 		private System.Windows.Forms.Label lblScore;
 		private System.Windows.Forms.Label lblWagerTitle;
+		private System.Windows.Forms.ImageList imgRPS;
 	}
 }

@@ -76,9 +76,9 @@ namespace Mathre
 			pnlPizzaViewer.BackgroundImage = Size switch
 			{
 				0 => null,
-				> 13 => BaseForm.imgFavoriteImages.Images["LargePizza.png".ToString()],
-				< 12 => BaseForm.imgFavoriteImages.Images["SmallPizza.png".ToString()],
-				_ => BaseForm.imgFavoriteImages.Images["MediumPizza.png".ToString()],
+				> 13 => imgFavoriteImages.Images["LargePizza.png".ToString()],
+				< 12 => imgFavoriteImages.Images["SmallPizza.png".ToString()],
+				_ => imgFavoriteImages.Images["MediumPizza.png".ToString()],
 			};
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
