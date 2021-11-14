@@ -30,9 +30,13 @@
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHurricane));
-            this.pnlSecretFrame = new System.Windows.Forms.Panel();
+            this.pnlHurricaneFrame = new System.Windows.Forms.Panel();
+            this.lstHurricaneList = new System.Windows.Forms.ListView();
             this.lblHurricaneTitle = new System.Windows.Forms.Label();
             this.pnlHurricaneOutput = new System.Windows.Forms.Panel();
+            this.llbName = new System.Windows.Forms.LinkLabel();
+            this.picHurricaneType = new System.Windows.Forms.PictureBox();
+            this.chbDamage = new System.Windows.Forms.CheckBox();
             this.lblKnots = new System.Windows.Forms.Label();
             this.lblKnotsLabel = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
@@ -45,35 +49,50 @@
             this.btnRandom = new System.Windows.Forms.Button();
             this.lblSpeed = new System.Windows.Forms.Label();
             this.txtMPH = new System.Windows.Forms.TextBox();
-            this.chbDamage = new System.Windows.Forms.CheckBox();
             this.imgHurricanes = new System.Windows.Forms.ImageList(this.components);
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.llbName = new System.Windows.Forms.LinkLabel();
-            this.pnlSecretFrame.SuspendLayout();
+            this.pnlHurricaneList = new System.Windows.Forms.Panel();
+            this.pnlHurricaneFrame.SuspendLayout();
             this.pnlHurricaneOutput.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHurricaneType)).BeginInit();
             this.pnlHurricaneInput.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.pnlHurricaneList.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlSecretFrame
+            // pnlHurricaneFrame
             // 
-            this.pnlSecretFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlHurricaneFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSecretFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSecretFrame.Controls.Add(this.lblHurricaneTitle);
-            this.pnlSecretFrame.Controls.Add(this.pnlHurricaneOutput);
-            this.pnlSecretFrame.Controls.Add(this.pnlHurricaneInput);
-            this.pnlSecretFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlSecretFrame.Name = "pnlSecretFrame";
-            this.pnlSecretFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlSecretFrame.TabIndex = 34;
+            this.pnlHurricaneFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlHurricaneFrame.Controls.Add(this.pnlHurricaneList);
+            this.pnlHurricaneFrame.Controls.Add(this.lblHurricaneTitle);
+            this.pnlHurricaneFrame.Controls.Add(this.pnlHurricaneOutput);
+            this.pnlHurricaneFrame.Controls.Add(this.pnlHurricaneInput);
+            this.pnlHurricaneFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlHurricaneFrame.Name = "pnlHurricaneFrame";
+            this.pnlHurricaneFrame.Size = new System.Drawing.Size(1200, 500);
+            this.pnlHurricaneFrame.TabIndex = 34;
+            // 
+            // lstHurricaneList
+            // 
+            this.lstHurricaneList.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lstHurricaneList.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lstHurricaneList.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lstHurricaneList.HideSelection = false;
+            this.lstHurricaneList.Location = new System.Drawing.Point(3, 3);
+            this.lstHurricaneList.Name = "lstHurricaneList";
+            this.lstHurricaneList.Size = new System.Drawing.Size(616, 241);
+            this.lstHurricaneList.TabIndex = 36;
+            this.lstHurricaneList.UseCompatibleStateImageBehavior = false;
+            this.lstHurricaneList.View = System.Windows.Forms.View.Details;
             // 
             // lblHurricaneTitle
             // 
             this.lblHurricaneTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblHurricaneTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHurricaneTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblHurricaneTitle.Location = new System.Drawing.Point(287, 95);
             this.lblHurricaneTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblHurricaneTitle.Name = "lblHurricaneTitle";
             this.lblHurricaneTitle.Size = new System.Drawing.Size(626, 51);
@@ -86,7 +105,7 @@
             this.pnlHurricaneOutput.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlHurricaneOutput.BackColor = System.Drawing.Color.Transparent;
             this.pnlHurricaneOutput.Controls.Add(this.llbName);
-            this.pnlHurricaneOutput.Controls.Add(this.pictureBox1);
+            this.pnlHurricaneOutput.Controls.Add(this.picHurricaneType);
             this.pnlHurricaneOutput.Controls.Add(this.chbDamage);
             this.pnlHurricaneOutput.Controls.Add(this.lblKnots);
             this.pnlHurricaneOutput.Controls.Add(this.lblKnotsLabel);
@@ -95,10 +114,43 @@
             this.pnlHurricaneOutput.Controls.Add(this.lblType);
             this.pnlHurricaneOutput.Controls.Add(this.lblTypeLabel);
             this.pnlHurricaneOutput.Controls.Add(this.lblNameLabel);
-            this.pnlHurricaneOutput.Location = new System.Drawing.Point(287, 276);
+            this.pnlHurricaneOutput.Location = new System.Drawing.Point(124, 276);
             this.pnlHurricaneOutput.Name = "pnlHurricaneOutput";
-            this.pnlHurricaneOutput.Size = new System.Drawing.Size(426, 136);
+            this.pnlHurricaneOutput.Size = new System.Drawing.Size(325, 136);
             this.pnlHurricaneOutput.TabIndex = 35;
+            // 
+            // llbName
+            // 
+            this.llbName.ActiveLinkColor = System.Drawing.Color.DodgerBlue;
+            this.llbName.AutoSize = true;
+            this.llbName.DisabledLinkColor = System.Drawing.Color.Black;
+            this.llbName.Enabled = false;
+            this.llbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llbName.Location = new System.Drawing.Point(223, 10);
+            this.llbName.Name = "llbName";
+            this.llbName.Size = new System.Drawing.Size(51, 20);
+            this.llbName.TabIndex = 39;
+            this.llbName.TabStop = true;
+            this.llbName.Text = "Name";
+            // 
+            // picHurricaneType
+            // 
+            this.picHurricaneType.Location = new System.Drawing.Point(22, 10);
+            this.picHurricaneType.Name = "picHurricaneType";
+            this.picHurricaneType.Size = new System.Drawing.Size(117, 117);
+            this.picHurricaneType.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHurricaneType.TabIndex = 38;
+            this.picHurricaneType.TabStop = false;
+            // 
+            // chbDamage
+            // 
+            this.chbDamage.AutoSize = true;
+            this.chbDamage.Location = new System.Drawing.Point(167, 110);
+            this.chbDamage.Name = "chbDamage";
+            this.chbDamage.Size = new System.Drawing.Size(151, 17);
+            this.chbDamage.TabIndex = 37;
+            this.chbDamage.Text = "Display Expected Damage";
+            this.chbDamage.UseVisualStyleBackColor = true;
             // 
             // lblKnots
             // 
@@ -185,14 +237,14 @@
             this.pnlHurricaneInput.Controls.Add(this.btnRandom);
             this.pnlHurricaneInput.Controls.Add(this.lblSpeed);
             this.pnlHurricaneInput.Controls.Add(this.txtMPH);
-            this.pnlHurricaneInput.Location = new System.Drawing.Point(287, 165);
+            this.pnlHurricaneInput.Location = new System.Drawing.Point(124, 165);
             this.pnlHurricaneInput.Name = "pnlHurricaneInput";
-            this.pnlHurricaneInput.Size = new System.Drawing.Size(426, 105);
+            this.pnlHurricaneInput.Size = new System.Drawing.Size(325, 105);
             this.pnlHurricaneInput.TabIndex = 34;
             // 
             // btnGenerate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(263, 64);
+            this.btnGenerate.Location = new System.Drawing.Point(177, 64);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(141, 23);
             this.btnGenerate.TabIndex = 29;
@@ -227,18 +279,8 @@
             this.txtMPH.Location = new System.Drawing.Point(166, 14);
             this.txtMPH.Margin = new System.Windows.Forms.Padding(0);
             this.txtMPH.Name = "txtMPH";
-            this.txtMPH.Size = new System.Drawing.Size(253, 26);
+            this.txtMPH.Size = new System.Drawing.Size(152, 26);
             this.txtMPH.TabIndex = 13;
-            // 
-            // chbDamage
-            // 
-            this.chbDamage.AutoSize = true;
-            this.chbDamage.Location = new System.Drawing.Point(167, 110);
-            this.chbDamage.Name = "chbDamage";
-            this.chbDamage.Size = new System.Drawing.Size(151, 17);
-            this.chbDamage.TabIndex = 37;
-            this.chbDamage.Text = "Display Expected Damage";
-            this.chbDamage.UseVisualStyleBackColor = true;
             // 
             // imgHurricanes
             // 
@@ -252,51 +294,38 @@
             this.imgHurricanes.Images.SetKeyName(5, "TS0.png");
             this.imgHurricanes.Images.SetKeyName(6, "TD0.png");
             // 
-            // pictureBox1
+            // pnlHurricaneList
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(22, 10);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(117, 117);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 38;
-            this.pictureBox1.TabStop = false;
-            // 
-            // llbName
-            // 
-            this.llbName.ActiveLinkColor = System.Drawing.Color.DodgerBlue;
-            this.llbName.AutoSize = true;
-            this.llbName.DisabledLinkColor = System.Drawing.Color.Black;
-            this.llbName.Enabled = false;
-            this.llbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbName.Location = new System.Drawing.Point(223, 10);
-            this.llbName.Name = "llbName";
-            this.llbName.Size = new System.Drawing.Size(51, 20);
-            this.llbName.TabIndex = 39;
-            this.llbName.TabStop = true;
-            this.llbName.Text = "Name";
+            this.pnlHurricaneList.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlHurricaneList.Controls.Add(this.lstHurricaneList);
+            this.pnlHurricaneList.Location = new System.Drawing.Point(455, 165);
+            this.pnlHurricaneList.Name = "pnlHurricaneList";
+            this.pnlHurricaneList.Size = new System.Drawing.Size(622, 247);
+            this.pnlHurricaneList.TabIndex = 37;
             // 
             // FrmHurricane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlSecretFrame);
+            this.ClientSize = new System.Drawing.Size(1184, 461);
+            this.Controls.Add(this.pnlHurricaneFrame);
             this.Name = "FrmHurricane";
             this.Text = "Hurricane!";
-            this.pnlSecretFrame.ResumeLayout(false);
+            this.pnlHurricaneFrame.ResumeLayout(false);
             this.pnlHurricaneOutput.ResumeLayout(false);
             this.pnlHurricaneOutput.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHurricaneType)).EndInit();
             this.pnlHurricaneInput.ResumeLayout(false);
             this.pnlHurricaneInput.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.pnlHurricaneList.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlSecretFrame;
+		public System.Windows.Forms.Panel pnlHurricaneFrame;
 		internal System.Windows.Forms.Label lblHurricaneTitle;
 		private System.Windows.Forms.Panel pnlHurricaneOutput;
 		private System.Windows.Forms.Label lblType;
@@ -312,8 +341,10 @@
 		private System.Windows.Forms.Label lblKnots;
 		internal System.Windows.Forms.Label lblKnotsLabel;
 		private System.Windows.Forms.CheckBox chbDamage;
-		private System.Windows.Forms.PictureBox pictureBox1;
+		private System.Windows.Forms.PictureBox picHurricaneType;
 		private System.Windows.Forms.ImageList imgHurricanes;
 		private System.Windows.Forms.LinkLabel llbName;
+		private System.Windows.Forms.ListView lstHurricaneList;
+		private System.Windows.Forms.Panel pnlHurricaneList;
 	}
 }
