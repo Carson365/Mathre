@@ -29,7 +29,6 @@ namespace Mathre
 			mnuTemperatureCelsius.Click += TC.Temperature;
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
-			tabMathre.KeyDown += StopArrows;
 			mnuPS4.Click += VG.Transfer;
 			mnuXB1.Click += VG.Transfer;
 		}
@@ -42,7 +41,6 @@ namespace Mathre
 			ColorKey.Close();
 			KeyPreview = true;
 			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
-			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items)
 			{
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem);
@@ -93,6 +91,7 @@ namespace Mathre
 				Resized(null, null);
 			}
 			tabMathre.TabPages.Remove(tabSecret);
+			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 		}
 		public void GetAllControls(Control container)
@@ -139,16 +138,8 @@ namespace Mathre
 				}
 			}
 		}
-		public void StopArrows(object sender, KeyEventArgs e)
-		{
-			if (e.KeyCode == Keys.Left || e.KeyCode == Keys.Right)
-			{
-				e.Handled = true;
-			}
-		}
 		public void KeyboardShortcuts(object sender, KeyEventArgs e)
 		{
-			e.Handled = true;
 			FrmHelloWorld HW = new();
 			if (e.Control & e.KeyCode == Keys.S)
 			{
@@ -159,16 +150,6 @@ namespace Mathre
 					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 500);
 					tabMathre.SelectedTab = tabSecret;
 					hidden = false;
-					//var form = Activator.CreateInstance(Type.GetType("Mathre." + "FrmSecret")) as Form;
-					//form.Size = FormSize;
-					//form.FormBorderStyle = FormBorderStyle.None;
-					//form.Left = 0;
-					//form.Top = 45;
-					//form.TopLevel = false;
-					//form.Visible = true;
-					//this.Controls.Add(form);
-					//form.Focus();
-					//Resized(null, null);
 				}
 				else if (hidden == false)
 				{
@@ -177,17 +158,14 @@ namespace Mathre
 				}
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			}
-			//
 			if (e.Control & e.KeyCode == Keys.R & mnuSecret.Enabled)
 			{
 				HW.HelloWorld(mnuRandomify, null);
 			}
-			// 
 			if (e.Control & e.Shift & e.KeyCode == Keys.R)
 			{
 				HW.HelloWorld(mnuHelloWorldReset, null);
 			}
-			//
 			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D8))
 			{
 				tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1];
@@ -195,20 +173,6 @@ namespace Mathre
 			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode == Keys.D9))
 			{
 				tabMathre.SelectedTab = tabMathre.TabPages[tabMathre.TabCount - 1];
-			}
-			if (e.Control & e.KeyCode == Keys.Left)
-			{
-				if (tabMathre.SelectedIndex > 0)
-				{
-					tabMathre.SelectedIndex--;
-				}
-			}
-			if (e.Control & e.KeyCode == Keys.Right)
-			{
-				if (tabMathre.SelectedIndex < tabMathre.TabCount - 1)
-				{
-					tabMathre.SelectedIndex++;
-				}
 			}
 		}
 		public class MenuColorTable : ProfessionalColorTable

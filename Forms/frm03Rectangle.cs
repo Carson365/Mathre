@@ -1,4 +1,5 @@
-// Enter icon sourced from https://icons8.com/icon/62334/enter-mac-key
+// SOURCES:
+// Enter Icon: https://icons8.com/icon/62334/enter-mac-key
 using System;
 using System.Globalization;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Mathre
 			btnRectangleCalculate.Click += Rectangle;
 			txtRectangleDimensions.KeyPress += Rectangle;
 			txtRectangleDimensions.TextChanged += Rectangle;
-			txtRectangleDimensions.KeyPress += RectangleKeypress;
+			txtRectangleDimensions.KeyDown += RectangleKeypress;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -80,7 +81,7 @@ namespace Mathre
 				}
 			}
 		}
-		public void RectangleKeypress(object sender, KeyPressEventArgs e)
+		public void RectangleKeypress(object sender, KeyEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			int space1 = (txtRectangleDimensions.Text.IndexOf(" "));
@@ -89,100 +90,104 @@ namespace Mathre
 			int currentpos = (txtRectangleDimensions.SelectionStart - 1);
 			int modifier = 0;
 			string[] words = txtRectangleDimensions.Text.Split(' ');
-			if (!(e.KeyChar == (char)Keys.Return))
+			if (!(e.KeyCode == Keys.Left || e.KeyCode == Keys.Right))
 			{
 				pnlRectangle.Visible = false;
 				lblRectangleArea.Text = "Area";
 				lblRectanglePerimeter.Text = "Perimeter";
-			}
-			if (sender is not TextBoxBase textBox)
-				return;
-			if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x"))
-			{
-				if (e.KeyChar == '\b')
+				if (sender is not TextBoxBase textBox)
+					return;
+				if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x"))
 				{
-					e.Handled = true;
-					txtRectangleDimensions.SelectedText = "";
-					int selectionIndex = textBox.SelectionStart;
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x", "");
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace("x ", "");
-					txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" ", "");
-					if (currentpos == space1) modifier = 1;
-					else if (currentpos == x1) modifier = 2;
-					else if (currentpos == space2) modifier = 3;
-					else modifier = 0;
-					textBox.SelectionStart = selectionIndex - modifier;
-				}
-			}
-			if (e.KeyChar.ToString() == DecimalChar)
-			{
-				if (words.Length > 2)
-				{
-					if (currentpos < space1)
+					if (e.KeyCode == Keys.Back)
 					{
-						if (words[0].Contains(DecimalChar))
+						e.SuppressKeyPress = true;
+						txtRectangleDimensions.SelectedText = "";
+						int selectionIndex = textBox.SelectionStart;
+						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Trim('x');
+						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Trim(' ');
+						if (currentpos == space1) modifier = 1;
+						else if (currentpos == x1) modifier = 2;
+						else if (currentpos == space2) modifier = 3;
+						else modifier = 0;
+						textBox.SelectionStart = selectionIndex - modifier;
+					}
+				}
+				if (e.KeyCode == Keys.OemPeriod)
+				{
+					if (words.Length > 2)
+					{
+						if (currentpos < space1)
 						{
-							e.Handled = true;
+							if (words[0].Contains(DecimalChar))
+							{
+								e.SuppressKeyPress = true;
+							}
+						}
+						else if (currentpos >= space2)
+						{
+							if (words[2].Contains(DecimalChar))
+							{
+								e.SuppressKeyPress = true;
+							}
+						}
+						else
+						{
+							e.SuppressKeyPress = true;
 						}
 					}
-					else if (currentpos >= space2)
+					else if (textBox.Text.Contains(DecimalChar))
 					{
-						if (words[2].Contains(DecimalChar))
-						{
-							e.Handled = true;
-						}
+						e.SuppressKeyPress = true;
+					}
+				}
+				else if ((e.KeyCode != Keys.Back && (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)))
+				{
+					if (textBox.Text.Contains(" x "))
+					{
+						e.SuppressKeyPress = true;
+						Console.WriteLine("A");
 					}
 					else
 					{
-						e.Handled = true;
+						Console.WriteLine("B");
+						e.SuppressKeyPress = true;
+						string insertText = " x ";
+						int selectionIndex = textBox.SelectionStart;
+						textBox.Text = textBox.Text.Insert(selectionIndex, insertText);
+						textBox.SelectionStart = selectionIndex + 3;
 					}
 				}
-				else if (textBox.Text.Contains(DecimalChar))
+				else if ((currentpos == space1 || currentpos == x1 || currentpos == space2) && currentpos != -1)
 				{
-					e.Handled = true;
-				}
-			}
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
-			{
-				if (textBox.Text.Contains(" x "))
-				{
-					e.Handled = true;
-				}
-				else
-				{
-					e.Handled = true;
-					string insertText = " x ";
-					int selectionIndex = textBox.SelectionStart;
-					textBox.Text = textBox.Text.Insert(selectionIndex, insertText);
-					textBox.SelectionStart = selectionIndex + 3;
-				}
-			}
-			else if ((currentpos == space1 || currentpos == x1 || currentpos == space2) && currentpos != -1)
-			{
-				if (currentpos != space2)
-				{
-					e.Handled = true;
-				}
-				if (currentpos == space1 || currentpos == x1 || currentpos == space2 && currentpos != -1)
-				{
-					if (e.KeyChar == '\b')
+					if (currentpos != space2)
 					{
-						if (txtRectangleDimensions.Text.Contains(" x "))
+						e.SuppressKeyPress = true;
+					}
+					if (currentpos == space1 || currentpos == x1 || currentpos == space2 && currentpos != -1)
+					{
+						if (e.KeyCode == Keys.Back)
 						{
-							e.Handled = true;
-							int selectionIndex = textBox.SelectionStart;
-							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
-							if (currentpos == space1) modifier = 1;
-							if (currentpos == x1) modifier = 2;
-							if (currentpos == space2) modifier = 3;
-							textBox.SelectionStart = selectionIndex - modifier;
+							if (txtRectangleDimensions.Text.Contains(" x "))
+							{
+								e.SuppressKeyPress = true;
+								int selectionIndex = textBox.SelectionStart;
+								txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
+								if (currentpos == space1) modifier = 1;
+								if (currentpos == x1) modifier = 2;
+								if (currentpos == space2) modifier = 3;
+								textBox.SelectionStart = selectionIndex - modifier;
 
+							}
+						}
+						if (e.KeyCode == Keys.Delete)
+						{
+							e.SuppressKeyPress = true;
 						}
 					}
 				}
+				Rectangle(Placeholder, null);
 			}
-			Rectangle(Placeholder, null);
 		}
 	}
 }

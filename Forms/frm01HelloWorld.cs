@@ -1,4 +1,5 @@
-// Flag icons are sourced from the free icon set at https://www.iconfinder.com/iconsets/flags-37
+// SOURCES:
+// Flag Icons: https://www.iconfinder.com/iconsets/flags-37
 using Microsoft.VisualBasic;
 using System;
 using System.Linq;
@@ -10,7 +11,6 @@ namespace Mathre
 		private string StartingLanguage;
 		public static FrmMathre BaseForm;
 		public static FrmHelloWorld ThisForm;
-
 		public FrmHelloWorld()
 		{
 			InitializeComponent();
@@ -37,7 +37,7 @@ namespace Mathre
 				ThisForm.btnHelloWorldEnglish.Checked = true;
 				ThisForm.lblHelloWorldTitle.Text = "Hello World";
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageFrench))
+			if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageFrench))
 			{
 				ThisForm.btnHelloWorldFrench.Checked = true;
 				ThisForm.lblHelloWorldTitle.Text = "Bonjour le Monde";
@@ -47,9 +47,9 @@ namespace Mathre
 				ThisForm.btnHelloWorldGerman.Checked = true;
 				ThisForm.lblHelloWorldTitle.Text = "Hallo Welt";
 			}
-			else if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, BaseForm.mnuHelloWorldReset))
+			if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, BaseForm.mnuHelloWorldReset))
 			{
-				HelloWorld(pnlHelloWorld.Controls[StartingLanguage], null);
+				ThisForm.HelloWorld(ThisForm.pnlHelloWorld.Controls[ThisForm.StartingLanguage], null);
 			}
 			else if (ReferenceEquals(sender, BaseForm.mnuRandomify))
 			{

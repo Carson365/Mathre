@@ -1,4 +1,4 @@
-// Images for the Pizza page were sourced from the below links:
+// SOURCES:
 // Small: https://preview.redd.it/rkt6dt3nf1841.jpg?auto=webp&s=28216c881e0906e1c893cd7e0bc8290b25151e3c
 // Medium : https://image.mlive.com/home/mlive-media/width2048/img/food_impact/photo/hungry-howies-pizza-21b1ef848c80e115.jpg
 // Large: https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BCUKGOJJYRABVPC7IK3422PWBE.jpg
@@ -38,10 +38,10 @@ namespace Mathre
 		{
 			Action a = $"{sender}" switch
 			{
-				"Delivery" => () => ThisForm.btnDelivery.PerformClick(),
-				"Takeout" => () => ThisForm.btnTakeout.PerformClick(),
-				"Dollars" => () => ThisForm.btnDollars.PerformClick(),
-				"Percent" => () => ThisForm.btnPercent.PerformClick(),
+				"Delivery" => () => ThisForm.btnDelivery.Checked = true,
+				"Takeout" => () => ThisForm.btnTakeout.Checked = true,
+				"Dollars" => () => ThisForm.btnDollars.Checked = true,
+				"Percent" => () => ThisForm.btnPercent.Checked = true,
 				_ => () => { }
 				,
 			};
@@ -88,12 +88,9 @@ namespace Mathre
 				return;
 			if (e.KeyChar.ToString() == DecimalChar)
 			{
-				if (ReferenceEquals(sender, txtPizzaTip))
+				if (ReferenceEquals(sender, txtPizzaTip) && textBox.Text.Contains(DecimalChar))
 				{
-					if (textBox.Text.Contains(DecimalChar))
-					{
-						e.Handled = true;
-					}
+					e.Handled = true;
 				}
 				else
 				{
@@ -107,15 +104,9 @@ namespace Mathre
 			if (sender == txtPizzaTip)
 			{
 				string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
-				if (decimals.Length > 1 && e.KeyChar != '\b')
+				if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
 				{
-					if (decimals[1].Length > 1)
-					{
-						if (textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
-						{
-							e.Handled = true;
-						}
-					}
+					e.Handled = true;
 				}
 			}
 		}

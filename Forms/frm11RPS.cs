@@ -1,3 +1,4 @@
+// SOURCES:
 // RPS Image: https://www.nicepng.com/png/full/111-1113460_rock-paper-scissors-rock-paper-scissors-svg.png (Modified in various ways with paint.net)
 using System;
 using System.Linq;
@@ -27,7 +28,6 @@ namespace Mathre
 			btnPaper2.CheckedChanged += RPSSelect;
 			btnScissors2.CheckedChanged += RPSSelect;
 		}
-		// /\ /\ /\ Introduction of global variables and event handlers
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
@@ -39,7 +39,6 @@ namespace Mathre
 			picRPS.Image = imgRPS.Images["RPS.png"];
 			picRPS2.Image = imgRPS.Images["RPS.png"];
 		}
-		// \/ \/ \/  Sets the computer choice and tallies the scores for each player input
 		public void RPSGame(object sender, EventArgs e)
 		{
 			wager = (int)numWager.Value;
@@ -51,28 +50,27 @@ namespace Mathre
 				playerscore++;
 				lblPlayerScore.Text = $"{playerscore}";
 				lblTotalGames.Text = $"{computerscore + playerscore + drawamount}";
-				points += wager; //Accumulator
+				points += wager;
 				lblScore.Text = points.ToString();
-				Message("Win!!", null); // Subprocedure
+				Message("Win!!", null);
 			}
 			else if ((btnRock2.Checked && btnScissors.Checked) || (btnPaper2.Checked && btnRock.Checked) || (btnScissors2.Checked && btnPaper.Checked))
 			{
 				computerscore++;
 				lblComputerScore.Text = $"{computerscore}";
 				lblTotalGames.Text = $"{computerscore + playerscore + drawamount}";
-				points -= wager; //Accumulator
+				points -= wager;
 				lblScore.Text = points.ToString();
-				Message("Lose.", null); // Subprocedure
+				Message("Lose.", null);
 			}
 			else
 			{
 				drawamount++;
 				lblDrawCount.Text = $"{drawamount}";
 				lblTotalGames.Text = $"{computerscore + playerscore + drawamount}";
-				Message("Draw!", null); // Subprocedure
+				Message("Draw!", null);
 			}
 		}
-		// \/ \/ \/ Sets the proper image for the selected action, for both the player and the computer.
 		public void RPSSelect(object sender, EventArgs e)
 		{
 			if (((RadioButton)sender).Checked)
@@ -89,16 +87,14 @@ namespace Mathre
 				};
 			}
 		}
-		// \/ \/ \/ Translates menu actions into button inputs
 		public void MenuHandler(object sender, EventArgs e)
 		{
 			((RadioButton)ThisForm.pnlRPSChoice.Controls[$"btn{sender}"]).PerformClick();
 		}
-		// \/ \/ \/ Display the messagebox if desired
 		public void Message(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = $"{sender}";
-			if (chbDisableMessagebox.Checked) // Checkbox
+			if (chbDisableMessagebox.Checked)
 			{
 				MessageBox.Show($"{sender}", "                                        Result                                        ");
 			}

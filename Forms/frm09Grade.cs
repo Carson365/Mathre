@@ -36,20 +36,14 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
-		//
-		//
-		// Begin Assignment Code
-		//
-		//
 		public void GradeCalculator(object sender, EventArgs e)
 		{
 			if (!(btnMethod1.Checked | btnMethod2.Checked | btnMethod3.Checked | btnMethod4.Checked))
 			{
-				btnMethod1.Checked = true; // Set the default button if the event is triggered and no button is selected
+				btnMethod1.Checked = true;
 			}
 			double Points = 0;
 			double Total = 0;
-			// \/\/\/ Convert the data in the textboxes to usable numbers \/\/\/
 			if (double.TryParse(txtPoints.Text, out double PointsValue))
 			{
 				Points = PointsValue;
@@ -58,9 +52,7 @@ namespace Mathre
 			{
 				Total = TotalValue;
 			}
-			// /\/\/\/\/\/\
-			lblScoreDisplay.Text = $"{Math.Round((Points / Total * 100), 2)} Percent"; // Display the percentage
-																					   // \/\/\/ (For method 1) Show the 'Pass' text if the score is above the passing minimum, otherwise show blank text if it is zero or below the passing percentage \/\/\/
+			lblScoreDisplay.Text = $"{Math.Round((Points / Total * 100), 2)} Percent";
 			if (btnMethod1.Checked)
 			{
 				if (Math.Round((Points / Total * 100), 2) > 63.50)
@@ -76,8 +68,6 @@ namespace Mathre
 					lblPassFail.Text = "";
 				}
 			}
-			// /\/\/\/\/\/\
-			// \/\/\/ (For method 2) Show the 'Pass' text if the score is above the passing minimum, otherwise hide it \/\/\/
 			if (btnMethod2.Checked)
 			{
 				if (Math.Round((Points / Total * 100), 2) > 63.50)
@@ -89,8 +79,6 @@ namespace Mathre
 					lblPassFail.Text = "Fail. Study More.";
 				}
 			}
-			// /\/\/\/\/\/\
-			// \/\/\/ (For method 3) Show the proper grade if the percentage is the proper amount, for each percentage \/\/\/
 			if (btnMethod3.Checked)
 			{
 				if (Math.Round((Points / Total * 100), 2) > 91.50)
@@ -114,8 +102,6 @@ namespace Mathre
 					lblPassFail.Text = "Fail. F.";
 				}
 			}
-			// /\/\/\/\/\/\
-			// \/\/\/ (For method 4) Show the proper grade for the percentage\/\/\/
 			if (btnMethod4.Checked)
 			{
 				lblPassFail.Text = (double)Math.Round((Points / Total * 100), 2) switch
@@ -129,8 +115,6 @@ namespace Mathre
 					_ => "",
 				};
 			}
-			// /\/\/\/\/\/\
-			// \/\/\/ (For method 5) Show the proper grade for the percentage\/\/\/
 			if (ReferenceEquals(sender, btnMethod5))
 			{
 				abc++;
@@ -147,8 +131,6 @@ namespace Mathre
 				lblGradesEnteredCount.Text = $"{abc}";
 				MessageBox.Show(result, "                                        Result                                        ");
 			}
-			// /\/\/\/\/\/\
-			// \/\/\/ (For random method) Show a random percentage\/\/\/
 			if (ReferenceEquals(sender, btnRandom))
 			{
 				double score = Math.Round(100 * VBMath.Rnd());
@@ -156,9 +138,7 @@ namespace Mathre
 				txtTotal.Text = $"{score + Math.Round(11 * VBMath.Rnd())}";
 				GradeCalculator(null, null);
 			}
-			// /\/\/\/\/\/\
 		}
-		// \/\/\/ Set the buttons checked if their respective menu items are pressed \/\/\/
 		public void ButtonSelector(object sender, EventArgs e)
 		{
 			Action a = $"{sender}" switch
@@ -172,38 +152,23 @@ namespace Mathre
 			};
 			a.Invoke();
 		}
-		// /\/\/\/\/\/\
-		//
-		//
-		// End Assignment Code
-		//
-		//
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (sender is not TextBoxBase textBox)
 				return;
-			if (e.KeyChar.ToString() == DecimalChar)
+			if (e.KeyChar.ToString() == DecimalChar && textBox.Text.Contains(DecimalChar))
 			{
-				if (textBox.Text.Contains(DecimalChar))
-				{
-					e.Handled = true;
-				}
+				e.Handled = true;
 			}
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
 			{
 				e.Handled = true;
 			}
 			string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
-			if (decimals.Length > 1 && e.KeyChar != '\b')
+			if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
 			{
-				if (decimals[1].Length > 1)
-				{
-					if (textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
-					{
-						e.Handled = true;
-					}
-				}
+				e.Handled = true;
 			}
 			double Old = 0;
 			double New = 0;
@@ -220,16 +185,9 @@ namespace Mathre
 			{
 				Total = TotalValue;
 			}
-			if (Total > 100)
+			if (Total > 100 && e.KeyChar >= '0' && e.KeyChar <= '9' && decimals.Length == 1)
 			{
-				if ((e.KeyChar >= '0' && e.KeyChar <= '9'))
-				{
-					if (decimals.Length == 1)
-					{
-						e.Handled = true;
-					}
-
-				}
+				e.Handled = true;
 			}
 			if (textBox.Text.Length == 0 && e.KeyChar == '0')
 			{

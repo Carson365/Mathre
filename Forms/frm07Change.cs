@@ -33,12 +33,9 @@ namespace Mathre
 			{
 				Bills = BillsAmount;
 			}
-			if (decimals.Length > 1)
+			if (decimals.Length > 1 && int.TryParse(decimals[1], out int CoinsAmount))
 			{
-				if (int.TryParse(decimals[1], out int CoinsAmount))
-				{
-					Coins = CoinsAmount;
-				}
+				Coins = CoinsAmount;
 			}
 			lblHundredsCount.Text = (Bills / 100).ToString();
 			lblFiftiesCount.Text = (Bills % 100 / 50).ToString();
@@ -56,27 +53,18 @@ namespace Mathre
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (sender is not TextBoxBase textBox)
 				return;
-			if (e.KeyChar.ToString() == DecimalChar)
+			if (e.KeyChar.ToString() == DecimalChar && textBox.Text.Contains(DecimalChar))
 			{
-				if (textBox.Text.Contains(DecimalChar))
-				{
-					e.Handled = true;
-				}
+				e.Handled = true;
 			}
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
 			{
 				e.Handled = true;
 			}
 			string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
-			if (decimals.Length > 1 && e.KeyChar != '\b')
+			if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
 			{
-				if (decimals[1].Length > 1)
-				{
-					if (textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
-					{
-						e.Handled = true;
-					}
-				}
+				e.Handled = true;
 			}
 		}
 	}

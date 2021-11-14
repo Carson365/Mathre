@@ -1,4 +1,5 @@
-﻿// RoughRiders mascot image sourced from https://www.gfschools.org/cms/lib/ND02203034/Centricity/Template/GlobalAssets/images///logos/Red%20River%20HS.png
+﻿// SOURCES:
+// Mascot: https://www.gfschools.org/cms/lib/ND02203034/Centricity/Template/GlobalAssets/images///logos/Red%20River%20HS.png
 using System;
 using System.Drawing;
 using System.Linq;

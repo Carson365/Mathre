@@ -45,13 +45,10 @@ namespace Mathre
 			}
 			double temp = 0;
 			var roundamount = 0;
-			if (txtTemperature.Text.Contains(DecimalChar))
+			if (txtTemperature.Text.Contains(DecimalChar) && txtTemperature.Text[ThisForm.txtTemperature.Text.Length - 1].ToString() != DecimalChar)
 			{
-				if (txtTemperature.Text[ThisForm.txtTemperature.Text.Length - 1].ToString() != DecimalChar)
-				{
-					string[] words = txtTemperature.Text.Split(DecimalChar.ToCharArray());
-					roundamount = words[1].Length;
-				}
+				string[] words = txtTemperature.Text.Split(DecimalChar.ToCharArray());
+				roundamount = words[1].Length;
 			}
 			else
 			{
@@ -77,12 +74,9 @@ namespace Mathre
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (sender is not TextBoxBase textBox)
 				return; // -or else discard it
-			if (e.KeyChar.ToString() == DecimalChar)
+			if (e.KeyChar.ToString() == DecimalChar && textBox.Text.Contains(DecimalChar))
 			{
-				if (textBox.Text.Contains(DecimalChar))
-				{
-					e.Handled = true;
-				}
+				e.Handled = true;
 			}
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
 			{

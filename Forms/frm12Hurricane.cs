@@ -30,6 +30,7 @@ namespace Mathre
 			InitializeComponent();
 			Load += FormLoad;
 			txtMPH.KeyPress += InputFormatter;
+			txtMPH.TextChanged += ZeroRemover;
 			btnGenerate.Click += Hurricane;
 			btnRandom.Click += Random;
 			chbDamage.CheckedChanged += Damage;
@@ -54,36 +55,6 @@ namespace Mathre
 		{
 			if (txtMPH.Text != "")
 			{
-				RunCount++;
-				llbName.Text = RunCount switch
-				{
-					1 => "Alex",
-					2 => "Bonnie",
-					3 => "Colin",
-					4 => "Danielle",
-					5 => "Earl",
-					6 => "Fiona",
-					7 => "Gaston",
-					8 => "Hermine",
-					9 => "Ian",
-					10 => "Julia",
-					11 => "Karl",
-					12 => "Lisa",
-					13 => "Martin",
-					14 => "Nicole",
-					15 => "Owen",
-					16 => "Paula",
-					17 => "Richard",
-					18 => "Shary",
-					19 => "Tobias",
-					20 => "Virginie",
-					21 => "Walter",
-					_ => "Special Case"
-				};
-				if (RunCount > 21)
-				{
-					llbName.Enabled = true;
-				}
 				lblKnots.Text = $"{Math.Round(Convert.ToDouble(txtMPH.Text) / 1.1507794480235)}";
 				HurricaneInfo = Convert.ToDouble(txtMPH.Text) switch
 				{
@@ -95,7 +66,6 @@ namespace Mathre
 					_ => "5: Catastrophic damage will occur: \n\nA high percentage of framed homes will be destroyed, with total roof failure and wall collapse. Fallen trees and power poles will isolate residential areas. Power outages will \nlast for weeks to possibly months. Most of the area will be uninhabitable for weeks or months.",
 				};
 				lblCategory.Text = HurricaneInfo.Remove(1, HurricaneInfo.Length - 1);
-				Damage(chbDamage, null);
 				if (HurricaneInfo.Remove(1, HurricaneInfo.Length - 1) != "0")
 				{
 					picHurricaneType.Image = imgHurricanes.Images[$"Cat{HurricaneInfo.Remove(1, HurricaneInfo.Length - 1)}.png"];
@@ -116,25 +86,59 @@ namespace Mathre
 					< 151 => "Major Hurricane",
 					_ => "Super Typhoon",
 				};
-				theDictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo.Substring(3, HurricaneInfo.LastIndexOf(':') - 3)}." });
-				var item = new ListViewItem(theDictionary[RunCount][0]);
-				foreach (var data in theDictionary[RunCount].Skip(1))
+				if (ReferenceEquals(sender, btnRandom))
 				{
-					item.SubItems.Add(data);
+					llbName.Text = "Example";
 				}
-				lstHurricaneList.Items.Add(item);
-				lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+				else
+				{
+					RunCount++;
+					llbName.Text = RunCount switch
+					{
+						1 => "Alex",
+						2 => "Bonnie",
+						3 => "Colin",
+						4 => "Danielle",
+						5 => "Earl",
+						6 => "Fiona",
+						7 => "Gaston",
+						8 => "Hermine",
+						9 => "Ian",
+						10 => "Julia",
+						11 => "Karl",
+						12 => "Lisa",
+						13 => "Martin",
+						14 => "Nicole",
+						15 => "Owen",
+						16 => "Paula",
+						17 => "Richard",
+						18 => "Shary",
+						19 => "Tobias",
+						20 => "Virginie",
+						21 => "Walter",
+						_ => "Special Case"
+					};
+					if (RunCount > 21)
+					{
+						llbName.Enabled = true;
+					}
+					theDictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo.Substring(3, HurricaneInfo.LastIndexOf(':') - 3)}." });
+					var item = new ListViewItem(theDictionary[RunCount][0]);
+					foreach (var data in theDictionary[RunCount].Skip(1))
+					{
+						item.SubItems.Add(data);
+					}
+					lstHurricaneList.Items.Add(item);
+					lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+				}
+				Damage(chbDamage, null);
 			}
 		}
 		public void Damage(object sender, EventArgs e)
 		{
-			if (chbDamage.Checked)
+			if (chbDamage.Checked && HurricaneInfo.Length != 0)
 			{
-				if (HurricaneInfo.Length != 0)
-				{
-					MessageBox.Show(HurricaneInfo.Remove(0, 3).ToString(), "                                        Damage                                        ");
-				}
-
+				MessageBox.Show(HurricaneInfo.Remove(0, 3).ToString(), "                                        Damage                                        ");
 			}
 		}
 		public void Random(object sender, EventArgs e)
@@ -150,6 +154,7 @@ namespace Mathre
 				_ => rnd.Next(156, 210),
 			};
 			txtMPH.Text = $"{randomstorm}";
+			Hurricane(btnRandom, null);
 		}
 		public void Link(object sender, EventArgs e)
 		{
@@ -162,22 +167,23 @@ namespace Mathre
 			{
 				e.Handled = true;
 			}
-			if (txtMPH.Text.Length == 0)
+			else if (txtMPH.Text.Length != 0 && Convert.ToDouble(txtMPH.Text) > 20 && e.KeyChar != '\b' && Convert.ToDouble($"{txtMPH.Text}{e.KeyChar}") > 210)
 			{
-				if (e.KeyChar == '0')
+				if (txtMPH.SelectionLength < 1)
+				{
+					e.Handled = true;
+				}
+				else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, $"{e.KeyChar}")}") > 210)
 				{
 					e.Handled = true;
 				}
 			}
-			else
+		}
+		public void ZeroRemover(object sender, EventArgs e)
+		{
+			if (txtMPH.Text.StartsWith("0"))
 			{
-				if (Convert.ToDouble(txtMPH.Text) > 20)
-				{
-					if (e.KeyChar != '\b')
-					{
-						e.Handled = true;
-					}
-				}
+				txtMPH.Text = txtMPH.Text.TrimStart('0');
 			}
 		}
 	}
