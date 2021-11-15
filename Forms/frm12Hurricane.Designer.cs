@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHurricane));
             this.pnlHurricaneFrame = new System.Windows.Forms.Panel();
+            this.pnlHurricaneList = new System.Windows.Forms.Panel();
             this.lstHurricaneList = new System.Windows.Forms.ListView();
             this.lblHurricaneTitle = new System.Windows.Forms.Label();
             this.pnlHurricaneOutput = new System.Windows.Forms.Panel();
@@ -50,12 +51,11 @@
             this.lblSpeed = new System.Windows.Forms.Label();
             this.txtMPH = new System.Windows.Forms.TextBox();
             this.imgHurricanes = new System.Windows.Forms.ImageList(this.components);
-            this.pnlHurricaneList = new System.Windows.Forms.Panel();
             this.pnlHurricaneFrame.SuspendLayout();
+            this.pnlHurricaneList.SuspendLayout();
             this.pnlHurricaneOutput.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHurricaneType)).BeginInit();
             this.pnlHurricaneInput.SuspendLayout();
-            this.pnlHurricaneList.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlHurricaneFrame
@@ -72,6 +72,15 @@
             this.pnlHurricaneFrame.Name = "pnlHurricaneFrame";
             this.pnlHurricaneFrame.Size = new System.Drawing.Size(1200, 500);
             this.pnlHurricaneFrame.TabIndex = 34;
+            // 
+            // pnlHurricaneList
+            // 
+            this.pnlHurricaneList.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlHurricaneList.Controls.Add(this.lstHurricaneList);
+            this.pnlHurricaneList.Location = new System.Drawing.Point(455, 165);
+            this.pnlHurricaneList.Name = "pnlHurricaneList";
+            this.pnlHurricaneList.Size = new System.Drawing.Size(622, 247);
+            this.pnlHurricaneList.TabIndex = 37;
             // 
             // lstHurricaneList
             // 
@@ -126,7 +135,7 @@
             this.llbName.DisabledLinkColor = System.Drawing.Color.Black;
             this.llbName.Enabled = false;
             this.llbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llbName.Location = new System.Drawing.Point(223, 10);
+            this.llbName.Location = new System.Drawing.Point(213, 10);
             this.llbName.Name = "llbName";
             this.llbName.Size = new System.Drawing.Size(51, 20);
             this.llbName.TabIndex = 39;
@@ -145,7 +154,7 @@
             // chbDamage
             // 
             this.chbDamage.AutoSize = true;
-            this.chbDamage.Location = new System.Drawing.Point(167, 110);
+            this.chbDamage.Location = new System.Drawing.Point(157, 110);
             this.chbDamage.Name = "chbDamage";
             this.chbDamage.Size = new System.Drawing.Size(151, 17);
             this.chbDamage.TabIndex = 37;
@@ -156,7 +165,7 @@
             // 
             this.lblKnots.AutoSize = true;
             this.lblKnots.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblKnots.Location = new System.Drawing.Point(223, 38);
+            this.lblKnots.Location = new System.Drawing.Point(213, 38);
             this.lblKnots.Name = "lblKnots";
             this.lblKnots.Size = new System.Drawing.Size(14, 15);
             this.lblKnots.TabIndex = 36;
@@ -168,7 +177,7 @@
             this.lblKnotsLabel.AutoSize = true;
             this.lblKnotsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKnotsLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblKnotsLabel.Location = new System.Drawing.Point(163, 35);
+            this.lblKnotsLabel.Location = new System.Drawing.Point(153, 35);
             this.lblKnotsLabel.Name = "lblKnotsLabel";
             this.lblKnotsLabel.Size = new System.Drawing.Size(54, 20);
             this.lblKnotsLabel.TabIndex = 35;
@@ -178,7 +187,7 @@
             // 
             this.lblCategory.AutoSize = true;
             this.lblCategory.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.Location = new System.Drawing.Point(246, 88);
+            this.lblCategory.Location = new System.Drawing.Point(236, 88);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(14, 15);
             this.lblCategory.TabIndex = 33;
@@ -190,7 +199,7 @@
             this.lblCategoryLabel.AutoSize = true;
             this.lblCategoryLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategoryLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblCategoryLabel.Location = new System.Drawing.Point(163, 85);
+            this.lblCategoryLabel.Location = new System.Drawing.Point(153, 85);
             this.lblCategoryLabel.Name = "lblCategoryLabel";
             this.lblCategoryLabel.Size = new System.Drawing.Size(77, 20);
             this.lblCategoryLabel.TabIndex = 31;
@@ -200,7 +209,7 @@
             // 
             this.lblType.AutoSize = true;
             this.lblType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblType.Location = new System.Drawing.Point(216, 63);
+            this.lblType.Location = new System.Drawing.Point(206, 63);
             this.lblType.Name = "lblType";
             this.lblType.Size = new System.Drawing.Size(14, 15);
             this.lblType.TabIndex = 16;
@@ -212,7 +221,7 @@
             this.lblTypeLabel.AutoSize = true;
             this.lblTypeLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTypeLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTypeLabel.Location = new System.Drawing.Point(163, 60);
+            this.lblTypeLabel.Location = new System.Drawing.Point(153, 60);
             this.lblTypeLabel.Name = "lblTypeLabel";
             this.lblTypeLabel.Size = new System.Drawing.Size(47, 20);
             this.lblTypeLabel.TabIndex = 14;
@@ -223,7 +232,7 @@
             this.lblNameLabel.AutoSize = true;
             this.lblNameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNameLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblNameLabel.Location = new System.Drawing.Point(162, 10);
+            this.lblNameLabel.Location = new System.Drawing.Point(152, 10);
             this.lblNameLabel.Name = "lblNameLabel";
             this.lblNameLabel.Size = new System.Drawing.Size(55, 20);
             this.lblNameLabel.TabIndex = 27;
@@ -294,15 +303,6 @@
             this.imgHurricanes.Images.SetKeyName(5, "TS0.png");
             this.imgHurricanes.Images.SetKeyName(6, "TD0.png");
             // 
-            // pnlHurricaneList
-            // 
-            this.pnlHurricaneList.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlHurricaneList.Controls.Add(this.lstHurricaneList);
-            this.pnlHurricaneList.Location = new System.Drawing.Point(455, 165);
-            this.pnlHurricaneList.Name = "pnlHurricaneList";
-            this.pnlHurricaneList.Size = new System.Drawing.Size(622, 247);
-            this.pnlHurricaneList.TabIndex = 37;
-            // 
             // FrmHurricane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -313,12 +313,12 @@
             this.Name = "FrmHurricane";
             this.Text = "Hurricane!";
             this.pnlHurricaneFrame.ResumeLayout(false);
+            this.pnlHurricaneList.ResumeLayout(false);
             this.pnlHurricaneOutput.ResumeLayout(false);
             this.pnlHurricaneOutput.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHurricaneType)).EndInit();
             this.pnlHurricaneInput.ResumeLayout(false);
             this.pnlHurricaneInput.PerformLayout();
-            this.pnlHurricaneList.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}

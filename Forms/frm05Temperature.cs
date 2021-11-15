@@ -73,7 +73,7 @@ namespace Mathre
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (sender is not TextBoxBase textBox)
-				return; // -or else discard it
+				return;
 			if (e.KeyChar.ToString() == DecimalChar && textBox.Text.Contains(DecimalChar))
 			{
 				e.Handled = true;

@@ -31,10 +31,12 @@ namespace Mathre
 			Load += FormLoad;
 			txtMPH.KeyPress += InputFormatter;
 			txtMPH.TextChanged += ZeroRemover;
+			txtMPH.KeyDown += EnterKey;
 			btnGenerate.Click += Hurricane;
 			btnRandom.Click += Random;
 			chbDamage.CheckedChanged += Damage;
 			llbName.LinkClicked += Link;
+			lstHurricaneList.ColumnWidthChanging += ListResizeManager;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -48,7 +50,6 @@ namespace Mathre
 			{
 				lstHurricaneList.Columns.Add(item);
 			}
-			lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
 			lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		public void Hurricane(object sender, EventArgs e)
@@ -161,6 +162,11 @@ namespace Mathre
 			llbName.LinkVisited = true;
 			System.Diagnostics.Process.Start("https://www.nhc.noaa.gov/aboutnames_history.shtml#:~:text=In%20the%20event,Tropical%20Cyclone%20Programme.");
 		}
+		public void ListResizeManager(object sender, ColumnWidthChangingEventArgs e)
+		{
+			e.NewWidth = this.lstHurricaneList.Columns[e.ColumnIndex].Width;
+			e.Cancel = true;
+		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))
@@ -184,6 +190,14 @@ namespace Mathre
 			if (txtMPH.Text.StartsWith("0"))
 			{
 				txtMPH.Text = txtMPH.Text.TrimStart('0');
+			}
+		}
+		public void EnterKey(object sender, KeyEventArgs e)
+		{
+
+			if (e.KeyCode == Keys.Enter)
+			{
+				Hurricane(txtMPH, null);
 			}
 		}
 	}

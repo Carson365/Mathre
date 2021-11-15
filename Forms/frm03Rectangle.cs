@@ -11,6 +11,7 @@ namespace Mathre
 		public static object Placeholder;
 		public static FrmMathre BaseForm;
 		public static FrmRectangle ThisForm;
+		public int lastvalue = 0;
 		public FrmRectangle()
 		{
 			InitializeComponent();
@@ -35,10 +36,10 @@ namespace Mathre
 		{
 			double Height = 0;
 			double Width = 0;
-			string[] words = txtRectangleDimensions.Text.Split(' ');
-			if (words.Length > 2)
+			string[] words = txtRectangleDimensions.Text.Split('*');
+			if (words.Length > 1)
 			{
-				if (double.TryParse(words[2], out double HeightValue))
+				if (double.TryParse(words[1], out double HeightValue))
 				{
 					Height = HeightValue;
 				}
@@ -84,12 +85,7 @@ namespace Mathre
 		public void RectangleKeypress(object sender, KeyEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			int space1 = (txtRectangleDimensions.Text.IndexOf(" "));
-			int x1 = (txtRectangleDimensions.Text.IndexOf("x"));
-			int space2 = (txtRectangleDimensions.Text.IndexOf(" ", txtRectangleDimensions.Text.IndexOf(" ") + 1));
-			int currentpos = (txtRectangleDimensions.SelectionStart - 1);
-			int modifier = 0;
-			string[] words = txtRectangleDimensions.Text.Split(' ');
+			string[] words = txtRectangleDimensions.Text.Split('*');
 			if (!(e.KeyCode == Keys.Left || e.KeyCode == Keys.Right))
 			{
 				pnlRectangle.Visible = false;
@@ -97,36 +93,24 @@ namespace Mathre
 				lblRectanglePerimeter.Text = "Perimeter";
 				if (sender is not TextBoxBase textBox)
 					return;
-				if (txtRectangleDimensions.SelectedText.Contains(" ") || txtRectangleDimensions.SelectedText.Contains("x"))
+				if (e.KeyCode == Keys.OemPeriod || e.KeyCode == Keys.Decimal)
 				{
-					if (e.KeyCode == Keys.Back)
+					if (textBox.SelectionStart > words[0].Length && words[1].Contains(DecimalChar))
 					{
 						e.SuppressKeyPress = true;
-						txtRectangleDimensions.SelectedText = "";
-						int selectionIndex = textBox.SelectionStart;
-						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Trim('x');
-						txtRectangleDimensions.Text = txtRectangleDimensions.Text.Trim(' ');
-						if (currentpos == space1) modifier = 1;
-						else if (currentpos == x1) modifier = 2;
-						else if (currentpos == space2) modifier = 3;
-						else modifier = 0;
-						textBox.SelectionStart = selectionIndex - modifier;
+					}
+					else if (textBox.SelectionStart < words[0].Length && words[0].Contains(DecimalChar))
+					{
+						e.SuppressKeyPress = true;
 					}
 				}
-				if (e.KeyCode == Keys.OemPeriod)
+				else if (e.KeyCode != Keys.Back && e.KeyCode != Keys.Delete)
 				{
-					if (words.Length > 2)
+					if (e.Shift)
 					{
-						if (currentpos < space1)
+						if (e.KeyCode == Keys.D8)
 						{
-							if (words[0].Contains(DecimalChar))
-							{
-								e.SuppressKeyPress = true;
-							}
-						}
-						else if (currentpos >= space2)
-						{
-							if (words[2].Contains(DecimalChar))
+							if (txtRectangleDimensions.Text.Contains("*"))
 							{
 								e.SuppressKeyPress = true;
 							}
@@ -134,55 +118,25 @@ namespace Mathre
 						else
 						{
 							e.SuppressKeyPress = true;
+							Console.WriteLine("A");
 						}
 					}
-					else if (textBox.Text.Contains(DecimalChar))
+					else if (((e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9) && (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)))
 					{
-						e.SuppressKeyPress = true;
-					}
-				}
-				else if ((e.KeyCode != Keys.Back && (e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9)))
-				{
-					if (textBox.Text.Contains(" x "))
-					{
-						e.SuppressKeyPress = true;
-						Console.WriteLine("A");
-					}
-					else
-					{
-						Console.WriteLine("B");
-						e.SuppressKeyPress = true;
-						string insertText = " x ";
-						int selectionIndex = textBox.SelectionStart;
-						textBox.Text = textBox.Text.Insert(selectionIndex, insertText);
-						textBox.SelectionStart = selectionIndex + 3;
-					}
-				}
-				else if ((currentpos == space1 || currentpos == x1 || currentpos == space2) && currentpos != -1)
-				{
-					if (currentpos != space2)
-					{
-						e.SuppressKeyPress = true;
-					}
-					if (currentpos == space1 || currentpos == x1 || currentpos == space2 && currentpos != -1)
-					{
-						if (e.KeyCode == Keys.Back)
-						{
-							if (txtRectangleDimensions.Text.Contains(" x "))
-							{
-								e.SuppressKeyPress = true;
-								int selectionIndex = textBox.SelectionStart;
-								txtRectangleDimensions.Text = txtRectangleDimensions.Text.Replace(" x ", "");
-								if (currentpos == space1) modifier = 1;
-								if (currentpos == x1) modifier = 2;
-								if (currentpos == space2) modifier = 3;
-								textBox.SelectionStart = selectionIndex - modifier;
-
-							}
-						}
-						if (e.KeyCode == Keys.Delete)
+						if (txtRectangleDimensions.Text.Contains("*"))
 						{
 							e.SuppressKeyPress = true;
+							if (txtRectangleDimensions.SelectedText.Contains('*'))
+							{
+								txtRectangleDimensions.Paste("*");
+							}
+						}
+						else
+						{
+							e.SuppressKeyPress = true;
+							int selectionIndex = txtRectangleDimensions.SelectionStart;
+							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Insert(selectionIndex, "*");
+							txtRectangleDimensions.SelectionStart = selectionIndex + 1;
 						}
 					}
 				}
