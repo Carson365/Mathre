@@ -170,6 +170,12 @@
     <Compile Include="Forms\frm05Temperature.Designer.cs">
       <DependentUpon>frm05Temperature.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm13Slots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm13Slots.Designer.cs">
+      <DependentUpon>frm13Slots.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmUnknown.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -256,6 +262,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm05Temperature.resx">
       <DependentUpon>frm05Temperature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm13Slots.resx">
+      <DependentUpon>frm13Slots.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUnknown.resx">
       <DependentUpon>frmUnknown.cs</DependentUpon>
