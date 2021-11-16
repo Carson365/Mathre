@@ -77,9 +77,9 @@
             // 
             this.pnlHurricaneList.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlHurricaneList.Controls.Add(this.lstHurricaneList);
-            this.pnlHurricaneList.Location = new System.Drawing.Point(455, 165);
+            this.pnlHurricaneList.Location = new System.Drawing.Point(466, 165);
             this.pnlHurricaneList.Name = "pnlHurricaneList";
-            this.pnlHurricaneList.Size = new System.Drawing.Size(622, 247);
+            this.pnlHurricaneList.Size = new System.Drawing.Size(600, 247);
             this.pnlHurricaneList.TabIndex = 37;
             // 
             // lstHurricaneList
@@ -92,7 +92,7 @@
             this.lstHurricaneList.HideSelection = false;
             this.lstHurricaneList.Location = new System.Drawing.Point(3, 3);
             this.lstHurricaneList.Name = "lstHurricaneList";
-            this.lstHurricaneList.Size = new System.Drawing.Size(616, 241);
+            this.lstHurricaneList.Size = new System.Drawing.Size(594, 241);
             this.lstHurricaneList.TabIndex = 36;
             this.lstHurricaneList.UseCompatibleStateImageBehavior = false;
             this.lstHurricaneList.View = System.Windows.Forms.View.Details;
@@ -123,7 +123,7 @@
             this.pnlHurricaneOutput.Controls.Add(this.lblType);
             this.pnlHurricaneOutput.Controls.Add(this.lblTypeLabel);
             this.pnlHurricaneOutput.Controls.Add(this.lblNameLabel);
-            this.pnlHurricaneOutput.Location = new System.Drawing.Point(124, 276);
+            this.pnlHurricaneOutput.Location = new System.Drawing.Point(135, 276);
             this.pnlHurricaneOutput.Name = "pnlHurricaneOutput";
             this.pnlHurricaneOutput.Size = new System.Drawing.Size(325, 136);
             this.pnlHurricaneOutput.TabIndex = 35;
@@ -246,7 +246,7 @@
             this.pnlHurricaneInput.Controls.Add(this.btnRandom);
             this.pnlHurricaneInput.Controls.Add(this.lblSpeed);
             this.pnlHurricaneInput.Controls.Add(this.txtMPH);
-            this.pnlHurricaneInput.Location = new System.Drawing.Point(124, 165);
+            this.pnlHurricaneInput.Location = new System.Drawing.Point(135, 165);
             this.pnlHurricaneInput.Name = "pnlHurricaneInput";
             this.pnlHurricaneInput.Size = new System.Drawing.Size(325, 105);
             this.pnlHurricaneInput.TabIndex = 34;

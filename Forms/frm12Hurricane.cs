@@ -23,7 +23,7 @@ namespace Mathre
 		public int RunCount = 0;
 		public Dictionary<int, List<string>> theDictionary = new()
 		{
-			{ 0, new List<string> { "Name", "Knots", "Type", "Category", "Damage" } },
+			{ 0, new List<string> { "Name", "MPH", "Knots", "Type", "Category", "Damage" } },
 		};
 		public FrmHurricane()
 		{
@@ -90,6 +90,7 @@ namespace Mathre
 				if (ReferenceEquals(sender, btnRandom))
 				{
 					llbName.Text = "Example";
+					llbName.Enabled = false;
 				}
 				else
 				{
@@ -123,7 +124,7 @@ namespace Mathre
 					{
 						llbName.Enabled = true;
 					}
-					theDictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo.Substring(3, HurricaneInfo.LastIndexOf(':') - 3)}." });
+					theDictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{txtMPH.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo.Substring(3, HurricaneInfo.LastIndexOf(':') - 3)}." });
 					var item = new ListViewItem(theDictionary[RunCount][0]);
 					foreach (var data in theDictionary[RunCount].Skip(1))
 					{
@@ -179,7 +180,7 @@ namespace Mathre
 				{
 					e.Handled = true;
 				}
-				else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, $"{e.KeyChar}")}") > 210)
+				else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, e.KeyChar.ToString())}") > 210)
 				{
 					e.Handled = true;
 				}
