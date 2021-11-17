@@ -37,14 +37,14 @@ namespace Mathre
 					chbDouble.Checked = false;
 				}
 				tokens -= (1 + Convert.ToInt32(chbDouble.Checked));
-				Random rnd = new();
+				Random rnd = new(); // Generate random numbers 1-3
 				int random1 = rnd.Next(1, 4);
 				lbl1.Text = $"{random1}";
 				int random2 = rnd.Next(1, 4);
 				lbl2.Text = $"{random2}";
 				int random3 = rnd.Next(1, 4);
 				lbl3.Text = $"{random3}";
-				if (random1 == 1 && random2 == 1 && random3 == 1)
+				if (random1 == 1 && random2 == 1 && random3 == 1) // Increase the token count and display the jackpot message for each jackpot
 				{
 					tokens += (5 + (Convert.ToInt32(chbDouble.Checked) * 5));
 					Message("Jackpot!!", null);
@@ -64,9 +64,9 @@ namespace Mathre
 		}
 		public void Message(object sender, EventArgs e)
 		{
-			lblScore.Text = $"{tokens}";
+			lblScore.Text = $"{tokens}"; // Update score before displaying the message box
 			lblWinIndicator.Text = $"{sender}";
-			if (chbDisableMessagebox.Checked)
+			if (chbDisableMessagebox.Checked) // Ensure the user wants to see the message box
 			{
 				MessageBox.Show($"{sender}", "                                        Result                                        ");
 			}
