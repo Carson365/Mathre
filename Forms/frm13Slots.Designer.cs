@@ -30,18 +30,18 @@
 		{
             this.pnlSlots = new System.Windows.Forms.Panel();
             this.pnlSlotsGame = new System.Windows.Forms.Panel();
+            this.lbl3 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.pnlSlotsActions = new System.Windows.Forms.Panel();
+            this.lblWinIndicator = new System.Windows.Forms.Label();
+            this.pnlWager = new System.Windows.Forms.Panel();
+            this.btnSpin = new System.Windows.Forms.Button();
+            this.chbDouble = new System.Windows.Forms.CheckBox();
+            this.lblPoints = new System.Windows.Forms.Label();
+            this.lblScore = new System.Windows.Forms.Label();
             this.chbDisableMessagebox = new System.Windows.Forms.CheckBox();
             this.lblSlotsTitle = new System.Windows.Forms.Label();
-            this.lblScore = new System.Windows.Forms.Label();
-            this.lblPoints = new System.Windows.Forms.Label();
-            this.pnlWager = new System.Windows.Forms.Panel();
-            this.lblWinIndicator = new System.Windows.Forms.Label();
-            this.lbl1 = new System.Windows.Forms.Label();
-            this.lbl2 = new System.Windows.Forms.Label();
-            this.lbl3 = new System.Windows.Forms.Label();
-            this.chbDouble = new System.Windows.Forms.CheckBox();
-            this.btnSpin = new System.Windows.Forms.Button();
             this.pnlSlots.SuspendLayout();
             this.pnlSlotsGame.SuspendLayout();
             this.pnlSlotsActions.SuspendLayout();
@@ -74,6 +74,33 @@
             this.pnlSlotsGame.Size = new System.Drawing.Size(426, 136);
             this.pnlSlotsGame.TabIndex = 35;
             // 
+            // lbl3
+            // 
+            this.lbl3.AutoSize = true;
+            this.lbl3.Location = new System.Drawing.Point(290, 62);
+            this.lbl3.Name = "lbl3";
+            this.lbl3.Size = new System.Drawing.Size(71, 13);
+            this.lbl3.TabIndex = 2;
+            this.lbl3.Text = "Spin Wheel 3";
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.Location = new System.Drawing.Point(196, 62);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(71, 13);
+            this.lbl2.TabIndex = 1;
+            this.lbl2.Text = "Spin Wheel 2";
+            // 
+            // lbl1
+            // 
+            this.lbl1.AutoSize = true;
+            this.lbl1.Location = new System.Drawing.Point(102, 62);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(71, 13);
+            this.lbl1.TabIndex = 0;
+            this.lbl1.Text = "Spin Wheel 1";
+            // 
             // pnlSlotsActions
             // 
             this.pnlSlotsActions.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -85,6 +112,65 @@
             this.pnlSlotsActions.Name = "pnlSlotsActions";
             this.pnlSlotsActions.Size = new System.Drawing.Size(426, 105);
             this.pnlSlotsActions.TabIndex = 34;
+            // 
+            // lblWinIndicator
+            // 
+            this.lblWinIndicator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinIndicator.Location = new System.Drawing.Point(11, 13);
+            this.lblWinIndicator.Name = "lblWinIndicator";
+            this.lblWinIndicator.Size = new System.Drawing.Size(197, 59);
+            this.lblWinIndicator.TabIndex = 5;
+            this.lblWinIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlWager
+            // 
+            this.pnlWager.Controls.Add(this.btnSpin);
+            this.pnlWager.Controls.Add(this.chbDouble);
+            this.pnlWager.Controls.Add(this.lblPoints);
+            this.pnlWager.Controls.Add(this.lblScore);
+            this.pnlWager.Location = new System.Drawing.Point(214, 13);
+            this.pnlWager.Name = "pnlWager";
+            this.pnlWager.Size = new System.Drawing.Size(199, 79);
+            this.pnlWager.TabIndex = 6;
+            // 
+            // btnSpin
+            // 
+            this.btnSpin.Location = new System.Drawing.Point(98, 16);
+            this.btnSpin.Name = "btnSpin";
+            this.btnSpin.Size = new System.Drawing.Size(75, 23);
+            this.btnSpin.TabIndex = 4;
+            this.btnSpin.Text = "Spin";
+            this.btnSpin.UseVisualStyleBackColor = true;
+            // 
+            // chbDouble
+            // 
+            this.chbDouble.AutoSize = true;
+            this.chbDouble.Location = new System.Drawing.Point(78, 45);
+            this.chbDouble.Name = "chbDouble";
+            this.chbDouble.Size = new System.Drawing.Size(114, 17);
+            this.chbDouble.TabIndex = 3;
+            this.chbDouble.Text = "Double Or Nothing";
+            this.chbDouble.UseVisualStyleBackColor = true;
+            // 
+            // lblPoints
+            // 
+            this.lblPoints.AutoSize = true;
+            this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoints.Location = new System.Drawing.Point(7, 21);
+            this.lblPoints.Name = "lblPoints";
+            this.lblPoints.Size = new System.Drawing.Size(43, 13);
+            this.lblPoints.TabIndex = 2;
+            this.lblPoints.Text = "Tokens";
+            // 
+            // lblScore
+            // 
+            this.lblScore.AutoSize = true;
+            this.lblScore.Location = new System.Drawing.Point(16, 42);
+            this.lblScore.Name = "lblScore";
+            this.lblScore.Size = new System.Drawing.Size(25, 13);
+            this.lblScore.TabIndex = 1;
+            this.lblScore.Text = "100";
             // 
             // chbDisableMessagebox
             // 
@@ -107,92 +193,6 @@
             this.lblSlotsTitle.TabIndex = 33;
             this.lblSlotsTitle.Text = "Slot Machine";
             this.lblSlotsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblScore
-            // 
-            this.lblScore.AutoSize = true;
-            this.lblScore.Location = new System.Drawing.Point(16, 42);
-            this.lblScore.Name = "lblScore";
-            this.lblScore.Size = new System.Drawing.Size(25, 13);
-            this.lblScore.TabIndex = 1;
-            this.lblScore.Text = "100";
-            // 
-            // lblPoints
-            // 
-            this.lblPoints.AutoSize = true;
-            this.lblPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPoints.Location = new System.Drawing.Point(7, 21);
-            this.lblPoints.Name = "lblPoints";
-            this.lblPoints.Size = new System.Drawing.Size(43, 13);
-            this.lblPoints.TabIndex = 2;
-            this.lblPoints.Text = "Tokens";
-            // 
-            // pnlWager
-            // 
-            this.pnlWager.Controls.Add(this.btnSpin);
-            this.pnlWager.Controls.Add(this.chbDouble);
-            this.pnlWager.Controls.Add(this.lblPoints);
-            this.pnlWager.Controls.Add(this.lblScore);
-            this.pnlWager.Location = new System.Drawing.Point(214, 13);
-            this.pnlWager.Name = "pnlWager";
-            this.pnlWager.Size = new System.Drawing.Size(199, 79);
-            this.pnlWager.TabIndex = 6;
-            // 
-            // lblWinIndicator
-            // 
-            this.lblWinIndicator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinIndicator.Location = new System.Drawing.Point(11, 13);
-            this.lblWinIndicator.Name = "lblWinIndicator";
-            this.lblWinIndicator.Size = new System.Drawing.Size(197, 59);
-            this.lblWinIndicator.TabIndex = 5;
-            this.lblWinIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl1
-            // 
-            this.lbl1.AutoSize = true;
-            this.lbl1.Location = new System.Drawing.Point(102, 62);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(71, 13);
-            this.lbl1.TabIndex = 0;
-            this.lbl1.Text = "Spin Wheel 1";
-            // 
-            // lbl2
-            // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Location = new System.Drawing.Point(196, 62);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(71, 13);
-            this.lbl2.TabIndex = 1;
-            this.lbl2.Text = "Spin Wheel 2";
-            // 
-            // lbl3
-            // 
-            this.lbl3.AutoSize = true;
-            this.lbl3.Location = new System.Drawing.Point(290, 62);
-            this.lbl3.Name = "lbl3";
-            this.lbl3.Size = new System.Drawing.Size(71, 13);
-            this.lbl3.TabIndex = 2;
-            this.lbl3.Text = "Spin Wheel 3";
-            // 
-            // chbDouble
-            // 
-            this.chbDouble.AutoSize = true;
-            this.chbDouble.Location = new System.Drawing.Point(78, 45);
-            this.chbDouble.Name = "chbDouble";
-            this.chbDouble.Size = new System.Drawing.Size(114, 17);
-            this.chbDouble.TabIndex = 3;
-            this.chbDouble.Text = "Double Or Nothing";
-            this.chbDouble.UseVisualStyleBackColor = true;
-            // 
-            // btnSpin
-            // 
-            this.btnSpin.Location = new System.Drawing.Point(98, 16);
-            this.btnSpin.Name = "btnSpin";
-            this.btnSpin.Size = new System.Drawing.Size(75, 23);
-            this.btnSpin.TabIndex = 4;
-            this.btnSpin.Text = "Spin";
-            this.btnSpin.UseVisualStyleBackColor = true;
             // 
             // FrmSlots
             // 
