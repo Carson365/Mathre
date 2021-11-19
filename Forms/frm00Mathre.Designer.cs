@@ -85,6 +85,7 @@ namespace Mathre
             this.mnuRockPS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRPaperS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRPScissors = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSlots = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSecret = new System.Windows.Forms.TabPage();
@@ -104,6 +105,9 @@ namespace Mathre
             this.tabRPS = new System.Windows.Forms.TabPage();
             this.tabHurricane = new System.Windows.Forms.TabPage();
             this.tabSlots = new System.Windows.Forms.TabPage();
+            this.mnuSpin = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDouble = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMessage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -139,7 +143,8 @@ namespace Mathre
             this.mnuGrade,
             this.mnuExit,
             this.videoGameOrdersToolStripMenuItem,
-            this.mnuRPS});
+            this.mnuRPS,
+            this.mnuSlots});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
@@ -456,20 +461,30 @@ namespace Mathre
             // mnuRockPS
             // 
             this.mnuRockPS.Name = "mnuRockPS";
-            this.mnuRockPS.Size = new System.Drawing.Size(115, 22);
+            this.mnuRockPS.Size = new System.Drawing.Size(180, 22);
             this.mnuRockPS.Text = "Rock";
             // 
             // mnuRPaperS
             // 
             this.mnuRPaperS.Name = "mnuRPaperS";
-            this.mnuRPaperS.Size = new System.Drawing.Size(115, 22);
+            this.mnuRPaperS.Size = new System.Drawing.Size(180, 22);
             this.mnuRPaperS.Text = "Paper";
             // 
             // mnuRPScissors
             // 
             this.mnuRPScissors.Name = "mnuRPScissors";
-            this.mnuRPScissors.Size = new System.Drawing.Size(115, 22);
+            this.mnuRPScissors.Size = new System.Drawing.Size(180, 22);
             this.mnuRPScissors.Text = "Scissors";
+            // 
+            // mnuSlots
+            // 
+            this.mnuSlots.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSpin,
+            this.mnuDouble,
+            this.mnuMessage});
+            this.mnuSlots.Name = "mnuSlots";
+            this.mnuSlots.Size = new System.Drawing.Size(195, 22);
+            this.mnuSlots.Text = "Slot Machine";
             // 
             // mnuEdit
             // 
@@ -488,7 +503,7 @@ namespace Mathre
             // 
             this.tabSecret.Location = new System.Drawing.Point(4, 22);
             this.tabSecret.Name = "tabSecret";
-            this.tabSecret.Size = new System.Drawing.Size(1256, 0);
+            this.tabSecret.Size = new System.Drawing.Size(1286, 0);
             this.tabSecret.TabIndex = 3;
             this.tabSecret.Text = "Secret Settings Page";
             this.tabSecret.UseVisualStyleBackColor = true;
@@ -498,7 +513,7 @@ namespace Mathre
             this.tabUnknown.Location = new System.Drawing.Point(4, 22);
             this.tabUnknown.Margin = new System.Windows.Forms.Padding(0);
             this.tabUnknown.Name = "tabUnknown";
-            this.tabUnknown.Size = new System.Drawing.Size(1256, 0);
+            this.tabUnknown.Size = new System.Drawing.Size(1286, 0);
             this.tabUnknown.TabIndex = 2;
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
@@ -507,7 +522,7 @@ namespace Mathre
             // 
             this.tabPizza.Location = new System.Drawing.Point(4, 22);
             this.tabPizza.Name = "tabPizza";
-            this.tabPizza.Size = new System.Drawing.Size(1256, 0);
+            this.tabPizza.Size = new System.Drawing.Size(1286, 0);
             this.tabPizza.TabIndex = 9;
             this.tabPizza.Tag = "";
             this.tabPizza.Text = "Pizza Delivery";
@@ -518,7 +533,7 @@ namespace Mathre
             this.tabChange.Controls.Add(this.lblChangeMakerTitle);
             this.tabChange.Location = new System.Drawing.Point(4, 22);
             this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(1256, 0);
+            this.tabChange.Size = new System.Drawing.Size(1286, 0);
             this.tabChange.TabIndex = 8;
             this.tabChange.Text = "Change Maker";
             this.tabChange.UseVisualStyleBackColor = true;
@@ -539,7 +554,7 @@ namespace Mathre
             // 
             this.tabDigits.Location = new System.Drawing.Point(4, 22);
             this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(1256, 0);
+            this.tabDigits.Size = new System.Drawing.Size(1286, 0);
             this.tabDigits.TabIndex = 7;
             this.tabDigits.Text = "Digit Separator";
             this.tabDigits.UseVisualStyleBackColor = true;
@@ -548,7 +563,7 @@ namespace Mathre
             // 
             this.tabTemperature.Location = new System.Drawing.Point(4, 22);
             this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(1256, 0);
+            this.tabTemperature.Size = new System.Drawing.Size(1286, 0);
             this.tabTemperature.TabIndex = 6;
             this.tabTemperature.Text = "Temperature Converter";
             this.tabTemperature.UseVisualStyleBackColor = true;
@@ -557,7 +572,7 @@ namespace Mathre
             // 
             this.tabMyFavorites.Location = new System.Drawing.Point(4, 22);
             this.tabMyFavorites.Name = "tabMyFavorites";
-            this.tabMyFavorites.Size = new System.Drawing.Size(1256, 0);
+            this.tabMyFavorites.Size = new System.Drawing.Size(1286, 0);
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
@@ -566,7 +581,7 @@ namespace Mathre
             // 
             this.tabRectangle.Location = new System.Drawing.Point(4, 22);
             this.tabRectangle.Name = "tabRectangle";
-            this.tabRectangle.Size = new System.Drawing.Size(1256, 0);
+            this.tabRectangle.Size = new System.Drawing.Size(1286, 0);
             this.tabRectangle.TabIndex = 4;
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
@@ -575,7 +590,7 @@ namespace Mathre
             // 
             this.tabMySchool.Location = new System.Drawing.Point(4, 22);
             this.tabMySchool.Name = "tabMySchool";
-            this.tabMySchool.Size = new System.Drawing.Size(1256, 0);
+            this.tabMySchool.Size = new System.Drawing.Size(1286, 0);
             this.tabMySchool.TabIndex = 1;
             this.tabMySchool.Text = "My School";
             this.tabMySchool.UseVisualStyleBackColor = true;
@@ -620,7 +635,7 @@ namespace Mathre
             // 
             this.tabGrade.Location = new System.Drawing.Point(4, 22);
             this.tabGrade.Name = "tabGrade";
-            this.tabGrade.Size = new System.Drawing.Size(1256, 0);
+            this.tabGrade.Size = new System.Drawing.Size(1286, 0);
             this.tabGrade.TabIndex = 10;
             this.tabGrade.Text = "Calculate My Grade";
             this.tabGrade.UseVisualStyleBackColor = true;
@@ -629,7 +644,7 @@ namespace Mathre
             // 
             this.tabVideoGames.Location = new System.Drawing.Point(4, 22);
             this.tabVideoGames.Name = "tabVideoGames";
-            this.tabVideoGames.Size = new System.Drawing.Size(1256, 0);
+            this.tabVideoGames.Size = new System.Drawing.Size(1286, 0);
             this.tabVideoGames.TabIndex = 11;
             this.tabVideoGames.Text = "Video Game Orders";
             this.tabVideoGames.UseVisualStyleBackColor = true;
@@ -638,7 +653,7 @@ namespace Mathre
             // 
             this.tabRPS.Location = new System.Drawing.Point(4, 22);
             this.tabRPS.Name = "tabRPS";
-            this.tabRPS.Size = new System.Drawing.Size(1256, 0);
+            this.tabRPS.Size = new System.Drawing.Size(1286, 0);
             this.tabRPS.TabIndex = 12;
             this.tabRPS.Text = "Rock Paper Scissors";
             this.tabRPS.UseVisualStyleBackColor = true;
@@ -647,7 +662,7 @@ namespace Mathre
             // 
             this.tabHurricane.Location = new System.Drawing.Point(4, 22);
             this.tabHurricane.Name = "tabHurricane";
-            this.tabHurricane.Size = new System.Drawing.Size(1256, 0);
+            this.tabHurricane.Size = new System.Drawing.Size(1286, 0);
             this.tabHurricane.TabIndex = 13;
             this.tabHurricane.Text = "Hurricane!";
             this.tabHurricane.UseVisualStyleBackColor = true;
@@ -657,10 +672,28 @@ namespace Mathre
             this.tabSlots.Location = new System.Drawing.Point(4, 22);
             this.tabSlots.Name = "tabSlots";
             this.tabSlots.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSlots.Size = new System.Drawing.Size(1256, 0);
+            this.tabSlots.Size = new System.Drawing.Size(1286, 0);
             this.tabSlots.TabIndex = 14;
             this.tabSlots.Text = "Slot Machine";
             this.tabSlots.UseVisualStyleBackColor = true;
+            // 
+            // mnuSpin
+            // 
+            this.mnuSpin.Name = "mnuSpin";
+            this.mnuSpin.Size = new System.Drawing.Size(181, 22);
+            this.mnuSpin.Text = "Spin";
+            // 
+            // mnuDouble
+            // 
+            this.mnuDouble.Name = "mnuDouble";
+            this.mnuDouble.Size = new System.Drawing.Size(181, 22);
+            this.mnuDouble.Text = "Double Or Nothing";
+            // 
+            // mnuMessage
+            // 
+            this.mnuMessage.Name = "mnuMessage";
+            this.mnuMessage.Size = new System.Drawing.Size(181, 22);
+            this.mnuMessage.Text = "Enable Message Box";
             // 
             // FrmMathre
             // 
@@ -751,5 +784,9 @@ namespace Mathre
 		private ToolStripMenuItem mnuRPScissors;
 		private TabPage tabHurricane;
 		private TabPage tabSlots;
+		private ToolStripMenuItem mnuSlots;
+		private ToolStripMenuItem mnuSpin;
+		private ToolStripMenuItem mnuDouble;
+		private ToolStripMenuItem mnuMessage;
 	}
 }

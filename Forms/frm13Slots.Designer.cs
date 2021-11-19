@@ -40,7 +40,7 @@
             this.chbDouble = new System.Windows.Forms.CheckBox();
             this.lblPoints = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
-            this.chbDisableMessagebox = new System.Windows.Forms.CheckBox();
+            this.chbMessage = new System.Windows.Forms.CheckBox();
             this.lblSlotsTitle = new System.Windows.Forms.Label();
             this.pnlSlots.SuspendLayout();
             this.pnlSlotsGame.SuspendLayout();
@@ -107,7 +107,7 @@
             this.pnlSlotsActions.BackColor = System.Drawing.SystemColors.Control;
             this.pnlSlotsActions.Controls.Add(this.lblWinIndicator);
             this.pnlSlotsActions.Controls.Add(this.pnlWager);
-            this.pnlSlotsActions.Controls.Add(this.chbDisableMessagebox);
+            this.pnlSlotsActions.Controls.Add(this.chbMessage);
             this.pnlSlotsActions.Location = new System.Drawing.Point(287, 165);
             this.pnlSlotsActions.Name = "pnlSlotsActions";
             this.pnlSlotsActions.Size = new System.Drawing.Size(426, 105);
@@ -172,15 +172,15 @@
             this.lblScore.TabIndex = 1;
             this.lblScore.Text = "100";
             // 
-            // chbDisableMessagebox
+            // chbMessage
             // 
-            this.chbDisableMessagebox.AutoSize = true;
-            this.chbDisableMessagebox.Location = new System.Drawing.Point(14, 75);
-            this.chbDisableMessagebox.Name = "chbDisableMessagebox";
-            this.chbDisableMessagebox.Size = new System.Drawing.Size(126, 17);
-            this.chbDisableMessagebox.TabIndex = 4;
-            this.chbDisableMessagebox.Text = "Enable Message Box";
-            this.chbDisableMessagebox.UseVisualStyleBackColor = true;
+            this.chbMessage.AutoSize = true;
+            this.chbMessage.Location = new System.Drawing.Point(14, 75);
+            this.chbMessage.Name = "chbMessage";
+            this.chbMessage.Size = new System.Drawing.Size(126, 17);
+            this.chbMessage.TabIndex = 4;
+            this.chbMessage.Text = "Enable Message Box";
+            this.chbMessage.UseVisualStyleBackColor = true;
             // 
             // lblSlotsTitle
             // 
@@ -219,7 +219,7 @@
 		public System.Windows.Forms.Panel pnlSlots;
 		private System.Windows.Forms.Panel pnlSlotsGame;
 		private System.Windows.Forms.Panel pnlSlotsActions;
-		private System.Windows.Forms.CheckBox chbDisableMessagebox;
+		private System.Windows.Forms.CheckBox chbMessage;
 		internal System.Windows.Forms.Label lblSlotsTitle;
 		private System.Windows.Forms.Label lbl3;
 		private System.Windows.Forms.Label lbl2;

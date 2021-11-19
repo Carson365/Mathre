@@ -76,11 +76,22 @@ namespace Mathre
 			}
 			lblScore.Text = $"{tokens}";
 		}
+		public void MenuHandler(object sender, EventArgs e)
+		{
+			Console.WriteLine(sender.ToString());
+			Action A = sender.ToString() switch
+			{
+				"Spin" => () => ((Button)ThisForm.pnlWager.Controls[$"btn{sender}"]).PerformClick(),
+				"Double Or Nothing" => () => ((CheckBox)ThisForm.pnlWager.Controls.Find($"{sender}", true)[0]).Checked = true,
+				"Message" => () => ((CheckBox)ThisForm.pnlSlotsActions.Controls[$"chb{sender}"]).Checked = true,
+			};
+			A.Invoke();
+		}
 		public void Message(object sender, EventArgs e)
 		{
 			lblScore.Text = $"{tokens}"; // Update score before displaying the message box
 			lblWinIndicator.Text = $"{sender}";
-			if (chbDisableMessagebox.Checked) // Ensure the user wants to see the message box
+			if (chbMessage.Checked) // Ensure the user wants to see the message box
 			{
 				MessageBox.Show($"{sender}", "                                        Result                                        ");
 			}
