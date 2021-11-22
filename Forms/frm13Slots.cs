@@ -24,7 +24,7 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
-		public async void Gamble(object sender, EventArgs e)
+		public void Gamble(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = "";
 			if (tokens <= 0)
