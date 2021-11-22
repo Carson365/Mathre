@@ -9,8 +9,6 @@ namespace Mathre
 		public static FrmMathre BaseForm;
 		public static FrmSlots ThisForm;
 		public int tokens = 100;
-		public int animate = 0;
-		public int counter = 3;
 		public FrmSlots()
 		{
 			InitializeComponent();
@@ -47,17 +45,6 @@ namespace Mathre
 				lbl2.Text = $"{random2}";
 				int random3 = rnd.Next(1, 4);
 				lbl3.Text = $"{random3}";
-				while (animate < 7)
-				{
-					lbl1.Location = new System.Drawing.Point(lbl1.Location.X, lbl1.Location.Y + animate -1);
-					await Task.Delay(20);
-					animate++;
-					if (animate == 5 && counter < 7)
-					{
-						animate = -counter;
-						counter++;
-					}
-				}
 				if (random1 == 1 && random2 == 1 && random3 == 1) // Increase the token count and display the jackpot message for each jackpot
 				{
 					tokens += (5 + (Convert.ToInt32(chbDouble.Checked) * 5));
