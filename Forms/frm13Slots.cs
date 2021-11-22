@@ -78,12 +78,11 @@ namespace Mathre
 		}
 		public void MenuHandler(object sender, EventArgs e)
 		{
-			Console.WriteLine(sender.ToString());
 			Action A = sender.ToString() switch
 			{
 				"Spin" => () => ((Button)ThisForm.pnlWager.Controls[$"btn{sender}"]).PerformClick(),
-				"Double Or Nothing" => () => ((CheckBox)ThisForm.pnlWager.Controls.Find($"{sender}", true)[0]).Checked = true,
-				"Message" => () => ((CheckBox)ThisForm.pnlSlotsActions.Controls[$"chb{sender}"]).Checked = true,
+				"Double Or Nothing" => () => ThisForm.chbDouble.Checked = !ThisForm.chbDouble.Checked,
+				_ => () => ThisForm.chbMessage.Checked = !ThisForm.chbMessage.Checked,
 			};
 			A.Invoke();
 		}
