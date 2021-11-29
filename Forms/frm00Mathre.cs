@@ -69,6 +69,11 @@ namespace Mathre
 				FrmRPS RG = new();
 				Item.Click += RG.MenuHandler;
 			}
+			foreach (ToolStripItem Item in mnuHurricane.DropDownItems)
+			{
+				FrmHurricane HC = new();
+				Item.Click += HC.MenuHandler;
+			}
 			foreach (ToolStripItem Item in mnuSlots.DropDownItems)
 			{
 				FrmSlots SM = new();

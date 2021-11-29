@@ -9,6 +9,8 @@ namespace Mathre
 		public static FrmMathre BaseForm;
 		public static FrmSlots ThisForm;
 		public int tokens = 100;
+		public int change = 0;
+		public bool auto = true;
 		public FrmSlots()
 		{
 			InitializeComponent();
@@ -24,7 +26,16 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
-		public void Gamble(object sender, EventArgs e)
+		public async void AutoGamble(object sender, EventArgs e)
+		{
+			while (auto)
+			{
+				chbMessage.Checked = true;
+				Gamble(null, null);
+				await Task.Delay(20);
+			}
+		}
+			public void Gamble(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = "";
 			if (tokens <= 0)
@@ -47,18 +58,21 @@ namespace Mathre
 				lbl3.Text = $"{random3}";
 				if (random1 == 1 && random2 == 1 && random3 == 1) // Increase the token count and display the jackpot message for each jackpot
 				{
-					tokens += (5 + (Convert.ToInt32(chbDouble.Checked) * 5));
-					Message("Jackpot!!", null);
+					change = (5 + (Convert.ToInt32(chbDouble.Checked) * 5));
+					tokens += change;
+					Message($"Jackpot! {change} Tokens Earned!", null);
 				}
 				else if (random1 == 2 && random2 == 2 && random3 == 2)
 				{
-					tokens += (10 + (Convert.ToInt32(chbDouble.Checked) * 10));
-					Message("Jackpot!!", null);
+					change = (10 + (Convert.ToInt32(chbDouble.Checked) * 10));
+					tokens += change;
+					Message($"Jackpot! {change} Tokens Earned!", null);
 				}
 				else if (random1 == 3 && random2 == 3 && random3 == 3)
 				{
-					tokens += (15 + (Convert.ToInt32(chbDouble.Checked) * 15));
-					Message("Jackpot!!", null);
+					change = (15 + (Convert.ToInt32(chbDouble.Checked) * 15));
+					tokens += change;
+					Message($"Jackpot! {change} Tokens Earned!", null);
 				}
 			}
 			lblScore.Text = $"{tokens}";
@@ -67,7 +81,7 @@ namespace Mathre
 		{
 			Action A = sender.ToString() switch
 			{
-				"Spin" => () => ((Button)ThisForm.pnlWager.Controls[$"btn{sender}"]).PerformClick(),
+				"Spin" => () => ThisForm.btnSpin.PerformClick(),
 				"Double Or Nothing" => () => ThisForm.chbDouble.Checked = !ThisForm.chbDouble.Checked,
 				_ => () => ThisForm.chbMessage.Checked = !ThisForm.chbMessage.Checked,
 			};
@@ -81,6 +95,7 @@ namespace Mathre
 			{
 				MessageBox.Show($"{sender}", "                                        Result                                        ");
 			}
+			auto = false;
 		}
 	}
 }

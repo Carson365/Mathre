@@ -86,6 +86,9 @@ namespace Mathre
             this.mnuRPaperS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRPScissors = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSlots = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSpin = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDouble = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuMessage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.tabSecret = new System.Windows.Forms.TabPage();
@@ -105,9 +108,10 @@ namespace Mathre
             this.tabRPS = new System.Windows.Forms.TabPage();
             this.tabHurricane = new System.Windows.Forms.TabPage();
             this.tabSlots = new System.Windows.Forms.TabPage();
-            this.mnuSpin = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDouble = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuMessage = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHurricane = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRandom = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDamage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -144,6 +148,7 @@ namespace Mathre
             this.mnuExit,
             this.videoGameOrdersToolStripMenuItem,
             this.mnuRPS,
+            this.mnuHurricane,
             this.mnuSlots});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
@@ -461,19 +466,19 @@ namespace Mathre
             // mnuRockPS
             // 
             this.mnuRockPS.Name = "mnuRockPS";
-            this.mnuRockPS.Size = new System.Drawing.Size(180, 22);
+            this.mnuRockPS.Size = new System.Drawing.Size(115, 22);
             this.mnuRockPS.Text = "Rock";
             // 
             // mnuRPaperS
             // 
             this.mnuRPaperS.Name = "mnuRPaperS";
-            this.mnuRPaperS.Size = new System.Drawing.Size(180, 22);
+            this.mnuRPaperS.Size = new System.Drawing.Size(115, 22);
             this.mnuRPaperS.Text = "Paper";
             // 
             // mnuRPScissors
             // 
             this.mnuRPScissors.Name = "mnuRPScissors";
-            this.mnuRPScissors.Size = new System.Drawing.Size(180, 22);
+            this.mnuRPScissors.Size = new System.Drawing.Size(115, 22);
             this.mnuRPScissors.Text = "Scissors";
             // 
             // mnuSlots
@@ -485,6 +490,24 @@ namespace Mathre
             this.mnuSlots.Name = "mnuSlots";
             this.mnuSlots.Size = new System.Drawing.Size(195, 22);
             this.mnuSlots.Text = "Slot Machine";
+            // 
+            // mnuSpin
+            // 
+            this.mnuSpin.Name = "mnuSpin";
+            this.mnuSpin.Size = new System.Drawing.Size(181, 22);
+            this.mnuSpin.Text = "Spin";
+            // 
+            // mnuDouble
+            // 
+            this.mnuDouble.Name = "mnuDouble";
+            this.mnuDouble.Size = new System.Drawing.Size(181, 22);
+            this.mnuDouble.Text = "Double Or Nothing";
+            // 
+            // mnuMessage
+            // 
+            this.mnuMessage.Name = "mnuMessage";
+            this.mnuMessage.Size = new System.Drawing.Size(181, 22);
+            this.mnuMessage.Text = "Enable Message Box";
             // 
             // mnuEdit
             // 
@@ -677,23 +700,33 @@ namespace Mathre
             this.tabSlots.Text = "Slot Machine";
             this.tabSlots.UseVisualStyleBackColor = true;
             // 
-            // mnuSpin
+            // mnuHurricane
             // 
-            this.mnuSpin.Name = "mnuSpin";
-            this.mnuSpin.Size = new System.Drawing.Size(181, 22);
-            this.mnuSpin.Text = "Spin";
+            this.mnuHurricane.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRandom,
+            this.mnuCalculate,
+            this.mnuDamage});
+            this.mnuHurricane.Name = "mnuHurricane";
+            this.mnuHurricane.Size = new System.Drawing.Size(195, 22);
+            this.mnuHurricane.Text = "Hurricane";
             // 
-            // mnuDouble
+            // mnuRandom
             // 
-            this.mnuDouble.Name = "mnuDouble";
-            this.mnuDouble.Size = new System.Drawing.Size(181, 22);
-            this.mnuDouble.Text = "Double Or Nothing";
+            this.mnuRandom.Name = "mnuRandom";
+            this.mnuRandom.Size = new System.Drawing.Size(210, 22);
+            this.mnuRandom.Text = "Generate Random Storm";
             // 
-            // mnuMessage
+            // mnuCalculate
             // 
-            this.mnuMessage.Name = "mnuMessage";
-            this.mnuMessage.Size = new System.Drawing.Size(181, 22);
-            this.mnuMessage.Text = "Enable Message Box";
+            this.mnuCalculate.Name = "mnuCalculate";
+            this.mnuCalculate.Size = new System.Drawing.Size(210, 22);
+            this.mnuCalculate.Text = "Calculate Storm Impact";
+            // 
+            // mnuDamage
+            // 
+            this.mnuDamage.Name = "mnuDamage";
+            this.mnuDamage.Size = new System.Drawing.Size(210, 22);
+            this.mnuDamage.Text = "Display Expected Damage";
             // 
             // FrmMathre
             // 
@@ -788,5 +821,9 @@ namespace Mathre
 		private ToolStripMenuItem mnuSpin;
 		private ToolStripMenuItem mnuDouble;
 		private ToolStripMenuItem mnuMessage;
+		private ToolStripMenuItem mnuHurricane;
+		private ToolStripMenuItem mnuRandom;
+		private ToolStripMenuItem mnuCalculate;
+		private ToolStripMenuItem mnuDamage;
 	}
 }

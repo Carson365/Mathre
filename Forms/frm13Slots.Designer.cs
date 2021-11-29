@@ -116,7 +116,7 @@
             // lblWinIndicator
             // 
             this.lblWinIndicator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWinIndicator.Location = new System.Drawing.Point(11, 13);
             this.lblWinIndicator.Name = "lblWinIndicator";
             this.lblWinIndicator.Size = new System.Drawing.Size(197, 59);
