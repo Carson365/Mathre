@@ -32,9 +32,9 @@ namespace Mathre
 			txtMPH.KeyPress += InputFormatter;
 			txtMPH.TextChanged += ZeroRemover;
 			txtMPH.KeyDown += EnterKey;
-			btnGenerate.Click += Hurricane;
+			btnCalculate.Click += Hurricane;
 			btnRandom.Click += Random;
-			chbDamage.CheckedChanged += Damage;
+			chbDamage.CheckStateChanged += Damage;
 			llbName.LinkClicked += Link;
 			lstHurricaneList.ColumnWidthChanging += ListResizeManager;
 		}
@@ -185,6 +185,16 @@ namespace Mathre
 					e.Handled = true;
 				}
 			}
+		}
+		public void MenuHandler(object sender, EventArgs e)
+		{
+			Action A = sender.ToString() switch
+			{
+				"Display Expected Damage" => () => ThisForm.chbDamage.Checked = !ThisForm.chbDamage.Checked,
+				"Generate Random Storm" => () => ThisForm.btnRandom.PerformClick(),
+				_ => () => ThisForm.btnCalculate.PerformClick(),
+			};
+			A.Invoke();
 		}
 		public void ZeroRemover(object sender, EventArgs e)
 		{

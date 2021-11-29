@@ -46,7 +46,7 @@
             this.lblTypeLabel = new System.Windows.Forms.Label();
             this.lblNameLabel = new System.Windows.Forms.Label();
             this.pnlHurricaneInput = new System.Windows.Forms.Panel();
-            this.btnGenerate = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
             this.btnRandom = new System.Windows.Forms.Button();
             this.lblSpeed = new System.Windows.Forms.Label();
             this.txtMPH = new System.Windows.Forms.TextBox();
@@ -242,7 +242,7 @@
             // 
             this.pnlHurricaneInput.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlHurricaneInput.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlHurricaneInput.Controls.Add(this.btnGenerate);
+            this.pnlHurricaneInput.Controls.Add(this.btnCalculate);
             this.pnlHurricaneInput.Controls.Add(this.btnRandom);
             this.pnlHurricaneInput.Controls.Add(this.lblSpeed);
             this.pnlHurricaneInput.Controls.Add(this.txtMPH);
@@ -251,14 +251,14 @@
             this.pnlHurricaneInput.Size = new System.Drawing.Size(325, 105);
             this.pnlHurricaneInput.TabIndex = 34;
             // 
-            // btnGenerate
+            // btnCalculate
             // 
-            this.btnGenerate.Location = new System.Drawing.Point(177, 64);
-            this.btnGenerate.Name = "btnGenerate";
-            this.btnGenerate.Size = new System.Drawing.Size(141, 23);
-            this.btnGenerate.TabIndex = 29;
-            this.btnGenerate.Text = "Calculate Storm Impact";
-            this.btnGenerate.UseVisualStyleBackColor = true;
+            this.btnCalculate.Location = new System.Drawing.Point(177, 64);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(141, 23);
+            this.btnCalculate.TabIndex = 29;
+            this.btnCalculate.Text = "Calculate Storm Impact";
+            this.btnCalculate.UseVisualStyleBackColor = true;
             // 
             // btnRandom
             // 
@@ -266,7 +266,7 @@
             this.btnRandom.Name = "btnRandom";
             this.btnRandom.Size = new System.Drawing.Size(141, 23);
             this.btnRandom.TabIndex = 28;
-            this.btnRandom.Text = "Random Storm";
+            this.btnRandom.Text = "Generate Random Storm";
             this.btnRandom.UseVisualStyleBackColor = true;
             // 
             // lblSpeed
@@ -334,7 +334,7 @@
 		internal System.Windows.Forms.Label lblSpeed;
 		internal System.Windows.Forms.Label lblNameLabel;
 		internal System.Windows.Forms.TextBox txtMPH;
-		private System.Windows.Forms.Button btnGenerate;
+		private System.Windows.Forms.Button btnCalculate;
 		private System.Windows.Forms.Button btnRandom;
 		internal System.Windows.Forms.Label lblCategoryLabel;
 		private System.Windows.Forms.Label lblCategory;
