@@ -42,6 +42,7 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.chbMessage = new System.Windows.Forms.CheckBox();
             this.lblSlotsTitle = new System.Windows.Forms.Label();
+            this.chbAuto = new System.Windows.Forms.CheckBox();
             this.pnlSlots.SuspendLayout();
             this.pnlSlotsGame.SuspendLayout();
             this.pnlSlotsActions.SuspendLayout();
@@ -105,8 +106,9 @@
             // 
             this.pnlSlotsActions.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlSlotsActions.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlSlotsActions.Controls.Add(this.lblWinIndicator);
             this.pnlSlotsActions.Controls.Add(this.pnlWager);
+            this.pnlSlotsActions.Controls.Add(this.chbAuto);
+            this.pnlSlotsActions.Controls.Add(this.lblWinIndicator);
             this.pnlSlotsActions.Controls.Add(this.chbMessage);
             this.pnlSlotsActions.Location = new System.Drawing.Point(287, 165);
             this.pnlSlotsActions.Name = "pnlSlotsActions";
@@ -175,7 +177,7 @@
             // chbMessage
             // 
             this.chbMessage.AutoSize = true;
-            this.chbMessage.Location = new System.Drawing.Point(14, 75);
+            this.chbMessage.Location = new System.Drawing.Point(11, 75);
             this.chbMessage.Name = "chbMessage";
             this.chbMessage.Size = new System.Drawing.Size(126, 17);
             this.chbMessage.TabIndex = 4;
@@ -193,6 +195,16 @@
             this.lblSlotsTitle.TabIndex = 33;
             this.lblSlotsTitle.Text = "Slot Machine";
             this.lblSlotsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chbAuto
+            // 
+            this.chbAuto.AutoSize = true;
+            this.chbAuto.Location = new System.Drawing.Point(143, 75);
+            this.chbAuto.Name = "chbAuto";
+            this.chbAuto.Size = new System.Drawing.Size(71, 17);
+            this.chbAuto.TabIndex = 7;
+            this.chbAuto.Text = "Auto Play";
+            this.chbAuto.UseVisualStyleBackColor = true;
             // 
             // FrmSlots
             // 
@@ -230,5 +242,6 @@
 		private System.Windows.Forms.Label lblPoints;
 		private System.Windows.Forms.Label lblScore;
 		private System.Windows.Forms.Label lblWinIndicator;
+		private System.Windows.Forms.CheckBox chbAuto;
 	}
 }

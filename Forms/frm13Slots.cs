@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -11,11 +11,13 @@ namespace Mathre
 		public int tokens = 100;
 		public int change = 0;
 		public bool auto = true;
+		int counter = 0;
 		public FrmSlots()
 		{
 			InitializeComponent();
 			Load += FormLoad;
 			btnSpin.Click += Gamble;
+			chbAuto.CheckedChanged += Autocheck;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -28,14 +30,21 @@ namespace Mathre
 		}
 		public async void AutoGamble(object sender, EventArgs e)
 		{
+			counter = 0;
 			while (auto)
 			{
+				counter++;
 				chbMessage.Checked = true;
 				Gamble(null, null);
 				await Task.Delay(20);
 			}
 		}
-			public void Gamble(object sender, EventArgs e)
+		public void Autocheck(object sender, EventArgs e)
+		{
+			auto = chbAuto.Checked;
+			AutoGamble(null, null);
+		}
+		public void Gamble(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = "";
 			if (tokens <= 0)
@@ -60,19 +69,19 @@ namespace Mathre
 				{
 					change = (5 + (Convert.ToInt32(chbDouble.Checked) * 5));
 					tokens += change;
-					Message($"Jackpot! {change} Tokens Earned!", null);
+					Message($"{change} Token Jackpot!", null);
 				}
 				else if (random1 == 2 && random2 == 2 && random3 == 2)
 				{
 					change = (10 + (Convert.ToInt32(chbDouble.Checked) * 10));
 					tokens += change;
-					Message($"Jackpot! {change} Tokens Earned!", null);
+					Message($"{change} Token Jackpot!", null);
 				}
 				else if (random1 == 3 && random2 == 3 && random3 == 3)
 				{
 					change = (15 + (Convert.ToInt32(chbDouble.Checked) * 15));
 					tokens += change;
-					Message($"Jackpot! {change} Tokens Earned!", null);
+					Message($"{change} Token Jackpot!", null);
 				}
 			}
 			lblScore.Text = $"{tokens}";
@@ -91,11 +100,17 @@ namespace Mathre
 		{
 			lblScore.Text = $"{tokens}"; // Update score before displaying the message box
 			lblWinIndicator.Text = $"{sender}";
+			string message = chbAuto.Checked switch
+			{
+				true => $"It took {counter} attempts to hit a jackpot and you earned {change - (counter + (Convert.ToInt32(chbDouble.Checked))*counter)} tokens.",
+				_ => "",
+			};
 			if (chbMessage.Checked) // Ensure the user wants to see the message box
 			{
-				MessageBox.Show($"{sender}", "                                        Result                                        ");
+				MessageBox.Show($"{sender}\n{message}", "                                        Result                                        ");
 			}
 			auto = false;
+			chbAuto.Checked = auto;
 		}
 	}
 }
