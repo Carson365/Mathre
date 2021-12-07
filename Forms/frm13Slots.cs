@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 namespace Mathre
 {
 	public partial class FrmSlots : Form
@@ -12,12 +13,14 @@ namespace Mathre
 		public int change = 0;
 		public bool auto = true;
 		int counter = 0;
+		string PlayerName = "";
 		public FrmSlots()
 		{
 			InitializeComponent();
 			Load += FormLoad;
 			btnSpin.Click += Gamble;
 			chbAuto.CheckedChanged += Autocheck;
+			Shown += Loaded;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -26,6 +29,25 @@ namespace Mathre
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);
+			}
+		}
+		public void Loaded(object sender, EventArgs e)
+		{
+			PlayerName = Interaction.InputBox("What is your Name?", "Slot Machine", "High Roller");
+			double Age = 0;
+			while (Age == 0)
+			{
+				string AgeCheck = Interaction.InputBox($"Hello {PlayerName}! What is your Age?", "Slot Machine");
+				if (double.TryParse(AgeCheck, out double AgeResult))
+				{
+					Age = AgeResult;
+				}
+			}
+			if (Age < 18)
+			{
+				int LegalAge = 18;
+				MessageBox.Show($"Sorry, you are under the legal age to gamble ({LegalAge}). Goodbye.", "Ineligible");
+				this.Close();
 			}
 		}
 		public async void AutoGamble(object sender, EventArgs e)
@@ -107,7 +129,7 @@ namespace Mathre
 			};
 			if (chbMessage.Checked) // Ensure the user wants to see the message box
 			{
-				MessageBox.Show($"{sender}\n{message}", "                                        Result                                        ");
+				MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n{message}", "                                        Result                                        ");
 			}
 			auto = false;
 			chbAuto.Checked = auto;
