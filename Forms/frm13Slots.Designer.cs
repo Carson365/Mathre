@@ -34,15 +34,15 @@
             this.lbl2 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.pnlSlotsActions = new System.Windows.Forms.Panel();
-            this.lblWinIndicator = new System.Windows.Forms.Label();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.btnSpin = new System.Windows.Forms.Button();
             this.chbDouble = new System.Windows.Forms.CheckBox();
             this.lblPoints = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
+            this.chbAuto = new System.Windows.Forms.CheckBox();
+            this.lblWinIndicator = new System.Windows.Forms.Label();
             this.chbMessage = new System.Windows.Forms.CheckBox();
             this.lblSlotsTitle = new System.Windows.Forms.Label();
-            this.chbAuto = new System.Windows.Forms.CheckBox();
             this.pnlSlots.SuspendLayout();
             this.pnlSlotsGame.SuspendLayout();
             this.pnlSlotsActions.SuspendLayout();
@@ -115,16 +115,6 @@
             this.pnlSlotsActions.Size = new System.Drawing.Size(426, 105);
             this.pnlSlotsActions.TabIndex = 34;
             // 
-            // lblWinIndicator
-            // 
-            this.lblWinIndicator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWinIndicator.Location = new System.Drawing.Point(11, 13);
-            this.lblWinIndicator.Name = "lblWinIndicator";
-            this.lblWinIndicator.Size = new System.Drawing.Size(197, 59);
-            this.lblWinIndicator.TabIndex = 5;
-            this.lblWinIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // pnlWager
             // 
             this.pnlWager.Controls.Add(this.btnSpin);
@@ -174,14 +164,34 @@
             this.lblScore.TabIndex = 1;
             this.lblScore.Text = "100";
             // 
+            // chbAuto
+            // 
+            this.chbAuto.AutoSize = true;
+            this.chbAuto.Location = new System.Drawing.Point(105, 75);
+            this.chbAuto.Name = "chbAuto";
+            this.chbAuto.Size = new System.Drawing.Size(71, 17);
+            this.chbAuto.TabIndex = 7;
+            this.chbAuto.Text = "Auto Play";
+            this.chbAuto.UseVisualStyleBackColor = true;
+            // 
+            // lblWinIndicator
+            // 
+            this.lblWinIndicator.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblWinIndicator.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWinIndicator.Location = new System.Drawing.Point(11, 13);
+            this.lblWinIndicator.Name = "lblWinIndicator";
+            this.lblWinIndicator.Size = new System.Drawing.Size(197, 59);
+            this.lblWinIndicator.TabIndex = 5;
+            this.lblWinIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // chbMessage
             // 
             this.chbMessage.AutoSize = true;
             this.chbMessage.Location = new System.Drawing.Point(11, 75);
             this.chbMessage.Name = "chbMessage";
-            this.chbMessage.Size = new System.Drawing.Size(126, 17);
+            this.chbMessage.Size = new System.Drawing.Size(79, 17);
             this.chbMessage.TabIndex = 4;
-            this.chbMessage.Text = "Enable Message Box";
+            this.chbMessage.Text = "Detail View";
             this.chbMessage.UseVisualStyleBackColor = true;
             // 
             // lblSlotsTitle
@@ -195,16 +205,6 @@
             this.lblSlotsTitle.TabIndex = 33;
             this.lblSlotsTitle.Text = "Slot Machine";
             this.lblSlotsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // chbAuto
-            // 
-            this.chbAuto.AutoSize = true;
-            this.chbAuto.Location = new System.Drawing.Point(143, 75);
-            this.chbAuto.Name = "chbAuto";
-            this.chbAuto.Size = new System.Drawing.Size(71, 17);
-            this.chbAuto.TabIndex = 7;
-            this.chbAuto.Text = "Auto Play";
-            this.chbAuto.UseVisualStyleBackColor = true;
             // 
             // FrmSlots
             // 

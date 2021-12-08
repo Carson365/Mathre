@@ -85,6 +85,10 @@ namespace Mathre
             this.mnuRockPS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRPaperS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRPScissors = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuHurricane = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRandom = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuCalculate = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuDamage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSlots = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSpin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDouble = new System.Windows.Forms.ToolStripMenuItem();
@@ -108,10 +112,7 @@ namespace Mathre
             this.tabRPS = new System.Windows.Forms.TabPage();
             this.tabHurricane = new System.Windows.Forms.TabPage();
             this.tabSlots = new System.Windows.Forms.TabPage();
-            this.mnuHurricane = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRandom = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuCalculate = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDamage = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAuto = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.tabChange.SuspendLayout();
             this.tabMathre.SuspendLayout();
@@ -481,12 +482,41 @@ namespace Mathre
             this.mnuRPScissors.Size = new System.Drawing.Size(115, 22);
             this.mnuRPScissors.Text = "Scissors";
             // 
+            // mnuHurricane
+            // 
+            this.mnuHurricane.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRandom,
+            this.mnuCalculate,
+            this.mnuDamage});
+            this.mnuHurricane.Name = "mnuHurricane";
+            this.mnuHurricane.Size = new System.Drawing.Size(195, 22);
+            this.mnuHurricane.Text = "Hurricane";
+            // 
+            // mnuRandom
+            // 
+            this.mnuRandom.Name = "mnuRandom";
+            this.mnuRandom.Size = new System.Drawing.Size(210, 22);
+            this.mnuRandom.Text = "Generate Random Storm";
+            // 
+            // mnuCalculate
+            // 
+            this.mnuCalculate.Name = "mnuCalculate";
+            this.mnuCalculate.Size = new System.Drawing.Size(210, 22);
+            this.mnuCalculate.Text = "Calculate Storm Impact";
+            // 
+            // mnuDamage
+            // 
+            this.mnuDamage.Name = "mnuDamage";
+            this.mnuDamage.Size = new System.Drawing.Size(210, 22);
+            this.mnuDamage.Text = "Display Expected Damage";
+            // 
             // mnuSlots
             // 
             this.mnuSlots.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSpin,
             this.mnuDouble,
-            this.mnuMessage});
+            this.mnuMessage,
+            this.mnuAuto});
             this.mnuSlots.Name = "mnuSlots";
             this.mnuSlots.Size = new System.Drawing.Size(195, 22);
             this.mnuSlots.Text = "Slot Machine";
@@ -494,20 +524,20 @@ namespace Mathre
             // mnuSpin
             // 
             this.mnuSpin.Name = "mnuSpin";
-            this.mnuSpin.Size = new System.Drawing.Size(181, 22);
+            this.mnuSpin.Size = new System.Drawing.Size(180, 22);
             this.mnuSpin.Text = "Spin";
             // 
             // mnuDouble
             // 
             this.mnuDouble.Name = "mnuDouble";
-            this.mnuDouble.Size = new System.Drawing.Size(181, 22);
+            this.mnuDouble.Size = new System.Drawing.Size(180, 22);
             this.mnuDouble.Text = "Double Or Nothing";
             // 
             // mnuMessage
             // 
             this.mnuMessage.Name = "mnuMessage";
-            this.mnuMessage.Size = new System.Drawing.Size(181, 22);
-            this.mnuMessage.Text = "Enable Message Box";
+            this.mnuMessage.Size = new System.Drawing.Size(180, 22);
+            this.mnuMessage.Text = "Detail View";
             // 
             // mnuEdit
             // 
@@ -700,33 +730,11 @@ namespace Mathre
             this.tabSlots.Text = "Slot Machine";
             this.tabSlots.UseVisualStyleBackColor = true;
             // 
-            // mnuHurricane
+            // mnuAuto
             // 
-            this.mnuHurricane.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuRandom,
-            this.mnuCalculate,
-            this.mnuDamage});
-            this.mnuHurricane.Name = "mnuHurricane";
-            this.mnuHurricane.Size = new System.Drawing.Size(195, 22);
-            this.mnuHurricane.Text = "Hurricane";
-            // 
-            // mnuRandom
-            // 
-            this.mnuRandom.Name = "mnuRandom";
-            this.mnuRandom.Size = new System.Drawing.Size(210, 22);
-            this.mnuRandom.Text = "Generate Random Storm";
-            // 
-            // mnuCalculate
-            // 
-            this.mnuCalculate.Name = "mnuCalculate";
-            this.mnuCalculate.Size = new System.Drawing.Size(210, 22);
-            this.mnuCalculate.Text = "Calculate Storm Impact";
-            // 
-            // mnuDamage
-            // 
-            this.mnuDamage.Name = "mnuDamage";
-            this.mnuDamage.Size = new System.Drawing.Size(210, 22);
-            this.mnuDamage.Text = "Display Expected Damage";
+            this.mnuAuto.Name = "mnuAuto";
+            this.mnuAuto.Size = new System.Drawing.Size(180, 22);
+            this.mnuAuto.Text = "Auto Play";
             // 
             // FrmMathre
             // 
@@ -825,5 +833,6 @@ namespace Mathre
 		private ToolStripMenuItem mnuRandom;
 		private ToolStripMenuItem mnuCalculate;
 		private ToolStripMenuItem mnuDamage;
+		private ToolStripMenuItem mnuAuto;
 	}
 }

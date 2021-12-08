@@ -1,15 +1,15 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.VisualBasic;
 namespace Mathre
 {
 	public partial class FrmSlots : Form
 	{
 		public static FrmMathre BaseForm;
 		public static FrmSlots ThisForm;
-		public int tokens = 100;
+		public int tokens = 10;
 		public int change = 0;
 		public bool auto = true;
 		int counter = 0;
@@ -33,6 +33,7 @@ namespace Mathre
 		}
 		public void Loaded(object sender, EventArgs e)
 		{
+			lblScore.Text = tokens.ToString();
 			PlayerName = Interaction.InputBox("What is your Name?", "Slot Machine", "High Roller");
 			double Age = 0;
 			while (Age == 0)
@@ -52,10 +53,8 @@ namespace Mathre
 		}
 		public async void AutoGamble(object sender, EventArgs e)
 		{
-			counter = 0;
 			while (auto)
 			{
-				counter++;
 				chbMessage.Checked = true;
 				Gamble(null, null);
 				await Task.Delay(20);
@@ -75,6 +74,7 @@ namespace Mathre
 			}
 			else
 			{
+				counter++;
 				if (tokens == 1 && chbDouble.Checked)
 				{
 					chbDouble.Checked = false;
@@ -110,11 +110,13 @@ namespace Mathre
 		}
 		public void MenuHandler(object sender, EventArgs e)
 		{
+
 			Action A = sender.ToString() switch
 			{
 				"Spin" => () => ThisForm.btnSpin.PerformClick(),
 				"Double Or Nothing" => () => ThisForm.chbDouble.Checked = !ThisForm.chbDouble.Checked,
-				_ => () => ThisForm.chbMessage.Checked = !ThisForm.chbMessage.Checked,
+				"Detail View" => () => ThisForm.chbMessage.Checked = !ThisForm.chbMessage.Checked,
+				_ => () => ThisForm.chbAuto.Checked = !ThisForm.chbAuto.Checked,
 			};
 			A.Invoke();
 		}
@@ -122,15 +124,20 @@ namespace Mathre
 		{
 			lblScore.Text = $"{tokens}"; // Update score before displaying the message box
 			lblWinIndicator.Text = $"{sender}";
-			string message = chbAuto.Checked switch
+			int count = change - (counter + (Convert.ToInt32(chbDouble.Checked)) * counter);
+			string WonOrLost = count switch { < 0 => "lost", _ => "won" };
+			string plural = counter switch { 1 => "", _ => "s" };
+			string plural2 = count switch { 1 => "", -1 => "", _ => "s" };
+			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}.";
+			if (chbMessage.Checked && sender.ToString() != "No Tokens") // Ensure the user wants to see the message box
 			{
-				true => $"It took {counter} attempts to hit a jackpot and you earned {change - (counter + (Convert.ToInt32(chbDouble.Checked))*counter)} tokens.",
-				_ => "",
-			};
-			if (chbMessage.Checked) // Ensure the user wants to see the message box
-			{
-				MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n{message}", "                                        Result                                        ");
+				MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "                                        Result                                        ");
 			}
+			else
+			{
+				MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "                                        Result                                        ");
+			}
+			counter = 0;
 			auto = false;
 			chbAuto.Checked = auto;
 		}
