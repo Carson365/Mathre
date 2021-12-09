@@ -9,7 +9,7 @@ namespace Mathre
 	{
 		public static FrmMathre BaseForm;
 		public static FrmSlots ThisForm;
-		public int tokens = 10;
+		public int tokens = 30;
 		public int change = 0;
 		public bool auto = true;
 		int counter = 0;
@@ -128,7 +128,7 @@ namespace Mathre
 			string WonOrLost = count switch { < 0 => "lost", _ => "won" }; // Use words instead of signs to indicate a win or loss
 			string plural = counter switch { 1 => "", _ => "s" };
 			string plural2 = count switch { 1 => "", -1 => "", _ => "s" };
-			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}."; // Display the amount of spins since the last jackpot
+			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}.\nYou now have {tokens} tokens."; // Display the amount of spins since the last jackpot
 			if (chbMessage.Checked && sender.ToString() != "No Tokens") // Ensure the user wants to see the message box
 			{
 				MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "                                        Result                                        ");
