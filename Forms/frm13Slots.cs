@@ -36,12 +36,12 @@ namespace Mathre
 			lblScore.Text = tokens.ToString();
 			PlayerName = Interaction.InputBox("What is your Name?", "Slot Machine", "High Roller");
 			double Age = 0;
-			while (Age == 0)
+			while (Age == 0) // Keep displaying the message box if a valid age isn't entered
 			{
 				string AgeCheck = Interaction.InputBox($"Hello {PlayerName}! What is your Age?", "Slot Machine");
 				if (double.TryParse(AgeCheck, out double AgeResult))
 				{
-					Age = AgeResult;
+					Age = AgeResult; // Set the age to the input number (or zero if invalid, which will trigger the inputbox again)
 				}
 			}
 			if (Age < 18)
@@ -125,10 +125,10 @@ namespace Mathre
 			lblScore.Text = $"{tokens}"; // Update score before displaying the message box
 			lblWinIndicator.Text = $"{sender}";
 			int count = change - (counter + (Convert.ToInt32(chbDouble.Checked)) * counter);
-			string WonOrLost = count switch { < 0 => "lost", _ => "won" };
+			string WonOrLost = count switch { < 0 => "lost", _ => "won" }; // Use words instead of signs to indicate a win or loss
 			string plural = counter switch { 1 => "", _ => "s" };
 			string plural2 = count switch { 1 => "", -1 => "", _ => "s" };
-			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}.";
+			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}."; // Display the amount of spins since the last jackpot
 			if (chbMessage.Checked && sender.ToString() != "No Tokens") // Ensure the user wants to see the message box
 			{
 				MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "                                        Result                                        ");
