@@ -158,6 +158,12 @@
     <Compile Include="Forms\frm12Hurricane.Designer.cs">
       <DependentUpon>frm12Hurricane.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm14Acronym.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm14Acronym.Designer.cs">
+      <DependentUpon>frm14Acronym.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -175,6 +181,12 @@
     </Compile>
     <Compile Include="Forms\frm13Slots.Designer.cs">
       <DependentUpon>frm13Slots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm15Sum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm15Sum.Designer.cs">
+      <DependentUpon>frm15Sum.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmUnknown.cs">
       <SubType>Form</SubType>
@@ -257,6 +269,9 @@
     <EmbeddedResource Include="Forms\frm12Hurricane.resx">
       <DependentUpon>frm12Hurricane.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm14Acronym.resx">
+      <DependentUpon>frm14Acronym.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>
     </EmbeddedResource>
@@ -265,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm13Slots.resx">
       <DependentUpon>frm13Slots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm15Sum.resx">
+      <DependentUpon>frm15Sum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUnknown.resx">
       <DependentUpon>frmUnknown.cs</DependentUpon>

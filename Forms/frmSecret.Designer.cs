@@ -28,42 +28,42 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.pnlSecretFrame = new System.Windows.Forms.Panel();
-            this.pnlSecret = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.btnSecretDisable = new System.Windows.Forms.RadioButton();
             this.lblSecretPrompt = new System.Windows.Forms.Label();
             this.btnSecretEnable = new System.Windows.Forms.RadioButton();
             this.txtSecretPassword = new System.Windows.Forms.TextBox();
-            this.lblSecretTitle = new System.Windows.Forms.Label();
-            this.pnlSecretFrame.SuspendLayout();
-            this.pnlSecret.SuspendLayout();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlFrame.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlSecretFrame
+            // pnlFrame
             // 
-            this.pnlSecretFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSecretFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSecretFrame.Controls.Add(this.pnlSecret);
-            this.pnlSecretFrame.Controls.Add(this.lblSecretTitle);
-            this.pnlSecretFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlSecretFrame.Name = "pnlSecretFrame";
-            this.pnlSecretFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlSecretFrame.TabIndex = 32;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 32;
             // 
-            // pnlSecret
+            // pnlBody
             // 
-            this.pnlSecret.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlSecret.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlSecret.Controls.Add(this.btnSecretDisable);
-            this.pnlSecret.Controls.Add(this.lblSecretPrompt);
-            this.pnlSecret.Controls.Add(this.btnSecretEnable);
-            this.pnlSecret.Controls.Add(this.txtSecretPassword);
-            this.pnlSecret.Location = new System.Drawing.Point(287, 165);
-            this.pnlSecret.Name = "pnlSecret";
-            this.pnlSecret.Size = new System.Drawing.Size(426, 105);
-            this.pnlSecret.TabIndex = 32;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.btnSecretDisable);
+            this.pnlBody.Controls.Add(this.lblSecretPrompt);
+            this.pnlBody.Controls.Add(this.btnSecretEnable);
+            this.pnlBody.Controls.Add(this.txtSecretPassword);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 32;
             // 
             // btnSecretDisable
             // 
@@ -111,17 +111,17 @@ namespace Mathre
             this.txtSecretPassword.Size = new System.Drawing.Size(114, 26);
             this.txtSecretPassword.TabIndex = 9;
             // 
-            // lblSecretTitle
+            // lblTitle
             // 
-            this.lblSecretTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblSecretTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecretTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblSecretTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblSecretTitle.Name = "lblSecretTitle";
-            this.lblSecretTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblSecretTitle.TabIndex = 31;
-            this.lblSecretTitle.Text = "Enable Super Secret Settings";
-            this.lblSecretTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 31;
+            this.lblTitle.Text = "Enable Super Secret Settings";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmSecret
             // 
@@ -129,24 +129,24 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlSecretFrame);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "FrmSecret";
             this.Text = "Secret Settings Page";
-            this.pnlSecretFrame.ResumeLayout(false);
-            this.pnlSecret.ResumeLayout(false);
-            this.pnlSecret.PerformLayout();
+            this.pnlFrame.ResumeLayout(false);
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlSecretFrame;
-		private System.Windows.Forms.Panel pnlSecret;
+		public System.Windows.Forms.Panel pnlFrame;
+		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.RadioButton btnSecretDisable;
 		internal System.Windows.Forms.Label lblSecretPrompt;
 		internal System.Windows.Forms.RadioButton btnSecretEnable;
 		internal System.Windows.Forms.TextBox txtSecretPassword;
-		internal System.Windows.Forms.Label lblSecretTitle;
+		internal System.Windows.Forms.Label lblTitle;
 	}
 }

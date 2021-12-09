@@ -12,6 +12,7 @@ namespace Mathre
 		public int tokens = 30;
 		public int change = 0;
 		public bool auto = true;
+		public bool loadedonce = false;
 		int counter = 0;
 		string PlayerName = "";
 		public FrmSlots()
@@ -33,6 +34,7 @@ namespace Mathre
 		}
 		public void Loaded(object sender, EventArgs e)
 		{
+			loadedonce = true;
 			lblScore.Text = tokens.ToString();
 			PlayerName = Interaction.InputBox("What is your Name?", "Slot Machine", "High Roller");
 			double Age = 0;
