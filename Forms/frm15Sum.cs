@@ -15,6 +15,8 @@ namespace Mathre
 			Load += FormLoad;
 			txtStart.TextChanged += Digits;
 			txtEnd.TextChanged += Digits;
+			txtStart.KeyPress += InputFormatter;
+			txtEnd.KeyPress += InputFormatter;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -27,7 +29,7 @@ namespace Mathre
 		}
 		public void Digits(object sender, EventArgs e)
 		{
-			lblMath.Text = "";
+			lblCalculation.Text = "";
 			int.TryParse(txtStart.Text, out int a);
 			int.TryParse(txtEnd.Text, out int b);
 			if (a <= b)
@@ -36,7 +38,7 @@ namespace Mathre
 				countercount = 0;
 				while (counter <= b)
 				{
-					lblMath.Text += $"{counter} + ";
+					lblCalculation.Text += $"{counter} + ";
 					counter++;
 					countercount++;
 				}
@@ -55,7 +57,11 @@ namespace Mathre
 		{
 			if (sender is not TextBoxBase)
 				return;
-			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
+			if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' || e.KeyChar > '9')))
+			{
+				e.Handled = true;
+			}
+			if (((TextBoxBase)sender).Text.Length > 3)
 			{
 				e.Handled = true;
 			}

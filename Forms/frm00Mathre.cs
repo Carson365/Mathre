@@ -17,6 +17,7 @@ namespace Mathre
 			FrmMySchool MS = new();
 			FrmTemperature TC = new();
 			FrmVideoGames VG = new();
+			FrmSlots SM = new();
 			KeyDown += KeyboardShortcuts;
 			mnuExit.Click += Exit;
 			mnuMySchoolToggleMascot.Click += MS.MySchool;
@@ -31,6 +32,7 @@ namespace Mathre
 			tabMathre.SelectedIndexChanged += FormManager;
 			mnuPS4.Click += VG.Transfer;
 			mnuXB1.Click += VG.Transfer;
+			tabSlots.Enter += SM.ShownPasser;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{

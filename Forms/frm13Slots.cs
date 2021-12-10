@@ -21,7 +21,6 @@ namespace Mathre
 			Load += FormLoad;
 			btnSpin.Click += Gamble;
 			chbAuto.CheckedChanged += Autocheck;
-			Shown += Loaded;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -32,9 +31,17 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
+		public void ShownPasser(object sender, EventArgs e)
+		{
+				if (!loadedonce)
+				{
+				ThisForm.Shown += ThisForm.Loaded;
+				ThisForm.loadedonce = true;
+				Loaded(null, null);
+				}
+		}
 		public void Loaded(object sender, EventArgs e)
 		{
-			loadedonce = true;
 			lblScore.Text = tokens.ToString();
 			PlayerName = Interaction.InputBox("What is your Name?", "Slot Machine", "High Roller");
 			double Age = 0;
