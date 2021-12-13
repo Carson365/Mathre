@@ -49,7 +49,11 @@ namespace Mathre
 					{
 						value += i;
 					}
-					lblCalculation.Text += $"= {value-1}";
+					if (lblCalculation.Text.Length > 0)
+					{
+						lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length-3, 3);
+					}
+					lblCalculation.Text += $" = {value-1}";
 				}
 			}
 		}
@@ -57,11 +61,11 @@ namespace Mathre
 		{
 			if (sender is not TextBoxBase)
 				return;
-			if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' || e.KeyChar > '9')))
+			if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' | e.KeyChar > '9')))
 			{
 				e.Handled = true;
 			}
-			if (((TextBoxBase)sender).Text.Length > 3)
+			else if (((TextBoxBase)sender).Text.Length > 2 && e.KeyChar != '\b')
 			{
 				e.Handled = true;
 			}
