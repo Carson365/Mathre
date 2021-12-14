@@ -32,6 +32,30 @@ namespace Mathre
 			lblCalculation.Text = "";
 			int.TryParse(txtStart.Text, out int a);
 			int.TryParse(txtEnd.Text, out int b);
+			//if (a <= b)
+			//{
+			//	counter = a;
+			//	countercount = 0;
+			//	while (counter <= b)
+			//	{
+			//		lblCalculation.Text += $"{counter} + ";
+			//		counter++;
+			//		countercount++;
+			//	}
+			//	if (counter > b)
+			//	{
+			//		int value = a;
+			//		for (int i = countercount; i > 0; i--)
+			//		{
+			//			value += i;
+			//		}
+			//		if (lblCalculation.Text.Length > 0)
+			//		{
+			//			lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length-3, 3);
+			//		}
+			//		lblCalculation.Text += $" = {value-1}";
+			//	}
+			//}
 			if (a <= b)
 			{
 				counter = a;
@@ -45,15 +69,15 @@ namespace Mathre
 				if (counter > b)
 				{
 					int value = a;
-					for (int i = countercount; i >= 0; i--)
+					for (int i = countercount; i >= 1; i--)
 					{
 						value += i;
 					}
 					if (lblCalculation.Text.Length > 0)
 					{
-						lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length-3, 3);
+						lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length - 3, 3);
 					}
-					lblCalculation.Text += $" = {value-1}";
+					lblCalculation.Text += $" = {value - 1}";
 				}
 			}
 		}
