@@ -9,6 +9,7 @@ namespace Mathre
 		public static FrmSum ThisForm;
 		public static int counter;
 		public static int countercount;
+		public static int total;
 		public FrmSum()
 		{
 			InitializeComponent();
@@ -32,66 +33,39 @@ namespace Mathre
 			lblCalculation.Text = "";
 			int.TryParse(txtStart.Text, out int a);
 			int.TryParse(txtEnd.Text, out int b);
-			//if (a <= b)
-			//{
-			//	counter = a;
-			//	countercount = 0;
-			//	while (counter <= b)
-			//	{
-			//		lblCalculation.Text += $"{counter} + ";
-			//		counter++;
-			//		countercount++;
-			//	}
-			//	if (counter > b)
-			//	{
-			//		int value = a;
-			//		for (int i = countercount; i > 0; i--)
-			//		{
-			//			value += i;
-			//		}
-			//		if (lblCalculation.Text.Length > 0)
-			//		{
-			//			lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length-3, 3);
-			//		}
-			//		lblCalculation.Text += $" = {value-1}";
-			//	}
-			//}
 			if (a <= b)
 			{
 				counter = a;
-				countercount = 0;
+				total = 0;
 				while (counter <= b)
 				{
 					lblCalculation.Text += $"{counter} + ";
+					total += counter;
 					counter++;
 					countercount++;
 				}
 				if (counter > b)
 				{
-					int value = a;
-					for (int i = countercount; i >= 1; i--)
-					{
-						value += i;
-					}
 					if (lblCalculation.Text.Length > 0)
 					{
-						lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length - 3, 3);
+						lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length - 2, 2);
 					}
-					lblCalculation.Text += $" = {value - 1}";
+					lblCalculation.Text += $"\n= {total}";
 				}
 			}
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
-			if (sender is not TextBoxBase)
-				return;
-			if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' | e.KeyChar > '9')))
+			if (sender is TextBoxBase)
 			{
-				e.Handled = true;
-			}
-			else if (((TextBoxBase)sender).Text.Length > 2 && e.KeyChar != '\b')
-			{
-				e.Handled = true;
+				if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' | e.KeyChar > '9')))
+				{
+					e.Handled = true;
+				}
+				else if (((TextBoxBase)sender).Text.Length > 2 && e.KeyChar != '\b')
+				{
+					e.Handled = true;
+				}
 			}
 		}
 	}

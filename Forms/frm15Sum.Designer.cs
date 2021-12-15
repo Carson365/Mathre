@@ -29,7 +29,6 @@
 		private void InitializeComponent()
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlDigitsResults = new System.Windows.Forms.Panel();
             this.pnlDigitsResultsDisplay = new System.Windows.Forms.Panel();
             this.lblMath = new System.Windows.Forms.Label();
@@ -39,6 +38,7 @@
             this.txtEnd = new System.Windows.Forms.TextBox();
             this.lblSecretPrompt = new System.Windows.Forms.Label();
             this.txtStart = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlDigitsResults.SuspendLayout();
             this.pnlDigitsResultsDisplay.SuspendLayout();
@@ -58,18 +58,6 @@
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 33;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblTitle.TabIndex = 31;
-            this.lblTitle.Text = "Sum Numbers";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlDigitsResults
             // 
@@ -104,6 +92,7 @@
             // 
             // lblCalculation
             // 
+            this.lblCalculation.AutoEllipsis = true;
             this.lblCalculation.AutoSize = true;
             this.lblCalculation.Location = new System.Drawing.Point(124, 45);
             this.lblCalculation.Name = "lblCalculation";
@@ -165,6 +154,18 @@
             this.txtStart.Name = "txtStart";
             this.txtStart.Size = new System.Drawing.Size(114, 26);
             this.txtStart.TabIndex = 9;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 31;
+            this.lblTitle.Text = "Sum Numbers";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmSum
             // 
