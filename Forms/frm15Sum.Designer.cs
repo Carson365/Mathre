@@ -33,16 +33,16 @@
             this.pnlDigitsResultsDisplay = new System.Windows.Forms.Panel();
             this.lblMath = new System.Windows.Forms.Label();
             this.lblCalculation = new System.Windows.Forms.Label();
-            this.pnlSecret = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.pnlBody = new System.Windows.Forms.Panel();
+            this.lblEnd = new System.Windows.Forms.Label();
             this.txtEnd = new System.Windows.Forms.TextBox();
-            this.lblSecretPrompt = new System.Windows.Forms.Label();
+            this.lblStart = new System.Windows.Forms.Label();
             this.txtStart = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlDigitsResults.SuspendLayout();
             this.pnlDigitsResultsDisplay.SuspendLayout();
-            this.pnlSecret.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -52,7 +52,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
             this.pnlFrame.Controls.Add(this.pnlDigitsResults);
-            this.pnlFrame.Controls.Add(this.pnlSecret);
+            this.pnlFrame.Controls.Add(this.pnlBody);
             this.pnlFrame.Controls.Add(this.lblTitle);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
@@ -100,29 +100,29 @@
             this.lblCalculation.TabIndex = 2;
             this.lblCalculation.Text = "Calculation";
             // 
-            // pnlSecret
+            // pnlBody
             // 
-            this.pnlSecret.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlSecret.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlSecret.Controls.Add(this.label1);
-            this.pnlSecret.Controls.Add(this.txtEnd);
-            this.pnlSecret.Controls.Add(this.lblSecretPrompt);
-            this.pnlSecret.Controls.Add(this.txtStart);
-            this.pnlSecret.Location = new System.Drawing.Point(287, 165);
-            this.pnlSecret.Name = "pnlSecret";
-            this.pnlSecret.Size = new System.Drawing.Size(426, 105);
-            this.pnlSecret.TabIndex = 37;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.lblEnd);
+            this.pnlBody.Controls.Add(this.txtEnd);
+            this.pnlBody.Controls.Add(this.lblStart);
+            this.pnlBody.Controls.Add(this.txtStart);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 37;
             // 
-            // label1
+            // lblEnd
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.label1.Location = new System.Drawing.Point(34, 63);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 20);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Ending Number:";
+            this.lblEnd.AutoSize = true;
+            this.lblEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEnd.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblEnd.Location = new System.Drawing.Point(34, 63);
+            this.lblEnd.Name = "lblEnd";
+            this.lblEnd.Size = new System.Drawing.Size(123, 20);
+            this.lblEnd.TabIndex = 10;
+            this.lblEnd.Text = "Ending Number:";
             // 
             // txtEnd
             // 
@@ -134,16 +134,16 @@
             this.txtEnd.Size = new System.Drawing.Size(114, 26);
             this.txtEnd.TabIndex = 11;
             // 
-            // lblSecretPrompt
+            // lblStart
             // 
-            this.lblSecretPrompt.AutoSize = true;
-            this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSecretPrompt.Location = new System.Drawing.Point(28, 20);
-            this.lblSecretPrompt.Name = "lblSecretPrompt";
-            this.lblSecretPrompt.Size = new System.Drawing.Size(129, 20);
-            this.lblSecretPrompt.TabIndex = 9;
-            this.lblSecretPrompt.Text = "Starting Number:";
+            this.lblStart.AutoSize = true;
+            this.lblStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblStart.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblStart.Location = new System.Drawing.Point(28, 20);
+            this.lblStart.Name = "lblStart";
+            this.lblStart.Size = new System.Drawing.Size(129, 20);
+            this.lblStart.TabIndex = 9;
+            this.lblStart.Text = "Starting Number:";
             // 
             // txtStart
             // 
@@ -180,8 +180,8 @@
             this.pnlDigitsResults.ResumeLayout(false);
             this.pnlDigitsResultsDisplay.ResumeLayout(false);
             this.pnlDigitsResultsDisplay.PerformLayout();
-            this.pnlSecret.ResumeLayout(false);
-            this.pnlSecret.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -194,10 +194,10 @@
 		private System.Windows.Forms.Panel pnlDigitsResultsDisplay;
 		private System.Windows.Forms.Label lblMath;
 		private System.Windows.Forms.Label lblCalculation;
-		private System.Windows.Forms.Panel pnlSecret;
-		internal System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Panel pnlBody;
+		internal System.Windows.Forms.Label lblEnd;
 		internal System.Windows.Forms.TextBox txtEnd;
-		internal System.Windows.Forms.Label lblSecretPrompt;
+		internal System.Windows.Forms.Label lblStart;
 		internal System.Windows.Forms.TextBox txtStart;
 	}
 }
