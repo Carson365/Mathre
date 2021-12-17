@@ -38,6 +38,8 @@ namespace Mathre
 				ThisForm.Shown += ThisForm.Loaded;
 				ThisForm.loadedonce = true;
 				Loaded(null, null);
+				//ThisForm.Close();
+				//ThisForm.Load();
 				}
 		}
 		public void Loaded(object sender, EventArgs e)
