@@ -1,4 +1,3 @@
-using Microsoft.VisualBasic.CompilerServices;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -39,10 +38,10 @@ namespace Mathre
 			hidden = true;
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
-			AccentColor = Conversions.ToString(ColorKey.GetValue("AccentColor"));
+			AccentColor = $"{(ColorKey.GetValue("AccentColor"))}";
 			ColorKey.Close();
 			KeyPreview = true;
-			SystemColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
+			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items)
 			{
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem);
@@ -81,6 +80,7 @@ namespace Mathre
 				FrmSlots SM = new();
 				Item.Click += SM.MenuHandler;
 			}
+			tabMathre.TabPages.Remove(tabSecret);
 			foreach (TabPage c in tabMathre.TabPages)
 			{
 				ToolStripMenuItem item = new();
@@ -102,7 +102,6 @@ namespace Mathre
 				form.Focus();
 				Resized(null, null);
 			}
-			tabMathre.TabPages.Remove(tabSecret);
 			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 		}
@@ -214,7 +213,7 @@ namespace Mathre
 		public void PaintPanel(object sender, PaintEventArgs p)
 		{
 			Panel box = (Panel)sender;
-			Color BorderColor = ColorTranslator.FromWin32(Conversions.ToInteger(AccentColor));
+			Color BorderColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
 			if ((string)box.Tag == "Black")
 			{
 				BorderColor = Color.Black;
