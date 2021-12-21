@@ -33,11 +33,10 @@ namespace Mathre
 		}
 		public void ShownPasser(object sender, EventArgs e)
 		{
-			if (!loadedonce)
+			if (!ThisForm.loadedonce)
 				{
-				ThisForm.Shown += ThisForm.Loaded;
-				loadedonce = true;
-				Loaded(null, null);
+				ThisForm.loadedonce = true;
+				ThisForm.Loaded(null, null);
 				}
 		}
 		public void Loaded(object sender, EventArgs e)
@@ -57,8 +56,7 @@ namespace Mathre
 			{
 				int LegalAge = 18;
 				MessageBox.Show($"Sorry, you are under the legal age to gamble ({LegalAge}). Goodbye.", "Ineligible");
-				Close();
-				Hide();
+				ThisForm.Close();
 			}
 		}
 		public async void AutoGamble(object sender, EventArgs e)
