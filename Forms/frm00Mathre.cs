@@ -127,10 +127,17 @@ namespace Mathre
 					Application.OpenForms[i].Show();
 				}
 			}
-			if (tabMathre.SelectedTab.Name.Replace("tab","frm") == "frmSlots")
+			if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmSlots")
 			{
+				// Slots MessageBox code
 				FrmSlots SM = new();
-				SM.ShownPasser(null, null);
+				SM.Tabbed(null, null);
+			}
+			if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmAcronym")
+			{
+				// Slots MessageBox code
+				FrmAcronym AM = new();
+				AM.Tabbed(null, null);
 			}
 		}
 		public void PageSelect(object sender, EventArgs e)

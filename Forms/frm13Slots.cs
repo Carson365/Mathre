@@ -31,13 +31,14 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
-		public void ShownPasser(object sender, EventArgs e)
+		public void Tabbed(object sender, EventArgs e)
 		{
+			// This could be combined into 'Loaded' but it would require "ThisForm' distinctions before every local object in 'Loaded'
 			if (!ThisForm.loadedonce)
-				{
+			{
 				ThisForm.loadedonce = true;
 				ThisForm.Loaded(null, null);
-				}
+			}
 		}
 		public void Loaded(object sender, EventArgs e)
 		{

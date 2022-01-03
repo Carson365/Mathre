@@ -66,7 +66,7 @@
             this.lblAcronym.AutoSize = true;
             this.lblAcronym.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAcronym.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAcronym.Location = new System.Drawing.Point(163, 20);
+            this.lblAcronym.Location = new System.Drawing.Point(109, 42);
             this.lblAcronym.Name = "lblAcronym";
             this.lblAcronym.Size = new System.Drawing.Size(71, 20);
             this.lblAcronym.TabIndex = 10;
@@ -77,7 +77,7 @@
             this.lblAcronymPrompt.AutoSize = true;
             this.lblAcronymPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAcronymPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblAcronymPrompt.Location = new System.Drawing.Point(28, 20);
+            this.lblAcronymPrompt.Location = new System.Drawing.Point(28, 42);
             this.lblAcronymPrompt.Name = "lblAcronymPrompt";
             this.lblAcronymPrompt.Size = new System.Drawing.Size(75, 20);
             this.lblAcronymPrompt.TabIndex = 9;
