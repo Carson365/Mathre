@@ -38,12 +38,12 @@ namespace Mathre
             this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
             this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
             this.btnHelloWorldReset = new System.Windows.Forms.Button();
-            this.pnlHelloWorldFrame = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlHelloWorld.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
-            this.pnlHelloWorldFrame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblHelloWorldTitle
@@ -146,18 +146,18 @@ namespace Mathre
             this.btnHelloWorldReset.Text = "Reset";
             this.btnHelloWorldReset.UseVisualStyleBackColor = true;
             // 
-            // pnlHelloWorldFrame
+            // pnlFrame
             // 
-            this.pnlHelloWorldFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlHelloWorldFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHelloWorldFrame.Controls.Add(this.pnlHelloWorld);
-            this.pnlHelloWorldFrame.Controls.Add(this.lblHelloWorldTitle);
-            this.pnlHelloWorldFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlHelloWorldFrame.Name = "pnlHelloWorldFrame";
-            this.pnlHelloWorldFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlHelloWorldFrame.TabIndex = 31;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlHelloWorld);
+            this.pnlFrame.Controls.Add(this.lblHelloWorldTitle);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 31;
             // 
             // Frm01HelloWorld
             // 
@@ -165,7 +165,7 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlHelloWorldFrame);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "Frm01HelloWorld";
             this.Text = "Hello World";
             this.pnlHelloWorld.ResumeLayout(false);
@@ -173,7 +173,7 @@ namespace Mathre
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
-            this.pnlHelloWorldFrame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -189,6 +189,6 @@ namespace Mathre
 		internal System.Windows.Forms.Button btnHelloWorldReset;
 		public System.Windows.Forms.Panel pnlHelloWorld;
 		public System.Windows.Forms.RadioButton btnHelloWorldEnglish;
-		public System.Windows.Forms.Panel pnlHelloWorldFrame;
+		public System.Windows.Forms.Panel pnlFrame;
 	}
 }

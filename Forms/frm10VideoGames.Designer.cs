@@ -30,7 +30,7 @@ namespace Mathre
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm10VideoGames));
-            this.pnlVideoGamesFrame = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.lblVideoGamesTitle = new System.Windows.Forms.Label();
             this.pnlVideoGamesDisplay = new System.Windows.Forms.Panel();
             this.lblCost = new System.Windows.Forms.Label();
@@ -50,26 +50,26 @@ namespace Mathre
             this.txtDoom = new System.Windows.Forms.TextBox();
             this.lblTotalDoom = new System.Windows.Forms.Label();
             this.imgGames = new System.Windows.Forms.ImageList(this.components);
-            this.pnlVideoGamesFrame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.pnlVideoGamesDisplay.SuspendLayout();
             this.pnlConsole.SuspendLayout();
             this.pnlVideoGames.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlVideoGamesFrame
+            // pnlFrame
             // 
-            this.pnlVideoGamesFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlVideoGamesFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlVideoGamesFrame.Controls.Add(this.lblVideoGamesTitle);
-            this.pnlVideoGamesFrame.Controls.Add(this.pnlVideoGamesDisplay);
-            this.pnlVideoGamesFrame.Controls.Add(this.pnlVideoGames);
-            this.pnlVideoGamesFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlVideoGamesFrame.Name = "pnlVideoGamesFrame";
-            this.pnlVideoGamesFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlVideoGamesFrame.TabIndex = 35;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.lblVideoGamesTitle);
+            this.pnlFrame.Controls.Add(this.pnlVideoGamesDisplay);
+            this.pnlFrame.Controls.Add(this.pnlVideoGames);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 35;
             // 
             // lblVideoGamesTitle
             // 
@@ -288,10 +288,10 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlVideoGamesFrame);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "Frm10VideoGames";
             this.Text = "Video Game Orders";
-            this.pnlVideoGamesFrame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.pnlVideoGamesDisplay.ResumeLayout(false);
             this.pnlConsole.ResumeLayout(false);
             this.pnlConsole.PerformLayout();
@@ -304,7 +304,7 @@ namespace Mathre
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlVideoGamesFrame;
+		public System.Windows.Forms.Panel pnlFrame;
 		internal System.Windows.Forms.Label lblVideoGamesTitle;
 		private System.Windows.Forms.Panel pnlVideoGamesDisplay;
 		private System.Windows.Forms.Panel pnlVideoGames;

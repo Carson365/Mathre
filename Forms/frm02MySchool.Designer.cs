@@ -29,29 +29,29 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlMySchool = new System.Windows.Forms.Panel();
             this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
             this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
             this.lblMySchoolTitle = new System.Windows.Forms.Label();
-            this.panel1.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.pnlMySchool.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlFrame
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.pnlMySchool);
-            this.panel1.Controls.Add(this.lblMySchoolTitle);
-            this.panel1.Location = new System.Drawing.Point(-8, -20);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1000, 500);
-            this.panel1.TabIndex = 32;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlMySchool);
+            this.pnlFrame.Controls.Add(this.lblMySchoolTitle);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 32;
             // 
             // pnlMySchool
             // 
@@ -115,10 +115,10 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "Frm02MySchool";
             this.Text = "My School";
-            this.panel1.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.pnlMySchool.ResumeLayout(false);
             this.pnlMySchool.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
@@ -128,7 +128,7 @@ namespace Mathre
 
 		#endregion
 
-		public System.Windows.Forms.Panel panel1;
+		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Panel pnlMySchool;
 		private System.Windows.Forms.Label lblMySchoolMascot;
 		internal System.Windows.Forms.PictureBox picMySchoolMascot;

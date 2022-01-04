@@ -38,7 +38,7 @@ namespace Mathre
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Name = "FrmUnknown";
-            this.Text = "Unknown";
+            this.Text = "...";
             this.ResumeLayout(false);
 
 		}

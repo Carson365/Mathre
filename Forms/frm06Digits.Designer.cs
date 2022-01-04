@@ -29,7 +29,7 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.pnlSecretFrame = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlDigitsResults = new System.Windows.Forms.Panel();
             this.pnlDigitsResultsDisplay = new System.Windows.Forms.Panel();
             this.lblDigitsResultsLabel = new System.Windows.Forms.Label();
@@ -41,25 +41,25 @@ namespace Mathre
             this.lblDigitsCount = new System.Windows.Forms.Label();
             this.lblDigitsCountLabel = new System.Windows.Forms.Label();
             this.lblDigitsTitle = new System.Windows.Forms.Label();
-            this.pnlSecretFrame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.pnlDigitsResults.SuspendLayout();
             this.pnlDigitsResultsDisplay.SuspendLayout();
             this.pnlDigits.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlSecretFrame
+            // pnlFrame
             // 
-            this.pnlSecretFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSecretFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSecretFrame.Controls.Add(this.pnlDigitsResults);
-            this.pnlSecretFrame.Controls.Add(this.pnlDigits);
-            this.pnlSecretFrame.Controls.Add(this.lblDigitsTitle);
-            this.pnlSecretFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlSecretFrame.Name = "pnlSecretFrame";
-            this.pnlSecretFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlSecretFrame.TabIndex = 33;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlDigitsResults);
+            this.pnlFrame.Controls.Add(this.pnlDigits);
+            this.pnlFrame.Controls.Add(this.lblDigitsTitle);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 33;
             // 
             // pnlDigitsResults
             // 
@@ -186,10 +186,10 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlSecretFrame);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "Frm06Digits";
             this.Text = "Digit Separator";
-            this.pnlSecretFrame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.pnlDigitsResults.ResumeLayout(false);
             this.pnlDigitsResultsDisplay.ResumeLayout(false);
             this.pnlDigitsResultsDisplay.PerformLayout();
@@ -201,7 +201,7 @@ namespace Mathre
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlSecretFrame;
+		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Panel pnlDigits;
 		internal System.Windows.Forms.TextBox txtNumber;
 		internal System.Windows.Forms.Label lblDigits;

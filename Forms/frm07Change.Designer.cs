@@ -29,7 +29,7 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.pnlSecretFrame = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlChangeList = new System.Windows.Forms.Panel();
             this.lblOnesCount = new System.Windows.Forms.Label();
             this.lblHundreds = new System.Windows.Forms.Label();
@@ -56,24 +56,24 @@ namespace Mathre
             this.txtPaidAmount = new System.Windows.Forms.TextBox();
             this.lblPaidAmount = new System.Windows.Forms.Label();
             this.lblChangeMakerTitle = new System.Windows.Forms.Label();
-            this.pnlSecretFrame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.pnlChangeList.SuspendLayout();
             this.pnlChangeMaker.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlSecretFrame
+            // pnlFrame
             // 
-            this.pnlSecretFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSecretFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSecretFrame.Controls.Add(this.pnlChangeList);
-            this.pnlSecretFrame.Controls.Add(this.pnlChangeMaker);
-            this.pnlSecretFrame.Controls.Add(this.lblChangeMakerTitle);
-            this.pnlSecretFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlSecretFrame.Name = "pnlSecretFrame";
-            this.pnlSecretFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlSecretFrame.TabIndex = 33;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlChangeList);
+            this.pnlFrame.Controls.Add(this.pnlChangeMaker);
+            this.pnlFrame.Controls.Add(this.lblChangeMakerTitle);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 33;
             // 
             // pnlChangeList
             // 
@@ -387,10 +387,10 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlSecretFrame);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "Frm07Change";
             this.Text = "Change Maker";
-            this.pnlSecretFrame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.pnlChangeList.ResumeLayout(false);
             this.pnlChangeList.PerformLayout();
             this.pnlChangeMaker.ResumeLayout(false);
@@ -401,7 +401,7 @@ namespace Mathre
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlSecretFrame;
+		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Panel pnlChangeList;
 		private System.Windows.Forms.Label lblOnesCount;
 		internal System.Windows.Forms.Label lblHundreds;

@@ -2,8 +2,8 @@ using System;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 namespace Mathre
 {
 	public partial class Frm00Mathre : Form
@@ -12,6 +12,7 @@ namespace Mathre
 		private static Color SystemColor;
 		private bool hidden;
 		private Size FormSize;
+		private TabPage Secret;
 		public Frm00Mathre()
 		{
 			InitializeComponent();
@@ -20,7 +21,7 @@ namespace Mathre
 			Frm05Temperature TC = new();
 			Frm10VideoGames VG = new();
 			KeyDown += KeyboardShortcuts;
-			mnuExit.Click += Exit;
+			mnuExit.Click += (s, e) => { Close(); };
 			mnuMySchoolToggleMascot.Click += MS.MySchool;
 			mnuHelloWorldReset.Click += HW.HelloWorld;
 			mnuHelloWorldLanguageGerman.Click += HW.HelloWorld;
@@ -29,48 +30,112 @@ namespace Mathre
 			mnuRandomify.Click += HW.HelloWorld;
 			mnuTemperatureFahrenheit.Click += TC.Temperature;
 			mnuTemperatureCelsius.Click += TC.Temperature;
+			//ResizeEnd += Resized;
+			//ResizeBegin += Resized;
 			Resize += Resized;
 			tabMathre.SelectedIndexChanged += FormManager;
 			mnuPS4.Click += VG.Transfer;
 			mnuXB1.Click += VG.Transfer;
 			Shown += LoadEvent;
+			//ResizeBegin += (s, e) => { SuspendLayout(); };
+			//ResizeEnd += (s, e) => { ResumeLayout(); };
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
 			//
 			tabMathre.TabPages.Clear();
 			Type formType = typeof(Form);
-			foreach (Type type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name))
-			{
-				if (formType.IsAssignableFrom(type))
-				{
-					if ($"{type.Name}" != "Frm00Mathre")
-					{
-						var form = Activator.CreateInstance(Type.GetType($"{type}")) as Form;
-						form.Size = FormSize;
-						form.FormBorderStyle = FormBorderStyle.None;
-						form.Left = 0;
-						form.Top = 45;
-						form.TopLevel = false;
-						form.Visible = true;
-						this.Controls.Add(form);
-						form.Focus();
-						Resized(null, null);
-						TabPage abc = new();
-						abc.Name = $"{Regex.Replace(form.Name, @"Frm\d*", "tab")}";
-						abc.Text = $"{form.Text}";
-						tabMathre.TabPages.Add(abc);
-					}
-					}
-				}
+			//foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.FullName.StartsWith("System.") || !a.FullName.StartsWith("Microsoft.")))
+			//{
+			//	var type = a.GetTypes().Where(t => (typeof(Form).IsAssignableFrom(t) || typeof(UserControl).IsAssignableFrom(t)) && t.IsClass && t.FullName.StartsWith("YourNamespace."));
+
+
+			//}
+
 			//
-			hidden = true;
+
+
+			foreach (Type type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name).Where(t => (typeof(Form).IsAssignableFrom(t)) && t.IsClass && t.FullName.StartsWith("Mathre.") && t.Name != "Frm00Mathre"))
+			{
+				var form = Activator.CreateInstance(Type.GetType($"{type}")) as Form;
+				form.Size = FormSize;
+				form.FormBorderStyle = FormBorderStyle.None;
+				form.Left = 0;
+				form.Top = 45;
+				form.TopLevel = false;
+				form.Visible = true;
+				//form.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
+				Controls.Add(form);
+				form.Focus();
+				form.Width = Width - 16;
+				form.Height = Height - 84;
+				TabPage newTab = new();
+				newTab.Name = $"{Regex.Replace(form.Name, @"Frm\d*", "tab")}";
+				newTab.Text = $"{form.Text}";
+				if (newTab.Name == "tabSecret")
+				{
+					Secret = newTab;
+					tabMathre.TabPages.Remove(Secret);
+				}
+				else
+				{
+					tabMathre.TabPages.Add(newTab);
+					ToolStripMenuItem item = new();
+					item.Name = newTab.Name.ToString().Replace("tab", "mnuView");
+					item.Text = newTab.Text.ToString();
+					item.Click += new EventHandler((sender, e) => { tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab")); });
+					mnuView.DropDownItems.Add(item);
+				}
+			}
+
+			//
+
+			//foreach (Type type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name))
+			//{
+			//	if (formType.IsAssignableFrom(type))
+			//	{
+			//		if ($"{type.Name}" != "Frm00Mathre")
+			//		{
+			//			var form = Activator.CreateInstance(Type.GetType($"{type}")) as Form;
+			//			form.Size = FormSize;
+			//			form.FormBorderStyle = FormBorderStyle.None;
+			//			form.Left = 0;
+			//			form.Top = 45;
+			//			form.TopLevel = false;
+			//			form.Visible = true;
+			//			//form.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
+			//			Controls.Add(form);
+			//			form.Focus();
+			//			form.Width = Width - 16;
+			//			form.Height = Height - 84;
+			//			TabPage newTab = new();
+			//			newTab.Name = $"{Regex.Replace(form.Name, @"Frm\d*", "tab")}";
+			//			newTab.Text = $"{form.Text}";
+			//			if (newTab.Name == "tabSecret")
+			//			{
+			//				Secret = newTab;
+			//				tabMathre.TabPages.Remove(Secret);
+			//			}
+			//			else
+			//			{
+			//				tabMathre.TabPages.Add(newTab);
+			//				ToolStripMenuItem item = new();
+			//				item.Name = newTab.Name.ToString().Replace("tab", "mnuView");
+			//				item.Text = newTab.Text.ToString();
+			//				item.Click += new EventHandler((sender, e) => { tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab")); });
+			//				mnuView.DropDownItems.Add(item);
+			//			}
+			//}
+			//}
+			//}
+			//
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
 			AccentColor = $"{(ColorKey.GetValue("AccentColor"))}";
 			ColorKey.Close();
 			KeyPreview = true;
 			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
+			//
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items)
 			{
 				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem);
@@ -109,19 +174,9 @@ namespace Mathre
 				Frm13Slots SM = new();
 				Item.Click += SM.MenuHandler;
 			}
-			tabMathre.TabPages.Remove(tabSecret);
 			//
-			// Old Tab saved by name
-			//
-			foreach (TabPage c in tabMathre.TabPages)
-			{
-				ToolStripMenuItem item = new();
-				item.Name = c.Name.ToString().Replace("tab", "mnuView");
-				item.Text = c.Text.ToString();
-				item.Click += new EventHandler(PageSelect);
-				mnuView.DropDownItems.Add(item);
-			}
-			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
+			hidden = true;
+			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 		}
 		public void GetAllControls(Control container)
@@ -129,7 +184,7 @@ namespace Mathre
 			foreach (Control b in container.Controls)
 			{
 				GetAllControls(b);
-				if ((b is Panel) && (b is not TabPage))
+				if ((b is Panel) && (b is not TabPage) && b.Name != "pnlFrame")
 				{
 					b.Paint += PaintPanel;
 				}
@@ -139,18 +194,41 @@ namespace Mathre
 		{
 			if (Application.OpenForms.Count > 0 && tabMathre.TabPages.Count > 0)
 			{
-				for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+				foreach (Form form in Application.OpenForms)
 				{
-					Console.WriteLine(Application.OpenForms[i].Name);
-					if (Application.OpenForms[i].Name != "Frm00Mathre" && Regex.Replace(Application.OpenForms[i].Name, @"Frm\d*", "tab") != tabMathre.SelectedTab.Name)
+					if (form.Name != "Frm00Mathre" && Regex.Replace(form.Name, @"Frm\d*", "tab") != tabMathre.SelectedTab.Name)
 					{
-						Application.OpenForms[i].Hide();
+						form.Hide();
+						//form.SuspendLayout();
 					}
-					else if (Application.OpenForms[i].Name != "Frm00Mathre")
+					else if (form.Name != "Frm00Mathre")
 					{
-						Application.OpenForms[i].Show();
+						form.Show();
+						//form.ResumeLayout();
 					}
 				}
+
+
+
+				//for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+				//{
+				//	//
+
+				//		Console.WriteLine(Regex.Replace(Application.OpenForms[i].Name, @"Frm\d*", "tab"));
+				//		Console.WriteLine(tabMathre.SelectedTab.Name);
+
+				//	//
+				//	if (Application.OpenForms[i].Name != "Frm00Mathre" && Regex.Replace(Application.OpenForms[i].Name, @"Frm\d*", "tab") != tabMathre.SelectedTab.Name)
+				//	{
+				//		Application.OpenForms[i].Hide();
+				//		Application.OpenForms[i].SuspendLayout();
+				//	}
+				//	else if (Application.OpenForms[i].Name != "Frm00Mathre")
+				//	{
+				//		Application.OpenForms[i].Show();
+				//		Application.OpenForms[i].ResumeLayout();
+				//	}
+				//}
 				if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmSlots")
 				{
 					// Slots MessageBox code
@@ -164,14 +242,6 @@ namespace Mathre
 					AM.Tabbed(null, null);
 				}
 			}
-		}
-		public void PageSelect(object sender, EventArgs e)
-		{
-			tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab"));
-		}
-		public void Exit(object sender, EventArgs e)
-		{
-			Close();
 		}
 		public void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem)
 		{
@@ -191,15 +261,15 @@ namespace Mathre
 			{
 				if (hidden == true)
 				{
-					tabMathre.Controls.Add(tabSecret);
+					tabMathre.Controls.Add(Secret);
 
 					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 500);
-					tabMathre.SelectedTab = tabSecret;
+					tabMathre.SelectedTab = Secret;
 					hidden = false;
 				}
 				else if (hidden == false)
 				{
-					tabMathre.Controls.Remove(tabSecret);
+					tabMathre.Controls.Remove(Secret);
 					hidden = true;
 				}
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
@@ -264,11 +334,27 @@ namespace Mathre
 		}
 		public void Resized(object sender, EventArgs e)
 		{
-			FormSize.Width = this.Width - 16;
-			FormSize.Height = this.Height - 84;
+			//if (Application.OpenForms.Count > 0 && tabMathre.TabPages.Count > 0)
+			//{
+			//	if (FormSize.Width > Screen.FromControl(this).Bounds.Width - 200)
+			//	{
+			//		MaximumSize = new Size(Screen.FromControl(this).Bounds.Width - 100, 100000);
+			//	}
+			//	else
+			//	{
+			//		MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
+			//		MaximumSize = new Size(100000, 100000);
+			//	}
+			//}
+			//
+			//
+			//
+			//
+			FormSize.Width = Width - 16;
+			FormSize.Height = Height - 84;
 			foreach (Form form in Application.OpenForms)
 			{
-				if (form.Visible && form.Name != "FrmMathre")
+				if (form.Visible && form.Name != "Frm00Mathre")
 				{
 					form.Size = FormSize;
 				}

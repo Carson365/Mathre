@@ -29,7 +29,7 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.pnlGradeFrame = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.lblGradeTitle = new System.Windows.Forms.Label();
             this.pnlGradeDisplay = new System.Windows.Forms.Panel();
             this.lblPassFail = new System.Windows.Forms.Label();
@@ -50,26 +50,26 @@ namespace Mathre
             this.btnMethod3 = new System.Windows.Forms.RadioButton();
             this.btnMethod1 = new System.Windows.Forms.RadioButton();
             this.btnMethod2 = new System.Windows.Forms.RadioButton();
-            this.pnlGradeFrame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.pnlGradeDisplay.SuspendLayout();
             this.pnlGrade.SuspendLayout();
             this.panel1.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlGradeFrame
+            // pnlFrame
             // 
-            this.pnlGradeFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlGradeFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlGradeFrame.Controls.Add(this.lblGradeTitle);
-            this.pnlGradeFrame.Controls.Add(this.pnlGradeDisplay);
-            this.pnlGradeFrame.Controls.Add(this.pnlGrade);
-            this.pnlGradeFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlGradeFrame.Name = "pnlGradeFrame";
-            this.pnlGradeFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlGradeFrame.TabIndex = 34;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.lblGradeTitle);
+            this.pnlFrame.Controls.Add(this.pnlGradeDisplay);
+            this.pnlFrame.Controls.Add(this.pnlGrade);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 34;
             // 
             // lblGradeTitle
             // 
@@ -299,10 +299,10 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlGradeFrame);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "Frm09Grade";
             this.Text = "Grade Calculator";
-            this.pnlGradeFrame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.pnlGradeDisplay.ResumeLayout(false);
             this.pnlGradeDisplay.PerformLayout();
             this.pnlGrade.ResumeLayout(false);
@@ -317,7 +317,7 @@ namespace Mathre
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlGradeFrame;
+		public System.Windows.Forms.Panel pnlFrame;
 		internal System.Windows.Forms.Label lblGradeTitle;
 		private System.Windows.Forms.Panel pnlGradeDisplay;
 		private System.Windows.Forms.Label lblScoreDisplay;

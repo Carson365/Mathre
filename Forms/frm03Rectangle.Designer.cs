@@ -30,7 +30,7 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm03Rectangle));
-            this.pnlHelloWorldFrame = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlRectangleContainer = new System.Windows.Forms.Panel();
             this.lblRectangleError = new System.Windows.Forms.Label();
             this.pnlRectangle = new System.Windows.Forms.Panel();
@@ -43,24 +43,24 @@ namespace Mathre
             this.lblRectanglePerimiterTitle = new System.Windows.Forms.Label();
             this.lblRectangleArea = new System.Windows.Forms.Label();
             this.lblRectanglePerimeter = new System.Windows.Forms.Label();
-            this.pnlHelloWorldFrame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.pnlRectangleContainer.SuspendLayout();
             this.pnlRectangleControls.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlHelloWorldFrame
+            // pnlFrame
             // 
-            this.pnlHelloWorldFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlHelloWorldFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHelloWorldFrame.Controls.Add(this.pnlRectangleContainer);
-            this.pnlHelloWorldFrame.Controls.Add(this.lblRectangleTitle);
-            this.pnlHelloWorldFrame.Controls.Add(this.pnlRectangleControls);
-            this.pnlHelloWorldFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlHelloWorldFrame.Name = "pnlHelloWorldFrame";
-            this.pnlHelloWorldFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlHelloWorldFrame.TabIndex = 32;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlRectangleContainer);
+            this.pnlFrame.Controls.Add(this.lblRectangleTitle);
+            this.pnlFrame.Controls.Add(this.pnlRectangleControls);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 32;
             // 
             // pnlRectangleContainer
             // 
@@ -210,10 +210,10 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlHelloWorldFrame);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "Frm03Rectangle";
             this.Text = "Rectangle Calculator";
-            this.pnlHelloWorldFrame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.pnlRectangleContainer.ResumeLayout(false);
             this.pnlRectangleControls.ResumeLayout(false);
             this.pnlRectangleControls.PerformLayout();
@@ -223,7 +223,7 @@ namespace Mathre
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlHelloWorldFrame;
+		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Panel pnlRectangleContainer;
 		internal System.Windows.Forms.Label lblRectangleError;
 		private System.Windows.Forms.Panel pnlRectangle;

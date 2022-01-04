@@ -96,28 +96,8 @@ namespace Mathre
             this.mnuAuto = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabSecret = new System.Windows.Forms.TabPage();
-            this.tabUnknown = new System.Windows.Forms.TabPage();
-            this.tabPizza = new System.Windows.Forms.TabPage();
-            this.tabChange = new System.Windows.Forms.TabPage();
-            this.lblChangeMakerTitle = new System.Windows.Forms.Label();
-            this.tabDigits = new System.Windows.Forms.TabPage();
-            this.tabTemperature = new System.Windows.Forms.TabPage();
-            this.tabMyFavorites = new System.Windows.Forms.TabPage();
-            this.tabRectangle = new System.Windows.Forms.TabPage();
-            this.tabMySchool = new System.Windows.Forms.TabPage();
             this.tabMathre = new System.Windows.Forms.TabControl();
-            this.tabHelloWorld = new System.Windows.Forms.TabPage();
-            this.tabGrade = new System.Windows.Forms.TabPage();
-            this.tabVideoGames = new System.Windows.Forms.TabPage();
-            this.tabRPS = new System.Windows.Forms.TabPage();
-            this.tabHurricane = new System.Windows.Forms.TabPage();
-            this.tabSlots = new System.Windows.Forms.TabPage();
-            this.tabAcronym = new System.Windows.Forms.TabPage();
-            this.tabSum = new System.Windows.Forms.TabPage();
             this.mnuBaseLayer.SuspendLayout();
-            this.tabChange.SuspendLayout();
-            this.tabMathre.SuspendLayout();
             this.SuspendLayout();
             // 
             // mnuBaseLayer
@@ -560,121 +540,8 @@ namespace Mathre
             this.mnuView.Size = new System.Drawing.Size(44, 24);
             this.mnuView.Text = "View";
             // 
-            // tabSecret
-            // 
-            this.tabSecret.Location = new System.Drawing.Point(4, 22);
-            this.tabSecret.Name = "tabSecret";
-            this.tabSecret.Size = new System.Drawing.Size(1445, 0);
-            this.tabSecret.TabIndex = 3;
-            this.tabSecret.Text = "Secret Settings Page";
-            this.tabSecret.UseVisualStyleBackColor = true;
-            // 
-            // tabUnknown
-            // 
-            this.tabUnknown.Location = new System.Drawing.Point(4, 22);
-            this.tabUnknown.Margin = new System.Windows.Forms.Padding(0);
-            this.tabUnknown.Name = "tabUnknown";
-            this.tabUnknown.Size = new System.Drawing.Size(1445, 0);
-            this.tabUnknown.TabIndex = 2;
-            this.tabUnknown.Text = "...";
-            this.tabUnknown.UseVisualStyleBackColor = true;
-            // 
-            // tabPizza
-            // 
-            this.tabPizza.Location = new System.Drawing.Point(4, 22);
-            this.tabPizza.Name = "tabPizza";
-            this.tabPizza.Size = new System.Drawing.Size(1445, 0);
-            this.tabPizza.TabIndex = 9;
-            this.tabPizza.Tag = "";
-            this.tabPizza.Text = "Pizza Delivery";
-            this.tabPizza.UseVisualStyleBackColor = true;
-            // 
-            // tabChange
-            // 
-            this.tabChange.Controls.Add(this.lblChangeMakerTitle);
-            this.tabChange.Location = new System.Drawing.Point(4, 22);
-            this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(1445, 0);
-            this.tabChange.TabIndex = 8;
-            this.tabChange.Text = "Change Maker";
-            this.tabChange.UseVisualStyleBackColor = true;
-            // 
-            // lblChangeMakerTitle
-            // 
-            this.lblChangeMakerTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblChangeMakerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeMakerTitle.Location = new System.Drawing.Point(174, 801);
-            this.lblChangeMakerTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblChangeMakerTitle.Name = "lblChangeMakerTitle";
-            this.lblChangeMakerTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblChangeMakerTitle.TabIndex = 20;
-            this.lblChangeMakerTitle.Text = "Change Maker";
-            this.lblChangeMakerTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tabDigits
-            // 
-            this.tabDigits.Location = new System.Drawing.Point(4, 22);
-            this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(1445, 0);
-            this.tabDigits.TabIndex = 7;
-            this.tabDigits.Text = "Digit Separator";
-            this.tabDigits.UseVisualStyleBackColor = true;
-            // 
-            // tabTemperature
-            // 
-            this.tabTemperature.Location = new System.Drawing.Point(4, 22);
-            this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(1445, 0);
-            this.tabTemperature.TabIndex = 6;
-            this.tabTemperature.Text = "Temperature Converter";
-            this.tabTemperature.UseVisualStyleBackColor = true;
-            // 
-            // tabMyFavorites
-            // 
-            this.tabMyFavorites.Location = new System.Drawing.Point(4, 22);
-            this.tabMyFavorites.Name = "tabMyFavorites";
-            this.tabMyFavorites.Size = new System.Drawing.Size(1445, 0);
-            this.tabMyFavorites.TabIndex = 5;
-            this.tabMyFavorites.Text = "My Favorites";
-            this.tabMyFavorites.UseVisualStyleBackColor = true;
-            // 
-            // tabRectangle
-            // 
-            this.tabRectangle.Location = new System.Drawing.Point(4, 22);
-            this.tabRectangle.Name = "tabRectangle";
-            this.tabRectangle.Size = new System.Drawing.Size(1445, 0);
-            this.tabRectangle.TabIndex = 4;
-            this.tabRectangle.Text = "Rectangle Calculator";
-            this.tabRectangle.UseVisualStyleBackColor = true;
-            // 
-            // tabMySchool
-            // 
-            this.tabMySchool.Location = new System.Drawing.Point(4, 22);
-            this.tabMySchool.Name = "tabMySchool";
-            this.tabMySchool.Size = new System.Drawing.Size(1445, 0);
-            this.tabMySchool.TabIndex = 1;
-            this.tabMySchool.Text = "My School";
-            this.tabMySchool.UseVisualStyleBackColor = true;
-            // 
             // tabMathre
             // 
-            this.tabMathre.Controls.Add(this.tabHelloWorld);
-            this.tabMathre.Controls.Add(this.tabMySchool);
-            this.tabMathre.Controls.Add(this.tabRectangle);
-            this.tabMathre.Controls.Add(this.tabMyFavorites);
-            this.tabMathre.Controls.Add(this.tabTemperature);
-            this.tabMathre.Controls.Add(this.tabDigits);
-            this.tabMathre.Controls.Add(this.tabChange);
-            this.tabMathre.Controls.Add(this.tabPizza);
-            this.tabMathre.Controls.Add(this.tabGrade);
-            this.tabMathre.Controls.Add(this.tabVideoGames);
-            this.tabMathre.Controls.Add(this.tabRPS);
-            this.tabMathre.Controls.Add(this.tabHurricane);
-            this.tabMathre.Controls.Add(this.tabSlots);
-            this.tabMathre.Controls.Add(this.tabAcronym);
-            this.tabMathre.Controls.Add(this.tabSum);
-            this.tabMathre.Controls.Add(this.tabUnknown);
-            this.tabMathre.Controls.Add(this.tabSecret);
             this.tabMathre.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabMathre.Location = new System.Drawing.Point(0, 24);
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
@@ -684,80 +551,6 @@ namespace Mathre
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
             this.tabMathre.TabIndex = 4;
             this.tabMathre.Tag = "";
-            // 
-            // tabHelloWorld
-            // 
-            this.tabHelloWorld.BackColor = System.Drawing.Color.Transparent;
-            this.tabHelloWorld.Location = new System.Drawing.Point(4, 22);
-            this.tabHelloWorld.Name = "tabHelloWorld";
-            this.tabHelloWorld.Size = new System.Drawing.Size(1445, 0);
-            this.tabHelloWorld.TabIndex = 0;
-            this.tabHelloWorld.Text = "Hello World";
-            // 
-            // tabGrade
-            // 
-            this.tabGrade.Location = new System.Drawing.Point(4, 22);
-            this.tabGrade.Name = "tabGrade";
-            this.tabGrade.Size = new System.Drawing.Size(1445, 0);
-            this.tabGrade.TabIndex = 10;
-            this.tabGrade.Text = "Calculate My Grade";
-            this.tabGrade.UseVisualStyleBackColor = true;
-            // 
-            // tabVideoGames
-            // 
-            this.tabVideoGames.Location = new System.Drawing.Point(4, 22);
-            this.tabVideoGames.Name = "tabVideoGames";
-            this.tabVideoGames.Size = new System.Drawing.Size(1445, 0);
-            this.tabVideoGames.TabIndex = 11;
-            this.tabVideoGames.Text = "Video Game Orders";
-            this.tabVideoGames.UseVisualStyleBackColor = true;
-            // 
-            // tabRPS
-            // 
-            this.tabRPS.Location = new System.Drawing.Point(4, 22);
-            this.tabRPS.Name = "tabRPS";
-            this.tabRPS.Size = new System.Drawing.Size(1445, 0);
-            this.tabRPS.TabIndex = 12;
-            this.tabRPS.Text = "Rock Paper Scissors";
-            this.tabRPS.UseVisualStyleBackColor = true;
-            // 
-            // tabHurricane
-            // 
-            this.tabHurricane.Location = new System.Drawing.Point(4, 22);
-            this.tabHurricane.Name = "tabHurricane";
-            this.tabHurricane.Size = new System.Drawing.Size(1445, 0);
-            this.tabHurricane.TabIndex = 13;
-            this.tabHurricane.Text = "Hurricane!";
-            this.tabHurricane.UseVisualStyleBackColor = true;
-            // 
-            // tabSlots
-            // 
-            this.tabSlots.Location = new System.Drawing.Point(4, 22);
-            this.tabSlots.Name = "tabSlots";
-            this.tabSlots.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSlots.Size = new System.Drawing.Size(1445, 0);
-            this.tabSlots.TabIndex = 14;
-            this.tabSlots.Text = "Slot Machine";
-            this.tabSlots.UseVisualStyleBackColor = true;
-            // 
-            // tabAcronym
-            // 
-            this.tabAcronym.Location = new System.Drawing.Point(4, 22);
-            this.tabAcronym.Name = "tabAcronym";
-            this.tabAcronym.Size = new System.Drawing.Size(1445, 0);
-            this.tabAcronym.TabIndex = 15;
-            this.tabAcronym.Text = "Acronym Maker";
-            this.tabAcronym.UseVisualStyleBackColor = true;
-            // 
-            // tabSum
-            // 
-            this.tabSum.Location = new System.Drawing.Point(4, 22);
-            this.tabSum.Name = "tabSum";
-            this.tabSum.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSum.Size = new System.Drawing.Size(1445, 0);
-            this.tabSum.TabIndex = 16;
-            this.tabSum.Text = "Sum Numbers";
-            this.tabSum.UseVisualStyleBackColor = true;
             // 
             // Frm00Mathre
             // 
@@ -774,21 +567,12 @@ namespace Mathre
             this.Text = "Mathre";
             this.mnuBaseLayer.ResumeLayout(false);
             this.mnuBaseLayer.PerformLayout();
-            this.tabChange.ResumeLayout(false);
-            this.tabMathre.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
         internal ToolStripMenuItem mnuEdit;
         internal ToolStripMenuItem mnuView;
-		internal TabPage tabSecret;
-		internal TabPage tabUnknown;
-		private TabPage tabPizza;
-		private TabPage tabChange;
-		internal Label lblChangeMakerTitle;
-		private TabPage tabDigits;
-		private TabPage tabTemperature;
 		internal TabControl tabMathre;
 		public ToolStripMenuItem mnuFile;
 		public ToolStripMenuItem mnuHelloWorld;
@@ -821,7 +605,6 @@ namespace Mathre
 		public ToolStripMenuItem mnuPizzaDollars;
 		public ToolStripMenuItem mnuPizzaPercent;
 		public MenuStrip mnuBaseLayer;
-		private TabPage tabGrade;
 		internal ToolStripMenuItem mnuSecret;
 		internal ToolStripMenuItem mnuRecolor;
 		internal ToolStripMenuItem mnuRandomify;
@@ -832,21 +615,13 @@ namespace Mathre
 		public ToolStripMenuItem mnuCalculateMethod4;
 		public ToolStripMenuItem mnuCalculateMethod5;
 		public ToolStripMenuItem mnuCalculateRandom;
-		private TabPage tabVideoGames;
 		public ToolStripMenuItem videoGameOrdersToolStripMenuItem;
 		public ToolStripMenuItem mnuPS4;
 		public ToolStripMenuItem mnuXB1;
-		internal TabPage tabRPS;
-		private TabPage tabMyFavorites;
-		private TabPage tabRectangle;
-		private TabPage tabMySchool;
-		private TabPage tabHelloWorld;
 		private ToolStripMenuItem mnuRPS;
 		private ToolStripMenuItem mnuRockPS;
 		private ToolStripMenuItem mnuRPaperS;
 		private ToolStripMenuItem mnuRPScissors;
-		private TabPage tabHurricane;
-		private TabPage tabSlots;
 		private ToolStripMenuItem mnuSlots;
 		private ToolStripMenuItem mnuSpin;
 		private ToolStripMenuItem mnuDouble;
@@ -856,7 +631,5 @@ namespace Mathre
 		private ToolStripMenuItem mnuCalculate;
 		private ToolStripMenuItem mnuDamage;
 		private ToolStripMenuItem mnuAuto;
-		private TabPage tabAcronym;
-		private TabPage tabSum;
 	}
 }

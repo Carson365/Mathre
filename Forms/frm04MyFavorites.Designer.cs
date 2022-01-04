@@ -31,7 +31,7 @@ namespace Mathre
 		{
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm04MyFavorites));
-            this.pnlSecretFrame = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlFavoriteDisplay = new System.Windows.Forms.Panel();
             this.pnlFavoriteImage = new System.Windows.Forms.Panel();
             this.lblFavoriteInfo = new System.Windows.Forms.Label();
@@ -43,24 +43,24 @@ namespace Mathre
             this.btnFavoriteFruit = new System.Windows.Forms.RadioButton();
             this.lblFavoriteTitle = new System.Windows.Forms.Label();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
-            this.pnlSecretFrame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.pnlFavoriteDisplay.SuspendLayout();
             this.pnlFavoriteControls.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlSecretFrame
+            // pnlFrame
             // 
-            this.pnlSecretFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSecretFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSecretFrame.Controls.Add(this.pnlFavoriteDisplay);
-            this.pnlSecretFrame.Controls.Add(this.pnlFavoriteControls);
-            this.pnlSecretFrame.Controls.Add(this.lblFavoriteTitle);
-            this.pnlSecretFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlSecretFrame.Name = "pnlSecretFrame";
-            this.pnlSecretFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlSecretFrame.TabIndex = 33;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlFavoriteDisplay);
+            this.pnlFrame.Controls.Add(this.pnlFavoriteControls);
+            this.pnlFrame.Controls.Add(this.lblFavoriteTitle);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 33;
             // 
             // pnlFavoriteDisplay
             // 
@@ -191,10 +191,10 @@ namespace Mathre
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlSecretFrame);
+            this.Controls.Add(this.pnlFrame);
             this.Name = "Frm04MyFavorites";
             this.Text = "My Favorites";
-            this.pnlSecretFrame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.pnlFavoriteDisplay.ResumeLayout(false);
             this.pnlFavoriteControls.ResumeLayout(false);
             this.pnlFavoriteControls.PerformLayout();
@@ -204,7 +204,7 @@ namespace Mathre
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlSecretFrame;
+		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Panel pnlFavoriteControls;
 		private System.Windows.Forms.RadioButton btnFavoriteMovie;
 		private System.Windows.Forms.RadioButton btnFavoriteHobby;
