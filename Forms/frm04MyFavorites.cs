@@ -10,19 +10,19 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmMyFavorites : Form
+	public partial class Frm04MyFavorites : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmMyFavorites ThisForm;
-		public FrmMyFavorites()
+		public static Frm00Mathre BaseForm;
+		public static Frm04MyFavorites ThisForm;
+		public Frm04MyFavorites()
 		{
 			InitializeComponent();
 			Load += FormLoad;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmMyFavorites>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm04MyFavorites>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

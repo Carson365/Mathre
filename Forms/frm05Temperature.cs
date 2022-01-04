@@ -4,11 +4,11 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmTemperature : Form
+	public partial class Frm05Temperature : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmTemperature ThisForm;
-		public FrmTemperature()
+		public static Frm00Mathre BaseForm;
+		public static Frm05Temperature ThisForm;
+		public Frm05Temperature()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -21,8 +21,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmTemperature>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm05Temperature>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

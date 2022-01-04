@@ -8,7 +8,7 @@ using Microsoft.VisualBasic.CompilerServices;
 namespace Mathre
 {
     [DesignerGenerated()]
-    public partial class FrmMathre : Form
+    public partial class Frm00Mathre : Form
     {
 
         // Form overrides dispose to clean up the component list.
@@ -564,7 +564,7 @@ namespace Mathre
             // 
             this.tabSecret.Location = new System.Drawing.Point(4, 22);
             this.tabSecret.Name = "tabSecret";
-            this.tabSecret.Size = new System.Drawing.Size(1397, 0);
+            this.tabSecret.Size = new System.Drawing.Size(1445, 0);
             this.tabSecret.TabIndex = 3;
             this.tabSecret.Text = "Secret Settings Page";
             this.tabSecret.UseVisualStyleBackColor = true;
@@ -574,7 +574,7 @@ namespace Mathre
             this.tabUnknown.Location = new System.Drawing.Point(4, 22);
             this.tabUnknown.Margin = new System.Windows.Forms.Padding(0);
             this.tabUnknown.Name = "tabUnknown";
-            this.tabUnknown.Size = new System.Drawing.Size(1397, 0);
+            this.tabUnknown.Size = new System.Drawing.Size(1445, 0);
             this.tabUnknown.TabIndex = 2;
             this.tabUnknown.Text = "...";
             this.tabUnknown.UseVisualStyleBackColor = true;
@@ -583,7 +583,7 @@ namespace Mathre
             // 
             this.tabPizza.Location = new System.Drawing.Point(4, 22);
             this.tabPizza.Name = "tabPizza";
-            this.tabPizza.Size = new System.Drawing.Size(1397, 0);
+            this.tabPizza.Size = new System.Drawing.Size(1445, 0);
             this.tabPizza.TabIndex = 9;
             this.tabPizza.Tag = "";
             this.tabPizza.Text = "Pizza Delivery";
@@ -594,7 +594,7 @@ namespace Mathre
             this.tabChange.Controls.Add(this.lblChangeMakerTitle);
             this.tabChange.Location = new System.Drawing.Point(4, 22);
             this.tabChange.Name = "tabChange";
-            this.tabChange.Size = new System.Drawing.Size(1397, 0);
+            this.tabChange.Size = new System.Drawing.Size(1445, 0);
             this.tabChange.TabIndex = 8;
             this.tabChange.Text = "Change Maker";
             this.tabChange.UseVisualStyleBackColor = true;
@@ -615,7 +615,7 @@ namespace Mathre
             // 
             this.tabDigits.Location = new System.Drawing.Point(4, 22);
             this.tabDigits.Name = "tabDigits";
-            this.tabDigits.Size = new System.Drawing.Size(1397, 0);
+            this.tabDigits.Size = new System.Drawing.Size(1445, 0);
             this.tabDigits.TabIndex = 7;
             this.tabDigits.Text = "Digit Separator";
             this.tabDigits.UseVisualStyleBackColor = true;
@@ -624,7 +624,7 @@ namespace Mathre
             // 
             this.tabTemperature.Location = new System.Drawing.Point(4, 22);
             this.tabTemperature.Name = "tabTemperature";
-            this.tabTemperature.Size = new System.Drawing.Size(1397, 0);
+            this.tabTemperature.Size = new System.Drawing.Size(1445, 0);
             this.tabTemperature.TabIndex = 6;
             this.tabTemperature.Text = "Temperature Converter";
             this.tabTemperature.UseVisualStyleBackColor = true;
@@ -633,7 +633,7 @@ namespace Mathre
             // 
             this.tabMyFavorites.Location = new System.Drawing.Point(4, 22);
             this.tabMyFavorites.Name = "tabMyFavorites";
-            this.tabMyFavorites.Size = new System.Drawing.Size(1397, 0);
+            this.tabMyFavorites.Size = new System.Drawing.Size(1445, 0);
             this.tabMyFavorites.TabIndex = 5;
             this.tabMyFavorites.Text = "My Favorites";
             this.tabMyFavorites.UseVisualStyleBackColor = true;
@@ -642,7 +642,7 @@ namespace Mathre
             // 
             this.tabRectangle.Location = new System.Drawing.Point(4, 22);
             this.tabRectangle.Name = "tabRectangle";
-            this.tabRectangle.Size = new System.Drawing.Size(1397, 0);
+            this.tabRectangle.Size = new System.Drawing.Size(1445, 0);
             this.tabRectangle.TabIndex = 4;
             this.tabRectangle.Text = "Rectangle Calculator";
             this.tabRectangle.UseVisualStyleBackColor = true;
@@ -651,7 +651,7 @@ namespace Mathre
             // 
             this.tabMySchool.Location = new System.Drawing.Point(4, 22);
             this.tabMySchool.Name = "tabMySchool";
-            this.tabMySchool.Size = new System.Drawing.Size(1397, 0);
+            this.tabMySchool.Size = new System.Drawing.Size(1445, 0);
             this.tabMySchool.TabIndex = 1;
             this.tabMySchool.Text = "My School";
             this.tabMySchool.UseVisualStyleBackColor = true;
@@ -698,7 +698,7 @@ namespace Mathre
             // 
             this.tabGrade.Location = new System.Drawing.Point(4, 22);
             this.tabGrade.Name = "tabGrade";
-            this.tabGrade.Size = new System.Drawing.Size(1397, 0);
+            this.tabGrade.Size = new System.Drawing.Size(1445, 0);
             this.tabGrade.TabIndex = 10;
             this.tabGrade.Text = "Calculate My Grade";
             this.tabGrade.UseVisualStyleBackColor = true;
@@ -707,7 +707,7 @@ namespace Mathre
             // 
             this.tabVideoGames.Location = new System.Drawing.Point(4, 22);
             this.tabVideoGames.Name = "tabVideoGames";
-            this.tabVideoGames.Size = new System.Drawing.Size(1397, 0);
+            this.tabVideoGames.Size = new System.Drawing.Size(1445, 0);
             this.tabVideoGames.TabIndex = 11;
             this.tabVideoGames.Text = "Video Game Orders";
             this.tabVideoGames.UseVisualStyleBackColor = true;
@@ -716,7 +716,7 @@ namespace Mathre
             // 
             this.tabRPS.Location = new System.Drawing.Point(4, 22);
             this.tabRPS.Name = "tabRPS";
-            this.tabRPS.Size = new System.Drawing.Size(1397, 0);
+            this.tabRPS.Size = new System.Drawing.Size(1445, 0);
             this.tabRPS.TabIndex = 12;
             this.tabRPS.Text = "Rock Paper Scissors";
             this.tabRPS.UseVisualStyleBackColor = true;
@@ -725,7 +725,7 @@ namespace Mathre
             // 
             this.tabHurricane.Location = new System.Drawing.Point(4, 22);
             this.tabHurricane.Name = "tabHurricane";
-            this.tabHurricane.Size = new System.Drawing.Size(1397, 0);
+            this.tabHurricane.Size = new System.Drawing.Size(1445, 0);
             this.tabHurricane.TabIndex = 13;
             this.tabHurricane.Text = "Hurricane!";
             this.tabHurricane.UseVisualStyleBackColor = true;
@@ -735,7 +735,7 @@ namespace Mathre
             this.tabSlots.Location = new System.Drawing.Point(4, 22);
             this.tabSlots.Name = "tabSlots";
             this.tabSlots.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSlots.Size = new System.Drawing.Size(1397, 0);
+            this.tabSlots.Size = new System.Drawing.Size(1445, 0);
             this.tabSlots.TabIndex = 14;
             this.tabSlots.Text = "Slot Machine";
             this.tabSlots.UseVisualStyleBackColor = true;
@@ -744,7 +744,7 @@ namespace Mathre
             // 
             this.tabAcronym.Location = new System.Drawing.Point(4, 22);
             this.tabAcronym.Name = "tabAcronym";
-            this.tabAcronym.Size = new System.Drawing.Size(1397, 0);
+            this.tabAcronym.Size = new System.Drawing.Size(1445, 0);
             this.tabAcronym.TabIndex = 15;
             this.tabAcronym.Text = "Acronym Maker";
             this.tabAcronym.UseVisualStyleBackColor = true;
@@ -754,12 +754,12 @@ namespace Mathre
             this.tabSum.Location = new System.Drawing.Point(4, 22);
             this.tabSum.Name = "tabSum";
             this.tabSum.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSum.Size = new System.Drawing.Size(1397, 0);
+            this.tabSum.Size = new System.Drawing.Size(1445, 0);
             this.tabSum.TabIndex = 16;
             this.tabSum.Text = "Sum Numbers";
             this.tabSum.UseVisualStyleBackColor = true;
             // 
-            // FrmMathre
+            // Frm00Mathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -770,9 +770,8 @@ namespace Mathre
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuBaseLayer;
             this.MinimumSize = new System.Drawing.Size(1230, 500);
-            this.Name = "FrmMathre";
+            this.Name = "Frm00Mathre";
             this.Text = "Mathre";
-            this.Load += new System.EventHandler(this.FormLoad);
             this.mnuBaseLayer.ResumeLayout(false);
             this.mnuBaseLayer.PerformLayout();
             this.tabChange.ResumeLayout(false);

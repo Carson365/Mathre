@@ -1,7 +1,7 @@
 
 namespace Mathre
 {
-	partial class FrmMyFavorites
+	partial class Frm04MyFavorites
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -30,7 +30,7 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMyFavorites));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm04MyFavorites));
             this.pnlSecretFrame = new System.Windows.Forms.Panel();
             this.pnlFavoriteDisplay = new System.Windows.Forms.Panel();
             this.pnlFavoriteImage = new System.Windows.Forms.Panel();
@@ -185,14 +185,14 @@ namespace Mathre
             this.imgFavoriteImages.Images.SetKeyName(2, "Hobby.jpg");
             this.imgFavoriteImages.Images.SetKeyName(3, "Movie.jpg");
             // 
-            // FrmMyFavorites
+            // Frm04MyFavorites
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlSecretFrame);
-            this.Name = "FrmMyFavorites";
+            this.Name = "Frm04MyFavorites";
             this.Text = "My Favorites";
             this.pnlSecretFrame.ResumeLayout(false);
             this.pnlFavoriteDisplay.ResumeLayout(false);

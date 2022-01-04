@@ -1,7 +1,7 @@
 
 namespace Mathre
 {
-	partial class FrmTemperature
+	partial class Frm05Temperature
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -186,14 +186,14 @@ namespace Mathre
             this.lblTemperatureTitle.Text = "Temperature Converter";
             this.lblTemperatureTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmTemperature
+            // Frm05Temperature
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlSecretFrame);
-            this.Name = "FrmTemperature";
+            this.Name = "Frm05Temperature";
             this.Text = "Temperature Converter";
             this.pnlSecretFrame.ResumeLayout(false);
             this.pnlTemperatureResults.ResumeLayout(false);

@@ -1,7 +1,7 @@
 ﻿
 namespace Mathre
 {
-	partial class FrmHelloWorld
+	partial class Frm01HelloWorld
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -159,14 +159,14 @@ namespace Mathre
             this.pnlHelloWorldFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlHelloWorldFrame.TabIndex = 31;
             // 
-            // FrmHelloWorld
+            // Frm01HelloWorld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlHelloWorldFrame);
-            this.Name = "FrmHelloWorld";
+            this.Name = "Frm01HelloWorld";
             this.Text = "Hello World";
             this.pnlHelloWorld.ResumeLayout(false);
             this.pnlHelloWorld.PerformLayout();

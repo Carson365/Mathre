@@ -9,9 +9,9 @@ namespace Mathre.My
         internal partial class MyForms
         {
             [EditorBrowsable(EditorBrowsableState.Never)]
-            public FrmMathre m_FrmMathre;
+            public Frm00Mathre m_FrmMathre;
 
-            public FrmMathre FrmMathre
+            public Frm00Mathre FrmMathre
             {
                 [DebuggerHidden]
                 get

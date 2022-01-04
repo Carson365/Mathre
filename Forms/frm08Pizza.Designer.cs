@@ -1,7 +1,7 @@
 
 namespace Mathre
 {
-	partial class FrmPizza
+	partial class Frm08Pizza
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -30,7 +30,7 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPizza));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm08Pizza));
             this.pnlSecretFrame = new System.Windows.Forms.Panel();
             this.lblPizzaTitle = new System.Windows.Forms.Label();
             this.pnlPizzaCost = new System.Windows.Forms.Panel();
@@ -258,14 +258,14 @@ namespace Mathre
             this.imgFavoriteImages.Images.SetKeyName(1, "MediumPizza.png");
             this.imgFavoriteImages.Images.SetKeyName(2, "SmallPizza.png");
             // 
-            // FrmPizza
+            // Frm08Pizza
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlSecretFrame);
-            this.Name = "FrmPizza";
+            this.Name = "Frm08Pizza";
             this.Text = "Pizza Delivery";
             this.pnlSecretFrame.ResumeLayout(false);
             this.pnlPizzaCost.ResumeLayout(false);

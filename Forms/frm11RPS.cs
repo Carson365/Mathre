@@ -5,16 +5,16 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmRPS : Form
+	public partial class Frm11RPS : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmRPS ThisForm;
+		public static Frm00Mathre BaseForm;
+		public static Frm11RPS ThisForm;
 		private int playerscore = 0;
 		private int computerscore = 0;
 		private int drawamount = 0;
 		private int points = 20;
 		private int wager = 0;
-		public FrmRPS()
+		public Frm11RPS()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -30,8 +30,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmRPS>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm11RPS>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

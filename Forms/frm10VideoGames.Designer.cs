@@ -1,6 +1,6 @@
 namespace Mathre
 {
-	partial class FrmVideoGames
+	partial class Frm10VideoGames
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmVideoGames));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm10VideoGames));
             this.pnlVideoGamesFrame = new System.Windows.Forms.Panel();
             this.lblVideoGamesTitle = new System.Windows.Forms.Label();
             this.pnlVideoGamesDisplay = new System.Windows.Forms.Panel();
@@ -282,14 +282,14 @@ namespace Mathre
             this.imgGames.Images.SetKeyName(4, "Minecraft-PS4.jpg");
             this.imgGames.Images.SetKeyName(5, "Doom-PS4.jpg");
             // 
-            // FrmVideoGames
+            // Frm10VideoGames
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlVideoGamesFrame);
-            this.Name = "FrmVideoGames";
+            this.Name = "Frm10VideoGames";
             this.Text = "Video Game Orders";
             this.pnlVideoGamesFrame.ResumeLayout(false);
             this.pnlVideoGamesDisplay.ResumeLayout(false);

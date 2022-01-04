@@ -117,15 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btnRectangleCalculate.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wQAADsEBuJFr7QAAANtJREFUSEvdkcsKAjEMRQcFwYUgLvz/P61p00eae6sdprOxcGh68sJxCyGcDpWr
-        oXI1VK4GhaijwEwQpGgPu5eMDssbJ1eblxyIiSXssP7qQPzVEuGV4+lj+0tcHYgfS1ztTXgIT+PkajXJ
-        gRgscTV3+7ZoqXMg3BKf98QSLWvvElcHQpu6X8JqRm+fSw6EKMF/rovLS9j3sLg6EDqk+1xyriZHiflS
-        U+LqQGjT8D+JSnXvCyzXPZLQIe8cQz57udBHWK57JPFlwAzTS44CM704AypXQ+VqqFxL2D68PrBuZryw
-        8AAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

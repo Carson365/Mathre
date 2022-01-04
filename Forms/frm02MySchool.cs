@@ -6,11 +6,11 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmMySchool : Form
+	public partial class Frm02MySchool : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmMySchool ThisForm;
-		public FrmMySchool()
+		public static Frm00Mathre BaseForm;
+		public static Frm02MySchool ThisForm;
+		public Frm02MySchool()
 		{
 			InitializeComponent();
 			btnMySchoolToggleMascot.Click += MySchool;
@@ -18,8 +18,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmMySchool>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm02MySchool>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

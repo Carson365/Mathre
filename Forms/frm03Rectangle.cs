@@ -6,13 +6,13 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmRectangle : Form
+	public partial class Frm03Rectangle : Form
 	{
 		public static object Placeholder;
-		public static FrmMathre BaseForm;
-		public static FrmRectangle ThisForm;
+		public static Frm00Mathre BaseForm;
+		public static Frm03Rectangle ThisForm;
 		public int lastvalue = 0;
-		public FrmRectangle()
+		public Frm03Rectangle()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -23,7 +23,7 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			lblRectangleError.Visible = false;
 			pnlRectangle.Visible = false;
 			foreach (Control c in Controls)

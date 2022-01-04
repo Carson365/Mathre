@@ -5,7 +5,7 @@ namespace Mathre
 {
 	public partial class FrmUnknown : Form
 	{
-		public static FrmMathre BaseForm;
+		public static Frm00Mathre BaseForm;
 		public static FrmUnknown ThisForm;
 		public FrmUnknown()
 		{
@@ -14,7 +14,7 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			ThisForm = Application.OpenForms.OfType<FrmUnknown>().Single();
 			foreach (Control c in Controls)
 			{

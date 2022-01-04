@@ -1,21 +1,24 @@
 using System;
 using System.Drawing;
+using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 namespace Mathre
 {
-	public partial class FrmMathre : Form
+	public partial class Frm00Mathre : Form
 	{
 		private string AccentColor;
 		private static Color SystemColor;
 		private bool hidden;
 		private Size FormSize;
-		public FrmMathre()
+		public Frm00Mathre()
 		{
 			InitializeComponent();
-			FrmHelloWorld HW = new();
-			FrmMySchool MS = new();
-			FrmTemperature TC = new();
-			FrmVideoGames VG = new();
+			Frm01HelloWorld HW = new();
+			Frm02MySchool MS = new();
+			Frm05Temperature TC = new();
+			Frm10VideoGames VG = new();
 			KeyDown += KeyboardShortcuts;
 			mnuExit.Click += Exit;
 			mnuMySchoolToggleMascot.Click += MS.MySchool;
@@ -30,9 +33,37 @@ namespace Mathre
 			tabMathre.SelectedIndexChanged += FormManager;
 			mnuPS4.Click += VG.Transfer;
 			mnuXB1.Click += VG.Transfer;
+			Shown += LoadEvent;
 		}
-		public void FormLoad(object sender, EventArgs e)
+		public void LoadEvent(object sender, EventArgs e)
 		{
+			//
+			tabMathre.TabPages.Clear();
+			Type formType = typeof(Form);
+			foreach (Type type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name))
+			{
+				if (formType.IsAssignableFrom(type))
+				{
+					if ($"{type.Name}" != "Frm00Mathre")
+					{
+						var form = Activator.CreateInstance(Type.GetType($"{type}")) as Form;
+						form.Size = FormSize;
+						form.FormBorderStyle = FormBorderStyle.None;
+						form.Left = 0;
+						form.Top = 45;
+						form.TopLevel = false;
+						form.Visible = true;
+						this.Controls.Add(form);
+						form.Focus();
+						Resized(null, null);
+						TabPage abc = new();
+						abc.Name = $"{Regex.Replace(form.Name, @"Frm\d*", "tab")}";
+						abc.Text = $"{form.Text}";
+						tabMathre.TabPages.Add(abc);
+					}
+					}
+				}
+			//
 			hidden = true;
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
@@ -46,17 +77,17 @@ namespace Mathre
 			}
 			foreach (ToolStripItem Item in mnuFavorites.DropDownItems)
 			{
-				FrmMyFavorites MF = new();
+				Frm04MyFavorites MF = new();
 				Item.Click += MF.Favorites;
 			}
 			foreach (ToolStripItem Item in mnuGrade.DropDownItems)
 			{
-				FrmGrade GC = new();
+				Frm09Grade GC = new();
 				Item.Click += GC.ButtonSelector;
 			}
 			foreach (ToolStripItem Item in mnuPizza.DropDownItems)
 			{
-				FrmPizza PD = new();
+				Frm08Pizza PD = new();
 				Item.Click += PD.Pizza;
 			}
 			foreach (Control c in Controls)
@@ -65,20 +96,23 @@ namespace Mathre
 			}
 			foreach (ToolStripItem Item in mnuRPS.DropDownItems)
 			{
-				FrmRPS RG = new();
+				Frm11RPS RG = new();
 				Item.Click += RG.MenuHandler;
 			}
 			foreach (ToolStripItem Item in mnuHurricane.DropDownItems)
 			{
-				FrmHurricane HC = new();
+				Frm12Hurricane HC = new();
 				Item.Click += HC.MenuHandler;
 			}
 			foreach (ToolStripItem Item in mnuSlots.DropDownItems)
 			{
-				FrmSlots SM = new();
+				Frm13Slots SM = new();
 				Item.Click += SM.MenuHandler;
 			}
 			tabMathre.TabPages.Remove(tabSecret);
+			//
+			// Old Tab saved by name
+			//
 			foreach (TabPage c in tabMathre.TabPages)
 			{
 				ToolStripMenuItem item = new();
@@ -86,19 +120,6 @@ namespace Mathre
 				item.Text = c.Text.ToString();
 				item.Click += new EventHandler(PageSelect);
 				mnuView.DropDownItems.Add(item);
-			}
-			foreach (TabPage Page in tabMathre.TabPages)
-			{
-				var form = Activator.CreateInstance(Type.GetType("Mathre." + Page.Name.Replace("tab", "Frm"))) as Form;
-				form.Size = FormSize;
-				form.FormBorderStyle = FormBorderStyle.None;
-				form.Left = 0;
-				form.Top = 45;
-				form.TopLevel = false;
-				form.Visible = true;
-				this.Controls.Add(form);
-				form.Focus();
-				Resized(null, null);
 			}
 			MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
@@ -116,28 +137,32 @@ namespace Mathre
 		}
 		public void FormManager(object sender, EventArgs e)
 		{
-			for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
+			if (Application.OpenForms.Count > 0 && tabMathre.TabPages.Count > 0)
 			{
-				if (Application.OpenForms[i].Name != "FrmMathre" && Application.OpenForms[i].Name != tabMathre.SelectedTab.Name.Replace("tab", "Frm"))
+				for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
 				{
-					Application.OpenForms[i].Hide();
+					Console.WriteLine(Application.OpenForms[i].Name);
+					if (Application.OpenForms[i].Name != "Frm00Mathre" && Regex.Replace(Application.OpenForms[i].Name, @"Frm\d*", "tab") != tabMathre.SelectedTab.Name)
+					{
+						Application.OpenForms[i].Hide();
+					}
+					else if (Application.OpenForms[i].Name != "Frm00Mathre")
+					{
+						Application.OpenForms[i].Show();
+					}
 				}
-				else if (Application.OpenForms[i].Name != "FrmMathre")
+				if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmSlots")
 				{
-					Application.OpenForms[i].Show();
+					// Slots MessageBox code
+					Frm13Slots SM = new();
+					SM.Tabbed(null, null);
 				}
-			}
-			if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmSlots")
-			{
-				// Slots MessageBox code
-				FrmSlots SM = new();
-				SM.Tabbed(null, null);
-			}
-			if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmAcronym")
-			{
-				// Slots MessageBox code
-				FrmAcronym AM = new();
-				AM.Tabbed(null, null);
+				if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmAcronym")
+				{
+					// Slots MessageBox code
+					Frm14Acronym AM = new();
+					AM.Tabbed(null, null);
+				}
 			}
 		}
 		public void PageSelect(object sender, EventArgs e)
@@ -161,7 +186,7 @@ namespace Mathre
 		}
 		public void KeyboardShortcuts(object sender, KeyEventArgs e)
 		{
-			FrmHelloWorld HW = new();
+			Frm01HelloWorld HW = new();
 			if (e.Control & e.KeyCode == Keys.S)
 			{
 				if (hidden == true)

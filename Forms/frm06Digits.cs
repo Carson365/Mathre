@@ -5,11 +5,11 @@ using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class FrmDigits : Form
+	public partial class Frm06Digits : Form
 	{
-		public static FrmMathre BaseForm;
+		public static Frm00Mathre BaseForm;
 		public OrderedDictionary betterDictionary = new();
-		public FrmDigits()
+		public Frm06Digits()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -20,7 +20,7 @@ namespace Mathre
 		{
 			lblDigitsListOdds.Text = "";
 			lblDigitsListEvens.Text = "";
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

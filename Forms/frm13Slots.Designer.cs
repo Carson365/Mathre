@@ -1,6 +1,6 @@
 ﻿namespace Mathre
 {
-	partial class FrmSlots
+	partial class Frm13Slots
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -28,12 +28,12 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.pnlSlots = new System.Windows.Forms.Panel();
-            this.pnlSlotsGame = new System.Windows.Forms.Panel();
+            this.pnlFrame = new System.Windows.Forms.Panel();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lbl3 = new System.Windows.Forms.Label();
             this.lbl2 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.pnlSlotsActions = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.btnSpin = new System.Windows.Forms.Button();
             this.chbDouble = new System.Windows.Forms.CheckBox();
@@ -42,38 +42,38 @@
             this.chbAuto = new System.Windows.Forms.CheckBox();
             this.lblWinIndicator = new System.Windows.Forms.Label();
             this.chbMessage = new System.Windows.Forms.CheckBox();
-            this.lblSlotsTitle = new System.Windows.Forms.Label();
-            this.pnlSlots.SuspendLayout();
-            this.pnlSlotsGame.SuspendLayout();
-            this.pnlSlotsActions.SuspendLayout();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlFrame.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.pnlWager.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlSlots
+            // pnlFrame
             // 
-            this.pnlSlots.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlSlots.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSlots.Controls.Add(this.pnlSlotsGame);
-            this.pnlSlots.Controls.Add(this.pnlSlotsActions);
-            this.pnlSlots.Controls.Add(this.lblSlotsTitle);
-            this.pnlSlots.Location = new System.Drawing.Point(-8, -20);
-            this.pnlSlots.Name = "pnlSlots";
-            this.pnlSlots.Size = new System.Drawing.Size(1000, 500);
-            this.pnlSlots.TabIndex = 35;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 35;
             // 
-            // pnlSlotsGame
+            // pnlBody2
             // 
-            this.pnlSlotsGame.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlSlotsGame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlSlotsGame.Controls.Add(this.lbl3);
-            this.pnlSlotsGame.Controls.Add(this.lbl2);
-            this.pnlSlotsGame.Controls.Add(this.lbl1);
-            this.pnlSlotsGame.Location = new System.Drawing.Point(287, 276);
-            this.pnlSlotsGame.Name = "pnlSlotsGame";
-            this.pnlSlotsGame.Size = new System.Drawing.Size(426, 136);
-            this.pnlSlotsGame.TabIndex = 35;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.lbl3);
+            this.pnlBody2.Controls.Add(this.lbl2);
+            this.pnlBody2.Controls.Add(this.lbl1);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
+            this.pnlBody2.TabIndex = 35;
             // 
             // lbl3
             // 
@@ -102,18 +102,18 @@
             this.lbl1.TabIndex = 0;
             this.lbl1.Text = "Spin Wheel 1";
             // 
-            // pnlSlotsActions
+            // pnlBody
             // 
-            this.pnlSlotsActions.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlSlotsActions.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlSlotsActions.Controls.Add(this.pnlWager);
-            this.pnlSlotsActions.Controls.Add(this.chbAuto);
-            this.pnlSlotsActions.Controls.Add(this.lblWinIndicator);
-            this.pnlSlotsActions.Controls.Add(this.chbMessage);
-            this.pnlSlotsActions.Location = new System.Drawing.Point(287, 165);
-            this.pnlSlotsActions.Name = "pnlSlotsActions";
-            this.pnlSlotsActions.Size = new System.Drawing.Size(426, 105);
-            this.pnlSlotsActions.TabIndex = 34;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlWager);
+            this.pnlBody.Controls.Add(this.chbAuto);
+            this.pnlBody.Controls.Add(this.lblWinIndicator);
+            this.pnlBody.Controls.Add(this.chbMessage);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 34;
             // 
             // pnlWager
             // 
@@ -194,32 +194,32 @@
             this.chbMessage.Text = "Detail View";
             this.chbMessage.UseVisualStyleBackColor = true;
             // 
-            // lblSlotsTitle
+            // lblTitle
             // 
-            this.lblSlotsTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblSlotsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSlotsTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblSlotsTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblSlotsTitle.Name = "lblSlotsTitle";
-            this.lblSlotsTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblSlotsTitle.TabIndex = 33;
-            this.lblSlotsTitle.Text = "Slot Machine";
-            this.lblSlotsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "Slot Machine";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmSlots
+            // Frm13Slots
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlSlots);
-            this.Name = "FrmSlots";
+            this.Controls.Add(this.pnlFrame);
+            this.Name = "Frm13Slots";
             this.Text = "Slot Machine";
-            this.pnlSlots.ResumeLayout(false);
-            this.pnlSlotsGame.ResumeLayout(false);
-            this.pnlSlotsGame.PerformLayout();
-            this.pnlSlotsActions.ResumeLayout(false);
-            this.pnlSlotsActions.PerformLayout();
+            this.pnlFrame.ResumeLayout(false);
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody2.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.pnlWager.ResumeLayout(false);
             this.pnlWager.PerformLayout();
             this.ResumeLayout(false);
@@ -228,11 +228,11 @@
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlSlots;
-		private System.Windows.Forms.Panel pnlSlotsGame;
-		private System.Windows.Forms.Panel pnlSlotsActions;
+		public System.Windows.Forms.Panel pnlFrame;
+		private System.Windows.Forms.Panel pnlBody2;
+		private System.Windows.Forms.Panel pnlBody;
 		private System.Windows.Forms.CheckBox chbMessage;
-		internal System.Windows.Forms.Label lblSlotsTitle;
+		internal System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Label lbl3;
 		private System.Windows.Forms.Label lbl2;
 		private System.Windows.Forms.Label lbl1;

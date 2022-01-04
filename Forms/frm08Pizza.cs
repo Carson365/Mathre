@@ -8,11 +8,11 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmPizza : Form
+	public partial class Frm08Pizza : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmPizza ThisForm;
-		public FrmPizza()
+		public static Frm00Mathre BaseForm;
+		public static Frm08Pizza ThisForm;
+		public Frm08Pizza()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -27,8 +27,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmPizza>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm08Pizza>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

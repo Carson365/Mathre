@@ -1,7 +1,7 @@
 
 namespace Mathre
 {
-	partial class FrmChange
+	partial class Frm07Change
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -381,14 +381,14 @@ namespace Mathre
             this.lblChangeMakerTitle.Text = "Change Maker";
             this.lblChangeMakerTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmChange
+            // Frm07Change
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlSecretFrame);
-            this.Name = "FrmChange";
+            this.Name = "Frm07Change";
             this.Text = "Change Maker";
             this.pnlSecretFrame.ResumeLayout(false);
             this.pnlChangeList.ResumeLayout(false);

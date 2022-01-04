@@ -5,17 +5,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmSlots : Form
+	public partial class Frm13Slots : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmSlots ThisForm;
+		public static Frm00Mathre BaseForm;
+		public static Frm13Slots ThisForm;
 		public int tokens = 30;
 		public int change = 0;
 		public bool auto = true;
 		public bool loadedonce = false;
 		int counter = 0;
 		string PlayerName = "";
-		public FrmSlots()
+		public Frm13Slots()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -24,8 +24,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmSlots>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm13Slots>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

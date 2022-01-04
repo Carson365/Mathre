@@ -1,7 +1,7 @@
 
 namespace Mathre
 {
-	partial class FrmRectangle
+	partial class Frm03Rectangle
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,7 +29,7 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRectangle));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm03Rectangle));
             this.pnlHelloWorldFrame = new System.Windows.Forms.Panel();
             this.pnlRectangleContainer = new System.Windows.Forms.Panel();
             this.lblRectangleError = new System.Windows.Forms.Label();
@@ -204,14 +204,14 @@ namespace Mathre
             this.lblRectanglePerimeter.Text = "Perimeter";
             this.lblRectanglePerimeter.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // FrmRectangle
+            // Frm03Rectangle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlHelloWorldFrame);
-            this.Name = "FrmRectangle";
+            this.Name = "Frm03Rectangle";
             this.Text = "Rectangle Calculator";
             this.pnlHelloWorldFrame.ResumeLayout(false);
             this.pnlRectangleContainer.ResumeLayout(false);

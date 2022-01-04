@@ -3,14 +3,14 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmSum : Form
+	public partial class Frm15Sum : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmSum ThisForm;
+		public static Frm00Mathre BaseForm;
+		public static Frm15Sum ThisForm;
 		public static int counter;
 		public static int countercount;
 		public static int total;
-		public FrmSum()
+		public Frm15Sum()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -21,8 +21,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmSum>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm15Sum>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

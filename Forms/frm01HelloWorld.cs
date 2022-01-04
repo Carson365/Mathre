@@ -6,12 +6,12 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmHelloWorld : Form
+	public partial class Frm01HelloWorld : Form
 	{
 		private string StartingLanguage;
-		public static FrmMathre BaseForm;
-		public static FrmHelloWorld ThisForm;
-		public FrmHelloWorld()
+		public static Frm00Mathre BaseForm;
+		public static Frm01HelloWorld ThisForm;
+		public Frm01HelloWorld()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -22,8 +22,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmHelloWorld>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(this);

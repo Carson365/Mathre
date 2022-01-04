@@ -1,6 +1,6 @@
 ﻿namespace Mathre
 {
-	partial class FrmAcronym
+	partial class Frm14Acronym
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -95,14 +95,14 @@
             this.lblTitle.Text = "Acronym Maker";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmAcronym
+            // Frm14Acronym
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlFrame);
-            this.Name = "FrmAcronym";
+            this.Name = "Frm14Acronym";
             this.Text = "Acronym Maker";
             this.pnlFrame.ResumeLayout(false);
             this.pnlBody.ResumeLayout(false);

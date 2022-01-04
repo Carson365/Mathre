@@ -1,6 +1,6 @@
 ﻿namespace Mathre
 {
-	partial class FrmHurricane
+	partial class Frm12Hurricane
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,12 +29,12 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHurricane));
-            this.pnlHurricaneFrame = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm12Hurricane));
+            this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlHurricaneList = new System.Windows.Forms.Panel();
             this.lstHurricaneList = new System.Windows.Forms.ListView();
-            this.lblHurricaneTitle = new System.Windows.Forms.Label();
-            this.pnlHurricaneOutput = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.llbName = new System.Windows.Forms.LinkLabel();
             this.picHurricaneType = new System.Windows.Forms.PictureBox();
             this.chbDamage = new System.Windows.Forms.CheckBox();
@@ -45,33 +45,33 @@
             this.lblType = new System.Windows.Forms.Label();
             this.lblTypeLabel = new System.Windows.Forms.Label();
             this.lblNameLabel = new System.Windows.Forms.Label();
-            this.pnlHurricaneInput = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.btnCalculate = new System.Windows.Forms.Button();
             this.btnRandom = new System.Windows.Forms.Button();
             this.lblSpeed = new System.Windows.Forms.Label();
             this.txtMPH = new System.Windows.Forms.TextBox();
             this.imgHurricanes = new System.Windows.Forms.ImageList(this.components);
-            this.pnlHurricaneFrame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
             this.pnlHurricaneList.SuspendLayout();
-            this.pnlHurricaneOutput.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHurricaneType)).BeginInit();
-            this.pnlHurricaneInput.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
-            // pnlHurricaneFrame
+            // pnlFrame
             // 
-            this.pnlHurricaneFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlHurricaneFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHurricaneFrame.Controls.Add(this.pnlHurricaneList);
-            this.pnlHurricaneFrame.Controls.Add(this.lblHurricaneTitle);
-            this.pnlHurricaneFrame.Controls.Add(this.pnlHurricaneOutput);
-            this.pnlHurricaneFrame.Controls.Add(this.pnlHurricaneInput);
-            this.pnlHurricaneFrame.Location = new System.Drawing.Point(-8, -20);
-            this.pnlHurricaneFrame.Name = "pnlHurricaneFrame";
-            this.pnlHurricaneFrame.Size = new System.Drawing.Size(1200, 500);
-            this.pnlHurricaneFrame.TabIndex = 34;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlHurricaneList);
+            this.pnlFrame.Controls.Add(this.lblTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1200, 500);
+            this.pnlFrame.TabIndex = 34;
             // 
             // pnlHurricaneList
             // 
@@ -97,36 +97,36 @@
             this.lstHurricaneList.UseCompatibleStateImageBehavior = false;
             this.lstHurricaneList.View = System.Windows.Forms.View.Details;
             // 
-            // lblHurricaneTitle
+            // lblTitle
             // 
-            this.lblHurricaneTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHurricaneTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHurricaneTitle.Location = new System.Drawing.Point(287, 95);
-            this.lblHurricaneTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblHurricaneTitle.Name = "lblHurricaneTitle";
-            this.lblHurricaneTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblHurricaneTitle.TabIndex = 33;
-            this.lblHurricaneTitle.Text = "Hurricane!";
-            this.lblHurricaneTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(287, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "Hurricane!";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlHurricaneOutput
+            // pnlBody2
             // 
-            this.pnlHurricaneOutput.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlHurricaneOutput.BackColor = System.Drawing.Color.Transparent;
-            this.pnlHurricaneOutput.Controls.Add(this.llbName);
-            this.pnlHurricaneOutput.Controls.Add(this.picHurricaneType);
-            this.pnlHurricaneOutput.Controls.Add(this.chbDamage);
-            this.pnlHurricaneOutput.Controls.Add(this.lblKnots);
-            this.pnlHurricaneOutput.Controls.Add(this.lblKnotsLabel);
-            this.pnlHurricaneOutput.Controls.Add(this.lblCategory);
-            this.pnlHurricaneOutput.Controls.Add(this.lblCategoryLabel);
-            this.pnlHurricaneOutput.Controls.Add(this.lblType);
-            this.pnlHurricaneOutput.Controls.Add(this.lblTypeLabel);
-            this.pnlHurricaneOutput.Controls.Add(this.lblNameLabel);
-            this.pnlHurricaneOutput.Location = new System.Drawing.Point(135, 276);
-            this.pnlHurricaneOutput.Name = "pnlHurricaneOutput";
-            this.pnlHurricaneOutput.Size = new System.Drawing.Size(325, 136);
-            this.pnlHurricaneOutput.TabIndex = 35;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.llbName);
+            this.pnlBody2.Controls.Add(this.picHurricaneType);
+            this.pnlBody2.Controls.Add(this.chbDamage);
+            this.pnlBody2.Controls.Add(this.lblKnots);
+            this.pnlBody2.Controls.Add(this.lblKnotsLabel);
+            this.pnlBody2.Controls.Add(this.lblCategory);
+            this.pnlBody2.Controls.Add(this.lblCategoryLabel);
+            this.pnlBody2.Controls.Add(this.lblType);
+            this.pnlBody2.Controls.Add(this.lblTypeLabel);
+            this.pnlBody2.Controls.Add(this.lblNameLabel);
+            this.pnlBody2.Location = new System.Drawing.Point(135, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(325, 136);
+            this.pnlBody2.TabIndex = 35;
             // 
             // llbName
             // 
@@ -238,18 +238,18 @@
             this.lblNameLabel.TabIndex = 27;
             this.lblNameLabel.Text = "Name:";
             // 
-            // pnlHurricaneInput
+            // pnlBody
             // 
-            this.pnlHurricaneInput.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlHurricaneInput.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlHurricaneInput.Controls.Add(this.btnCalculate);
-            this.pnlHurricaneInput.Controls.Add(this.btnRandom);
-            this.pnlHurricaneInput.Controls.Add(this.lblSpeed);
-            this.pnlHurricaneInput.Controls.Add(this.txtMPH);
-            this.pnlHurricaneInput.Location = new System.Drawing.Point(135, 165);
-            this.pnlHurricaneInput.Name = "pnlHurricaneInput";
-            this.pnlHurricaneInput.Size = new System.Drawing.Size(325, 105);
-            this.pnlHurricaneInput.TabIndex = 34;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.btnCalculate);
+            this.pnlBody.Controls.Add(this.btnRandom);
+            this.pnlBody.Controls.Add(this.lblSpeed);
+            this.pnlBody.Controls.Add(this.txtMPH);
+            this.pnlBody.Location = new System.Drawing.Point(135, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(325, 105);
+            this.pnlBody.TabIndex = 34;
             // 
             // btnCalculate
             // 
@@ -303,34 +303,34 @@
             this.imgHurricanes.Images.SetKeyName(5, "TS0.png");
             this.imgHurricanes.Images.SetKeyName(6, "TD0.png");
             // 
-            // FrmHurricane
+            // Frm12Hurricane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1184, 461);
-            this.Controls.Add(this.pnlHurricaneFrame);
-            this.Name = "FrmHurricane";
+            this.Controls.Add(this.pnlFrame);
+            this.Name = "Frm12Hurricane";
             this.Text = "Hurricane!";
-            this.pnlHurricaneFrame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
             this.pnlHurricaneList.ResumeLayout(false);
-            this.pnlHurricaneOutput.ResumeLayout(false);
-            this.pnlHurricaneOutput.PerformLayout();
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHurricaneType)).EndInit();
-            this.pnlHurricaneInput.ResumeLayout(false);
-            this.pnlHurricaneInput.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlHurricaneFrame;
-		internal System.Windows.Forms.Label lblHurricaneTitle;
-		private System.Windows.Forms.Panel pnlHurricaneOutput;
+		public System.Windows.Forms.Panel pnlFrame;
+		internal System.Windows.Forms.Label lblTitle;
+		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Label lblType;
 		internal System.Windows.Forms.Label lblTypeLabel;
-		private System.Windows.Forms.Panel pnlHurricaneInput;
+		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.Label lblSpeed;
 		internal System.Windows.Forms.Label lblNameLabel;
 		internal System.Windows.Forms.TextBox txtMPH;

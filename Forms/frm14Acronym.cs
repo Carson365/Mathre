@@ -4,19 +4,19 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmAcronym : Form
+	public partial class Frm14Acronym : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmAcronym ThisForm;
-		public FrmAcronym()
+		public static Frm00Mathre BaseForm;
+		public static Frm14Acronym ThisForm;
+		public Frm14Acronym()
 		{
 			InitializeComponent();
 			Load += FormLoad;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmAcronym>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm14Acronym>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

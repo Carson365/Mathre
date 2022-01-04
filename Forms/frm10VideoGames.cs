@@ -10,11 +10,11 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmVideoGames : Form
+	public partial class Frm10VideoGames : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmVideoGames ThisForm;
-		public FrmVideoGames()
+		public static Frm00Mathre BaseForm;
+		public static Frm10VideoGames ThisForm;
+		public Frm10VideoGames()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -29,8 +29,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmVideoGames>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm10VideoGames>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

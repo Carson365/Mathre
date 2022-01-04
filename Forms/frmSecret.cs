@@ -6,7 +6,7 @@ namespace Mathre
 {
 	public partial class FrmSecret : Form
 	{
-		public static FrmMathre BaseForm;
+		public static Frm00Mathre BaseForm;
 		public static FrmSecret ThisForm;
 		public FrmSecret()
 		{
@@ -18,7 +18,7 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e) //Formload event handler
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			ThisForm = Application.OpenForms.OfType<FrmSecret>().Single();
 			foreach (Control c in Controls)
 			{

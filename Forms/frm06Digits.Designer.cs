@@ -1,7 +1,7 @@
 
 namespace Mathre
 {
-	partial class FrmDigits
+	partial class Frm06Digits
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -180,14 +180,14 @@ namespace Mathre
             this.lblDigitsTitle.Text = "Numerical Digit Separator";
             this.lblDigitsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmDigits
+            // Frm06Digits
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlSecretFrame);
-            this.Name = "FrmDigits";
+            this.Name = "Frm06Digits";
             this.Text = "Digit Separator";
             this.pnlSecretFrame.ResumeLayout(false);
             this.pnlDigitsResults.ResumeLayout(false);

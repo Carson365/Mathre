@@ -1,6 +1,6 @@
 ﻿namespace Mathre
 {
-	partial class FrmRPS
+	partial class Frm11RPS
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -29,20 +29,22 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRPS));
-            this.pnlRPS = new System.Windows.Forms.Panel();
-            this.pnlRPSGame = new System.Windows.Forms.Panel();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm11RPS));
+            this.pnlFrame = new System.Windows.Forms.Panel();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.pnlComputer = new System.Windows.Forms.Panel();
             this.pnlRPSChoice2 = new System.Windows.Forms.Panel();
             this.btnRock2 = new System.Windows.Forms.RadioButton();
             this.btnPaper2 = new System.Windows.Forms.RadioButton();
             this.btnScissors2 = new System.Windows.Forms.RadioButton();
+            this.picRPS2 = new System.Windows.Forms.PictureBox();
             this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlRPSChoice = new System.Windows.Forms.Panel();
             this.btnRock = new System.Windows.Forms.RadioButton();
             this.btnPaper = new System.Windows.Forms.RadioButton();
             this.btnScissors = new System.Windows.Forms.RadioButton();
-            this.pnlRPSSelect = new System.Windows.Forms.Panel();
+            this.picRPS = new System.Windows.Forms.PictureBox();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.numWager = new System.Windows.Forms.NumericUpDown();
             this.lblWager = new System.Windows.Forms.Label();
@@ -60,48 +62,46 @@
             this.lblComputer = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.lblPlayer = new System.Windows.Forms.Label();
-            this.lblRPSTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.imgRPS = new System.Windows.Forms.ImageList(this.components);
-            this.picRPS2 = new System.Windows.Forms.PictureBox();
-            this.picRPS = new System.Windows.Forms.PictureBox();
-            this.pnlRPS.SuspendLayout();
-            this.pnlRPSGame.SuspendLayout();
+            this.pnlFrame.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
             this.pnlComputer.SuspendLayout();
             this.pnlRPSChoice2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).BeginInit();
             this.pnlPlayer.SuspendLayout();
             this.pnlRPSChoice.SuspendLayout();
-            this.pnlRPSSelect.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS)).BeginInit();
+            this.pnlBody.SuspendLayout();
             this.pnlWager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).BeginInit();
             this.pnlScoreDisplay.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS)).BeginInit();
             this.SuspendLayout();
             // 
-            // pnlRPS
+            // pnlFrame
             // 
-            this.pnlRPS.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.pnlFrame.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlRPS.BackColor = System.Drawing.Color.Transparent;
-            this.pnlRPS.Controls.Add(this.pnlRPSGame);
-            this.pnlRPS.Controls.Add(this.pnlRPSSelect);
-            this.pnlRPS.Controls.Add(this.lblRPSTitle);
-            this.pnlRPS.Location = new System.Drawing.Point(-8, -20);
-            this.pnlRPS.Name = "pnlRPS";
-            this.pnlRPS.Size = new System.Drawing.Size(1000, 500);
-            this.pnlRPS.TabIndex = 34;
+            this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
+            this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
+            this.pnlFrame.Name = "pnlFrame";
+            this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
+            this.pnlFrame.TabIndex = 34;
             // 
-            // pnlRPSGame
+            // pnlBody2
             // 
-            this.pnlRPSGame.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlRPSGame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlRPSGame.Controls.Add(this.pnlComputer);
-            this.pnlRPSGame.Controls.Add(this.pnlPlayer);
-            this.pnlRPSGame.Location = new System.Drawing.Point(287, 276);
-            this.pnlRPSGame.Name = "pnlRPSGame";
-            this.pnlRPSGame.Size = new System.Drawing.Size(426, 136);
-            this.pnlRPSGame.TabIndex = 35;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.pnlComputer);
+            this.pnlBody2.Controls.Add(this.pnlPlayer);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
+            this.pnlBody2.TabIndex = 35;
             // 
             // pnlComputer
             // 
@@ -161,6 +161,17 @@
             this.btnScissors2.Text = "Scissors";
             this.btnScissors2.UseVisualStyleBackColor = true;
             // 
+            // picRPS2
+            // 
+            this.picRPS2.ErrorImage = null;
+            this.picRPS2.InitialImage = null;
+            this.picRPS2.Location = new System.Drawing.Point(9, 11);
+            this.picRPS2.Name = "picRPS2";
+            this.picRPS2.Size = new System.Drawing.Size(180, 76);
+            this.picRPS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picRPS2.TabIndex = 4;
+            this.picRPS2.TabStop = false;
+            // 
             // pnlPlayer
             // 
             this.pnlPlayer.Controls.Add(this.pnlRPSChoice);
@@ -214,18 +225,29 @@
             this.btnScissors.Text = "Scissors";
             this.btnScissors.UseVisualStyleBackColor = true;
             // 
-            // pnlRPSSelect
+            // picRPS
             // 
-            this.pnlRPSSelect.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlRPSSelect.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlRPSSelect.Controls.Add(this.pnlWager);
-            this.pnlRPSSelect.Controls.Add(this.lblWinIndicator);
-            this.pnlRPSSelect.Controls.Add(this.chbDisableMessagebox);
-            this.pnlRPSSelect.Controls.Add(this.pnlScoreDisplay);
-            this.pnlRPSSelect.Location = new System.Drawing.Point(287, 165);
-            this.pnlRPSSelect.Name = "pnlRPSSelect";
-            this.pnlRPSSelect.Size = new System.Drawing.Size(426, 105);
-            this.pnlRPSSelect.TabIndex = 34;
+            this.picRPS.ErrorImage = null;
+            this.picRPS.InitialImage = null;
+            this.picRPS.Location = new System.Drawing.Point(9, 11);
+            this.picRPS.Name = "picRPS";
+            this.picRPS.Size = new System.Drawing.Size(180, 76);
+            this.picRPS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picRPS.TabIndex = 4;
+            this.picRPS.TabStop = false;
+            // 
+            // pnlBody
+            // 
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlWager);
+            this.pnlBody.Controls.Add(this.lblWinIndicator);
+            this.pnlBody.Controls.Add(this.chbDisableMessagebox);
+            this.pnlBody.Controls.Add(this.pnlScoreDisplay);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 34;
             // 
             // pnlWager
             // 
@@ -394,17 +416,17 @@
             this.lblPlayer.TabIndex = 4;
             this.lblPlayer.Text = "Player";
             // 
-            // lblRPSTitle
+            // lblTitle
             // 
-            this.lblRPSTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRPSTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRPSTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblRPSTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblRPSTitle.Name = "lblRPSTitle";
-            this.lblRPSTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblRPSTitle.TabIndex = 33;
-            this.lblRPSTitle.Text = "Rock Paper Scissors";
-            this.lblRPSTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "Rock Paper Scissors";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // imgRPS
             // 
@@ -418,63 +440,41 @@
             this.imgRPS.Images.SetKeyName(5, "RPScissors.png");
             this.imgRPS.Images.SetKeyName(6, "RPScissors2.png");
             // 
-            // picRPS2
-            // 
-            this.picRPS2.ErrorImage = null;
-            this.picRPS2.InitialImage = null;
-            this.picRPS2.Location = new System.Drawing.Point(9, 11);
-            this.picRPS2.Name = "picRPS2";
-            this.picRPS2.Size = new System.Drawing.Size(180, 76);
-            this.picRPS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picRPS2.TabIndex = 4;
-            this.picRPS2.TabStop = false;
-            // 
-            // picRPS
-            // 
-            this.picRPS.ErrorImage = null;
-            this.picRPS.InitialImage = null;
-            this.picRPS.Location = new System.Drawing.Point(9, 11);
-            this.picRPS.Name = "picRPS";
-            this.picRPS.Size = new System.Drawing.Size(180, 76);
-            this.picRPS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picRPS.TabIndex = 4;
-            this.picRPS.TabStop = false;
-            // 
-            // FrmRPS
+            // Frm11RPS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
-            this.Controls.Add(this.pnlRPS);
-            this.Name = "FrmRPS";
+            this.Controls.Add(this.pnlFrame);
+            this.Name = "Frm11RPS";
             this.Text = "Rock Paper Scissors";
-            this.pnlRPS.ResumeLayout(false);
-            this.pnlRPSGame.ResumeLayout(false);
+            this.pnlFrame.ResumeLayout(false);
+            this.pnlBody2.ResumeLayout(false);
             this.pnlComputer.ResumeLayout(false);
             this.pnlRPSChoice2.ResumeLayout(false);
             this.pnlRPSChoice2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).EndInit();
             this.pnlPlayer.ResumeLayout(false);
             this.pnlRPSChoice.ResumeLayout(false);
             this.pnlRPSChoice.PerformLayout();
-            this.pnlRPSSelect.ResumeLayout(false);
-            this.pnlRPSSelect.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS)).EndInit();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.pnlWager.ResumeLayout(false);
             this.pnlWager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).EndInit();
             this.pnlScoreDisplay.ResumeLayout(false);
             this.pnlScoreDisplay.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS)).EndInit();
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		public System.Windows.Forms.Panel pnlRPS;
-		private System.Windows.Forms.Panel pnlRPSSelect;
-		internal System.Windows.Forms.Label lblRPSTitle;
+		public System.Windows.Forms.Panel pnlFrame;
+		private System.Windows.Forms.Panel pnlBody;
+		internal System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Panel pnlScoreDisplay;
 		private System.Windows.Forms.PictureBox picRPS;
 		private System.Windows.Forms.Panel pnlRPSChoice;
@@ -482,7 +482,7 @@
 		private System.Windows.Forms.RadioButton btnScissors;
 		private System.Windows.Forms.RadioButton btnRock;
 		private System.Windows.Forms.Panel pnlPlayer;
-		private System.Windows.Forms.Panel pnlRPSGame;
+		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Panel pnlComputer;
 		private System.Windows.Forms.Panel pnlRPSChoice2;
 		private System.Windows.Forms.RadioButton btnPaper2;

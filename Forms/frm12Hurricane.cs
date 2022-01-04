@@ -15,17 +15,17 @@ using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class FrmHurricane : Form
+	public partial class Frm12Hurricane : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmHurricane ThisForm;
+		public static Frm00Mathre BaseForm;
+		public static Frm12Hurricane ThisForm;
 		public string HurricaneInfo = "";
 		public int RunCount = 0;
 		public Dictionary<int, List<string>> theDictionary = new()
 		{
 			{ 0, new List<string> { "Name", "MPH", "Knots", "Type", "Category", "Damage" } },
 		};
-		public FrmHurricane()
+		public Frm12Hurricane()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -40,8 +40,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmHurricane>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm12Hurricane>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

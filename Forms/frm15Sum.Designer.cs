@@ -1,6 +1,6 @@
 ﻿namespace Mathre
 {
-	partial class FrmSum
+	partial class Frm15Sum
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -167,14 +167,14 @@
             this.lblTitle.Text = "Sum Numbers";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FrmSum
+            // Frm15Sum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlFrame);
-            this.Name = "FrmSum";
+            this.Name = "Frm15Sum";
             this.Text = "Sum Numbers";
             this.pnlFrame.ResumeLayout(false);
             this.pnlDigitsResults.ResumeLayout(false);

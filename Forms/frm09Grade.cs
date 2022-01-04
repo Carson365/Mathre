@@ -5,12 +5,12 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmGrade : Form
+	public partial class Frm09Grade : Form
 	{
-		public static FrmMathre BaseForm;
-		public static FrmGrade ThisForm;
+		public static Frm00Mathre BaseForm;
+		public static Frm09Grade ThisForm;
 		public static int abc = 0;
-		public FrmGrade()
+		public Frm09Grade()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -27,8 +27,8 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmGrade>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
+			ThisForm = Application.OpenForms.OfType<Frm09Grade>().Single();
 			lblScoreDisplay.Text = "";
 			lblPassFail.Text = "";
 			foreach (Control c in Controls)

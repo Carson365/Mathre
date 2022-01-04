@@ -5,10 +5,10 @@ using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class FrmChange : Form
+	public partial class Frm07Change : Form
 	{
-		public static FrmMathre BaseForm;
-		public FrmChange()
+		public static Frm00Mathre BaseForm;
+		public Frm07Change()
 		{
 			InitializeComponent();
 			Load += FormLoad;
@@ -17,7 +17,7 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<FrmMathre>().Single();
+			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls)
 			{
 				BaseForm.GetAllControls(c);

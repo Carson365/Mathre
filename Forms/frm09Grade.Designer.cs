@@ -1,7 +1,7 @@
 
 namespace Mathre
 {
-	partial class FrmGrade
+	partial class Frm09Grade
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -293,14 +293,14 @@ namespace Mathre
             this.btnMethod2.Text = "Method 2";
             this.btnMethod2.UseVisualStyleBackColor = true;
             // 
-            // FrmGrade
+            // Frm09Grade
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlGradeFrame);
-            this.Name = "FrmGrade";
+            this.Name = "Frm09Grade";
             this.Text = "Grade Calculator";
             this.pnlGradeFrame.ResumeLayout(false);
             this.pnlGradeDisplay.ResumeLayout(false);
