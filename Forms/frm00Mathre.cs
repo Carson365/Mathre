@@ -42,16 +42,15 @@ namespace Mathre
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			foreach (Type type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name).Where(t => (typeof(Form).IsAssignableFrom(t)) && t.IsClass && t.FullName.StartsWith("Mathre.") && t.Name != "Frm00Mathre"))
+			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre"))
 			{
-				var form = Activator.CreateInstance(Type.GetType($"{type}")) as Form;
+				var form = Activator.CreateInstance(type) as Form;
 				form.Size = FormSize;
 				form.FormBorderStyle = FormBorderStyle.None;
 				form.Left = 0;
 				form.Top = 45;
 				form.TopLevel = false;
 				form.Visible = true;
-				//form.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
 				Controls.Add(form);
 				form.Focus();
 				form.Width = Width - 16;
