@@ -42,19 +42,6 @@ namespace Mathre
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			//
-			tabMathre.TabPages.Clear();
-			Type formType = typeof(Form);
-			//foreach (Assembly a in AppDomain.CurrentDomain.GetAssemblies().Where(a => !a.FullName.StartsWith("System.") || !a.FullName.StartsWith("Microsoft.")))
-			//{
-			//	var type = a.GetTypes().Where(t => (typeof(Form).IsAssignableFrom(t) || typeof(UserControl).IsAssignableFrom(t)) && t.IsClass && t.FullName.StartsWith("YourNamespace."));
-
-
-			//}
-
-			//
-
-
 			foreach (Type type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name).Where(t => (typeof(Form).IsAssignableFrom(t)) && t.IsClass && t.FullName.StartsWith("Mathre.") && t.Name != "Frm00Mathre"))
 			{
 				var form = Activator.CreateInstance(Type.GetType($"{type}")) as Form;
@@ -87,9 +74,8 @@ namespace Mathre
 					mnuView.DropDownItems.Add(item);
 				}
 			}
-
 			//
-
+			//Type formType = typeof(Form);
 			//foreach (Type type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name))
 			//{
 			//	if (formType.IsAssignableFrom(type))
