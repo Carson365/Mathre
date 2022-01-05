@@ -16,27 +16,21 @@ namespace Mathre
 		public Frm00Mathre()
 		{
 			InitializeComponent();
-			Frm01HelloWorld HW = new();
 			Frm02MySchool MS = new();
 			Frm05Temperature TC = new();
 			Frm10VideoGames VG = new();
-			KeyDown += KeyboardShortcuts;
-			mnuExit.Click += (s, e) => { Close(); };
 			mnuMySchoolToggleMascot.Click += MS.MySchool;
-			mnuHelloWorldReset.Click += HW.HelloWorld;
-			mnuHelloWorldLanguageGerman.Click += HW.HelloWorld;
-			mnuHelloWorldLanguageFrench.Click += HW.HelloWorld;
-			mnuHelloWorldLanguageEnglish.Click += HW.HelloWorld;
-			mnuRandomify.Click += HW.HelloWorld;
 			mnuTemperatureFahrenheit.Click += TC.Temperature;
 			mnuTemperatureCelsius.Click += TC.Temperature;
+			mnuPS4.Click += VG.Transfer;
+			mnuXB1.Click += VG.Transfer;
+			KeyDown += KeyboardShortcuts;
+			mnuExit.Click += (s, e) => { Close(); };
+			tabMathre.SelectedIndexChanged += FormManager;
 			//ResizeEnd += Resized;
 			//ResizeBegin += Resized;
 			Resize += Resized;
-			tabMathre.SelectedIndexChanged += FormManager;
-			mnuPS4.Click += VG.Transfer;
-			mnuXB1.Click += VG.Transfer;
-			Shown += LoadEvent;
+			Load += LoadEvent;
 			//ResizeBegin += (s, e) => { SuspendLayout(); };
 			//ResizeEnd += (s, e) => { ResumeLayout(); };
 		}
@@ -73,47 +67,6 @@ namespace Mathre
 					mnuView.DropDownItems.Add(item);
 				}
 			}
-			//
-			//Type formType = typeof(Form);
-			//foreach (Type type in Assembly.GetExecutingAssembly().GetTypes().OrderBy(x => x.Name))
-			//{
-			//	if (formType.IsAssignableFrom(type))
-			//	{
-			//		if ($"{type.Name}" != "Frm00Mathre")
-			//		{
-			//			var form = Activator.CreateInstance(Type.GetType($"{type}")) as Form;
-			//			form.Size = FormSize;
-			//			form.FormBorderStyle = FormBorderStyle.None;
-			//			form.Left = 0;
-			//			form.Top = 45;
-			//			form.TopLevel = false;
-			//			form.Visible = true;
-			//			//form.Anchor = (AnchorStyles.Bottom | AnchorStyles.Right | AnchorStyles.Left | AnchorStyles.Top);
-			//			Controls.Add(form);
-			//			form.Focus();
-			//			form.Width = Width - 16;
-			//			form.Height = Height - 84;
-			//			TabPage newTab = new();
-			//			newTab.Name = $"{Regex.Replace(form.Name, @"Frm\d*", "tab")}";
-			//			newTab.Text = $"{form.Text}";
-			//			if (newTab.Name == "tabSecret")
-			//			{
-			//				Secret = newTab;
-			//				tabMathre.TabPages.Remove(Secret);
-			//			}
-			//			else
-			//			{
-			//				tabMathre.TabPages.Add(newTab);
-			//				ToolStripMenuItem item = new();
-			//				item.Name = newTab.Name.ToString().Replace("tab", "mnuView");
-			//				item.Text = newTab.Text.ToString();
-			//				item.Click += new EventHandler((sender, e) => { tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab")); });
-			//				mnuView.DropDownItems.Add(item);
-			//			}
-			//}
-			//}
-			//}
-			//
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
 			AccentColor = $"{(ColorKey.GetValue("AccentColor"))}";
@@ -123,8 +76,9 @@ namespace Mathre
 			//
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items)
 			{
-				AddMenuItemHandlers((ToolStripMenuItem)ToolStripMenuItem);
+				MenuItemKeypressHandler((ToolStripMenuItem)ToolStripMenuItem);
 			}
+			//
 			foreach (ToolStripItem Item in mnuFavorites.DropDownItems)
 			{
 				Frm04MyFavorites MF = new();
@@ -140,10 +94,6 @@ namespace Mathre
 				Frm08Pizza PD = new();
 				Item.Click += PD.Pizza;
 			}
-			foreach (Control c in Controls)
-			{
-				GetAllControls(this);
-			}
 			foreach (ToolStripItem Item in mnuRPS.DropDownItems)
 			{
 				Frm11RPS RG = new();
@@ -158,6 +108,17 @@ namespace Mathre
 			{
 				Frm13Slots SM = new();
 				Item.Click += SM.MenuHandler;
+			}
+
+			foreach (ToolStripItem Item in mnuHelloWorld.DropDownItems)
+			{
+				Frm01HelloWorld HW = new();
+				Item.Click += HW.HelloWorld;
+			}
+			//
+			foreach (Control c in Controls)
+			{
+				GetAllControls(this);
 			}
 			//
 			hidden = true;
@@ -184,17 +145,12 @@ namespace Mathre
 					if (form.Name != "Frm00Mathre" && Regex.Replace(form.Name, @"Frm\d*", "tab") != tabMathre.SelectedTab.Name)
 					{
 						form.Hide();
-						//form.SuspendLayout();
 					}
 					else if (form.Name != "Frm00Mathre")
 					{
 						form.Show();
-						//form.ResumeLayout();
 					}
 				}
-
-
-
 				//for (int i = Application.OpenForms.Count - 1; i >= 0; i--)
 				//{
 				//	//
@@ -214,13 +170,13 @@ namespace Mathre
 				//		Application.OpenForms[i].ResumeLayout();
 				//	}
 				//}
-				if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmSlots")
+				if (tabMathre.SelectedTab.Name == "tabSlots")
 				{
 					// Slots MessageBox code
 					Frm13Slots SM = new();
 					SM.Tabbed(null, null);
 				}
-				if (tabMathre.SelectedTab.Name.Replace("tab", "frm") == "frmAcronym")
+				if (tabMathre.SelectedTab.Name == "tabAcronym")
 				{
 					// Slots MessageBox code
 					Frm14Acronym AM = new();
@@ -228,14 +184,14 @@ namespace Mathre
 				}
 			}
 		}
-		public void AddMenuItemHandlers(ToolStripMenuItem ToolStripMenuItem)
+		public void MenuItemKeypressHandler(ToolStripMenuItem ToolStripMenuItem)
 		{
 			foreach (var ToolStripItem in ToolStripMenuItem.DropDownItems)
 			{
 				if (ToolStripItem is ToolStripMenuItem ToolstripItem)
 				{
 					ToolStripMenuItem.DropDown.KeyDown += KeyboardShortcuts;
-					AddMenuItemHandlers(ToolstripItem);
+					MenuItemKeypressHandler(ToolstripItem);
 				}
 			}
 		}
