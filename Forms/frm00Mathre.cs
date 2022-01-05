@@ -50,7 +50,7 @@ namespace Mathre
 				form.Width = Width - 16;
 				form.Height = Height - 84;
 				TabPage newTab = new();
-				newTab.Name = $"{Regex.Replace(form.Name, @"Frm\d*", "tab")}";
+				newTab.Name = $"{Regex.Replace(form.Name, "Frm", "tab")}";
 				newTab.Text = $"{form.Text}";
 				if (newTab.Name == "tabSecret")
 				{
@@ -66,7 +66,24 @@ namespace Mathre
 					item.Click += new EventHandler((sender, e) => { tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab")); });
 					mnuView.DropDownItems.Add(item);
 				}
+
 			}
+			//
+			//foreach (TabPage Page in tabMathre.TabPages)
+			//{
+			//	var form = Activator.CreateInstance(Type.GetType("Mathre." + Page.Name.Replace("tab", "Frm"))) as Form;
+			//	form.Size = FormSize;
+			//	form.FormBorderStyle = FormBorderStyle.None;
+			//	form.Left = 0;
+			//	form.Top = 45;
+			//	form.TopLevel = false;
+			//	form.Visible = true;
+			//	Controls.Add(form);
+			//	form.Focus();
+			//	form.Width = Width - 16;
+			//	form.Height = Height - 84;
+			//}
+			//
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
 			AccentColor = $"{(ColorKey.GetValue("AccentColor"))}";
@@ -142,7 +159,7 @@ namespace Mathre
 			{
 				foreach (Form form in Application.OpenForms)
 				{
-					if (form.Name != "Frm00Mathre" && Regex.Replace(form.Name, @"Frm\d*", "tab") != tabMathre.SelectedTab.Name)
+					if (form.Name != "Frm00Mathre" && Regex.Replace(form.Name, @"Frm", "tab") != tabMathre.SelectedTab.Name)
 					{
 						form.Hide();
 					}
