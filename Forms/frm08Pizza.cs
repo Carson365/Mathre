@@ -11,7 +11,6 @@ namespace Mathre
 	public partial class Frm08Pizza : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm08Pizza ThisForm;
 		public Frm08Pizza()
 		{
 			InitializeComponent();
@@ -28,7 +27,6 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm08Pizza>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm08Pizza>().Single(); ThisForm.Pizza(sender, e); }
@@ -37,10 +35,10 @@ namespace Mathre
 		{
 			Action a = $"{sender}" switch
 			{
-				"Delivery" => () => ThisForm.btnDelivery.Checked = true,
-				"Takeout" => () => ThisForm.btnTakeout.Checked = true,
-				"Dollars" => () => ThisForm.btnDollars.Checked = true,
-				"Percent" => () => ThisForm.btnPercent.Checked = true,
+				"Delivery" => () => btnDelivery.Checked = true,
+				"Takeout" => () => btnTakeout.Checked = true,
+				"Dollars" => () => btnDollars.Checked = true,
+				"Percent" => () => btnPercent.Checked = true,
 				_ => () => { }
 				,
 			};

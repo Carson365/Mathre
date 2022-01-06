@@ -20,10 +20,7 @@ namespace Mathre
 		public static Frm00Mathre BaseForm;
 		public string HurricaneInfo = "";
 		public int RunCount = 0;
-		public Dictionary<int, List<string>> theDictionary = new()
-		{
-			{ 0, new List<string> { "Name", "MPH", "Knots", "Type", "Category", "Damage" } },
-		};
+		public Dictionary<int, List<string>> theDictionary = new() { { 0, new List<string> { "Name", "MPH", "Knots", "Type", "Category", "Damage" } } };
 		public Frm12Hurricane()
 		{
 			InitializeComponent();
@@ -60,94 +57,30 @@ namespace Mathre
 					_ => "5: Catastrophic damage will occur: \n\nA high percentage of framed homes will be destroyed, with total roof failure and wall collapse. Fallen trees and power poles will isolate residential areas. Power outages will \nlast for weeks to possibly months. Most of the area will be uninhabitable for weeks or months.",
 				};
 				lblCategory.Text = HurricaneInfo.Remove(1, HurricaneInfo.Length - 1);
-				if (HurricaneInfo.Remove(1, HurricaneInfo.Length - 1) != "0")
-				{
-					picHurricaneType.Image = imgHurricanes.Images[$"Cat{HurricaneInfo.Remove(1, HurricaneInfo.Length - 1)}.png"];
-				}
-				else
-				{
-					picHurricaneType.Image = Convert.ToDouble(txtMPH.Text) switch
-					{
-						< 39 => imgHurricanes.Images["TD0.png"],
-						_ => imgHurricanes.Images["TS0.png"],
-					};
-				}
-				lblType.Text = Convert.ToDouble(txtMPH.Text) switch
-				{
-					< 39 => "Tropical Depression",
-					< 74 => "Tropical Storm",
-					< 111 => "Hurricane",
-					< 151 => "Major Hurricane",
-					_ => "Super Typhoon",
-				};
-				if (ReferenceEquals(sender, btnRandom))
-				{
-					llbName.Text = "Example";
-					llbName.Enabled = false;
-				}
+				if (HurricaneInfo.Remove(1, HurricaneInfo.Length - 1) != "0") { picHurricaneType.Image = imgHurricanes.Images[$"Cat{HurricaneInfo.Remove(1, HurricaneInfo.Length - 1)}.png"]; }
+				else { picHurricaneType.Image = Convert.ToDouble(txtMPH.Text) switch { < 39 => imgHurricanes.Images["TD0.png"], _ => imgHurricanes.Images["TS0.png"], }; }
+				lblType.Text = Convert.ToDouble(txtMPH.Text) switch { < 39 => "Tropical Depression", < 74 => "Tropical Storm", < 111 => "Hurricane", < 151 => "Major Hurricane", _ => "Super Typhoon", };
+				if (ReferenceEquals(sender, btnRandom)) { llbName.Text = "Example"; llbName.Enabled = false; }
 				else
 				{
 					RunCount++;
-					llbName.Text = RunCount switch
-					{
-						1 => "Alex",
-						2 => "Bonnie",
-						3 => "Colin",
-						4 => "Danielle",
-						5 => "Earl",
-						6 => "Fiona",
-						7 => "Gaston",
-						8 => "Hermine",
-						9 => "Ian",
-						10 => "Julia",
-						11 => "Karl",
-						12 => "Lisa",
-						13 => "Martin",
-						14 => "Nicole",
-						15 => "Owen",
-						16 => "Paula",
-						17 => "Richard",
-						18 => "Shary",
-						19 => "Tobias",
-						20 => "Virginie",
-						21 => "Walter",
-						_ => "Special Case"
-					};
-					if (RunCount > 21)
-					{
-						llbName.Enabled = true;
-					}
+					llbName.Text = RunCount switch { 1 => "Alex", 2 => "Bonnie", 3 => "Colin", 4 => "Danielle", 5 => "Earl", 6 => "Fiona", 7 => "Gaston", 8 => "Hermine", 9 => "Ian", 10 => "Julia",
+						11 => "Karl", 12 => "Lisa", 13 => "Martin", 14 => "Nicole", 15 => "Owen", 16 => "Paula", 17 => "Richard", 18 => "Shary", 19 => "Tobias", 20 => "Virginie", 21 => "Walter", _ => "Special Case" };
+					if (RunCount > 21) { llbName.Enabled = true; }
 					theDictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{txtMPH.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo.Substring(3, HurricaneInfo.LastIndexOf(':') - 3)}." });
 					var item = new ListViewItem(theDictionary[RunCount][0]);
-					foreach (var data in theDictionary[RunCount].Skip(1))
-					{
-						item.SubItems.Add(data);
-					}
+					foreach (var data in theDictionary[RunCount].Skip(1)) { item.SubItems.Add(data); }
 					lstHurricaneList.Items.Add(item);
 					lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 				}
 				Damage(chbDamage, null);
 			}
 		}
-		public void Damage(object sender, EventArgs e)
-		{
-			if (chbDamage.Checked && HurricaneInfo.Length != 0)
-			{
-				MessageBox.Show(HurricaneInfo.Remove(0, 3).ToString(), "                                        Damage                                        ");
-			}
-		}
+		public void Damage(object sender, EventArgs e) { if (chbDamage.Checked && HurricaneInfo.Length != 0) { MessageBox.Show(HurricaneInfo.Remove(0, 3).ToString(), "                                        Damage                                        "); } }
 		public void Random(object sender, EventArgs e)
 		{
 			Random rnd = new();
-			var randomstorm = rnd.Next(0, 6) switch
-			{
-				0 => rnd.Next(0, 74),
-				1 => rnd.Next(74, 95),
-				2 => rnd.Next(95, 110),
-				3 => rnd.Next(110, 129),
-				4 => rnd.Next(129, 156),
-				_ => rnd.Next(156, 210),
-			};
+			var randomstorm = rnd.Next(0, 6) switch { 0 => rnd.Next(0, 74), 1 => rnd.Next(74, 95), 2 => rnd.Next(95, 110), 3 => rnd.Next(110, 129), 4 => rnd.Next(129, 156), _ => rnd.Next(156, 210), };
 			txtMPH.Text = $"{randomstorm}";
 			Hurricane(btnRandom, null);
 		}
@@ -156,11 +89,7 @@ namespace Mathre
 			llbName.LinkVisited = true;
 			System.Diagnostics.Process.Start("https://www.nhc.noaa.gov/aboutnames_history.shtml#:~:text=In%20the%20event,Tropical%20Cyclone%20Programme.");
 		}
-		public void ListResizeManager(object sender, ColumnWidthChangingEventArgs e)
-		{
-			e.NewWidth = this.lstHurricaneList.Columns[e.ColumnIndex].Width;
-			e.Cancel = true;
-		}
+		public void ListResizeManager(object sender, ColumnWidthChangingEventArgs e) { e.NewWidth = this.lstHurricaneList.Columns[e.ColumnIndex].Width; e.Cancel = true; }
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))
@@ -168,41 +97,14 @@ namespace Mathre
 				e.Handled = true;
 			}
 			else if (txtMPH.Text.Length != 0 && Convert.ToDouble(txtMPH.Text) > 20 && e.KeyChar != '\b' && Convert.ToDouble($"{txtMPH.Text}{e.KeyChar}") > 210)
-			{
-				if (txtMPH.SelectionLength < 1)
-				{
-					e.Handled = true;
-				}
-				else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, e.KeyChar.ToString())}") > 210)
-				{
-					e.Handled = true;
-				}
-			}
+			{ if (txtMPH.SelectionLength < 1) { e.Handled = true; } else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, e.KeyChar.ToString())}") > 210) { e.Handled = true; } }
 		}
 		public void MenuHandler(object sender, EventArgs e)
 		{
-			Action A = sender.ToString() switch
-			{
-				"Display Expected Damage" => () => chbDamage.Checked = !chbDamage.Checked,
-				"Generate Random Storm" => () => btnRandom.PerformClick(),
-				_ => () => btnCalculate.PerformClick(),
-			};
+			Action A = sender.ToString() switch { "Display Expected Damage" => () => chbDamage.Checked = !chbDamage.Checked, "Generate Random Storm" => () => btnRandom.PerformClick(), _ => () => btnCalculate.PerformClick(), };
 			A.Invoke();
 		}
-		public void ZeroRemover(object sender, EventArgs e)
-		{
-			if (txtMPH.Text.StartsWith("0"))
-			{
-				txtMPH.Text = txtMPH.Text.TrimStart('0');
-			}
-		}
-		public void EnterKey(object sender, KeyEventArgs e)
-		{
-
-			if (e.KeyCode == Keys.Enter)
-			{
-				Hurricane(txtMPH, null);
-			}
-		}
+		public void ZeroRemover(object sender, EventArgs e) { if (txtMPH.Text.StartsWith("0")) { txtMPH.Text = txtMPH.Text.TrimStart('0'); } }
+		public void EnterKey(object sender, KeyEventArgs e) { if (e.KeyCode == Keys.Enter) { Hurricane(txtMPH, null); } }
 	}
 }

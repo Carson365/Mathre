@@ -39,58 +39,58 @@ namespace Mathre
         {
             this.mnuBaseLayer = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHelloWorld = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu01HelloWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguageFrench = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguageGerman = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldReset = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuMySchool = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu02MySchool = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMySchoolToggleMascot = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRectangle = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu03Rectangle = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRectangleCalculate = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuFavorites = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu04Favorites = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteActor = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteMovie = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteFruit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteHobby = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuFavoriteColor = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTemperature = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu05Temperature = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTemperatureFahrenheit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuTemperatureCelsius = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuDigits = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu06Digits = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDigitsCalculate = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuChange = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu07Change = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuChangeCalculate = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuPizza = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu08Pizza = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPizzaDelivery = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPizzaTakeout = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPizzaDollars = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPizzaPercent = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuGrade = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu09Grade = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod2 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod3 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod4 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod5 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateRandom = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuVideoGames = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu10VideoGames = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPS4 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuXB1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRPS = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu11RPS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRockPS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRPaperS = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRPScissors = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuHurricane = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu12Hurricane = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRandom = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculate = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDamage = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuSlots = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu13Slots = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSpin = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuDouble = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMessage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAuto = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuLetters = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnu16Letters = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSearch = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuSecret = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,34 +120,34 @@ namespace Mathre
             // mnuFile
             // 
             this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuHelloWorld,
-            this.mnuMySchool,
-            this.mnuRectangle,
-            this.mnuFavorites,
-            this.mnuTemperature,
-            this.mnuDigits,
-            this.mnuChange,
-            this.mnuPizza,
-            this.mnuGrade,
-            this.mnuVideoGames,
-            this.mnuRPS,
-            this.mnuHurricane,
-            this.mnuSlots,
-            this.mnuLetters,
+            this.mnu01HelloWorld,
+            this.mnu02MySchool,
+            this.mnu03Rectangle,
+            this.mnu04Favorites,
+            this.mnu05Temperature,
+            this.mnu06Digits,
+            this.mnu07Change,
+            this.mnu08Pizza,
+            this.mnu09Grade,
+            this.mnu10VideoGames,
+            this.mnu11RPS,
+            this.mnu12Hurricane,
+            this.mnu13Slots,
+            this.mnu16Letters,
             this.mnuExit,
             this.mnuSecret});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
             // 
-            // mnuHelloWorld
+            // mnu01HelloWorld
             // 
-            this.mnuHelloWorld.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu01HelloWorld.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuHelloWorldLanguage,
             this.mnuHelloWorldReset});
-            this.mnuHelloWorld.Name = "mnuHelloWorld";
-            this.mnuHelloWorld.Size = new System.Drawing.Size(195, 22);
-            this.mnuHelloWorld.Text = "Hello World";
+            this.mnu01HelloWorld.Name = "mnu01HelloWorld";
+            this.mnu01HelloWorld.Size = new System.Drawing.Size(195, 22);
+            this.mnu01HelloWorld.Text = "Hello World";
             // 
             // mnuHelloWorldLanguage
             // 
@@ -163,21 +163,21 @@ namespace Mathre
             // 
             this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
             this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageEnglish.Text = "English";
             // 
             // mnuHelloWorldLanguageFrench
             // 
             this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
             this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageFrench.Text = "French";
             // 
             // mnuHelloWorldLanguageGerman
             // 
             this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
             this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(180, 22);
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
             this.mnuHelloWorldLanguageGerman.Text = "German";
             // 
             // mnuHelloWorldReset
@@ -186,13 +186,13 @@ namespace Mathre
             this.mnuHelloWorldReset.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldReset.Text = "Reset";
             // 
-            // mnuMySchool
+            // mnu02MySchool
             // 
-            this.mnuMySchool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu02MySchool.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuMySchoolToggleMascot});
-            this.mnuMySchool.Name = "mnuMySchool";
-            this.mnuMySchool.Size = new System.Drawing.Size(195, 22);
-            this.mnuMySchool.Text = "My School";
+            this.mnu02MySchool.Name = "mnu02MySchool";
+            this.mnu02MySchool.Size = new System.Drawing.Size(195, 22);
+            this.mnu02MySchool.Text = "My School";
             // 
             // mnuMySchoolToggleMascot
             // 
@@ -200,253 +200,253 @@ namespace Mathre
             this.mnuMySchoolToggleMascot.Size = new System.Drawing.Size(198, 22);
             this.mnuMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
             // 
-            // mnuRectangle
+            // mnu03Rectangle
             // 
-            this.mnuRectangle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu03Rectangle.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuRectangleCalculate});
-            this.mnuRectangle.Name = "mnuRectangle";
-            this.mnuRectangle.Size = new System.Drawing.Size(195, 22);
-            this.mnuRectangle.Text = "Rectangle Calculator";
+            this.mnu03Rectangle.Name = "mnu03Rectangle";
+            this.mnu03Rectangle.Size = new System.Drawing.Size(195, 22);
+            this.mnu03Rectangle.Text = "Rectangle Calculator";
             // 
             // mnuRectangleCalculate
             // 
             this.mnuRectangleCalculate.Name = "mnuRectangleCalculate";
-            this.mnuRectangleCalculate.Size = new System.Drawing.Size(123, 22);
+            this.mnuRectangleCalculate.Size = new System.Drawing.Size(180, 22);
             this.mnuRectangleCalculate.Text = "Calculate";
             // 
-            // mnuFavorites
+            // mnu04Favorites
             // 
-            this.mnuFavorites.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu04Favorites.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFavoriteActor,
             this.mnuFavoriteMovie,
             this.mnuFavoriteFruit,
             this.mnuFavoriteHobby,
             this.mnuFavoriteColor});
-            this.mnuFavorites.Name = "mnuFavorites";
-            this.mnuFavorites.Size = new System.Drawing.Size(195, 22);
-            this.mnuFavorites.Text = "My Favorites";
+            this.mnu04Favorites.Name = "mnu04Favorites";
+            this.mnu04Favorites.Size = new System.Drawing.Size(195, 22);
+            this.mnu04Favorites.Text = "My Favorites";
             // 
             // mnuFavoriteActor
             // 
             this.mnuFavoriteActor.Name = "mnuFavoriteActor";
-            this.mnuFavoriteActor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteActor.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteActor.Text = "Actor";
             // 
             // mnuFavoriteMovie
             // 
             this.mnuFavoriteMovie.Name = "mnuFavoriteMovie";
-            this.mnuFavoriteMovie.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteMovie.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteMovie.Text = "Movie";
             // 
             // mnuFavoriteFruit
             // 
             this.mnuFavoriteFruit.Name = "mnuFavoriteFruit";
-            this.mnuFavoriteFruit.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteFruit.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteFruit.Text = "Fruit";
             // 
             // mnuFavoriteHobby
             // 
             this.mnuFavoriteHobby.Name = "mnuFavoriteHobby";
-            this.mnuFavoriteHobby.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteHobby.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteHobby.Text = "Hobby";
             // 
             // mnuFavoriteColor
             // 
             this.mnuFavoriteColor.Name = "mnuFavoriteColor";
-            this.mnuFavoriteColor.Size = new System.Drawing.Size(110, 22);
+            this.mnuFavoriteColor.Size = new System.Drawing.Size(180, 22);
             this.mnuFavoriteColor.Text = "Color";
             // 
-            // mnuTemperature
+            // mnu05Temperature
             // 
-            this.mnuTemperature.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu05Temperature.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuTemperatureFahrenheit,
             this.mnuTemperatureCelsius});
-            this.mnuTemperature.Name = "mnuTemperature";
-            this.mnuTemperature.Size = new System.Drawing.Size(195, 22);
-            this.mnuTemperature.Text = "Temperature Converter";
+            this.mnu05Temperature.Name = "mnu05Temperature";
+            this.mnu05Temperature.Size = new System.Drawing.Size(195, 22);
+            this.mnu05Temperature.Text = "Temperature Converter";
             // 
             // mnuTemperatureFahrenheit
             // 
             this.mnuTemperatureFahrenheit.Name = "mnuTemperatureFahrenheit";
-            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(130, 22);
+            this.mnuTemperatureFahrenheit.Size = new System.Drawing.Size(180, 22);
             this.mnuTemperatureFahrenheit.Text = "Fahrenheit";
             // 
             // mnuTemperatureCelsius
             // 
             this.mnuTemperatureCelsius.Name = "mnuTemperatureCelsius";
-            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(130, 22);
+            this.mnuTemperatureCelsius.Size = new System.Drawing.Size(180, 22);
             this.mnuTemperatureCelsius.Text = "Celsius";
             // 
-            // mnuDigits
+            // mnu06Digits
             // 
-            this.mnuDigits.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu06Digits.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuDigitsCalculate});
-            this.mnuDigits.Name = "mnuDigits";
-            this.mnuDigits.Size = new System.Drawing.Size(195, 22);
-            this.mnuDigits.Text = "Digit Separator";
+            this.mnu06Digits.Name = "mnu06Digits";
+            this.mnu06Digits.Size = new System.Drawing.Size(195, 22);
+            this.mnu06Digits.Text = "Digit Separator";
             // 
             // mnuDigitsCalculate
             // 
             this.mnuDigitsCalculate.Name = "mnuDigitsCalculate";
-            this.mnuDigitsCalculate.Size = new System.Drawing.Size(123, 22);
+            this.mnuDigitsCalculate.Size = new System.Drawing.Size(180, 22);
             this.mnuDigitsCalculate.Text = "Calculate";
             // 
-            // mnuChange
+            // mnu07Change
             // 
-            this.mnuChange.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu07Change.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuChangeCalculate});
-            this.mnuChange.Name = "mnuChange";
-            this.mnuChange.Size = new System.Drawing.Size(195, 22);
-            this.mnuChange.Text = "Change Maker";
+            this.mnu07Change.Name = "mnu07Change";
+            this.mnu07Change.Size = new System.Drawing.Size(195, 22);
+            this.mnu07Change.Text = "Change Maker";
             // 
             // mnuChangeCalculate
             // 
             this.mnuChangeCalculate.Name = "mnuChangeCalculate";
-            this.mnuChangeCalculate.Size = new System.Drawing.Size(123, 22);
+            this.mnuChangeCalculate.Size = new System.Drawing.Size(180, 22);
             this.mnuChangeCalculate.Text = "Calculate";
             // 
-            // mnuPizza
+            // mnu08Pizza
             // 
-            this.mnuPizza.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu08Pizza.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuPizzaDelivery,
             this.mnuPizzaTakeout,
             this.mnuPizzaDollars,
             this.mnuPizzaPercent});
-            this.mnuPizza.Name = "mnuPizza";
-            this.mnuPizza.Size = new System.Drawing.Size(195, 22);
-            this.mnuPizza.Text = "Pizza Delivery";
+            this.mnu08Pizza.Name = "mnu08Pizza";
+            this.mnu08Pizza.Size = new System.Drawing.Size(195, 22);
+            this.mnu08Pizza.Text = "Pizza Delivery";
             // 
             // mnuPizzaDelivery
             // 
             this.mnuPizzaDelivery.Name = "mnuPizzaDelivery";
-            this.mnuPizzaDelivery.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaDelivery.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaDelivery.Text = "Delivery";
             // 
             // mnuPizzaTakeout
             // 
             this.mnuPizzaTakeout.Name = "mnuPizzaTakeout";
-            this.mnuPizzaTakeout.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaTakeout.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaTakeout.Text = "Takeout";
             // 
             // mnuPizzaDollars
             // 
             this.mnuPizzaDollars.Name = "mnuPizzaDollars";
-            this.mnuPizzaDollars.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaDollars.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaDollars.Text = "Dollars";
             // 
             // mnuPizzaPercent
             // 
             this.mnuPizzaPercent.Name = "mnuPizzaPercent";
-            this.mnuPizzaPercent.Size = new System.Drawing.Size(116, 22);
+            this.mnuPizzaPercent.Size = new System.Drawing.Size(180, 22);
             this.mnuPizzaPercent.Text = "Percent";
             // 
-            // mnuGrade
+            // mnu09Grade
             // 
-            this.mnuGrade.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu09Grade.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuCalculateMethod1,
             this.mnuCalculateMethod2,
             this.mnuCalculateMethod3,
             this.mnuCalculateMethod4,
             this.mnuCalculateMethod5,
             this.mnuCalculateRandom});
-            this.mnuGrade.Name = "mnuGrade";
-            this.mnuGrade.Size = new System.Drawing.Size(195, 22);
-            this.mnuGrade.Text = "Calculate My Grade";
+            this.mnu09Grade.Name = "mnu09Grade";
+            this.mnu09Grade.Size = new System.Drawing.Size(195, 22);
+            this.mnu09Grade.Text = "Calculate My Grade";
             // 
             // mnuCalculateMethod1
             // 
             this.mnuCalculateMethod1.Name = "mnuCalculateMethod1";
-            this.mnuCalculateMethod1.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod1.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod1.Text = "Method 1";
             // 
             // mnuCalculateMethod2
             // 
             this.mnuCalculateMethod2.Name = "mnuCalculateMethod2";
-            this.mnuCalculateMethod2.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod2.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod2.Text = "Method 2";
             // 
             // mnuCalculateMethod3
             // 
             this.mnuCalculateMethod3.Name = "mnuCalculateMethod3";
-            this.mnuCalculateMethod3.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod3.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod3.Text = "Method 3";
             // 
             // mnuCalculateMethod4
             // 
             this.mnuCalculateMethod4.Name = "mnuCalculateMethod4";
-            this.mnuCalculateMethod4.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod4.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod4.Text = "Method 4";
             // 
             // mnuCalculateMethod5
             // 
             this.mnuCalculateMethod5.Name = "mnuCalculateMethod5";
-            this.mnuCalculateMethod5.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateMethod5.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateMethod5.Text = "Method 5";
             // 
             // mnuCalculateRandom
             // 
             this.mnuCalculateRandom.Name = "mnuCalculateRandom";
-            this.mnuCalculateRandom.Size = new System.Drawing.Size(125, 22);
+            this.mnuCalculateRandom.Size = new System.Drawing.Size(180, 22);
             this.mnuCalculateRandom.Text = "Random";
             // 
-            // mnuVideoGames
+            // mnu10VideoGames
             // 
-            this.mnuVideoGames.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu10VideoGames.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuPS4,
             this.mnuXB1});
-            this.mnuVideoGames.Name = "mnuVideoGames";
-            this.mnuVideoGames.Size = new System.Drawing.Size(195, 22);
-            this.mnuVideoGames.Text = "Video Game Orders";
+            this.mnu10VideoGames.Name = "mnu10VideoGames";
+            this.mnu10VideoGames.Size = new System.Drawing.Size(195, 22);
+            this.mnu10VideoGames.Text = "Video Game Orders";
             // 
             // mnuPS4
             // 
             this.mnuPS4.Name = "mnuPS4";
-            this.mnuPS4.Size = new System.Drawing.Size(141, 22);
+            this.mnuPS4.Size = new System.Drawing.Size(180, 22);
             this.mnuPS4.Text = "Playstation 4";
             // 
             // mnuXB1
             // 
             this.mnuXB1.Name = "mnuXB1";
-            this.mnuXB1.Size = new System.Drawing.Size(141, 22);
+            this.mnuXB1.Size = new System.Drawing.Size(180, 22);
             this.mnuXB1.Text = "Xbox One";
             // 
-            // mnuRPS
+            // mnu11RPS
             // 
-            this.mnuRPS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu11RPS.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuRockPS,
             this.mnuRPaperS,
             this.mnuRPScissors});
-            this.mnuRPS.Name = "mnuRPS";
-            this.mnuRPS.Size = new System.Drawing.Size(195, 22);
-            this.mnuRPS.Text = "Rock Paper Scissors";
+            this.mnu11RPS.Name = "mnu11RPS";
+            this.mnu11RPS.Size = new System.Drawing.Size(195, 22);
+            this.mnu11RPS.Text = "Rock Paper Scissors";
             // 
             // mnuRockPS
             // 
             this.mnuRockPS.Name = "mnuRockPS";
-            this.mnuRockPS.Size = new System.Drawing.Size(115, 22);
+            this.mnuRockPS.Size = new System.Drawing.Size(180, 22);
             this.mnuRockPS.Text = "Rock";
             // 
             // mnuRPaperS
             // 
             this.mnuRPaperS.Name = "mnuRPaperS";
-            this.mnuRPaperS.Size = new System.Drawing.Size(115, 22);
+            this.mnuRPaperS.Size = new System.Drawing.Size(180, 22);
             this.mnuRPaperS.Text = "Paper";
             // 
             // mnuRPScissors
             // 
             this.mnuRPScissors.Name = "mnuRPScissors";
-            this.mnuRPScissors.Size = new System.Drawing.Size(115, 22);
+            this.mnuRPScissors.Size = new System.Drawing.Size(180, 22);
             this.mnuRPScissors.Text = "Scissors";
             // 
-            // mnuHurricane
+            // mnu12Hurricane
             // 
-            this.mnuHurricane.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu12Hurricane.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuRandom,
             this.mnuCalculate,
             this.mnuDamage});
-            this.mnuHurricane.Name = "mnuHurricane";
-            this.mnuHurricane.Size = new System.Drawing.Size(195, 22);
-            this.mnuHurricane.Text = "Hurricane";
+            this.mnu12Hurricane.Name = "mnu12Hurricane";
+            this.mnu12Hurricane.Size = new System.Drawing.Size(195, 22);
+            this.mnu12Hurricane.Text = "Hurricane";
             // 
             // mnuRandom
             // 
@@ -466,53 +466,53 @@ namespace Mathre
             this.mnuDamage.Size = new System.Drawing.Size(210, 22);
             this.mnuDamage.Text = "Display Expected Damage";
             // 
-            // mnuSlots
+            // mnu13Slots
             // 
-            this.mnuSlots.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu13Slots.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSpin,
             this.mnuDouble,
             this.mnuMessage,
             this.mnuAuto});
-            this.mnuSlots.Name = "mnuSlots";
-            this.mnuSlots.Size = new System.Drawing.Size(195, 22);
-            this.mnuSlots.Text = "Slot Machine";
+            this.mnu13Slots.Name = "mnu13Slots";
+            this.mnu13Slots.Size = new System.Drawing.Size(195, 22);
+            this.mnu13Slots.Text = "Slot Machine";
             // 
             // mnuSpin
             // 
             this.mnuSpin.Name = "mnuSpin";
-            this.mnuSpin.Size = new System.Drawing.Size(175, 22);
+            this.mnuSpin.Size = new System.Drawing.Size(180, 22);
             this.mnuSpin.Text = "Spin";
             // 
             // mnuDouble
             // 
             this.mnuDouble.Name = "mnuDouble";
-            this.mnuDouble.Size = new System.Drawing.Size(175, 22);
+            this.mnuDouble.Size = new System.Drawing.Size(180, 22);
             this.mnuDouble.Text = "Double Or Nothing";
             // 
             // mnuMessage
             // 
             this.mnuMessage.Name = "mnuMessage";
-            this.mnuMessage.Size = new System.Drawing.Size(175, 22);
+            this.mnuMessage.Size = new System.Drawing.Size(180, 22);
             this.mnuMessage.Text = "Detail View";
             // 
             // mnuAuto
             // 
             this.mnuAuto.Name = "mnuAuto";
-            this.mnuAuto.Size = new System.Drawing.Size(175, 22);
+            this.mnuAuto.Size = new System.Drawing.Size(180, 22);
             this.mnuAuto.Text = "Auto Play";
             // 
-            // mnuLetters
+            // mnu16Letters
             // 
-            this.mnuLetters.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnu16Letters.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuSearch});
-            this.mnuLetters.Name = "mnuLetters";
-            this.mnuLetters.Size = new System.Drawing.Size(195, 22);
-            this.mnuLetters.Text = "Letter Counter";
+            this.mnu16Letters.Name = "mnu16Letters";
+            this.mnu16Letters.Size = new System.Drawing.Size(195, 22);
+            this.mnu16Letters.Text = "Letter Counter";
             // 
             // mnuSearch
             // 
             this.mnuSearch.Name = "mnuSearch";
-            this.mnuSearch.Size = new System.Drawing.Size(109, 22);
+            this.mnuSearch.Size = new System.Drawing.Size(180, 22);
             this.mnuSearch.Text = "Search";
             // 
             // mnuExit
@@ -592,31 +592,31 @@ namespace Mathre
         internal ToolStripMenuItem mnuView;
 		internal TabControl tabMathre;
 		public ToolStripMenuItem mnuFile;
-		public ToolStripMenuItem mnuHelloWorld;
+		public ToolStripMenuItem mnu01HelloWorld;
 		public ToolStripMenuItem mnuHelloWorldLanguage;
 		public ToolStripMenuItem mnuHelloWorldLanguageEnglish;
 		public ToolStripMenuItem mnuHelloWorldLanguageFrench;
 		public ToolStripMenuItem mnuHelloWorldLanguageGerman;
 		public ToolStripMenuItem mnuHelloWorldReset;
-		public ToolStripMenuItem mnuMySchool;
+		public ToolStripMenuItem mnu02MySchool;
 		public ToolStripMenuItem mnuMySchoolToggleMascot;
 		public ToolStripMenuItem mnuExit;
-		public ToolStripMenuItem mnuRectangle;
+		public ToolStripMenuItem mnu03Rectangle;
 		public ToolStripMenuItem mnuRectangleCalculate;
-		public ToolStripMenuItem mnuFavorites;
+		public ToolStripMenuItem mnu04Favorites;
 		public ToolStripMenuItem mnuFavoriteActor;
 		public ToolStripMenuItem mnuFavoriteMovie;
 		public ToolStripMenuItem mnuFavoriteFruit;
 		public ToolStripMenuItem mnuFavoriteColor;
 		public ToolStripMenuItem mnuFavoriteHobby;
-		public ToolStripMenuItem mnuTemperature;
+		public ToolStripMenuItem mnu05Temperature;
 		public ToolStripMenuItem mnuTemperatureFahrenheit;
 		public ToolStripMenuItem mnuTemperatureCelsius;
-		public ToolStripMenuItem mnuDigits;
+		public ToolStripMenuItem mnu06Digits;
 		public ToolStripMenuItem mnuDigitsCalculate;
-		public ToolStripMenuItem mnuChange;
+		public ToolStripMenuItem mnu07Change;
 		public ToolStripMenuItem mnuChangeCalculate;
-		public ToolStripMenuItem mnuPizza;
+		public ToolStripMenuItem mnu08Pizza;
 		public ToolStripMenuItem mnuPizzaTakeout;
 		public ToolStripMenuItem mnuPizzaDelivery;
 		public ToolStripMenuItem mnuPizzaDollars;
@@ -625,30 +625,30 @@ namespace Mathre
 		internal ToolStripMenuItem mnuSecret;
 		internal ToolStripMenuItem mnuRecolor;
 		internal ToolStripMenuItem mnuRandomify;
-		public ToolStripMenuItem mnuGrade;
+		public ToolStripMenuItem mnu09Grade;
 		public ToolStripMenuItem mnuCalculateMethod1;
 		public ToolStripMenuItem mnuCalculateMethod2;
 		public ToolStripMenuItem mnuCalculateMethod3;
 		public ToolStripMenuItem mnuCalculateMethod4;
 		public ToolStripMenuItem mnuCalculateMethod5;
 		public ToolStripMenuItem mnuCalculateRandom;
-		public ToolStripMenuItem mnuVideoGames;
+		public ToolStripMenuItem mnu10VideoGames;
 		public ToolStripMenuItem mnuPS4;
 		public ToolStripMenuItem mnuXB1;
-		private ToolStripMenuItem mnuRPS;
+		private ToolStripMenuItem mnu11RPS;
 		private ToolStripMenuItem mnuRockPS;
 		private ToolStripMenuItem mnuRPaperS;
 		private ToolStripMenuItem mnuRPScissors;
-		private ToolStripMenuItem mnuSlots;
+		private ToolStripMenuItem mnu13Slots;
 		private ToolStripMenuItem mnuSpin;
 		private ToolStripMenuItem mnuDouble;
 		private ToolStripMenuItem mnuMessage;
-		private ToolStripMenuItem mnuHurricane;
+		private ToolStripMenuItem mnu12Hurricane;
 		private ToolStripMenuItem mnuRandom;
 		private ToolStripMenuItem mnuCalculate;
 		private ToolStripMenuItem mnuDamage;
 		private ToolStripMenuItem mnuAuto;
-		private ToolStripMenuItem mnuLetters;
+		private ToolStripMenuItem mnu16Letters;
 		private ToolStripMenuItem mnuSearch;
 	}
 }

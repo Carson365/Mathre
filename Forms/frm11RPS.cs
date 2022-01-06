@@ -60,13 +60,7 @@ namespace Mathre
 				lblScore.Text = points.ToString();
 				Message("Lose.", null);
 			}
-			else
-			{
-				drawamount++;
-				lblDrawCount.Text = $"{drawamount}";
-				lblTotalGames.Text = $"{computerscore + playerscore + drawamount}";
-				Message("Draw!", null);
-			}
+			else { drawamount++; lblDrawCount.Text = $"{drawamount}"; lblTotalGames.Text = $"{computerscore + playerscore + drawamount}"; Message("Draw!", null); }
 		}
 		public void RPSSelect(object sender, EventArgs e)
 		{
@@ -84,17 +78,11 @@ namespace Mathre
 				};
 			}
 		}
-		public void MenuHandler(object sender, EventArgs e)
-		{
-			((RadioButton)pnlRPSChoice.Controls[$"btn{sender}"]).PerformClick();
-		}
+		public void MenuHandler(object sender, EventArgs e) { ((RadioButton)pnlRPSChoice.Controls[$"btn{sender}"]).PerformClick(); }
 		public void Message(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = $"{sender}";
-			if (chbDisableMessagebox.Checked)
-			{
-				MessageBox.Show($"{sender}", "                                        Result                                        ");
-			}
+			if (chbDisableMessagebox.Checked) { MessageBox.Show($"{sender}", "                                        Result                                        "); }
 		}
 	}
 }

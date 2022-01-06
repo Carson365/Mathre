@@ -36,7 +36,7 @@ namespace Mathre
             this.lblScoreDisplay = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.pnlGrade = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlMethod5Entered = new System.Windows.Forms.Panel();
             this.lblGradesEntered = new System.Windows.Forms.Label();
             this.lblGradesEnteredCount = new System.Windows.Forms.Label();
             this.btnRandom = new System.Windows.Forms.Button();
@@ -45,7 +45,6 @@ namespace Mathre
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtPoints = new System.Windows.Forms.TextBox();
-            this.pnlDiningType = new System.Windows.Forms.Panel();
             this.btnMethod4 = new System.Windows.Forms.RadioButton();
             this.btnMethod3 = new System.Windows.Forms.RadioButton();
             this.btnMethod1 = new System.Windows.Forms.RadioButton();
@@ -53,8 +52,7 @@ namespace Mathre
             this.pnlFrame.SuspendLayout();
             this.pnlGradeDisplay.SuspendLayout();
             this.pnlGrade.SuspendLayout();
-            this.panel1.SuspendLayout();
-            this.pnlDiningType.SuspendLayout();
+            this.pnlMethod5Entered.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -132,28 +130,31 @@ namespace Mathre
             // 
             this.pnlGrade.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlGrade.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlGrade.Controls.Add(this.panel1);
+            this.pnlGrade.Controls.Add(this.btnMethod4);
+            this.pnlGrade.Controls.Add(this.btnMethod3);
+            this.pnlGrade.Controls.Add(this.btnMethod1);
+            this.pnlGrade.Controls.Add(this.btnMethod2);
+            this.pnlGrade.Controls.Add(this.pnlMethod5Entered);
             this.pnlGrade.Controls.Add(this.btnRandom);
             this.pnlGrade.Controls.Add(this.btnMethod5);
             this.pnlGrade.Controls.Add(this.lblPoints);
             this.pnlGrade.Controls.Add(this.txtTotal);
             this.pnlGrade.Controls.Add(this.lblTotal);
             this.pnlGrade.Controls.Add(this.txtPoints);
-            this.pnlGrade.Controls.Add(this.pnlDiningType);
             this.pnlGrade.Location = new System.Drawing.Point(287, 165);
             this.pnlGrade.Name = "pnlGrade";
             this.pnlGrade.Size = new System.Drawing.Size(426, 155);
             this.pnlGrade.TabIndex = 34;
             // 
-            // panel1
+            // pnlMethod5Entered
             // 
-            this.panel1.Controls.Add(this.lblGradesEntered);
-            this.panel1.Controls.Add(this.lblGradesEnteredCount);
-            this.panel1.Location = new System.Drawing.Point(210, 79);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(209, 65);
-            this.panel1.TabIndex = 34;
-            this.panel1.Tag = "Black";
+            this.pnlMethod5Entered.Controls.Add(this.lblGradesEntered);
+            this.pnlMethod5Entered.Controls.Add(this.lblGradesEnteredCount);
+            this.pnlMethod5Entered.Location = new System.Drawing.Point(210, 79);
+            this.pnlMethod5Entered.Name = "pnlMethod5Entered";
+            this.pnlMethod5Entered.Size = new System.Drawing.Size(209, 65);
+            this.pnlMethod5Entered.TabIndex = 34;
+            this.pnlMethod5Entered.Tag = "Black";
             // 
             // lblGradesEntered
             // 
@@ -237,26 +238,14 @@ namespace Mathre
             this.txtPoints.Size = new System.Drawing.Size(133, 26);
             this.txtPoints.TabIndex = 13;
             // 
-            // pnlDiningType
-            // 
-            this.pnlDiningType.Controls.Add(this.btnMethod4);
-            this.pnlDiningType.Controls.Add(this.btnMethod3);
-            this.pnlDiningType.Controls.Add(this.btnMethod1);
-            this.pnlDiningType.Controls.Add(this.btnMethod2);
-            this.pnlDiningType.Location = new System.Drawing.Point(210, 11);
-            this.pnlDiningType.Name = "pnlDiningType";
-            this.pnlDiningType.Size = new System.Drawing.Size(209, 65);
-            this.pnlDiningType.TabIndex = 33;
-            this.pnlDiningType.Tag = "Transparent";
-            // 
             // btnMethod4
             // 
             this.btnMethod4.AutoSize = true;
             this.btnMethod4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod4.Location = new System.Drawing.Point(112, 38);
+            this.btnMethod4.Location = new System.Drawing.Point(325, 49);
             this.btnMethod4.Name = "btnMethod4";
             this.btnMethod4.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod4.TabIndex = 32;
+            this.btnMethod4.TabIndex = 41;
             this.btnMethod4.Text = "Method 4";
             this.btnMethod4.UseVisualStyleBackColor = true;
             // 
@@ -264,10 +253,10 @@ namespace Mathre
             // 
             this.btnMethod3.AutoSize = true;
             this.btnMethod3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod3.Location = new System.Drawing.Point(3, 38);
+            this.btnMethod3.Location = new System.Drawing.Point(216, 49);
             this.btnMethod3.Name = "btnMethod3";
             this.btnMethod3.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod3.TabIndex = 31;
+            this.btnMethod3.TabIndex = 40;
             this.btnMethod3.Text = "Method 3";
             this.btnMethod3.UseVisualStyleBackColor = true;
             // 
@@ -275,10 +264,10 @@ namespace Mathre
             // 
             this.btnMethod1.AutoSize = true;
             this.btnMethod1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod1.Location = new System.Drawing.Point(3, 3);
+            this.btnMethod1.Location = new System.Drawing.Point(216, 14);
             this.btnMethod1.Name = "btnMethod1";
             this.btnMethod1.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod1.TabIndex = 25;
+            this.btnMethod1.TabIndex = 38;
             this.btnMethod1.Text = "Method 1";
             this.btnMethod1.UseVisualStyleBackColor = true;
             // 
@@ -286,10 +275,10 @@ namespace Mathre
             // 
             this.btnMethod2.AutoSize = true;
             this.btnMethod2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod2.Location = new System.Drawing.Point(112, 4);
+            this.btnMethod2.Location = new System.Drawing.Point(325, 15);
             this.btnMethod2.Name = "btnMethod2";
             this.btnMethod2.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod2.TabIndex = 26;
+            this.btnMethod2.TabIndex = 39;
             this.btnMethod2.Text = "Method 2";
             this.btnMethod2.UseVisualStyleBackColor = true;
             // 
@@ -307,10 +296,8 @@ namespace Mathre
             this.pnlGradeDisplay.PerformLayout();
             this.pnlGrade.ResumeLayout(false);
             this.pnlGrade.PerformLayout();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.pnlDiningType.ResumeLayout(false);
-            this.pnlDiningType.PerformLayout();
+            this.pnlMethod5Entered.ResumeLayout(false);
+            this.pnlMethod5Entered.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -327,16 +314,15 @@ namespace Mathre
 		internal System.Windows.Forms.TextBox txtTotal;
 		internal System.Windows.Forms.Label lblTotal;
 		internal System.Windows.Forms.TextBox txtPoints;
-		private System.Windows.Forms.Panel pnlDiningType;
+		private System.Windows.Forms.Label lblPassFail;
+		private System.Windows.Forms.Button btnMethod5;
+		private System.Windows.Forms.Panel pnlMethod5Entered;
+		private System.Windows.Forms.Button btnRandom;
+		private System.Windows.Forms.Label lblGradesEntered;
+		private System.Windows.Forms.Label lblGradesEnteredCount;
 		private System.Windows.Forms.RadioButton btnMethod4;
 		private System.Windows.Forms.RadioButton btnMethod3;
 		private System.Windows.Forms.RadioButton btnMethod1;
 		private System.Windows.Forms.RadioButton btnMethod2;
-		private System.Windows.Forms.Label lblPassFail;
-		private System.Windows.Forms.Button btnMethod5;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Button btnRandom;
-		private System.Windows.Forms.Label lblGradesEntered;
-		private System.Windows.Forms.Label lblGradesEnteredCount;
 	}
 }

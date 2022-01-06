@@ -35,14 +35,9 @@ namespace Mathre
 			lblCostText.Text = "";
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm10VideoGames>().Single(); ThisForm.Transfer(sender, e); }
-
-		public void Transfer(object sender, EventArgs e)
-		{
-			((RadioButton)pnlConsole.Controls[$"{((ToolStripItem)sender).Name.Replace("mnu", "btn")}"]).PerformClick();
-		}
+		public void Transfer(object sender, EventArgs e) { ((RadioButton)pnlConsole.Controls[$"{((ToolStripItem)sender).Name.Replace("mnu", "btn")}"]).PerformClick(); }
 		public void ImageSetter(object sender, EventArgs e)
 		{
-
 			if (btnPS4.Checked)
 			{
 				pnlDoom.BackgroundImage = imgGames.Images["Doom-PS4.jpg"];
@@ -59,20 +54,11 @@ namespace Mathre
 		public void Cost(object sender, EventArgs e)
 		{
 			int Doom = 0;
-			if (int.TryParse(txtDoom.Text, out int DoomCount))
-			{
-				Doom = DoomCount;
-			}
+			if (int.TryParse(txtDoom.Text, out int DoomCount)) { Doom = DoomCount; }
 			int Stardew = 0;
-			if (int.TryParse(txtStardew.Text, out int StardewCount))
-			{
-				Stardew = StardewCount;
-			}
+			if (int.TryParse(txtStardew.Text, out int StardewCount)) { Stardew = StardewCount; }
 			int Minecraft = 0;
-			if (int.TryParse(txtMinecraft.Text, out int MinecraftCount))
-			{
-				Minecraft = MinecraftCount;
-			}
+			if (int.TryParse(txtMinecraft.Text, out int MinecraftCount)) { Minecraft = MinecraftCount; }
 			if (txtDoom.Text != "" | txtStardew.Text != "" | txtMinecraft.Text != "")
 			{
 				int A = (Doom + Minecraft + Stardew);
@@ -89,28 +75,14 @@ namespace Mathre
 				double E2 = A2 + B2 + C2 + D2;
 				lblCost.Text = $" {A2:C}\n {B2:C}\n {C2:C}\n {D2:C}\n {E2:C}";
 			}
-			else
-			{
-				lblCostText.Text = "";
-				lblCost.Text = "";
-			}
+			else { lblCostText.Text = ""; lblCost.Text = ""; }
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
-			if (sender is not TextBoxBase textBox)
-				return;
-			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
-			{
-				e.Handled = true;
-			}
-			if (textBox.Text.Length == 3 && e.KeyChar != '\b')
-			{
-				e.Handled = true;
-			}
-			if (textBox.Text.Length == 0 && e.KeyChar == '0')
-			{
-				e.Handled = true;
-			}
+			if (sender is not TextBoxBase textBox) return;
+			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
+			if (textBox.Text.Length == 3 && e.KeyChar != '\b') { e.Handled = true; }
+			if (textBox.Text.Length == 0 && e.KeyChar == '0') { e.Handled = true; }
 		}
 	}
 }

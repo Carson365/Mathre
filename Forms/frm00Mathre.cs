@@ -59,20 +59,19 @@ namespace Mathre
 			KeyPreview = true;
 			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) { MenuItemKeypressHandler((ToolStripMenuItem)ToolStripMenuItem); }
-			//
 			FormCollection Forms = Application.OpenForms;
-			foreach (ToolStripItem Item in GetAll(mnuHelloWorld.DropDownItems))		{ var F01 = Forms.OfType<Frm01HelloWorld>().Single(); Item.Click += F01.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuMySchool.DropDownItems))		{ var F02 = Forms.OfType<Frm02MySchool>().Single(); Item.Click += F02.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuFavorites.DropDownItems))		{ var F04 = Forms.OfType<Frm04MyFavorites>().Single(); Item.Click += F04.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuTemperature.DropDownItems))	{ var F05 = Forms.OfType<Frm05Temperature>().Single(); Item.Click += F05.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuPizza.DropDownItems))			{ var F08 = Forms.OfType<Frm08Pizza>().Single(); Item.Click += F08.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuGrade.DropDownItems))			{ var F09 = Forms.OfType<Frm09Grade>().Single(); Item.Click += F09.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuVideoGames.DropDownItems))		{ var F10 = Forms.OfType<Frm10VideoGames>().Single(); Item.Click += F10.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuRPS.DropDownItems))			{ var F11 = Forms.OfType<Frm11RPS>().Single(); Item.Click += F11.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuHurricane.DropDownItems))		{ var F12 = Forms.OfType<Frm12Hurricane>().Single(); Item.Click += F12.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuSlots.DropDownItems))			{ var F13 = Forms.OfType<Frm13Slots>().Single(); Item.Click += F13.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnuLetters.DropDownItems))		{ var F16 = Forms.OfType<Frm16Letters>().Single(); Item.Click += F16.MenuControl; }
-			{ var F01 = Forms.OfType<Frm01HelloWorld>().Single(); mnuRandomify.Click += F01.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu01HelloWorld.DropDownItems))		{ var F01 = Forms.OfType<Frm01HelloWorld>().Single(); Item.Click += F01.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu02MySchool.DropDownItems))			{ var F02 = Forms.OfType<Frm02MySchool>().Single(); Item.Click += F02.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu04Favorites.DropDownItems))		{ var F04 = Forms.OfType<Frm04MyFavorites>().Single(); Item.Click += F04.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu05Temperature.DropDownItems))		{ var F05 = Forms.OfType<Frm05Temperature>().Single(); Item.Click += F05.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu08Pizza.DropDownItems))			{ var F08 = Forms.OfType<Frm08Pizza>().Single(); Item.Click += F08.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu09Grade.DropDownItems))			{ var F09 = Forms.OfType<Frm09Grade>().Single(); Item.Click += F09.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu10VideoGames.DropDownItems))		{ var F10 = Forms.OfType<Frm10VideoGames>().Single(); Item.Click += F10.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu11RPS.DropDownItems))				{ var F11 = Forms.OfType<Frm11RPS>().Single(); Item.Click += F11.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu12Hurricane.DropDownItems))		{ var F12 = Forms.OfType<Frm12Hurricane>().Single(); Item.Click += F12.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu13Slots.DropDownItems))			{ var F13 = Forms.OfType<Frm13Slots>().Single(); Item.Click += F13.MenuControl; }
+			foreach (ToolStripItem Item in GetAll(mnu16Letters.DropDownItems))			{ var F16 = Forms.OfType<Frm16Letters>().Single(); Item.Click += F16.MenuControl; }
+																						{ var F01 = Forms.OfType<Frm01HelloWorld>().Single(); mnuRandomify.Click += F01.MenuControl; }
 			foreach (Control c in Controls) { GetAllControls(this); }
 			hidden = true;
 			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
