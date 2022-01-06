@@ -18,10 +18,7 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void ChangeMaker(object sender, EventArgs e)
 		{

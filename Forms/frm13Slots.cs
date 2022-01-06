@@ -8,7 +8,6 @@ namespace Mathre
 	public partial class Frm13Slots : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm13Slots ThisForm;
 		public int tokens = 30;
 		public int change = 0;
 		public bool auto = true;
@@ -25,19 +24,16 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm13Slots>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm13Slots>().Single(); ThisForm.MenuHandler(sender, e); }
 		public void Tabbed(object sender, EventArgs e)
 		{
 			// This could be combined into 'Loaded' but it would require "ThisForm' distinctions before every local object in 'Loaded'
-			if (!ThisForm.loadedonce)
+			if (!loadedonce)
 			{
-				ThisForm.loadedonce = true;
-				ThisForm.Loaded(null, null);
+				loadedonce = true;
+				Loaded(null, null);
 			}
 		}
 		public void Loaded(object sender, EventArgs e)
@@ -57,7 +53,7 @@ namespace Mathre
 			{
 				int LegalAge = 18;
 				MessageBox.Show($"Sorry, you are under the legal age to gamble ({LegalAge}). Goodbye.", "Ineligible");
-				ThisForm.Close();
+				Close();
 			}
 		}
 		public async void AutoGamble(object sender, EventArgs e)
@@ -122,10 +118,10 @@ namespace Mathre
 
 			Action A = sender.ToString() switch
 			{
-				"Spin" => () => ThisForm.btnSpin.PerformClick(),
-				"Double Or Nothing" => () => ThisForm.chbDouble.Checked = !ThisForm.chbDouble.Checked,
-				"Detail View" => () => ThisForm.chbMessage.Checked = !ThisForm.chbMessage.Checked,
-				_ => () => ThisForm.chbAuto.Checked = !ThisForm.chbAuto.Checked,
+				"Spin" => () => btnSpin.PerformClick(),
+				"Double Or Nothing" => () => chbDouble.Checked = !chbDouble.Checked,
+				"Detail View" => () => chbMessage.Checked = !chbMessage.Checked,
+				_ => () => chbAuto.Checked = !chbAuto.Checked,
 			};
 			A.Invoke();
 		}

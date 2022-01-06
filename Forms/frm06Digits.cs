@@ -8,7 +8,6 @@ namespace Mathre
 	public partial class Frm06Digits : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public OrderedDictionary betterDictionary = new();
 		public Frm06Digits()
 		{
 			InitializeComponent();
@@ -21,10 +20,7 @@ namespace Mathre
 			lblDigitsListOdds.Text = "";
 			lblDigitsListEvens.Text = "";
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void Digits(object sender, EventArgs e)
 		{

@@ -8,7 +8,6 @@ namespace Mathre
 	public partial class Frm11RPS : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm11RPS ThisForm;
 		private int playerscore = 0;
 		private int computerscore = 0;
 		private int drawamount = 0;
@@ -31,14 +30,12 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm11RPS>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			picRPS.Image = imgRPS.Images["RPS.png"];
 			picRPS2.Image = imgRPS.Images["RPS.png"];
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm11RPS>().Single(); ThisForm.MenuHandler(sender, e); }
+
 		public void RPSGame(object sender, EventArgs e)
 		{
 			wager = (int)numWager.Value;
@@ -89,7 +86,7 @@ namespace Mathre
 		}
 		public void MenuHandler(object sender, EventArgs e)
 		{
-			((RadioButton)ThisForm.pnlRPSChoice.Controls[$"btn{sender}"]).PerformClick();
+			((RadioButton)pnlRPSChoice.Controls[$"btn{sender}"]).PerformClick();
 		}
 		public void Message(object sender, EventArgs e)
 		{

@@ -10,7 +10,6 @@ namespace Mathre
 	{
 		public static object Placeholder;
 		public static Frm00Mathre BaseForm;
-		public static Frm03Rectangle ThisForm;
 		public int lastvalue = 0;
 		public Frm03Rectangle()
 		{
@@ -26,10 +25,7 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			lblRectangleError.Visible = false;
 			pnlRectangle.Visible = false;
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			KeyPreview = true;
 		}
 		public void Rectangle(object sender, EventArgs e)

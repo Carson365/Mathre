@@ -9,7 +9,6 @@ namespace Mathre
 	public partial class Frm02MySchool : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm02MySchool ThisForm;
 		public Frm02MySchool()
 		{
 			InitializeComponent();
@@ -19,26 +18,13 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm02MySchool>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm02MySchool>().Single(); ThisForm.MySchool(sender, e); }
 		public void MySchool(object sender, EventArgs e)
 		{
-			if (ReferenceEquals(sender, btnMySchoolToggleMascot) | ReferenceEquals(sender, BaseForm.mnuMySchoolToggleMascot))
-			{
-				ThisForm.picMySchoolMascot.Visible = !ThisForm.picMySchoolMascot.Visible;
-				if (ThisForm.lblMySchoolMascot.ForeColor != Color.Black)
-				{
-					ThisForm.lblMySchoolMascot.ForeColor = Color.Black;
-				}
-				else
-				{
-					ThisForm.lblMySchoolMascot.ForeColor = Color.DimGray;
-				}
-			}
+			picMySchoolMascot.Visible = !picMySchoolMascot.Visible;
+			lblMySchoolMascot.ForeColor = $"{lblMySchoolMascot.ForeColor}" switch { "Color [Black]" => Color.DimGray, _ => Color.Black };
 		}
 	}
 }

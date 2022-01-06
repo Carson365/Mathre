@@ -8,7 +8,6 @@ namespace Mathre
 	public partial class Frm09Grade : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm09Grade ThisForm;
 		public static int abc = 0;
 		public Frm09Grade()
 		{
@@ -28,14 +27,11 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm09Grade>().Single();
 			lblScoreDisplay.Text = "";
 			lblPassFail.Text = "";
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm09Grade>().Single(); ThisForm.ButtonSelector(sender, e); }
 		public void GradeCalculator(object sender, EventArgs e)
 		{
 			if (!(btnMethod1.Checked | btnMethod2.Checked | btnMethod3.Checked | btnMethod4.Checked))
@@ -143,12 +139,12 @@ namespace Mathre
 		{
 			Action a = $"{sender}" switch
 			{
-				"Method 1" => () => ThisForm.btnMethod1.PerformClick(),
-				"Method 2" => () => ThisForm.btnMethod2.PerformClick(),
-				"Method 3" => () => ThisForm.btnMethod3.PerformClick(),
-				"Method 4" => () => ThisForm.btnMethod4.PerformClick(),
-				"Method 5" => () => ThisForm.GradeCalculator(ThisForm.btnMethod5, null),
-				_ => () => ThisForm.GradeCalculator(ThisForm.btnRandom, null)
+				"Method 1" => () => btnMethod1.PerformClick(),
+				"Method 2" => () => btnMethod2.PerformClick(),
+				"Method 3" => () => btnMethod3.PerformClick(),
+				"Method 4" => () => btnMethod4.PerformClick(),
+				"Method 5" => () => GradeCalculator(btnMethod5, null),
+				_ => () => GradeCalculator(btnRandom, null)
 			};
 			a.Invoke();
 		}

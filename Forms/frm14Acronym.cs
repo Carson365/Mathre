@@ -12,6 +12,7 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
+			btnCreate.Click += Acronym;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -22,22 +23,21 @@ namespace Mathre
 				BaseForm.GetAllControls(c);
 			}
 		}
-		public void Tabbed(object sender, EventArgs e)
-		{
-			// This could be combined into 'Loaded' but it would require "ThisForm' distinctions before every local object in 'Loaded'
-			ThisForm.Loaded(null, null);
-		}
-		public void Loaded(object sender, EventArgs e)
+		public void Acronym(object sender, EventArgs e)
 		{
 			string Acronym = "";
 			double Words = 0;
 			int RunCount = 1;
 			while (Words == 0) // Keep displaying the message box if a valid count isn't entered
 			{
-				string WordCount = Interaction.InputBox("How many words in the acronym?", "Acronym Maker", "");
+				string WordCount = Interaction.InputBox("How many words in the acronym?\nAt most 10 words can be acronymized.", "Acronym Maker", "");
 				if (double.TryParse(WordCount, out double WordResult))
 				{
-					Words = WordResult;
+					Words = WordResult switch
+					{
+						< 10 => WordResult,
+						_ => 10
+					};
 				}
 			}
 			while (Words != 0)

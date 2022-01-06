@@ -33,6 +33,7 @@
             this.lblAcronym = new System.Windows.Forms.Label();
             this.lblAcronymPrompt = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.pnlFrame.SuspendLayout();
             this.pnlBody.SuspendLayout();
             this.SuspendLayout();
@@ -54,6 +55,7 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.btnCreate);
             this.pnlBody.Controls.Add(this.lblAcronym);
             this.pnlBody.Controls.Add(this.lblAcronymPrompt);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
@@ -95,6 +97,15 @@
             this.lblTitle.Text = "Acronym Maker";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(259, 42);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(86, 23);
+            this.btnCreate.TabIndex = 11;
+            this.btnCreate.Text = "Acronymize";
+            this.btnCreate.UseVisualStyleBackColor = true;
+            // 
             // Frm14Acronym
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -118,5 +129,6 @@
 		internal System.Windows.Forms.Label lblAcronymPrompt;
 		internal System.Windows.Forms.Label lblTitle;
 		internal System.Windows.Forms.Label lblAcronym;
+		private System.Windows.Forms.Button btnCreate;
 	}
 }

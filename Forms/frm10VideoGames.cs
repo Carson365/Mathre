@@ -13,7 +13,6 @@ namespace Mathre
 	public partial class Frm10VideoGames : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm10VideoGames ThisForm;
 		public Frm10VideoGames()
 		{
 			InitializeComponent();
@@ -30,18 +29,16 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm10VideoGames>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			ImageSetter(null, null);
 			lblCost.Text = "";
 			lblCostText.Text = "";
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm10VideoGames>().Single(); ThisForm.Transfer(sender, e); }
+
 		public void Transfer(object sender, EventArgs e)
 		{
-			((RadioButton)ThisForm.pnlConsole.Controls[$"{((ToolStripItem)sender).Name.Replace("mnu", "btn")}"]).PerformClick();
+			((RadioButton)pnlConsole.Controls[$"{((ToolStripItem)sender).Name.Replace("mnu", "btn")}"]).PerformClick();
 		}
 		public void ImageSetter(object sender, EventArgs e)
 		{

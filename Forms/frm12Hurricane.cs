@@ -18,7 +18,6 @@ namespace Mathre
 	public partial class Frm12Hurricane : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm12Hurricane ThisForm;
 		public string HurricaneInfo = "";
 		public int RunCount = 0;
 		public Dictionary<int, List<string>> theDictionary = new()
@@ -41,17 +40,11 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm12Hurricane>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
-			foreach (var item in theDictionary[0])
-			{
-				lstHurricaneList.Columns.Add(item);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
+			foreach (var item in theDictionary[0]) { lstHurricaneList.Columns.Add(item); }
 			lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm12Hurricane>().Single(); ThisForm.MenuHandler(sender, e); }
 		public void Hurricane(object sender, EventArgs e)
 		{
 			if (txtMPH.Text != "")
@@ -190,9 +183,9 @@ namespace Mathre
 		{
 			Action A = sender.ToString() switch
 			{
-				"Display Expected Damage" => () => ThisForm.chbDamage.Checked = !ThisForm.chbDamage.Checked,
-				"Generate Random Storm" => () => ThisForm.btnRandom.PerformClick(),
-				_ => () => ThisForm.btnCalculate.PerformClick(),
+				"Display Expected Damage" => () => chbDamage.Checked = !chbDamage.Checked,
+				"Generate Random Storm" => () => btnRandom.PerformClick(),
+				_ => () => btnCalculate.PerformClick(),
 			};
 			A.Invoke();
 		}

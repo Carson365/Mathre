@@ -29,11 +29,10 @@ namespace Mathre
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			ThisForm = Application.OpenForms.OfType<Frm08Pizza>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm08Pizza>().Single(); ThisForm.Pizza(sender, e); }
+
 		public void Pizza(object sender, EventArgs e)
 		{
 			Action a = $"{sender}" switch

@@ -39,9 +39,6 @@ namespace Mathre
         {
             this.mnuBaseLayer = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuSecret = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRecolor = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuRandomify = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorld = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuHelloWorldLanguageEnglish = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,8 +74,7 @@ namespace Mathre
             this.mnuCalculateMethod4 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateMethod5 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuCalculateRandom = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
-            this.videoGameOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuVideoGames = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuPS4 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuXB1 = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuRPS = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,6 +90,12 @@ namespace Mathre
             this.mnuDouble = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuMessage = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuAuto = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuLetters = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSearch = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuSecret = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRecolor = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuRandomify = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.tabMathre = new System.Windows.Forms.TabControl();
@@ -118,7 +120,6 @@ namespace Mathre
             // mnuFile
             // 
             this.mnuFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuSecret,
             this.mnuHelloWorld,
             this.mnuMySchool,
             this.mnuRectangle,
@@ -128,37 +129,16 @@ namespace Mathre
             this.mnuChange,
             this.mnuPizza,
             this.mnuGrade,
-            this.mnuExit,
-            this.videoGameOrdersToolStripMenuItem,
+            this.mnuVideoGames,
             this.mnuRPS,
             this.mnuHurricane,
-            this.mnuSlots});
+            this.mnuSlots,
+            this.mnuLetters,
+            this.mnuExit,
+            this.mnuSecret});
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
-            // 
-            // mnuSecret
-            // 
-            this.mnuSecret.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuRecolor,
-            this.mnuRandomify});
-            this.mnuSecret.Enabled = false;
-            this.mnuSecret.Name = "mnuSecret";
-            this.mnuSecret.Size = new System.Drawing.Size(195, 22);
-            this.mnuSecret.Text = "Super Secret Settings";
-            // 
-            // mnuRecolor
-            // 
-            this.mnuRecolor.Enabled = false;
-            this.mnuRecolor.Name = "mnuRecolor";
-            this.mnuRecolor.Size = new System.Drawing.Size(132, 22);
-            this.mnuRecolor.Text = "Recolor";
-            // 
-            // mnuRandomify
-            // 
-            this.mnuRandomify.Name = "mnuRandomify";
-            this.mnuRandomify.Size = new System.Drawing.Size(132, 22);
-            this.mnuRandomify.Text = "Randomify";
             // 
             // mnuHelloWorld
             // 
@@ -176,34 +156,34 @@ namespace Mathre
             this.mnuHelloWorldLanguageFrench,
             this.mnuHelloWorldLanguageGerman});
             this.mnuHelloWorldLanguage.Name = "mnuHelloWorldLanguage";
-            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldLanguage.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguage.Text = "Language";
             // 
             // mnuHelloWorldLanguageEnglish
             // 
             this.mnuHelloWorldLanguageEnglish.Image = global::Mathre.My.Resources.Resources.EnglishAtScale;
             this.mnuHelloWorldLanguageEnglish.Name = "mnuHelloWorldLanguageEnglish";
-            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageEnglish.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageEnglish.Text = "English";
             // 
             // mnuHelloWorldLanguageFrench
             // 
             this.mnuHelloWorldLanguageFrench.Image = global::Mathre.My.Resources.Resources.French;
             this.mnuHelloWorldLanguageFrench.Name = "mnuHelloWorldLanguageFrench";
-            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageFrench.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageFrench.Text = "French";
             // 
             // mnuHelloWorldLanguageGerman
             // 
             this.mnuHelloWorldLanguageGerman.Image = global::Mathre.My.Resources.Resources.German;
             this.mnuHelloWorldLanguageGerman.Name = "mnuHelloWorldLanguageGerman";
-            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(116, 22);
+            this.mnuHelloWorldLanguageGerman.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldLanguageGerman.Text = "German";
             // 
             // mnuHelloWorldReset
             // 
             this.mnuHelloWorldReset.Name = "mnuHelloWorldReset";
-            this.mnuHelloWorldReset.Size = new System.Drawing.Size(126, 22);
+            this.mnuHelloWorldReset.Size = new System.Drawing.Size(180, 22);
             this.mnuHelloWorldReset.Text = "Reset";
             // 
             // mnuMySchool
@@ -409,20 +389,14 @@ namespace Mathre
             this.mnuCalculateRandom.Size = new System.Drawing.Size(125, 22);
             this.mnuCalculateRandom.Text = "Random";
             // 
-            // mnuExit
+            // mnuVideoGames
             // 
-            this.mnuExit.Name = "mnuExit";
-            this.mnuExit.Size = new System.Drawing.Size(195, 22);
-            this.mnuExit.Text = "Exit";
-            // 
-            // videoGameOrdersToolStripMenuItem
-            // 
-            this.videoGameOrdersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuVideoGames.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuPS4,
             this.mnuXB1});
-            this.videoGameOrdersToolStripMenuItem.Name = "videoGameOrdersToolStripMenuItem";
-            this.videoGameOrdersToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
-            this.videoGameOrdersToolStripMenuItem.Text = "Video Game Orders";
+            this.mnuVideoGames.Name = "mnuVideoGames";
+            this.mnuVideoGames.Size = new System.Drawing.Size(195, 22);
+            this.mnuVideoGames.Text = "Video Game Orders";
             // 
             // mnuPS4
             // 
@@ -527,6 +501,49 @@ namespace Mathre
             this.mnuAuto.Size = new System.Drawing.Size(175, 22);
             this.mnuAuto.Text = "Auto Play";
             // 
+            // mnuLetters
+            // 
+            this.mnuLetters.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuSearch});
+            this.mnuLetters.Name = "mnuLetters";
+            this.mnuLetters.Size = new System.Drawing.Size(195, 22);
+            this.mnuLetters.Text = "Letter Counter";
+            // 
+            // mnuSearch
+            // 
+            this.mnuSearch.Name = "mnuSearch";
+            this.mnuSearch.Size = new System.Drawing.Size(109, 22);
+            this.mnuSearch.Text = "Search";
+            // 
+            // mnuExit
+            // 
+            this.mnuExit.Name = "mnuExit";
+            this.mnuExit.Size = new System.Drawing.Size(195, 22);
+            this.mnuExit.Text = "Exit";
+            // 
+            // mnuSecret
+            // 
+            this.mnuSecret.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuRecolor,
+            this.mnuRandomify});
+            this.mnuSecret.Enabled = false;
+            this.mnuSecret.Name = "mnuSecret";
+            this.mnuSecret.Size = new System.Drawing.Size(195, 22);
+            this.mnuSecret.Text = "Super Secret Settings";
+            // 
+            // mnuRecolor
+            // 
+            this.mnuRecolor.Enabled = false;
+            this.mnuRecolor.Name = "mnuRecolor";
+            this.mnuRecolor.Size = new System.Drawing.Size(132, 22);
+            this.mnuRecolor.Text = "Recolor";
+            // 
+            // mnuRandomify
+            // 
+            this.mnuRandomify.Name = "mnuRandomify";
+            this.mnuRandomify.Size = new System.Drawing.Size(132, 22);
+            this.mnuRandomify.Text = "Randomify";
+            // 
             // mnuEdit
             // 
             this.mnuEdit.Enabled = false;
@@ -615,7 +632,7 @@ namespace Mathre
 		public ToolStripMenuItem mnuCalculateMethod4;
 		public ToolStripMenuItem mnuCalculateMethod5;
 		public ToolStripMenuItem mnuCalculateRandom;
-		public ToolStripMenuItem videoGameOrdersToolStripMenuItem;
+		public ToolStripMenuItem mnuVideoGames;
 		public ToolStripMenuItem mnuPS4;
 		public ToolStripMenuItem mnuXB1;
 		private ToolStripMenuItem mnuRPS;
@@ -631,5 +648,7 @@ namespace Mathre
 		private ToolStripMenuItem mnuCalculate;
 		private ToolStripMenuItem mnuDamage;
 		private ToolStripMenuItem mnuAuto;
+		private ToolStripMenuItem mnuLetters;
+		private ToolStripMenuItem mnuSearch;
 	}
 }

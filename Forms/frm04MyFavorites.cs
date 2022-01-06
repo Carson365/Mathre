@@ -13,7 +13,6 @@ namespace Mathre
 	public partial class Frm04MyFavorites : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm04MyFavorites ThisForm;
 		public Frm04MyFavorites()
 		{
 			InitializeComponent();
@@ -22,25 +21,19 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm04MyFavorites>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
-			foreach (RadioButton Button in pnlFavoriteControls.Controls)
-			{
-				Button.CheckedChanged += Favorites;
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
+			foreach (RadioButton Button in pnlFavoriteControls.Controls) { Button.CheckedChanged += Favorites; }
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm04MyFavorites>().Single(); ThisForm.Favorites(sender, e); }
 		public void Favorites(object sender, EventArgs e)
 		{
 			if (sender.GetType().ToString().Contains("Menu"))
 			{
-				((RadioButton)ThisForm.pnlFavoriteControls.Controls[$"btnFavorite{sender}"]).Checked = true;
+				((RadioButton)pnlFavoriteControls.Controls[$"btnFavorite{sender}"]).Checked = true;
 			}
 			if (sender is RadioButton button)
 			{
-				ThisForm.lblFavoriteInfo.Text = button.Parent.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked)?.Name.ToString() switch
+				lblFavoriteInfo.Text = button.Parent.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked)?.Name.ToString() switch
 				{
 					"btnFavoriteActor" => "My favorite actor is Tom Hiddleston. \n He has starred and appeared in several films, but his most famous role is that of Loki in Marvel's MCU.",
 					"btnFavoriteMovie" => "My favorite movie is The Imitation Game. \n it follows the work and life of Alan Turing, a revolutionary code-breaker and very early computer scientist.",
@@ -51,8 +44,8 @@ namespace Mathre
 				};
 				if (ReferenceEquals(sender, btnFavoriteColor))
 				{
-					ThisForm.pnlFavoriteImage.BackgroundImage = null;
-					ThisForm.pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
+					pnlFavoriteImage.BackgroundImage = null;
+					pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
 				}
 				lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
 				pnlFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];

@@ -7,7 +7,6 @@ namespace Mathre
 	public partial class Frm05Temperature : Form
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm05Temperature ThisForm;
 		public Frm05Temperature()
 		{
 			InitializeComponent();
@@ -22,30 +21,27 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm05Temperature>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm05Temperature>().Single(); ThisForm.Temperature(sender, e); }
 		public void Temperature(object sender, EventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (ReferenceEquals(sender, BaseForm.mnuTemperatureCelsius))
 			{
-				ThisForm.btnCelsius.Checked = true;
+				btnCelsius.Checked = true;
 			}
 			else if (ReferenceEquals(sender, BaseForm.mnuTemperatureFahrenheit))
 			{
-				ThisForm.btnFahrenheit.Checked = true;
+				btnFahrenheit.Checked = true;
 			}
 			if (!btnCelsius.Checked & !btnFahrenheit.Checked)
 			{
 				btnCelsius.Checked = true;
 			}
 			double temp = 0;
-			var roundamount = 0;
-			if (txtTemperature.Text.Contains(DecimalChar) && txtTemperature.Text[ThisForm.txtTemperature.Text.Length - 1].ToString() != DecimalChar)
+			int roundamount;
+			if (txtTemperature.Text.Contains(DecimalChar) && txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != DecimalChar)
 			{
 				string[] words = txtTemperature.Text.Split(DecimalChar.ToCharArray());
 				roundamount = words[1].Length;
