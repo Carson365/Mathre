@@ -30,7 +30,6 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm08Pizza>().Single(); ThisForm.Pizza(sender, e); }
-
 		public void Pizza(object sender, EventArgs e)
 		{
 			Action a = $"{sender}" switch
@@ -40,36 +39,17 @@ namespace Mathre
 				"Dollars" => () => btnDollars.Checked = true,
 				"Percent" => () => btnPercent.Checked = true,
 				_ => () => { }
-				,
 			};
 			a.Invoke();
-			if (!btnDelivery.Checked & !btnTakeout.Checked)
-			{
-				btnDelivery.Checked = true;
-			}
-			if (!btnDollars.Checked & !btnPercent.Checked)
-			{
-				btnPercent.Checked = true;
-			}
+			if (!btnDelivery.Checked & !btnTakeout.Checked) { btnDelivery.Checked = true; }
+			if (!btnDollars.Checked & !btnPercent.Checked) { btnPercent.Checked = true; }
 			int Size = 0;
 			decimal Tip = 0;
-			if (int.TryParse(txtPizzaSize.Text, out int SizeText))
-			{
-				Size = SizeText;
-			}
-			if (decimal.TryParse(txtPizzaTip.Text, out decimal TipText))
-			{
-				Tip = TipText;
-			}
+			if (int.TryParse(txtPizzaSize.Text, out int SizeText)) { Size = SizeText; }
+			if (decimal.TryParse(txtPizzaTip.Text, out decimal TipText)) { Tip = TipText; }
 			decimal Cost = (decimal)(0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5));
-			if (Size != 0)
-			{
-				lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString();
-			}
-			if (Size == 0)
-			{
-				lblPizzaCostAmount.Text = "Not Enough Information";
-			}
+			if (Size != 0) { lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); }
+			if (Size == 0) { lblPizzaCostAmount.Text = "Not Enough Information"; }
 			pnlPizzaViewer.BackgroundImage = Size switch
 			{
 				0 => null,
@@ -81,30 +61,13 @@ namespace Mathre
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (sender is not TextBoxBase textBox)
-				return;
-			if (e.KeyChar.ToString() == DecimalChar)
-			{
-				if (ReferenceEquals(sender, txtPizzaTip) && textBox.Text.Contains(DecimalChar))
-				{
-					e.Handled = true;
-				}
-				else
-				{
-					e.Handled = true;
-				}
-			}
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
-			{
-				e.Handled = true;
-			}
+			if (sender is not TextBoxBase textBox) return;
+			if (e.KeyChar.ToString() == DecimalChar) { if (ReferenceEquals(sender, txtPizzaTip)) { if (textBox.Text.Contains(DecimalChar)) e.Handled = true;} }
+			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
 			if (sender == txtPizzaTip)
 			{
 				string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
-				if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
-				{
-					e.Handled = true;
-				}
+				if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar)) { e.Handled = true; }
 			}
 		}
 	}

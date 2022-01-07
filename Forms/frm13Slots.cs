@@ -51,13 +51,15 @@ namespace Mathre
 				counter++;
 				if (tokens == 1 && chbDouble.Checked) { chbDouble.Checked = false; }
 				tokens -= (1 + Convert.ToInt32(chbDouble.Checked));
-				Random rnd = new(); // Generate random numbers 1-3
+				Random rnd = new();
 				int rnd1 = rnd.Next(1, 4);
 				lbl1.Text = $"{rnd1}";
 				int rnd2 = rnd.Next(1, 4);
 				lbl2.Text = $"{rnd2}";
 				int rnd3 = rnd.Next(1, 4);
 				lbl3.Text = $"{rnd3}";
+				Console.WriteLine(chbDouble.Checked);
+				Console.WriteLine($"{chbDouble.Checked}");
 				if (rnd1 == 1 && rnd2 == 1 && rnd3 == 1) { change = 5 + (Convert.ToInt32(chbDouble.Checked) * 5); tokens += change; Message($"{change} Token Jackpot!", null); }
 				else if (rnd1 == 2 && rnd2 == 2 && rnd3 == 2) { change = 10 + (Convert.ToInt32(chbDouble.Checked) * 10); tokens += change; Message($"{change} Token Jackpot!", null); }
 				else if (rnd1 == 3 && rnd2 == 3 && rnd3 == 3) { change = 15 + (Convert.ToInt32(chbDouble.Checked) * 15); tokens += change; Message($"{change} Token Jackpot!", null); }
@@ -77,15 +79,15 @@ namespace Mathre
 		}
 		public void Message(object sender, EventArgs e)
 		{
-			lblScore.Text = $"{tokens}"; // Update score before displaying the message box
+			lblScore.Text = $"{tokens}";
 			lblWinIndicator.Text = $"{sender}";
 			int count = change - (counter + (Convert.ToInt32(chbDouble.Checked)) * counter);
-			string WonOrLost = count switch { < 0 => "lost", _ => "won" }; // Use words instead of signs to indicate a win or loss
+			string WonOrLost = count switch { < 0 => "lost", _ => "won" };
 			string plural = counter switch { 1 => "", _ => "s" };
 			string plural2 = count switch { 1 => "", -1 => "", _ => "s" };
-			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}.\nYou now have {tokens} tokens."; // Display the amount of spins since the last jackpot
-			if (chbMessage.Checked && sender.ToString() != "No Tokens") { MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "                                        Result                                        "); }
-			else { MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "                                        Result                                        "); }
+			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}.\nYou now have {tokens} tokens.";
+			if (chbMessage.Checked && sender.ToString() != "No Tokens") { MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "Result"); }
+			else { MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "Result"); }
 			counter = 0;
 			auto = false;
 			chbAuto.Checked = auto;

@@ -52,12 +52,27 @@ namespace Mathre
 			}
 			if (btnMethod4.Checked)
 			{
-				lblPassFail.Text = (double)Math.Round((Points / Total * 100), 2) switch { > 91.50 => "Pass! A!", > 83.50 => "Pass! B!", > 73.50 => "Pass! C!", > 63.50 => "Pass! D!", < 63.50 => "Fail. F.", _ => "", };
+				lblPassFail.Text = (double)Math.Round((Points / Total * 100), 2) switch
+				{
+					> 91.50 => "Pass! A!",
+					> 83.50 => "Pass! B!",
+					> 73.50 => "Pass! C!",
+					> 63.50 => "Pass! D!",
+					< 63.50 => "Fail. F.",
+					_ => "",
+				};
 			}
 			if (ReferenceEquals(sender, btnMethod5))
 			{
 				abc++;
-				string result = (double)Math.Round((Points / Total * 100), 2) switch { > 91.50 => "Pass! A!", > 83.50 => "Pass! B!", > 73.50 => "Pass! C!", > 63.50 => "Pass! D!", < 63.50 => "Fail. F.", _ => "Error", };
+				string result = (double)Math.Round((Points / Total * 100), 2) switch
+				{
+					> 91.50 => "Pass! A!",
+					> 83.50 => "Pass! B!",
+					> 73.50 => "Pass! C!",
+					> 63.50 => "Pass! D!",
+					< 63.50 => "Fail. F.",
+					_ => "Error", };
 				lblGradesEnteredCount.Text = $"{abc}";
 				MessageBox.Show(result, "                                        Result                                        ");
 			}
@@ -71,8 +86,13 @@ namespace Mathre
 		}
 		public void ButtonSelector(object sender, EventArgs e)
 		{
-			Action a = $"{sender}" switch { "Method 1" => () => btnMethod1.PerformClick(), "Method 2" => () => btnMethod2.PerformClick(), "Method 3" => () => btnMethod3.PerformClick(),
-				"Method 4" => () => btnMethod4.PerformClick(), "Method 5" => () => GradeCalculator(btnMethod5, null), _ => () => GradeCalculator(btnRandom, null) };
+			Action a = $"{sender}" switch
+			{ "Method 1" => () => btnMethod1.PerformClick(),
+				"Method 2" => () => btnMethod2.PerformClick(),
+				"Method 3" => () => btnMethod3.PerformClick(),
+				"Method 4" => () => btnMethod4.PerformClick(),
+				"Method 5" => () => GradeCalculator(btnMethod5, null),
+				_ => () => GradeCalculator(btnRandom, null) };
 			a.Invoke();
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)

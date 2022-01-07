@@ -27,10 +27,7 @@ namespace Mathre
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm04MyFavorites>().Single(); ThisForm.Favorites(sender, e); }
 		public void Favorites(object sender, EventArgs e)
 		{
-			if (sender.GetType().ToString().Contains("Menu"))
-			{
-				((RadioButton)pnlFavoriteControls.Controls[$"btnFavorite{sender}"]).Checked = true;
-			}
+			if (sender.GetType().ToString().Contains("Menu")) { ((RadioButton)pnlFavoriteControls.Controls[$"btnFavorite{sender}"]).Checked = true; }
 			if (sender is RadioButton button)
 			{
 				lblFavoriteInfo.Text = button.Parent.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked)?.Name.ToString() switch

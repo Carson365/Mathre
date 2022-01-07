@@ -20,7 +20,7 @@ namespace Mathre
 		public static Frm00Mathre BaseForm;
 		public string HurricaneInfo = "";
 		public int RunCount = 0;
-		public Dictionary<int, List<string>> theDictionary = new() { { 0, new List<string> { "Name", "MPH", "Knots", "Type", "Category", "Damage" } } };
+		public Dictionary<int, List<string>> Dictionary = new() { { 0, new List<string> { "Name", "MPH", "Knots", "Type", "Category", "Damage" } } };
 		public Frm12Hurricane()
 		{
 			InitializeComponent();
@@ -38,7 +38,7 @@ namespace Mathre
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-			foreach (var item in theDictionary[0]) { lstHurricaneList.Columns.Add(item); }
+			foreach (var item in Dictionary[0]) { lstHurricaneList.Columns.Add(item); }
 			lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm12Hurricane>().Single(); ThisForm.MenuHandler(sender, e); }
@@ -64,19 +64,42 @@ namespace Mathre
 				else
 				{
 					RunCount++;
-					llbName.Text = RunCount switch { 1 => "Alex", 2 => "Bonnie", 3 => "Colin", 4 => "Danielle", 5 => "Earl", 6 => "Fiona", 7 => "Gaston", 8 => "Hermine", 9 => "Ian", 10 => "Julia",
-						11 => "Karl", 12 => "Lisa", 13 => "Martin", 14 => "Nicole", 15 => "Owen", 16 => "Paula", 17 => "Richard", 18 => "Shary", 19 => "Tobias", 20 => "Virginie", 21 => "Walter", _ => "Special Case" };
+					llbName.Text = RunCount switch
+					{
+						1 => "Alex",
+						2 => "Bonnie",
+						3 => "Colin",
+						4 => "Danielle",
+						5 => "Earl",
+						6 => "Fiona",
+						7 => "Gaston",
+						8 => "Hermine",
+						9 => "Ian",
+						10 => "Julia",
+						11 => "Karl",
+						12 => "Lisa",
+						13 => "Martin",
+						14 => "Nicole",
+						15 => "Owen",
+						16 => "Paula",
+						17 => "Richard",
+						18 => "Shary",
+						19 => "Tobias",
+						20 => "Virginie",
+						21 => "Walter",
+						_ => "Special Case"
+					};
 					if (RunCount > 21) { llbName.Enabled = true; }
-					theDictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{txtMPH.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo.Substring(3, HurricaneInfo.LastIndexOf(':') - 3)}." });
-					var item = new ListViewItem(theDictionary[RunCount][0]);
-					foreach (var data in theDictionary[RunCount].Skip(1)) { item.SubItems.Add(data); }
+					Dictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{txtMPH.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo.Substring(3, HurricaneInfo.LastIndexOf(':') - 3)}." });
+					var item = new ListViewItem(Dictionary[RunCount][0]);
+					foreach (var data in Dictionary[RunCount].Skip(1)) { item.SubItems.Add(data); }
 					lstHurricaneList.Items.Add(item);
 					lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 				}
 				Damage(chbDamage, null);
 			}
 		}
-		public void Damage(object sender, EventArgs e) { if (chbDamage.Checked && HurricaneInfo.Length != 0) { MessageBox.Show(HurricaneInfo.Remove(0, 3).ToString(), "                                        Damage                                        "); } }
+		public void Damage(object sender, EventArgs e) { if (chbDamage.Checked && HurricaneInfo.Length != 0) { MessageBox.Show(HurricaneInfo.Remove(0, 3).ToString(), "Damage"); } }
 		public void Random(object sender, EventArgs e)
 		{
 			Random rnd = new();

@@ -26,14 +26,8 @@ namespace Mathre
 			string[] decimals = txtPaidAmount.Text.Split(DecimalChar.ToCharArray());
 			int Bills = 0;
 			int Coins = 0;
-			if (int.TryParse(decimals[0], out int BillsAmount))
-			{
-				Bills = BillsAmount;
-			}
-			if (decimals.Length > 1 && int.TryParse(decimals[1], out int CoinsAmount))
-			{
-				Coins = CoinsAmount;
-			}
+			if (int.TryParse(decimals[0], out int BillsAmount)) { Bills = BillsAmount; }
+			if (decimals.Length > 1 && int.TryParse(decimals[1], out int CoinsAmount)) { Coins = CoinsAmount; }
 			lblHundredsCount.Text = (Bills / 100).ToString();
 			lblFiftiesCount.Text = (Bills % 100 / 50).ToString();
 			lblTwentiesCount.Text = (Bills % 100 % 50 / 20).ToString();
@@ -48,21 +42,11 @@ namespace Mathre
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (sender is not TextBoxBase textBox)
-				return;
-			if (e.KeyChar.ToString() == DecimalChar && textBox.Text.Contains(DecimalChar))
-			{
-				e.Handled = true;
-			}
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
-			{
-				e.Handled = true;
-			}
+			if (sender is not TextBoxBase textBox) return;
+			if (e.KeyChar.ToString() == DecimalChar && textBox.Text.Contains(DecimalChar)) { e.Handled = true; }
+			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
 			string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
-			if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar))
-			{
-				e.Handled = true;
-			}
+			if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar)) { e.Handled = true; }
 		}
 	}
 }

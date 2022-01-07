@@ -18,36 +18,25 @@ namespace Mathre
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			ThisForm = Application.OpenForms.OfType<Frm14Acronym>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void Acronym(object sender, EventArgs e)
 		{
 			string Acronym = "";
 			double Words = 0;
 			int RunCount = 1;
-			while (Words == 0) // Keep displaying the message box if a valid count isn't entered
+			while (Words == 0)
 			{
 				string WordCount = Interaction.InputBox("How many words in the acronym?\nAt most 10 words can be acronymized.", "Acronym Maker", "");
 				if (double.TryParse(WordCount, out double WordResult))
 				{
-					Words = WordResult switch
-					{
-						< 10 => WordResult,
-						_ => 10
-					};
+					Words = WordResult switch { < 10 => WordResult, _ => 10 };
 				}
 			}
 			while (Words != 0)
 			{
 				string Place;
-				int DivNum = RunCount switch
-				{
-					< 31 => 20,
-					_ => 10,
-				};
+				int DivNum = RunCount switch { < 31 => 20, _ => 10, };
 				Place = (RunCount % DivNum) switch
 				{
 					1 => "st",
@@ -56,7 +45,7 @@ namespace Mathre
 					_ => "th",
 				};
 				string NextWord = "";
-				while (NextWord == "") // Keep displaying the message box if a valid word isn't entered
+				while (NextWord == "")
 				{
 					NextWord = Interaction.InputBox($"What is the {RunCount}{Place} Word?", "Acronym Maker", "");
 				}

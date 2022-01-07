@@ -23,10 +23,7 @@ namespace Mathre
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			ThisForm = Application.OpenForms.OfType<Frm15Sum>().Single();
-			foreach (Control c in Controls)
-			{
-				BaseForm.GetAllControls(c);
-			}
+			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void Digits(object sender, EventArgs e)
 		{
@@ -46,10 +43,7 @@ namespace Mathre
 				}
 				if (counter > b)
 				{
-					if (lblCalculation.Text.Length > 0)
-					{
-						lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length - 2, 2);
-					}
+					if (lblCalculation.Text.Length > 0) { lblCalculation.Text = lblCalculation.Text.Remove(lblCalculation.Text.Length - 2, 2); }
 					lblCalculation.Text += $"\n= {total}";
 				}
 			}
@@ -58,14 +52,8 @@ namespace Mathre
 		{
 			if (sender is TextBoxBase)
 			{
-				if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' | e.KeyChar > '9')))
-				{
-					e.Handled = true;
-				}
-				else if (((TextBoxBase)sender).Text.Length > 2 && e.KeyChar != '\b')
-				{
-					e.Handled = true;
-				}
+				if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' | e.KeyChar > '9'))) { e.Handled = true; }
+				else if (((TextBoxBase)sender).Text.Length > 2 && e.KeyChar != '\b') { e.Handled = true; }
 			}
 		}
 	}

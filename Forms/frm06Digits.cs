@@ -28,14 +28,8 @@ namespace Mathre
 			if (txtNumber.Text.Length > a)
 			{
 				var label = (txtNumber.SelectionStart % 2) switch { 0 => lblDigitsListEvens, _ => lblDigitsListOdds };
-				if (label.Text.Contains($"Digit {txtNumber.SelectionStart}:"))
-				{
-					DigitsRedo(null, null);
-				}
-				else
-				{
-					label.Text += $"Digit {txtNumber.SelectionStart}: {txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n";
-				}
+				if (label.Text.Contains($"Digit {txtNumber.SelectionStart}:")) { DigitsRedo(null, null); }
+				else { label.Text += $"Digit {txtNumber.SelectionStart}: {txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n"; }
 			}
 			else
 			{
@@ -44,10 +38,7 @@ namespace Mathre
 					var label = (txtNumber.SelectionStart % 2) switch { 1 => lblDigitsListEvens, _ => lblDigitsListOdds };
 					label.Text = label.Text.Remove(label.Text.Length - 13);
 				}
-				else
-				{
-					DigitsRedo(null, null);
-				}
+				else { DigitsRedo(null, null); }
 			}
 			lblDigitsCount.Text = $"{txtNumber.Text.Length}";
 		}
@@ -64,12 +55,8 @@ namespace Mathre
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
-			if (sender is not TextBoxBase)
-				return;
-			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
-			{
-				e.Handled = true;
-			}
+			if (sender is not TextBoxBase) return;
+			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
 		}
 	}
 }
