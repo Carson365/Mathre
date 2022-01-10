@@ -28,10 +28,7 @@ namespace Mathre
 			while (Words == 0)
 			{
 				string WordCount = Interaction.InputBox("How many words in the acronym?\nAt most 10 words can be acronymized.", "Acronym Maker", "");
-				if (double.TryParse(WordCount, out double WordResult))
-				{
-					Words = WordResult switch { < 10 => WordResult, _ => 10 };
-				}
+				if (double.TryParse(WordCount, out double WordResult)) { Words = WordResult switch { < 10 => WordResult, _ => 10 }; }
 			}
 			while (Words != 0)
 			{
@@ -45,10 +42,7 @@ namespace Mathre
 					_ => "th",
 				};
 				string NextWord = "";
-				while (NextWord == "")
-				{
-					NextWord = Interaction.InputBox($"What is the {RunCount}{Place} Word?", "Acronym Maker", "");
-				}
+				while (NextWord == "") { NextWord = Interaction.InputBox($"What is the {RunCount}{Place} Word?", "Acronym Maker", ""); }
 				Acronym = $"{Acronym}{NextWord[0]}".ToUpper();
 				Words--;
 				RunCount++;

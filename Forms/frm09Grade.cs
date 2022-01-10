@@ -72,9 +72,10 @@ namespace Mathre
 					> 73.50 => "Pass! C!",
 					> 63.50 => "Pass! D!",
 					< 63.50 => "Fail. F.",
-					_ => "Error", };
+					_ => "Error",
+				};
 				lblGradesEnteredCount.Text = $"{abc}";
-				MessageBox.Show(result, "                                        Result                                        ");
+				MessageBox.Show(result, "Result");
 			}
 			if (ReferenceEquals(sender, btnRandom))
 			{
@@ -87,12 +88,14 @@ namespace Mathre
 		public void ButtonSelector(object sender, EventArgs e)
 		{
 			Action a = $"{sender}" switch
-			{ "Method 1" => () => btnMethod1.PerformClick(),
+			{
+				"Method 1" => () => btnMethod1.PerformClick(),
 				"Method 2" => () => btnMethod2.PerformClick(),
 				"Method 3" => () => btnMethod3.PerformClick(),
 				"Method 4" => () => btnMethod4.PerformClick(),
 				"Method 5" => () => GradeCalculator(btnMethod5, null),
-				_ => () => GradeCalculator(btnRandom, null) };
+				_ => () => GradeCalculator(btnRandom, null)
+			};
 			a.Invoke();
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)

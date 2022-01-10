@@ -25,6 +25,12 @@ namespace Mathre
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
+			//
+			//foreach button or radiobutton in each form add it to mnu.File under its respective form's name
+
+
+
+			//
 			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre"))
 			{
 				var form = Activator.CreateInstance(type) as Form;
@@ -50,6 +56,12 @@ namespace Mathre
 					item.Text = newTab.Text.ToString();
 					item.Click += new EventHandler((sender, e) => { tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab")); });
 					mnuView.DropDownItems.Add(item);
+				}
+				//Console.WriteLine(form.Controls.OfType<Button>());
+				Console.WriteLine(form.Controls.OfType<RadioButton>().Count());
+				foreach (Button a in form.Controls.OfType<Button>())
+				{
+					Console.WriteLine("1");
 				}
 			}
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());

@@ -35,7 +35,6 @@ namespace Mathre
 			picRPS2.Image = imgRPS.Images["RPS.png"];
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm11RPS>().Single(); ThisForm.MenuHandler(sender, e); }
-
 		public void RPSGame(object sender, EventArgs e)
 		{
 			wager = (int)numWager.Value;
@@ -82,7 +81,7 @@ namespace Mathre
 		public void Message(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = $"{sender}";
-			if (chbDisableMessagebox.Checked) { MessageBox.Show($"{sender}", "                                        Result                                        "); }
+			if (chbDisableMessagebox.Checked) { MessageBox.Show($"{sender}", "Result"); }
 		}
 	}
 }

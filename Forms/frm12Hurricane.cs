@@ -59,7 +59,14 @@ namespace Mathre
 				lblCategory.Text = HurricaneInfo.Remove(1, HurricaneInfo.Length - 1);
 				if (HurricaneInfo.Remove(1, HurricaneInfo.Length - 1) != "0") { picHurricaneType.Image = imgHurricanes.Images[$"Cat{HurricaneInfo.Remove(1, HurricaneInfo.Length - 1)}.png"]; }
 				else { picHurricaneType.Image = Convert.ToDouble(txtMPH.Text) switch { < 39 => imgHurricanes.Images["TD0.png"], _ => imgHurricanes.Images["TS0.png"], }; }
-				lblType.Text = Convert.ToDouble(txtMPH.Text) switch { < 39 => "Tropical Depression", < 74 => "Tropical Storm", < 111 => "Hurricane", < 151 => "Major Hurricane", _ => "Super Typhoon", };
+				lblType.Text = Convert.ToDouble(txtMPH.Text) switch
+				{
+					< 39 => "Tropical Depression",
+					< 74 => "Tropical Storm",
+					< 111 => "Hurricane",
+					< 151 => "Major Hurricane",
+					_ => "Super Typhoon",
+				};
 				if (ReferenceEquals(sender, btnRandom)) { llbName.Text = "Example"; llbName.Enabled = false; }
 				else
 				{
@@ -103,7 +110,15 @@ namespace Mathre
 		public void Random(object sender, EventArgs e)
 		{
 			Random rnd = new();
-			var randomstorm = rnd.Next(0, 6) switch { 0 => rnd.Next(0, 74), 1 => rnd.Next(74, 95), 2 => rnd.Next(95, 110), 3 => rnd.Next(110, 129), 4 => rnd.Next(129, 156), _ => rnd.Next(156, 210), };
+			var randomstorm = rnd.Next(0, 6) switch
+			{
+				0 => rnd.Next(0, 74),
+				1 => rnd.Next(74, 95),
+				2 => rnd.Next(95, 110),
+				3 => rnd.Next(110, 129),
+				4 => rnd.Next(129, 156),
+				_ => rnd.Next(156, 210),
+			};
 			txtMPH.Text = $"{randomstorm}";
 			Hurricane(btnRandom, null);
 		}
@@ -115,12 +130,12 @@ namespace Mathre
 		public void ListResizeManager(object sender, ColumnWidthChangingEventArgs e) { e.NewWidth = this.lstHurricaneList.Columns[e.ColumnIndex].Width; e.Cancel = true; }
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
-			if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))
-			{
-				e.Handled = true;
-			}
+			if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')) { e.Handled = true; }
 			else if (txtMPH.Text.Length != 0 && Convert.ToDouble(txtMPH.Text) > 20 && e.KeyChar != '\b' && Convert.ToDouble($"{txtMPH.Text}{e.KeyChar}") > 210)
-			{ if (txtMPH.SelectionLength < 1) { e.Handled = true; } else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, e.KeyChar.ToString())}") > 210) { e.Handled = true; } }
+			{
+				if (txtMPH.SelectionLength < 1) { e.Handled = true; }
+				else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, e.KeyChar.ToString())}") > 210) { e.Handled = true; }
+			}
 		}
 		public void MenuHandler(object sender, EventArgs e)
 		{
