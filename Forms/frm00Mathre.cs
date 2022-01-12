@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -39,7 +38,7 @@ namespace Mathre
 				form.Width = Width - 16;
 				form.Height = Height - 84;
 				TabPage newTab = new();
-				newTab.Name = $"{Regex.Replace(form.Name, "Frm", "tab")}";
+				newTab.Name = $"{form.Name.Replace( "Frm", "tab")}";
 				newTab.Text = $"{form.Text}";
 				if (newTab.Name == "tabSecret") { Secret = newTab; tabMathre.TabPages.Remove(Secret); }
 				else
@@ -68,7 +67,7 @@ namespace Mathre
 			ColorKey.Close();
 			KeyPreview = true;
 			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
-			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) { MenuItemKeypressHandler((ToolStripMenuItem)ToolStripMenuItem); }
+			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) { MenuKeypress((ToolStripMenuItem)ToolStripMenuItem); }
 			foreach (Control c in Controls) { GetAllControls(this); }
 			hidden = true;
 			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
@@ -100,9 +99,7 @@ namespace Mathre
 				if ((b is Button) || (b is RadioButton))
 				{
 					ToolStripMenuItem tool = new();
-					string[] list = { "btnRock2", "btnPaper2", "btnScissors2" };
-					if (list.Any(b.Name.Contains)) { tool.Enabled = false; }
-					else { tool.Enabled = true; }
+					tool.Enabled = !(new string[] { "btnRock2", "btnPaper2", "btnScissors2" }).Any(b.Name.Contains);
 					tool.Text = b.Text;
 					tool.Name = "Exit";
 					tool.Click += ((IManager)Application.OpenForms[$"{b.FindForm().Name}"]).MenuControl;
@@ -116,18 +113,15 @@ namespace Mathre
 			{
 				foreach (Form form in Application.OpenForms)
 				{
-					if (form.Name != "Frm00Mathre" && Regex.Replace(form.Name, @"Frm", "tab") != tabMathre.SelectedTab.Name) { form.Hide(); }
+					if (form.Name != "Frm00Mathre" && form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) { form.Hide(); }
 					else if (form.Name != "Frm00Mathre") { form.Show(); }
 				}
 				if (tabMathre.SelectedTab.Name == "tab13Slots") { var F13 = Application.OpenForms.OfType<Frm13Slots>().Single(); F13.Tabbed(null, null); }
 			}
 		}
-		public void MenuItemKeypressHandler(ToolStripMenuItem ToolStripMenuItem)
+		public void MenuKeypress(ToolStripMenuItem TSMI)
 		{
-			foreach (var ToolStripItem in GetAll(ToolStripMenuItem.DropDownItems))
-			{
-				if (ToolStripItem is ToolStripMenuItem ToolstripItem) { ToolStripMenuItem.DropDown.KeyDown += KeyboardShortcuts; MenuItemKeypressHandler(ToolstripItem); }
-			}
+			foreach (var TSI in GetAll(TSMI.DropDownItems)) { if (TSI is ToolStripMenuItem TSI2) { TSMI.DropDown.KeyDown += KeyboardShortcuts; MenuKeypress(TSI2); } }
 		}
 		public void KeyboardShortcuts(object sender, KeyEventArgs e)
 		{
