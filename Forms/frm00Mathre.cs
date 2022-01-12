@@ -1,3 +1,4 @@
+using Mathre.Forms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,30 +8,23 @@ using System.Text.RegularExpressions;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm00Mathre : Form
+	public partial class Frm00Mathre : Form, IManager
 	{
 		private string AccentColor;
 		private static Color SystemColor;
-		private bool hidden;
+		public bool hidden;
 		private Size FormSize;
 		private TabPage Secret;
 		public Frm00Mathre()
 		{
 			InitializeComponent();
 			KeyDown += KeyboardShortcuts;
-			mnuExit.Click += (s, e) => { Close(); };
 			tabMathre.SelectedIndexChanged += FormManager;
 			Resize += Resized;
 			Load += LoadEvent;
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			//
-			//foreach button or radiobutton in each form add it to mnu.File under its respective form's name
-
-
-
-			//
 			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre"))
 			{
 				var form = Activator.CreateInstance(type) as Form;
@@ -52,43 +46,35 @@ namespace Mathre
 				{
 					tabMathre.TabPages.Add(newTab);
 					ToolStripMenuItem item = new();
-					item.Name = newTab.Name.ToString().Replace("tab", "mnuView");
-					item.Text = newTab.Text.ToString();
+					item.Name = newTab.Name.Replace("tab", "mnuView");
+					item.Text = newTab.Text;
 					item.Click += new EventHandler((sender, e) => { tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab")); });
 					mnuView.DropDownItems.Add(item);
-				}
-				//Console.WriteLine(form.Controls.OfType<Button>());
-				Console.WriteLine(form.Controls.OfType<RadioButton>().Count());
-				foreach (Button a in form.Controls.OfType<Button>())
-				{
-					Console.WriteLine("1");
+					ToolStripMenuItem menu = new();
+					menu.Text = form.Text;
+					menu.Name = form.Name.Replace("tab", "mnu");
+					mnuFile.DropDownItems.Add(menu);
+					form.Controls.OfType<Control>().All(c => { GetButtons(c, menu); return true; });
 				}
 			}
+			ToolStripMenuItem exit = new();
+			exit.Name = "mnuExit";
+			exit.Text = "Exit";
+			exit.Click += (s, e) => { Close(); };
+			mnuFile.DropDownItems.Add(exit);
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
-			AccentColor = $"{(ColorKey.GetValue("AccentColor"))}";
+			AccentColor = $"{ColorKey.GetValue("AccentColor")}";
 			ColorKey.Close();
 			KeyPreview = true;
 			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) { MenuItemKeypressHandler((ToolStripMenuItem)ToolStripMenuItem); }
-			FormCollection Forms = Application.OpenForms;
-			foreach (ToolStripItem Item in GetAll(mnu01HelloWorld.DropDownItems))		{ var F01 = Forms.OfType<Frm01HelloWorld>().Single(); Item.Click += F01.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu02MySchool.DropDownItems))			{ var F02 = Forms.OfType<Frm02MySchool>().Single(); Item.Click += F02.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu04Favorites.DropDownItems))		{ var F04 = Forms.OfType<Frm04MyFavorites>().Single(); Item.Click += F04.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu05Temperature.DropDownItems))		{ var F05 = Forms.OfType<Frm05Temperature>().Single(); Item.Click += F05.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu08Pizza.DropDownItems))			{ var F08 = Forms.OfType<Frm08Pizza>().Single(); Item.Click += F08.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu09Grade.DropDownItems))			{ var F09 = Forms.OfType<Frm09Grade>().Single(); Item.Click += F09.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu10VideoGames.DropDownItems))		{ var F10 = Forms.OfType<Frm10VideoGames>().Single(); Item.Click += F10.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu11RPS.DropDownItems))				{ var F11 = Forms.OfType<Frm11RPS>().Single(); Item.Click += F11.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu12Hurricane.DropDownItems))		{ var F12 = Forms.OfType<Frm12Hurricane>().Single(); Item.Click += F12.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu13Slots.DropDownItems))			{ var F13 = Forms.OfType<Frm13Slots>().Single(); Item.Click += F13.MenuControl; }
-			foreach (ToolStripItem Item in GetAll(mnu16Letters.DropDownItems))			{ var F16 = Forms.OfType<Frm16Letters>().Single(); Item.Click += F16.MenuControl; }
-																						{ var F01 = Forms.OfType<Frm01HelloWorld>().Single(); mnuRandomify.Click += F01.MenuControl; }
 			foreach (Control c in Controls) { GetAllControls(this); }
 			hidden = true;
 			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 		}
+		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }
 		public IEnumerable<ToolStripMenuItem> GetAll(ToolStripItemCollection items)
 		{
 			List<ToolStripMenuItem> allItems = new();
@@ -98,6 +84,31 @@ namespace Mathre
 		public void GetAllControls(Control container)
 		{
 			foreach (Control b in container.Controls) { GetAllControls(b); if ((b is Panel) && (b is not TabPage) && b.Name != "pnlFrame") { b.Paint += PaintPanel; } }
+		}
+		public void GetButtons(Control container, ToolStripMenuItem item)
+		{
+			foreach (Control b in container.Controls)
+			{
+				if ((b is Panel) && $"{b.Tag}".Contains(','))
+				{
+					ToolStripMenuItem menu = new();
+					menu.Text = $"{b.Tag}".Substring($"{b.Tag}".LastIndexOf(',') + 1);
+					item.DropDownItems.Add(menu);
+					GetButtons(b, menu);
+				}
+				else { GetButtons(b, item); }
+				if ((b is Button) || (b is RadioButton))
+				{
+					ToolStripMenuItem tool = new();
+					string[] list = { "btnRock2", "btnPaper2", "btnScissors2" };
+					if (list.Any(b.Name.Contains)) { tool.Enabled = false; }
+					else { tool.Enabled = true; }
+					tool.Text = b.Text;
+					tool.Name = "Exit";
+					tool.Click += ((IManager)Application.OpenForms[$"{b.FindForm().Name}"]).MenuControl;
+					item.DropDownItems.Add(tool);
+				}
+			}
 		}
 		public void FormManager(object sender, EventArgs e)
 		{
@@ -133,8 +144,8 @@ namespace Mathre
 				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			}
-			if (e.Control & e.KeyCode == Keys.R & mnuSecret.Enabled) { F01.HelloWorld(mnuRandomify, null); }
-			if (e.Control & e.Shift & e.KeyCode == Keys.R) { F01.HelloWorld(mnuHelloWorldReset, null); }
+			if (e.Control & e.KeyCode == Keys.R & hidden == false) { F01.HelloWorld("Secret", null); }
+			if (e.Control & e.Shift & e.KeyCode == Keys.R) { F01.HelloWorld("Reset", null); }
 			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D8)) { tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1]; }
 			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode == Keys.D9)) { tabMathre.SelectedTab = tabMathre.TabPages[tabMathre.TabCount - 1]; }
 		}
@@ -147,8 +158,8 @@ namespace Mathre
 		public void PaintPanel(object box, PaintEventArgs p)
 		{
 			Color BorderColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
-			if ((string)((Panel)box).Tag == "Black") { BorderColor = Color.Black; }
-			if ((string)((Panel)box).Tag == "Transparent") { BorderColor = Color.Transparent; }
+			if ($"{((Panel)box).Tag}".Contains("Black")) { BorderColor = Color.Black; }
+			if ($"{((Panel)box).Tag}".Contains("Transparent")) { BorderColor = Color.Transparent; }
 			var rect = new Rectangle(0, 0, ((Panel)box).Width, ((Panel)box).Height);
 			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
 			rect.Inflate(-1, -1);

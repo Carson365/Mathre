@@ -1,12 +1,13 @@
 ﻿// SOURCES:
 // Mascot: https://www.gfschools.org/cms/lib/ND02203034/Centricity/Template/GlobalAssets/images///logos/Red%20River%20HS.png
+using Mathre.Forms;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm02MySchool : Form
+	public partial class Frm02MySchool : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm02MySchool()

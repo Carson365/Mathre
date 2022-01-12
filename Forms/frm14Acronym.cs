@@ -1,10 +1,11 @@
-﻿using Microsoft.VisualBasic;
+﻿using Mathre.Forms;
+using Microsoft.VisualBasic;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm14Acronym : Form
+	public partial class Frm14Acronym : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public static Frm14Acronym ThisForm;
@@ -20,6 +21,7 @@ namespace Mathre
 			ThisForm = Application.OpenForms.OfType<Frm14Acronym>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm14Acronym>().Single(); ThisForm.Acronym(sender, e); }
 		public void Acronym(object sender, EventArgs e)
 		{
 			string Acronym = "";

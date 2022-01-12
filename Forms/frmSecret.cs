@@ -1,10 +1,11 @@
+using Mathre.Forms;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class FrmSecret : Form
+	public partial class FrmSecret : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public static FrmSecret ThisForm;
@@ -22,6 +23,7 @@ namespace Mathre
 			ThisForm = Application.OpenForms.OfType<FrmSecret>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
+		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }
 		public void SecretHandler(object sender, EventArgs e)
 		{
 			if (ReferenceEquals(sender, txtSecretPassword))
@@ -36,10 +38,10 @@ namespace Mathre
 				}
 				if (hashedvalue == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") { btnSecretEnable.Enabled = true; btnSecretDisable.Enabled = true; }
 				else { btnSecretEnable.Enabled = false; btnSecretDisable.Enabled = false; btnSecretDisable.Checked = true; }
-				if (btnSecretEnable.Enabled == false) { BaseForm.mnuSecret.Enabled = false; }
+				if (btnSecretEnable.Enabled == false) { BaseForm.hidden = true; }
 			}
-			if (ReferenceEquals(sender, btnSecretEnable)) { BaseForm.mnuSecret.Enabled = true; btnSecretEnable.Checked = true; }
-			if (ReferenceEquals(sender, btnSecretDisable)) { BaseForm.mnuSecret.Enabled = false; btnSecretDisable.Checked = true; }
+			if (ReferenceEquals(sender, btnSecretEnable)) { BaseForm.hidden = false; btnSecretEnable.Checked = true; }
+			if (ReferenceEquals(sender, btnSecretDisable)) { BaseForm.hidden = true; btnSecretDisable.Checked = true; }
 		}
 	}
 }

@@ -30,20 +30,20 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlTemperatureResults = new System.Windows.Forms.Panel();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblCelsiusDisplay = new System.Windows.Forms.Label();
             this.lblFahrenheitDisplayLabel = new System.Windows.Forms.Label();
             this.lblFahrenheitDisplay = new System.Windows.Forms.Label();
             this.lblCelsiusDisplayLabel = new System.Windows.Forms.Label();
-            this.pnlTemperature = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.btnCelsius = new System.Windows.Forms.RadioButton();
             this.txtTemperature = new System.Windows.Forms.TextBox();
             this.btnFahrenheit = new System.Windows.Forms.RadioButton();
             this.lblTemperature = new System.Windows.Forms.Label();
-            this.lblTemperatureTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
-            this.pnlTemperatureResults.SuspendLayout();
-            this.pnlTemperature.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -52,26 +52,26 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.pnlTemperatureResults);
-            this.pnlFrame.Controls.Add(this.pnlTemperature);
-            this.pnlFrame.Controls.Add(this.lblTemperatureTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 33;
             // 
-            // pnlTemperatureResults
+            // pnlBody2
             // 
-            this.pnlTemperatureResults.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlTemperatureResults.BackColor = System.Drawing.Color.Transparent;
-            this.pnlTemperatureResults.Controls.Add(this.lblCelsiusDisplay);
-            this.pnlTemperatureResults.Controls.Add(this.lblFahrenheitDisplayLabel);
-            this.pnlTemperatureResults.Controls.Add(this.lblFahrenheitDisplay);
-            this.pnlTemperatureResults.Controls.Add(this.lblCelsiusDisplayLabel);
-            this.pnlTemperatureResults.Location = new System.Drawing.Point(287, 276);
-            this.pnlTemperatureResults.Name = "pnlTemperatureResults";
-            this.pnlTemperatureResults.Size = new System.Drawing.Size(426, 81);
-            this.pnlTemperatureResults.TabIndex = 36;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.lblCelsiusDisplay);
+            this.pnlBody2.Controls.Add(this.lblFahrenheitDisplayLabel);
+            this.pnlBody2.Controls.Add(this.lblFahrenheitDisplay);
+            this.pnlBody2.Controls.Add(this.lblCelsiusDisplayLabel);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 81);
+            this.pnlBody2.TabIndex = 36;
             // 
             // lblCelsiusDisplay
             // 
@@ -117,18 +117,18 @@ namespace Mathre
             this.lblCelsiusDisplayLabel.TabIndex = 15;
             this.lblCelsiusDisplayLabel.Text = "Temperature in Celsius:";
             // 
-            // pnlTemperature
+            // pnlBody
             // 
-            this.pnlTemperature.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlTemperature.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlTemperature.Controls.Add(this.btnCelsius);
-            this.pnlTemperature.Controls.Add(this.txtTemperature);
-            this.pnlTemperature.Controls.Add(this.btnFahrenheit);
-            this.pnlTemperature.Controls.Add(this.lblTemperature);
-            this.pnlTemperature.Location = new System.Drawing.Point(287, 165);
-            this.pnlTemperature.Name = "pnlTemperature";
-            this.pnlTemperature.Size = new System.Drawing.Size(426, 105);
-            this.pnlTemperature.TabIndex = 35;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.txtTemperature);
+            this.pnlBody.Controls.Add(this.btnFahrenheit);
+			this.pnlBody.Controls.Add(this.btnCelsius);
+			this.pnlBody.Controls.Add(this.lblTemperature);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 35;
             // 
             // btnCelsius
             // 
@@ -174,17 +174,17 @@ namespace Mathre
             this.lblTemperature.TabIndex = 9;
             this.lblTemperature.Text = "Temperature:";
             // 
-            // lblTemperatureTitle
+            // lblTitle
             // 
-            this.lblTemperatureTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTemperatureTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTemperatureTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblTemperatureTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTemperatureTitle.Name = "lblTemperatureTitle";
-            this.lblTemperatureTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblTemperatureTitle.TabIndex = 34;
-            this.lblTemperatureTitle.Text = "Temperature Converter";
-            this.lblTemperatureTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 34;
+            this.lblTitle.Text = "Temperature Converter";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm05Temperature
             // 
@@ -196,10 +196,10 @@ namespace Mathre
             this.Name = "Frm05Temperature";
             this.Text = "Temperature Converter";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlTemperatureResults.ResumeLayout(false);
-            this.pnlTemperatureResults.PerformLayout();
-            this.pnlTemperature.ResumeLayout(false);
-            this.pnlTemperature.PerformLayout();
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody2.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -207,16 +207,16 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlFrame;
-		private System.Windows.Forms.Panel pnlTemperatureResults;
+		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Label lblCelsiusDisplay;
 		internal System.Windows.Forms.Label lblFahrenheitDisplayLabel;
 		private System.Windows.Forms.Label lblFahrenheitDisplay;
 		internal System.Windows.Forms.Label lblCelsiusDisplayLabel;
-		private System.Windows.Forms.Panel pnlTemperature;
+		private System.Windows.Forms.Panel pnlBody;
 		private System.Windows.Forms.RadioButton btnCelsius;
 		internal System.Windows.Forms.TextBox txtTemperature;
 		private System.Windows.Forms.RadioButton btnFahrenheit;
 		internal System.Windows.Forms.Label lblTemperature;
-		internal System.Windows.Forms.Label lblTemperatureTitle;
+		internal System.Windows.Forms.Label lblTitle;
 	}
 }

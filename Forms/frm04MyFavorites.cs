@@ -4,13 +4,14 @@
 // Movie : https://m.media-amazon.com/images/M/MV5BOTgwMzFiMWYtZDhlNS00ODNkLWJiODAtZDVhNzgyNzJhYjQ4L2ltYWdlXkEyXkFqcGdeQXVyNzEzOTYxNTQ@._V1_.jpg
 // Fruit : https://www.gardeningknowhow.com/wp-content/uploads/2019/10/stone-fruit-400x267.jpg
 // Hobby : https://rccarmarketplace.com/wp-content/uploads/2020/10/arrma-mojave-exb-full-option-roller-p2-720x380.jpg
+using Mathre.Forms;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm04MyFavorites : Form
+	public partial class Frm04MyFavorites : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm04MyFavorites()
@@ -22,12 +23,12 @@ namespace Mathre
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-			foreach (RadioButton Button in pnlFavoriteControls.Controls) { Button.CheckedChanged += Favorites; }
+			foreach (RadioButton Button in pnlBody.Controls) { Button.CheckedChanged += Favorites; }
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm04MyFavorites>().Single(); ThisForm.Favorites(sender, e); }
 		public void Favorites(object sender, EventArgs e)
 		{
-			if (sender.GetType().ToString().Contains("Menu")) { ((RadioButton)pnlFavoriteControls.Controls[$"btnFavorite{sender}"]).Checked = true; }
+			if (sender.GetType().ToString().Contains("Menu")) { ((RadioButton)pnlBody.Controls[$"btnFavorite{sender}"]).Checked = true; }
 			if (sender is RadioButton button)
 			{
 				lblFavoriteInfo.Text = button.Parent.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked)?.Name.ToString() switch
@@ -44,8 +45,8 @@ namespace Mathre
 					pnlFavoriteImage.BackgroundImage = null;
 					pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");
 				}
-				lblFavoriteTitle.Text = $"My Favorite {pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
-				pnlFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{pnlFavoriteControls.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
+				lblTitle.Text = $"My Favorite {pnlBody.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}";
+				pnlFavoriteImage.BackgroundImage = imgFavoriteImages.Images[$"{pnlBody.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked).Text}.jpg".ToString()];
 			}
 		}
 	}

@@ -29,122 +29,119 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-            this.lblHelloWorldTitle = new System.Windows.Forms.Label();
-            this.pnlHelloWorld = new System.Windows.Forms.Panel();
-            this.picHelloWorldGerman = new System.Windows.Forms.PictureBox();
-            this.btnHelloWorldFrench = new System.Windows.Forms.RadioButton();
-            this.btnHelloWorldEnglish = new System.Windows.Forms.RadioButton();
-            this.picHelloWorldEnglish = new System.Windows.Forms.PictureBox();
-            this.btnHelloWorldGerman = new System.Windows.Forms.RadioButton();
-            this.picHelloWorldFrench = new System.Windows.Forms.PictureBox();
-            this.btnHelloWorldReset = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlBody = new System.Windows.Forms.Panel();
+            this.picGerman = new System.Windows.Forms.PictureBox();
+            this.btnEnglish = new System.Windows.Forms.RadioButton();
+            this.btnFrench = new System.Windows.Forms.RadioButton();
+            this.btnGerman = new System.Windows.Forms.RadioButton();
+            this.picEnglish = new System.Windows.Forms.PictureBox();
+            this.picFrench = new System.Windows.Forms.PictureBox();
+            this.btnReset = new System.Windows.Forms.Button();
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlHelloWorld.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).BeginInit();
+            this.pnlLanguage = new System.Windows.Forms.Panel();
+            this.pnlBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGerman)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnglish)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFrench)).BeginInit();
             this.pnlFrame.SuspendLayout();
+            this.pnlLanguage.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lblHelloWorldTitle
+            // lblTitle
             // 
-            this.lblHelloWorldTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblHelloWorldTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHelloWorldTitle.Location = new System.Drawing.Point(287, 95);
-            this.lblHelloWorldTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblHelloWorldTitle.Name = "lblHelloWorldTitle";
-            this.lblHelloWorldTitle.Size = new System.Drawing.Size(426, 51);
-            this.lblHelloWorldTitle.TabIndex = 29;
-            this.lblHelloWorldTitle.Text = "Hello World";
-            this.lblHelloWorldTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(287, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(426, 51);
+            this.lblTitle.TabIndex = 29;
+            this.lblTitle.Text = "Hello World";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlHelloWorld
+            // pnlBody
             // 
-            this.pnlHelloWorld.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlHelloWorld.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlHelloWorld.Controls.Add(this.picHelloWorldGerman);
-            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldFrench);
-            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldEnglish);
-            this.pnlHelloWorld.Controls.Add(this.picHelloWorldEnglish);
-            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldGerman);
-            this.pnlHelloWorld.Controls.Add(this.picHelloWorldFrench);
-            this.pnlHelloWorld.Controls.Add(this.btnHelloWorldReset);
-            this.pnlHelloWorld.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlHelloWorld.Location = new System.Drawing.Point(287, 165);
-            this.pnlHelloWorld.Name = "pnlHelloWorld";
-            this.pnlHelloWorld.Size = new System.Drawing.Size(426, 105);
-            this.pnlHelloWorld.TabIndex = 30;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+			this.pnlBody.Controls.Add(this.pnlLanguage);
+			this.pnlBody.Controls.Add(this.btnReset);
+            this.pnlBody.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 30;
             // 
-            // picHelloWorldGerman
+            // picGerman
             // 
-            this.picHelloWorldGerman.Image = global::Mathre.My.Resources.Resources.German;
-            this.picHelloWorldGerman.Location = new System.Drawing.Point(293, 21);
-            this.picHelloWorldGerman.Name = "picHelloWorldGerman";
-            this.picHelloWorldGerman.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldGerman.TabIndex = 13;
-            this.picHelloWorldGerman.TabStop = false;
+            this.picGerman.Image = global::Mathre.My.Resources.Resources.German;
+            this.picGerman.Location = new System.Drawing.Point(287, 9);
+            this.picGerman.Name = "picGerman";
+            this.picGerman.Size = new System.Drawing.Size(31, 25);
+            this.picGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picGerman.TabIndex = 13;
+            this.picGerman.TabStop = false;
             // 
-            // btnHelloWorldFrench
+            // btnEnglish
             // 
-            this.btnHelloWorldFrench.AutoSize = true;
-            this.btnHelloWorldFrench.Location = new System.Drawing.Point(201, 25);
-            this.btnHelloWorldFrench.Name = "btnHelloWorldFrench";
-            this.btnHelloWorldFrench.Size = new System.Drawing.Size(58, 17);
-            this.btnHelloWorldFrench.TabIndex = 10;
-            this.btnHelloWorldFrench.Text = "French";
-            this.btnHelloWorldFrench.UseVisualStyleBackColor = true;
+            this.btnEnglish.AutoSize = true;
+            this.btnEnglish.Checked = true;
+            this.btnEnglish.Location = new System.Drawing.Point(65, 13);
+            this.btnEnglish.Name = "btnEnglish";
+            this.btnEnglish.Size = new System.Drawing.Size(59, 17);
+            this.btnEnglish.TabIndex = 7;
+            this.btnEnglish.TabStop = true;
+            this.btnEnglish.Text = "English";
+            this.btnEnglish.UseVisualStyleBackColor = true;
             // 
-            // btnHelloWorldEnglish
+            // btnFrench
             // 
-            this.btnHelloWorldEnglish.AutoSize = true;
-            this.btnHelloWorldEnglish.Checked = true;
-            this.btnHelloWorldEnglish.Location = new System.Drawing.Point(71, 25);
-            this.btnHelloWorldEnglish.Name = "btnHelloWorldEnglish";
-            this.btnHelloWorldEnglish.Size = new System.Drawing.Size(59, 17);
-            this.btnHelloWorldEnglish.TabIndex = 7;
-            this.btnHelloWorldEnglish.TabStop = true;
-            this.btnHelloWorldEnglish.Text = "English";
-            this.btnHelloWorldEnglish.UseVisualStyleBackColor = true;
+            this.btnFrench.AutoSize = true;
+            this.btnFrench.Location = new System.Drawing.Point(195, 13);
+            this.btnFrench.Name = "btnFrench";
+            this.btnFrench.Size = new System.Drawing.Size(58, 17);
+            this.btnFrench.TabIndex = 10;
+            this.btnFrench.Text = "French";
+            this.btnFrench.UseVisualStyleBackColor = true;
             // 
-            // picHelloWorldEnglish
+            // btnGerman
             // 
-            this.picHelloWorldEnglish.Image = global::Mathre.My.Resources.Resources.English;
-            this.picHelloWorldEnglish.Location = new System.Drawing.Point(34, 21);
-            this.picHelloWorldEnglish.Name = "picHelloWorldEnglish";
-            this.picHelloWorldEnglish.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldEnglish.TabIndex = 12;
-            this.picHelloWorldEnglish.TabStop = false;
+            this.btnGerman.AutoSize = true;
+            this.btnGerman.Location = new System.Drawing.Point(324, 13);
+            this.btnGerman.Name = "btnGerman";
+            this.btnGerman.Size = new System.Drawing.Size(62, 17);
+            this.btnGerman.TabIndex = 8;
+            this.btnGerman.Text = "German";
+            this.btnGerman.UseVisualStyleBackColor = true;
             // 
-            // btnHelloWorldGerman
+            // picEnglish
             // 
-            this.btnHelloWorldGerman.AutoSize = true;
-            this.btnHelloWorldGerman.Location = new System.Drawing.Point(330, 25);
-            this.btnHelloWorldGerman.Name = "btnHelloWorldGerman";
-            this.btnHelloWorldGerman.Size = new System.Drawing.Size(62, 17);
-            this.btnHelloWorldGerman.TabIndex = 8;
-            this.btnHelloWorldGerman.Text = "German";
-            this.btnHelloWorldGerman.UseVisualStyleBackColor = true;
+            this.picEnglish.Image = global::Mathre.My.Resources.Resources.English;
+            this.picEnglish.Location = new System.Drawing.Point(28, 9);
+            this.picEnglish.Name = "picEnglish";
+            this.picEnglish.Size = new System.Drawing.Size(31, 25);
+            this.picEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEnglish.TabIndex = 12;
+            this.picEnglish.TabStop = false;
             // 
-            // picHelloWorldFrench
+            // picFrench
             // 
-            this.picHelloWorldFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.picHelloWorldFrench.Location = new System.Drawing.Point(164, 21);
-            this.picHelloWorldFrench.Name = "picHelloWorldFrench";
-            this.picHelloWorldFrench.Size = new System.Drawing.Size(31, 25);
-            this.picHelloWorldFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picHelloWorldFrench.TabIndex = 11;
-            this.picHelloWorldFrench.TabStop = false;
+            this.picFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.picFrench.Location = new System.Drawing.Point(158, 9);
+            this.picFrench.Name = "picFrench";
+            this.picFrench.Size = new System.Drawing.Size(31, 25);
+            this.picFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFrench.TabIndex = 11;
+            this.picFrench.TabStop = false;
             // 
-            // btnHelloWorldReset
+            // btnReset
             // 
-            this.btnHelloWorldReset.Location = new System.Drawing.Point(169, 61);
-            this.btnHelloWorldReset.Name = "btnHelloWorldReset";
-            this.btnHelloWorldReset.Size = new System.Drawing.Size(75, 23);
-            this.btnHelloWorldReset.TabIndex = 9;
-            this.btnHelloWorldReset.Text = "Reset";
-            this.btnHelloWorldReset.UseVisualStyleBackColor = true;
+            this.btnReset.Location = new System.Drawing.Point(169, 61);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 9;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
             // 
             // pnlFrame
             // 
@@ -152,12 +149,29 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.pnlHelloWorld);
-            this.pnlFrame.Controls.Add(this.lblHelloWorldTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 31;
+            // 
+            // pnlLanguage
+            // 
+            this.pnlLanguage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlLanguage.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlLanguage.Controls.Add(this.picGerman);
+            this.pnlLanguage.Controls.Add(this.btnEnglish);
+            this.pnlLanguage.Controls.Add(this.picFrench);
+            this.pnlLanguage.Controls.Add(this.btnFrench);
+            this.pnlLanguage.Controls.Add(this.picEnglish);
+			this.pnlLanguage.Controls.Add(this.btnGerman);
+			this.pnlLanguage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlLanguage.Location = new System.Drawing.Point(6, 5);
+            this.pnlLanguage.Name = "pnlLanguage";
+            this.pnlLanguage.Size = new System.Drawing.Size(414, 43);
+            this.pnlLanguage.TabIndex = 31;
+            this.pnlLanguage.Tag = "Transparent,Language";
             // 
             // Frm01HelloWorld
             // 
@@ -168,27 +182,28 @@ namespace Mathre
             this.Controls.Add(this.pnlFrame);
             this.Name = "Frm01HelloWorld";
             this.Text = "Hello World";
-            this.pnlHelloWorld.ResumeLayout(false);
-            this.pnlHelloWorld.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldGerman)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldEnglish)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picHelloWorldFrench)).EndInit();
+            this.pnlBody.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picGerman)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnglish)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFrench)).EndInit();
             this.pnlFrame.ResumeLayout(false);
+            this.pnlLanguage.ResumeLayout(false);
+            this.pnlLanguage.PerformLayout();
             this.ResumeLayout(false);
 
 		}
 
 		#endregion
-
-		internal System.Windows.Forms.Label lblHelloWorldTitle;
-		internal System.Windows.Forms.PictureBox picHelloWorldGerman;
-		internal System.Windows.Forms.RadioButton btnHelloWorldFrench;
-		internal System.Windows.Forms.PictureBox picHelloWorldEnglish;
-		internal System.Windows.Forms.RadioButton btnHelloWorldGerman;
-		internal System.Windows.Forms.PictureBox picHelloWorldFrench;
-		internal System.Windows.Forms.Button btnHelloWorldReset;
-		public System.Windows.Forms.Panel pnlHelloWorld;
-		public System.Windows.Forms.RadioButton btnHelloWorldEnglish;
-		public System.Windows.Forms.Panel pnlFrame;
+		internal System.Windows.Forms.Panel pnlFrame;
+		internal System.Windows.Forms.Label lblTitle;
+		internal System.Windows.Forms.Panel pnlBody;
+		internal System.Windows.Forms.PictureBox picEnglish;
+		internal System.Windows.Forms.PictureBox picFrench;
+		internal System.Windows.Forms.PictureBox picGerman;
+		internal System.Windows.Forms.RadioButton btnEnglish;
+		internal System.Windows.Forms.RadioButton btnFrench;
+		internal System.Windows.Forms.RadioButton btnGerman;
+		internal System.Windows.Forms.Button btnReset;
+		internal System.Windows.Forms.Panel pnlLanguage;
 	}
 }

@@ -29,14 +29,12 @@ namespace Mathre
 		/// </summary>
 		private void InitializeComponent()
 		{
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm03Rectangle));
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlRectangleContainer = new System.Windows.Forms.Panel();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblRectangleError = new System.Windows.Forms.Label();
             this.pnlRectangle = new System.Windows.Forms.Panel();
-            this.lblRectangleTitle = new System.Windows.Forms.Label();
-            this.pnlRectangleControls = new System.Windows.Forms.Panel();
-            this.btnRectangleCalculate = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
             this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
             this.lblRectangleDimensions = new System.Windows.Forms.Label();
@@ -44,8 +42,8 @@ namespace Mathre
             this.lblRectangleArea = new System.Windows.Forms.Label();
             this.lblRectanglePerimeter = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
-            this.pnlRectangleContainer.SuspendLayout();
-            this.pnlRectangleControls.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -54,24 +52,24 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.pnlRectangleContainer);
-            this.pnlFrame.Controls.Add(this.lblRectangleTitle);
-            this.pnlFrame.Controls.Add(this.pnlRectangleControls);
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.lblTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 32;
             // 
-            // pnlRectangleContainer
+            // pnlBody2
             // 
-            this.pnlRectangleContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlRectangleContainer.BackColor = System.Drawing.Color.Transparent;
-            this.pnlRectangleContainer.Controls.Add(this.lblRectangleError);
-            this.pnlRectangleContainer.Controls.Add(this.pnlRectangle);
-            this.pnlRectangleContainer.Location = new System.Drawing.Point(287, 276);
-            this.pnlRectangleContainer.Name = "pnlRectangleContainer";
-            this.pnlRectangleContainer.Size = new System.Drawing.Size(426, 136);
-            this.pnlRectangleContainer.TabIndex = 33;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.lblRectangleError);
+            this.pnlBody2.Controls.Add(this.pnlRectangle);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
+            this.pnlBody2.TabIndex = 33;
             // 
             // lblRectangleError
             // 
@@ -97,46 +95,32 @@ namespace Mathre
             this.pnlRectangle.TabIndex = 27;
             this.pnlRectangle.Tag = "Black";
             // 
-            // lblRectangleTitle
+            // lblTitle
             // 
-            this.lblRectangleTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblRectangleTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRectangleTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblRectangleTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblRectangleTitle.Name = "lblRectangleTitle";
-            this.lblRectangleTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblRectangleTitle.TabIndex = 31;
-            this.lblRectangleTitle.Text = "Rectangle Calculator";
-            this.lblRectangleTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 31;
+            this.lblTitle.Text = "Rectangle Calculator";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlRectangleControls
+            // pnlBody
             // 
-            this.pnlRectangleControls.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlRectangleControls.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlRectangleControls.Controls.Add(this.btnRectangleCalculate);
-            this.pnlRectangleControls.Controls.Add(this.lblRectangleAreaTitle);
-            this.pnlRectangleControls.Controls.Add(this.txtRectangleDimensions);
-            this.pnlRectangleControls.Controls.Add(this.lblRectangleDimensions);
-            this.pnlRectangleControls.Controls.Add(this.lblRectanglePerimiterTitle);
-            this.pnlRectangleControls.Controls.Add(this.lblRectangleArea);
-            this.pnlRectangleControls.Controls.Add(this.lblRectanglePerimeter);
-            this.pnlRectangleControls.Location = new System.Drawing.Point(287, 165);
-            this.pnlRectangleControls.Name = "pnlRectangleControls";
-            this.pnlRectangleControls.Size = new System.Drawing.Size(426, 105);
-            this.pnlRectangleControls.TabIndex = 32;
-            // 
-            // btnRectangleCalculate
-            // 
-            this.btnRectangleCalculate.BackColor = System.Drawing.SystemColors.Control;
-            this.btnRectangleCalculate.FlatAppearance.BorderColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.btnRectangleCalculate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRectangleCalculate.Image = ((System.Drawing.Image)(resources.GetObject("btnRectangleCalculate.Image")));
-            this.btnRectangleCalculate.Location = new System.Drawing.Point(391, 13);
-            this.btnRectangleCalculate.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRectangleCalculate.Name = "btnRectangleCalculate";
-            this.btnRectangleCalculate.Size = new System.Drawing.Size(26, 26);
-            this.btnRectangleCalculate.TabIndex = 25;
-            this.btnRectangleCalculate.UseVisualStyleBackColor = false;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.lblRectangleAreaTitle);
+            this.pnlBody.Controls.Add(this.txtRectangleDimensions);
+            this.pnlBody.Controls.Add(this.lblRectangleDimensions);
+            this.pnlBody.Controls.Add(this.lblRectanglePerimiterTitle);
+            this.pnlBody.Controls.Add(this.lblRectangleArea);
+            this.pnlBody.Controls.Add(this.lblRectanglePerimeter);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 32;
             // 
             // lblRectangleAreaTitle
             // 
@@ -157,7 +141,7 @@ namespace Mathre
             this.txtRectangleDimensions.Location = new System.Drawing.Point(217, 13);
             this.txtRectangleDimensions.Margin = new System.Windows.Forms.Padding(0);
             this.txtRectangleDimensions.Name = "txtRectangleDimensions";
-            this.txtRectangleDimensions.Size = new System.Drawing.Size(175, 26);
+            this.txtRectangleDimensions.Size = new System.Drawing.Size(200, 26);
             this.txtRectangleDimensions.TabIndex = 20;
             // 
             // lblRectangleDimensions
@@ -214,9 +198,9 @@ namespace Mathre
             this.Name = "Frm03Rectangle";
             this.Text = "Rectangle Calculator";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlRectangleContainer.ResumeLayout(false);
-            this.pnlRectangleControls.ResumeLayout(false);
-            this.pnlRectangleControls.PerformLayout();
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -224,12 +208,11 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlFrame;
-		private System.Windows.Forms.Panel pnlRectangleContainer;
+		private System.Windows.Forms.Panel pnlBody2;
 		internal System.Windows.Forms.Label lblRectangleError;
 		private System.Windows.Forms.Panel pnlRectangle;
-		internal System.Windows.Forms.Label lblRectangleTitle;
-		private System.Windows.Forms.Panel pnlRectangleControls;
-		private System.Windows.Forms.Button btnRectangleCalculate;
+		internal System.Windows.Forms.Label lblTitle;
+		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.Label lblRectangleAreaTitle;
 		internal System.Windows.Forms.TextBox txtRectangleDimensions;
 		internal System.Windows.Forms.Label lblRectangleDimensions;

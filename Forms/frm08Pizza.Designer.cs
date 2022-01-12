@@ -32,12 +32,12 @@ namespace Mathre
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm08Pizza));
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.lblPizzaTitle = new System.Windows.Forms.Label();
-            this.pnlPizzaCost = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.pnlPizzaViewer = new System.Windows.Forms.Panel();
             this.lblPizzaCostAmount = new System.Windows.Forms.Label();
             this.lblPizzaCost = new System.Windows.Forms.Label();
-            this.pnlPizza = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlDiningType = new System.Windows.Forms.Panel();
             this.btnTakeout = new System.Windows.Forms.RadioButton();
             this.btnDelivery = new System.Windows.Forms.RadioButton();
@@ -50,8 +50,8 @@ namespace Mathre
             this.txtPizzaSize = new System.Windows.Forms.TextBox();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.pnlFrame.SuspendLayout();
-            this.pnlPizzaCost.SuspendLayout();
-            this.pnlPizza.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
             this.pnlTip.SuspendLayout();
             this.SuspendLayout();
@@ -62,37 +62,37 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.lblPizzaTitle);
-            this.pnlFrame.Controls.Add(this.pnlPizzaCost);
-            this.pnlFrame.Controls.Add(this.pnlPizza);
+            this.pnlFrame.Controls.Add(this.lblTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 33;
             // 
-            // lblPizzaTitle
+            // lblTitle
             // 
-            this.lblPizzaTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblPizzaTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPizzaTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblPizzaTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblPizzaTitle.Name = "lblPizzaTitle";
-            this.lblPizzaTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblPizzaTitle.TabIndex = 33;
-            this.lblPizzaTitle.Text = "Pizza Delivery";
-            this.lblPizzaTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "Pizza Delivery";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlPizzaCost
+            // pnlBody2
             // 
-            this.pnlPizzaCost.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlPizzaCost.BackColor = System.Drawing.Color.Transparent;
-            this.pnlPizzaCost.Controls.Add(this.pnlPizzaViewer);
-            this.pnlPizzaCost.Controls.Add(this.lblPizzaCostAmount);
-            this.pnlPizzaCost.Controls.Add(this.lblPizzaCost);
-            this.pnlPizzaCost.Location = new System.Drawing.Point(287, 276);
-            this.pnlPizzaCost.Name = "pnlPizzaCost";
-            this.pnlPizzaCost.Size = new System.Drawing.Size(426, 81);
-            this.pnlPizzaCost.TabIndex = 35;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.pnlPizzaViewer);
+            this.pnlBody2.Controls.Add(this.lblPizzaCostAmount);
+            this.pnlBody2.Controls.Add(this.lblPizzaCost);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 81);
+            this.pnlBody2.TabIndex = 35;
             // 
             // pnlPizzaViewer
             // 
@@ -127,20 +127,20 @@ namespace Mathre
             this.lblPizzaCost.TabIndex = 14;
             this.lblPizzaCost.Text = "Cost:";
             // 
-            // pnlPizza
+            // pnlBody
             // 
-            this.pnlPizza.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlPizza.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlPizza.Controls.Add(this.pnlDiningType);
-            this.pnlPizza.Controls.Add(this.lblPizzaSize);
-            this.pnlPizza.Controls.Add(this.txtPizzaTip);
-            this.pnlPizza.Controls.Add(this.pnlTip);
-            this.pnlPizza.Controls.Add(this.lblPizzaTip);
-            this.pnlPizza.Controls.Add(this.txtPizzaSize);
-            this.pnlPizza.Location = new System.Drawing.Point(287, 165);
-            this.pnlPizza.Name = "pnlPizza";
-            this.pnlPizza.Size = new System.Drawing.Size(426, 105);
-            this.pnlPizza.TabIndex = 34;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlDiningType);
+            this.pnlBody.Controls.Add(this.lblPizzaSize);
+            this.pnlBody.Controls.Add(this.txtPizzaTip);
+            this.pnlBody.Controls.Add(this.pnlTip);
+            this.pnlBody.Controls.Add(this.lblPizzaTip);
+            this.pnlBody.Controls.Add(this.txtPizzaSize);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 34;
             // 
             // pnlDiningType
             // 
@@ -198,9 +198,9 @@ namespace Mathre
             // 
             // pnlTip
             // 
-            this.pnlTip.Controls.Add(this.btnPercent);
             this.pnlTip.Controls.Add(this.btnDollars);
-            this.pnlTip.Location = new System.Drawing.Point(220, 60);
+			this.pnlTip.Controls.Add(this.btnPercent);
+			this.pnlTip.Location = new System.Drawing.Point(220, 60);
             this.pnlTip.Name = "pnlTip";
             this.pnlTip.Size = new System.Drawing.Size(199, 42);
             this.pnlTip.TabIndex = 27;
@@ -268,10 +268,10 @@ namespace Mathre
             this.Name = "Frm08Pizza";
             this.Text = "Pizza Delivery";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlPizzaCost.ResumeLayout(false);
-            this.pnlPizzaCost.PerformLayout();
-            this.pnlPizza.ResumeLayout(false);
-            this.pnlPizza.PerformLayout();
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody2.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.pnlDiningType.ResumeLayout(false);
             this.pnlDiningType.PerformLayout();
             this.pnlTip.ResumeLayout(false);
@@ -283,11 +283,11 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlFrame;
-		private System.Windows.Forms.Panel pnlPizzaCost;
+		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Panel pnlPizzaViewer;
 		private System.Windows.Forms.Label lblPizzaCostAmount;
 		internal System.Windows.Forms.Label lblPizzaCost;
-		private System.Windows.Forms.Panel pnlPizza;
+		private System.Windows.Forms.Panel pnlBody;
 		private System.Windows.Forms.Panel pnlDiningType;
 		private System.Windows.Forms.RadioButton btnTakeout;
 		private System.Windows.Forms.RadioButton btnDelivery;
@@ -298,7 +298,7 @@ namespace Mathre
 		private System.Windows.Forms.RadioButton btnDollars;
 		internal System.Windows.Forms.Label lblPizzaTip;
 		internal System.Windows.Forms.TextBox txtPizzaSize;
-		internal System.Windows.Forms.Label lblPizzaTitle;
+		internal System.Windows.Forms.Label lblTitle;
 		public System.Windows.Forms.ImageList imgFavoriteImages;
 	}
 }

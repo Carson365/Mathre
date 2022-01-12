@@ -242,8 +242,8 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.btnCalculate);
-            this.pnlBody.Controls.Add(this.btnRandom);
+			this.pnlBody.Controls.Add(this.btnRandom);
+			this.pnlBody.Controls.Add(this.btnCalculate);
             this.pnlBody.Controls.Add(this.lblSpeed);
             this.pnlBody.Controls.Add(this.txtMPH);
             this.pnlBody.Location = new System.Drawing.Point(135, 165);

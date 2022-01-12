@@ -1,10 +1,11 @@
-﻿using Microsoft.VisualBasic;
+﻿using Mathre.Forms;
+using Microsoft.VisualBasic;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm16Letters : Form
+	public partial class Frm16Letters : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm16Letters()

@@ -1,10 +1,11 @@
+using Mathre.Forms;
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm05Temperature : Form
+	public partial class Frm05Temperature : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm05Temperature()
@@ -27,8 +28,8 @@ namespace Mathre
 		public void Temperature(object sender, EventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (ReferenceEquals(sender, BaseForm.mnuTemperatureCelsius)) { btnCelsius.Checked = true; }
-			else if (ReferenceEquals(sender, BaseForm.mnuTemperatureFahrenheit)) { btnFahrenheit.Checked = true; }
+			if ($"{sender}" == "Celsius") { btnCelsius.Checked = true; }
+			else if ($"{sender}" == "Fahrenheit") { btnFahrenheit.Checked = true; }
 			if (!btnCelsius.Checked & !btnFahrenheit.Checked) { btnCelsius.Checked = true; }
 			double temp = 0;
 			int roundamount;

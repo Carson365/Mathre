@@ -1,11 +1,12 @@
-﻿using Microsoft.VisualBasic;
+﻿using Mathre.Forms;
+using Microsoft.VisualBasic;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm13Slots : Form
+	public partial class Frm13Slots : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public int tokens = 30;
@@ -58,8 +59,6 @@ namespace Mathre
 				lbl2.Text = $"{rnd2}";
 				int rnd3 = rnd.Next(1, 4);
 				lbl3.Text = $"{rnd3}";
-				Console.WriteLine(chbDouble.Checked);
-				Console.WriteLine($"{chbDouble.Checked}");
 				if (rnd1 == 1 && rnd2 == 1 && rnd3 == 1) { change = 5 + (Convert.ToInt32(chbDouble.Checked) * 5); tokens += change; Message($"{change} Token Jackpot!", null); }
 				else if (rnd1 == 2 && rnd2 == 2 && rnd3 == 2) { change = 10 + (Convert.ToInt32(chbDouble.Checked) * 10); tokens += change; Message($"{change} Token Jackpot!", null); }
 				else if (rnd1 == 3 && rnd2 == 3 && rnd3 == 3) { change = 15 + (Convert.ToInt32(chbDouble.Checked) * 15); tokens += change; Message($"{change} Token Jackpot!", null); }
@@ -87,7 +86,7 @@ namespace Mathre
 			string plural2 = count switch { 1 => "", -1 => "", _ => "s" };
 			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}.\nYou now have {tokens} tokens.";
 			if (chbMessage.Checked && sender.ToString() != "No Tokens") { MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "Result"); }
-			else { MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "Result"); }
+			else if (chbMessage.Checked) { MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "Result"); }
 			counter = 0;
 			auto = false;
 			chbAuto.Checked = auto;

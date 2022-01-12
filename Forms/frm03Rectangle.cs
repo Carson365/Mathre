@@ -1,12 +1,13 @@
 // SOURCES:
 // Enter Icon: https://icons8.com/icon/62334/enter-mac-key
+using Mathre.Forms;
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm03Rectangle : Form
+	public partial class Frm03Rectangle : Form, IManager
 	{
 		public static object Placeholder;
 		public static Frm00Mathre BaseForm;
@@ -15,7 +16,6 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			btnRectangleCalculate.Click += Rectangle;
 			txtRectangleDimensions.KeyPress += Rectangle;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			txtRectangleDimensions.KeyDown += RectangleKeypress;
@@ -28,6 +28,7 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			KeyPreview = true;
 		}
+		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }
 		public void Rectangle(object sender, EventArgs e)
 		{
 			double Height = 0;
@@ -92,7 +93,7 @@ namespace Mathre
 					if (e.Shift)
 					{
 						if (e.KeyCode == Keys.D8) { if (txtRectangleDimensions.Text.Contains("*")) { e.SuppressKeyPress = true; } }
-						else { e.SuppressKeyPress = true; Console.WriteLine("A"); }
+						else { e.SuppressKeyPress = true; }
 					}
 					else if (((e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9) && (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)))
 					{

@@ -30,21 +30,21 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlDigitsResults = new System.Windows.Forms.Panel();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.pnlDigitsResultsDisplay = new System.Windows.Forms.Panel();
             this.lblDigitsResultsLabel = new System.Windows.Forms.Label();
             this.lblDigitsListOdds = new System.Windows.Forms.Label();
             this.lblDigitsListEvens = new System.Windows.Forms.Label();
-            this.pnlDigits = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.lblDigits = new System.Windows.Forms.Label();
             this.lblDigitsCount = new System.Windows.Forms.Label();
             this.lblDigitsCountLabel = new System.Windows.Forms.Label();
-            this.lblDigitsTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
-            this.pnlDigitsResults.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
             this.pnlDigitsResultsDisplay.SuspendLayout();
-            this.pnlDigits.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -53,23 +53,23 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.pnlDigitsResults);
-            this.pnlFrame.Controls.Add(this.pnlDigits);
-            this.pnlFrame.Controls.Add(this.lblDigitsTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 33;
             // 
-            // pnlDigitsResults
+            // pnlBody2
             // 
-            this.pnlDigitsResults.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlDigitsResults.BackColor = System.Drawing.Color.Transparent;
-            this.pnlDigitsResults.Controls.Add(this.pnlDigitsResultsDisplay);
-            this.pnlDigitsResults.Location = new System.Drawing.Point(287, 276);
-            this.pnlDigitsResults.Name = "pnlDigitsResults";
-            this.pnlDigitsResults.Size = new System.Drawing.Size(426, 136);
-            this.pnlDigitsResults.TabIndex = 35;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.pnlDigitsResultsDisplay);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
+            this.pnlBody2.TabIndex = 35;
             // 
             // pnlDigitsResultsDisplay
             // 
@@ -111,18 +111,18 @@ namespace Mathre
             this.lblDigitsListEvens.TabIndex = 1;
             this.lblDigitsListEvens.Text = "Digit #: #";
             // 
-            // pnlDigits
+            // pnlBody
             // 
-            this.pnlDigits.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlDigits.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlDigits.Controls.Add(this.txtNumber);
-            this.pnlDigits.Controls.Add(this.lblDigits);
-            this.pnlDigits.Controls.Add(this.lblDigitsCount);
-            this.pnlDigits.Controls.Add(this.lblDigitsCountLabel);
-            this.pnlDigits.Location = new System.Drawing.Point(287, 165);
-            this.pnlDigits.Name = "pnlDigits";
-            this.pnlDigits.Size = new System.Drawing.Size(426, 105);
-            this.pnlDigits.TabIndex = 34;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.txtNumber);
+            this.pnlBody.Controls.Add(this.lblDigits);
+            this.pnlBody.Controls.Add(this.lblDigitsCount);
+            this.pnlBody.Controls.Add(this.lblDigitsCountLabel);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 34;
             // 
             // txtNumber
             // 
@@ -168,17 +168,17 @@ namespace Mathre
             this.lblDigitsCountLabel.TabIndex = 20;
             this.lblDigitsCountLabel.Text = "Number of Digits:";
             // 
-            // lblDigitsTitle
+            // lblTitle
             // 
-            this.lblDigitsTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblDigitsTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDigitsTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblDigitsTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblDigitsTitle.Name = "lblDigitsTitle";
-            this.lblDigitsTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblDigitsTitle.TabIndex = 33;
-            this.lblDigitsTitle.Text = "Numerical Digit Separator";
-            this.lblDigitsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "Numerical Digit Separator";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm06Digits
             // 
@@ -190,11 +190,11 @@ namespace Mathre
             this.Name = "Frm06Digits";
             this.Text = "Digit Separator";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlDigitsResults.ResumeLayout(false);
+            this.pnlBody2.ResumeLayout(false);
             this.pnlDigitsResultsDisplay.ResumeLayout(false);
             this.pnlDigitsResultsDisplay.PerformLayout();
-            this.pnlDigits.ResumeLayout(false);
-            this.pnlDigits.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -202,13 +202,13 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlFrame;
-		private System.Windows.Forms.Panel pnlDigits;
+		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.TextBox txtNumber;
 		internal System.Windows.Forms.Label lblDigits;
 		private System.Windows.Forms.Label lblDigitsCount;
 		internal System.Windows.Forms.Label lblDigitsCountLabel;
-		internal System.Windows.Forms.Label lblDigitsTitle;
-		private System.Windows.Forms.Panel pnlDigitsResults;
+		internal System.Windows.Forms.Label lblTitle;
+		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Panel pnlDigitsResultsDisplay;
 		private System.Windows.Forms.Label lblDigitsResultsLabel;
 		private System.Windows.Forms.Label lblDigitsListOdds;

@@ -30,7 +30,7 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlChangeList = new System.Windows.Forms.Panel();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblOnesCount = new System.Windows.Forms.Label();
             this.lblHundreds = new System.Windows.Forms.Label();
             this.lblQuartersCount = new System.Windows.Forms.Label();
@@ -52,13 +52,13 @@ namespace Mathre
             this.lblPennies = new System.Windows.Forms.Label();
             this.lblDimes = new System.Windows.Forms.Label();
             this.lblNickels = new System.Windows.Forms.Label();
-            this.pnlChangeMaker = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.txtPaidAmount = new System.Windows.Forms.TextBox();
             this.lblPaidAmount = new System.Windows.Forms.Label();
-            this.lblChangeMakerTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
-            this.pnlChangeList.SuspendLayout();
-            this.pnlChangeMaker.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -67,43 +67,43 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.pnlChangeList);
-            this.pnlFrame.Controls.Add(this.pnlChangeMaker);
-            this.pnlFrame.Controls.Add(this.lblChangeMakerTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 33;
             // 
-            // pnlChangeList
+            // pnlBody2
             // 
-            this.pnlChangeList.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlChangeList.BackColor = System.Drawing.Color.Transparent;
-            this.pnlChangeList.Controls.Add(this.lblOnesCount);
-            this.pnlChangeList.Controls.Add(this.lblHundreds);
-            this.pnlChangeList.Controls.Add(this.lblQuartersCount);
-            this.pnlChangeList.Controls.Add(this.lblChange);
-            this.pnlChangeList.Controls.Add(this.lblDimesCount);
-            this.pnlChangeList.Controls.Add(this.lblHundredsCount);
-            this.pnlChangeList.Controls.Add(this.lblNickelsCount);
-            this.pnlChangeList.Controls.Add(this.lblFifties);
-            this.pnlChangeList.Controls.Add(this.lblPenniesCount);
-            this.pnlChangeList.Controls.Add(this.lblTwenties);
-            this.pnlChangeList.Controls.Add(this.lblFivesCount);
-            this.pnlChangeList.Controls.Add(this.lblTens);
-            this.pnlChangeList.Controls.Add(this.lblTensCount);
-            this.pnlChangeList.Controls.Add(this.lblFives);
-            this.pnlChangeList.Controls.Add(this.lblTwentiesCount);
-            this.pnlChangeList.Controls.Add(this.lblOnes);
-            this.pnlChangeList.Controls.Add(this.lblFiftiesCount);
-            this.pnlChangeList.Controls.Add(this.lblQuarters);
-            this.pnlChangeList.Controls.Add(this.lblPennies);
-            this.pnlChangeList.Controls.Add(this.lblDimes);
-            this.pnlChangeList.Controls.Add(this.lblNickels);
-            this.pnlChangeList.Location = new System.Drawing.Point(287, 276);
-            this.pnlChangeList.Name = "pnlChangeList";
-            this.pnlChangeList.Size = new System.Drawing.Size(426, 136);
-            this.pnlChangeList.TabIndex = 35;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.lblOnesCount);
+            this.pnlBody2.Controls.Add(this.lblHundreds);
+            this.pnlBody2.Controls.Add(this.lblQuartersCount);
+            this.pnlBody2.Controls.Add(this.lblChange);
+            this.pnlBody2.Controls.Add(this.lblDimesCount);
+            this.pnlBody2.Controls.Add(this.lblHundredsCount);
+            this.pnlBody2.Controls.Add(this.lblNickelsCount);
+            this.pnlBody2.Controls.Add(this.lblFifties);
+            this.pnlBody2.Controls.Add(this.lblPenniesCount);
+            this.pnlBody2.Controls.Add(this.lblTwenties);
+            this.pnlBody2.Controls.Add(this.lblFivesCount);
+            this.pnlBody2.Controls.Add(this.lblTens);
+            this.pnlBody2.Controls.Add(this.lblTensCount);
+            this.pnlBody2.Controls.Add(this.lblFives);
+            this.pnlBody2.Controls.Add(this.lblTwentiesCount);
+            this.pnlBody2.Controls.Add(this.lblOnes);
+            this.pnlBody2.Controls.Add(this.lblFiftiesCount);
+            this.pnlBody2.Controls.Add(this.lblQuarters);
+            this.pnlBody2.Controls.Add(this.lblPennies);
+            this.pnlBody2.Controls.Add(this.lblDimes);
+            this.pnlBody2.Controls.Add(this.lblNickels);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
+            this.pnlBody2.TabIndex = 35;
             // 
             // lblOnesCount
             // 
@@ -336,16 +336,16 @@ namespace Mathre
             this.lblNickels.TabIndex = 25;
             this.lblNickels.Text = "Nickels:";
             // 
-            // pnlChangeMaker
+            // pnlBody
             // 
-            this.pnlChangeMaker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlChangeMaker.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlChangeMaker.Controls.Add(this.txtPaidAmount);
-            this.pnlChangeMaker.Controls.Add(this.lblPaidAmount);
-            this.pnlChangeMaker.Location = new System.Drawing.Point(287, 165);
-            this.pnlChangeMaker.Name = "pnlChangeMaker";
-            this.pnlChangeMaker.Size = new System.Drawing.Size(426, 105);
-            this.pnlChangeMaker.TabIndex = 34;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.txtPaidAmount);
+            this.pnlBody.Controls.Add(this.lblPaidAmount);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 34;
             // 
             // txtPaidAmount
             // 
@@ -369,17 +369,17 @@ namespace Mathre
             this.lblPaidAmount.TabIndex = 9;
             this.lblPaidAmount.Text = "Paid Amount:";
             // 
-            // lblChangeMakerTitle
+            // lblTitle
             // 
-            this.lblChangeMakerTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblChangeMakerTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblChangeMakerTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblChangeMakerTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblChangeMakerTitle.Name = "lblChangeMakerTitle";
-            this.lblChangeMakerTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblChangeMakerTitle.TabIndex = 33;
-            this.lblChangeMakerTitle.Text = "Change Maker";
-            this.lblChangeMakerTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "Change Maker";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm07Change
             // 
@@ -391,10 +391,10 @@ namespace Mathre
             this.Name = "Frm07Change";
             this.Text = "Change Maker";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlChangeList.ResumeLayout(false);
-            this.pnlChangeList.PerformLayout();
-            this.pnlChangeMaker.ResumeLayout(false);
-            this.pnlChangeMaker.PerformLayout();
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody2.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -402,7 +402,7 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlFrame;
-		private System.Windows.Forms.Panel pnlChangeList;
+		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Label lblOnesCount;
 		internal System.Windows.Forms.Label lblHundreds;
 		private System.Windows.Forms.Label lblQuartersCount;
@@ -424,9 +424,9 @@ namespace Mathre
 		internal System.Windows.Forms.Label lblPennies;
 		internal System.Windows.Forms.Label lblDimes;
 		internal System.Windows.Forms.Label lblNickels;
-		private System.Windows.Forms.Panel pnlChangeMaker;
+		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.TextBox txtPaidAmount;
 		internal System.Windows.Forms.Label lblPaidAmount;
-		internal System.Windows.Forms.Label lblChangeMakerTitle;
+		internal System.Windows.Forms.Label lblTitle;
 	}
 }

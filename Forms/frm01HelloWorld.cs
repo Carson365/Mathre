@@ -1,59 +1,43 @@
 // SOURCES:
 // Flag Icons: https://www.iconfinder.com/iconsets/flags-37
+using Mathre.Forms;
 using Microsoft.VisualBasic;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm01HelloWorld : Form
+	public partial class Frm01HelloWorld : Form, IManager
 	{
-		private string StartingLanguage;
+		private RadioButton StartingLanguage;
 		public static Frm00Mathre BaseForm;
 		public Frm01HelloWorld()
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			btnHelloWorldFrench.Click += HelloWorld;
-			btnHelloWorldReset.Click += HelloWorld;
-			btnHelloWorldGerman.Click += HelloWorld;
-			btnHelloWorldEnglish.Click += HelloWorld;
+			btnEnglish.Click += (sender, e) => { lblTitle.Text = "Hello World"; };
+			btnFrench.Click += (sender, e) => { lblTitle.Text = "Bonjour le Monde"; };
+			btnGerman.Click += (sender, e) => { lblTitle.Text = "Hallo Welt"; };
+			btnReset.Click += (sender, e) => { StartingLanguage.PerformClick(); };
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(this); }
-			StartingLanguage = pnlHelloWorld.Controls.OfType<RadioButton>().FirstOrDefault(radioButton => radioButton.Checked).Name;
+			StartingLanguage = pnlLanguage.Controls.OfType<RadioButton>().First(radioButton => radioButton.Checked);
+			StartingLanguage.PerformClick();
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm01HelloWorld>().Single(); ThisForm.HelloWorld(sender, e); }
 		public void HelloWorld(object sender, EventArgs e)
 		{
-			Console.WriteLine(sender);
-			if (ReferenceEquals(sender, btnHelloWorldEnglish) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageEnglish))
+			if ($"{sender}" == "English") { btnEnglish.PerformClick(); }
+			if ($"{sender}" == "French") { btnFrench.PerformClick(); }
+			if ($"{sender}" == "German") { btnGerman.PerformClick(); }
+			if ($"{sender}" == "Reset") { btnReset.PerformClick(); }
+			else if ($"{sender}" == "Secret")
 			{
-				btnHelloWorldEnglish.Checked = true;
-				lblHelloWorldTitle.Text = "Hello World";
-			}
-			if (ReferenceEquals(sender, btnHelloWorldFrench) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageFrench))
-			{
-				btnHelloWorldFrench.Checked = true;
-				lblHelloWorldTitle.Text = "Bonjour le Monde";
-			}
-			if (ReferenceEquals(sender, btnHelloWorldGerman) | ReferenceEquals(sender, BaseForm.mnuHelloWorldLanguageGerman))
-			{
-				btnHelloWorldGerman.Checked = true;
-				lblHelloWorldTitle.Text = "Hallo Welt";
-			}
-			if (ReferenceEquals(sender, btnHelloWorldReset) | ReferenceEquals(sender, BaseForm.mnuHelloWorldReset))
-			{
-				HelloWorld(pnlHelloWorld.Controls[StartingLanguage], null);
-			}
-			else if (ReferenceEquals(sender, BaseForm.mnuRandomify))
-			{
-				btnHelloWorldEnglish.Checked = false;
-				btnHelloWorldFrench.Checked = false;
-				btnHelloWorldGerman.Checked = false;
-				lblHelloWorldTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString();
+				pnlBody.Controls.OfType<RadioButton>().All(c => { c.Checked = false; return true; });
+				lblTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString();
 			}
 		}
 	}

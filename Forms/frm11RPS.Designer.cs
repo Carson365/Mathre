@@ -32,18 +32,18 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm11RPS));
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody2 = new System.Windows.Forms.Panel();
-            this.pnlComputer = new System.Windows.Forms.Panel();
-            this.pnlRPSChoice2 = new System.Windows.Forms.Panel();
-            this.btnRock2 = new System.Windows.Forms.RadioButton();
-            this.btnPaper2 = new System.Windows.Forms.RadioButton();
-            this.btnScissors2 = new System.Windows.Forms.RadioButton();
-            this.picRPS2 = new System.Windows.Forms.PictureBox();
             this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlRPSChoice = new System.Windows.Forms.Panel();
             this.btnRock = new System.Windows.Forms.RadioButton();
             this.btnPaper = new System.Windows.Forms.RadioButton();
             this.btnScissors = new System.Windows.Forms.RadioButton();
             this.picRPS = new System.Windows.Forms.PictureBox();
+            this.pnlComputer = new System.Windows.Forms.Panel();
+            this.pnlRPSChoice2 = new System.Windows.Forms.Panel();
+            this.btnRock2 = new System.Windows.Forms.RadioButton();
+            this.btnPaper2 = new System.Windows.Forms.RadioButton();
+            this.btnScissors2 = new System.Windows.Forms.RadioButton();
+            this.picRPS2 = new System.Windows.Forms.PictureBox();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.numWager = new System.Windows.Forms.NumericUpDown();
@@ -66,12 +66,12 @@
             this.imgRPS = new System.Windows.Forms.ImageList(this.components);
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
-            this.pnlComputer.SuspendLayout();
-            this.pnlRPSChoice2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).BeginInit();
             this.pnlPlayer.SuspendLayout();
             this.pnlRPSChoice.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRPS)).BeginInit();
+            this.pnlComputer.SuspendLayout();
+            this.pnlRPSChoice2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).BeginInit();
             this.pnlBody.SuspendLayout();
             this.pnlWager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).BeginInit();
@@ -96,12 +96,76 @@
             // 
             this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBody2.Controls.Add(this.pnlComputer);
             this.pnlBody2.Controls.Add(this.pnlPlayer);
+            this.pnlBody2.Controls.Add(this.pnlComputer);
             this.pnlBody2.Location = new System.Drawing.Point(287, 276);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
             this.pnlBody2.TabIndex = 35;
+            // 
+            // pnlPlayer
+            // 
+            this.pnlPlayer.Controls.Add(this.pnlRPSChoice);
+            this.pnlPlayer.Controls.Add(this.picRPS);
+            this.pnlPlayer.Location = new System.Drawing.Point(0, 0);
+            this.pnlPlayer.Name = "pnlPlayer";
+            this.pnlPlayer.Size = new System.Drawing.Size(214, 136);
+            this.pnlPlayer.TabIndex = 12;
+            // 
+            // pnlRPSChoice
+            // 
+            this.pnlRPSChoice.Controls.Add(this.btnRock);
+            this.pnlRPSChoice.Controls.Add(this.btnPaper);
+            this.pnlRPSChoice.Controls.Add(this.btnScissors);
+            this.pnlRPSChoice.Location = new System.Drawing.Point(9, 93);
+            this.pnlRPSChoice.Name = "pnlRPSChoice";
+            this.pnlRPSChoice.Size = new System.Drawing.Size(196, 32);
+            this.pnlRPSChoice.TabIndex = 10;
+            this.pnlRPSChoice.Tag = "Transparent,Player";
+            // 
+            // btnRock
+            // 
+            this.btnRock.AutoSize = true;
+            this.btnRock.Location = new System.Drawing.Point(5, 8);
+            this.btnRock.Name = "btnRock";
+            this.btnRock.Size = new System.Drawing.Size(51, 17);
+            this.btnRock.TabIndex = 5;
+            this.btnRock.TabStop = true;
+            this.btnRock.Text = "Rock";
+            this.btnRock.UseVisualStyleBackColor = true;
+            // 
+            // btnPaper
+            // 
+            this.btnPaper.AutoSize = true;
+            this.btnPaper.Location = new System.Drawing.Point(70, 8);
+            this.btnPaper.Name = "btnPaper";
+            this.btnPaper.Size = new System.Drawing.Size(53, 17);
+            this.btnPaper.TabIndex = 6;
+            this.btnPaper.TabStop = true;
+            this.btnPaper.Text = "Paper";
+            this.btnPaper.UseVisualStyleBackColor = true;
+            // 
+            // btnScissors
+            // 
+            this.btnScissors.AutoSize = true;
+            this.btnScissors.Location = new System.Drawing.Point(129, 8);
+            this.btnScissors.Name = "btnScissors";
+            this.btnScissors.Size = new System.Drawing.Size(64, 17);
+            this.btnScissors.TabIndex = 7;
+            this.btnScissors.TabStop = true;
+            this.btnScissors.Text = "Scissors";
+            this.btnScissors.UseVisualStyleBackColor = true;
+            // 
+            // picRPS
+            // 
+            this.picRPS.ErrorImage = null;
+            this.picRPS.InitialImage = null;
+            this.picRPS.Location = new System.Drawing.Point(9, 11);
+            this.picRPS.Name = "picRPS";
+            this.picRPS.Size = new System.Drawing.Size(180, 76);
+            this.picRPS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picRPS.TabIndex = 4;
+            this.picRPS.TabStop = false;
             // 
             // pnlComputer
             // 
@@ -121,7 +185,7 @@
             this.pnlRPSChoice2.Name = "pnlRPSChoice2";
             this.pnlRPSChoice2.Size = new System.Drawing.Size(196, 32);
             this.pnlRPSChoice2.TabIndex = 10;
-            this.pnlRPSChoice2.Tag = "Transparent";
+            this.pnlRPSChoice2.Tag = "Transparent,Computer";
             // 
             // btnRock2
             // 
@@ -171,70 +235,6 @@
             this.picRPS2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picRPS2.TabIndex = 4;
             this.picRPS2.TabStop = false;
-            // 
-            // pnlPlayer
-            // 
-            this.pnlPlayer.Controls.Add(this.pnlRPSChoice);
-            this.pnlPlayer.Controls.Add(this.picRPS);
-            this.pnlPlayer.Location = new System.Drawing.Point(0, 0);
-            this.pnlPlayer.Name = "pnlPlayer";
-            this.pnlPlayer.Size = new System.Drawing.Size(214, 136);
-            this.pnlPlayer.TabIndex = 12;
-            // 
-            // pnlRPSChoice
-            // 
-            this.pnlRPSChoice.Controls.Add(this.btnRock);
-            this.pnlRPSChoice.Controls.Add(this.btnPaper);
-            this.pnlRPSChoice.Controls.Add(this.btnScissors);
-            this.pnlRPSChoice.Location = new System.Drawing.Point(9, 93);
-            this.pnlRPSChoice.Name = "pnlRPSChoice";
-            this.pnlRPSChoice.Size = new System.Drawing.Size(196, 32);
-            this.pnlRPSChoice.TabIndex = 10;
-            this.pnlRPSChoice.Tag = "Transparent";
-            // 
-            // btnRock
-            // 
-            this.btnRock.AutoSize = true;
-            this.btnRock.Location = new System.Drawing.Point(5, 8);
-            this.btnRock.Name = "btnRock";
-            this.btnRock.Size = new System.Drawing.Size(51, 17);
-            this.btnRock.TabIndex = 5;
-            this.btnRock.TabStop = true;
-            this.btnRock.Text = "Rock";
-            this.btnRock.UseVisualStyleBackColor = true;
-            // 
-            // btnPaper
-            // 
-            this.btnPaper.AutoSize = true;
-            this.btnPaper.Location = new System.Drawing.Point(70, 8);
-            this.btnPaper.Name = "btnPaper";
-            this.btnPaper.Size = new System.Drawing.Size(53, 17);
-            this.btnPaper.TabIndex = 6;
-            this.btnPaper.TabStop = true;
-            this.btnPaper.Text = "Paper";
-            this.btnPaper.UseVisualStyleBackColor = true;
-            // 
-            // btnScissors
-            // 
-            this.btnScissors.AutoSize = true;
-            this.btnScissors.Location = new System.Drawing.Point(129, 8);
-            this.btnScissors.Name = "btnScissors";
-            this.btnScissors.Size = new System.Drawing.Size(64, 17);
-            this.btnScissors.TabIndex = 7;
-            this.btnScissors.TabStop = true;
-            this.btnScissors.Text = "Scissors";
-            this.btnScissors.UseVisualStyleBackColor = true;
-            // 
-            // picRPS
-            // 
-            this.picRPS.ErrorImage = null;
-            this.picRPS.InitialImage = null;
-            this.picRPS.Location = new System.Drawing.Point(9, 11);
-            this.picRPS.Name = "picRPS";
-            this.picRPS.Size = new System.Drawing.Size(180, 76);
-            this.picRPS.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picRPS.TabIndex = 4;
-            this.picRPS.TabStop = false;
             // 
             // pnlBody
             // 
@@ -451,14 +451,14 @@
             this.Text = "Rock Paper Scissors";
             this.pnlFrame.ResumeLayout(false);
             this.pnlBody2.ResumeLayout(false);
-            this.pnlComputer.ResumeLayout(false);
-            this.pnlRPSChoice2.ResumeLayout(false);
-            this.pnlRPSChoice2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).EndInit();
             this.pnlPlayer.ResumeLayout(false);
             this.pnlRPSChoice.ResumeLayout(false);
             this.pnlRPSChoice.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picRPS)).EndInit();
+            this.pnlComputer.ResumeLayout(false);
+            this.pnlRPSChoice2.ResumeLayout(false);
+            this.pnlRPSChoice2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picRPS2)).EndInit();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
             this.pnlWager.ResumeLayout(false);

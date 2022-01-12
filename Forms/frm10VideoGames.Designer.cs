@@ -31,14 +31,14 @@ namespace Mathre
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm10VideoGames));
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.lblVideoGamesTitle = new System.Windows.Forms.Label();
-            this.pnlVideoGamesDisplay = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblCost = new System.Windows.Forms.Label();
             this.lblCostText = new System.Windows.Forms.Label();
             this.pnlConsole = new System.Windows.Forms.Panel();
-            this.btnXB1 = new System.Windows.Forms.RadioButton();
             this.btnPS4 = new System.Windows.Forms.RadioButton();
-            this.pnlVideoGames = new System.Windows.Forms.Panel();
+            this.btnXB1 = new System.Windows.Forms.RadioButton();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlMinecraft = new System.Windows.Forms.Panel();
             this.pnlStardew = new System.Windows.Forms.Panel();
             this.pnlDoom = new System.Windows.Forms.Panel();
@@ -51,9 +51,9 @@ namespace Mathre
             this.lblTotalDoom = new System.Windows.Forms.Label();
             this.imgGames = new System.Windows.Forms.ImageList(this.components);
             this.pnlFrame.SuspendLayout();
-            this.pnlVideoGamesDisplay.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
             this.pnlConsole.SuspendLayout();
-            this.pnlVideoGames.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,37 +63,37 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.lblVideoGamesTitle);
-            this.pnlFrame.Controls.Add(this.pnlVideoGamesDisplay);
-            this.pnlFrame.Controls.Add(this.pnlVideoGames);
+            this.pnlFrame.Controls.Add(this.lblTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 35;
             // 
-            // lblVideoGamesTitle
+            // lblTitle
             // 
-            this.lblVideoGamesTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblVideoGamesTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblVideoGamesTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblVideoGamesTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblVideoGamesTitle.Name = "lblVideoGamesTitle";
-            this.lblVideoGamesTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblVideoGamesTitle.TabIndex = 33;
-            this.lblVideoGamesTitle.Text = "Video Game Orders";
-            this.lblVideoGamesTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "Video Game Orders";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlVideoGamesDisplay
+            // pnlBody2
             // 
-            this.pnlVideoGamesDisplay.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlVideoGamesDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.pnlVideoGamesDisplay.Controls.Add(this.lblCost);
-            this.pnlVideoGamesDisplay.Controls.Add(this.lblCostText);
-            this.pnlVideoGamesDisplay.Controls.Add(this.pnlConsole);
-            this.pnlVideoGamesDisplay.Location = new System.Drawing.Point(287, 326);
-            this.pnlVideoGamesDisplay.Name = "pnlVideoGamesDisplay";
-            this.pnlVideoGamesDisplay.Size = new System.Drawing.Size(426, 81);
-            this.pnlVideoGamesDisplay.TabIndex = 35;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.lblCost);
+            this.pnlBody2.Controls.Add(this.lblCostText);
+            this.pnlBody2.Controls.Add(this.pnlConsole);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 326);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 81);
+            this.pnlBody2.TabIndex = 35;
             // 
             // lblCost
             // 
@@ -115,23 +115,15 @@ namespace Mathre
             // 
             // pnlConsole
             // 
-            this.pnlConsole.Controls.Add(this.btnXB1);
+            this.pnlConsole.AccessibleDescription = "";
+            this.pnlConsole.AccessibleName = "";
             this.pnlConsole.Controls.Add(this.btnPS4);
+            this.pnlConsole.Controls.Add(this.btnXB1);
             this.pnlConsole.Location = new System.Drawing.Point(13, 13);
             this.pnlConsole.Name = "pnlConsole";
             this.pnlConsole.Size = new System.Drawing.Size(102, 55);
             this.pnlConsole.TabIndex = 0;
             this.pnlConsole.Tag = "Black";
-            // 
-            // btnXB1
-            // 
-            this.btnXB1.AutoSize = true;
-            this.btnXB1.Location = new System.Drawing.Point(15, 30);
-            this.btnXB1.Name = "btnXB1";
-            this.btnXB1.Size = new System.Drawing.Size(72, 17);
-            this.btnXB1.TabIndex = 1;
-            this.btnXB1.Text = "Xbox One";
-            this.btnXB1.UseVisualStyleBackColor = true;
             // 
             // btnPS4
             // 
@@ -145,18 +137,28 @@ namespace Mathre
             this.btnPS4.Text = "Playstation 4";
             this.btnPS4.UseVisualStyleBackColor = true;
             // 
-            // pnlVideoGames
+            // btnXB1
             // 
-            this.pnlVideoGames.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlVideoGames.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlVideoGames.Controls.Add(this.pnlMinecraft);
-            this.pnlVideoGames.Controls.Add(this.pnlStardew);
-            this.pnlVideoGames.Controls.Add(this.pnlDoom);
-            this.pnlVideoGames.Controls.Add(this.pnlDiningType);
-            this.pnlVideoGames.Location = new System.Drawing.Point(287, 165);
-            this.pnlVideoGames.Name = "pnlVideoGames";
-            this.pnlVideoGames.Size = new System.Drawing.Size(426, 155);
-            this.pnlVideoGames.TabIndex = 34;
+            this.btnXB1.AutoSize = true;
+            this.btnXB1.Location = new System.Drawing.Point(15, 30);
+            this.btnXB1.Name = "btnXB1";
+            this.btnXB1.Size = new System.Drawing.Size(72, 17);
+            this.btnXB1.TabIndex = 1;
+            this.btnXB1.Text = "Xbox One";
+            this.btnXB1.UseVisualStyleBackColor = true;
+            // 
+            // pnlBody
+            // 
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlMinecraft);
+            this.pnlBody.Controls.Add(this.pnlStardew);
+            this.pnlBody.Controls.Add(this.pnlDoom);
+            this.pnlBody.Controls.Add(this.pnlDiningType);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 155);
+            this.pnlBody.TabIndex = 34;
             // 
             // pnlMinecraft
             // 
@@ -292,10 +294,10 @@ namespace Mathre
             this.Name = "Frm10VideoGames";
             this.Text = "Video Game Orders";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlVideoGamesDisplay.ResumeLayout(false);
+            this.pnlBody2.ResumeLayout(false);
             this.pnlConsole.ResumeLayout(false);
             this.pnlConsole.PerformLayout();
-            this.pnlVideoGames.ResumeLayout(false);
+            this.pnlBody.ResumeLayout(false);
             this.pnlDiningType.ResumeLayout(false);
             this.pnlDiningType.PerformLayout();
             this.ResumeLayout(false);
@@ -305,9 +307,9 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlFrame;
-		internal System.Windows.Forms.Label lblVideoGamesTitle;
-		private System.Windows.Forms.Panel pnlVideoGamesDisplay;
-		private System.Windows.Forms.Panel pnlVideoGames;
+		internal System.Windows.Forms.Label lblTitle;
+		private System.Windows.Forms.Panel pnlBody2;
+		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.TextBox txtDoom;
 		internal System.Windows.Forms.Label lblTotalDoom;
 		private System.Windows.Forms.Panel pnlDiningType;

@@ -2,13 +2,14 @@
 // Small: https://preview.redd.it/rkt6dt3nf1841.jpg?auto=webp&s=28216c881e0906e1c893cd7e0bc8290b25151e3c
 // Medium : https://image.mlive.com/home/mlive-media/width2048/img/food_impact/photo/hungry-howies-pizza-21b1ef848c80e115.jpg
 // Large: https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BCUKGOJJYRABVPC7IK3422PWBE.jpg
+using Mathre.Forms;
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm08Pizza : Form
+	public partial class Frm08Pizza : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm08Pizza()
@@ -62,7 +63,7 @@ namespace Mathre
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			if (sender is not TextBoxBase textBox) return;
-			if (e.KeyChar.ToString() == DecimalChar) { if (ReferenceEquals(sender, txtPizzaTip)) { if (textBox.Text.Contains(DecimalChar)) e.Handled = true;} }
+			if (e.KeyChar.ToString() == DecimalChar) { if (ReferenceEquals(sender, txtPizzaTip)) { if (textBox.Text.Contains(DecimalChar)) e.Handled = true; } }
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
 			if (sender == txtPizzaTip)
 			{

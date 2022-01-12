@@ -32,20 +32,20 @@ namespace Mathre
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm04MyFavorites));
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlFavoriteDisplay = new System.Windows.Forms.Panel();
+            this.pnlBody2 = new System.Windows.Forms.Panel();
             this.pnlFavoriteImage = new System.Windows.Forms.Panel();
             this.lblFavoriteInfo = new System.Windows.Forms.Label();
-            this.pnlFavoriteControls = new System.Windows.Forms.Panel();
-            this.btnFavoriteMovie = new System.Windows.Forms.RadioButton();
-            this.btnFavoriteHobby = new System.Windows.Forms.RadioButton();
-            this.btnFavoriteColor = new System.Windows.Forms.RadioButton();
-            this.btnFavoriteActor = new System.Windows.Forms.RadioButton();
+            this.pnlBody = new System.Windows.Forms.Panel();
+			this.btnFavoriteActor = new System.Windows.Forms.RadioButton();
+			this.btnFavoriteMovie = new System.Windows.Forms.RadioButton();
             this.btnFavoriteFruit = new System.Windows.Forms.RadioButton();
-            this.lblFavoriteTitle = new System.Windows.Forms.Label();
+			this.btnFavoriteHobby = new System.Windows.Forms.RadioButton();
+			this.btnFavoriteColor = new System.Windows.Forms.RadioButton();
+			this.lblTitle = new System.Windows.Forms.Label();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.pnlFrame.SuspendLayout();
-            this.pnlFavoriteDisplay.SuspendLayout();
-            this.pnlFavoriteControls.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -54,24 +54,24 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.pnlFavoriteDisplay);
-            this.pnlFrame.Controls.Add(this.pnlFavoriteControls);
-            this.pnlFrame.Controls.Add(this.lblFavoriteTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody2);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 33;
             // 
-            // pnlFavoriteDisplay
+            // pnlBody2
             // 
-            this.pnlFavoriteDisplay.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlFavoriteDisplay.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFavoriteDisplay.Controls.Add(this.pnlFavoriteImage);
-            this.pnlFavoriteDisplay.Controls.Add(this.lblFavoriteInfo);
-            this.pnlFavoriteDisplay.Location = new System.Drawing.Point(287, 276);
-            this.pnlFavoriteDisplay.Name = "pnlFavoriteDisplay";
-            this.pnlFavoriteDisplay.Size = new System.Drawing.Size(426, 136);
-            this.pnlFavoriteDisplay.TabIndex = 36;
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.pnlFavoriteImage);
+            this.pnlBody2.Controls.Add(this.lblFavoriteInfo);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
+            this.pnlBody2.TabIndex = 36;
             // 
             // pnlFavoriteImage
             // 
@@ -95,19 +95,19 @@ namespace Mathre
             this.lblFavoriteInfo.Text = "My Favorite __________";
             this.lblFavoriteInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlFavoriteControls
+            // pnlBody
             // 
-            this.pnlFavoriteControls.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlFavoriteControls.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlFavoriteControls.Controls.Add(this.btnFavoriteMovie);
-            this.pnlFavoriteControls.Controls.Add(this.btnFavoriteHobby);
-            this.pnlFavoriteControls.Controls.Add(this.btnFavoriteColor);
-            this.pnlFavoriteControls.Controls.Add(this.btnFavoriteActor);
-            this.pnlFavoriteControls.Controls.Add(this.btnFavoriteFruit);
-            this.pnlFavoriteControls.Location = new System.Drawing.Point(287, 165);
-            this.pnlFavoriteControls.Name = "pnlFavoriteControls";
-            this.pnlFavoriteControls.Size = new System.Drawing.Size(426, 105);
-            this.pnlFavoriteControls.TabIndex = 34;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.btnFavoriteMovie);
+            this.pnlBody.Controls.Add(this.btnFavoriteHobby);
+            this.pnlBody.Controls.Add(this.btnFavoriteColor);
+            this.pnlBody.Controls.Add(this.btnFavoriteActor);
+            this.pnlBody.Controls.Add(this.btnFavoriteFruit);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 34;
             // 
             // btnFavoriteMovie
             // 
@@ -164,17 +164,17 @@ namespace Mathre
             this.btnFavoriteFruit.Text = "Fruit";
             this.btnFavoriteFruit.UseVisualStyleBackColor = true;
             // 
-            // lblFavoriteTitle
+            // lblTitle
             // 
-            this.lblFavoriteTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblFavoriteTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFavoriteTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblFavoriteTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblFavoriteTitle.Name = "lblFavoriteTitle";
-            this.lblFavoriteTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblFavoriteTitle.TabIndex = 33;
-            this.lblFavoriteTitle.Text = "My Favorite __________";
-            this.lblFavoriteTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 33;
+            this.lblTitle.Text = "My Favorite __________";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // imgFavoriteImages
             // 
@@ -195,9 +195,9 @@ namespace Mathre
             this.Name = "Frm04MyFavorites";
             this.Text = "My Favorites";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlFavoriteDisplay.ResumeLayout(false);
-            this.pnlFavoriteControls.ResumeLayout(false);
-            this.pnlFavoriteControls.PerformLayout();
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -205,14 +205,14 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlFrame;
-		private System.Windows.Forms.Panel pnlFavoriteControls;
+		private System.Windows.Forms.Panel pnlBody;
 		private System.Windows.Forms.RadioButton btnFavoriteMovie;
 		private System.Windows.Forms.RadioButton btnFavoriteHobby;
 		private System.Windows.Forms.RadioButton btnFavoriteColor;
 		private System.Windows.Forms.RadioButton btnFavoriteActor;
 		private System.Windows.Forms.RadioButton btnFavoriteFruit;
-		internal System.Windows.Forms.Label lblFavoriteTitle;
-		private System.Windows.Forms.Panel pnlFavoriteDisplay;
+		internal System.Windows.Forms.Label lblTitle;
+		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Panel pnlFavoriteImage;
 		internal System.Windows.Forms.Label lblFavoriteInfo;
 		public System.Windows.Forms.ImageList imgFavoriteImages;

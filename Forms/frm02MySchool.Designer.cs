@@ -30,13 +30,13 @@ namespace Mathre
 		private void InitializeComponent()
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlMySchool = new System.Windows.Forms.Panel();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.picMySchoolMascot = new System.Windows.Forms.PictureBox();
             this.lblMySchoolMascot = new System.Windows.Forms.Label();
             this.btnMySchoolToggleMascot = new System.Windows.Forms.Button();
-            this.lblMySchoolTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
-            this.pnlMySchool.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).BeginInit();
             this.SuspendLayout();
             // 
@@ -46,24 +46,24 @@ namespace Mathre
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.pnlMySchool);
-            this.pnlFrame.Controls.Add(this.lblMySchoolTitle);
+            this.pnlFrame.Controls.Add(this.pnlBody);
+            this.pnlFrame.Controls.Add(this.lblTitle);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 32;
             // 
-            // pnlMySchool
+            // pnlBody
             // 
-            this.pnlMySchool.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlMySchool.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlMySchool.Controls.Add(this.picMySchoolMascot);
-            this.pnlMySchool.Controls.Add(this.lblMySchoolMascot);
-            this.pnlMySchool.Controls.Add(this.btnMySchoolToggleMascot);
-            this.pnlMySchool.Location = new System.Drawing.Point(287, 165);
-            this.pnlMySchool.Name = "pnlMySchool";
-            this.pnlMySchool.Size = new System.Drawing.Size(426, 105);
-            this.pnlMySchool.TabIndex = 31;
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.picMySchoolMascot);
+            this.pnlBody.Controls.Add(this.lblMySchoolMascot);
+            this.pnlBody.Controls.Add(this.btnMySchoolToggleMascot);
+            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 31;
             // 
             // picMySchoolMascot
             // 
@@ -97,17 +97,17 @@ namespace Mathre
             this.btnMySchoolToggleMascot.Text = "Toggle Mascot Visibility";
             this.btnMySchoolToggleMascot.UseVisualStyleBackColor = true;
             // 
-            // lblMySchoolTitle
+            // lblTitle
             // 
-            this.lblMySchoolTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblMySchoolTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMySchoolTitle.Location = new System.Drawing.Point(252, 95);
-            this.lblMySchoolTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblMySchoolTitle.Name = "lblMySchoolTitle";
-            this.lblMySchoolTitle.Size = new System.Drawing.Size(496, 50);
-            this.lblMySchoolTitle.TabIndex = 30;
-            this.lblMySchoolTitle.Text = "Red River High School";
-            this.lblMySchoolTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(252, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(496, 50);
+            this.lblTitle.TabIndex = 30;
+            this.lblTitle.Text = "Red River High School";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm02MySchool
             // 
@@ -119,8 +119,8 @@ namespace Mathre
             this.Name = "Frm02MySchool";
             this.Text = "My School";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlMySchool.ResumeLayout(false);
-            this.pnlMySchool.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picMySchoolMascot)).EndInit();
             this.ResumeLayout(false);
 
@@ -129,10 +129,10 @@ namespace Mathre
 		#endregion
 
 		public System.Windows.Forms.Panel pnlFrame;
-		private System.Windows.Forms.Panel pnlMySchool;
+		private System.Windows.Forms.Panel pnlBody;
 		private System.Windows.Forms.Label lblMySchoolMascot;
 		internal System.Windows.Forms.PictureBox picMySchoolMascot;
 		internal System.Windows.Forms.Button btnMySchoolToggleMascot;
-		internal System.Windows.Forms.Label lblMySchoolTitle;
+		internal System.Windows.Forms.Label lblTitle;
 	}
 }

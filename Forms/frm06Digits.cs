@@ -1,11 +1,11 @@
+using Mathre.Forms;
 using System;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class Frm06Digits : Form
+	public partial class Frm06Digits : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm06Digits()
@@ -22,6 +22,7 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
+		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }
 		public void Digits(object sender, EventArgs e)
 		{
 			int.TryParse(lblDigitsCount.Text, out int a);

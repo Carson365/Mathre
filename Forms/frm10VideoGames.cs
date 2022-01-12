@@ -5,12 +5,13 @@
 // Minecraft / XB1 : https://m.media-amazon.com/images/I/71QpSBZtkqL._SL100_.jpg
 // Doom / PS4 : https://m.media-amazon.com/images/I/91uV7r7aAhL._SL100_.jpg
 // Doom / XB1 : https://m.media-amazon.com/images/I/61bF5-QAX+L._SL100_.jpg
+using Mathre.Forms;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm10VideoGames : Form
+	public partial class Frm10VideoGames : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm10VideoGames()
@@ -35,7 +36,7 @@ namespace Mathre
 			lblCostText.Text = "";
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm10VideoGames>().Single(); ThisForm.Transfer(sender, e); }
-		public void Transfer(object sender, EventArgs e) { ((RadioButton)pnlConsole.Controls[$"{((ToolStripItem)sender).Name.Replace("mnu", "btn")}"]).PerformClick(); }
+		public void Transfer(object sender, EventArgs e) { if ($"{sender}" == "Playstation 4") { btnPS4.PerformClick(); } else { btnXB1.PerformClick(); } }
 		public void ImageSetter(object sender, EventArgs e)
 		{
 			if (btnPS4.Checked)

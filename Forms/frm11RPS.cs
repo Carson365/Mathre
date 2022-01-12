@@ -1,11 +1,12 @@
 // SOURCES:
 // RPS Image: https://www.nicepng.com/png/full/111-1113460_rock-paper-scissors-rock-paper-scissors-svg.png (Modified in various ways with paint.net)
+using Mathre.Forms;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm11RPS : Form
+	public partial class Frm11RPS : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		private int playerscore = 0;

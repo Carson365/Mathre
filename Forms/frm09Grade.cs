@@ -1,3 +1,4 @@
+using Mathre.Forms;
 using Microsoft.VisualBasic;
 using System;
 using System.Globalization;
@@ -5,7 +6,7 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm09Grade : Form
+	public partial class Frm09Grade : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public static int abc = 0;
@@ -17,7 +18,7 @@ namespace Mathre
 			txtTotal.KeyUp += GradeCalculator;
 			txtPoints.KeyPress += InputFormatter;
 			txtTotal.KeyPress += InputFormatter;
-			foreach (Control btn in pnlGrade.Controls) { if ((btn is Button) | (btn is RadioButton)) { btn.Click += GradeCalculator; } }
+			foreach (Control btn in pnlBody.Controls) { if ((btn is Button) | (btn is RadioButton)) { btn.Click += GradeCalculator; } }
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -64,6 +65,7 @@ namespace Mathre
 			}
 			if (ReferenceEquals(sender, btnMethod5))
 			{
+				pnlBody.Controls.OfType<RadioButton>().All(c => { c.Checked = false; return true; });
 				abc++;
 				string result = (double)Math.Round((Points / Total * 100), 2) switch
 				{
@@ -93,7 +95,7 @@ namespace Mathre
 				"Method 2" => () => btnMethod2.PerformClick(),
 				"Method 3" => () => btnMethod3.PerformClick(),
 				"Method 4" => () => btnMethod4.PerformClick(),
-				"Method 5" => () => GradeCalculator(btnMethod5, null),
+				"Calculate with Method 5" => () => GradeCalculator(btnMethod5, null),
 				_ => () => GradeCalculator(btnRandom, null)
 			};
 			a.Invoke();

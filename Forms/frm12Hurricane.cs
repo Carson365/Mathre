@@ -8,6 +8,7 @@
 // Category 5 Hurricane Icon: https://upload.wikimedia.org/wikipedia/commons/9/91/Category_5_hurricane_icon.png
 // Hurricane Damage Information:  https://www.nhc.noaa.gov/aboutsshws.php
 // Hurricane Naming Information: https://www.nhc.noaa.gov/aboutnames.shtml
+using Mathre.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,7 @@ using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class Frm12Hurricane : Form
+	public partial class Frm12Hurricane : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public string HurricaneInfo = "";
