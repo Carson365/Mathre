@@ -19,7 +19,6 @@ namespace Mathre
 			InitializeComponent();
 			KeyDown += KeyboardShortcuts;
 			tabMathre.SelectedIndexChanged += FormManager;
-			Resize += Resized;
 			Load += LoadEvent;
 		}
 		public void LoadEvent(object sender, EventArgs e)
@@ -27,7 +26,7 @@ namespace Mathre
 			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre"))
 			{
 				var form = Activator.CreateInstance(type) as Form;
-				form.Size = FormSize;
+				form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				form.FormBorderStyle = FormBorderStyle.None;
 				form.Left = 0;
 				form.Top = 45;
@@ -38,7 +37,7 @@ namespace Mathre
 				form.Width = Width - 16;
 				form.Height = Height - 84;
 				TabPage newTab = new();
-				newTab.Name = $"{form.Name.Replace( "Frm", "tab")}";
+				newTab.Name = $"{form.Name.Replace("Frm", "tab")}";
 				newTab.Text = $"{form.Text}";
 				if (newTab.Name == "tabSecret") { Secret = newTab; tabMathre.TabPages.Remove(Secret); }
 				else
@@ -101,7 +100,7 @@ namespace Mathre
 					ToolStripMenuItem tool = new();
 					tool.Enabled = !(new string[] { "btnRock2", "btnPaper2", "btnScissors2" }).Any(b.Name.Contains);
 					tool.Text = b.Text;
-					tool.Name = "Exit";
+					tool.Name = b.Name;
 					tool.Click += ((IManager)Application.OpenForms[$"{b.FindForm().Name}"]).MenuControl;
 					item.DropDownItems.Add(tool);
 				}
@@ -116,7 +115,14 @@ namespace Mathre
 					if (form.Name != "Frm00Mathre" && form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) { form.Hide(); }
 					else if (form.Name != "Frm00Mathre") { form.Show(); }
 				}
-				if (tabMathre.SelectedTab.Name == "tab13Slots") { var F13 = Application.OpenForms.OfType<Frm13Slots>().Single(); F13.Tabbed(null, null); }
+				if (tabMathre.SelectedTab.Name == "tab13Slots")
+				{
+					if (Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault() != null)
+					{
+						var F13 = Application.OpenForms.OfType<Frm13Slots>().Single();
+						F13.Tabbed(null, null);
+					}
+				}
 			}
 		}
 		public void MenuKeypress(ToolStripMenuItem TSMI)
@@ -135,7 +141,7 @@ namespace Mathre
 					tabMathre.SelectedTab = Secret;
 					hidden = false;
 				}
-				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
+				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; } 
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			}
 			if (e.Control & e.KeyCode == Keys.R & hidden == false) { F01.HelloWorld("Secret", null); }
@@ -158,12 +164,6 @@ namespace Mathre
 			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
 			rect.Inflate(-1, -1);
 			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
-		}
-		public void Resized(object sender, EventArgs e)
-		{
-			FormSize.Width = Width - 16;
-			FormSize.Height = Height - 84;
-			foreach (Form form in Application.OpenForms) { if (form.Visible && form.Name != "Frm00Mathre") { form.Size = FormSize; } }
 		}
 	}
 }
