@@ -12,7 +12,6 @@ namespace Mathre
 		private string AccentColor;
 		private static Color SystemColor;
 		public bool hidden;
-		private Size FormSize;
 		private TabPage Secret;
 		public Frm00Mathre()
 		{
@@ -23,7 +22,7 @@ namespace Mathre
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre"))
+			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre" && t.Name != "FrmTemplate"))
 			{
 				var form = Activator.CreateInstance(type) as Form;
 				form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;

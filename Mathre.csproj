@@ -170,6 +170,12 @@
     <Compile Include="Forms\frm16Letters.Designer.cs">
       <DependentUpon>frm16Letters.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm17WordGuess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm17WordGuess.Designer.cs">
+      <DependentUpon>frm17WordGuess.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -193,6 +199,12 @@
     </Compile>
     <Compile Include="Forms\frm15Sum.Designer.cs">
       <DependentUpon>frm15Sum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTemplate.Designer.cs">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmUnknown.cs">
       <SubType>Form</SubType>
@@ -282,6 +294,9 @@
     <EmbeddedResource Include="Forms\frm16Letters.resx">
       <DependentUpon>frm16Letters.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm17WordGuess.resx">
+      <DependentUpon>frm17WordGuess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>
     </EmbeddedResource>
@@ -293,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm15Sum.resx">
       <DependentUpon>frm15Sum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTemplate.resx">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmUnknown.resx">
       <DependentUpon>frmUnknown.cs</DependentUpon>

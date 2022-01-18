@@ -8,7 +8,6 @@ namespace Mathre
 	public partial class FrmSecret : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
-		public static FrmSecret ThisForm;
 		public FrmSecret()
 		{
 			InitializeComponent();
@@ -20,7 +19,6 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<FrmSecret>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }

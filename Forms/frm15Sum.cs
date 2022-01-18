@@ -7,7 +7,6 @@ namespace Mathre
 	public partial class Frm15Sum : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
-		public static Frm15Sum ThisForm;
 		public static int counter;
 		public static int countercount;
 		public static int total;
@@ -23,7 +22,6 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm15Sum>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }
