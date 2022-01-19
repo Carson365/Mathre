@@ -99,6 +99,7 @@ namespace Mathre
             this.ClientSize = new System.Drawing.Size(1453, 461);
             this.Controls.Add(this.tabMathre);
             this.Controls.Add(this.mnuBaseLayer);
+            this.DoubleBuffered = true;
             this.KeyPreview = true;
             this.MainMenuStrip = this.mnuBaseLayer;
             this.MinimumSize = new System.Drawing.Size(1230, 500);

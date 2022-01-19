@@ -11,6 +11,8 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
+			txtP1.TextChanged += Default;
+			txtP2.TextChanged += Default;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -28,7 +30,19 @@ namespace Mathre
 			//
 			//
 			//
-
+			if (ReferenceEquals(sender, txtP1))
+			{
+				string abc = new string('_', txtP1.Text.Replace(" ", "").Length).Replace("_", "_ ").Insert(0, "a");
+				for (int i = txtP1.Text.Length - 1; i >= 0; i--)
+				{
+					if (txtP1.Text[i] == ' ')
+					{
+						abc.Remove(2 * i -1);
+						abc.Insert(2 * i -1, " ");
+					}
+				}
+				lblPhrase.Text = $"{abc}";
+			}
 
 		}
 	}

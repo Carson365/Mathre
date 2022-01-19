@@ -140,7 +140,7 @@ namespace Mathre
 					tabMathre.SelectedTab = Secret;
 					hidden = false;
 				}
-				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; } 
+				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			}
 			if (e.Control & e.KeyCode == Keys.R & hidden == false) { F01.HelloWorld("Secret", null); }

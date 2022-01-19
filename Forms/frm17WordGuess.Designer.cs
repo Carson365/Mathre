@@ -29,14 +29,16 @@
 		private void InitializeComponent()
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlBody = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBody2 = new System.Windows.Forms.Panel();
-            this.txtP1 = new System.Windows.Forms.TextBox();
-            this.txtP2 = new System.Windows.Forms.TextBox();
-            this.lblPlayer1 = new System.Windows.Forms.Label();
+            this.pnlBody = new System.Windows.Forms.Panel();
             this.lblPlayer2 = new System.Windows.Forms.Label();
+            this.lblPlayer1 = new System.Windows.Forms.Label();
+            this.txtP2 = new System.Windows.Forms.TextBox();
+            this.txtP1 = new System.Windows.Forms.TextBox();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +56,16 @@
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 34;
             // 
+            // pnlBody2
+            // 
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.lblPhrase);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
+            this.pnlBody2.TabIndex = 36;
+            // 
             // pnlBody
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -67,37 +79,23 @@
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
             // 
-            // lblTitle
+            // lblPlayer2
             // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblTitle.TabIndex = 31;
-            this.lblTitle.Text = "Title";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPlayer2.AutoSize = true;
+            this.lblPlayer2.Location = new System.Drawing.Point(118, 69);
+            this.lblPlayer2.Name = "lblPlayer2";
+            this.lblPlayer2.Size = new System.Drawing.Size(69, 13);
+            this.lblPlayer2.TabIndex = 24;
+            this.lblPlayer2.Text = "Player 2 char";
             // 
-            // pnlBody2
+            // lblPlayer1
             // 
-            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
-            this.pnlBody2.Name = "pnlBody2";
-            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
-            this.pnlBody2.TabIndex = 36;
-            // 
-            // txtP1
-            // 
-            this.txtP1.BackColor = System.Drawing.SystemColors.Window;
-            this.txtP1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtP1.Location = new System.Drawing.Point(210, 9);
-            this.txtP1.Margin = new System.Windows.Forms.Padding(0);
-            this.txtP1.Name = "txtP1";
-            this.txtP1.Size = new System.Drawing.Size(200, 26);
-            this.txtP1.TabIndex = 21;
+            this.lblPlayer1.AutoSize = true;
+            this.lblPlayer1.Location = new System.Drawing.Point(118, 22);
+            this.lblPlayer1.Name = "lblPlayer1";
+            this.lblPlayer1.Size = new System.Drawing.Size(73, 13);
+            this.lblPlayer1.TabIndex = 23;
+            this.lblPlayer1.Text = "Player 1 string";
             // 
             // txtP2
             // 
@@ -110,23 +108,37 @@
             this.txtP2.Size = new System.Drawing.Size(200, 26);
             this.txtP2.TabIndex = 22;
             // 
-            // lblPlayer1
+            // txtP1
             // 
-            this.lblPlayer1.AutoSize = true;
-            this.lblPlayer1.Location = new System.Drawing.Point(118, 22);
-            this.lblPlayer1.Name = "lblPlayer1";
-            this.lblPlayer1.Size = new System.Drawing.Size(73, 13);
-            this.lblPlayer1.TabIndex = 23;
-            this.lblPlayer1.Text = "Player 1 string";
+            this.txtP1.BackColor = System.Drawing.SystemColors.Window;
+            this.txtP1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtP1.Location = new System.Drawing.Point(210, 9);
+            this.txtP1.Margin = new System.Windows.Forms.Padding(0);
+            this.txtP1.Name = "txtP1";
+            this.txtP1.Size = new System.Drawing.Size(200, 26);
+            this.txtP1.TabIndex = 21;
             // 
-            // lblPlayer2
+            // lblTitle
             // 
-            this.lblPlayer2.AutoSize = true;
-            this.lblPlayer2.Location = new System.Drawing.Point(118, 69);
-            this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(69, 13);
-            this.lblPlayer2.TabIndex = 24;
-            this.lblPlayer2.Text = "Player 2 char";
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 31;
+            this.lblTitle.Text = "Title";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblPhrase
+            // 
+            this.lblPhrase.AutoSize = true;
+            this.lblPhrase.Location = new System.Drawing.Point(163, 50);
+            this.lblPhrase.Name = "lblPhrase";
+            this.lblPhrase.Size = new System.Drawing.Size(69, 13);
+            this.lblPhrase.TabIndex = 25;
+            this.lblPhrase.Text = "Word2Guess";
             // 
             // Frm17WordGuess
             // 
@@ -138,6 +150,8 @@
             this.Name = "Frm17WordGuess";
             this.Text = "Word Guess Game";
             this.pnlFrame.ResumeLayout(false);
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody2.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
@@ -154,5 +168,6 @@
 		private System.Windows.Forms.Label lblPlayer1;
 		internal System.Windows.Forms.TextBox txtP2;
 		internal System.Windows.Forms.TextBox txtP1;
+		private System.Windows.Forms.Label lblPhrase;
 	}
 }
