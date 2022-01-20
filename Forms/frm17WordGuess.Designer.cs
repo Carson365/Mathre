@@ -30,13 +30,13 @@
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody2 = new System.Windows.Forms.Panel();
+            this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.lblPlayer2 = new System.Windows.Forms.Label();
             this.lblPlayer1 = new System.Windows.Forms.Label();
             this.txtP2 = new System.Windows.Forms.TextBox();
             this.txtP1 = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -65,6 +65,15 @@
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
             this.pnlBody2.TabIndex = 36;
+            // 
+            // lblPhrase
+            // 
+            this.lblPhrase.AutoSize = true;
+            this.lblPhrase.Location = new System.Drawing.Point(179, 62);
+            this.lblPhrase.Name = "lblPhrase";
+            this.lblPhrase.Size = new System.Drawing.Size(69, 13);
+            this.lblPhrase.TabIndex = 25;
+            this.lblPhrase.Text = "Word2Guess";
             // 
             // pnlBody
             // 
@@ -130,15 +139,6 @@
             this.lblTitle.TabIndex = 31;
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblPhrase
-            // 
-            this.lblPhrase.AutoSize = true;
-            this.lblPhrase.Location = new System.Drawing.Point(163, 50);
-            this.lblPhrase.Name = "lblPhrase";
-            this.lblPhrase.Size = new System.Drawing.Size(69, 13);
-            this.lblPhrase.TabIndex = 25;
-            this.lblPhrase.Text = "Word2Guess";
             // 
             // Frm17WordGuess
             // 
