@@ -68,12 +68,14 @@
             // 
             // lblPhrase
             // 
-            this.lblPhrase.AutoSize = true;
-            this.lblPhrase.Location = new System.Drawing.Point(179, 62);
+            this.lblPhrase.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lblPhrase.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Bold);
+            this.lblPhrase.Location = new System.Drawing.Point(0, 0);
             this.lblPhrase.Name = "lblPhrase";
-            this.lblPhrase.Size = new System.Drawing.Size(69, 13);
+            this.lblPhrase.Size = new System.Drawing.Size(426, 136);
             this.lblPhrase.TabIndex = 25;
             this.lblPhrase.Text = "Word2Guess";
+            this.lblPhrase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBody
             // 
@@ -151,7 +153,6 @@
             this.Text = "Word Guess Game";
             this.pnlFrame.ResumeLayout(false);
             this.pnlBody2.ResumeLayout(false);
-            this.pnlBody2.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
             this.ResumeLayout(false);

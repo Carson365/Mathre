@@ -13,6 +13,7 @@ namespace Mathre
 			InitializeComponent();
 			Load += FormLoad;
 			txtP1.TextChanged += Default;
+			txtP1.KeyDown += (p, e) => { if (txtP1.Text.Length > 15 && e.KeyCode != Keys.Back) { e.SuppressKeyPress = true; } };
 			txtP2.TextChanged += Default;
 		}
 		public void FormLoad(object sender, EventArgs e)
@@ -25,14 +26,9 @@ namespace Mathre
 		{
 			if (ReferenceEquals(sender, txtP1))
 			{
-				string abc = "";
-				for (int i = 0; i <= txtP1.Text.Length - 1; i++)
-				{
-					abc += Regex.Replace($"{txtP1.Text[i]}", @"\S", "_ ");
-				}
+				string abc = ""; for (int i = 0; i <= txtP1.Text.Length - 1; i++) { abc += Regex.Replace($"{txtP1.Text[i]}", @"\S", "_ "); }
 				lblPhrase.Text = Regex.Replace($"{abc}", "  ", "   ");
 			}
-
 		}
 	}
 }
