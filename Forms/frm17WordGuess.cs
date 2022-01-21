@@ -8,6 +8,7 @@ namespace Mathre
 	public partial class Frm17WordGuess : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
+		string abc = "";
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
@@ -26,8 +27,22 @@ namespace Mathre
 		{
 			if (ReferenceEquals(sender, txtP1))
 			{
-				string abc = ""; for (int i = 0; i <= txtP1.Text.Length - 1; i++) { abc += Regex.Replace($"{txtP1.Text[i]}", @"\S", "_ "); }
-				lblPhrase.Text = Regex.Replace($"{abc}", "  ", "   ");
+				abc = ""; for (int i = 0; i <= txtP1.Text.Length - 1; i++) { abc += Regex.Replace($"{txtP1.Text[i]}", @"\S", "_"); }
+				lblPhrase.Text = Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _");
+			}
+			if (ReferenceEquals(sender, txtP2))
+			{
+				for (int i = 0; i <= txtP1.Text.Length - 1; i++)
+				{
+					if ($"{txtP1.Text[i]}".ToLower() == txtP2.Text.ToLower())
+					{
+						abc = abc.Remove(i, 1);
+						abc = abc.Insert(i, $"{txtP1.Text[i]}");
+					}
+					Console.WriteLine($"{txtP1.Text[i]}");
+				}
+				lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
+				txtP2.Text = "";
 			}
 		}
 	}
