@@ -1,5 +1,6 @@
 ﻿using Mathre.Forms;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -9,6 +10,9 @@ namespace Mathre
 	{
 		public static Frm00Mathre BaseForm;
 		string abc = "";
+		List<string> guesses = new();
+		int guesscount = 0;
+
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
@@ -32,6 +36,16 @@ namespace Mathre
 			}
 			if (ReferenceEquals(sender, txtP2))
 			{
+				if (guesses.Contains<string>(txtP2.Text.ToLower()))
+				{
+				}
+				else
+				{
+					guesscount++;
+					guesses.Add(txtP2.Text.ToLower());
+					Console.WriteLine(guesses.ToString());
+				}
+				lblGuessCount.Text = guesscount.ToString();
 				for (int i = 0; i <= txtP1.Text.Length - 1; i++)
 				{
 					if ($"{txtP1.Text[i]}".ToLower() == txtP2.Text.ToLower())
@@ -39,10 +53,11 @@ namespace Mathre
 						abc = abc.Remove(i, 1);
 						abc = abc.Insert(i, $"{txtP1.Text[i]}");
 					}
-					Console.WriteLine($"{txtP1.Text[i]}");
 				}
 				lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
-				txtP2.Text = "";
+				txtP2.TextChanged -= Default;
+				txtP2.Clear();
+				txtP2.TextChanged += Default;
 			}
 		}
 	}

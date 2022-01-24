@@ -32,11 +32,13 @@
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.lblGuesses = new System.Windows.Forms.Label();
             this.lblPlayer2 = new System.Windows.Forms.Label();
             this.lblPlayer1 = new System.Windows.Forms.Label();
             this.txtP2 = new System.Windows.Forms.TextBox();
             this.txtP1 = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblGuessCount = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -81,6 +83,8 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.lblGuessCount);
+            this.pnlBody.Controls.Add(this.lblGuesses);
             this.pnlBody.Controls.Add(this.lblPlayer2);
             this.pnlBody.Controls.Add(this.lblPlayer1);
             this.pnlBody.Controls.Add(this.txtP2);
@@ -89,6 +93,15 @@
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
+            // 
+            // lblGuesses
+            // 
+            this.lblGuesses.AutoSize = true;
+            this.lblGuesses.Location = new System.Drawing.Point(3, 44);
+            this.lblGuesses.Name = "lblGuesses";
+            this.lblGuesses.Size = new System.Drawing.Size(51, 13);
+            this.lblGuesses.TabIndex = 25;
+            this.lblGuesses.Text = "Guesses:";
             // 
             // lblPlayer2
             // 
@@ -142,6 +155,15 @@
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblGuessCount
+            // 
+            this.lblGuessCount.AutoSize = true;
+            this.lblGuessCount.Location = new System.Drawing.Point(60, 44);
+            this.lblGuessCount.Name = "lblGuessCount";
+            this.lblGuessCount.Size = new System.Drawing.Size(51, 13);
+            this.lblGuessCount.TabIndex = 26;
+            this.lblGuessCount.Text = "Guesses:";
+            // 
             // Frm17WordGuess
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,5 +192,7 @@
 		internal System.Windows.Forms.TextBox txtP2;
 		internal System.Windows.Forms.TextBox txtP1;
 		private System.Windows.Forms.Label lblPhrase;
+		private System.Windows.Forms.Label lblGuesses;
+		private System.Windows.Forms.Label lblGuessCount;
 	}
 }
