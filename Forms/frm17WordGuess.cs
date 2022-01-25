@@ -9,10 +9,10 @@ namespace Mathre
 	public partial class Frm17WordGuess : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
-		string abc = "";
+		string abc = " ";
 		List<string> guesses = new();
 		int guesscount = 0;
-
+		int correctguesses = 0;
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
@@ -36,25 +36,22 @@ namespace Mathre
 			}
 			if (ReferenceEquals(sender, txtP2))
 			{
-				if (guesses.Contains<string>(txtP2.Text.ToLower()))
-				{
-				}
-				else
+				if (!guesses.Contains<string>(txtP2.Text.ToLower()))
 				{
 					guesscount++;
 					guesses.Add(txtP2.Text.ToLower());
-					Console.WriteLine(guesses.ToString());
-				}
-				lblGuessCount.Text = guesscount.ToString();
-				for (int i = 0; i <= txtP1.Text.Length - 1; i++)
-				{
-					if ($"{txtP1.Text[i]}".ToLower() == txtP2.Text.ToLower())
+					for (int i = 0; i <= txtP1.Text.Length - 1; i++)
 					{
-						abc = abc.Remove(i, 1);
-						abc = abc.Insert(i, $"{txtP1.Text[i]}");
+						if ($"{txtP1.Text[i]}".ToLower() == txtP2.Text.ToLower())
+						{
+							abc = abc.Remove(i, 1);
+							abc = abc.Insert(i, $"{txtP1.Text[i]}");
+							correctguesses++;
+						}
 					}
+					lblGuessCount.Text = (guesscount - correctguesses).ToString();
+					lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
 				}
-				lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
 				txtP2.TextChanged -= Default;
 				txtP2.Clear();
 				txtP2.TextChanged += Default;

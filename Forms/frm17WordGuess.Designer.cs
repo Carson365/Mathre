@@ -32,13 +32,13 @@
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.lblGuessCount = new System.Windows.Forms.Label();
             this.lblGuesses = new System.Windows.Forms.Label();
             this.lblPlayer2 = new System.Windows.Forms.Label();
             this.lblPlayer1 = new System.Windows.Forms.Label();
             this.txtP2 = new System.Windows.Forms.TextBox();
             this.txtP1 = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblGuessCount = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -94,14 +94,23 @@
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
             // 
+            // lblGuessCount
+            // 
+            this.lblGuessCount.AutoSize = true;
+            this.lblGuessCount.Location = new System.Drawing.Point(105, 46);
+            this.lblGuessCount.Name = "lblGuessCount";
+            this.lblGuessCount.Size = new System.Drawing.Size(13, 13);
+            this.lblGuessCount.TabIndex = 26;
+            this.lblGuessCount.Text = "0";
+            // 
             // lblGuesses
             // 
             this.lblGuesses.AutoSize = true;
-            this.lblGuesses.Location = new System.Drawing.Point(3, 44);
+            this.lblGuesses.Location = new System.Drawing.Point(3, 46);
             this.lblGuesses.Name = "lblGuesses";
-            this.lblGuesses.Size = new System.Drawing.Size(51, 13);
+            this.lblGuesses.Size = new System.Drawing.Size(96, 13);
             this.lblGuesses.TabIndex = 25;
-            this.lblGuesses.Text = "Guesses:";
+            this.lblGuesses.Text = "Incorrect Guesses:";
             // 
             // lblPlayer2
             // 
@@ -154,15 +163,6 @@
             this.lblTitle.TabIndex = 31;
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblGuessCount
-            // 
-            this.lblGuessCount.AutoSize = true;
-            this.lblGuessCount.Location = new System.Drawing.Point(60, 44);
-            this.lblGuessCount.Name = "lblGuessCount";
-            this.lblGuessCount.Size = new System.Drawing.Size(51, 13);
-            this.lblGuessCount.TabIndex = 26;
-            this.lblGuessCount.Text = "Guesses:";
             // 
             // Frm17WordGuess
             // 
