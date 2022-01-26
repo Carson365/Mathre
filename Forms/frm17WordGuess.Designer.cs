@@ -32,13 +32,14 @@
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.lblGuessCount = new System.Windows.Forms.Label();
-            this.lblGuesses = new System.Windows.Forms.Label();
             this.lblPlayer2 = new System.Windows.Forms.Label();
             this.lblPlayer1 = new System.Windows.Forms.Label();
+            this.lblGuessCount = new System.Windows.Forms.Label();
             this.txtP2 = new System.Windows.Forms.TextBox();
             this.txtP1 = new System.Windows.Forms.TextBox();
+            this.lblGuesses = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.chbHide = new System.Windows.Forms.CheckBox();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -83,39 +84,22 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.lblGuessCount);
-            this.pnlBody.Controls.Add(this.lblGuesses);
+            this.pnlBody.Controls.Add(this.chbHide);
             this.pnlBody.Controls.Add(this.lblPlayer2);
             this.pnlBody.Controls.Add(this.lblPlayer1);
+            this.pnlBody.Controls.Add(this.lblGuessCount);
             this.pnlBody.Controls.Add(this.txtP2);
             this.pnlBody.Controls.Add(this.txtP1);
+            this.pnlBody.Controls.Add(this.lblGuesses);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
             // 
-            // lblGuessCount
-            // 
-            this.lblGuessCount.AutoSize = true;
-            this.lblGuessCount.Location = new System.Drawing.Point(105, 46);
-            this.lblGuessCount.Name = "lblGuessCount";
-            this.lblGuessCount.Size = new System.Drawing.Size(13, 13);
-            this.lblGuessCount.TabIndex = 26;
-            this.lblGuessCount.Text = "0";
-            // 
-            // lblGuesses
-            // 
-            this.lblGuesses.AutoSize = true;
-            this.lblGuesses.Location = new System.Drawing.Point(3, 46);
-            this.lblGuesses.Name = "lblGuesses";
-            this.lblGuesses.Size = new System.Drawing.Size(96, 13);
-            this.lblGuesses.TabIndex = 25;
-            this.lblGuesses.Text = "Incorrect Guesses:";
-            // 
             // lblPlayer2
             // 
             this.lblPlayer2.AutoSize = true;
-            this.lblPlayer2.Location = new System.Drawing.Point(118, 69);
+            this.lblPlayer2.Location = new System.Drawing.Point(11, 69);
             this.lblPlayer2.Name = "lblPlayer2";
             this.lblPlayer2.Size = new System.Drawing.Size(69, 13);
             this.lblPlayer2.TabIndex = 24;
@@ -124,18 +108,27 @@
             // lblPlayer1
             // 
             this.lblPlayer1.AutoSize = true;
-            this.lblPlayer1.Location = new System.Drawing.Point(118, 22);
+            this.lblPlayer1.Location = new System.Drawing.Point(11, 22);
             this.lblPlayer1.Name = "lblPlayer1";
             this.lblPlayer1.Size = new System.Drawing.Size(73, 13);
             this.lblPlayer1.TabIndex = 23;
             this.lblPlayer1.Text = "Player 1 string";
+            // 
+            // lblGuessCount
+            // 
+            this.lblGuessCount.AutoSize = true;
+            this.lblGuessCount.Location = new System.Drawing.Point(408, 63);
+            this.lblGuessCount.Name = "lblGuessCount";
+            this.lblGuessCount.Size = new System.Drawing.Size(13, 13);
+            this.lblGuessCount.TabIndex = 26;
+            this.lblGuessCount.Text = "0";
             // 
             // txtP2
             // 
             this.txtP2.BackColor = System.Drawing.SystemColors.Window;
             this.txtP2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtP2.Location = new System.Drawing.Point(210, 56);
+            this.txtP2.Location = new System.Drawing.Point(103, 56);
             this.txtP2.Margin = new System.Windows.Forms.Padding(0);
             this.txtP2.Name = "txtP2";
             this.txtP2.Size = new System.Drawing.Size(200, 26);
@@ -146,11 +139,20 @@
             this.txtP1.BackColor = System.Drawing.SystemColors.Window;
             this.txtP1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtP1.Location = new System.Drawing.Point(210, 9);
+            this.txtP1.Location = new System.Drawing.Point(103, 9);
             this.txtP1.Margin = new System.Windows.Forms.Padding(0);
             this.txtP1.Name = "txtP1";
             this.txtP1.Size = new System.Drawing.Size(200, 26);
             this.txtP1.TabIndex = 21;
+            // 
+            // lblGuesses
+            // 
+            this.lblGuesses.AutoSize = true;
+            this.lblGuesses.Location = new System.Drawing.Point(306, 63);
+            this.lblGuesses.Name = "lblGuesses";
+            this.lblGuesses.Size = new System.Drawing.Size(96, 13);
+            this.lblGuesses.TabIndex = 25;
+            this.lblGuesses.Text = "Incorrect Guesses:";
             // 
             // lblTitle
             // 
@@ -163,6 +165,16 @@
             this.lblTitle.TabIndex = 31;
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chbHide
+            // 
+            this.chbHide.AutoSize = true;
+            this.chbHide.Location = new System.Drawing.Point(309, 15);
+            this.chbHide.Name = "chbHide";
+            this.chbHide.Size = new System.Drawing.Size(48, 17);
+            this.chbHide.TabIndex = 27;
+            this.chbHide.Text = "Hide";
+            this.chbHide.UseVisualStyleBackColor = true;
             // 
             // Frm17WordGuess
             // 
@@ -194,5 +206,6 @@
 		private System.Windows.Forms.Label lblPhrase;
 		private System.Windows.Forms.Label lblGuesses;
 		private System.Windows.Forms.Label lblGuessCount;
+		private System.Windows.Forms.CheckBox chbHide;
 	}
 }

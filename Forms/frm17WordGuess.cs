@@ -13,6 +13,7 @@ namespace Mathre
 		List<string> guesses = new();
 		int guesscount = 0;
 		int correctguesses = 0;
+		int totalguesses = 6;
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
@@ -20,6 +21,8 @@ namespace Mathre
 			txtP1.TextChanged += Default;
 			txtP1.KeyDown += (p, e) => { if (txtP1.Text.Length > 15 && e.KeyCode != Keys.Back) { e.SuppressKeyPress = true; } };
 			txtP2.TextChanged += Default;
+			txtP2.KeyDown += (p, e) => { if (totalguesses < 1) { e.SuppressKeyPress = true; } };
+			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) { txtP1.UseSystemPasswordChar = true; } else { txtP1.UseSystemPasswordChar = false;  } };
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -39,6 +42,7 @@ namespace Mathre
 				if (!guesses.Contains<string>(txtP2.Text.ToLower()))
 				{
 					guesscount++;
+					totalguesses--;
 					guesses.Add(txtP2.Text.ToLower());
 					for (int i = 0; i <= txtP1.Text.Length - 1; i++)
 					{
@@ -47,6 +51,7 @@ namespace Mathre
 							abc = abc.Remove(i, 1);
 							abc = abc.Insert(i, $"{txtP1.Text[i]}");
 							correctguesses++;
+							totalguesses++;
 						}
 					}
 					lblGuessCount.Text = (guesscount - correctguesses).ToString();
