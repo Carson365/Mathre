@@ -20,8 +20,8 @@ namespace Mathre
 			Load += FormLoad;
 			txtP1.TextChanged += Default;
 			txtP1.KeyDown += (p, e) => { if (txtP1.Text.Length > 15 && e.KeyCode != Keys.Back) { e.SuppressKeyPress = true; } };
-			txtP2.TextChanged += Default;
-			txtP2.KeyDown += (p, e) => { if (totalguesses < 1) { e.SuppressKeyPress = true; } };
+			txtP2.KeyDown += (p, e) => { if (totalguesses < 1) { e.SuppressKeyPress = true; } if (txtP1.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); }  };
+			txtP2.TextChanged += Default; 
 			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) { txtP1.UseSystemPasswordChar = true; } else { txtP1.UseSystemPasswordChar = false;  } };
 		}
 		public void FormLoad(object sender, EventArgs e)
@@ -34,12 +34,18 @@ namespace Mathre
 		{
 			if (ReferenceEquals(sender, txtP1))
 			{
-				abc = ""; for (int i = 0; i <= txtP1.Text.Length - 1; i++) { abc += Regex.Replace($"{txtP1.Text[i]}", @"\S", "_"); }
-				lblPhrase.Text = Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _");
+				guesses.Clear();
+				guesscount = 0;
+				totalguesses = 6;
+				correctguesses = 0;
+				lblGuessCount.Text = (guesscount - correctguesses).ToString();
+				abc = "";
+				for (int i = 0; i <= txtP1.Text.Length - 1; i++) { abc += Regex.Replace($"{txtP1.Text[i]}", @"((?=[^\-])\S)", "_"); }
+				lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), @"\s*-", " -"), "_", " _");
 			}
 			if (ReferenceEquals(sender, txtP2))
 			{
-				if (!guesses.Contains<string>(txtP2.Text.ToLower()))
+				if (!guesses.Contains<string>(txtP2.Text.ToLower()) && txtP1.Text.Length > 0)
 				{
 					guesscount++;
 					totalguesses--;
@@ -60,6 +66,8 @@ namespace Mathre
 				txtP2.TextChanged -= Default;
 				txtP2.Clear();
 				txtP2.TextChanged += Default;
+				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { MessageBox.Show("YOU HAVE WON"); }
+				if (totalguesses < 1) { MessageBox.Show("YOU HAVE LOST"); }
 			}
 		}
 	}
