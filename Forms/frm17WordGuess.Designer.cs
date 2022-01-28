@@ -32,6 +32,7 @@
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.chbHide = new System.Windows.Forms.CheckBox();
             this.lblPlayer2 = new System.Windows.Forms.Label();
             this.lblPlayer1 = new System.Windows.Forms.Label();
             this.lblGuessCount = new System.Windows.Forms.Label();
@@ -39,7 +40,7 @@
             this.txtP1 = new System.Windows.Forms.TextBox();
             this.lblGuesses = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.chbHide = new System.Windows.Forms.CheckBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -51,6 +52,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
+            this.pnlFrame.Controls.Add(this.button1);
             this.pnlFrame.Controls.Add(this.pnlBody2);
             this.pnlFrame.Controls.Add(this.pnlBody);
             this.pnlFrame.Controls.Add(this.lblTitle);
@@ -95,6 +97,16 @@
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
+            // 
+            // chbHide
+            // 
+            this.chbHide.AutoSize = true;
+            this.chbHide.Location = new System.Drawing.Point(309, 15);
+            this.chbHide.Name = "chbHide";
+            this.chbHide.Size = new System.Drawing.Size(48, 17);
+            this.chbHide.TabIndex = 27;
+            this.chbHide.Text = "Hide";
+            this.chbHide.UseVisualStyleBackColor = true;
             // 
             // lblPlayer2
             // 
@@ -166,15 +178,14 @@
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chbHide
+            // button1
             // 
-            this.chbHide.AutoSize = true;
-            this.chbHide.Location = new System.Drawing.Point(309, 15);
-            this.chbHide.Name = "chbHide";
-            this.chbHide.Size = new System.Drawing.Size(48, 17);
-            this.chbHide.TabIndex = 27;
-            this.chbHide.Text = "Hide";
-            this.chbHide.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(786, 113);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // Frm17WordGuess
             // 
@@ -207,5 +218,6 @@
 		private System.Windows.Forms.Label lblGuesses;
 		private System.Windows.Forms.Label lblGuessCount;
 		private System.Windows.Forms.CheckBox chbHide;
+		private System.Windows.Forms.Button button1;
 	}
 }

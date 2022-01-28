@@ -372,5 +372,8 @@
   <ItemGroup>
     <None Include="Resources\EnterKey.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Koolaid.mp3" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

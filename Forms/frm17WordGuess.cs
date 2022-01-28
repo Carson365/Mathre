@@ -1,6 +1,7 @@
 ﻿using Mathre.Forms;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -8,6 +9,7 @@ namespace Mathre
 {
 	public partial class Frm17WordGuess : Form, IManager
 	{
+
 		public static Frm00Mathre BaseForm;
 		string abc = " ";
 		List<string> guesses = new();
@@ -20,9 +22,10 @@ namespace Mathre
 			Load += FormLoad;
 			txtP1.TextChanged += Default;
 			txtP1.KeyDown += (p, e) => { if (txtP1.Text.Length > 15 && e.KeyCode != Keys.Back) { e.SuppressKeyPress = true; } };
-			txtP2.KeyDown += (p, e) => { if (totalguesses < 1) { e.SuppressKeyPress = true; } if (txtP1.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); }  };
-			txtP2.TextChanged += Default; 
-			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) { txtP1.UseSystemPasswordChar = true; } else { txtP1.UseSystemPasswordChar = false;  } };
+			txtP2.KeyDown += (p, e) => { if (totalguesses < 1) { e.SuppressKeyPress = true; } if (txtP1.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } };
+			txtP2.TextChanged += Default;
+			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) { txtP1.UseSystemPasswordChar = true; } else { txtP1.UseSystemPasswordChar = false; } };
+			button1.Click += Music;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -69,6 +72,22 @@ namespace Mathre
 				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { MessageBox.Show("YOU HAVE WON"); }
 				if (totalguesses < 1) { MessageBox.Show("YOU HAVE LOST"); }
 			}
+		}
+		//https://stackoverflow.com/a/38006788
+		[System.Runtime.InteropServices.DllImport("winmm.dll")]
+			public static extern uint mciSendString(
+				string lpstrCommand,
+				System.Text.StringBuilder lpstrReturnString,
+				int uReturnLength,
+				IntPtr hWndCallback
+				);
+		public void Music(object sender, EventArgs e)
+		{
+			string OhYeah = string.Format("{0}Resources\\Koolaid.mp3", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")));
+			mciSendString(@"close temp_alias", null, 0, IntPtr.Zero);
+			mciSendString(@$"open ""{OhYeah}"" alias temp_alias", null, 0, IntPtr.Zero);
+			mciSendString("play temp_alias", null, 0, IntPtr.Zero);
+			//"play temp_alias repeat"
 		}
 	}
 }
