@@ -94,7 +94,7 @@ namespace Mathre
 					GetButtons(b, menu);
 				}
 				else { GetButtons(b, item); }
-				if ((b is Button) || (b is RadioButton))
+				if ((b is Button) || (b is RadioButton) || (b is CheckBox))
 				{
 					ToolStripMenuItem tool = new();
 					tool.Enabled = !(new string[] { "btnRock2", "btnPaper2", "btnScissors2" }).Any(b.Name.Contains);

@@ -1,8 +1,10 @@
-﻿using Mathre.Forms;
+﻿// Sound Effects from zapsplat
+using Mathre.Forms;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Media;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 namespace Mathre
@@ -12,7 +14,7 @@ namespace Mathre
 
 		public static Frm00Mathre BaseForm;
 		string abc = " ";
-		List<string> guesses = new();
+		readonly List<string> guesses = new();
 		int guesscount = 0;
 		int correctguesses = 0;
 		int totalguesses = 6;
@@ -25,7 +27,6 @@ namespace Mathre
 			txtP2.KeyDown += (p, e) => { if (totalguesses < 1) { e.SuppressKeyPress = true; } if (txtP1.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } };
 			txtP2.TextChanged += Default;
 			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) { txtP1.UseSystemPasswordChar = true; } else { txtP1.UseSystemPasswordChar = false; } };
-			button1.Click += Music;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -61,7 +62,9 @@ namespace Mathre
 							abc = abc.Insert(i, $"{txtP1.Text[i]}");
 							correctguesses++;
 							totalguesses++;
+							Play("Chime");
 						}
+						else if (! txtP1.Text.ToLower().Contains(txtP2.Text.ToLower())){ SystemSounds.Asterisk.Play(); }
 					}
 					lblGuessCount.Text = (guesscount - correctguesses).ToString();
 					lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
@@ -69,23 +72,18 @@ namespace Mathre
 				txtP2.TextChanged -= Default;
 				txtP2.Clear();
 				txtP2.TextChanged += Default;
-				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { MessageBox.Show("YOU HAVE WON"); }
+				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); MessageBox.Show("YOU HAVE WON"); }
 				if (totalguesses < 1) { MessageBox.Show("YOU HAVE LOST"); }
 			}
 		}
 		//https://stackoverflow.com/a/38006788
 		[System.Runtime.InteropServices.DllImport("winmm.dll")]
-			public static extern uint mciSendString(
-				string lpstrCommand,
-				System.Text.StringBuilder lpstrReturnString,
-				int uReturnLength,
-				IntPtr hWndCallback
-				);
-		public void Music(object sender, EventArgs e)
+		public static extern uint mciSendString(string lpstrCommand, System.Text.StringBuilder lpstrReturnString, int uReturnLength, IntPtr hWndCallback);
+		public void Play(string file)
 		{
-			string OhYeah = string.Format("{0}Resources\\Koolaid.mp3", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")));
+			string Sound = string.Format($"{{0}}Resources\\{file}.mp3", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")));
 			mciSendString(@"close temp_alias", null, 0, IntPtr.Zero);
-			mciSendString(@$"open ""{OhYeah}"" alias temp_alias", null, 0, IntPtr.Zero);
+			mciSendString(@$"open ""{Sound}"" alias temp_alias", null, 0, IntPtr.Zero);
 			mciSendString("play temp_alias", null, 0, IntPtr.Zero);
 			//"play temp_alias repeat"
 		}

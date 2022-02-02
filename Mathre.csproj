@@ -373,6 +373,7 @@
     <None Include="Resources\EnterKey.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\Chime.mp3" />
     <Content Include="Resources\Koolaid.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
