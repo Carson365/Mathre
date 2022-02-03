@@ -12,13 +12,14 @@ namespace Mathre
 {
 	public partial class Frm17WordGuess : Form, IManager
 	{
-
 		public static Frm00Mathre BaseForm;
 		string abc = " ";
 		readonly List<string> guesses = new();
 		int guesscount = 0;
 		int correctguesses = 0;
 		int totalguesses = 6;
+		bool playsounds = true;
+		int elapsedtime = 0;
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
@@ -28,12 +29,14 @@ namespace Mathre
 			txtP2.KeyDown += (p, e) => { if (totalguesses < 1) { e.SuppressKeyPress = true; } if (txtP1.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } };
 			txtP2.TextChanged += Default;
 			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) { txtP1.UseSystemPasswordChar = true; } else { txtP1.UseSystemPasswordChar = false; } };
+			chbSounds.CheckedChanged += (p, e) => { playsounds = !playsounds; Play("Background"); };
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			Play("Background");
+			Timer();
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm17WordGuess>().Single(); ThisForm.Default(sender, e); }
 		public void Default(object sender, EventArgs e)
@@ -55,6 +58,7 @@ namespace Mathre
 			{
 				if (!guesses.Contains<string>(txtP2.Text.ToLower()) && txtP1.Text.Length > 0)
 				{
+					bool addonce = false;
 					guesscount++;
 					totalguesses--;
 					guesses.Add(txtP2.Text.ToLower());
@@ -64,7 +68,7 @@ namespace Mathre
 						{
 							abc = abc.Remove(i, 1);
 							abc = abc.Insert(i, $"{txtP1.Text[i]}");
-							correctguesses++;
+							if (!addonce) { correctguesses++; addonce = true; }
 							totalguesses++;
 							Play("Chime");
 						}
@@ -77,7 +81,7 @@ namespace Mathre
 				txtP2.TextChanged -= Default;
 				txtP2.Clear();
 				txtP2.TextChanged += Default;
-				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); MessageBox.Show("YOU HAVE WON"); }
+				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); MessageBox.Show("YOU HAVE WON"); FlashScreen(); }
 				if (totalguesses < 1) { MessageBox.Show("YOU HAVE LOST"); }
 			}
 		}
@@ -86,12 +90,26 @@ namespace Mathre
 		public static extern uint mciSendString(string command, StringBuilder buffer, int buffersize, int hWndCallback);
 		public void Play(string file)
 		{
-			// Gets the location of the file by string, opens it using the native windows API "mciSendString" after ensuring another isn't open, then closes it when done.
 			string Sound = string.Format($"{{0}}Resources\\{file}.mp3", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")));
 			mciSendString(@$"close {file}", null, 0, 0);
-			mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0);
-			if (file == "Background") { mciSendString($"play {file} repeat", null, 0, 0); }
-			else { mciSendString($"play {file}", null, 0, 0); }
+			if (playsounds) 
+			{
+				// Gets the location of the file by string, opens it using the native windows API "mciSendString" after ensuring another isn't open, then closes it when done.
+				mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0);
+				if (file == "Background") { mciSendString($"play {file} repeat", null, 0, 0); }
+				else { mciSendString($"play {file}", null, 0, 0); }
+			}
+		}
+		public void FlashScreen()
+		{
+
+		}
+		public void Timer()
+		{
+			System.Timers.Timer aTimer = new(1000);
+			aTimer.Elapsed += (p, e) => { Console.WriteLine($"{elapsedtime++}"); };
+			aTimer.AutoReset = true;
+			aTimer.Enabled = true;
 		}
 	}
 }

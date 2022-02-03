@@ -40,6 +40,9 @@
             this.txtP1 = new System.Windows.Forms.TextBox();
             this.lblGuesses = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.chbSounds = new System.Windows.Forms.CheckBox();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblElapsed = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -77,13 +80,16 @@
             this.lblPhrase.Name = "lblPhrase";
             this.lblPhrase.Size = new System.Drawing.Size(426, 136);
             this.lblPhrase.TabIndex = 25;
-            this.lblPhrase.Text = "Word2Guess";
+            this.lblPhrase.Text = "Word To Guess";
             this.lblPhrase.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pnlBody
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.lblTime);
+            this.pnlBody.Controls.Add(this.lblElapsed);
+            this.pnlBody.Controls.Add(this.chbSounds);
             this.pnlBody.Controls.Add(this.chbHide);
             this.pnlBody.Controls.Add(this.lblPlayer2);
             this.pnlBody.Controls.Add(this.lblPlayer1);
@@ -173,8 +179,38 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
             this.lblTitle.TabIndex = 31;
-            this.lblTitle.Text = "Title";
+            this.lblTitle.Text = "Word Guess Game";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chbSounds
+            // 
+            this.chbSounds.AutoSize = true;
+            this.chbSounds.Checked = true;
+            this.chbSounds.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbSounds.Location = new System.Drawing.Point(309, 38);
+            this.chbSounds.Name = "chbSounds";
+            this.chbSounds.Size = new System.Drawing.Size(85, 17);
+            this.chbSounds.TabIndex = 28;
+            this.chbSounds.Text = "Play Sounds";
+            this.chbSounds.UseVisualStyleBackColor = true;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(408, 87);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(13, 13);
+            this.lblTime.TabIndex = 30;
+            this.lblTime.Text = "0";
+            // 
+            // lblElapsed
+            // 
+            this.lblElapsed.AutoSize = true;
+            this.lblElapsed.Location = new System.Drawing.Point(331, 87);
+            this.lblElapsed.Name = "lblElapsed";
+            this.lblElapsed.Size = new System.Drawing.Size(71, 13);
+            this.lblElapsed.TabIndex = 29;
+            this.lblElapsed.Text = "ElapsedTime:";
             // 
             // Frm17WordGuess
             // 
@@ -207,5 +243,8 @@
 		private System.Windows.Forms.Label lblGuesses;
 		private System.Windows.Forms.Label lblGuessCount;
 		private System.Windows.Forms.CheckBox chbHide;
+		private System.Windows.Forms.CheckBox chbSounds;
+		private System.Windows.Forms.Label lblTime;
+		private System.Windows.Forms.Label lblElapsed;
 	}
 }
