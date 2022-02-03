@@ -35,7 +35,7 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			Play("Background");
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<FrmTemplate>().Single(); ThisForm.Default(sender, e); }
+		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm17WordGuess>().Single(); ThisForm.Default(sender, e); }
 		public void Default(object sender, EventArgs e)
 		{
 			if (ReferenceEquals(sender, txtP1))
