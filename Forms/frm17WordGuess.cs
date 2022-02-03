@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Media;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 namespace Mathre
@@ -32,6 +33,7 @@ namespace Mathre
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
+			Play("Background");
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<FrmTemplate>().Single(); ThisForm.Default(sender, e); }
 		public void Default(object sender, EventArgs e)
@@ -44,7 +46,9 @@ namespace Mathre
 				correctguesses = 0;
 				lblGuessCount.Text = (guesscount - correctguesses).ToString();
 				abc = "";
+				// Sets every non-dash, non-whitespace character to an underscore
 				for (int i = 0; i <= txtP1.Text.Length - 1; i++) { abc += Regex.Replace($"{txtP1.Text[i]}", @"((?=[^\-])\S)", "_"); }
+				// Sets every underscore to have the proper spacing, and adds spaces before dashes and preexisting spaces as necessary
 				lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), @"\s*-", " -"), "_", " _");
 			}
 			if (ReferenceEquals(sender, txtP2))
@@ -67,6 +71,7 @@ namespace Mathre
 						else if (! txtP1.Text.ToLower().Contains(txtP2.Text.ToLower())){ SystemSounds.Asterisk.Play(); }
 					}
 					lblGuessCount.Text = (guesscount - correctguesses).ToString();
+					// Replaces each dash corresponding to a correct letter guess with its respective letter
 					lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
 				}
 				txtP2.TextChanged -= Default;
@@ -76,16 +81,17 @@ namespace Mathre
 				if (totalguesses < 1) { MessageBox.Show("YOU HAVE LOST"); }
 			}
 		}
-		//https://stackoverflow.com/a/38006788
+		// https://stackoverflow.com/a/38006788
 		[System.Runtime.InteropServices.DllImport("winmm.dll")]
-		public static extern uint mciSendString(string lpstrCommand, System.Text.StringBuilder lpstrReturnString, int uReturnLength, IntPtr hWndCallback);
+		public static extern uint mciSendString(string command, StringBuilder buffer, int buffersize, int hWndCallback);
 		public void Play(string file)
 		{
+			// Gets the location of the file by string, opens it using the native windows API "mciSendString" after ensuring another isn't open, then closes it when done.
 			string Sound = string.Format($"{{0}}Resources\\{file}.mp3", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")));
-			mciSendString(@"close temp_alias", null, 0, IntPtr.Zero);
-			mciSendString(@$"open ""{Sound}"" alias temp_alias", null, 0, IntPtr.Zero);
-			mciSendString("play temp_alias", null, 0, IntPtr.Zero);
-			//"play temp_alias repeat"
+			mciSendString(@$"close {file}", null, 0, 0);
+			mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0);
+			if (file == "Background") { mciSendString($"play {file} repeat", null, 0, 0); }
+			else { mciSendString($"play {file}", null, 0, 0); }
 		}
 	}
 }
