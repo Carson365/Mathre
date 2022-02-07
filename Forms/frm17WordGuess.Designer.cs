@@ -28,10 +28,14 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.lblTime = new System.Windows.Forms.Label();
+            this.lblElapsed = new System.Windows.Forms.Label();
+            this.chbSounds = new System.Windows.Forms.CheckBox();
             this.chbHide = new System.Windows.Forms.CheckBox();
             this.lblPlayer2 = new System.Windows.Forms.Label();
             this.lblPlayer1 = new System.Windows.Forms.Label();
@@ -40,9 +44,7 @@
             this.txtP1 = new System.Windows.Forms.TextBox();
             this.lblGuesses = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.chbSounds = new System.Windows.Forms.CheckBox();
-            this.lblTime = new System.Windows.Forms.Label();
-            this.lblElapsed = new System.Windows.Forms.Label();
+            this.tmrTime = new System.Windows.Forms.Timer(this.components);
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -101,6 +103,36 @@
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
+            // 
+            // lblTime
+            // 
+            this.lblTime.AutoSize = true;
+            this.lblTime.Location = new System.Drawing.Point(408, 87);
+            this.lblTime.Name = "lblTime";
+            this.lblTime.Size = new System.Drawing.Size(13, 13);
+            this.lblTime.TabIndex = 30;
+            this.lblTime.Text = "0";
+            // 
+            // lblElapsed
+            // 
+            this.lblElapsed.AutoSize = true;
+            this.lblElapsed.Location = new System.Drawing.Point(331, 87);
+            this.lblElapsed.Name = "lblElapsed";
+            this.lblElapsed.Size = new System.Drawing.Size(71, 13);
+            this.lblElapsed.TabIndex = 29;
+            this.lblElapsed.Text = "ElapsedTime:";
+            // 
+            // chbSounds
+            // 
+            this.chbSounds.AutoSize = true;
+            this.chbSounds.Checked = true;
+            this.chbSounds.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbSounds.Location = new System.Drawing.Point(309, 38);
+            this.chbSounds.Name = "chbSounds";
+            this.chbSounds.Size = new System.Drawing.Size(85, 17);
+            this.chbSounds.TabIndex = 28;
+            this.chbSounds.Text = "Play Sounds";
+            this.chbSounds.UseVisualStyleBackColor = true;
             // 
             // chbHide
             // 
@@ -182,35 +214,9 @@
             this.lblTitle.Text = "Word Guess Game";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chbSounds
+            // tmrTime
             // 
-            this.chbSounds.AutoSize = true;
-            this.chbSounds.Checked = true;
-            this.chbSounds.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbSounds.Location = new System.Drawing.Point(309, 38);
-            this.chbSounds.Name = "chbSounds";
-            this.chbSounds.Size = new System.Drawing.Size(85, 17);
-            this.chbSounds.TabIndex = 28;
-            this.chbSounds.Text = "Play Sounds";
-            this.chbSounds.UseVisualStyleBackColor = true;
-            // 
-            // lblTime
-            // 
-            this.lblTime.AutoSize = true;
-            this.lblTime.Location = new System.Drawing.Point(408, 87);
-            this.lblTime.Name = "lblTime";
-            this.lblTime.Size = new System.Drawing.Size(13, 13);
-            this.lblTime.TabIndex = 30;
-            this.lblTime.Text = "0";
-            // 
-            // lblElapsed
-            // 
-            this.lblElapsed.AutoSize = true;
-            this.lblElapsed.Location = new System.Drawing.Point(331, 87);
-            this.lblElapsed.Name = "lblElapsed";
-            this.lblElapsed.Size = new System.Drawing.Size(71, 13);
-            this.lblElapsed.TabIndex = 29;
-            this.lblElapsed.Text = "ElapsedTime:";
+            this.tmrTime.Interval = 1000;
             // 
             // Frm17WordGuess
             // 
@@ -246,5 +252,6 @@
 		private System.Windows.Forms.CheckBox chbSounds;
 		private System.Windows.Forms.Label lblTime;
 		private System.Windows.Forms.Label lblElapsed;
+		private System.Windows.Forms.Timer tmrTime;
 	}
 }

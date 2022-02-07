@@ -19,7 +19,9 @@ namespace Mathre
 		int correctguesses = 0;
 		int totalguesses = 6;
 		bool playsounds = true;
-		int elapsedtime = 0;
+		int elapsedtime = 1;
+		bool finished = false;
+		bool runonce = true;
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
@@ -39,10 +41,16 @@ namespace Mathre
 			Timer();
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm17WordGuess>().Single(); ThisForm.Default(sender, e); }
+		public void TickEvent(object sender, EventArgs e) { lblTime.Text = $"{elapsedtime++}"; if (finished) { tmrTime.Stop(); elapsedtime = 1; lblTime.Text = "0"; } }
 		public void Default(object sender, EventArgs e)
 		{
 			if (ReferenceEquals(sender, txtP1))
 			{
+				{ //Timer
+					finished = true;
+					runonce = true;
+					tmrTime.Tick -= TickEvent;
+				}
 				guesses.Clear();
 				guesscount = 0;
 				totalguesses = 6;
@@ -56,6 +64,13 @@ namespace Mathre
 			}
 			if (ReferenceEquals(sender, txtP2))
 			{
+				if (runonce)
+				{
+					finished = false;
+					tmrTime.Start();
+					tmrTime.Tick += TickEvent;
+					runonce = false;
+				}
 				if (!guesses.Contains<string>(txtP2.Text.ToLower()) && txtP1.Text.Length > 0)
 				{
 					bool addonce = false;
@@ -72,7 +87,7 @@ namespace Mathre
 							totalguesses++;
 							Play("Chime");
 						}
-						else if (! txtP1.Text.ToLower().Contains(txtP2.Text.ToLower())){ SystemSounds.Asterisk.Play(); }
+						else if (!txtP1.Text.ToLower().Contains(txtP2.Text.ToLower())) { SystemSounds.Asterisk.Play(); }
 					}
 					lblGuessCount.Text = (guesscount - correctguesses).ToString();
 					// Replaces each dash corresponding to a correct letter guess with its respective letter
@@ -81,7 +96,7 @@ namespace Mathre
 				txtP2.TextChanged -= Default;
 				txtP2.Clear();
 				txtP2.TextChanged += Default;
-				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); MessageBox.Show("YOU HAVE WON"); FlashScreen(); }
+				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); finished = true; MessageBox.Show("YOU HAVE WON"); }
 				if (totalguesses < 1) { MessageBox.Show("YOU HAVE LOST"); }
 			}
 		}
@@ -92,7 +107,7 @@ namespace Mathre
 		{
 			string Sound = string.Format($"{{0}}Resources\\{file}.mp3", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")));
 			mciSendString(@$"close {file}", null, 0, 0);
-			if (playsounds) 
+			if (playsounds)
 			{
 				// Gets the location of the file by string, opens it using the native windows API "mciSendString" after ensuring another isn't open, then closes it when done.
 				mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0);
@@ -102,12 +117,13 @@ namespace Mathre
 		}
 		public void FlashScreen()
 		{
+			
 
 		}
 		public void Timer()
 		{
 			System.Timers.Timer aTimer = new(1000);
-			aTimer.Elapsed += (p, e) => { Console.WriteLine($"{elapsedtime++}"); };
+			//aTimer.Elapsed += (p, e) => { Console.WriteLine($"{elapsedtime++}"); };
 			aTimer.AutoReset = true;
 			aTimer.Enabled = true;
 		}
