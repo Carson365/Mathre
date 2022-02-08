@@ -7,6 +7,7 @@ using System.Linq;
 using System.Media;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Timers;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -22,6 +23,8 @@ namespace Mathre
 		int elapsedtime = 1;
 		bool finished = false;
 		bool runonce = true;
+		int color = 0;
+		int runcolors = 10;
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
@@ -42,21 +45,14 @@ namespace Mathre
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm17WordGuess>().Single(); ThisForm.Default(sender, e); }
 		public void TickEvent(object sender, EventArgs e) { lblTime.Text = $"{elapsedtime++}"; if (finished) { tmrTime.Stop(); elapsedtime = 1; lblTime.Text = "0"; } }
+		public void Timer() { System.Timers.Timer aTimer = new(100); aTimer.Elapsed += FlashScreen; aTimer.Enabled = true; }
 		public void Default(object sender, EventArgs e)
 		{
 			if (ReferenceEquals(sender, txtP1))
 			{
-				{ //Timer
-					finished = true;
-					runonce = true;
-					tmrTime.Tick -= TickEvent;
-				}
-				guesses.Clear();
-				guesscount = 0;
-				totalguesses = 6;
-				correctguesses = 0;
+				{ finished = true; runonce = true; tmrTime.Tick -= TickEvent; }
+				{ guesses.Clear(); guesscount = 0; totalguesses = 6; correctguesses = 0; abc = ""; }
 				lblGuessCount.Text = (guesscount - correctguesses).ToString();
-				abc = "";
 				// Sets every non-dash, non-whitespace character to an underscore
 				for (int i = 0; i <= txtP1.Text.Length - 1; i++) { abc += Regex.Replace($"{txtP1.Text[i]}", @"((?=[^\-])\S)", "_"); }
 				// Sets every underscore to have the proper spacing, and adds spaces before dashes and preexisting spaces as necessary
@@ -64,13 +60,7 @@ namespace Mathre
 			}
 			if (ReferenceEquals(sender, txtP2))
 			{
-				if (runonce)
-				{
-					finished = false;
-					tmrTime.Start();
-					tmrTime.Tick += TickEvent;
-					runonce = false;
-				}
+				if (runonce) { finished = false; tmrTime.Start(); tmrTime.Tick += TickEvent; runonce = false; }
 				if (!guesses.Contains<string>(txtP2.Text.ToLower()) && txtP1.Text.Length > 0)
 				{
 					bool addonce = false;
@@ -93,10 +83,8 @@ namespace Mathre
 					// Replaces each dash corresponding to a correct letter guess with its respective letter
 					lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
 				}
-				txtP2.TextChanged -= Default;
-				txtP2.Clear();
-				txtP2.TextChanged += Default;
-				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); finished = true; MessageBox.Show("YOU HAVE WON"); }
+				{ txtP2.TextChanged -= Default; txtP2.Clear(); txtP2.TextChanged += Default; }
+				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); finished = true; runcolors = 0; MessageBox.Show("YOU HAVE WON"); }
 				if (totalguesses < 1) { MessageBox.Show("YOU HAVE LOST"); }
 			}
 		}
@@ -115,17 +103,23 @@ namespace Mathre
 				else { mciSendString($"play {file}", null, 0, 0); }
 			}
 		}
-		public void FlashScreen()
+		public void FlashScreen(object sender, ElapsedEventArgs e)
 		{
-			
-
-		}
-		public void Timer()
-		{
-			System.Timers.Timer aTimer = new(1000);
-			//aTimer.Elapsed += (p, e) => { Console.WriteLine($"{elapsedtime++}"); };
-			aTimer.AutoReset = true;
-			aTimer.Enabled = true;
+			if (runcolors < 10)
+			{
+				BackColor = color switch
+				{
+					0 => System.Drawing.ColorTranslator.FromHtml("#ED8E89"),
+					1 => System.Drawing.ColorTranslator.FromHtml("#F7B685"),
+					2 => System.Drawing.ColorTranslator.FromHtml("#F3EBA5"),
+					3 => System.Drawing.ColorTranslator.FromHtml("#94C691"),
+					4 => System.Drawing.ColorTranslator.FromHtml("#9BD6D9"),
+					_ => System.Drawing.ColorTranslator.FromHtml("#B4A8E0"),
+				};
+				if (color > 4) color = 0; else color++;
+				runcolors++;
+			}
+			else BackColor = System.Drawing.Color.White;
 		}
 	}
 }
