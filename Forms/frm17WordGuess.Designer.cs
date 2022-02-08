@@ -176,7 +176,7 @@
             this.txtP2.BackColor = System.Drawing.SystemColors.Window;
             this.txtP2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtP2.Location = new System.Drawing.Point(103, 56);
+            this.txtP2.Location = new System.Drawing.Point(103, 62);
             this.txtP2.Margin = new System.Windows.Forms.Padding(0);
             this.txtP2.Name = "txtP2";
             this.txtP2.Size = new System.Drawing.Size(200, 26);
@@ -187,7 +187,7 @@
             this.txtP1.BackColor = System.Drawing.SystemColors.Window;
             this.txtP1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtP1.Location = new System.Drawing.Point(103, 9);
+            this.txtP1.Location = new System.Drawing.Point(103, 15);
             this.txtP1.Margin = new System.Windows.Forms.Padding(0);
             this.txtP1.Name = "txtP1";
             this.txtP1.Size = new System.Drawing.Size(200, 26);

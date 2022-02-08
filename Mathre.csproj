@@ -176,6 +176,12 @@
     <Compile Include="Forms\frm17WordGuess.Designer.cs">
       <DependentUpon>frm17WordGuess.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm18Humane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm18Humane.Designer.cs">
+      <DependentUpon>frm18Humane.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -296,6 +302,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm17WordGuess.resx">
       <DependentUpon>frm17WordGuess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm18Humane.resx">
+      <DependentUpon>frm18Humane.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>
