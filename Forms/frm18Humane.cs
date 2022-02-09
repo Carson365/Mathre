@@ -29,8 +29,8 @@ namespace Mathre
 		{
 			//https://stackoverflow.com/questions/32716174/call-and-consume-web-api-in-winform-using-c-net/32716351
 			var client = new HttpClient();
-			client.BaseAddress = new Uri("https://randomuser.me");
-			var request = new HttpRequestMessage(HttpMethod.Post, "/api");
+			client.BaseAddress = new Uri("https://api.rescuegroups.org/v5");
+			var request = new HttpRequestMessage(HttpMethod.Post, "/public/animals/search/available/dogs/");
 
 			var keyValues = new List<KeyValuePair<string, string>>();
 			keyValues.Add(new KeyValuePair<string, string>("results", "http://www.google.com"));
@@ -46,7 +46,7 @@ namespace Mathre
 			Random rnd = new();
 			Action ranimal = rnd.Next(0, 6) switch
 			{
-				0 => () => { rnd.Next(0, 74); }
+				0 => () => { Cats(rnd.Next(0, 74), null); }
 				,
 				1 => () => { rnd.Next(74, 95); }
 				,
@@ -60,6 +60,18 @@ namespace Mathre
 				,
 			};
 			ranimal.Invoke();
+		}
+		public void Cats(object sender, EventArgs e)
+		{
+		}
+		public void Dogs(object sender, EventArgs e)
+		{
+		}
+		public void Birds(object sender, EventArgs e)
+		{
+		}
+		public void Snakes(object sender, EventArgs e)
+		{
 		}
 	}
 }
