@@ -1,6 +1,9 @@
-﻿using Mathre.Forms;
+﻿// SOURCES:  https://github.com/fferlito/Cat-faces-dataset
+using Mathre.Forms;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -18,7 +21,7 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			aTimer.Elapsed += Image;
+			aTimer.Elapsed += Images;
 			foreach (Panel pnl in pnlBody2.Controls.OfType<Panel>()) { foreach (PictureBox pb in pnl.Controls.OfType<PictureBox>()) { pb.LoadCompleted += Catname; } }
 			btnTimerToggle.Click += (p, e) => { aTimer.Enabled = !aTimer.Enabled; };
 		}
@@ -31,12 +34,17 @@ namespace Mathre
 		}
 		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm18Humane>().Single(); ThisForm.MenuHandler(sender, e); }
 		public void MenuHandler(object sender, EventArgs e) { ((Button)Controls[$"btn{sender}"]).PerformClick(); }
-		public void Image(object sender, EventArgs e) { ((PictureBox)Controls.Find($"picCat{n}", true)[0]).LoadAsync(@"https://thiscatdoesnotexist.com/"); }
+		public void Images(object sender, EventArgs e) { ((PictureBox)Controls.Find($"picCat{n}", true)[0]).LoadAsync(@"https://thiscatdoesnotexist.com/"); }
 		public void Catname(object sender, EventArgs e)
 		{
 			Random rnd = new(); int choice = rnd.Next(0, 211);
 			ThisForm.Invoke(new MethodInvoker(delegate () {
-				((Label)Controls.Find($"lblCat{n++}", true)[0]).Text = File.ReadLines("C:\\Users\\Carson\\Source\\Repos\\Mathre\\Resources\\PetNames.txt").ElementAt(choice);
+				if (((PictureBox)Controls.Find($"picCat{n}", true)[0]).Image == ((PictureBox)Controls.Find($"picCat{n}", true)[0]).ErrorImage)
+				{
+					Random rnd = new(); int num = rnd.Next(0, 500);
+					((PictureBox)Controls.Find($"picCat{n}", true)[0]).Image = Image.FromFile($"{Path.GetFullPath(@"..\..\")}\\Resources\\CatPictures\\cat_{num}.png");
+				}
+				((Label)Controls.Find($"lblCat{n++}", true)[0]).Text = File.ReadLines($"{Path.GetFullPath(@"..\..\")}\\Resources\\PetNames.txt").ElementAt(choice);
 			}));
 			if (n > 4) n = 1;
 		}
