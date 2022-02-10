@@ -29,28 +29,37 @@
 		private void InitializeComponent()
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlBody = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBody2 = new System.Windows.Forms.Panel();
-            this.btnView = new System.Windows.Forms.Button();
-            this.pnlAnimalPicture = new System.Windows.Forms.Panel();
-            this.lblAnimalType = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.button3 = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.pnlPicture4 = new System.Windows.Forms.Panel();
+            this.picCat4 = new System.Windows.Forms.PictureBox();
+            this.pnlPicture3 = new System.Windows.Forms.Panel();
+            this.picCat3 = new System.Windows.Forms.PictureBox();
+            this.pnlPicture2 = new System.Windows.Forms.Panel();
+            this.picCat2 = new System.Windows.Forms.PictureBox();
+            this.btnKeep4 = new System.Windows.Forms.Button();
+            this.lblCat4 = new System.Windows.Forms.Label();
+            this.lblCat3 = new System.Windows.Forms.Label();
+            this.btnKeep3 = new System.Windows.Forms.Button();
+            this.lblCat2 = new System.Windows.Forms.Label();
+            this.btnKeep2 = new System.Windows.Forms.Button();
+            this.btnKeep1 = new System.Windows.Forms.Button();
+            this.lblCat1 = new System.Windows.Forms.Label();
+            this.pnlPicture1 = new System.Windows.Forms.Panel();
+            this.picCat1 = new System.Windows.Forms.PictureBox();
+            this.pnlBody = new System.Windows.Forms.Panel();
+            this.btnTimerToggle = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
-            this.pnlBody.SuspendLayout();
             this.pnlBody2.SuspendLayout();
+            this.pnlPicture4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCat4)).BeginInit();
+            this.pnlPicture3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCat3)).BeginInit();
+            this.pnlPicture2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCat2)).BeginInit();
+            this.pnlPicture1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCat1)).BeginInit();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -67,18 +76,193 @@
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 34;
             // 
+            // pnlBody2
+            // 
+            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.pnlPicture4);
+            this.pnlBody2.Controls.Add(this.pnlPicture3);
+            this.pnlBody2.Controls.Add(this.pnlPicture2);
+            this.pnlBody2.Controls.Add(this.btnKeep4);
+            this.pnlBody2.Controls.Add(this.lblCat4);
+            this.pnlBody2.Controls.Add(this.lblCat3);
+            this.pnlBody2.Controls.Add(this.btnKeep3);
+            this.pnlBody2.Controls.Add(this.lblCat2);
+            this.pnlBody2.Controls.Add(this.btnKeep2);
+            this.pnlBody2.Controls.Add(this.btnKeep1);
+            this.pnlBody2.Controls.Add(this.lblCat1);
+            this.pnlBody2.Controls.Add(this.pnlPicture1);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Name = "pnlBody2";
+            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
+            this.pnlBody2.TabIndex = 37;
+            // 
+            // pnlPicture4
+            // 
+            this.pnlPicture4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlPicture4.Controls.Add(this.picCat4);
+            this.pnlPicture4.Location = new System.Drawing.Point(338, 22);
+            this.pnlPicture4.Name = "pnlPicture4";
+            this.pnlPicture4.Size = new System.Drawing.Size(80, 80);
+            this.pnlPicture4.TabIndex = 44;
+            // 
+            // picCat4
+            // 
+            this.picCat4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCat4.Location = new System.Drawing.Point(2, 2);
+            this.picCat4.Name = "picCat4";
+            this.picCat4.Size = new System.Drawing.Size(76, 76);
+            this.picCat4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCat4.TabIndex = 41;
+            this.picCat4.TabStop = false;
+            // 
+            // pnlPicture3
+            // 
+            this.pnlPicture3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlPicture3.Controls.Add(this.picCat3);
+            this.pnlPicture3.Location = new System.Drawing.Point(228, 22);
+            this.pnlPicture3.Name = "pnlPicture3";
+            this.pnlPicture3.Size = new System.Drawing.Size(80, 80);
+            this.pnlPicture3.TabIndex = 43;
+            // 
+            // picCat3
+            // 
+            this.picCat3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCat3.Location = new System.Drawing.Point(2, 2);
+            this.picCat3.Name = "picCat3";
+            this.picCat3.Size = new System.Drawing.Size(76, 76);
+            this.picCat3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCat3.TabIndex = 41;
+            this.picCat3.TabStop = false;
+            // 
+            // pnlPicture2
+            // 
+            this.pnlPicture2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlPicture2.Controls.Add(this.picCat2);
+            this.pnlPicture2.Location = new System.Drawing.Point(118, 22);
+            this.pnlPicture2.Name = "pnlPicture2";
+            this.pnlPicture2.Size = new System.Drawing.Size(80, 80);
+            this.pnlPicture2.TabIndex = 42;
+            // 
+            // picCat2
+            // 
+            this.picCat2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCat2.Location = new System.Drawing.Point(2, 2);
+            this.picCat2.Name = "picCat2";
+            this.picCat2.Size = new System.Drawing.Size(76, 76);
+            this.picCat2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCat2.TabIndex = 41;
+            this.picCat2.TabStop = false;
+            // 
+            // btnKeep4
+            // 
+            this.btnKeep4.Location = new System.Drawing.Point(338, 108);
+            this.btnKeep4.Name = "btnKeep4";
+            this.btnKeep4.Size = new System.Drawing.Size(80, 23);
+            this.btnKeep4.TabIndex = 3;
+            this.btnKeep4.Text = "Keep Animal";
+            this.btnKeep4.UseVisualStyleBackColor = true;
+            // 
+            // lblCat4
+            // 
+            this.lblCat4.AutoSize = true;
+            this.lblCat4.Location = new System.Drawing.Point(348, 6);
+            this.lblCat4.Name = "lblCat4";
+            this.lblCat4.Size = new System.Drawing.Size(61, 13);
+            this.lblCat4.TabIndex = 5;
+            this.lblCat4.Text = "Animal type";
+            // 
+            // lblCat3
+            // 
+            this.lblCat3.AutoSize = true;
+            this.lblCat3.Location = new System.Drawing.Point(238, 6);
+            this.lblCat3.Name = "lblCat3";
+            this.lblCat3.Size = new System.Drawing.Size(61, 13);
+            this.lblCat3.TabIndex = 8;
+            this.lblCat3.Text = "Animal type";
+            // 
+            // btnKeep3
+            // 
+            this.btnKeep3.Location = new System.Drawing.Point(228, 108);
+            this.btnKeep3.Name = "btnKeep3";
+            this.btnKeep3.Size = new System.Drawing.Size(80, 23);
+            this.btnKeep3.TabIndex = 6;
+            this.btnKeep3.Text = "Keep Animal";
+            this.btnKeep3.UseVisualStyleBackColor = true;
+            // 
+            // lblCat2
+            // 
+            this.lblCat2.AutoSize = true;
+            this.lblCat2.Location = new System.Drawing.Point(128, 6);
+            this.lblCat2.Name = "lblCat2";
+            this.lblCat2.Size = new System.Drawing.Size(61, 13);
+            this.lblCat2.TabIndex = 5;
+            this.lblCat2.Text = "Animal type";
+            // 
+            // btnKeep2
+            // 
+            this.btnKeep2.Location = new System.Drawing.Point(118, 108);
+            this.btnKeep2.Name = "btnKeep2";
+            this.btnKeep2.Size = new System.Drawing.Size(80, 23);
+            this.btnKeep2.TabIndex = 3;
+            this.btnKeep2.Text = "Keep Animal";
+            this.btnKeep2.UseVisualStyleBackColor = true;
+            // 
+            // btnKeep1
+            // 
+            this.btnKeep1.Location = new System.Drawing.Point(8, 108);
+            this.btnKeep1.Name = "btnKeep1";
+            this.btnKeep1.Size = new System.Drawing.Size(80, 23);
+            this.btnKeep1.TabIndex = 0;
+            this.btnKeep1.Text = "Keep Animal";
+            this.btnKeep1.UseVisualStyleBackColor = true;
+            // 
+            // lblCat1
+            // 
+            this.lblCat1.AutoSize = true;
+            this.lblCat1.Location = new System.Drawing.Point(18, 6);
+            this.lblCat1.Name = "lblCat1";
+            this.lblCat1.Size = new System.Drawing.Size(61, 13);
+            this.lblCat1.TabIndex = 2;
+            this.lblCat1.Text = "Animal type";
+            // 
+            // pnlPicture1
+            // 
+            this.pnlPicture1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlPicture1.Controls.Add(this.picCat1);
+            this.pnlPicture1.Location = new System.Drawing.Point(8, 22);
+            this.pnlPicture1.Name = "pnlPicture1";
+            this.pnlPicture1.Size = new System.Drawing.Size(80, 80);
+            this.pnlPicture1.TabIndex = 1;
+            // 
+            // picCat1
+            // 
+            this.picCat1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picCat1.Location = new System.Drawing.Point(2, 2);
+            this.picCat1.Name = "picCat1";
+            this.picCat1.Size = new System.Drawing.Size(76, 76);
+            this.picCat1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCat1.TabIndex = 41;
+            this.picCat1.TabStop = false;
+            // 
             // pnlBody
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.button5);
-            this.pnlBody.Controls.Add(this.label4);
-            this.pnlBody.Controls.Add(this.panel4);
-            this.pnlBody.Controls.Add(this.button4);
+            this.pnlBody.Controls.Add(this.btnTimerToggle);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
+            // 
+            // btnTimerToggle
+            // 
+            this.btnTimerToggle.Location = new System.Drawing.Point(164, 41);
+            this.btnTimerToggle.Name = "btnTimerToggle";
+            this.btnTimerToggle.Size = new System.Drawing.Size(99, 23);
+            this.btnTimerToggle.TabIndex = 38;
+            this.btnTimerToggle.Text = "Toggle Cycle";
+            this.btnTimerToggle.UseVisualStyleBackColor = true;
             // 
             // lblTitle
             // 
@@ -92,161 +276,6 @@
             this.lblTitle.Text = "Humane Society";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlBody2
-            // 
-            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBody2.Controls.Add(this.label3);
-            this.pnlBody2.Controls.Add(this.label2);
-            this.pnlBody2.Controls.Add(this.panel3);
-            this.pnlBody2.Controls.Add(this.button3);
-            this.pnlBody2.Controls.Add(this.label1);
-            this.pnlBody2.Controls.Add(this.panel2);
-            this.pnlBody2.Controls.Add(this.button2);
-            this.pnlBody2.Controls.Add(this.lblAnimalType);
-            this.pnlBody2.Controls.Add(this.panel1);
-            this.pnlBody2.Controls.Add(this.button1);
-            this.pnlBody2.Controls.Add(this.pnlAnimalPicture);
-            this.pnlBody2.Controls.Add(this.btnView);
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
-            this.pnlBody2.Name = "pnlBody2";
-            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
-            this.pnlBody2.TabIndex = 37;
-            // 
-            // btnView
-            // 
-            this.btnView.Location = new System.Drawing.Point(6, 95);
-            this.btnView.Name = "btnView";
-            this.btnView.Size = new System.Drawing.Size(99, 23);
-            this.btnView.TabIndex = 0;
-            this.btnView.Text = "Keep Animal";
-            this.btnView.UseVisualStyleBackColor = true;
-            // 
-            // pnlAnimalPicture
-            // 
-            this.pnlAnimalPicture.Location = new System.Drawing.Point(6, 35);
-            this.pnlAnimalPicture.Name = "pnlAnimalPicture";
-            this.pnlAnimalPicture.Size = new System.Drawing.Size(99, 57);
-            this.pnlAnimalPicture.TabIndex = 1;
-            // 
-            // lblAnimalType
-            // 
-            this.lblAnimalType.AutoSize = true;
-            this.lblAnimalType.Location = new System.Drawing.Point(25, 19);
-            this.lblAnimalType.Name = "lblAnimalType";
-            this.lblAnimalType.Size = new System.Drawing.Size(61, 13);
-            this.lblAnimalType.TabIndex = 2;
-            this.lblAnimalType.Text = "Animal type";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(130, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Animal type";
-            // 
-            // panel1
-            // 
-            this.panel1.Location = new System.Drawing.Point(111, 35);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(99, 57);
-            this.panel1.TabIndex = 4;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(111, 95);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Keep Animal";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(235, 19);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(61, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Animal type";
-            // 
-            // panel2
-            // 
-            this.panel2.Location = new System.Drawing.Point(216, 35);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(99, 57);
-            this.panel2.TabIndex = 7;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(216, 95);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(99, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Keep Animal";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(340, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(61, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "Animal type";
-            // 
-            // panel3
-            // 
-            this.panel3.Location = new System.Drawing.Point(321, 35);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(99, 57);
-            this.panel3.TabIndex = 10;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(321, 95);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(99, 23);
-            this.button3.TabIndex = 9;
-            this.button3.Text = "Keep Animal";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(340, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 40;
-            this.label4.Text = "Animal type";
-            // 
-            // panel4
-            // 
-            this.panel4.Location = new System.Drawing.Point(321, 20);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(99, 57);
-            this.panel4.TabIndex = 39;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(111, 45);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(99, 23);
-            this.button4.TabIndex = 38;
-            this.button4.Text = "View Animals";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(321, 80);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(99, 23);
-            this.button5.TabIndex = 12;
-            this.button5.Text = "Keep Animal";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
             // Frm18Humane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -257,10 +286,17 @@
             this.Name = "Frm18Humane";
             this.Text = "Humane Society";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlBody.ResumeLayout(false);
-            this.pnlBody.PerformLayout();
             this.pnlBody2.ResumeLayout(false);
             this.pnlBody2.PerformLayout();
+            this.pnlPicture4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCat4)).EndInit();
+            this.pnlPicture3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCat3)).EndInit();
+            this.pnlPicture2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCat2)).EndInit();
+            this.pnlPicture1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCat1)).EndInit();
+            this.pnlBody.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -271,21 +307,22 @@
 		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Panel pnlBody2;
-		private System.Windows.Forms.Label label3;
-		private System.Windows.Forms.Label label2;
-		private System.Windows.Forms.Panel panel3;
-		private System.Windows.Forms.Button button3;
-		private System.Windows.Forms.Label label1;
-		private System.Windows.Forms.Panel panel2;
-		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.Label lblAnimalType;
-		private System.Windows.Forms.Panel panel1;
-		private System.Windows.Forms.Button button1;
-		private System.Windows.Forms.Panel pnlAnimalPicture;
-		private System.Windows.Forms.Button btnView;
-		private System.Windows.Forms.Button button5;
-		private System.Windows.Forms.Label label4;
-		private System.Windows.Forms.Panel panel4;
-		private System.Windows.Forms.Button button4;
+		private System.Windows.Forms.Label lblCat1;
+		private System.Windows.Forms.Panel pnlPicture1;
+		private System.Windows.Forms.Button btnKeep1;
+		private System.Windows.Forms.Button btnTimerToggle;
+		private System.Windows.Forms.Button btnKeep4;
+		private System.Windows.Forms.Label lblCat4;
+		private System.Windows.Forms.Label lblCat3;
+		private System.Windows.Forms.Button btnKeep3;
+		private System.Windows.Forms.Label lblCat2;
+		private System.Windows.Forms.Button btnKeep2;
+		private System.Windows.Forms.Panel pnlPicture4;
+		private System.Windows.Forms.PictureBox picCat4;
+		private System.Windows.Forms.Panel pnlPicture3;
+		private System.Windows.Forms.PictureBox picCat3;
+		private System.Windows.Forms.Panel pnlPicture2;
+		private System.Windows.Forms.PictureBox picCat2;
+		private System.Windows.Forms.PictureBox picCat1;
 	}
 }

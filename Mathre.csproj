@@ -385,6 +385,7 @@
     <Content Include="Resources\Background.mp3" />
     <Content Include="Resources\Chime.mp3" />
     <Content Include="Resources\Koolaid.mp3" />
+    <Content Include="Resources\PetNames.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

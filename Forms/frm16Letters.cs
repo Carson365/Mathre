@@ -23,7 +23,7 @@ namespace Mathre
 		public void Search(object sender, EventArgs e)
 		{
 			lblSearch.Text = Interaction.InputBox("What is the word or phrase to search?", "Letter Counter", "");
-			lblFind.Text = $"{Interaction.InputBox("What is the character to search for?\nOnly the first character will be searched", "Letter Counter", "").First()}";
+			lblFind.Text = $"{Interaction.InputBox("What is the character to search for?\nOnly the first character will be searched", "Letter Counter", "").FirstOrDefault()}";
 			int count = 0;
 			foreach (char c in lblSearch.Text) { if ($"{c}".ToLower() == $"{lblFind.Text}".ToLower()) { count++; } }
 			lblOccurrances.Text = count.ToString();
