@@ -42,7 +42,17 @@ namespace Mathre
 			foreach (var item in Dictionary[0]) { lstHurricaneList.Columns.Add(item); }
 			lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm12Hurricane>().Single(); ThisForm.MenuHandler(sender, e); }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
 		public void Hurricane(object sender, EventArgs e)
 		{
 			if (txtMPH.Text != "")
@@ -128,7 +138,7 @@ namespace Mathre
 			llbName.LinkVisited = true;
 			System.Diagnostics.Process.Start("https://www.nhc.noaa.gov/aboutnames_history.shtml#:~:text=In%20the%20event,Tropical%20Cyclone%20Programme.");
 		}
-		public void ListResizeManager(object sender, ColumnWidthChangingEventArgs e) { e.NewWidth = this.lstHurricaneList.Columns[e.ColumnIndex].Width; e.Cancel = true; }
+		public void ListResizeManager(object sender, ColumnWidthChangingEventArgs e) { e.NewWidth = lstHurricaneList.Columns[e.ColumnIndex].Width; e.Cancel = true; }
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')) { e.Handled = true; }
@@ -140,7 +150,7 @@ namespace Mathre
 		}
 		public void MenuHandler(object sender, EventArgs e)
 		{
-			Action A = sender.ToString() switch { "Display Expected Damage" => () => chbDamage.Checked = !chbDamage.Checked, "Generate Random Storm" => () => btnRandom.PerformClick(), _ => () => btnCalculate.PerformClick(), };
+			Action A = sender.ToString() switch { "Display Expected Damage" => () => chbDamage.Checked ^= true, "Generate Random Storm" => () => btnRandom.PerformClick(), _ => () => btnCalculate.PerformClick(), };
 			A.Invoke();
 		}
 		public void ZeroRemover(object sender, EventArgs e) { if (txtMPH.Text.StartsWith("0")) { txtMPH.Text = txtMPH.Text.TrimStart('0'); } }

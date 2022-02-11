@@ -1,13 +1,9 @@
 ﻿// SOURCES:  https://github.com/fferlito/Cat-faces-dataset
 using Mathre.Forms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -16,7 +12,8 @@ namespace Mathre
 		public static Frm00Mathre BaseForm;
 		public static Frm18Humane ThisForm;
 		int n = 1;
-		readonly System.Timers.Timer aTimer = new(1500);
+		readonly Random rnd = new();
+		readonly System.Timers.Timer aTimer = new(2000);
 		public Frm18Humane()
 		{
 			InitializeComponent();
@@ -30,21 +27,38 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			ThisForm = Application.OpenForms.OfType<Frm18Humane>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-			aTimer.Enabled = true;
+			var loopfour = 1;
+			while (loopfour < 5)
+			{
+				int num = rnd.Next(0, 500);
+				((Label)Controls.Find($"lblCat{loopfour}", true)[0]).Text = File.ReadLines($"{Path.GetFullPath(@"..\..\")}\\Resources\\PetNames.txt").ElementAt(num);
+				((PictureBox)Controls.Find($"picCat{loopfour}", true)[0]).Image = Image.FromFile($"{Path.GetFullPath(@"..\..\")}\\Resources\\CatPictures\\cat_{num}.png");
+				loopfour++;
+			}
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm18Humane>().Single(); ThisForm.MenuHandler(sender, e); }
-		public void MenuHandler(object sender, EventArgs e) { ((Button)Controls[$"btn{sender}"]).PerformClick(); }
+		public void Tabbed(bool enable) { aTimer.Enabled = enable; }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
 		public void Images(object sender, EventArgs e) { ((PictureBox)Controls.Find($"picCat{n}", true)[0]).LoadAsync(@"https://thiscatdoesnotexist.com/"); }
 		public void Catname(object sender, EventArgs e)
 		{
-			Random rnd = new(); int choice = rnd.Next(0, 211);
-			ThisForm.Invoke(new MethodInvoker(delegate () {
+			int num = rnd.Next(0, 500);
+			ThisForm.Invoke(new MethodInvoker(delegate ()
+			{
 				if (((PictureBox)Controls.Find($"picCat{n}", true)[0]).Image == ((PictureBox)Controls.Find($"picCat{n}", true)[0]).ErrorImage)
 				{
-					Random rnd = new(); int num = rnd.Next(0, 500);
 					((PictureBox)Controls.Find($"picCat{n}", true)[0]).Image = Image.FromFile($"{Path.GetFullPath(@"..\..\")}\\Resources\\CatPictures\\cat_{num}.png");
 				}
-				((Label)Controls.Find($"lblCat{n++}", true)[0]).Text = File.ReadLines($"{Path.GetFullPath(@"..\..\")}\\Resources\\PetNames.txt").ElementAt(choice);
+				((Label)Controls.Find($"lblCat{n++}", true)[0]).Text = File.ReadLines($"{Path.GetFullPath(@"..\..\")}\\Resources\\PetNames.txt").ElementAt(num);
 			}));
 			if (n > 4) n = 1;
 		}

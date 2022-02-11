@@ -18,15 +18,15 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			btnRock.CheckedChanged += RPSSelect;
-			btnPaper.CheckedChanged += RPSSelect;
-			btnScissors.CheckedChanged += RPSSelect;
-			btnRock.Click += RPSGame;
-			btnPaper.Click += RPSGame;
-			btnScissors.Click += RPSGame;
-			btnRock2.CheckedChanged += RPSSelect;
-			btnPaper2.CheckedChanged += RPSSelect;
-			btnScissors2.CheckedChanged += RPSSelect;
+			radRock.CheckedChanged += RPSSelect;
+			radPaper.CheckedChanged += RPSSelect;
+			radScissors.CheckedChanged += RPSSelect;
+			radRock.Click += RPSGame;
+			radPaper.Click += RPSGame;
+			radScissors.Click += RPSGame;
+			radRock2.CheckedChanged += RPSSelect;
+			radPaper2.CheckedChanged += RPSSelect;
+			radScissors2.CheckedChanged += RPSSelect;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -35,14 +35,24 @@ namespace Mathre
 			picRPS.Image = imgRPS.Images["RPS.png"];
 			picRPS2.Image = imgRPS.Images["RPS.png"];
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm11RPS>().Single(); ThisForm.MenuHandler(sender, e); }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
 		public void RPSGame(object sender, EventArgs e)
 		{
 			wager = (int)numWager.Value;
 			Random rnd = new();
 			int choice = rnd.Next(0, 3);
 			pnlRPSChoice2.Controls.OfType<RadioButton>().ElementAt(choice).Checked = true;
-			if ((btnRock.Checked && btnScissors2.Checked) || (btnPaper.Checked && btnRock2.Checked) || (btnScissors.Checked && btnPaper2.Checked))
+			if ((radRock.Checked && radScissors2.Checked) || (radPaper.Checked && radRock2.Checked) || (radScissors.Checked && radPaper2.Checked))
 			{
 				playerscore++;
 				lblPlayerScore.Text = $"{playerscore}";
@@ -51,7 +61,7 @@ namespace Mathre
 				lblScore.Text = points.ToString();
 				Message("Win!!", null);
 			}
-			else if ((btnRock2.Checked && btnScissors.Checked) || (btnPaper2.Checked && btnRock.Checked) || (btnScissors2.Checked && btnPaper.Checked))
+			else if ((radRock2.Checked && radScissors.Checked) || (radPaper2.Checked && radRock.Checked) || (radScissors2.Checked && radPaper.Checked))
 			{
 				computerscore++;
 				lblComputerScore.Text = $"{computerscore}";
@@ -68,17 +78,16 @@ namespace Mathre
 			{
 				((RadioButton)sender).Parent.Parent.Controls.OfType<PictureBox>().Single().Image = ((RadioButton)sender).Name switch
 				{
-					"btnRock" => imgRPS.Images["RockPS.png"],
-					"btnPaper" => imgRPS.Images["RPaperS.png"],
-					"btnScissors" => imgRPS.Images["RPScissors.png"],
-					"btnRock2" => imgRPS.Images["RockPS2.png"],
-					"btnPaper2" => imgRPS.Images["RPaperS2.png"],
-					"btnScissors2" => imgRPS.Images["RPScissors2.png"],
+					"radRock" => imgRPS.Images["RockPS.png"],
+					"radPaper" => imgRPS.Images["RPaperS.png"],
+					"radScissors" => imgRPS.Images["RPScissors.png"],
+					"radRock2" => imgRPS.Images["RockPS2.png"],
+					"radPaper2" => imgRPS.Images["RPaperS2.png"],
+					"radScissors2" => imgRPS.Images["RPScissors2.png"],
 					_ => throw new NotImplementedException()
 				};
 			}
 		}
-		public void MenuHandler(object sender, EventArgs e) { ((RadioButton)pnlRPSChoice.Controls[$"btn{sender}"]).PerformClick(); }
 		public void Message(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = $"{sender}";

@@ -36,12 +36,12 @@ namespace Mathre
             this.pnlFavoriteImage = new System.Windows.Forms.Panel();
             this.lblFavoriteInfo = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-			this.btnFavoriteActor = new System.Windows.Forms.RadioButton();
-			this.btnFavoriteMovie = new System.Windows.Forms.RadioButton();
-            this.btnFavoriteFruit = new System.Windows.Forms.RadioButton();
-			this.btnFavoriteHobby = new System.Windows.Forms.RadioButton();
-			this.btnFavoriteColor = new System.Windows.Forms.RadioButton();
-			this.lblTitle = new System.Windows.Forms.Label();
+            this.radFavoriteMovie = new System.Windows.Forms.RadioButton();
+            this.radFavoriteHobby = new System.Windows.Forms.RadioButton();
+            this.radFavoriteColor = new System.Windows.Forms.RadioButton();
+            this.radFavoriteActor = new System.Windows.Forms.RadioButton();
+            this.radFavoriteFruit = new System.Windows.Forms.RadioButton();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
@@ -99,70 +99,70 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.btnFavoriteMovie);
-            this.pnlBody.Controls.Add(this.btnFavoriteHobby);
-            this.pnlBody.Controls.Add(this.btnFavoriteColor);
-            this.pnlBody.Controls.Add(this.btnFavoriteActor);
-            this.pnlBody.Controls.Add(this.btnFavoriteFruit);
+            this.pnlBody.Controls.Add(this.radFavoriteMovie);
+            this.pnlBody.Controls.Add(this.radFavoriteHobby);
+            this.pnlBody.Controls.Add(this.radFavoriteColor);
+            this.pnlBody.Controls.Add(this.radFavoriteActor);
+            this.pnlBody.Controls.Add(this.radFavoriteFruit);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 34;
             // 
-            // btnFavoriteMovie
+            // radFavoriteMovie
             // 
-            this.btnFavoriteMovie.AutoSize = true;
-            this.btnFavoriteMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteMovie.Location = new System.Drawing.Point(102, 55);
-            this.btnFavoriteMovie.Name = "btnFavoriteMovie";
-            this.btnFavoriteMovie.Size = new System.Drawing.Size(68, 24);
-            this.btnFavoriteMovie.TabIndex = 24;
-            this.btnFavoriteMovie.Text = "Movie";
-            this.btnFavoriteMovie.UseVisualStyleBackColor = true;
+            this.radFavoriteMovie.AutoSize = true;
+            this.radFavoriteMovie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFavoriteMovie.Location = new System.Drawing.Point(102, 55);
+            this.radFavoriteMovie.Name = "radFavoriteMovie";
+            this.radFavoriteMovie.Size = new System.Drawing.Size(68, 24);
+            this.radFavoriteMovie.TabIndex = 24;
+            this.radFavoriteMovie.Text = "Movie";
+            this.radFavoriteMovie.UseVisualStyleBackColor = true;
             // 
-            // btnFavoriteHobby
+            // radFavoriteHobby
             // 
-            this.btnFavoriteHobby.AutoSize = true;
-            this.btnFavoriteHobby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteHobby.Location = new System.Drawing.Point(252, 55);
-            this.btnFavoriteHobby.Name = "btnFavoriteHobby";
-            this.btnFavoriteHobby.Size = new System.Drawing.Size(73, 24);
-            this.btnFavoriteHobby.TabIndex = 21;
-            this.btnFavoriteHobby.Text = "Hobby";
-            this.btnFavoriteHobby.UseVisualStyleBackColor = true;
+            this.radFavoriteHobby.AutoSize = true;
+            this.radFavoriteHobby.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFavoriteHobby.Location = new System.Drawing.Point(252, 55);
+            this.radFavoriteHobby.Name = "radFavoriteHobby";
+            this.radFavoriteHobby.Size = new System.Drawing.Size(73, 24);
+            this.radFavoriteHobby.TabIndex = 21;
+            this.radFavoriteHobby.Text = "Hobby";
+            this.radFavoriteHobby.UseVisualStyleBackColor = true;
             // 
-            // btnFavoriteColor
+            // radFavoriteColor
             // 
-            this.btnFavoriteColor.AutoSize = true;
-            this.btnFavoriteColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteColor.Location = new System.Drawing.Point(334, 26);
-            this.btnFavoriteColor.Name = "btnFavoriteColor";
-            this.btnFavoriteColor.Size = new System.Drawing.Size(64, 24);
-            this.btnFavoriteColor.TabIndex = 22;
-            this.btnFavoriteColor.Text = "Color";
-            this.btnFavoriteColor.UseVisualStyleBackColor = true;
+            this.radFavoriteColor.AutoSize = true;
+            this.radFavoriteColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFavoriteColor.Location = new System.Drawing.Point(334, 26);
+            this.radFavoriteColor.Name = "radFavoriteColor";
+            this.radFavoriteColor.Size = new System.Drawing.Size(64, 24);
+            this.radFavoriteColor.TabIndex = 22;
+            this.radFavoriteColor.Text = "Color";
+            this.radFavoriteColor.UseVisualStyleBackColor = true;
             // 
-            // btnFavoriteActor
+            // radFavoriteActor
             // 
-            this.btnFavoriteActor.AutoSize = true;
-            this.btnFavoriteActor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteActor.Location = new System.Drawing.Point(28, 26);
-            this.btnFavoriteActor.Name = "btnFavoriteActor";
-            this.btnFavoriteActor.Size = new System.Drawing.Size(65, 24);
-            this.btnFavoriteActor.TabIndex = 20;
-            this.btnFavoriteActor.Text = "Actor";
-            this.btnFavoriteActor.UseVisualStyleBackColor = true;
+            this.radFavoriteActor.AutoSize = true;
+            this.radFavoriteActor.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFavoriteActor.Location = new System.Drawing.Point(28, 26);
+            this.radFavoriteActor.Name = "radFavoriteActor";
+            this.radFavoriteActor.Size = new System.Drawing.Size(65, 24);
+            this.radFavoriteActor.TabIndex = 20;
+            this.radFavoriteActor.Text = "Actor";
+            this.radFavoriteActor.UseVisualStyleBackColor = true;
             // 
-            // btnFavoriteFruit
+            // radFavoriteFruit
             // 
-            this.btnFavoriteFruit.AutoSize = true;
-            this.btnFavoriteFruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFavoriteFruit.Location = new System.Drawing.Point(184, 26);
-            this.btnFavoriteFruit.Name = "btnFavoriteFruit";
-            this.btnFavoriteFruit.Size = new System.Drawing.Size(59, 24);
-            this.btnFavoriteFruit.TabIndex = 23;
-            this.btnFavoriteFruit.Text = "Fruit";
-            this.btnFavoriteFruit.UseVisualStyleBackColor = true;
+            this.radFavoriteFruit.AutoSize = true;
+            this.radFavoriteFruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFavoriteFruit.Location = new System.Drawing.Point(184, 26);
+            this.radFavoriteFruit.Name = "radFavoriteFruit";
+            this.radFavoriteFruit.Size = new System.Drawing.Size(59, 24);
+            this.radFavoriteFruit.TabIndex = 23;
+            this.radFavoriteFruit.Text = "Fruit";
+            this.radFavoriteFruit.UseVisualStyleBackColor = true;
             // 
             // lblTitle
             // 
@@ -206,11 +206,11 @@ namespace Mathre
 
 		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Panel pnlBody;
-		private System.Windows.Forms.RadioButton btnFavoriteMovie;
-		private System.Windows.Forms.RadioButton btnFavoriteHobby;
-		private System.Windows.Forms.RadioButton btnFavoriteColor;
-		private System.Windows.Forms.RadioButton btnFavoriteActor;
-		private System.Windows.Forms.RadioButton btnFavoriteFruit;
+		private System.Windows.Forms.RadioButton radFavoriteMovie;
+		private System.Windows.Forms.RadioButton radFavoriteHobby;
+		private System.Windows.Forms.RadioButton radFavoriteColor;
+		private System.Windows.Forms.RadioButton radFavoriteActor;
+		private System.Windows.Forms.RadioButton radFavoriteFruit;
 		internal System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Panel pnlFavoriteImage;

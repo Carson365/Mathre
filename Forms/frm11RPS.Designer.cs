@@ -34,15 +34,15 @@
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.pnlPlayer = new System.Windows.Forms.Panel();
             this.pnlRPSChoice = new System.Windows.Forms.Panel();
-            this.btnRock = new System.Windows.Forms.RadioButton();
-            this.btnPaper = new System.Windows.Forms.RadioButton();
-            this.btnScissors = new System.Windows.Forms.RadioButton();
+            this.radRock = new System.Windows.Forms.RadioButton();
+            this.radPaper = new System.Windows.Forms.RadioButton();
+            this.radScissors = new System.Windows.Forms.RadioButton();
             this.picRPS = new System.Windows.Forms.PictureBox();
             this.pnlComputer = new System.Windows.Forms.Panel();
             this.pnlRPSChoice2 = new System.Windows.Forms.Panel();
-            this.btnRock2 = new System.Windows.Forms.RadioButton();
-            this.btnPaper2 = new System.Windows.Forms.RadioButton();
-            this.btnScissors2 = new System.Windows.Forms.RadioButton();
+            this.radRock2 = new System.Windows.Forms.RadioButton();
+            this.radPaper2 = new System.Windows.Forms.RadioButton();
+            this.radScissors2 = new System.Windows.Forms.RadioButton();
             this.picRPS2 = new System.Windows.Forms.PictureBox();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlWager = new System.Windows.Forms.Panel();
@@ -114,47 +114,47 @@
             // 
             // pnlRPSChoice
             // 
-            this.pnlRPSChoice.Controls.Add(this.btnRock);
-            this.pnlRPSChoice.Controls.Add(this.btnPaper);
-            this.pnlRPSChoice.Controls.Add(this.btnScissors);
+            this.pnlRPSChoice.Controls.Add(this.radRock);
+            this.pnlRPSChoice.Controls.Add(this.radPaper);
+            this.pnlRPSChoice.Controls.Add(this.radScissors);
             this.pnlRPSChoice.Location = new System.Drawing.Point(9, 93);
             this.pnlRPSChoice.Name = "pnlRPSChoice";
             this.pnlRPSChoice.Size = new System.Drawing.Size(196, 32);
             this.pnlRPSChoice.TabIndex = 10;
             this.pnlRPSChoice.Tag = "Transparent,Player";
             // 
-            // btnRock
+            // radRock
             // 
-            this.btnRock.AutoSize = true;
-            this.btnRock.Location = new System.Drawing.Point(5, 8);
-            this.btnRock.Name = "btnRock";
-            this.btnRock.Size = new System.Drawing.Size(51, 17);
-            this.btnRock.TabIndex = 5;
-            this.btnRock.TabStop = true;
-            this.btnRock.Text = "Rock";
-            this.btnRock.UseVisualStyleBackColor = true;
+            this.radRock.AutoSize = true;
+            this.radRock.Location = new System.Drawing.Point(5, 8);
+            this.radRock.Name = "radRock";
+            this.radRock.Size = new System.Drawing.Size(51, 17);
+            this.radRock.TabIndex = 5;
+            this.radRock.TabStop = true;
+            this.radRock.Text = "Rock";
+            this.radRock.UseVisualStyleBackColor = true;
             // 
-            // btnPaper
+            // radPaper
             // 
-            this.btnPaper.AutoSize = true;
-            this.btnPaper.Location = new System.Drawing.Point(70, 8);
-            this.btnPaper.Name = "btnPaper";
-            this.btnPaper.Size = new System.Drawing.Size(53, 17);
-            this.btnPaper.TabIndex = 6;
-            this.btnPaper.TabStop = true;
-            this.btnPaper.Text = "Paper";
-            this.btnPaper.UseVisualStyleBackColor = true;
+            this.radPaper.AutoSize = true;
+            this.radPaper.Location = new System.Drawing.Point(70, 8);
+            this.radPaper.Name = "radPaper";
+            this.radPaper.Size = new System.Drawing.Size(53, 17);
+            this.radPaper.TabIndex = 6;
+            this.radPaper.TabStop = true;
+            this.radPaper.Text = "Paper";
+            this.radPaper.UseVisualStyleBackColor = true;
             // 
-            // btnScissors
+            // radScissors
             // 
-            this.btnScissors.AutoSize = true;
-            this.btnScissors.Location = new System.Drawing.Point(129, 8);
-            this.btnScissors.Name = "btnScissors";
-            this.btnScissors.Size = new System.Drawing.Size(64, 17);
-            this.btnScissors.TabIndex = 7;
-            this.btnScissors.TabStop = true;
-            this.btnScissors.Text = "Scissors";
-            this.btnScissors.UseVisualStyleBackColor = true;
+            this.radScissors.AutoSize = true;
+            this.radScissors.Location = new System.Drawing.Point(129, 8);
+            this.radScissors.Name = "radScissors";
+            this.radScissors.Size = new System.Drawing.Size(64, 17);
+            this.radScissors.TabIndex = 7;
+            this.radScissors.TabStop = true;
+            this.radScissors.Text = "Scissors";
+            this.radScissors.UseVisualStyleBackColor = true;
             // 
             // picRPS
             // 
@@ -178,52 +178,52 @@
             // 
             // pnlRPSChoice2
             // 
-            this.pnlRPSChoice2.Controls.Add(this.btnRock2);
-            this.pnlRPSChoice2.Controls.Add(this.btnPaper2);
-            this.pnlRPSChoice2.Controls.Add(this.btnScissors2);
+            this.pnlRPSChoice2.Controls.Add(this.radRock2);
+            this.pnlRPSChoice2.Controls.Add(this.radPaper2);
+            this.pnlRPSChoice2.Controls.Add(this.radScissors2);
             this.pnlRPSChoice2.Location = new System.Drawing.Point(9, 93);
             this.pnlRPSChoice2.Name = "pnlRPSChoice2";
             this.pnlRPSChoice2.Size = new System.Drawing.Size(196, 32);
             this.pnlRPSChoice2.TabIndex = 10;
             this.pnlRPSChoice2.Tag = "Transparent,Computer";
             // 
-            // btnRock2
+            // radRock2
             // 
-            this.btnRock2.AutoSize = true;
-            this.btnRock2.BackColor = System.Drawing.Color.Transparent;
-            this.btnRock2.Enabled = false;
-            this.btnRock2.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnRock2.Location = new System.Drawing.Point(5, 8);
-            this.btnRock2.Name = "btnRock2";
-            this.btnRock2.Size = new System.Drawing.Size(51, 17);
-            this.btnRock2.TabIndex = 5;
-            this.btnRock2.TabStop = true;
-            this.btnRock2.Text = "Rock";
-            this.btnRock2.UseVisualStyleBackColor = false;
+            this.radRock2.AutoSize = true;
+            this.radRock2.BackColor = System.Drawing.Color.Transparent;
+            this.radRock2.Enabled = false;
+            this.radRock2.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.radRock2.Location = new System.Drawing.Point(5, 8);
+            this.radRock2.Name = "radRock2";
+            this.radRock2.Size = new System.Drawing.Size(51, 17);
+            this.radRock2.TabIndex = 5;
+            this.radRock2.TabStop = true;
+            this.radRock2.Text = "Rock";
+            this.radRock2.UseVisualStyleBackColor = false;
             // 
-            // btnPaper2
+            // radPaper2
             // 
-            this.btnPaper2.AutoSize = true;
-            this.btnPaper2.Enabled = false;
-            this.btnPaper2.Location = new System.Drawing.Point(70, 8);
-            this.btnPaper2.Name = "btnPaper2";
-            this.btnPaper2.Size = new System.Drawing.Size(53, 17);
-            this.btnPaper2.TabIndex = 6;
-            this.btnPaper2.TabStop = true;
-            this.btnPaper2.Text = "Paper";
-            this.btnPaper2.UseVisualStyleBackColor = true;
+            this.radPaper2.AutoSize = true;
+            this.radPaper2.Enabled = false;
+            this.radPaper2.Location = new System.Drawing.Point(70, 8);
+            this.radPaper2.Name = "radPaper2";
+            this.radPaper2.Size = new System.Drawing.Size(53, 17);
+            this.radPaper2.TabIndex = 6;
+            this.radPaper2.TabStop = true;
+            this.radPaper2.Text = "Paper";
+            this.radPaper2.UseVisualStyleBackColor = true;
             // 
-            // btnScissors2
+            // radScissors2
             // 
-            this.btnScissors2.AutoSize = true;
-            this.btnScissors2.Enabled = false;
-            this.btnScissors2.Location = new System.Drawing.Point(129, 8);
-            this.btnScissors2.Name = "btnScissors2";
-            this.btnScissors2.Size = new System.Drawing.Size(64, 17);
-            this.btnScissors2.TabIndex = 7;
-            this.btnScissors2.TabStop = true;
-            this.btnScissors2.Text = "Scissors";
-            this.btnScissors2.UseVisualStyleBackColor = true;
+            this.radScissors2.AutoSize = true;
+            this.radScissors2.Enabled = false;
+            this.radScissors2.Location = new System.Drawing.Point(129, 8);
+            this.radScissors2.Name = "radScissors2";
+            this.radScissors2.Size = new System.Drawing.Size(64, 17);
+            this.radScissors2.TabIndex = 7;
+            this.radScissors2.TabStop = true;
+            this.radScissors2.Text = "Scissors";
+            this.radScissors2.UseVisualStyleBackColor = true;
             // 
             // picRPS2
             // 
@@ -478,16 +478,16 @@
 		private System.Windows.Forms.Panel pnlScoreDisplay;
 		private System.Windows.Forms.PictureBox picRPS;
 		private System.Windows.Forms.Panel pnlRPSChoice;
-		private System.Windows.Forms.RadioButton btnPaper;
-		private System.Windows.Forms.RadioButton btnScissors;
-		private System.Windows.Forms.RadioButton btnRock;
+		private System.Windows.Forms.RadioButton radPaper;
+		private System.Windows.Forms.RadioButton radScissors;
+		private System.Windows.Forms.RadioButton radRock;
 		private System.Windows.Forms.Panel pnlPlayer;
 		private System.Windows.Forms.Panel pnlBody2;
 		private System.Windows.Forms.Panel pnlComputer;
 		private System.Windows.Forms.Panel pnlRPSChoice2;
-		private System.Windows.Forms.RadioButton btnPaper2;
-		private System.Windows.Forms.RadioButton btnScissors2;
-		private System.Windows.Forms.RadioButton btnRock2;
+		private System.Windows.Forms.RadioButton radPaper2;
+		private System.Windows.Forms.RadioButton radScissors2;
+		private System.Windows.Forms.RadioButton radRock2;
 		private System.Windows.Forms.PictureBox picRPS2;
 		private System.Windows.Forms.Label lblComputerScore;
 		private System.Windows.Forms.Label lblTotalGames;

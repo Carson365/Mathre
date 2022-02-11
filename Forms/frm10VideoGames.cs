@@ -18,8 +18,8 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			btnPS4.Click += ImageSetter;
-			btnXB1.Click += ImageSetter;
+			radPS4.Click += ImageSetter;
+			radXB1.Click += ImageSetter;
 			txtDoom.TextChanged += Cost;
 			txtStardew.TextChanged += Cost;
 			txtMinecraft.TextChanged += Cost;
@@ -35,11 +35,21 @@ namespace Mathre
 			lblCost.Text = "";
 			lblCostText.Text = "";
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm10VideoGames>().Single(); ThisForm.Transfer(sender, e); }
-		public void Transfer(object sender, EventArgs e) { if ($"{sender}" == "Playstation 4") { btnPS4.PerformClick(); } else { btnXB1.PerformClick(); } }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
+		public void Transfer(object sender, EventArgs e) { if ($"{sender}" == "Playstation 4") { radPS4.PerformClick(); } else { radXB1.PerformClick(); } }
 		public void ImageSetter(object sender, EventArgs e)
 		{
-			if (btnPS4.Checked)
+			if (radPS4.Checked)
 			{
 				pnlDoom.BackgroundImage = imgGames.Images["Doom-PS4.jpg"];
 				pnlMinecraft.BackgroundImage = imgGames.Images["Minecraft-PS4.jpg"];

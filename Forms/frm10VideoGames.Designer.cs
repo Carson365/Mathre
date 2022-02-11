@@ -36,8 +36,8 @@ namespace Mathre
             this.lblCost = new System.Windows.Forms.Label();
             this.lblCostText = new System.Windows.Forms.Label();
             this.pnlConsole = new System.Windows.Forms.Panel();
-            this.btnPS4 = new System.Windows.Forms.RadioButton();
-            this.btnXB1 = new System.Windows.Forms.RadioButton();
+            this.radPS4 = new System.Windows.Forms.RadioButton();
+            this.radXB1 = new System.Windows.Forms.RadioButton();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlMinecraft = new System.Windows.Forms.Panel();
             this.pnlStardew = new System.Windows.Forms.Panel();
@@ -117,35 +117,35 @@ namespace Mathre
             // 
             this.pnlConsole.AccessibleDescription = "";
             this.pnlConsole.AccessibleName = "";
-            this.pnlConsole.Controls.Add(this.btnPS4);
-            this.pnlConsole.Controls.Add(this.btnXB1);
+            this.pnlConsole.Controls.Add(this.radPS4);
+            this.pnlConsole.Controls.Add(this.radXB1);
             this.pnlConsole.Location = new System.Drawing.Point(13, 13);
             this.pnlConsole.Name = "pnlConsole";
             this.pnlConsole.Size = new System.Drawing.Size(102, 55);
             this.pnlConsole.TabIndex = 0;
             this.pnlConsole.Tag = "Black";
             // 
-            // btnPS4
+            // radPS4
             // 
-            this.btnPS4.AutoSize = true;
-            this.btnPS4.Checked = true;
-            this.btnPS4.Location = new System.Drawing.Point(9, 8);
-            this.btnPS4.Name = "btnPS4";
-            this.btnPS4.Size = new System.Drawing.Size(85, 17);
-            this.btnPS4.TabIndex = 0;
-            this.btnPS4.TabStop = true;
-            this.btnPS4.Text = "Playstation 4";
-            this.btnPS4.UseVisualStyleBackColor = true;
+            this.radPS4.AutoSize = true;
+            this.radPS4.Checked = true;
+            this.radPS4.Location = new System.Drawing.Point(9, 8);
+            this.radPS4.Name = "radPS4";
+            this.radPS4.Size = new System.Drawing.Size(85, 17);
+            this.radPS4.TabIndex = 0;
+            this.radPS4.TabStop = true;
+            this.radPS4.Text = "Playstation 4";
+            this.radPS4.UseVisualStyleBackColor = true;
             // 
-            // btnXB1
+            // radXB1
             // 
-            this.btnXB1.AutoSize = true;
-            this.btnXB1.Location = new System.Drawing.Point(15, 30);
-            this.btnXB1.Name = "btnXB1";
-            this.btnXB1.Size = new System.Drawing.Size(72, 17);
-            this.btnXB1.TabIndex = 1;
-            this.btnXB1.Text = "Xbox One";
-            this.btnXB1.UseVisualStyleBackColor = true;
+            this.radXB1.AutoSize = true;
+            this.radXB1.Location = new System.Drawing.Point(15, 30);
+            this.radXB1.Name = "radXB1";
+            this.radXB1.Size = new System.Drawing.Size(72, 17);
+            this.radXB1.TabIndex = 1;
+            this.radXB1.Text = "Xbox One";
+            this.radXB1.UseVisualStyleBackColor = true;
             // 
             // pnlBody
             // 
@@ -318,8 +318,8 @@ namespace Mathre
 		internal System.Windows.Forms.TextBox txtStardew;
 		internal System.Windows.Forms.Label lblTotalStardew;
 		private System.Windows.Forms.Panel pnlConsole;
-		private System.Windows.Forms.RadioButton btnXB1;
-		private System.Windows.Forms.RadioButton btnPS4;
+		private System.Windows.Forms.RadioButton radXB1;
+		private System.Windows.Forms.RadioButton radPS4;
 		private System.Windows.Forms.Panel pnlMinecraft;
 		private System.Windows.Forms.Panel pnlStardew;
 		private System.Windows.Forms.Panel pnlDoom;

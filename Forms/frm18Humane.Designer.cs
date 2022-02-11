@@ -108,7 +108,7 @@
             // 
             // picCat4
             // 
-            this.picCat4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCat4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picCat4.Location = new System.Drawing.Point(2, 2);
             this.picCat4.Name = "picCat4";
             this.picCat4.Size = new System.Drawing.Size(76, 76);
@@ -127,7 +127,7 @@
             // 
             // picCat3
             // 
-            this.picCat3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCat3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picCat3.Location = new System.Drawing.Point(2, 2);
             this.picCat3.Name = "picCat3";
             this.picCat3.Size = new System.Drawing.Size(76, 76);
@@ -146,7 +146,7 @@
             // 
             // picCat2
             // 
-            this.picCat2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.picCat2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picCat2.Location = new System.Drawing.Point(2, 2);
             this.picCat2.Name = "picCat2";
             this.picCat2.Size = new System.Drawing.Size(76, 76);
@@ -165,21 +165,21 @@
             // 
             // lblCat4
             // 
-            this.lblCat4.AutoSize = true;
-            this.lblCat4.Location = new System.Drawing.Point(348, 6);
+            this.lblCat4.Location = new System.Drawing.Point(338, 6);
             this.lblCat4.Name = "lblCat4";
-            this.lblCat4.Size = new System.Drawing.Size(61, 13);
+            this.lblCat4.Size = new System.Drawing.Size(80, 13);
             this.lblCat4.TabIndex = 5;
-            this.lblCat4.Text = "Animal type";
+            this.lblCat4.Text = "Name";
+            this.lblCat4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblCat3
             // 
-            this.lblCat3.AutoSize = true;
-            this.lblCat3.Location = new System.Drawing.Point(238, 6);
+            this.lblCat3.Location = new System.Drawing.Point(228, 6);
             this.lblCat3.Name = "lblCat3";
-            this.lblCat3.Size = new System.Drawing.Size(61, 13);
+            this.lblCat3.Size = new System.Drawing.Size(80, 13);
             this.lblCat3.TabIndex = 8;
-            this.lblCat3.Text = "Animal type";
+            this.lblCat3.Text = "Name";
+            this.lblCat3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnKeep3
             // 
@@ -192,12 +192,12 @@
             // 
             // lblCat2
             // 
-            this.lblCat2.AutoSize = true;
-            this.lblCat2.Location = new System.Drawing.Point(128, 6);
+            this.lblCat2.Location = new System.Drawing.Point(118, 6);
             this.lblCat2.Name = "lblCat2";
-            this.lblCat2.Size = new System.Drawing.Size(61, 13);
+            this.lblCat2.Size = new System.Drawing.Size(80, 13);
             this.lblCat2.TabIndex = 5;
-            this.lblCat2.Text = "Animal type";
+            this.lblCat2.Text = "Name";
+            this.lblCat2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnKeep2
             // 
@@ -219,12 +219,12 @@
             // 
             // lblCat1
             // 
-            this.lblCat1.AutoSize = true;
-            this.lblCat1.Location = new System.Drawing.Point(18, 6);
+            this.lblCat1.Location = new System.Drawing.Point(8, 6);
             this.lblCat1.Name = "lblCat1";
-            this.lblCat1.Size = new System.Drawing.Size(61, 13);
+            this.lblCat1.Size = new System.Drawing.Size(80, 13);
             this.lblCat1.TabIndex = 2;
-            this.lblCat1.Text = "Animal type";
+            this.lblCat1.Text = "Name";
+            this.lblCat1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pnlPicture1
             // 
@@ -237,7 +237,7 @@
             // 
             // picCat1
             // 
-            this.picCat1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picCat1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.picCat1.Location = new System.Drawing.Point(2, 2);
             this.picCat1.Name = "picCat1";
             this.picCat1.Size = new System.Drawing.Size(76, 76);
@@ -287,7 +287,6 @@
             this.Text = "Humane Society";
             this.pnlFrame.ResumeLayout(false);
             this.pnlBody2.ResumeLayout(false);
-            this.pnlBody2.PerformLayout();
             this.pnlPicture4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCat4)).EndInit();
             this.pnlPicture3.ResumeLayout(false);

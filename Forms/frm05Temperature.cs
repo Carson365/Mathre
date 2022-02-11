@@ -12,10 +12,10 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			btnFahrenheit.Click += Temperature;
-			btnCelsius.Click += Temperature;
-			btnFahrenheit.CheckedChanged += Temperature;
-			btnCelsius.CheckedChanged += Temperature;
+			radFahrenheit.Click += Temperature;
+			radCelsius.Click += Temperature;
+			radFahrenheit.CheckedChanged += Temperature;
+			radCelsius.CheckedChanged += Temperature;
 			txtTemperature.KeyUp += Temperature;
 			txtTemperature.KeyPress += InputFormatter;
 		}
@@ -24,13 +24,23 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm05Temperature>().Single(); ThisForm.Temperature(sender, e); }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
 		public void Temperature(object sender, EventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if ($"{sender}" == "Celsius") { btnCelsius.Checked = true; }
-			else if ($"{sender}" == "Fahrenheit") { btnFahrenheit.Checked = true; }
-			if (!btnCelsius.Checked & !btnFahrenheit.Checked) { btnCelsius.Checked = true; }
+			if ($"{sender}" == "Celsius") { radCelsius.Checked = true; }
+			else if ($"{sender}" == "Fahrenheit") { radFahrenheit.Checked = true; }
+			if (!radCelsius.Checked & !radFahrenheit.Checked) { radCelsius.Checked = true; }
 			double temp = 0;
 			int roundamount;
 			if (txtTemperature.Text.Contains(DecimalChar) && txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != DecimalChar)
@@ -40,12 +50,12 @@ namespace Mathre
 			}
 			else { roundamount = 2; }
 			if (double.TryParse(txtTemperature.Text, out var tempcheck)) { temp = tempcheck; }
-			if (btnFahrenheit.Checked)
+			if (radFahrenheit.Checked)
 			{
 				lblCelsiusDisplay.Text = $"{Math.Round((temp - 32) * 5 / 9, roundamount)} °C";
 				lblFahrenheitDisplay.Text = $"{Math.Round(temp, roundamount)} °F";
 			}
-			else if (btnCelsius.Checked)
+			else if (radCelsius.Checked)
 			{
 				lblCelsiusDisplay.Text = $"{Math.Round(temp, roundamount)} °C";
 				lblFahrenheitDisplay.Text = $"{Math.Round((temp * 9 / 5) + 32, roundamount)} °F";

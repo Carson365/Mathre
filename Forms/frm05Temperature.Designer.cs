@@ -36,9 +36,9 @@ namespace Mathre
             this.lblFahrenheitDisplay = new System.Windows.Forms.Label();
             this.lblCelsiusDisplayLabel = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.btnCelsius = new System.Windows.Forms.RadioButton();
             this.txtTemperature = new System.Windows.Forms.TextBox();
-            this.btnFahrenheit = new System.Windows.Forms.RadioButton();
+            this.radFahrenheit = new System.Windows.Forms.RadioButton();
+            this.radCelsius = new System.Windows.Forms.RadioButton();
             this.lblTemperature = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
@@ -122,24 +122,13 @@ namespace Mathre
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
             this.pnlBody.Controls.Add(this.txtTemperature);
-            this.pnlBody.Controls.Add(this.btnFahrenheit);
-			this.pnlBody.Controls.Add(this.btnCelsius);
-			this.pnlBody.Controls.Add(this.lblTemperature);
+            this.pnlBody.Controls.Add(this.radFahrenheit);
+            this.pnlBody.Controls.Add(this.radCelsius);
+            this.pnlBody.Controls.Add(this.lblTemperature);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 35;
-            // 
-            // btnCelsius
-            // 
-            this.btnCelsius.AutoSize = true;
-            this.btnCelsius.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCelsius.Location = new System.Drawing.Point(275, 61);
-            this.btnCelsius.Name = "btnCelsius";
-            this.btnCelsius.Size = new System.Drawing.Size(78, 24);
-            this.btnCelsius.TabIndex = 26;
-            this.btnCelsius.Text = "Celsius";
-            this.btnCelsius.UseVisualStyleBackColor = true;
             // 
             // txtTemperature
             // 
@@ -152,16 +141,27 @@ namespace Mathre
             this.txtTemperature.Size = new System.Drawing.Size(269, 26);
             this.txtTemperature.TabIndex = 13;
             // 
-            // btnFahrenheit
+            // radFahrenheit
             // 
-            this.btnFahrenheit.AutoSize = true;
-            this.btnFahrenheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFahrenheit.Location = new System.Drawing.Point(73, 61);
-            this.btnFahrenheit.Name = "btnFahrenheit";
-            this.btnFahrenheit.Size = new System.Drawing.Size(104, 24);
-            this.btnFahrenheit.TabIndex = 25;
-            this.btnFahrenheit.Text = "Fahrenheit";
-            this.btnFahrenheit.UseVisualStyleBackColor = true;
+            this.radFahrenheit.AutoSize = true;
+            this.radFahrenheit.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radFahrenheit.Location = new System.Drawing.Point(73, 61);
+            this.radFahrenheit.Name = "radFahrenheit";
+            this.radFahrenheit.Size = new System.Drawing.Size(104, 24);
+            this.radFahrenheit.TabIndex = 25;
+            this.radFahrenheit.Text = "Fahrenheit";
+            this.radFahrenheit.UseVisualStyleBackColor = true;
+            // 
+            // radCelsius
+            // 
+            this.radCelsius.AutoSize = true;
+            this.radCelsius.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radCelsius.Location = new System.Drawing.Point(275, 61);
+            this.radCelsius.Name = "radCelsius";
+            this.radCelsius.Size = new System.Drawing.Size(78, 24);
+            this.radCelsius.TabIndex = 26;
+            this.radCelsius.Text = "Celsius";
+            this.radCelsius.UseVisualStyleBackColor = true;
             // 
             // lblTemperature
             // 
@@ -213,9 +213,9 @@ namespace Mathre
 		private System.Windows.Forms.Label lblFahrenheitDisplay;
 		internal System.Windows.Forms.Label lblCelsiusDisplayLabel;
 		private System.Windows.Forms.Panel pnlBody;
-		private System.Windows.Forms.RadioButton btnCelsius;
+		private System.Windows.Forms.RadioButton radCelsius;
 		internal System.Windows.Forms.TextBox txtTemperature;
-		private System.Windows.Forms.RadioButton btnFahrenheit;
+		private System.Windows.Forms.RadioButton radFahrenheit;
 		internal System.Windows.Forms.Label lblTemperature;
 		internal System.Windows.Forms.Label lblTitle;
 	}

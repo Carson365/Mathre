@@ -94,10 +94,10 @@ namespace Mathre
 					GetButtons(b, menu);
 				}
 				else { GetButtons(b, item); }
-				if ((b is Button) || (b is RadioButton))
+				if ((b is Button) || (b is RadioButton) || (b is CheckBox))
 				{
 					ToolStripMenuItem tool = new();
-					tool.Enabled = !(new string[] { "btnRock2", "btnPaper2", "btnScissors2" }).Any(b.Name.Contains);
+					tool.Enabled = !(new string[] { "radRock2", "radPaper2", "radScissors2" }).Any(b.Name.Contains);
 					tool.Text = b.Text;
 					tool.Name = b.Name;
 					tool.Click += ((IManager)Application.OpenForms[$"{b.FindForm().Name}"]).MenuControl;
@@ -114,14 +114,14 @@ namespace Mathre
 					if (form.Name != "Frm00Mathre" && form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) { form.Hide(); }
 					else if (form.Name != "Frm00Mathre") { form.Show(); }
 				}
-				if (tabMathre.SelectedTab.Name == "tab13Slots")
-				{
-					if (Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault() != null)
-					{
-						var F13 = Application.OpenForms.OfType<Frm13Slots>().Single();
-						F13.Tabbed(null, null);
-					}
-				}
+				var F13 = Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault();
+				if (tabMathre.SelectedTab.Name == "tab13Slots" && F13 != null) F13.Tabbed();
+				var F17 = Application.OpenForms.OfType<Frm17WordGuess>().SingleOrDefault();
+				if (tabMathre.SelectedTab.Name == "tab17WordGuess" && F17 != null) F17.Tabbed(true);
+				else F17.Tabbed(false);
+				var F18 = Application.OpenForms.OfType<Frm18Humane>().SingleOrDefault();
+				if (tabMathre.SelectedTab.Name == "tab18Humane" && F18 != null) F18.Tabbed(true);
+				else F18.Tabbed(false);
 			}
 		}
 		public void MenuKeypress(ToolStripMenuItem TSMI)

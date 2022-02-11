@@ -39,13 +39,13 @@ namespace Mathre
             this.lblPizzaCost = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlDiningType = new System.Windows.Forms.Panel();
-            this.btnTakeout = new System.Windows.Forms.RadioButton();
-            this.btnDelivery = new System.Windows.Forms.RadioButton();
+            this.radTakeout = new System.Windows.Forms.RadioButton();
+            this.radDelivery = new System.Windows.Forms.RadioButton();
             this.lblPizzaSize = new System.Windows.Forms.Label();
             this.txtPizzaTip = new System.Windows.Forms.TextBox();
             this.pnlTip = new System.Windows.Forms.Panel();
-            this.btnPercent = new System.Windows.Forms.RadioButton();
-            this.btnDollars = new System.Windows.Forms.RadioButton();
+            this.radDollars = new System.Windows.Forms.RadioButton();
+            this.radPercent = new System.Windows.Forms.RadioButton();
             this.lblPizzaTip = new System.Windows.Forms.Label();
             this.txtPizzaSize = new System.Windows.Forms.TextBox();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
@@ -144,35 +144,35 @@ namespace Mathre
             // 
             // pnlDiningType
             // 
-            this.pnlDiningType.Controls.Add(this.btnTakeout);
-            this.pnlDiningType.Controls.Add(this.btnDelivery);
+            this.pnlDiningType.Controls.Add(this.radTakeout);
+            this.pnlDiningType.Controls.Add(this.radDelivery);
             this.pnlDiningType.Location = new System.Drawing.Point(220, 12);
             this.pnlDiningType.Name = "pnlDiningType";
             this.pnlDiningType.Size = new System.Drawing.Size(199, 42);
             this.pnlDiningType.TabIndex = 33;
             this.pnlDiningType.Tag = "Transparent";
             // 
-            // btnTakeout
+            // radTakeout
             // 
-            this.btnTakeout.AutoSize = true;
-            this.btnTakeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTakeout.Location = new System.Drawing.Point(8, 3);
-            this.btnTakeout.Name = "btnTakeout";
-            this.btnTakeout.Size = new System.Drawing.Size(85, 24);
-            this.btnTakeout.TabIndex = 25;
-            this.btnTakeout.Text = "Takeout";
-            this.btnTakeout.UseVisualStyleBackColor = true;
+            this.radTakeout.AutoSize = true;
+            this.radTakeout.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radTakeout.Location = new System.Drawing.Point(8, 3);
+            this.radTakeout.Name = "radTakeout";
+            this.radTakeout.Size = new System.Drawing.Size(85, 24);
+            this.radTakeout.TabIndex = 25;
+            this.radTakeout.Text = "Takeout";
+            this.radTakeout.UseVisualStyleBackColor = true;
             // 
-            // btnDelivery
+            // radDelivery
             // 
-            this.btnDelivery.AutoSize = true;
-            this.btnDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDelivery.Location = new System.Drawing.Point(109, 4);
-            this.btnDelivery.Name = "btnDelivery";
-            this.btnDelivery.Size = new System.Drawing.Size(82, 24);
-            this.btnDelivery.TabIndex = 26;
-            this.btnDelivery.Text = "Delivery";
-            this.btnDelivery.UseVisualStyleBackColor = true;
+            this.radDelivery.AutoSize = true;
+            this.radDelivery.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radDelivery.Location = new System.Drawing.Point(109, 4);
+            this.radDelivery.Name = "radDelivery";
+            this.radDelivery.Size = new System.Drawing.Size(82, 24);
+            this.radDelivery.TabIndex = 26;
+            this.radDelivery.Text = "Delivery";
+            this.radDelivery.UseVisualStyleBackColor = true;
             // 
             // lblPizzaSize
             // 
@@ -198,35 +198,35 @@ namespace Mathre
             // 
             // pnlTip
             // 
-            this.pnlTip.Controls.Add(this.btnDollars);
-			this.pnlTip.Controls.Add(this.btnPercent);
-			this.pnlTip.Location = new System.Drawing.Point(220, 60);
+            this.pnlTip.Controls.Add(this.radDollars);
+            this.pnlTip.Controls.Add(this.radPercent);
+            this.pnlTip.Location = new System.Drawing.Point(220, 60);
             this.pnlTip.Name = "pnlTip";
             this.pnlTip.Size = new System.Drawing.Size(199, 42);
             this.pnlTip.TabIndex = 27;
             this.pnlTip.Tag = "Transparent";
             // 
-            // btnPercent
+            // radDollars
             // 
-            this.btnPercent.AutoSize = true;
-            this.btnPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPercent.Location = new System.Drawing.Point(109, 3);
-            this.btnPercent.Name = "btnPercent";
-            this.btnPercent.Size = new System.Drawing.Size(82, 24);
-            this.btnPercent.TabIndex = 32;
-            this.btnPercent.Text = "Percent";
-            this.btnPercent.UseVisualStyleBackColor = true;
+            this.radDollars.AutoSize = true;
+            this.radDollars.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radDollars.Location = new System.Drawing.Point(8, 3);
+            this.radDollars.Name = "radDollars";
+            this.radDollars.Size = new System.Drawing.Size(76, 24);
+            this.radDollars.TabIndex = 31;
+            this.radDollars.Text = "Dollars";
+            this.radDollars.UseVisualStyleBackColor = true;
             // 
-            // btnDollars
+            // radPercent
             // 
-            this.btnDollars.AutoSize = true;
-            this.btnDollars.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDollars.Location = new System.Drawing.Point(8, 3);
-            this.btnDollars.Name = "btnDollars";
-            this.btnDollars.Size = new System.Drawing.Size(76, 24);
-            this.btnDollars.TabIndex = 31;
-            this.btnDollars.Text = "Dollars";
-            this.btnDollars.UseVisualStyleBackColor = true;
+            this.radPercent.AutoSize = true;
+            this.radPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radPercent.Location = new System.Drawing.Point(109, 3);
+            this.radPercent.Name = "radPercent";
+            this.radPercent.Size = new System.Drawing.Size(82, 24);
+            this.radPercent.TabIndex = 32;
+            this.radPercent.Text = "Percent";
+            this.radPercent.UseVisualStyleBackColor = true;
             // 
             // lblPizzaTip
             // 
@@ -289,13 +289,13 @@ namespace Mathre
 		internal System.Windows.Forms.Label lblPizzaCost;
 		private System.Windows.Forms.Panel pnlBody;
 		private System.Windows.Forms.Panel pnlDiningType;
-		private System.Windows.Forms.RadioButton btnTakeout;
-		private System.Windows.Forms.RadioButton btnDelivery;
+		private System.Windows.Forms.RadioButton radTakeout;
+		private System.Windows.Forms.RadioButton radDelivery;
 		internal System.Windows.Forms.Label lblPizzaSize;
 		internal System.Windows.Forms.TextBox txtPizzaTip;
 		private System.Windows.Forms.Panel pnlTip;
-		private System.Windows.Forms.RadioButton btnPercent;
-		private System.Windows.Forms.RadioButton btnDollars;
+		private System.Windows.Forms.RadioButton radPercent;
+		private System.Windows.Forms.RadioButton radDollars;
 		internal System.Windows.Forms.Label lblPizzaTip;
 		internal System.Windows.Forms.TextBox txtPizzaSize;
 		internal System.Windows.Forms.Label lblTitle;

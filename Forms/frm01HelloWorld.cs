@@ -15,9 +15,9 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			btnEnglish.Click += (sender, e) => { lblTitle.Text = "Hello World"; };
-			btnFrench.Click += (sender, e) => { lblTitle.Text = "Bonjour le Monde"; };
-			btnGerman.Click += (sender, e) => { lblTitle.Text = "Hallo Welt"; };
+			radEnglish.Click += (sender, e) => { lblTitle.Text = "Hello World"; };
+			radFrench.Click += (sender, e) => { lblTitle.Text = "Bonjour le Monde"; };
+			radGerman.Click += (sender, e) => { lblTitle.Text = "Hallo Welt"; };
 			btnReset.Click += (sender, e) => { StartingLanguage.PerformClick(); };
 		}
 		public void FormLoad(object sender, EventArgs e)
@@ -27,12 +27,22 @@ namespace Mathre
 			StartingLanguage = pnlLanguage.Controls.OfType<RadioButton>().First(radioButton => radioButton.Checked);
 			StartingLanguage.PerformClick();
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm01HelloWorld>().Single(); ThisForm.HelloWorld(sender, e); }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
 		public void HelloWorld(object sender, EventArgs e)
 		{
-			if ($"{sender}" == "English") { btnEnglish.PerformClick(); }
-			if ($"{sender}" == "French") { btnFrench.PerformClick(); }
-			if ($"{sender}" == "German") { btnGerman.PerformClick(); }
+			if ($"{sender}" == "English") { radEnglish.PerformClick(); }
+			if ($"{sender}" == "French") { radFrench.PerformClick(); }
+			if ($"{sender}" == "German") { radGerman.PerformClick(); }
 			if ($"{sender}" == "Reset") { btnReset.PerformClick(); }
 			else if ($"{sender}" == "Secret")
 			{

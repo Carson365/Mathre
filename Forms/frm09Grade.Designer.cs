@@ -36,15 +36,15 @@ namespace Mathre
             this.lblScoreDisplay = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.btnMethod4 = new System.Windows.Forms.RadioButton();
-            this.btnMethod3 = new System.Windows.Forms.RadioButton();
-            this.btnMethod1 = new System.Windows.Forms.RadioButton();
-            this.btnMethod2 = new System.Windows.Forms.RadioButton();
+            this.radMethod1 = new System.Windows.Forms.RadioButton();
+            this.radMethod2 = new System.Windows.Forms.RadioButton();
+            this.radMethod3 = new System.Windows.Forms.RadioButton();
+            this.radMethod4 = new System.Windows.Forms.RadioButton();
+            this.btnMethod5 = new System.Windows.Forms.Button();
+            this.btnRandom = new System.Windows.Forms.Button();
             this.pnlMethod5Entered = new System.Windows.Forms.Panel();
             this.lblGradesEntered = new System.Windows.Forms.Label();
             this.lblGradesEnteredCount = new System.Windows.Forms.Label();
-            this.btnRandom = new System.Windows.Forms.Button();
-            this.btnMethod5 = new System.Windows.Forms.Button();
             this.lblPoints = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
@@ -130,14 +130,14 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.btnMethod1);
-            this.pnlBody.Controls.Add(this.btnMethod2);
-			this.pnlBody.Controls.Add(this.btnMethod3);
-			this.pnlBody.Controls.Add(this.btnMethod4);
-			this.pnlBody.Controls.Add(this.btnMethod5);
-			this.pnlBody.Controls.Add(this.btnRandom);
-			this.pnlBody.Controls.Add(this.pnlMethod5Entered);
-			this.pnlBody.Controls.Add(this.lblPoints);
+            this.pnlBody.Controls.Add(this.radMethod1);
+            this.pnlBody.Controls.Add(this.radMethod2);
+            this.pnlBody.Controls.Add(this.radMethod3);
+            this.pnlBody.Controls.Add(this.radMethod4);
+            this.pnlBody.Controls.Add(this.btnMethod5);
+            this.pnlBody.Controls.Add(this.btnRandom);
+            this.pnlBody.Controls.Add(this.pnlMethod5Entered);
+            this.pnlBody.Controls.Add(this.lblPoints);
             this.pnlBody.Controls.Add(this.txtTotal);
             this.pnlBody.Controls.Add(this.lblTotal);
             this.pnlBody.Controls.Add(this.txtPoints);
@@ -146,49 +146,69 @@ namespace Mathre
             this.pnlBody.Size = new System.Drawing.Size(426, 155);
             this.pnlBody.TabIndex = 34;
             // 
-            // btnMethod4
+            // radMethod1
             // 
-            this.btnMethod4.AutoSize = true;
-            this.btnMethod4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod4.Location = new System.Drawing.Point(325, 49);
-            this.btnMethod4.Name = "btnMethod4";
-            this.btnMethod4.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod4.TabIndex = 41;
-            this.btnMethod4.Text = "Method 4";
-            this.btnMethod4.UseVisualStyleBackColor = true;
+            this.radMethod1.AutoSize = true;
+            this.radMethod1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radMethod1.Location = new System.Drawing.Point(216, 14);
+            this.radMethod1.Name = "radMethod1";
+            this.radMethod1.Size = new System.Drawing.Size(94, 24);
+            this.radMethod1.TabIndex = 38;
+            this.radMethod1.Text = "Method 1";
+            this.radMethod1.UseVisualStyleBackColor = true;
             // 
-            // btnMethod3
+            // radMethod2
             // 
-            this.btnMethod3.AutoSize = true;
-            this.btnMethod3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod3.Location = new System.Drawing.Point(216, 49);
-            this.btnMethod3.Name = "btnMethod3";
-            this.btnMethod3.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod3.TabIndex = 40;
-            this.btnMethod3.Text = "Method 3";
-            this.btnMethod3.UseVisualStyleBackColor = true;
+            this.radMethod2.AutoSize = true;
+            this.radMethod2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radMethod2.Location = new System.Drawing.Point(325, 15);
+            this.radMethod2.Name = "radMethod2";
+            this.radMethod2.Size = new System.Drawing.Size(94, 24);
+            this.radMethod2.TabIndex = 39;
+            this.radMethod2.Text = "Method 2";
+            this.radMethod2.UseVisualStyleBackColor = true;
             // 
-            // btnMethod1
+            // radMethod3
             // 
-            this.btnMethod1.AutoSize = true;
-            this.btnMethod1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod1.Location = new System.Drawing.Point(216, 14);
-            this.btnMethod1.Name = "btnMethod1";
-            this.btnMethod1.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod1.TabIndex = 38;
-            this.btnMethod1.Text = "Method 1";
-            this.btnMethod1.UseVisualStyleBackColor = true;
+            this.radMethod3.AutoSize = true;
+            this.radMethod3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radMethod3.Location = new System.Drawing.Point(216, 49);
+            this.radMethod3.Name = "radMethod3";
+            this.radMethod3.Size = new System.Drawing.Size(94, 24);
+            this.radMethod3.TabIndex = 40;
+            this.radMethod3.Text = "Method 3";
+            this.radMethod3.UseVisualStyleBackColor = true;
             // 
-            // btnMethod2
+            // radMethod4
             // 
-            this.btnMethod2.AutoSize = true;
-            this.btnMethod2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMethod2.Location = new System.Drawing.Point(325, 15);
-            this.btnMethod2.Name = "btnMethod2";
-            this.btnMethod2.Size = new System.Drawing.Size(94, 24);
-            this.btnMethod2.TabIndex = 39;
-            this.btnMethod2.Text = "Method 2";
-            this.btnMethod2.UseVisualStyleBackColor = true;
+            this.radMethod4.AutoSize = true;
+            this.radMethod4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radMethod4.Location = new System.Drawing.Point(325, 49);
+            this.radMethod4.Name = "radMethod4";
+            this.radMethod4.Size = new System.Drawing.Size(94, 24);
+            this.radMethod4.TabIndex = 41;
+            this.radMethod4.Text = "Method 4";
+            this.radMethod4.UseVisualStyleBackColor = true;
+            // 
+            // btnMethod5
+            // 
+            this.btnMethod5.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnMethod5.Location = new System.Drawing.Point(9, 82);
+            this.btnMethod5.Name = "btnMethod5";
+            this.btnMethod5.Size = new System.Drawing.Size(199, 23);
+            this.btnMethod5.TabIndex = 36;
+            this.btnMethod5.Text = "Calculate with Method 5";
+            this.btnMethod5.UseVisualStyleBackColor = true;
+            // 
+            // btnRandom
+            // 
+            this.btnRandom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnRandom.Location = new System.Drawing.Point(9, 119);
+            this.btnRandom.Name = "btnRandom";
+            this.btnRandom.Size = new System.Drawing.Size(199, 23);
+            this.btnRandom.TabIndex = 37;
+            this.btnRandom.Text = "Calculate Random Grade";
+            this.btnRandom.UseVisualStyleBackColor = true;
             // 
             // pnlMethod5Entered
             // 
@@ -217,26 +237,6 @@ namespace Mathre
             this.lblGradesEnteredCount.Size = new System.Drawing.Size(35, 13);
             this.lblGradesEnteredCount.TabIndex = 0;
             this.lblGradesEnteredCount.Text = "Count";
-            // 
-            // btnRandom
-            // 
-            this.btnRandom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRandom.Location = new System.Drawing.Point(9, 119);
-            this.btnRandom.Name = "btnRandom";
-            this.btnRandom.Size = new System.Drawing.Size(199, 23);
-            this.btnRandom.TabIndex = 37;
-            this.btnRandom.Text = "Calculate Random Grade";
-            this.btnRandom.UseVisualStyleBackColor = true;
-            // 
-            // btnMethod5
-            // 
-            this.btnMethod5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnMethod5.Location = new System.Drawing.Point(9, 82);
-            this.btnMethod5.Name = "btnMethod5";
-            this.btnMethod5.Size = new System.Drawing.Size(199, 23);
-            this.btnMethod5.TabIndex = 36;
-            this.btnMethod5.Text = "Calculate with Method 5";
-            this.btnMethod5.UseVisualStyleBackColor = true;
             // 
             // lblPoints
             // 
@@ -320,9 +320,9 @@ namespace Mathre
 		private System.Windows.Forms.Button btnRandom;
 		private System.Windows.Forms.Label lblGradesEntered;
 		private System.Windows.Forms.Label lblGradesEnteredCount;
-		private System.Windows.Forms.RadioButton btnMethod4;
-		private System.Windows.Forms.RadioButton btnMethod3;
-		private System.Windows.Forms.RadioButton btnMethod1;
-		private System.Windows.Forms.RadioButton btnMethod2;
+		private System.Windows.Forms.RadioButton radMethod4;
+		private System.Windows.Forms.RadioButton radMethod3;
+		private System.Windows.Forms.RadioButton radMethod1;
+		private System.Windows.Forms.RadioButton radMethod2;
 	}
 }

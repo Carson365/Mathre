@@ -25,22 +25,32 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			foreach (RadioButton Button in pnlBody.Controls) { Button.CheckedChanged += Favorites; }
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm04MyFavorites>().Single(); ThisForm.Favorites(sender, e); }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
 		public void Favorites(object sender, EventArgs e)
 		{
-			if (sender.GetType().ToString().Contains("Menu")) { ((RadioButton)pnlBody.Controls[$"btnFavorite{sender}"]).Checked = true; }
+			//if (sender.GetType().ToString().Contains("Menu")) { ((RadioButton)pnlBody.Controls[$"radFavorite{sender}"]).Checked = true; }
 			if (sender is RadioButton button)
 			{
 				lblFavoriteInfo.Text = button.Parent.Controls.OfType<RadioButton>().FirstOrDefault(n => n.Checked)?.Name.ToString() switch
 				{
-					"btnFavoriteActor" => "My favorite actor is Tom Hiddleston. \n He has starred and appeared in several films, but his most famous role is that of Loki in Marvel's MCU.",
-					"btnFavoriteMovie" => "My favorite movie is The Imitation Game. \n it follows the work and life of Alan Turing, a revolutionary code-breaker and very early computer scientist.",
-					"btnFavoriteFruit" => "My favorite fruit is any stone fruit. \n The stone fruit family includes raspberries and blackberries, as well as peaches, plums, cherries, and other great fruits.",
-					"btnFavoriteHobby" => "My favorite hobby is remote control. \n Remote control cars are very fun to drive and work on, and despite their high price they are an easy hobby to get into.",
-					"btnFavoriteColor" => "My favorite color is purple. \n It can complement a variety of other colors, works well to convey many different ideas or emotions, and it looks good.",
+					"radFavoriteActor" => "My favorite actor is Tom Hiddleston. \n He has starred and appeared in several films, but his most famous role is that of Loki in Marvel's MCU.",
+					"radFavoriteMovie" => "My favorite movie is The Imitation Game. \n it follows the work and life of Alan Turing, a revolutionary code-breaker and very early computer scientist.",
+					"radFavoriteFruit" => "My favorite fruit is any stone fruit. \n The stone fruit family includes raspberries and blackberries, as well as peaches, plums, cherries, and other great fruits.",
+					"radFavoriteHobby" => "My favorite hobby is remote control. \n Remote control cars are very fun to drive and work on, and despite their high price they are an easy hobby to get into.",
+					"radFavoriteColor" => "My favorite color is purple. \n It can complement a variety of other colors, works well to convey many different ideas or emotions, and it looks good.",
 					_ => throw new NotImplementedException(),
 				};
-				if (ReferenceEquals(sender, btnFavoriteColor))
+				if (ReferenceEquals(sender, radFavoriteColor))
 				{
 					pnlFavoriteImage.BackgroundImage = null;
 					pnlFavoriteImage.BackColor = ColorTranslator.FromHtml("#6622cc");

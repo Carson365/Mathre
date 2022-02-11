@@ -27,23 +27,33 @@ namespace Mathre
 			lblPassFail.Text = "";
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm09Grade>().Single(); ThisForm.ButtonSelector(sender, e); }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
 		public void GradeCalculator(object sender, EventArgs e)
 		{
-			if (!(btnMethod1.Checked | btnMethod2.Checked | btnMethod3.Checked | btnMethod4.Checked)) { btnMethod1.Checked = true; }
+			if (!(radMethod1.Checked | radMethod2.Checked | radMethod3.Checked | radMethod4.Checked)) { radMethod1.Checked = true; }
 			double Points = 0;
 			double Total = 0;
 			if (double.TryParse(txtPoints.Text, out double PointsValue)) { Points = PointsValue; }
 			if (double.TryParse(txtTotal.Text, out double TotalValue)) { Total = TotalValue; }
 			lblScoreDisplay.Text = $"{Math.Round((Points / Total * 100), 2)} Percent";
-			if (btnMethod1.Checked)
+			if (radMethod1.Checked)
 			{
 				if (Math.Round((Points / Total * 100), 2) > 63.50) { lblPassFail.Text = "Pass!"; }
 				if (Math.Round((Points / Total * 100), 2) < 63.50) { lblPassFail.Text = ""; }
 				if (Points == 0 && Total == 0) { lblPassFail.Text = ""; }
 			}
-			if (btnMethod2.Checked) { if (Math.Round((Points / Total * 100), 2) > 63.50) { lblPassFail.Text = "Pass!"; } else { lblPassFail.Text = "Fail. Study More."; } }
-			if (btnMethod3.Checked)
+			if (radMethod2.Checked) { if (Math.Round((Points / Total * 100), 2) > 63.50) { lblPassFail.Text = "Pass!"; } else { lblPassFail.Text = "Fail. Study More."; } }
+			if (radMethod3.Checked)
 			{
 				if (Math.Round((Points / Total * 100), 2) > 91.50) { lblPassFail.Text = "Pass! A!"; }
 				else if (Math.Round((Points / Total * 100), 2) > 83.50) { lblPassFail.Text = "Pass! B!"; }
@@ -51,7 +61,7 @@ namespace Mathre
 				else if (Math.Round((Points / Total * 100), 2) > 63.50) { lblPassFail.Text = "Pass! D!"; }
 				else { lblPassFail.Text = "Fail. F."; }
 			}
-			if (btnMethod4.Checked)
+			if (radMethod4.Checked)
 			{
 				lblPassFail.Text = (double)Math.Round((Points / Total * 100), 2) switch
 				{
@@ -91,10 +101,10 @@ namespace Mathre
 		{
 			Action a = $"{sender}" switch
 			{
-				"Method 1" => () => btnMethod1.PerformClick(),
-				"Method 2" => () => btnMethod2.PerformClick(),
-				"Method 3" => () => btnMethod3.PerformClick(),
-				"Method 4" => () => btnMethod4.PerformClick(),
+				"Method 1" => () => radMethod1.PerformClick(),
+				"Method 2" => () => radMethod2.PerformClick(),
+				"Method 3" => () => radMethod3.PerformClick(),
+				"Method 4" => () => radMethod4.PerformClick(),
 				"Calculate with Method 5" => () => GradeCalculator(btnMethod5, null),
 				_ => () => GradeCalculator(btnRandom, null)
 			};

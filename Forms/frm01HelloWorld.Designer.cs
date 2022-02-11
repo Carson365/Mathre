@@ -31,21 +31,21 @@ namespace Mathre
 		{
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.pnlLanguage = new System.Windows.Forms.Panel();
             this.picGerman = new System.Windows.Forms.PictureBox();
-            this.btnEnglish = new System.Windows.Forms.RadioButton();
-            this.btnFrench = new System.Windows.Forms.RadioButton();
-            this.btnGerman = new System.Windows.Forms.RadioButton();
-            this.picEnglish = new System.Windows.Forms.PictureBox();
+            this.radEnglish = new System.Windows.Forms.RadioButton();
             this.picFrench = new System.Windows.Forms.PictureBox();
+            this.radFrench = new System.Windows.Forms.RadioButton();
+            this.picEnglish = new System.Windows.Forms.PictureBox();
+            this.radGerman = new System.Windows.Forms.RadioButton();
             this.btnReset = new System.Windows.Forms.Button();
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.pnlLanguage = new System.Windows.Forms.Panel();
             this.pnlBody.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picGerman)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnglish)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFrench)).BeginInit();
-            this.pnlFrame.SuspendLayout();
             this.pnlLanguage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGerman)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFrench)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnglish)).BeginInit();
+            this.pnlFrame.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -64,13 +64,30 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-			this.pnlBody.Controls.Add(this.pnlLanguage);
-			this.pnlBody.Controls.Add(this.btnReset);
+            this.pnlBody.Controls.Add(this.pnlLanguage);
+            this.pnlBody.Controls.Add(this.btnReset);
             this.pnlBody.ForeColor = System.Drawing.SystemColors.ControlText;
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 30;
+            // 
+            // pnlLanguage
+            // 
+            this.pnlLanguage.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlLanguage.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlLanguage.Controls.Add(this.picGerman);
+            this.pnlLanguage.Controls.Add(this.radEnglish);
+            this.pnlLanguage.Controls.Add(this.picFrench);
+            this.pnlLanguage.Controls.Add(this.radFrench);
+            this.pnlLanguage.Controls.Add(this.picEnglish);
+            this.pnlLanguage.Controls.Add(this.radGerman);
+            this.pnlLanguage.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.pnlLanguage.Location = new System.Drawing.Point(6, 5);
+            this.pnlLanguage.Name = "pnlLanguage";
+            this.pnlLanguage.Size = new System.Drawing.Size(414, 43);
+            this.pnlLanguage.TabIndex = 31;
+            this.pnlLanguage.Tag = "Transparent,Language";
             // 
             // picGerman
             // 
@@ -82,37 +99,37 @@ namespace Mathre
             this.picGerman.TabIndex = 13;
             this.picGerman.TabStop = false;
             // 
-            // btnEnglish
+            // radEnglish
             // 
-            this.btnEnglish.AutoSize = true;
-            this.btnEnglish.Checked = true;
-            this.btnEnglish.Location = new System.Drawing.Point(65, 13);
-            this.btnEnglish.Name = "btnEnglish";
-            this.btnEnglish.Size = new System.Drawing.Size(59, 17);
-            this.btnEnglish.TabIndex = 7;
-            this.btnEnglish.TabStop = true;
-            this.btnEnglish.Text = "English";
-            this.btnEnglish.UseVisualStyleBackColor = true;
+            this.radEnglish.AutoSize = true;
+            this.radEnglish.Checked = true;
+            this.radEnglish.Location = new System.Drawing.Point(65, 13);
+            this.radEnglish.Name = "radEnglish";
+            this.radEnglish.Size = new System.Drawing.Size(59, 17);
+            this.radEnglish.TabIndex = 7;
+            this.radEnglish.TabStop = true;
+            this.radEnglish.Text = "English";
+            this.radEnglish.UseVisualStyleBackColor = true;
             // 
-            // btnFrench
+            // picFrench
             // 
-            this.btnFrench.AutoSize = true;
-            this.btnFrench.Location = new System.Drawing.Point(195, 13);
-            this.btnFrench.Name = "btnFrench";
-            this.btnFrench.Size = new System.Drawing.Size(58, 17);
-            this.btnFrench.TabIndex = 10;
-            this.btnFrench.Text = "French";
-            this.btnFrench.UseVisualStyleBackColor = true;
+            this.picFrench.Image = global::Mathre.My.Resources.Resources.French;
+            this.picFrench.Location = new System.Drawing.Point(158, 9);
+            this.picFrench.Name = "picFrench";
+            this.picFrench.Size = new System.Drawing.Size(31, 25);
+            this.picFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFrench.TabIndex = 11;
+            this.picFrench.TabStop = false;
             // 
-            // btnGerman
+            // radFrench
             // 
-            this.btnGerman.AutoSize = true;
-            this.btnGerman.Location = new System.Drawing.Point(324, 13);
-            this.btnGerman.Name = "btnGerman";
-            this.btnGerman.Size = new System.Drawing.Size(62, 17);
-            this.btnGerman.TabIndex = 8;
-            this.btnGerman.Text = "German";
-            this.btnGerman.UseVisualStyleBackColor = true;
+            this.radFrench.AutoSize = true;
+            this.radFrench.Location = new System.Drawing.Point(195, 13);
+            this.radFrench.Name = "radFrench";
+            this.radFrench.Size = new System.Drawing.Size(58, 17);
+            this.radFrench.TabIndex = 10;
+            this.radFrench.Text = "French";
+            this.radFrench.UseVisualStyleBackColor = true;
             // 
             // picEnglish
             // 
@@ -124,15 +141,15 @@ namespace Mathre
             this.picEnglish.TabIndex = 12;
             this.picEnglish.TabStop = false;
             // 
-            // picFrench
+            // radGerman
             // 
-            this.picFrench.Image = global::Mathre.My.Resources.Resources.French;
-            this.picFrench.Location = new System.Drawing.Point(158, 9);
-            this.picFrench.Name = "picFrench";
-            this.picFrench.Size = new System.Drawing.Size(31, 25);
-            this.picFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picFrench.TabIndex = 11;
-            this.picFrench.TabStop = false;
+            this.radGerman.AutoSize = true;
+            this.radGerman.Location = new System.Drawing.Point(324, 13);
+            this.radGerman.Name = "radGerman";
+            this.radGerman.Size = new System.Drawing.Size(62, 17);
+            this.radGerman.TabIndex = 8;
+            this.radGerman.Text = "German";
+            this.radGerman.UseVisualStyleBackColor = true;
             // 
             // btnReset
             // 
@@ -156,23 +173,6 @@ namespace Mathre
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 31;
             // 
-            // pnlLanguage
-            // 
-            this.pnlLanguage.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlLanguage.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlLanguage.Controls.Add(this.picGerman);
-            this.pnlLanguage.Controls.Add(this.btnEnglish);
-            this.pnlLanguage.Controls.Add(this.picFrench);
-            this.pnlLanguage.Controls.Add(this.btnFrench);
-            this.pnlLanguage.Controls.Add(this.picEnglish);
-			this.pnlLanguage.Controls.Add(this.btnGerman);
-			this.pnlLanguage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlLanguage.Location = new System.Drawing.Point(6, 5);
-            this.pnlLanguage.Name = "pnlLanguage";
-            this.pnlLanguage.Size = new System.Drawing.Size(414, 43);
-            this.pnlLanguage.TabIndex = 31;
-            this.pnlLanguage.Tag = "Transparent,Language";
-            // 
             // Frm01HelloWorld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -183,12 +183,12 @@ namespace Mathre
             this.Name = "Frm01HelloWorld";
             this.Text = "Hello World";
             this.pnlBody.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.picGerman)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picEnglish)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picFrench)).EndInit();
-            this.pnlFrame.ResumeLayout(false);
             this.pnlLanguage.ResumeLayout(false);
             this.pnlLanguage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picGerman)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picFrench)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picEnglish)).EndInit();
+            this.pnlFrame.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}
@@ -200,9 +200,9 @@ namespace Mathre
 		internal System.Windows.Forms.PictureBox picEnglish;
 		internal System.Windows.Forms.PictureBox picFrench;
 		internal System.Windows.Forms.PictureBox picGerman;
-		internal System.Windows.Forms.RadioButton btnEnglish;
-		internal System.Windows.Forms.RadioButton btnFrench;
-		internal System.Windows.Forms.RadioButton btnGerman;
+		internal System.Windows.Forms.RadioButton radEnglish;
+		internal System.Windows.Forms.RadioButton radFrench;
+		internal System.Windows.Forms.RadioButton radGerman;
 		internal System.Windows.Forms.Button btnReset;
 		internal System.Windows.Forms.Panel pnlLanguage;
 	}

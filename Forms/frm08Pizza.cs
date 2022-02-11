@@ -18,10 +18,10 @@ namespace Mathre
 			Load += FormLoad;
 			txtPizzaSize.KeyUp += Pizza;
 			txtPizzaTip.KeyUp += Pizza;
-			btnDelivery.CheckedChanged += Pizza;
-			btnTakeout.CheckedChanged += Pizza;
-			btnPercent.CheckedChanged += Pizza;
-			btnDollars.CheckedChanged += Pizza;
+			radDelivery.CheckedChanged += Pizza;
+			radTakeout.CheckedChanged += Pizza;
+			radPercent.CheckedChanged += Pizza;
+			radDollars.CheckedChanged += Pizza;
 			txtPizzaTip.KeyPress += InputFormatter;
 			txtPizzaSize.KeyPress += InputFormatter;
 		}
@@ -30,27 +30,37 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
-		public void MenuControl(object sender, EventArgs e) { var ThisForm = Application.OpenForms.OfType<Frm08Pizza>().Single(); ThisForm.Pizza(sender, e); }
+		public void MenuControl(object sender, EventArgs e)
+		{
+			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			{
+				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				_ => null,
+			};
+			a?.Invoke();
+		}
 		public void Pizza(object sender, EventArgs e)
 		{
 			Action a = $"{sender}" switch
 			{
-				"Delivery" => () => btnDelivery.Checked = true,
-				"Takeout" => () => btnTakeout.Checked = true,
-				"Dollars" => () => btnDollars.Checked = true,
-				"Percent" => () => btnPercent.Checked = true,
+				"Delivery" => () => radDelivery.Checked = true,
+				"Takeout" => () => radTakeout.Checked = true,
+				"Dollars" => () => radDollars.Checked = true,
+				"Percent" => () => radPercent.Checked = true,
 				_ => () => { }
 			};
 			a.Invoke();
-			if (!btnDelivery.Checked & !btnTakeout.Checked) { btnDelivery.Checked = true; }
-			if (!btnDollars.Checked & !btnPercent.Checked) { btnPercent.Checked = true; }
+			if (!radDelivery.Checked & !radTakeout.Checked) { radDelivery.Checked = true; }
+			if (!radDollars.Checked & !radPercent.Checked) { radPercent.Checked = true; }
 			int Size = 0;
 			decimal Tip = 0;
 			if (int.TryParse(txtPizzaSize.Text, out int SizeText)) { Size = SizeText; }
 			if (decimal.TryParse(txtPizzaTip.Text, out decimal TipText)) { Tip = TipText; }
-			decimal Cost = (decimal)(0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(btnDelivery.Checked) * 1.5));
-			if (Size != 0) { lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(btnDollars.Checked)) + (Convert.ToInt32(btnPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); }
-			if (Size == 0) { lblPizzaCostAmount.Text = "Not Enough Information"; }
+			decimal Cost = (decimal)(0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(radDelivery.Checked) * 1.5));
+			if (Size != 0) { lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(radDollars.Checked)) + (Convert.ToInt32(radPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); }
+			else { lblPizzaCostAmount.Text = "Not Enough Information"; }
 			pnlPizzaViewer.BackgroundImage = Size switch
 			{
 				0 => null,
