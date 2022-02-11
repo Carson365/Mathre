@@ -1,9 +1,12 @@
 ﻿// SOURCES:  https://github.com/fferlito/Cat-faces-dataset
 using Mathre.Forms;
+using Microsoft.VisualBasic;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Media;
+using System.Text;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -19,6 +22,10 @@ namespace Mathre
 			InitializeComponent();
 			Load += FormLoad;
 			aTimer.Elapsed += Images;
+			btnKeep1.Click += Keep;
+			btnKeep2.Click += Keep;
+			btnKeep3.Click += Keep;
+			btnKeep4.Click += Keep;
 			foreach (Panel pnl in pnlBody2.Controls.OfType<Panel>()) { foreach (PictureBox pb in pnl.Controls.OfType<PictureBox>()) { pb.LoadCompleted += Catname; } }
 			btnTimerToggle.Click += (p, e) => { aTimer.Enabled = !aTimer.Enabled; };
 		}
@@ -27,6 +34,8 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			ThisForm = Application.OpenForms.OfType<Frm18Humane>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
+			lblCatSave.Text = "";
+			pnlPictureSave.Visible = false;
 			var loopfour = 1;
 			while (loopfour < 5)
 			{
@@ -63,9 +72,19 @@ namespace Mathre
 			}));
 			if (n > 4) n = 1;
 		}
-		public void Default(object sender, EventArgs e)
+		public void Keep(object sender, EventArgs e)
 		{
-
+			SystemSounds.Exclamation.Play();
+			Image img = ((PictureBox)Controls.Find($"picCat{$"{((Button)sender).Name}".Substring(7, 1)}", true)[0]).Image;
+			string name = ((Label)Controls.Find($"lblCat{$"{((Button)sender).Name}".Substring(7, 1)}", true)[0]).Text;
+			lblCatSave.Text = "";
+			while (lblCatSave.Text == "")
+			{
+				lblCatSave.Text = Interaction.InputBox("What would you like to name this cat?\n(At most 8 letters)", "Humane Society", name).ToUpper();
+				if (lblCatSave.Text.Length > 8) { lblCatSave.Text = lblCatSave.Text.Substring(0, 8); SystemSounds.Asterisk.Play(); }
+			}
+			pnlPictureSave.Visible = true;
+			picCatSave.Image = img;
 		}
 	}
 }

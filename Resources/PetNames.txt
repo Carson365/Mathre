@@ -15,7 +15,6 @@ Juniper
 Lassie
 Lucky
 Maggie
-Marshmallow
 Miffy
 Misty
 Nipper
@@ -185,7 +184,6 @@ Sophie
 Spooky
 Sugar
 Tigger
-Tinkerbell
 Whiskers
 Willow
 Zoe
@@ -260,7 +258,6 @@ Duchess
 Logan
 Diamond
 Ringo
-Toothless
 Cupcake
 Boomer
 Mojo
@@ -318,7 +315,6 @@ Jerry
 Trouble
 Tiny
 Sheba
-Buttercup
 Calvin
 Oliver
 Maddie
@@ -328,7 +324,6 @@ Pebbles
 Rose
 Sabrina
 Cody
-Tinkerbell
 Kiwi
 Echo
 Luna
@@ -391,7 +386,6 @@ Sam
 Sammy
 Jax
 Teddy
-Sebastian
 Bandit
 Boots
 Thor
@@ -532,7 +526,6 @@ Frankie
 Zelda
 Gigi
 Salem
-Charlotte
 Delilah
 Holly
 Harley

@@ -49,6 +49,9 @@
             this.pnlBody = new System.Windows.Forms.Panel();
             this.btnTimerToggle = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.lblCatSave = new System.Windows.Forms.Label();
+            this.pnlPictureSave = new System.Windows.Forms.Panel();
+            this.picCatSave = new System.Windows.Forms.PictureBox();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlPicture4.SuspendLayout();
@@ -60,6 +63,8 @@
             this.pnlPicture1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picCat1)).BeginInit();
             this.pnlBody.SuspendLayout();
+            this.pnlPictureSave.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCatSave)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -249,7 +254,9 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.lblCatSave);
             this.pnlBody.Controls.Add(this.btnTimerToggle);
+            this.pnlBody.Controls.Add(this.pnlPictureSave);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
@@ -276,6 +283,34 @@
             this.lblTitle.Text = "Humane Society";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblCatSave
+            // 
+            this.lblCatSave.Location = new System.Drawing.Point(338, 4);
+            this.lblCatSave.Name = "lblCatSave";
+            this.lblCatSave.Size = new System.Drawing.Size(80, 13);
+            this.lblCatSave.TabIndex = 43;
+            this.lblCatSave.Text = "Name";
+            this.lblCatSave.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // pnlPictureSave
+            // 
+            this.pnlPictureSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pnlPictureSave.Controls.Add(this.picCatSave);
+            this.pnlPictureSave.Location = new System.Drawing.Point(338, 20);
+            this.pnlPictureSave.Name = "pnlPictureSave";
+            this.pnlPictureSave.Size = new System.Drawing.Size(80, 80);
+            this.pnlPictureSave.TabIndex = 42;
+            // 
+            // picCatSave
+            // 
+            this.picCatSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCatSave.Location = new System.Drawing.Point(2, 2);
+            this.picCatSave.Name = "picCatSave";
+            this.picCatSave.Size = new System.Drawing.Size(76, 76);
+            this.picCatSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picCatSave.TabIndex = 41;
+            this.picCatSave.TabStop = false;
+            // 
             // Frm18Humane
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,6 +331,8 @@
             this.pnlPicture1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picCat1)).EndInit();
             this.pnlBody.ResumeLayout(false);
+            this.pnlPictureSave.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCatSave)).EndInit();
             this.ResumeLayout(false);
 
 		}
@@ -323,5 +360,8 @@
 		private System.Windows.Forms.Panel pnlPicture2;
 		private System.Windows.Forms.PictureBox picCat2;
 		private System.Windows.Forms.PictureBox picCat1;
+		private System.Windows.Forms.Label lblCatSave;
+		private System.Windows.Forms.Panel pnlPictureSave;
+		private System.Windows.Forms.PictureBox picCatSave;
 	}
 }
