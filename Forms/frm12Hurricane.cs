@@ -44,11 +44,12 @@ namespace Mathre
 		}
 		public void MenuControl(object sender, EventArgs e)
 		{
-			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			var senderName = ((ToolStripMenuItem)sender).Name;
+			Action a = senderName.Substring(0, 3) switch
 			{
-				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
 				_ => null,
 			};
 			a?.Invoke();
@@ -147,11 +148,6 @@ namespace Mathre
 				if (txtMPH.SelectionLength < 1) { e.Handled = true; }
 				else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, e.KeyChar.ToString())}") > 210) { e.Handled = true; }
 			}
-		}
-		public void MenuHandler(object sender, EventArgs e)
-		{
-			Action A = sender.ToString() switch { "Display Expected Damage" => () => chbDamage.Checked ^= true, "Generate Random Storm" => () => btnRandom.PerformClick(), _ => () => btnCalculate.PerformClick(), };
-			A.Invoke();
 		}
 		public void ZeroRemover(object sender, EventArgs e) { if (txtMPH.Text.StartsWith("0")) { txtMPH.Text = txtMPH.Text.TrimStart('0'); } }
 		public void EnterKey(object sender, KeyEventArgs e) { if (e.KeyCode == Keys.Enter) { Hurricane(txtMPH, null); } }

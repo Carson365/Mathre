@@ -39,11 +39,12 @@ namespace Mathre
 		public void Tabbed(bool enable) { aTimer.Enabled = enable; }
 		public void MenuControl(object sender, EventArgs e)
 		{
-			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			var senderName = ((ToolStripMenuItem)sender).Name;
+			Action a = senderName.Substring(0, 3) switch
 			{
-				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
 				_ => null,
 			};
 			a?.Invoke();

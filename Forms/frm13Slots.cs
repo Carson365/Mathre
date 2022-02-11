@@ -29,11 +29,12 @@ namespace Mathre
 		}
 		public void MenuControl(object sender, EventArgs e)
 		{
-			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			var senderName = ((ToolStripMenuItem)sender).Name;
+			Action a = senderName.Substring(0, 3) switch
 			{
-				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
 				_ => null,
 			};
 			a?.Invoke();
@@ -74,17 +75,6 @@ namespace Mathre
 				else if (rnd1 == 3 && rnd2 == 3 && rnd3 == 3) { change = 15 + (Convert.ToInt32(chbDouble.Checked) * 15); tokens += change; Message($"{change} Token Jackpot!", null); }
 			}
 			lblScore.Text = $"{tokens}";
-		}
-		public void MenuHandler(object sender, EventArgs e)
-		{
-			Action A = sender.ToString() switch
-			{
-				"Spin" => () => btnSpin.PerformClick(),
-				"Double Or Nothing" => () => chbDouble.Checked = !chbDouble.Checked,
-				"Detail View" => () => chbMessage.Checked = !chbMessage.Checked,
-				_ => () => chbAuto.Checked = !chbAuto.Checked,
-			};
-			A.Invoke();
 		}
 		public void Message(object sender, EventArgs e)
 		{

@@ -29,11 +29,12 @@ namespace Mathre
 		}
 		public void MenuControl(object sender, EventArgs e)
 		{
-			Action a = $"{((ToolStripMenuItem)sender).Name}".Substring(0, 3) switch
+			var senderName = ((ToolStripMenuItem)sender).Name;
+			Action a = senderName.Substring(0, 3) switch
 			{
-				"btn" => () => ((Button)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find($"{((ToolStripMenuItem)sender).Name}", true)[0]).Checked ^= true,
+				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
+				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
+				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
 				_ => null,
 			};
 			a?.Invoke();
@@ -96,19 +97,6 @@ namespace Mathre
 				txtTotal.Text = $"{score + Math.Round(11 * VBMath.Rnd())}";
 				GradeCalculator(null, null);
 			}
-		}
-		public void ButtonSelector(object sender, EventArgs e)
-		{
-			Action a = $"{sender}" switch
-			{
-				"Method 1" => () => radMethod1.PerformClick(),
-				"Method 2" => () => radMethod2.PerformClick(),
-				"Method 3" => () => radMethod3.PerformClick(),
-				"Method 4" => () => radMethod4.PerformClick(),
-				"Calculate with Method 5" => () => GradeCalculator(btnMethod5, null),
-				_ => () => GradeCalculator(btnRandom, null)
-			};
-			a.Invoke();
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
