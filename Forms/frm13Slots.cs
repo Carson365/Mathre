@@ -29,15 +29,18 @@ namespace Mathre
 		}
 		public void MenuControl(object sender, EventArgs e)
 		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
+			if (Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault() != null)
 			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
+				var senderName = ((ToolStripMenuItem)sender).Name;
+				Action a = senderName.Substring(0, 3) switch
+				{
+					"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
+					"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
+					"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
+					_ => null,
+				};
+				a?.Invoke();
+			}
 		}
 		public void Tabbed() { if (!loadedonce) { loadedonce = true; Loaded(null, null); } }
 		public void Loaded(object sender, EventArgs e)
