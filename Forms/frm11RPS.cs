@@ -1,12 +1,11 @@
 // SOURCES:
 // RPS Image: https://www.nicepng.com/png/full/111-1113460_rock-paper-scissors-rock-paper-scissors-svg.png (Modified in various ways with paint.net)
-using Mathre.Forms;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm11RPS : Form, IManager
+	public partial class Frm11RPS : Form
 	{
 		public static Frm00Mathre BaseForm;
 		private int playerscore = 0;
@@ -34,18 +33,6 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			picRPS.Image = imgRPS.Images["RPS.png"];
 			picRPS2.Image = imgRPS.Images["RPS.png"];
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
 		}
 		public void RPSGame(object sender, EventArgs e)
 		{

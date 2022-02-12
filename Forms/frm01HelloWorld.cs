@@ -1,13 +1,12 @@
 // SOURCES:
 // Flag Icons: https://www.iconfinder.com/iconsets/flags-37
-using Mathre.Forms;
 using Microsoft.VisualBasic;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm01HelloWorld : Form, IManager
+	public partial class Frm01HelloWorld : Form
 	{
 		private RadioButton StartingLanguage;
 		public static Frm00Mathre BaseForm;
@@ -26,18 +25,6 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(this); }
 			StartingLanguage = pnlLanguage.Controls.OfType<RadioButton>().First(radioButton => radioButton.Checked);
 			StartingLanguage.PerformClick();
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
 		}
 		public void HelloWorld(object sender, EventArgs e)
 		{

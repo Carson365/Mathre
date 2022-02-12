@@ -143,6 +143,7 @@ namespace Mathre
             this.txtRectangleDimensions.Name = "txtRectangleDimensions";
             this.txtRectangleDimensions.Size = new System.Drawing.Size(200, 26);
             this.txtRectangleDimensions.TabIndex = 20;
+            this.txtRectangleDimensions.Tag = "Rectangle Dimensions";
             // 
             // lblRectangleDimensions
             // 

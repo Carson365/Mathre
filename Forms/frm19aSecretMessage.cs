@@ -1,12 +1,11 @@
-﻿using Mathre.Forms;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm19aSecretMessage : Form, IManager
+	public partial class Frm19aSecretMessage : Form
 	{
 		public static Frm00Mathre BaseForm;
 		string einput = "";
@@ -26,18 +25,6 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			dinput = null;
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
 		}
 		public void Input(object sender, EventArgs e)
 		{

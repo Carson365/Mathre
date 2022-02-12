@@ -8,7 +8,6 @@
 // Category 5 Hurricane Icon: https://upload.wikimedia.org/wikipedia/commons/9/91/Category_5_hurricane_icon.png
 // Hurricane Damage Information:  https://www.nhc.noaa.gov/aboutsshws.php
 // Hurricane Naming Information: https://www.nhc.noaa.gov/aboutnames.shtml
-using Mathre.Forms;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +15,7 @@ using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class Frm12Hurricane : Form, IManager
+	public partial class Frm12Hurricane : Form
 	{
 		public static Frm00Mathre BaseForm;
 		public string HurricaneInfo = "";
@@ -41,18 +40,6 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			foreach (var item in Dictionary[0]) { lstHurricaneList.Columns.Add(item); }
 			lstHurricaneList.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
 		}
 		public void Hurricane(object sender, EventArgs e)
 		{

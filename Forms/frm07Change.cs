@@ -1,4 +1,3 @@
-using Mathre.Forms;
 using System;
 using System.Globalization;
 using System.Linq;
@@ -6,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class Frm07Change : Form, IManager
+	public partial class Frm07Change : Form
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm07Change()
@@ -21,7 +20,6 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
-		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }
 		public void ChangeMaker(object sender, EventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;

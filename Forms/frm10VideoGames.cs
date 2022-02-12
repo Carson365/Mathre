@@ -5,13 +5,12 @@
 // Minecraft / XB1 : https://m.media-amazon.com/images/I/71QpSBZtkqL._SL100_.jpg
 // Doom / PS4 : https://m.media-amazon.com/images/I/91uV7r7aAhL._SL100_.jpg
 // Doom / XB1 : https://m.media-amazon.com/images/I/61bF5-QAX+L._SL100_.jpg
-using Mathre.Forms;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm10VideoGames : Form, IManager
+	public partial class Frm10VideoGames : Form
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm10VideoGames()
@@ -34,18 +33,6 @@ namespace Mathre
 			ImageSetter(null, null);
 			lblCost.Text = "";
 			lblCostText.Text = "";
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
 		}
 		public void ImageSetter(object sender, EventArgs e)
 		{

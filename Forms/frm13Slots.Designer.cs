@@ -107,8 +107,8 @@
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
             this.pnlBody.Controls.Add(this.pnlWager);
-            this.pnlBody.Controls.Add(this.chbAuto);
             this.pnlBody.Controls.Add(this.lblWinIndicator);
+            this.pnlBody.Controls.Add(this.chbAuto);
             this.pnlBody.Controls.Add(this.chbMessage);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
@@ -118,9 +118,9 @@
             // pnlWager
             // 
             this.pnlWager.Controls.Add(this.btnSpin);
-            this.pnlWager.Controls.Add(this.chbDouble);
             this.pnlWager.Controls.Add(this.lblPoints);
             this.pnlWager.Controls.Add(this.lblScore);
+            this.pnlWager.Controls.Add(this.chbDouble);
             this.pnlWager.Location = new System.Drawing.Point(214, 13);
             this.pnlWager.Name = "pnlWager";
             this.pnlWager.Size = new System.Drawing.Size(199, 79);

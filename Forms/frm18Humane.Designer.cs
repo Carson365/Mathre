@@ -37,15 +37,14 @@
             this.pnlPicture2 = new System.Windows.Forms.Panel();
             this.picCat2 = new System.Windows.Forms.PictureBox();
             this.btnKeep4 = new System.Windows.Forms.Button();
-			this.lblCat1 = new System.Windows.Forms.Label();
-			this.lblCat2 = new System.Windows.Forms.Label();
-			this.lblCat3 = new System.Windows.Forms.Label();
-			this.lblCat4 = new System.Windows.Forms.Label();
-            
+            this.lblCat4 = new System.Windows.Forms.Label();
+            this.lblCat3 = new System.Windows.Forms.Label();
             this.btnKeep3 = new System.Windows.Forms.Button();
+            this.lblCat2 = new System.Windows.Forms.Label();
             this.btnKeep2 = new System.Windows.Forms.Button();
             this.btnKeep1 = new System.Windows.Forms.Button();
-			this.pnlPicture1 = new System.Windows.Forms.Panel();
+            this.lblCat1 = new System.Windows.Forms.Label();
+            this.pnlPicture1 = new System.Windows.Forms.Panel();
             this.picCat1 = new System.Windows.Forms.PictureBox();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.lblCatSave = new System.Windows.Forms.Label();
@@ -89,15 +88,15 @@
             this.pnlBody2.Controls.Add(this.pnlPicture4);
             this.pnlBody2.Controls.Add(this.pnlPicture3);
             this.pnlBody2.Controls.Add(this.pnlPicture2);
-            this.pnlBody2.Controls.Add(this.btnKeep4);
             this.pnlBody2.Controls.Add(this.lblCat4);
             this.pnlBody2.Controls.Add(this.lblCat3);
-            this.pnlBody2.Controls.Add(this.btnKeep3);
             this.pnlBody2.Controls.Add(this.lblCat2);
-            this.pnlBody2.Controls.Add(this.btnKeep2);
-            this.pnlBody2.Controls.Add(this.btnKeep1);
             this.pnlBody2.Controls.Add(this.lblCat1);
             this.pnlBody2.Controls.Add(this.pnlPicture1);
+            this.pnlBody2.Controls.Add(this.btnKeep1);
+            this.pnlBody2.Controls.Add(this.btnKeep2);
+            this.pnlBody2.Controls.Add(this.btnKeep3);
+            this.pnlBody2.Controls.Add(this.btnKeep4);
             this.pnlBody2.Location = new System.Drawing.Point(287, 276);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
@@ -160,35 +159,24 @@
             this.picCat2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picCat2.TabIndex = 41;
             this.picCat2.TabStop = false;
-
-			// 
-			// lblCat1
-			// 
-			this.lblCat1.Location = new System.Drawing.Point(8, 6);
-			this.lblCat1.Name = "lblCat1";
-			this.lblCat1.Size = new System.Drawing.Size(80, 13);
-			this.lblCat1.TabIndex = 2;
-			this.lblCat1.Text = "Name";
-			this.lblCat1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// lblCat2
-			// 
-			this.lblCat2.Location = new System.Drawing.Point(118, 6);
-			this.lblCat2.Name = "lblCat2";
-			this.lblCat2.Size = new System.Drawing.Size(80, 13);
-			this.lblCat2.TabIndex = 5;
-			this.lblCat2.Text = "Name";
-			this.lblCat2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// btnKeep4
-			// 
-			this.btnKeep4.Location = new System.Drawing.Point(336, 108);
+            // 
+            // btnKeep4
+            // 
+            this.btnKeep4.Location = new System.Drawing.Point(336, 108);
             this.btnKeep4.Name = "btnKeep4";
             this.btnKeep4.Size = new System.Drawing.Size(84, 23);
             this.btnKeep4.TabIndex = 3;
             this.btnKeep4.Text = "Keep Animal 4";
             this.btnKeep4.UseVisualStyleBackColor = true;
-            
+            // 
+            // lblCat4
+            // 
+            this.lblCat4.Location = new System.Drawing.Point(338, 6);
+            this.lblCat4.Name = "lblCat4";
+            this.lblCat4.Size = new System.Drawing.Size(80, 13);
+            this.lblCat4.TabIndex = 5;
+            this.lblCat4.Text = "Name";
+            this.lblCat4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblCat3
             // 
@@ -198,24 +186,24 @@
             this.lblCat3.TabIndex = 8;
             this.lblCat3.Text = "Name";
             this.lblCat3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// lblCat4
-			// 
-			this.lblCat4.Location = new System.Drawing.Point(338, 6);
-			this.lblCat4.Name = "lblCat4";
-			this.lblCat4.Size = new System.Drawing.Size(80, 13);
-			this.lblCat4.TabIndex = 5;
-			this.lblCat4.Text = "Name";
-			this.lblCat4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// btnKeep3
-			// 
-			this.btnKeep3.Location = new System.Drawing.Point(226, 108);
+            // 
+            // btnKeep3
+            // 
+            this.btnKeep3.Location = new System.Drawing.Point(226, 108);
             this.btnKeep3.Name = "btnKeep3";
             this.btnKeep3.Size = new System.Drawing.Size(84, 23);
             this.btnKeep3.TabIndex = 6;
             this.btnKeep3.Text = "Keep Animal 3";
             this.btnKeep3.UseVisualStyleBackColor = true;
+            // 
+            // lblCat2
+            // 
+            this.lblCat2.Location = new System.Drawing.Point(118, 6);
+            this.lblCat2.Name = "lblCat2";
+            this.lblCat2.Size = new System.Drawing.Size(80, 13);
+            this.lblCat2.TabIndex = 5;
+            this.lblCat2.Text = "Name";
+            this.lblCat2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnKeep2
             // 
@@ -234,6 +222,15 @@
             this.btnKeep1.TabIndex = 0;
             this.btnKeep1.Text = "Keep Animal 1";
             this.btnKeep1.UseVisualStyleBackColor = true;
+            // 
+            // lblCat1
+            // 
+            this.lblCat1.Location = new System.Drawing.Point(8, 6);
+            this.lblCat1.Name = "lblCat1";
+            this.lblCat1.Size = new System.Drawing.Size(80, 13);
+            this.lblCat1.TabIndex = 2;
+            this.lblCat1.Text = "Name";
+            this.lblCat1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pnlPicture1
             // 

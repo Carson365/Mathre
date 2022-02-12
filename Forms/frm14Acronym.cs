@@ -1,11 +1,10 @@
-﻿using Mathre.Forms;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm14Acronym : Form, IManager
+	public partial class Frm14Acronym : Form
 	{
 		public static Frm00Mathre BaseForm;
 		public static Frm14Acronym ThisForm;
@@ -20,18 +19,6 @@ namespace Mathre
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			ThisForm = Application.OpenForms.OfType<Frm14Acronym>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
 		}
 		public void Acronym(object sender, EventArgs e)
 		{

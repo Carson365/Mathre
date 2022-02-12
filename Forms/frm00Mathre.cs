@@ -1,4 +1,3 @@
-using Mathre.Forms;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,7 +6,7 @@ using System.Reflection;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm00Mathre : Form, IManager
+	public partial class Frm00Mathre : Form
 	{
 		private string AccentColor;
 		private static Color SystemColor;
@@ -71,7 +70,6 @@ namespace Mathre
 			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 		}
-		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }
 		public IEnumerable<ToolStripMenuItem> GetAll(ToolStripItemCollection items)
 		{
 			List<ToolStripMenuItem> allItems = new();
@@ -100,7 +98,27 @@ namespace Mathre
 					tool.Enabled = b.Enabled;
 					tool.Text = b.Text;
 					tool.Name = b.Name;
-					tool.Click += ((IManager)Application.OpenForms[$"{b.FindForm().Name}"]).MenuControl;
+					Action a = b switch
+					{
+						Button bb => () => bb.PerformClick(),
+						RadioButton rb => () => rb.PerformClick(),
+						CheckBox cb => () => cb.Checked ^= true,
+						_ => null,
+					};
+					tool.Click += (p, e) => a();
+					item.DropDownItems.Add(tool);
+				}
+				if (b is TextBox)
+				{
+					ToolStripMenuItem tool = new();
+					tool.Enabled = b.Enabled;
+					tool.Text = $"{b.Tag}";
+					tool.Name = $"{b.Name}header";
+					ToolStripTextBox tool2 = new();
+					tool2.Text = b.Text;
+					tool2.Name = b.Name;
+					tool2.TextChanged += (p, e) => ((TextBox)b).Text = tool2.Text;
+					tool.DropDownItems.Add(tool2);
 					item.DropDownItems.Add(tool);
 				}
 			}

@@ -1,10 +1,9 @@
-﻿using Mathre.Forms;
-using System;
+﻿using System;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class FrmTemplate : Form, IManager
+	public partial class FrmTemplate : Form
 	{
 		public static Frm00Mathre BaseForm;
 		public FrmTemplate()
@@ -16,18 +15,6 @@ namespace Mathre
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
 		}
 		public void Default(object sender, EventArgs e)
 		{

@@ -91,7 +91,6 @@
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
             this.pnlBody.Controls.Add(this.lblTime);
             this.pnlBody.Controls.Add(this.lblElapsed);
-            this.pnlBody.Controls.Add(this.chbSounds);
             this.pnlBody.Controls.Add(this.chbHide);
             this.pnlBody.Controls.Add(this.lblPlayer2);
             this.pnlBody.Controls.Add(this.lblPlayer1);
@@ -99,6 +98,7 @@
             this.pnlBody.Controls.Add(this.txtP2);
             this.pnlBody.Controls.Add(this.txtP1);
             this.pnlBody.Controls.Add(this.lblGuesses);
+            this.pnlBody.Controls.Add(this.chbSounds);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);

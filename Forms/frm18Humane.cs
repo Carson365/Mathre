@@ -1,16 +1,14 @@
 ﻿// SOURCES:  https://github.com/fferlito/Cat-faces-dataset
-using Mathre.Forms;
 using Microsoft.VisualBasic;
 using System;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Media;
-using System.Text;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm18Humane : Form, IManager
+	public partial class Frm18Humane : Form
 	{
 		public static Frm00Mathre BaseForm;
 		public static Frm18Humane ThisForm;
@@ -46,18 +44,6 @@ namespace Mathre
 			}
 		}
 		public void Tabbed(bool enable) { aTimer.Enabled = enable; }
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
-		}
 		public void Images(object sender, EventArgs e) { ((PictureBox)Controls.Find($"picCat{n}", true)[0]).LoadAsync(@"https://thiscatdoesnotexist.com/"); }
 		public void Catname(object sender, EventArgs e)
 		{

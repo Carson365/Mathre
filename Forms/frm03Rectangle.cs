@@ -1,13 +1,12 @@
 // SOURCES:
 // Enter Icon: https://icons8.com/icon/62334/enter-mac-key
-using Mathre.Forms;
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm03Rectangle : Form, IManager
+	public partial class Frm03Rectangle : Form
 	{
 		public static object Placeholder;
 		public static Frm00Mathre BaseForm;
@@ -28,7 +27,6 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			KeyPreview = true;
 		}
-		public void MenuControl(object sender, EventArgs e) { throw new NotImplementedException(); }
 		public void Rectangle(object sender, EventArgs e)
 		{
 			double Height = 0;

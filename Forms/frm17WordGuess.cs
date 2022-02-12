@@ -1,5 +1,4 @@
 ﻿// Sound Effects from zapsplat
-using Mathre.Forms;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -11,7 +10,7 @@ using System.Timers;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm17WordGuess : Form, IManager
+	public partial class Frm17WordGuess : Form
 	{
 		public static Frm00Mathre BaseForm;
 		string abc = " ";
@@ -42,18 +41,6 @@ namespace Mathre
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			//Play("Background");
 			Timer();
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			var senderName = ((ToolStripMenuItem)sender).Name;
-			Action a = senderName.Substring(0, 3) switch
-			{
-				"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-				"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-				"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-				_ => null,
-			};
-			a?.Invoke();
 		}
 		public void TickEvent(object sender, EventArgs e) { lblTime.Text = $"{elapsedtime++}"; if (finished) { tmrTime.Stop(); elapsedtime = 1; lblTime.Text = "0"; } }
 		public void Tabbed(bool play) { playsounds = play; Play("Background"); }

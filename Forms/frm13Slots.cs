@@ -1,12 +1,11 @@
-﻿using Mathre.Forms;
-using Microsoft.VisualBasic;
+﻿using Microsoft.VisualBasic;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm13Slots : Form, IManager
+	public partial class Frm13Slots : Form
 	{
 		public static Frm00Mathre BaseForm;
 		public int tokens = 30;
@@ -26,21 +25,6 @@ namespace Mathre
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-		}
-		public void MenuControl(object sender, EventArgs e)
-		{
-			if (Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault() != null)
-			{
-				var senderName = ((ToolStripMenuItem)sender).Name;
-				Action a = senderName.Substring(0, 3) switch
-				{
-					"btn" => () => ((Button)Controls.Find(senderName, true)[0]).PerformClick(),
-					"rad" => () => ((RadioButton)Controls.Find(senderName, true)[0]).PerformClick(),
-					"chb" => () => ((CheckBox)Controls.Find(senderName, true)[0]).Checked ^= true,
-					_ => null,
-				};
-				a?.Invoke();
-			}
 		}
 		public void Tabbed() { if (!loadedonce) { loadedonce = true; Loaded(null, null); } }
 		public void Loaded(object sender, EventArgs e)
