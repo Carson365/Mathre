@@ -37,21 +37,22 @@
             this.pnlPicture2 = new System.Windows.Forms.Panel();
             this.picCat2 = new System.Windows.Forms.PictureBox();
             this.btnKeep4 = new System.Windows.Forms.Button();
-            this.lblCat4 = new System.Windows.Forms.Label();
-            this.lblCat3 = new System.Windows.Forms.Label();
+			this.lblCat1 = new System.Windows.Forms.Label();
+			this.lblCat2 = new System.Windows.Forms.Label();
+			this.lblCat3 = new System.Windows.Forms.Label();
+			this.lblCat4 = new System.Windows.Forms.Label();
+            
             this.btnKeep3 = new System.Windows.Forms.Button();
-            this.lblCat2 = new System.Windows.Forms.Label();
             this.btnKeep2 = new System.Windows.Forms.Button();
             this.btnKeep1 = new System.Windows.Forms.Button();
-            this.lblCat1 = new System.Windows.Forms.Label();
-            this.pnlPicture1 = new System.Windows.Forms.Panel();
+			this.pnlPicture1 = new System.Windows.Forms.Panel();
             this.picCat1 = new System.Windows.Forms.PictureBox();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.btnTimerToggle = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.lblCatSave = new System.Windows.Forms.Label();
+            this.btnTimerToggle = new System.Windows.Forms.Button();
             this.pnlPictureSave = new System.Windows.Forms.Panel();
             this.picCatSave = new System.Windows.Forms.PictureBox();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlPicture4.SuspendLayout();
@@ -101,6 +102,7 @@
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
             this.pnlBody2.TabIndex = 37;
+            this.pnlBody2.Tag = ",Keep Animal";
             // 
             // pnlPicture4
             // 
@@ -158,24 +160,35 @@
             this.picCat2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picCat2.TabIndex = 41;
             this.picCat2.TabStop = false;
-            // 
-            // btnKeep4
-            // 
-            this.btnKeep4.Location = new System.Drawing.Point(338, 108);
+
+			// 
+			// lblCat1
+			// 
+			this.lblCat1.Location = new System.Drawing.Point(8, 6);
+			this.lblCat1.Name = "lblCat1";
+			this.lblCat1.Size = new System.Drawing.Size(80, 13);
+			this.lblCat1.TabIndex = 2;
+			this.lblCat1.Text = "Name";
+			this.lblCat1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// lblCat2
+			// 
+			this.lblCat2.Location = new System.Drawing.Point(118, 6);
+			this.lblCat2.Name = "lblCat2";
+			this.lblCat2.Size = new System.Drawing.Size(80, 13);
+			this.lblCat2.TabIndex = 5;
+			this.lblCat2.Text = "Name";
+			this.lblCat2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// btnKeep4
+			// 
+			this.btnKeep4.Location = new System.Drawing.Point(336, 108);
             this.btnKeep4.Name = "btnKeep4";
-            this.btnKeep4.Size = new System.Drawing.Size(80, 23);
+            this.btnKeep4.Size = new System.Drawing.Size(84, 23);
             this.btnKeep4.TabIndex = 3;
-            this.btnKeep4.Text = "Keep Animal";
+            this.btnKeep4.Text = "Keep Animal 4";
             this.btnKeep4.UseVisualStyleBackColor = true;
-            // 
-            // lblCat4
-            // 
-            this.lblCat4.Location = new System.Drawing.Point(338, 6);
-            this.lblCat4.Name = "lblCat4";
-            this.lblCat4.Size = new System.Drawing.Size(80, 13);
-            this.lblCat4.TabIndex = 5;
-            this.lblCat4.Text = "Name";
-            this.lblCat4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            
             // 
             // lblCat3
             // 
@@ -185,51 +198,42 @@
             this.lblCat3.TabIndex = 8;
             this.lblCat3.Text = "Name";
             this.lblCat3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnKeep3
-            // 
-            this.btnKeep3.Location = new System.Drawing.Point(228, 108);
+			// 
+			// lblCat4
+			// 
+			this.lblCat4.Location = new System.Drawing.Point(338, 6);
+			this.lblCat4.Name = "lblCat4";
+			this.lblCat4.Size = new System.Drawing.Size(80, 13);
+			this.lblCat4.TabIndex = 5;
+			this.lblCat4.Text = "Name";
+			this.lblCat4.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// btnKeep3
+			// 
+			this.btnKeep3.Location = new System.Drawing.Point(226, 108);
             this.btnKeep3.Name = "btnKeep3";
-            this.btnKeep3.Size = new System.Drawing.Size(80, 23);
+            this.btnKeep3.Size = new System.Drawing.Size(84, 23);
             this.btnKeep3.TabIndex = 6;
-            this.btnKeep3.Text = "Keep Animal";
+            this.btnKeep3.Text = "Keep Animal 3";
             this.btnKeep3.UseVisualStyleBackColor = true;
-            // 
-            // lblCat2
-            // 
-            this.lblCat2.Location = new System.Drawing.Point(118, 6);
-            this.lblCat2.Name = "lblCat2";
-            this.lblCat2.Size = new System.Drawing.Size(80, 13);
-            this.lblCat2.TabIndex = 5;
-            this.lblCat2.Text = "Name";
-            this.lblCat2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btnKeep2
             // 
-            this.btnKeep2.Location = new System.Drawing.Point(118, 108);
+            this.btnKeep2.Location = new System.Drawing.Point(116, 108);
             this.btnKeep2.Name = "btnKeep2";
-            this.btnKeep2.Size = new System.Drawing.Size(80, 23);
+            this.btnKeep2.Size = new System.Drawing.Size(84, 23);
             this.btnKeep2.TabIndex = 3;
-            this.btnKeep2.Text = "Keep Animal";
+            this.btnKeep2.Text = "Keep Animal 2";
             this.btnKeep2.UseVisualStyleBackColor = true;
             // 
             // btnKeep1
             // 
-            this.btnKeep1.Location = new System.Drawing.Point(8, 108);
+            this.btnKeep1.Location = new System.Drawing.Point(6, 108);
             this.btnKeep1.Name = "btnKeep1";
-            this.btnKeep1.Size = new System.Drawing.Size(80, 23);
+            this.btnKeep1.Size = new System.Drawing.Size(84, 23);
             this.btnKeep1.TabIndex = 0;
-            this.btnKeep1.Text = "Keep Animal";
+            this.btnKeep1.Text = "Keep Animal 1";
             this.btnKeep1.UseVisualStyleBackColor = true;
-            // 
-            // lblCat1
-            // 
-            this.lblCat1.Location = new System.Drawing.Point(8, 6);
-            this.lblCat1.Name = "lblCat1";
-            this.lblCat1.Size = new System.Drawing.Size(80, 13);
-            this.lblCat1.TabIndex = 2;
-            this.lblCat1.Text = "Name";
-            this.lblCat1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // pnlPicture1
             // 
@@ -262,27 +266,6 @@
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
             // 
-            // btnTimerToggle
-            // 
-            this.btnTimerToggle.Location = new System.Drawing.Point(164, 41);
-            this.btnTimerToggle.Name = "btnTimerToggle";
-            this.btnTimerToggle.Size = new System.Drawing.Size(99, 23);
-            this.btnTimerToggle.TabIndex = 38;
-            this.btnTimerToggle.Text = "Toggle Cycle";
-            this.btnTimerToggle.UseVisualStyleBackColor = true;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
-            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(626, 51);
-            this.lblTitle.TabIndex = 31;
-            this.lblTitle.Text = "Humane Society";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblCatSave
             // 
             this.lblCatSave.Location = new System.Drawing.Point(338, 4);
@@ -291,6 +274,15 @@
             this.lblCatSave.TabIndex = 43;
             this.lblCatSave.Text = "Name";
             this.lblCatSave.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnTimerToggle
+            // 
+            this.btnTimerToggle.Location = new System.Drawing.Point(164, 41);
+            this.btnTimerToggle.Name = "btnTimerToggle";
+            this.btnTimerToggle.Size = new System.Drawing.Size(99, 23);
+            this.btnTimerToggle.TabIndex = 38;
+            this.btnTimerToggle.Text = "Toggle Cycle";
+            this.btnTimerToggle.UseVisualStyleBackColor = true;
             // 
             // pnlPictureSave
             // 
@@ -310,6 +302,18 @@
             this.picCatSave.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picCatSave.TabIndex = 41;
             this.picCatSave.TabStop = false;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(626, 51);
+            this.lblTitle.TabIndex = 31;
+            this.lblTitle.Text = "Humane Society";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm18Humane
             // 
@@ -343,15 +347,15 @@
 		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Panel pnlBody2;
-		private System.Windows.Forms.Label lblCat1;
 		private System.Windows.Forms.Panel pnlPicture1;
 		private System.Windows.Forms.Button btnKeep1;
 		private System.Windows.Forms.Button btnTimerToggle;
 		private System.Windows.Forms.Button btnKeep4;
-		private System.Windows.Forms.Label lblCat4;
-		private System.Windows.Forms.Label lblCat3;
-		private System.Windows.Forms.Button btnKeep3;
+		private System.Windows.Forms.Label lblCat1;
 		private System.Windows.Forms.Label lblCat2;
+		private System.Windows.Forms.Label lblCat3;
+		private System.Windows.Forms.Label lblCat4;
+		private System.Windows.Forms.Button btnKeep3;
 		private System.Windows.Forms.Button btnKeep2;
 		private System.Windows.Forms.Panel pnlPicture4;
 		private System.Windows.Forms.PictureBox picCat4;

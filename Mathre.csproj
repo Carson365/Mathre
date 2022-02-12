@@ -182,6 +182,18 @@
     <Compile Include="Forms\frm18Humane.Designer.cs">
       <DependentUpon>frm18Humane.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm19aSecretMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm19aSecretMessage.Designer.cs">
+      <DependentUpon>frm19aSecretMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm19bSecretMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm19bSecretMessage.Designer.cs">
+      <DependentUpon>frm19bSecretMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,6 +317,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm18Humane.resx">
       <DependentUpon>frm18Humane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm19aSecretMessage.resx">
+      <DependentUpon>frm19aSecretMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm19bSecretMessage.resx">
+      <DependentUpon>frm19bSecretMessage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>

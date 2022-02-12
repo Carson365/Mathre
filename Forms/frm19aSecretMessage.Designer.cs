@@ -1,6 +1,6 @@
 ﻿namespace Mathre
 {
-	partial class FrmTemplate
+	partial class Frm19aSecretMessage
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -31,8 +31,12 @@
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlBody2 = new System.Windows.Forms.Panel();
+            this.btnInput = new System.Windows.Forms.Button();
+            this.btnOutput = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.chbDecode = new System.Windows.Forms.CheckBox();
             this.pnlFrame.SuspendLayout();
+            this.pnlBody.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -41,18 +45,21 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.pnlBody2);
             this.pnlFrame.Controls.Add(this.pnlBody);
             this.pnlFrame.Controls.Add(this.lblTitle);
             this.pnlFrame.Location = new System.Drawing.Point(-8, -20);
             this.pnlFrame.Name = "pnlFrame";
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
-            this.pnlFrame.TabIndex = 33;
+            this.pnlFrame.TabIndex = 34;
             // 
             // pnlBody
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.chbDecode);
+            this.pnlBody.Controls.Add(this.btnClear);
+            this.pnlBody.Controls.Add(this.btnOutput);
+            this.pnlBody.Controls.Add(this.btnInput);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
@@ -70,25 +77,57 @@
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // pnlBody2
+            // btnInput
             // 
-            this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
-            this.pnlBody2.Name = "pnlBody2";
-            this.pnlBody2.Size = new System.Drawing.Size(426, 136);
-            this.pnlBody2.TabIndex = 38;
+            this.btnInput.Location = new System.Drawing.Point(85, 26);
+            this.btnInput.Name = "btnInput";
+            this.btnInput.Size = new System.Drawing.Size(120, 23);
+            this.btnInput.TabIndex = 0;
+            this.btnInput.Text = "Input Your Message";
+            this.btnInput.UseVisualStyleBackColor = true;
             // 
-            // FrmTemplate
+            // btnOutput
+            // 
+            this.btnOutput.Enabled = false;
+            this.btnOutput.Location = new System.Drawing.Point(85, 55);
+            this.btnOutput.Name = "btnOutput";
+            this.btnOutput.Size = new System.Drawing.Size(120, 23);
+            this.btnOutput.TabIndex = 1;
+            this.btnOutput.Text = "See the Code";
+            this.btnOutput.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Enabled = false;
+            this.btnClear.Location = new System.Drawing.Point(221, 26);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 23);
+            this.btnClear.TabIndex = 2;
+            this.btnClear.Text = "Clear the Code";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
+            // chbDecode
+            // 
+            this.chbDecode.AutoSize = true;
+            this.chbDecode.Location = new System.Drawing.Point(230, 58);
+            this.chbDecode.Name = "chbDecode";
+            this.chbDecode.Size = new System.Drawing.Size(102, 17);
+            this.chbDecode.TabIndex = 3;
+            this.chbDecode.Text = "Decoding Mode";
+            this.chbDecode.UseVisualStyleBackColor = true;
+            // 
+            // Frm19aSecretMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlFrame);
-            this.Name = "FrmTemplate";
-            this.Text = "Template";
+            this.Name = "Frm19aSecretMessage";
+            this.Text = "Secret Message";
             this.pnlFrame.ResumeLayout(false);
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -98,6 +137,9 @@
 		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Panel pnlBody;
 		internal System.Windows.Forms.Label lblTitle;
-		private System.Windows.Forms.Panel pnlBody2;
+		private System.Windows.Forms.Button btnInput;
+		private System.Windows.Forms.Button btnOutput;
+		private System.Windows.Forms.Button btnClear;
+		private System.Windows.Forms.CheckBox chbDecode;
 	}
 }

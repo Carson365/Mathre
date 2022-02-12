@@ -34,7 +34,7 @@ namespace Mathre
 			}
 			else
 			{
-				if (txtNumber.SelectionStart == txtNumber.Text.Length)
+				if (txtNumber.SelectionStart == txtNumber.Text.Length+1)
 				{
 					var label = (txtNumber.SelectionStart % 2) switch { 1 => lblDigitsListEvens, _ => lblDigitsListOdds };
 					label.Text = label.Text.Remove(label.Text.Length - 13);

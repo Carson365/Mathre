@@ -22,7 +22,7 @@ namespace Mathre
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre" && t.Name != "FrmTemplate"))
+			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre" && t.Name != "FrmTemplate" && t.Name != "Frm19bSecretMessage"))
 			{
 				var form = Activator.CreateInstance(type) as Form;
 				form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
@@ -97,7 +97,7 @@ namespace Mathre
 				if ((b is Button) || (b is RadioButton) || (b is CheckBox))
 				{
 					ToolStripMenuItem tool = new();
-					tool.Enabled = !(new string[] { "radRock2", "radPaper2", "radScissors2" }).Any(b.Name.Contains);
+					tool.Enabled = b.Enabled;
 					tool.Text = b.Text;
 					tool.Name = b.Name;
 					tool.Click += ((IManager)Application.OpenForms[$"{b.FindForm().Name}"]).MenuControl;
