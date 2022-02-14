@@ -50,7 +50,7 @@ namespace Mathre
 					menu.Text = form.Text;
 					menu.Name = form.Name.Replace("tab", "mnu");
 					mnuFile.DropDownItems.Add(menu);
-					form.Controls.OfType<Control>().All(c => { GetMenu(c, menu); return true; });
+					form.Controls.OfType<Control>().All(c => { GetMenu(c, menu, form); return true; });
 				}
 			}
 			ToolStripMenuItem exit = new();
@@ -80,7 +80,7 @@ namespace Mathre
 		{
 			foreach (Control b in container.Controls) { GetAllControls(b); if ((b is Panel) && (b is not TabPage) && b.Name != "pnlFrame") { b.Paint += PaintPanel; } }
 		}
-		public void GetMenu(Control container, ToolStripMenuItem item)
+		public void GetMenu(Control container, ToolStripMenuItem item, Form form)
 		{
 			foreach (Control b in container.Controls)
 			{
@@ -89,7 +89,7 @@ namespace Mathre
 					ToolStripMenuItem menu = new();
 					menu.Text = $"{b.Tag}".Substring($"{b.Tag}".LastIndexOf(',') + 1);
 					item.DropDownItems.Add(menu);
-					GetMenu(b, menu);
+					GetMenu(b, menu, form);
 				}
 				else { GetMenu(b, item); }
 				if ((b is Button) || (b is RadioButton) || (b is CheckBox))
@@ -124,19 +124,20 @@ namespace Mathre
 					{
 						tool2.TextBox.KeyPress += (p, e) =>
 						{
-							Action A = b.FindForm() switch
-							{
-								Frm05Temperature => () => Application.OpenForms.OfType<Frm05Temperature>().SingleOrDefault().InputFormatter(p, e),
-								Frm06Digits => () => Application.OpenForms.OfType<Frm06Digits>().SingleOrDefault().InputFormatter(p, e),
-								Frm07Change => () => Application.OpenForms.OfType<Frm07Change>().SingleOrDefault().InputFormatter(p, e),
-								Frm08Pizza => () => Application.OpenForms.OfType<Frm08Pizza>().SingleOrDefault().InputFormatter(p, e),
-								Frm09Grade => () => Application.OpenForms.OfType<Frm09Grade>().SingleOrDefault().InputFormatter(p, e),
-								Frm12Hurricane => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
-								Frm15Sum => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
-								Frm17WordGuess => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
-								_ => null,
-							};
-							A();
+						((IManager)form).InputFormatter(p,e);
+							//Action A = b.FindForm() switch
+							//{
+							//	Frm05Temperature => () => Application.OpenForms.OfType<Frm05Temperature>().SingleOrDefault().InputFormatter(p, e),
+							//	Frm06Digits => () => Application.OpenForms.OfType<Frm06Digits>().SingleOrDefault().InputFormatter(p, e),
+							//	Frm07Change => () => Application.OpenForms.OfType<Frm07Change>().SingleOrDefault().InputFormatter(p, e),
+							//	Frm08Pizza => () => Application.OpenForms.OfType<Frm08Pizza>().SingleOrDefault().InputFormatter(p, e),
+							//	Frm09Grade => () => Application.OpenForms.OfType<Frm09Grade>().SingleOrDefault().InputFormatter(p, e),
+							//	Frm12Hurricane => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
+							//	Frm15Sum => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
+							//	Frm17WordGuess => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
+							//	_ => null,
+							//};
+							//A();
 						};
 					}
 					b.TextChanged += (p, e) => { tool2.Text = b.Text; };
