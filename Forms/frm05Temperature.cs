@@ -2,9 +2,10 @@ using System;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Forms;
+using Mathre.Forms;
 namespace Mathre
 {
-	public partial class Frm05Temperature : Form
+	public partial class Frm05Temperature : Form, IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm05Temperature()
