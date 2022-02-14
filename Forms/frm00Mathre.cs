@@ -4,7 +4,6 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using System.Windows.Input;
 namespace Mathre
 {
 	public partial class Frm00Mathre : Form
@@ -119,15 +118,28 @@ namespace Mathre
 					tool2.Text = b.Text;
 					tool2.Name = b.Name;
 					Console.WriteLine(b.FindForm().Name);
-					tool2.KeyDown += (p, e) => {
-						Action A = b.FindForm().Name switch
+					if (b.FindForm().Name == "Frm03Rectangle")
+						tool2.TextBox.KeyDown += (p, e) => Application.OpenForms.OfType<Frm03Rectangle>().SingleOrDefault().RectangleKeypress(p, e);
+					else
+					{
+						tool2.TextBox.KeyPress += (p, e) =>
 						{
-							"Frm03Rectangle" => () => { var F03 = Application.OpenForms.OfType<Frm03Rectangle>().SingleOrDefault(); F03.RectangleKeypress2(p, e); }
-							,
-							_ => null,
+							Action A = b.FindForm() switch
+							{
+								Frm05Temperature => () => Application.OpenForms.OfType<Frm05Temperature>().SingleOrDefault().InputFormatter(p, e),
+								Frm06Digits => () => Application.OpenForms.OfType<Frm06Digits>().SingleOrDefault().InputFormatter(p, e),
+								Frm07Change => () => Application.OpenForms.OfType<Frm07Change>().SingleOrDefault().InputFormatter(p, e),
+								Frm08Pizza => () => Application.OpenForms.OfType<Frm08Pizza>().SingleOrDefault().InputFormatter(p, e),
+								Frm09Grade => () => Application.OpenForms.OfType<Frm09Grade>().SingleOrDefault().InputFormatter(p, e),
+								Frm12Hurricane => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
+								Frm15Sum => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
+								Frm17WordGuess => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
+								_ => null,
+							};
+							A();
 						};
-						A();
-					};
+					}
+					b.TextChanged += (p, e) => { tool2.Text = b.Text; };
 					tool2.TextChanged += (p, e) => { b.Text = tool2.Text; };
 					//
 					tool.DropDownItems.Add(tool2);
