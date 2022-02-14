@@ -73,14 +73,15 @@ namespace Mathre
 		}
 		public void RectangleKeypress(object sender, KeyEventArgs e)
 		{
+			TextBox textBox = sender as TextBox;
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			string[] words = txtRectangleDimensions.Text.Split('*');
+			string[] words = textBox.Text.Split('*');
 			if (!(e.KeyCode == Keys.Left || e.KeyCode == Keys.Right))
 			{
 				pnlRectangle.Visible = false;
 				lblRectangleArea.Text = "Area";
 				lblRectanglePerimeter.Text = "Perimeter";
-				if (sender is not TextBoxBase textBox) return;
+
 				if (e.KeyCode == Keys.OemPeriod || e.KeyCode == Keys.Decimal)
 				{
 					if (textBox.SelectionStart > words[0].Length && words[1].Contains(DecimalChar)) { e.SuppressKeyPress = true; }
@@ -90,22 +91,64 @@ namespace Mathre
 				{
 					if (e.Shift)
 					{
-						if (e.KeyCode == Keys.D8) { if (txtRectangleDimensions.Text.Contains("*")) { e.SuppressKeyPress = true; } }
+						if (e.KeyCode == Keys.D8) { if (textBox.Text.Contains("*")) { e.SuppressKeyPress = true; } }
 						else { e.SuppressKeyPress = true; }
 					}
 					else if (((e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9) && (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)))
 					{
-						if (txtRectangleDimensions.Text.Contains("*"))
+						if (textBox.Text.Contains("*"))
 						{
 							e.SuppressKeyPress = true;
-							if (txtRectangleDimensions.SelectedText.Contains('*')) { txtRectangleDimensions.Paste("*"); }
+							if (textBox.SelectedText.Contains('*')) { textBox.SelectedText = ""; textBox.AppendText("*"); }
 						}
 						else
 						{
 							e.SuppressKeyPress = true;
-							int selectionIndex = txtRectangleDimensions.SelectionStart;
-							txtRectangleDimensions.Text = txtRectangleDimensions.Text.Insert(selectionIndex, "*");
-							txtRectangleDimensions.SelectionStart = selectionIndex + 1;
+							int selectionIndex = textBox.SelectionStart;
+							textBox.Text = textBox.Text.Insert(selectionIndex, "*");
+							textBox.SelectionStart = selectionIndex + 1;
+						}
+					}
+				}
+				Rectangle(Placeholder, null);
+			}
+		}
+		public void RectangleKeypress2(object sender, KeyEventArgs e)
+		{
+			ToolStripTextBox textBox = sender as ToolStripTextBox;
+			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
+			string[] words = textBox.Text.Split('*');
+			if (!(e.KeyCode == Keys.Left || e.KeyCode == Keys.Right))
+			{
+				pnlRectangle.Visible = false;
+				lblRectangleArea.Text = "Area";
+				lblRectanglePerimeter.Text = "Perimeter";
+				
+				if (e.KeyCode == Keys.OemPeriod || e.KeyCode == Keys.Decimal)
+				{
+					if (textBox.SelectionStart > words[0].Length && words[1].Contains(DecimalChar)) { e.SuppressKeyPress = true; }
+					else if (textBox.SelectionStart < words[0].Length && words[0].Contains(DecimalChar)) { e.SuppressKeyPress = true; }
+				}
+				else if (e.KeyCode != Keys.Back && e.KeyCode != Keys.Delete)
+				{
+					if (e.Shift)
+					{
+						if (e.KeyCode == Keys.D8) { if (textBox.Text.Contains("*")) { e.SuppressKeyPress = true; } }
+						else { e.SuppressKeyPress = true; }
+					}
+					else if (((e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9) && (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)))
+					{
+						if (textBox.Text.Contains("*"))
+						{
+							e.SuppressKeyPress = true;
+							if (textBox.SelectedText.Contains('*')) { textBox.SelectedText = ""; textBox.AppendText("*"); }
+						}
+						else
+						{
+							e.SuppressKeyPress = true;
+							int selectionIndex = textBox.SelectionStart;
+							textBox.Text = textBox.Text.Insert(selectionIndex, "*");
+							textBox.SelectionStart = selectionIndex + 1;
 						}
 					}
 				}

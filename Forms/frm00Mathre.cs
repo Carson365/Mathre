@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Windows.Input;
 namespace Mathre
 {
 	public partial class Frm00Mathre : Form
@@ -50,7 +51,7 @@ namespace Mathre
 					menu.Text = form.Text;
 					menu.Name = form.Name.Replace("tab", "mnu");
 					mnuFile.DropDownItems.Add(menu);
-					form.Controls.OfType<Control>().All(c => { GetButtons(c, menu); return true; });
+					form.Controls.OfType<Control>().All(c => { GetMenu(c, menu); return true; });
 				}
 			}
 			ToolStripMenuItem exit = new();
@@ -80,7 +81,7 @@ namespace Mathre
 		{
 			foreach (Control b in container.Controls) { GetAllControls(b); if ((b is Panel) && (b is not TabPage) && b.Name != "pnlFrame") { b.Paint += PaintPanel; } }
 		}
-		public void GetButtons(Control container, ToolStripMenuItem item)
+		public void GetMenu(Control container, ToolStripMenuItem item)
 		{
 			foreach (Control b in container.Controls)
 			{
@@ -89,9 +90,9 @@ namespace Mathre
 					ToolStripMenuItem menu = new();
 					menu.Text = $"{b.Tag}".Substring($"{b.Tag}".LastIndexOf(',') + 1);
 					item.DropDownItems.Add(menu);
-					GetButtons(b, menu);
+					GetMenu(b, menu);
 				}
-				else { GetButtons(b, item); }
+				else { GetMenu(b, item); }
 				if ((b is Button) || (b is RadioButton) || (b is CheckBox))
 				{
 					ToolStripMenuItem tool = new();
@@ -108,7 +109,7 @@ namespace Mathre
 					tool.Click += (p, e) => a();
 					item.DropDownItems.Add(tool);
 				}
-				if (b is TextBox)
+				if (b is TextBox bx)
 				{
 					ToolStripMenuItem tool = new();
 					tool.Enabled = b.Enabled;
@@ -117,7 +118,18 @@ namespace Mathre
 					ToolStripTextBox tool2 = new();
 					tool2.Text = b.Text;
 					tool2.Name = b.Name;
-					tool2.TextChanged += (p, e) => ((TextBox)b).Text = tool2.Text;
+					Console.WriteLine(b.FindForm().Name);
+					tool2.KeyDown += (p, e) => {
+						Action A = b.FindForm().Name switch
+						{
+							"Frm03Rectangle" => () => { var F03 = Application.OpenForms.OfType<Frm03Rectangle>().SingleOrDefault(); F03.RectangleKeypress2(p, e); }
+							,
+							_ => null,
+						};
+						A();
+					};
+					tool2.TextChanged += (p, e) => { b.Text = tool2.Text; };
+					//
 					tool.DropDownItems.Add(tool2);
 					item.DropDownItems.Add(tool);
 				}
@@ -146,7 +158,7 @@ namespace Mathre
 		{
 			foreach (var TSI in GetAll(TSMI.DropDownItems)) { if (TSI is ToolStripMenuItem TSI2) { TSMI.DropDown.KeyDown += KeyboardShortcuts; MenuKeypress(TSI2); } }
 		}
-		public void KeyboardShortcuts(object sender, KeyEventArgs e)
+		public void KeyboardShortcuts(object sender, System.Windows.Forms.KeyEventArgs e)
 		{
 			var F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 			if (e.Control & e.KeyCode == Keys.S)
