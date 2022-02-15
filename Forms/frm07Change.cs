@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class Frm07Change : Form
+	public partial class Frm07Change : Form, Forms.IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm07Change()

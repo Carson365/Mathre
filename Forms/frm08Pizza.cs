@@ -8,15 +8,15 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm08Pizza : Form
+	public partial class Frm08Pizza : Form, Forms.IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm08Pizza()
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			txtPizzaSize.KeyUp += Pizza;
-			txtPizzaTip.KeyUp += Pizza;
+			txtPizzaSize.TextChanged += Pizza;
+			txtPizzaTip.TextChanged += Pizza;
 			radDelivery.CheckedChanged += Pizza;
 			radTakeout.CheckedChanged += Pizza;
 			radPercent.CheckedChanged += Pizza;

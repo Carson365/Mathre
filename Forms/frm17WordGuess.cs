@@ -29,8 +29,8 @@ namespace Mathre
 			InitializeComponent();
 			Load += FormLoad;
 			txtP1.TextChanged += Default;
-			txtP1.KeyDown += (p, e) => { if (txtP1.Text.Length > 15 && e.KeyCode != Keys.Back) { e.SuppressKeyPress = true; } };
-			txtP2.KeyDown += (p, e) => { if (totalguesses < 1) { e.SuppressKeyPress = true; } if (txtP1.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } };
+			txtP1.KeyDown += KeyPressEvent;
+			txtP2.KeyDown += KeyPressEvent;
 			txtP2.TextChanged += Default;
 			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) { txtP1.UseSystemPasswordChar = true; } else { txtP1.UseSystemPasswordChar = false; } };
 			chbSounds.CheckedChanged += (p, e) => { playsounds = !playsounds; Play("Background"); };
@@ -119,6 +119,15 @@ namespace Mathre
 				runcolors++;
 			}
 			else BackColor = System.Drawing.Color.White;
+		}
+
+		public void KeyPressEvent(object sender, KeyEventArgs e)
+		{
+			TextBox tB = sender as TextBox;
+			//Console.WriteLine(tB.ToString());
+			Console.WriteLine(tB.Name);
+			if (((TextBox)sender).Name == "txtP1") { if (txtP1.Text.Length > 15 && e.KeyCode != Keys.Back) { e.SuppressKeyPress = true; } }
+			else { { if (totalguesses < 1) { e.SuppressKeyPress = true; } if (txtP1.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } } };
 		}
 	}
 }

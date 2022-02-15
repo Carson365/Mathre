@@ -4,14 +4,13 @@ using System.Windows.Forms;
 
 namespace Mathre
 {
-	public partial class Frm06Digits : Form
+	public partial class Frm06Digits : Form, Forms.IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public Frm06Digits()
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			txtNumber.TextChanged += Digits;
 			txtNumber.KeyPress += InputFormatter;
 		}
 		public void FormLoad(object sender, EventArgs e)
@@ -76,6 +75,7 @@ namespace Mathre
 		{
 			if (sender is not TextBoxBase) return;
 			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
+			Digits(null, null);
 		}
 	}
 }

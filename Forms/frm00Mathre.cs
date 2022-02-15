@@ -91,7 +91,7 @@ namespace Mathre
 					item.DropDownItems.Add(menu);
 					GetMenu(b, menu, form);
 				}
-				else { GetMenu(b, item); }
+				else { GetMenu(b, item, form); }
 				if ((b is Button) || (b is RadioButton) || (b is CheckBox))
 				{
 					ToolStripMenuItem tool = new();
@@ -108,42 +108,20 @@ namespace Mathre
 					tool.Click += (p, e) => a();
 					item.DropDownItems.Add(tool);
 				}
-				if (b is TextBox bx)
+				if (b is TextBox bx && (b.Parent is not NumericUpDown))
 				{
-					ToolStripMenuItem tool = new();
+					ToolStripTextBox tool = new();
 					tool.Enabled = b.Enabled;
-					tool.Text = $"{b.Tag}";
-					tool.Name = $"{b.Name}header";
-					ToolStripTextBox tool2 = new();
-					tool2.Text = b.Text;
-					tool2.Name = b.Name;
-					Console.WriteLine(b.FindForm().Name);
+					tool.Text = $"{b.Text}";
+					tool.Name = $"{bx.Name}";
+					tool.TextBox.Name = $"{b.Name}";
+					b.TextChanged += (p, e) => { tool.Text = b.Text; };
+					tool.TextChanged += (p, e) => { b.Text = tool.Text; };
 					if (b.FindForm().Name == "Frm03Rectangle")
-						tool2.TextBox.KeyDown += (p, e) => Application.OpenForms.OfType<Frm03Rectangle>().SingleOrDefault().RectangleKeypress(p, e);
-					else
-					{
-						tool2.TextBox.KeyPress += (p, e) =>
-						{
-						((IManager)form).InputFormatter(p,e);
-							//Action A = b.FindForm() switch
-							//{
-							//	Frm05Temperature => () => Application.OpenForms.OfType<Frm05Temperature>().SingleOrDefault().InputFormatter(p, e),
-							//	Frm06Digits => () => Application.OpenForms.OfType<Frm06Digits>().SingleOrDefault().InputFormatter(p, e),
-							//	Frm07Change => () => Application.OpenForms.OfType<Frm07Change>().SingleOrDefault().InputFormatter(p, e),
-							//	Frm08Pizza => () => Application.OpenForms.OfType<Frm08Pizza>().SingleOrDefault().InputFormatter(p, e),
-							//	Frm09Grade => () => Application.OpenForms.OfType<Frm09Grade>().SingleOrDefault().InputFormatter(p, e),
-							//	Frm12Hurricane => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
-							//	Frm15Sum => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
-							//	Frm17WordGuess => () => Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().InputFormatter(p, e),
-							//	_ => null,
-							//};
-							//A();
-						};
-					}
-					b.TextChanged += (p, e) => { tool2.Text = b.Text; };
-					tool2.TextChanged += (p, e) => { b.Text = tool2.Text; };
-					//
-					tool.DropDownItems.Add(tool2);
+						tool.TextBox.KeyDown += Application.OpenForms.OfType<Frm03Rectangle>().SingleOrDefault().RectangleKeypress;
+					else if (b.FindForm().Name == "Frm17WordGuess")
+						tool.TextBox.KeyDown += Application.OpenForms.OfType<Frm17WordGuess>().SingleOrDefault().KeyPressEvent;
+					else tool.TextBox.KeyPress += ((Forms.IManager)form).InputFormatter;
 					item.DropDownItems.Add(tool);
 				}
 			}

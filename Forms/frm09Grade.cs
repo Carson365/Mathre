@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm09Grade : Form
+	public partial class Frm09Grade : Form, Forms.IManager
 	{
 		public static Frm00Mathre BaseForm;
 		public static int abc = 0;
