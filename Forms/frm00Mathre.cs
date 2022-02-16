@@ -21,7 +21,7 @@ namespace Mathre
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre" && t.Name != "FrmTemplate" && t.Name != "Frm19bSecretMessage"))
+			foreach (Type type in Assembly.GetExecutingAssembly().DefinedTypes.Where(t => t.BaseType == typeof(Form) && t.Name != "Frm00Mathre" && t.Name != "FrmTemplate" && t.Name != "Frm19bSecretMessage").OrderBy(x => x.Name))
 			{
 				Icon = Resources.Rainbow;
 				var form = Activator.CreateInstance(type) as Form;
@@ -45,7 +45,7 @@ namespace Mathre
 					ToolStripMenuItem item = new();
 					item.Name = newTab.Name.Replace("tab", "mnuView");
 					item.Text = newTab.Text;
-					item.Click += (s, e) => { tabMathre.SelectTab(((ToolStripMenuItem)sender).Name.ToString().Replace("mnuView", "tab")); }/*)*/;
+					item.Click += (s, e) => { tabMathre.SelectTab(((ToolStripMenuItem)sender).Name.ToString().Replace("mnuView", "tab")); };
 					mnuView.DropDownItems.Add(item);
 					ToolStripMenuItem menu = new();
 					menu.Text = form.Text;
@@ -152,7 +152,7 @@ namespace Mathre
 		{
 			foreach (var TSI in GetAll(TSMI.DropDownItems)) { if (TSI is ToolStripMenuItem TSI2) { TSMI.DropDown.KeyDown += KeyboardShortcuts; MenuKeypress(TSI2); } }
 		}
-		public void KeyboardShortcuts(object sender, System.Windows.Forms.KeyEventArgs e)
+		public void KeyboardShortcuts(object sender, KeyEventArgs e)
 		{
 			var F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 			if (e.Control & e.KeyCode == Keys.S)
