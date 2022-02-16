@@ -36,6 +36,10 @@ namespace Mathre
             this.lblScoreDisplay = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.pnlText2 = new System.Windows.Forms.Panel();
+            this.txtTotal = new System.Windows.Forms.TextBox();
+            this.pnlText1 = new System.Windows.Forms.Panel();
+            this.txtPoints = new System.Windows.Forms.TextBox();
             this.radMethod1 = new System.Windows.Forms.RadioButton();
             this.radMethod2 = new System.Windows.Forms.RadioButton();
             this.radMethod3 = new System.Windows.Forms.RadioButton();
@@ -46,12 +50,12 @@ namespace Mathre
             this.lblGradesEntered = new System.Windows.Forms.Label();
             this.lblGradesEnteredCount = new System.Windows.Forms.Label();
             this.lblPoints = new System.Windows.Forms.Label();
-            this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblTotal = new System.Windows.Forms.Label();
-            this.txtPoints = new System.Windows.Forms.TextBox();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlText2.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.pnlMethod5Entered.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -130,6 +134,8 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlText2);
+            this.pnlBody.Controls.Add(this.pnlText1);
             this.pnlBody.Controls.Add(this.radMethod1);
             this.pnlBody.Controls.Add(this.radMethod2);
             this.pnlBody.Controls.Add(this.radMethod3);
@@ -138,13 +144,55 @@ namespace Mathre
             this.pnlBody.Controls.Add(this.btnRandom);
             this.pnlBody.Controls.Add(this.pnlMethod5Entered);
             this.pnlBody.Controls.Add(this.lblPoints);
-            this.pnlBody.Controls.Add(this.txtTotal);
             this.pnlBody.Controls.Add(this.lblTotal);
-            this.pnlBody.Controls.Add(this.txtPoints);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 155);
             this.pnlBody.TabIndex = 34;
+            // 
+            // pnlText2
+            // 
+            this.pnlText2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText2.Controls.Add(this.txtTotal);
+            this.pnlText2.Location = new System.Drawing.Point(74, 49);
+            this.pnlText2.Name = "pnlText2";
+            this.pnlText2.Size = new System.Drawing.Size(133, 26);
+            this.pnlText2.TabIndex = 42;
+            this.pnlText2.Tag = "Transparent,Total";
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(0, 0);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(0);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.Size = new System.Drawing.Size(133, 26);
+            this.txtTotal.TabIndex = 30;
+            // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtPoints);
+            this.pnlText1.Location = new System.Drawing.Point(74, 12);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(133, 26);
+            this.pnlText1.TabIndex = 36;
+            this.pnlText1.Tag = "Transparent,Points";
+            // 
+            // txtPoints
+            // 
+            this.txtPoints.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPoints.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPoints.Location = new System.Drawing.Point(0, 0);
+            this.txtPoints.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPoints.Name = "txtPoints";
+            this.txtPoints.Size = new System.Drawing.Size(133, 26);
+            this.txtPoints.TabIndex = 13;
             // 
             // radMethod1
             // 
@@ -249,17 +297,6 @@ namespace Mathre
             this.lblPoints.TabIndex = 9;
             this.lblPoints.Text = "Points";
             // 
-            // txtTotal
-            // 
-            this.txtTotal.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(74, 49);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(0);
-            this.txtTotal.Name = "txtTotal";
-            this.txtTotal.Size = new System.Drawing.Size(133, 26);
-            this.txtTotal.TabIndex = 30;
-            // 
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
@@ -270,17 +307,6 @@ namespace Mathre
             this.lblTotal.Size = new System.Drawing.Size(44, 20);
             this.lblTotal.TabIndex = 27;
             this.lblTotal.Text = "Total";
-            // 
-            // txtPoints
-            // 
-            this.txtPoints.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPoints.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPoints.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPoints.Location = new System.Drawing.Point(74, 12);
-            this.txtPoints.Margin = new System.Windows.Forms.Padding(0);
-            this.txtPoints.Name = "txtPoints";
-            this.txtPoints.Size = new System.Drawing.Size(133, 26);
-            this.txtPoints.TabIndex = 13;
             // 
             // Frm09Grade
             // 
@@ -296,6 +322,10 @@ namespace Mathre
             this.pnlBody2.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText2.ResumeLayout(false);
+            this.pnlText2.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.pnlMethod5Entered.ResumeLayout(false);
             this.pnlMethod5Entered.PerformLayout();
             this.ResumeLayout(false);
@@ -324,5 +354,7 @@ namespace Mathre
 		private System.Windows.Forms.RadioButton radMethod3;
 		private System.Windows.Forms.RadioButton radMethod1;
 		private System.Windows.Forms.RadioButton radMethod2;
+		private System.Windows.Forms.Panel pnlText2;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

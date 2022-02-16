@@ -13,8 +13,8 @@ namespace Mathre
 		{
 			InitializeComponent();
 			Load += FormLoad;
-			txtPoints.KeyUp += GradeCalculator;
-			txtTotal.KeyUp += GradeCalculator;
+			txtPoints.TextChanged += GradeCalculator;
+			txtTotal.TextChanged += GradeCalculator;
 			txtPoints.KeyPress += InputFormatter;
 			txtTotal.KeyPress += InputFormatter;
 			foreach (Control btn in pnlBody.Controls) { if ((btn is Button) | (btn is RadioButton)) { btn.Click += GradeCalculator; } }
@@ -88,9 +88,9 @@ namespace Mathre
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (sender is not TextBoxBase textBox) return;
+			TextBox textBox = sender as TextBox;
 			if (e.KeyChar.ToString() == DecimalChar && textBox.Text.Contains(DecimalChar)) { e.Handled = true; }
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
+			else if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')) { e.Handled = true; }
 			string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
 			if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar)) { e.Handled = true; }
 			double Old = 0;
@@ -100,7 +100,7 @@ namespace Mathre
 			if (double.TryParse(e.KeyChar.ToString(), out double NewValue)) { New = NewValue; }
 			if (double.TryParse($"{Old}{New}", out double TotalValue)) { Total = TotalValue; }
 			if (Total > 100 && e.KeyChar >= '0' && e.KeyChar <= '9' && decimals.Length == 1) { e.Handled = true; }
-			if (textBox.Text.Length == 0 && e.KeyChar == '0') { e.Handled = true; }
+			if ((textBox.Text.Length == 0 || (textBox.Text.Length > 1 && textBox.Text[0] == '0')) && e.KeyChar == '0') { e.Handled = true; }
 		}
 	}
 }

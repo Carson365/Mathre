@@ -38,20 +38,24 @@ namespace Mathre
             this.lblPizzaCostAmount = new System.Windows.Forms.Label();
             this.lblPizzaCost = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.pnlText1 = new System.Windows.Forms.Panel();
+            this.txtPizzaSize = new System.Windows.Forms.TextBox();
+            this.pnlText2 = new System.Windows.Forms.Panel();
+            this.txtPizzaTip = new System.Windows.Forms.TextBox();
             this.pnlDiningType = new System.Windows.Forms.Panel();
             this.radTakeout = new System.Windows.Forms.RadioButton();
             this.radDelivery = new System.Windows.Forms.RadioButton();
             this.lblPizzaSize = new System.Windows.Forms.Label();
-            this.txtPizzaTip = new System.Windows.Forms.TextBox();
             this.pnlTip = new System.Windows.Forms.Panel();
             this.radDollars = new System.Windows.Forms.RadioButton();
             this.radPercent = new System.Windows.Forms.RadioButton();
             this.lblPizzaTip = new System.Windows.Forms.Label();
-            this.txtPizzaSize = new System.Windows.Forms.TextBox();
             this.imgFavoriteImages = new System.Windows.Forms.ImageList(this.components);
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlText1.SuspendLayout();
+            this.pnlText2.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
             this.pnlTip.SuspendLayout();
             this.SuspendLayout();
@@ -131,16 +135,60 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlText1);
+            this.pnlBody.Controls.Add(this.pnlText2);
             this.pnlBody.Controls.Add(this.pnlDiningType);
             this.pnlBody.Controls.Add(this.lblPizzaSize);
-            this.pnlBody.Controls.Add(this.txtPizzaTip);
             this.pnlBody.Controls.Add(this.pnlTip);
             this.pnlBody.Controls.Add(this.lblPizzaTip);
-            this.pnlBody.Controls.Add(this.txtPizzaSize);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 34;
+            // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtPizzaSize);
+            this.pnlText1.Location = new System.Drawing.Point(127, 13);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(90, 26);
+            this.pnlText1.TabIndex = 37;
+            this.pnlText1.Tag = "Transparent,Size (Inches)";
+            // 
+            // txtPizzaSize
+            // 
+            this.txtPizzaSize.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPizzaSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPizzaSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPizzaSize.Location = new System.Drawing.Point(0, 0);
+            this.txtPizzaSize.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPizzaSize.Name = "txtPizzaSize";
+            this.txtPizzaSize.Size = new System.Drawing.Size(90, 26);
+            this.txtPizzaSize.TabIndex = 13;
+            // 
+            // pnlText2
+            // 
+            this.pnlText2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText2.Controls.Add(this.txtPizzaTip);
+            this.pnlText2.Location = new System.Drawing.Point(55, 61);
+            this.pnlText2.Name = "pnlText2";
+            this.pnlText2.Size = new System.Drawing.Size(162, 26);
+            this.pnlText2.TabIndex = 36;
+            this.pnlText2.Tag = "Transparent,Tip";
+            // 
+            // txtPizzaTip
+            // 
+            this.txtPizzaTip.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPizzaTip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPizzaTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPizzaTip.Location = new System.Drawing.Point(0, 0);
+            this.txtPizzaTip.Margin = new System.Windows.Forms.Padding(0);
+            this.txtPizzaTip.Name = "txtPizzaTip";
+            this.txtPizzaTip.Size = new System.Drawing.Size(162, 26);
+            this.txtPizzaTip.TabIndex = 30;
             // 
             // pnlDiningType
             // 
@@ -185,17 +233,6 @@ namespace Mathre
             this.lblPizzaSize.TabIndex = 9;
             this.lblPizzaSize.Text = "Size (Inches):";
             // 
-            // txtPizzaTip
-            // 
-            this.txtPizzaTip.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPizzaTip.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPizzaTip.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPizzaTip.Location = new System.Drawing.Point(55, 61);
-            this.txtPizzaTip.Margin = new System.Windows.Forms.Padding(0);
-            this.txtPizzaTip.Name = "txtPizzaTip";
-            this.txtPizzaTip.Size = new System.Drawing.Size(162, 26);
-            this.txtPizzaTip.TabIndex = 30;
-            // 
             // pnlTip
             // 
             this.pnlTip.Controls.Add(this.radDollars);
@@ -239,17 +276,6 @@ namespace Mathre
             this.lblPizzaTip.TabIndex = 27;
             this.lblPizzaTip.Text = "Tip:";
             // 
-            // txtPizzaSize
-            // 
-            this.txtPizzaSize.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPizzaSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPizzaSize.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPizzaSize.Location = new System.Drawing.Point(127, 13);
-            this.txtPizzaSize.Margin = new System.Windows.Forms.Padding(0);
-            this.txtPizzaSize.Name = "txtPizzaSize";
-            this.txtPizzaSize.Size = new System.Drawing.Size(90, 26);
-            this.txtPizzaSize.TabIndex = 13;
-            // 
             // imgFavoriteImages
             // 
             this.imgFavoriteImages.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgFavoriteImages.ImageStream")));
@@ -272,6 +298,10 @@ namespace Mathre
             this.pnlBody2.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
+            this.pnlText2.ResumeLayout(false);
+            this.pnlText2.PerformLayout();
             this.pnlDiningType.ResumeLayout(false);
             this.pnlDiningType.PerformLayout();
             this.pnlTip.ResumeLayout(false);
@@ -300,5 +330,7 @@ namespace Mathre
 		internal System.Windows.Forms.TextBox txtPizzaSize;
 		internal System.Windows.Forms.Label lblTitle;
 		public System.Windows.Forms.ImageList imgFavoriteImages;
+		private System.Windows.Forms.Panel pnlText1;
+		private System.Windows.Forms.Panel pnlText2;
 	}
 }

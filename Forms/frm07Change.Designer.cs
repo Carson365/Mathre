@@ -53,12 +53,14 @@ namespace Mathre
             this.lblDimes = new System.Windows.Forms.Label();
             this.lblNickels = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.pnlText1 = new System.Windows.Forms.Panel();
             this.txtPaidAmount = new System.Windows.Forms.TextBox();
             this.lblPaidAmount = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -340,19 +342,30 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.txtPaidAmount);
+            this.pnlBody.Controls.Add(this.pnlText1);
             this.pnlBody.Controls.Add(this.lblPaidAmount);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 34;
             // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtPaidAmount);
+            this.pnlText1.Location = new System.Drawing.Point(128, 13);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(292, 26);
+            this.pnlText1.TabIndex = 36;
+            this.pnlText1.Tag = "Transparent,Paid Amount";
+            // 
             // txtPaidAmount
             // 
             this.txtPaidAmount.BackColor = System.Drawing.SystemColors.Window;
             this.txtPaidAmount.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPaidAmount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPaidAmount.Location = new System.Drawing.Point(125, 13);
+            this.txtPaidAmount.Location = new System.Drawing.Point(0, 0);
             this.txtPaidAmount.Margin = new System.Windows.Forms.Padding(0);
             this.txtPaidAmount.Name = "txtPaidAmount";
             this.txtPaidAmount.Size = new System.Drawing.Size(292, 26);
@@ -395,6 +408,8 @@ namespace Mathre
             this.pnlBody2.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -428,5 +443,6 @@ namespace Mathre
 		internal System.Windows.Forms.TextBox txtPaidAmount;
 		internal System.Windows.Forms.Label lblPaidAmount;
 		internal System.Windows.Forms.Label lblTitle;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

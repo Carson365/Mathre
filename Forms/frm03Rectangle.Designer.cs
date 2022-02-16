@@ -35,8 +35,9 @@ namespace Mathre
             this.pnlRectangle = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
+            this.pnlText1 = new System.Windows.Forms.Panel();
             this.txtRectangleDimensions = new System.Windows.Forms.TextBox();
+            this.lblRectangleAreaTitle = new System.Windows.Forms.Label();
             this.lblRectangleDimensions = new System.Windows.Forms.Label();
             this.lblRectanglePerimiterTitle = new System.Windows.Forms.Label();
             this.lblRectangleArea = new System.Windows.Forms.Label();
@@ -44,6 +45,7 @@ namespace Mathre
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -111,8 +113,8 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlText1);
             this.pnlBody.Controls.Add(this.lblRectangleAreaTitle);
-            this.pnlBody.Controls.Add(this.txtRectangleDimensions);
             this.pnlBody.Controls.Add(this.lblRectangleDimensions);
             this.pnlBody.Controls.Add(this.lblRectanglePerimiterTitle);
             this.pnlBody.Controls.Add(this.lblRectangleArea);
@@ -121,6 +123,29 @@ namespace Mathre
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
+            // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtRectangleDimensions);
+            this.pnlText1.Location = new System.Drawing.Point(197, 13);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(200, 26);
+            this.pnlText1.TabIndex = 34;
+            this.pnlText1.Tag = "Transparent,Rectangle Dimensions";
+            // 
+            // txtRectangleDimensions
+            // 
+            this.txtRectangleDimensions.BackColor = System.Drawing.SystemColors.Window;
+            this.txtRectangleDimensions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRectangleDimensions.Location = new System.Drawing.Point(0, 0);
+            this.txtRectangleDimensions.Margin = new System.Windows.Forms.Padding(0);
+            this.txtRectangleDimensions.Name = "txtRectangleDimensions";
+            this.txtRectangleDimensions.Size = new System.Drawing.Size(200, 26);
+            this.txtRectangleDimensions.TabIndex = 20;
+            this.txtRectangleDimensions.Tag = "";
             // 
             // lblRectangleAreaTitle
             // 
@@ -132,18 +157,6 @@ namespace Mathre
             this.lblRectangleAreaTitle.Size = new System.Drawing.Size(47, 20);
             this.lblRectangleAreaTitle.TabIndex = 21;
             this.lblRectangleAreaTitle.Text = "Area:";
-            // 
-            // txtRectangleDimensions
-            // 
-            this.txtRectangleDimensions.BackColor = System.Drawing.SystemColors.Window;
-            this.txtRectangleDimensions.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtRectangleDimensions.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRectangleDimensions.Location = new System.Drawing.Point(217, 13);
-            this.txtRectangleDimensions.Margin = new System.Windows.Forms.Padding(0);
-            this.txtRectangleDimensions.Name = "txtRectangleDimensions";
-            this.txtRectangleDimensions.Size = new System.Drawing.Size(200, 26);
-            this.txtRectangleDimensions.TabIndex = 20;
-            this.txtRectangleDimensions.Tag = "Rectangle Dimensions";
             // 
             // lblRectangleDimensions
             // 
@@ -202,6 +215,8 @@ namespace Mathre
             this.pnlBody2.ResumeLayout(false);
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -220,5 +235,6 @@ namespace Mathre
 		internal System.Windows.Forms.Label lblRectanglePerimiterTitle;
 		private System.Windows.Forms.Label lblRectangleArea;
 		private System.Windows.Forms.Label lblRectanglePerimeter;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

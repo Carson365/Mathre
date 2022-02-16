@@ -60,10 +60,10 @@ namespace Mathre
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (sender is not TextBoxBase textBox) return;
-			if (e.KeyChar.ToString() == DecimalChar) { if (ReferenceEquals(sender, txtPizzaTip)) { if (textBox.Text.Contains(DecimalChar)) e.Handled = true; } }
+			TextBox textBox = sender as TextBox;
+			if (e.KeyChar.ToString() == DecimalChar) { if (textBox.Name == "txtPizzaTip") { if (textBox.Text.Contains(DecimalChar)) e.Handled = true; } else e.Handled = true; }
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
-			if (sender == txtPizzaTip)
+			if (textBox.Name == "txtPizzaTip")
 			{
 				string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
 				if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar)) { e.Handled = true; }

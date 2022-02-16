@@ -36,6 +36,7 @@ namespace Mathre
             this.lblFahrenheitDisplay = new System.Windows.Forms.Label();
             this.lblCelsiusDisplayLabel = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.pnlText1 = new System.Windows.Forms.Panel();
             this.txtTemperature = new System.Windows.Forms.TextBox();
             this.radFahrenheit = new System.Windows.Forms.RadioButton();
             this.radCelsius = new System.Windows.Forms.RadioButton();
@@ -44,6 +45,7 @@ namespace Mathre
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -121,7 +123,7 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.txtTemperature);
+            this.pnlBody.Controls.Add(this.pnlText1);
             this.pnlBody.Controls.Add(this.radFahrenheit);
             this.pnlBody.Controls.Add(this.radCelsius);
             this.pnlBody.Controls.Add(this.lblTemperature);
@@ -130,12 +132,23 @@ namespace Mathre
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 35;
             // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtTemperature);
+            this.pnlText1.Location = new System.Drawing.Point(128, 13);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(269, 26);
+            this.pnlText1.TabIndex = 37;
+            this.pnlText1.Tag = "Transparent,Temperature";
+            // 
             // txtTemperature
             // 
             this.txtTemperature.BackColor = System.Drawing.SystemColors.Window;
             this.txtTemperature.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtTemperature.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTemperature.Location = new System.Drawing.Point(148, 13);
+            this.txtTemperature.Location = new System.Drawing.Point(0, 0);
             this.txtTemperature.Margin = new System.Windows.Forms.Padding(0);
             this.txtTemperature.Name = "txtTemperature";
             this.txtTemperature.Size = new System.Drawing.Size(269, 26);
@@ -200,6 +213,8 @@ namespace Mathre
             this.pnlBody2.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -218,5 +233,6 @@ namespace Mathre
 		private System.Windows.Forms.RadioButton radFahrenheit;
 		internal System.Windows.Forms.Label lblTemperature;
 		internal System.Windows.Forms.Label lblTitle;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

@@ -12,6 +12,7 @@ namespace Mathre
 			InitializeComponent();
 			Load += FormLoad;
 			txtNumber.KeyPress += InputFormatter;
+			txtNumber.TextChanged += Digits;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
@@ -46,8 +47,12 @@ namespace Mathre
 			if (txtNumber.Text.Length > a)
 			{
 				var label = (txtNumber.SelectionStart % 2) switch { 0 => lblDigitsListEvens, _ => lblDigitsListOdds };
-				if (label.Text.Contains($"Digit {txtNumber.SelectionStart}:")) { DigitsRedo(null, null); }
-				else { label.Text += $"Digit {txtNumber.SelectionStart}: {txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n"; }
+				if (txtNumber.Focused)
+				{
+					if (label.Text.Contains($"Digit {txtNumber.SelectionStart}:")) { DigitsRedo(); }
+					else { label.Text += $"Digit {txtNumber.SelectionStart}: {txtNumber.Text[txtNumber.SelectionStart - 1]}\r\n"; }
+				}
+				else DigitsRedo();
 			}
 			else
 			{
@@ -56,11 +61,11 @@ namespace Mathre
 					var label = (txtNumber.SelectionStart % 2) switch { 1 => lblDigitsListEvens, _ => lblDigitsListOdds };
 					label.Text = label.Text.Remove(label.Text.Length - 13);
 				}
-				else { DigitsRedo(null, null); }
+				else { DigitsRedo(); }
 			}
 			lblDigitsCount.Text = $"{txtNumber.Text.Length}";
 		}
-		public void DigitsRedo(object sender, KeyEventArgs e)
+		public void DigitsRedo()
 		{
 			lblDigitsListEvens.Text = "";
 			lblDigitsListOdds.Text = "";
@@ -73,9 +78,7 @@ namespace Mathre
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
-			if (sender is not TextBoxBase) return;
 			if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
-			Digits(null, null);
 		}
 	}
 }

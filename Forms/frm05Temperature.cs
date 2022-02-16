@@ -15,7 +15,7 @@ namespace Mathre
 			radCelsius.Click += Temperature;
 			radFahrenheit.CheckedChanged += Temperature;
 			radCelsius.CheckedChanged += Temperature;
-			txtTemperature.KeyUp += Temperature;
+			txtTemperature.TextChanged += Temperature;
 			txtTemperature.KeyPress += InputFormatter;
 		}
 		public void FormLoad(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace Mathre
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
-			if (sender is not TextBoxBase textBox) return;
+			TextBox textBox = sender as TextBox;
 			if (e.KeyChar.ToString() == DecimalChar && textBox.Text.Contains(DecimalChar)) { e.Handled = true; }
 			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')))
 			{

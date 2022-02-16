@@ -129,11 +129,12 @@ namespace Mathre
 		public void ListResizeManager(object sender, ColumnWidthChangingEventArgs e) { e.NewWidth = lstHurricaneList.Columns[e.ColumnIndex].Width; e.Cancel = true; }
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
+			TextBox textBox = sender as TextBox;
 			if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')) { e.Handled = true; }
-			else if (txtMPH.Text.Length != 0 && Convert.ToDouble(txtMPH.Text) > 20 && e.KeyChar != '\b' && Convert.ToDouble($"{txtMPH.Text}{e.KeyChar}") > 210)
+			else if (textBox.Text.Length != 0 && Convert.ToDouble(textBox.Text) > 20 && e.KeyChar != '\b' && Convert.ToDouble($"{textBox.Text}{e.KeyChar}") > 210)
 			{
-				if (txtMPH.SelectionLength < 1) { e.Handled = true; }
-				else if (Convert.ToDouble($"{txtMPH.Text.Replace(txtMPH.SelectedText, e.KeyChar.ToString())}") > 210) { e.Handled = true; }
+				if (textBox.SelectionLength < 1) { e.Handled = true; }
+				else if (Convert.ToDouble($"{textBox.Text.Replace(textBox.SelectedText, e.KeyChar.ToString())}") > 210) { e.Handled = true; }
 			}
 		}
 		public void ZeroRemover(object sender, EventArgs e) { if (txtMPH.Text.StartsWith("0")) { txtMPH.Text = txtMPH.Text.TrimStart('0'); } }

@@ -13,6 +13,7 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
+			Icon = Resources.Icon;
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}

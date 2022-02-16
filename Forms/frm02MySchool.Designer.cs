@@ -68,7 +68,7 @@ namespace Mathre
             // picMySchoolMascot
             // 
             this.picMySchoolMascot.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picMySchoolMascot.Image = global::Mathre.My.Resources.Resources.RedRiver;
+            this.picMySchoolMascot.Image = global::Mathre.Resources.RedRiver;
             this.picMySchoolMascot.Location = new System.Drawing.Point(268, 19);
             this.picMySchoolMascot.Name = "picMySchoolMascot";
             this.picMySchoolMascot.Size = new System.Drawing.Size(108, 66);

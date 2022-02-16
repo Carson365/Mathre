@@ -23,6 +23,7 @@ namespace Mathre
 		{
 			foreach (Type type in Assembly.Load("Mathre").GetTypes().OrderBy(x => x.Name).Where(t => typeof(Form).IsAssignableFrom(t) && t.Name != "Frm00Mathre" && t.Name != "FrmTemplate" && t.Name != "Frm19bSecretMessage"))
 			{
+				Icon = Resources.Rainbow;
 				var form = Activator.CreateInstance(type) as Form;
 				form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				form.FormBorderStyle = FormBorderStyle.None;
@@ -115,13 +116,15 @@ namespace Mathre
 					tool.Text = $"{b.Text}";
 					tool.Name = $"{bx.Name}";
 					tool.TextBox.Name = $"{b.Name}";
-					b.TextChanged += (p, e) => { tool.Text = b.Text; };
-					tool.TextChanged += (p, e) => { b.Text = tool.Text; };
 					if (b.FindForm().Name == "Frm03Rectangle")
 						tool.TextBox.KeyDown += Application.OpenForms.OfType<Frm03Rectangle>().SingleOrDefault().RectangleKeypress;
 					else if (b.FindForm().Name == "Frm17WordGuess")
 						tool.TextBox.KeyDown += Application.OpenForms.OfType<Frm17WordGuess>().SingleOrDefault().KeyPressEvent;
+					else if (b.FindForm().Name == "Frm12Hurricane")
+						tool.TextBox.KeyDown += Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().EnterKey;
 					else tool.TextBox.KeyPress += ((Forms.IManager)form).InputFormatter;
+					b.TextChanged += (p, e) => { tool.Text = b.Text; };
+					tool.TextChanged += (p, e) => { b.Text = tool.Text; };
 					item.DropDownItems.Add(tool);
 				}
 			}

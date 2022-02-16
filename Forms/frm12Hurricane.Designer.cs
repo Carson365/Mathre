@@ -46,16 +46,18 @@
             this.lblTypeLabel = new System.Windows.Forms.Label();
             this.lblNameLabel = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.btnCalculate = new System.Windows.Forms.Button();
-            this.btnRandom = new System.Windows.Forms.Button();
-            this.lblSpeed = new System.Windows.Forms.Label();
+            this.pnlText1 = new System.Windows.Forms.Panel();
             this.txtMPH = new System.Windows.Forms.TextBox();
+            this.btnRandom = new System.Windows.Forms.Button();
+            this.btnCalculate = new System.Windows.Forms.Button();
+            this.lblSpeed = new System.Windows.Forms.Label();
             this.imgHurricanes = new System.Windows.Forms.ImageList(this.components);
             this.pnlFrame.SuspendLayout();
             this.pnlHurricaneList.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHurricaneType)).BeginInit();
             this.pnlBody.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -242,23 +244,36 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-			this.pnlBody.Controls.Add(this.btnRandom);
-			this.pnlBody.Controls.Add(this.btnCalculate);
+            this.pnlBody.Controls.Add(this.pnlText1);
+            this.pnlBody.Controls.Add(this.btnRandom);
+            this.pnlBody.Controls.Add(this.btnCalculate);
             this.pnlBody.Controls.Add(this.lblSpeed);
-            this.pnlBody.Controls.Add(this.txtMPH);
             this.pnlBody.Location = new System.Drawing.Point(135, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(325, 105);
             this.pnlBody.TabIndex = 34;
             // 
-            // btnCalculate
+            // pnlText1
             // 
-            this.btnCalculate.Location = new System.Drawing.Point(177, 64);
-            this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(141, 23);
-            this.btnCalculate.TabIndex = 29;
-            this.btnCalculate.Text = "Calculate Storm Impact";
-            this.btnCalculate.UseVisualStyleBackColor = true;
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtMPH);
+            this.pnlText1.Location = new System.Drawing.Point(173, 13);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(145, 26);
+            this.pnlText1.TabIndex = 37;
+            this.pnlText1.Tag = "Transparent,Wind Speed (MPH)";
+            // 
+            // txtMPH
+            // 
+            this.txtMPH.BackColor = System.Drawing.SystemColors.Window;
+            this.txtMPH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMPH.Location = new System.Drawing.Point(0, 0);
+            this.txtMPH.Margin = new System.Windows.Forms.Padding(0);
+            this.txtMPH.Name = "txtMPH";
+            this.txtMPH.Size = new System.Drawing.Size(145, 26);
+            this.txtMPH.TabIndex = 13;
             // 
             // btnRandom
             // 
@@ -269,6 +284,15 @@
             this.btnRandom.Text = "Generate Random Storm";
             this.btnRandom.UseVisualStyleBackColor = true;
             // 
+            // btnCalculate
+            // 
+            this.btnCalculate.Location = new System.Drawing.Point(177, 64);
+            this.btnCalculate.Name = "btnCalculate";
+            this.btnCalculate.Size = new System.Drawing.Size(141, 23);
+            this.btnCalculate.TabIndex = 29;
+            this.btnCalculate.Text = "Calculate Storm Impact";
+            this.btnCalculate.UseVisualStyleBackColor = true;
+            // 
             // lblSpeed
             // 
             this.lblSpeed.AutoSize = true;
@@ -276,20 +300,9 @@
             this.lblSpeed.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblSpeed.Location = new System.Drawing.Point(18, 16);
             this.lblSpeed.Name = "lblSpeed";
-            this.lblSpeed.Size = new System.Drawing.Size(145, 20);
+            this.lblSpeed.Size = new System.Drawing.Size(149, 20);
             this.lblSpeed.TabIndex = 9;
-            this.lblSpeed.Text = "Wind Speed (mph):";
-            // 
-            // txtMPH
-            // 
-            this.txtMPH.BackColor = System.Drawing.SystemColors.Window;
-            this.txtMPH.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtMPH.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMPH.Location = new System.Drawing.Point(166, 14);
-            this.txtMPH.Margin = new System.Windows.Forms.Padding(0);
-            this.txtMPH.Name = "txtMPH";
-            this.txtMPH.Size = new System.Drawing.Size(152, 26);
-            this.txtMPH.TabIndex = 13;
+            this.lblSpeed.Text = "Wind Speed (MPH):";
             // 
             // imgHurricanes
             // 
@@ -319,6 +332,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picHurricaneType)).EndInit();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -346,5 +361,6 @@
 		private System.Windows.Forms.LinkLabel llbName;
 		private System.Windows.Forms.ListView lstHurricaneList;
 		private System.Windows.Forms.Panel pnlHurricaneList;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

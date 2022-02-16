@@ -22,6 +22,7 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
+			Icon = Resources.Rainbow;
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
 			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			dinput = null;
@@ -94,7 +95,6 @@ namespace Mathre
 			}
 			else
 			{
-				Console.WriteLine(dinput[0]);
 				foreach (int n in dinput)
 				{
 					((Label)formb.Controls.Find("lblCode", true)[0]).Text += $"{n} = {(char)n}\n";

@@ -36,6 +36,7 @@ namespace Mathre
             this.lblDigitsListOdds = new System.Windows.Forms.Label();
             this.lblDigitsListEvens = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.pnlText1 = new System.Windows.Forms.Panel();
             this.txtNumber = new System.Windows.Forms.TextBox();
             this.lblDigits = new System.Windows.Forms.Label();
             this.lblDigitsCount = new System.Windows.Forms.Label();
@@ -45,6 +46,7 @@ namespace Mathre
             this.pnlBody2.SuspendLayout();
             this.pnlDigitsResultsDisplay.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -115,7 +117,7 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.txtNumber);
+            this.pnlBody.Controls.Add(this.pnlText1);
             this.pnlBody.Controls.Add(this.lblDigits);
             this.pnlBody.Controls.Add(this.lblDigitsCount);
             this.pnlBody.Controls.Add(this.lblDigitsCountLabel);
@@ -124,12 +126,23 @@ namespace Mathre
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 34;
             // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtNumber);
+            this.pnlText1.Location = new System.Drawing.Point(96, 13);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(304, 26);
+            this.pnlText1.TabIndex = 36;
+            this.pnlText1.Tag = "Transparent,Number";
+            // 
             // txtNumber
             // 
             this.txtNumber.BackColor = System.Drawing.SystemColors.Window;
             this.txtNumber.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumber.Location = new System.Drawing.Point(113, 13);
+            this.txtNumber.Location = new System.Drawing.Point(0, 0);
             this.txtNumber.Margin = new System.Windows.Forms.Padding(0);
             this.txtNumber.Name = "txtNumber";
             this.txtNumber.Size = new System.Drawing.Size(304, 26);
@@ -195,6 +208,8 @@ namespace Mathre
             this.pnlDigitsResultsDisplay.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -213,5 +228,6 @@ namespace Mathre
 		private System.Windows.Forms.Label lblDigitsResultsLabel;
 		private System.Windows.Forms.Label lblDigitsListOdds;
 		private System.Windows.Forms.Label lblDigitsListEvens;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

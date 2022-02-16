@@ -33,14 +33,16 @@
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblPhrase = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.pnlText2 = new System.Windows.Forms.Panel();
+            this.txtP2 = new System.Windows.Forms.TextBox();
+            this.pnlText1 = new System.Windows.Forms.Panel();
+            this.txtP1 = new System.Windows.Forms.TextBox();
             this.lblTime = new System.Windows.Forms.Label();
             this.lblElapsed = new System.Windows.Forms.Label();
             this.chbHide = new System.Windows.Forms.CheckBox();
             this.lblPlayer2 = new System.Windows.Forms.Label();
             this.lblPlayer1 = new System.Windows.Forms.Label();
             this.lblGuessCount = new System.Windows.Forms.Label();
-            this.txtP2 = new System.Windows.Forms.TextBox();
-            this.txtP1 = new System.Windows.Forms.TextBox();
             this.lblGuesses = new System.Windows.Forms.Label();
             this.chbSounds = new System.Windows.Forms.CheckBox();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -48,6 +50,8 @@
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlText2.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -89,20 +93,64 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlText2);
+            this.pnlBody.Controls.Add(this.pnlText1);
             this.pnlBody.Controls.Add(this.lblTime);
             this.pnlBody.Controls.Add(this.lblElapsed);
             this.pnlBody.Controls.Add(this.chbHide);
             this.pnlBody.Controls.Add(this.lblPlayer2);
             this.pnlBody.Controls.Add(this.lblPlayer1);
             this.pnlBody.Controls.Add(this.lblGuessCount);
-            this.pnlBody.Controls.Add(this.txtP2);
-            this.pnlBody.Controls.Add(this.txtP1);
             this.pnlBody.Controls.Add(this.lblGuesses);
             this.pnlBody.Controls.Add(this.chbSounds);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
+            // 
+            // pnlText2
+            // 
+            this.pnlText2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText2.Controls.Add(this.txtP2);
+            this.pnlText2.Location = new System.Drawing.Point(62, 62);
+            this.pnlText2.Name = "pnlText2";
+            this.pnlText2.Size = new System.Drawing.Size(241, 26);
+            this.pnlText2.TabIndex = 38;
+            this.pnlText2.Tag = "Transparent,Player 2";
+            // 
+            // txtP2
+            // 
+            this.txtP2.BackColor = System.Drawing.SystemColors.Window;
+            this.txtP2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtP2.Location = new System.Drawing.Point(0, 0);
+            this.txtP2.Margin = new System.Windows.Forms.Padding(0);
+            this.txtP2.Name = "txtP2";
+            this.txtP2.Size = new System.Drawing.Size(241, 26);
+            this.txtP2.TabIndex = 22;
+            // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtP1);
+            this.pnlText1.Location = new System.Drawing.Point(62, 15);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(241, 26);
+            this.pnlText1.TabIndex = 37;
+            this.pnlText1.Tag = "Transparent,Player 1";
+            // 
+            // txtP1
+            // 
+            this.txtP1.BackColor = System.Drawing.SystemColors.Window;
+            this.txtP1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtP1.Location = new System.Drawing.Point(0, 0);
+            this.txtP1.Margin = new System.Windows.Forms.Padding(0);
+            this.txtP1.Name = "txtP1";
+            this.txtP1.Size = new System.Drawing.Size(241, 26);
+            this.txtP1.TabIndex = 21;
             // 
             // lblTime
             // 
@@ -137,18 +185,18 @@
             this.lblPlayer2.AutoSize = true;
             this.lblPlayer2.Location = new System.Drawing.Point(11, 69);
             this.lblPlayer2.Name = "lblPlayer2";
-            this.lblPlayer2.Size = new System.Drawing.Size(69, 13);
+            this.lblPlayer2.Size = new System.Drawing.Size(45, 13);
             this.lblPlayer2.TabIndex = 24;
-            this.lblPlayer2.Text = "Player 2 char";
+            this.lblPlayer2.Text = "Player 2";
             // 
             // lblPlayer1
             // 
             this.lblPlayer1.AutoSize = true;
             this.lblPlayer1.Location = new System.Drawing.Point(11, 22);
             this.lblPlayer1.Name = "lblPlayer1";
-            this.lblPlayer1.Size = new System.Drawing.Size(73, 13);
+            this.lblPlayer1.Size = new System.Drawing.Size(45, 13);
             this.lblPlayer1.TabIndex = 23;
-            this.lblPlayer1.Text = "Player 1 string";
+            this.lblPlayer1.Text = "Player 1";
             // 
             // lblGuessCount
             // 
@@ -158,28 +206,6 @@
             this.lblGuessCount.Size = new System.Drawing.Size(13, 13);
             this.lblGuessCount.TabIndex = 26;
             this.lblGuessCount.Text = "0";
-            // 
-            // txtP2
-            // 
-            this.txtP2.BackColor = System.Drawing.SystemColors.Window;
-            this.txtP2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtP2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtP2.Location = new System.Drawing.Point(103, 62);
-            this.txtP2.Margin = new System.Windows.Forms.Padding(0);
-            this.txtP2.Name = "txtP2";
-            this.txtP2.Size = new System.Drawing.Size(200, 26);
-            this.txtP2.TabIndex = 22;
-            // 
-            // txtP1
-            // 
-            this.txtP1.BackColor = System.Drawing.SystemColors.Window;
-            this.txtP1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtP1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtP1.Location = new System.Drawing.Point(103, 15);
-            this.txtP1.Margin = new System.Windows.Forms.Padding(0);
-            this.txtP1.Name = "txtP1";
-            this.txtP1.Size = new System.Drawing.Size(200, 26);
-            this.txtP1.TabIndex = 21;
             // 
             // lblGuesses
             // 
@@ -231,6 +257,10 @@
             this.pnlBody2.ResumeLayout(false);
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText2.ResumeLayout(false);
+            this.pnlText2.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -253,5 +283,7 @@
 		private System.Windows.Forms.Label lblTime;
 		private System.Windows.Forms.Label lblElapsed;
 		private System.Windows.Forms.Timer tmrTime;
+		private System.Windows.Forms.Panel pnlText2;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

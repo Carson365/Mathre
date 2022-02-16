@@ -48,11 +48,9 @@ namespace Mathre
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
-			if (sender is TextBoxBase box)
-			{
-				if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' | e.KeyChar > '9'))) { e.Handled = true; }
+			TextBox box = sender as TextBox;
+			if ((e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' | e.KeyChar > '9'))) { e.Handled = true; }
 				else if (box.Text.Length > 2 && e.KeyChar != '\b') { e.Handled = true; }
-			}
 		}
 	}
 }

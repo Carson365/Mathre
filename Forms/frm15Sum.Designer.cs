@@ -34,15 +34,19 @@
             this.lblMath = new System.Windows.Forms.Label();
             this.lblCalculation = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.lblEnd = new System.Windows.Forms.Label();
+            this.pnlText2 = new System.Windows.Forms.Panel();
             this.txtEnd = new System.Windows.Forms.TextBox();
-            this.lblStart = new System.Windows.Forms.Label();
+            this.pnlText1 = new System.Windows.Forms.Panel();
             this.txtStart = new System.Windows.Forms.TextBox();
+            this.lblEnd = new System.Windows.Forms.Label();
+            this.lblStart = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlDigitsResults.SuspendLayout();
             this.pnlDigitsResultsDisplay.SuspendLayout();
             this.pnlBody.SuspendLayout();
+            this.pnlText2.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -104,14 +108,56 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.pnlText2);
+            this.pnlBody.Controls.Add(this.pnlText1);
             this.pnlBody.Controls.Add(this.lblEnd);
-            this.pnlBody.Controls.Add(this.txtEnd);
             this.pnlBody.Controls.Add(this.lblStart);
-            this.pnlBody.Controls.Add(this.txtStart);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 37;
+            // 
+            // pnlText2
+            // 
+            this.pnlText2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText2.Controls.Add(this.txtEnd);
+            this.pnlText2.Location = new System.Drawing.Point(163, 60);
+            this.pnlText2.Name = "pnlText2";
+            this.pnlText2.Size = new System.Drawing.Size(114, 26);
+            this.pnlText2.TabIndex = 38;
+            this.pnlText2.Tag = "Transparent,Ending Number";
+            // 
+            // txtEnd
+            // 
+            this.txtEnd.BackColor = System.Drawing.SystemColors.Window;
+            this.txtEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtEnd.Location = new System.Drawing.Point(0, 0);
+            this.txtEnd.Name = "txtEnd";
+            this.txtEnd.Size = new System.Drawing.Size(114, 26);
+            this.txtEnd.TabIndex = 11;
+            // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtStart);
+            this.pnlText1.Location = new System.Drawing.Point(163, 17);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(114, 26);
+            this.pnlText1.TabIndex = 37;
+            this.pnlText1.Tag = "Transparent,Starting Number";
+            // 
+            // txtStart
+            // 
+            this.txtStart.BackColor = System.Drawing.SystemColors.Window;
+            this.txtStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStart.Location = new System.Drawing.Point(0, 0);
+            this.txtStart.Name = "txtStart";
+            this.txtStart.Size = new System.Drawing.Size(114, 26);
+            this.txtStart.TabIndex = 9;
             // 
             // lblEnd
             // 
@@ -124,16 +170,6 @@
             this.lblEnd.TabIndex = 10;
             this.lblEnd.Text = "Ending Number:";
             // 
-            // txtEnd
-            // 
-            this.txtEnd.BackColor = System.Drawing.SystemColors.Window;
-            this.txtEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnd.Location = new System.Drawing.Point(163, 61);
-            this.txtEnd.Name = "txtEnd";
-            this.txtEnd.Size = new System.Drawing.Size(114, 26);
-            this.txtEnd.TabIndex = 11;
-            // 
             // lblStart
             // 
             this.lblStart.AutoSize = true;
@@ -144,16 +180,6 @@
             this.lblStart.Size = new System.Drawing.Size(129, 20);
             this.lblStart.TabIndex = 9;
             this.lblStart.Text = "Starting Number:";
-            // 
-            // txtStart
-            // 
-            this.txtStart.BackColor = System.Drawing.SystemColors.Window;
-            this.txtStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStart.Location = new System.Drawing.Point(163, 18);
-            this.txtStart.Name = "txtStart";
-            this.txtStart.Size = new System.Drawing.Size(114, 26);
-            this.txtStart.TabIndex = 9;
             // 
             // lblTitle
             // 
@@ -182,6 +208,10 @@
             this.pnlDigitsResultsDisplay.PerformLayout();
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            this.pnlText2.ResumeLayout(false);
+            this.pnlText2.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -199,5 +229,7 @@
 		internal System.Windows.Forms.TextBox txtEnd;
 		internal System.Windows.Forms.Label lblStart;
 		internal System.Windows.Forms.TextBox txtStart;
+		private System.Windows.Forms.Panel pnlText2;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

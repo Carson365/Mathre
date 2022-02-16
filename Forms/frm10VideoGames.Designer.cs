@@ -43,11 +43,14 @@ namespace Mathre
             this.pnlStardew = new System.Windows.Forms.Panel();
             this.pnlDoom = new System.Windows.Forms.Panel();
             this.pnlDiningType = new System.Windows.Forms.Panel();
+            this.pnlText3 = new System.Windows.Forms.Panel();
             this.txtMinecraft = new System.Windows.Forms.TextBox();
-            this.lblTotalMinecraft = new System.Windows.Forms.Label();
+            this.pnlText2 = new System.Windows.Forms.Panel();
             this.txtStardew = new System.Windows.Forms.TextBox();
-            this.lblTotalStardew = new System.Windows.Forms.Label();
+            this.pnlText1 = new System.Windows.Forms.Panel();
             this.txtDoom = new System.Windows.Forms.TextBox();
+            this.lblTotalMinecraft = new System.Windows.Forms.Label();
+            this.lblTotalStardew = new System.Windows.Forms.Label();
             this.lblTotalDoom = new System.Windows.Forms.Label();
             this.imgGames = new System.Windows.Forms.ImageList(this.components);
             this.pnlFrame.SuspendLayout();
@@ -55,6 +58,9 @@ namespace Mathre
             this.pnlConsole.SuspendLayout();
             this.pnlBody.SuspendLayout();
             this.pnlDiningType.SuspendLayout();
+            this.pnlText3.SuspendLayout();
+            this.pnlText2.SuspendLayout();
+            this.pnlText1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlFrame
@@ -189,11 +195,11 @@ namespace Mathre
             // 
             // pnlDiningType
             // 
-            this.pnlDiningType.Controls.Add(this.txtMinecraft);
+            this.pnlDiningType.Controls.Add(this.pnlText3);
+            this.pnlDiningType.Controls.Add(this.pnlText2);
+            this.pnlDiningType.Controls.Add(this.pnlText1);
             this.pnlDiningType.Controls.Add(this.lblTotalMinecraft);
-            this.pnlDiningType.Controls.Add(this.txtStardew);
             this.pnlDiningType.Controls.Add(this.lblTotalStardew);
-            this.pnlDiningType.Controls.Add(this.txtDoom);
             this.pnlDiningType.Controls.Add(this.lblTotalDoom);
             this.pnlDiningType.Location = new System.Drawing.Point(3, 112);
             this.pnlDiningType.Name = "pnlDiningType";
@@ -201,17 +207,74 @@ namespace Mathre
             this.pnlDiningType.TabIndex = 33;
             this.pnlDiningType.Tag = "Transparent";
             // 
+            // pnlText3
+            // 
+            this.pnlText3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText3.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText3.Controls.Add(this.txtMinecraft);
+            this.pnlText3.Location = new System.Drawing.Point(340, 7);
+            this.pnlText3.Name = "pnlText3";
+            this.pnlText3.Size = new System.Drawing.Size(58, 26);
+            this.pnlText3.TabIndex = 39;
+            this.pnlText3.Tag = "Transparent,Minecraft";
+            // 
             // txtMinecraft
             // 
             this.txtMinecraft.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtMinecraft.BackColor = System.Drawing.SystemColors.Window;
             this.txtMinecraft.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMinecraft.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMinecraft.Location = new System.Drawing.Point(340, 7);
+            this.txtMinecraft.Location = new System.Drawing.Point(0, 0);
             this.txtMinecraft.Margin = new System.Windows.Forms.Padding(0);
             this.txtMinecraft.Name = "txtMinecraft";
             this.txtMinecraft.Size = new System.Drawing.Size(58, 26);
             this.txtMinecraft.TabIndex = 34;
+            // 
+            // pnlText2
+            // 
+            this.pnlText2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText2.Controls.Add(this.txtStardew);
+            this.pnlText2.Location = new System.Drawing.Point(202, 7);
+            this.pnlText2.Name = "pnlText2";
+            this.pnlText2.Size = new System.Drawing.Size(58, 26);
+            this.pnlText2.TabIndex = 38;
+            this.pnlText2.Tag = "Transparent,Stardew Valley";
+            // 
+            // txtStardew
+            // 
+            this.txtStardew.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtStardew.BackColor = System.Drawing.SystemColors.Window;
+            this.txtStardew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtStardew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtStardew.Location = new System.Drawing.Point(0, 0);
+            this.txtStardew.Margin = new System.Windows.Forms.Padding(0);
+            this.txtStardew.Name = "txtStardew";
+            this.txtStardew.Size = new System.Drawing.Size(58, 26);
+            this.txtStardew.TabIndex = 32;
+            // 
+            // pnlText1
+            // 
+            this.pnlText1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlText1.BackColor = System.Drawing.Color.Transparent;
+            this.pnlText1.Controls.Add(this.txtDoom);
+            this.pnlText1.Location = new System.Drawing.Point(64, 7);
+            this.pnlText1.Name = "pnlText1";
+            this.pnlText1.Size = new System.Drawing.Size(58, 26);
+            this.pnlText1.TabIndex = 37;
+            this.pnlText1.Tag = "Transparent,Doom";
+            // 
+            // txtDoom
+            // 
+            this.txtDoom.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtDoom.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDoom.Location = new System.Drawing.Point(0, 0);
+            this.txtDoom.Margin = new System.Windows.Forms.Padding(0);
+            this.txtDoom.Name = "txtDoom";
+            this.txtDoom.Size = new System.Drawing.Size(58, 26);
+            this.txtDoom.TabIndex = 30;
             // 
             // lblTotalMinecraft
             // 
@@ -225,18 +288,6 @@ namespace Mathre
             this.lblTotalMinecraft.TabIndex = 33;
             this.lblTotalMinecraft.Text = "Total";
             // 
-            // txtStardew
-            // 
-            this.txtStardew.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtStardew.BackColor = System.Drawing.SystemColors.Window;
-            this.txtStardew.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtStardew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStardew.Location = new System.Drawing.Point(202, 7);
-            this.txtStardew.Margin = new System.Windows.Forms.Padding(0);
-            this.txtStardew.Name = "txtStardew";
-            this.txtStardew.Size = new System.Drawing.Size(58, 26);
-            this.txtStardew.TabIndex = 32;
-            // 
             // lblTotalStardew
             // 
             this.lblTotalStardew.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -248,18 +299,6 @@ namespace Mathre
             this.lblTotalStardew.Size = new System.Drawing.Size(44, 20);
             this.lblTotalStardew.TabIndex = 31;
             this.lblTotalStardew.Text = "Total";
-            // 
-            // txtDoom
-            // 
-            this.txtDoom.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.txtDoom.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDoom.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDoom.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDoom.Location = new System.Drawing.Point(64, 7);
-            this.txtDoom.Margin = new System.Windows.Forms.Padding(0);
-            this.txtDoom.Name = "txtDoom";
-            this.txtDoom.Size = new System.Drawing.Size(58, 26);
-            this.txtDoom.TabIndex = 30;
             // 
             // lblTotalDoom
             // 
@@ -300,6 +339,12 @@ namespace Mathre
             this.pnlBody.ResumeLayout(false);
             this.pnlDiningType.ResumeLayout(false);
             this.pnlDiningType.PerformLayout();
+            this.pnlText3.ResumeLayout(false);
+            this.pnlText3.PerformLayout();
+            this.pnlText2.ResumeLayout(false);
+            this.pnlText2.PerformLayout();
+            this.pnlText1.ResumeLayout(false);
+            this.pnlText1.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -326,5 +371,8 @@ namespace Mathre
 		private System.Windows.Forms.ImageList imgGames;
 		private System.Windows.Forms.Label lblCostText;
 		private System.Windows.Forms.Label lblCost;
+		private System.Windows.Forms.Panel pnlText3;
+		private System.Windows.Forms.Panel pnlText2;
+		private System.Windows.Forms.Panel pnlText1;
 	}
 }

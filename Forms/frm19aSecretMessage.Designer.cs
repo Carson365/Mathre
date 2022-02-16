@@ -30,10 +30,10 @@
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.chbDecode = new System.Windows.Forms.CheckBox();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.btnOutput = new System.Windows.Forms.Button();
             this.btnInput = new System.Windows.Forms.Button();
+            this.btnOutput = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.chbDecode = new System.Windows.Forms.CheckBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -65,25 +65,14 @@
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
             // 
-            // chbDecode
+            // btnInput
             // 
-            this.chbDecode.AutoSize = true;
-            this.chbDecode.Location = new System.Drawing.Point(230, 58);
-            this.chbDecode.Name = "chbDecode";
-            this.chbDecode.Size = new System.Drawing.Size(102, 17);
-            this.chbDecode.TabIndex = 3;
-            this.chbDecode.Text = "Decoding Mode";
-            this.chbDecode.UseVisualStyleBackColor = true;
-            // 
-            // btnClear
-            // 
-            this.btnClear.Enabled = false;
-            this.btnClear.Location = new System.Drawing.Point(221, 26);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(120, 23);
-            this.btnClear.TabIndex = 2;
-            this.btnClear.Text = "Clear the Code";
-            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnInput.Location = new System.Drawing.Point(85, 26);
+            this.btnInput.Name = "btnInput";
+            this.btnInput.Size = new System.Drawing.Size(120, 23);
+            this.btnInput.TabIndex = 0;
+            this.btnInput.Text = "Input Your Message";
+            this.btnInput.UseVisualStyleBackColor = true;
             // 
             // btnOutput
             // 
@@ -95,14 +84,25 @@
             this.btnOutput.Text = "See the Code";
             this.btnOutput.UseVisualStyleBackColor = true;
             // 
-            // btnInput
+            // btnClear
             // 
-            this.btnInput.Location = new System.Drawing.Point(85, 26);
-            this.btnInput.Name = "btnInput";
-            this.btnInput.Size = new System.Drawing.Size(120, 23);
-            this.btnInput.TabIndex = 0;
-            this.btnInput.Text = "Input Your Message";
-            this.btnInput.UseVisualStyleBackColor = true;
+            this.btnClear.Enabled = false;
+            this.btnClear.Location = new System.Drawing.Point(221, 26);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(120, 23);
+            this.btnClear.TabIndex = 2;
+            this.btnClear.Text = "Clear the Code";
+            this.btnClear.UseVisualStyleBackColor = true;
+            // 
+            // chbDecode
+            // 
+            this.chbDecode.AutoSize = true;
+            this.chbDecode.Location = new System.Drawing.Point(230, 58);
+            this.chbDecode.Name = "chbDecode";
+            this.chbDecode.Size = new System.Drawing.Size(102, 17);
+            this.chbDecode.TabIndex = 3;
+            this.chbDecode.Text = "Decoding Mode";
+            this.chbDecode.UseVisualStyleBackColor = true;
             // 
             // lblTitle
             // 
@@ -113,7 +113,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
             this.lblTitle.TabIndex = 31;
-            this.lblTitle.Text = "Title";
+            this.lblTitle.Text = "Secret Message Encoder";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Frm19aSecretMessage
