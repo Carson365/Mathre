@@ -45,7 +45,7 @@ namespace Mathre
 					ToolStripMenuItem item = new();
 					item.Name = newTab.Name.Replace("tab", "mnuView");
 					item.Text = newTab.Text;
-					item.Click += new EventHandler((sender, e) => { tabMathre.SelectTab((sender as ToolStripMenuItem).Name.ToString().Replace("mnuView", "tab")); });
+					item.Click += (s, e) => { tabMathre.SelectTab(((ToolStripMenuItem)sender).Name.ToString().Replace("mnuView", "tab")); }/*)*/;
 					mnuView.DropDownItems.Add(item);
 					ToolStripMenuItem menu = new();
 					menu.Text = form.Text;
