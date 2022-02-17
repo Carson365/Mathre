@@ -6,7 +6,6 @@ namespace Mathre
 {
 	public partial class Frm16Letters : Form
 	{
-		public static Frm00Mathre BaseForm;
 		public Frm16Letters()
 		{
 			InitializeComponent();

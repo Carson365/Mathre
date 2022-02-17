@@ -12,7 +12,6 @@ namespace Mathre
 {
 	public partial class Frm17WordGuess : Form
 	{
-		public static Frm00Mathre BaseForm;
 		string abc = " ";
 		readonly List<string> guesses = new();
 		int guesscount = 0;

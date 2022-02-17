@@ -6,7 +6,6 @@ namespace Mathre
 {
 	public partial class Frm13Slots : Form
 	{
-		public static Frm00Mathre BaseForm;
 		public int tokens = 30;
 		public int change = 0;
 		public bool auto = true;

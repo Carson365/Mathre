@@ -17,7 +17,6 @@ namespace Mathre
 {
 	public partial class Frm12Hurricane : Form, Forms.IManager
 	{
-		public static Frm00Mathre BaseForm;
 		public string HurricaneInfo = "";
 		public int RunCount = 0;
 		public Dictionary<int, List<string>> Dictionary = new() { { 0, new List<string> { "Name", "MPH", "Knots", "Type", "Category", "Damage" } } };

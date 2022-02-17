@@ -10,7 +10,7 @@ namespace Mathre
 {
 	public partial class Frm18Humane : Form
 	{
-		public static Frm00Mathre BaseForm;
+
 		public static Frm18Humane ThisForm;
 		int n = 1;
 		readonly Random rnd = new();
@@ -45,7 +45,7 @@ namespace Mathre
 		public void Catname(object sender, EventArgs e)
 		{
 			int num = rnd.Next(0, 500);
-			ThisForm.Invoke(new MethodInvoker(delegate ()
+			Invoke(new MethodInvoker(delegate ()
 			{
 				if (((PictureBox)Controls.Find($"picCat{n}", true)[0]).Image == ((PictureBox)Controls.Find($"picCat{n}", true)[0]).ErrorImage)
 				{

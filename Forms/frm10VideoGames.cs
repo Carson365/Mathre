@@ -11,7 +11,6 @@ namespace Mathre
 {
 	public partial class Frm10VideoGames : Form, Forms.IManager
 	{
-		public static Frm00Mathre BaseForm;
 		public Frm10VideoGames()
 		{
 			InitializeComponent();

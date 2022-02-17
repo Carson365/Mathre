@@ -9,7 +9,6 @@ namespace Mathre
 	public partial class Frm03Rectangle : Form
 	{
 		public static object Placeholder;
-		public static Frm00Mathre BaseForm;
 		public int lastvalue = 0;
 		public Frm03Rectangle()
 		{

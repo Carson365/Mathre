@@ -5,7 +5,6 @@ namespace Mathre
 {
 	public partial class Frm14Acronym : Form
 	{
-		public static Frm00Mathre BaseForm;
 		public static Frm14Acronym ThisForm;
 		public Frm14Acronym()
 		{

@@ -45,7 +45,7 @@ namespace Mathre
 					ToolStripMenuItem item = new();
 					item.Name = newTab.Name.Replace("tab", "mnuView");
 					item.Text = newTab.Text;
-					item.Click += (s, e) => { tabMathre.SelectTab(((ToolStripMenuItem)sender).Name.ToString().Replace("mnuView", "tab")); };
+					item.Click += (s, e) => { tabMathre.SelectTab(newTab); };
 					mnuView.DropDownItems.Add(item);
 					ToolStripMenuItem menu = new();
 					menu.Text = form.Text;
@@ -99,23 +99,18 @@ namespace Mathre
 					tool.Enabled = b.Enabled;
 					tool.Text = b.Text;
 					tool.Name = b.Name;
-					Action a = b switch
-					{
-						Button bb => () => bb.PerformClick(),
-						RadioButton rb => () => rb.PerformClick(),
-						CheckBox cb => () => cb.Checked ^= true,
-						_ => null,
-					};
-					tool.Click += (p, e) => a();
+					if (b is Button bb) tool.Click += (p, e) => bb.PerformClick();
+					if (b is RadioButton rb) tool.Click += (p, e) => rb.PerformClick();
+					if (b is CheckBox cb) tool.Click += (p, e) => cb.Checked ^= true;
 					item.DropDownItems.Add(tool);
 				}
 				if (b is TextBox bx && (b.Parent is not NumericUpDown))
 				{
 					ToolStripTextBox tool = new();
 					tool.Enabled = b.Enabled;
-					tool.Text = $"{b.Text}";
-					tool.Name = $"{bx.Name}";
-					tool.TextBox.Name = $"{b.Name}";
+					tool.Text = b.Text;
+					tool.Name = b.Name;
+					tool.TextBox.Name = b.Name;
 					if (b.FindForm().Name == "Frm03Rectangle")
 						tool.TextBox.KeyDown += Application.OpenForms.OfType<Frm03Rectangle>().SingleOrDefault().RectangleKeypress;
 					else if (b.FindForm().Name == "Frm17WordGuess")

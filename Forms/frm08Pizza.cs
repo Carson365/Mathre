@@ -9,7 +9,6 @@ namespace Mathre
 {
 	public partial class Frm08Pizza : Form, Forms.IManager
 	{
-		public static Frm00Mathre BaseForm;
 		public Frm08Pizza()
 		{
 			InitializeComponent();

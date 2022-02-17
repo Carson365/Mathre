@@ -9,7 +9,6 @@ namespace Mathre
 	public partial class Frm01HelloWorld : Form
 	{
 		private RadioButton StartingLanguage;
-		public static Frm00Mathre BaseForm;
 		public Frm01HelloWorld()
 		{
 			InitializeComponent();

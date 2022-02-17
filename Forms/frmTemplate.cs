@@ -4,7 +4,6 @@ namespace Mathre
 {
 	public partial class FrmTemplate : Form
 	{
-		public static Frm00Mathre BaseForm;
 		public FrmTemplate()
 		{
 			InitializeComponent();

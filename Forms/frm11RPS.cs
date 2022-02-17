@@ -7,7 +7,6 @@ namespace Mathre
 {
 	public partial class Frm11RPS : Form
 	{
-		public static Frm00Mathre BaseForm;
 		private int playerscore = 0;
 		private int computerscore = 0;
 		private int drawamount = 0;

@@ -5,7 +5,6 @@ namespace Mathre
 {
 	public partial class Frm05Temperature : Form, Forms.IManager
 	{
-		public static Frm00Mathre BaseForm;
 		public Frm05Temperature()
 		{
 			InitializeComponent();

@@ -4,7 +4,6 @@ namespace Mathre
 {
 	public partial class Frm15Sum : Form, Forms.IManager
 	{
-		public static Frm00Mathre BaseForm;
 		public static int counter;
 		public static int countercount;
 		public static int total;

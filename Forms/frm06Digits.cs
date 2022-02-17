@@ -5,7 +5,6 @@ namespace Mathre
 {
 	public partial class Frm06Digits : Form, Forms.IManager
 	{
-		public static Frm00Mathre BaseForm;
 		public Frm06Digits()
 		{
 			InitializeComponent();
