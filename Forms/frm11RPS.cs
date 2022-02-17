@@ -16,7 +16,7 @@ namespace Mathre
 		public Frm11RPS()
 		{
 			InitializeComponent();
-			Load += FormLoad;
+			Load += (p, e) => { picRPS.Image = imgRPS.Images["RPS.png"]; picRPS2.Image = imgRPS.Images["RPS.png"]; };
 			radRock.CheckedChanged += RPSSelect;
 			radPaper.CheckedChanged += RPSSelect;
 			radScissors.CheckedChanged += RPSSelect;
@@ -26,13 +26,6 @@ namespace Mathre
 			radRock2.CheckedChanged += RPSSelect;
 			radPaper2.CheckedChanged += RPSSelect;
 			radScissors2.CheckedChanged += RPSSelect;
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-			picRPS.Image = imgRPS.Images["RPS.png"];
-			picRPS2.Image = imgRPS.Images["RPS.png"];
 		}
 		public void RPSGame(object sender, EventArgs e)
 		{
@@ -79,7 +72,7 @@ namespace Mathre
 		public void Message(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = $"{sender}";
-			if (chbDisableMessagebox.Checked) { MessageBox.Show($"{sender}", "Result"); }
+			if (chbDisableMessagebox.Checked) MessageBox.Show($"{sender}", "Result");
 		}
 	}
 }

@@ -2,7 +2,6 @@
 // Mascot: https://www.gfschools.org/cms/lib/ND02203034/Centricity/Template/GlobalAssets/images///logos/Red%20River%20HS.png
 using System;
 using System.Drawing;
-using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -13,12 +12,6 @@ namespace Mathre
 		{
 			InitializeComponent();
 			btnMySchoolToggleMascot.Click += MySchool;
-			Load += FormLoad;
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void MySchool(object sender, EventArgs e)
 		{

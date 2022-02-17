@@ -18,11 +18,11 @@ namespace Mathre
 		public void FormLoad(object sender, EventArgs e)
 		{
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
+
 		}
 		public void SecretHandler(object sender, EventArgs e)
 		{
-			if (ReferenceEquals(sender, txtSecretPassword))
+			if (sender == txtSecretPassword)
 			{
 				string hashedvalue;
 				if (string.IsNullOrEmpty(txtSecretPassword.Text)) hashedvalue = string.Empty;
@@ -34,10 +34,10 @@ namespace Mathre
 				}
 				if (hashedvalue == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") { btnSecretEnable.Enabled = true; btnSecretDisable.Enabled = true; }
 				else { btnSecretEnable.Enabled = false; btnSecretDisable.Enabled = false; btnSecretDisable.Checked = true; }
-				if (btnSecretEnable.Enabled == false) { BaseForm.hidden = true; }
+				if (btnSecretEnable.Enabled == false) BaseForm.hidden = true;
 			}
-			if (ReferenceEquals(sender, btnSecretEnable)) { BaseForm.hidden = false; btnSecretEnable.Checked = true; }
-			if (ReferenceEquals(sender, btnSecretDisable)) { BaseForm.hidden = true; btnSecretDisable.Checked = true; }
+			if (sender == btnSecretEnable) { BaseForm.hidden = false; btnSecretEnable.Checked = true; }
+			if (sender == btnSecretDisable) { BaseForm.hidden = true; btnSecretDisable.Checked = true; }
 		}
 	}
 }

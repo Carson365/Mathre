@@ -13,25 +13,18 @@ namespace Mathre
 		public Frm01HelloWorld()
 		{
 			InitializeComponent();
-			Load += FormLoad;
-			radEnglish.Click += (sender, e) => { lblTitle.Text = "Hello World"; };
-			radFrench.Click += (sender, e) => { lblTitle.Text = "Bonjour le Monde"; };
-			radGerman.Click += (sender, e) => { lblTitle.Text = "Hallo Welt"; };
-			btnReset.Click += (sender, e) => { StartingLanguage.PerformClick(); };
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(this); }
-			StartingLanguage = pnlLanguage.Controls.OfType<RadioButton>().First(radioButton => radioButton.Checked);
-			StartingLanguage.PerformClick();
+			Load += (p, e) => { StartingLanguage = pnlLanguage.Controls.OfType<RadioButton>().First(radioButton => radioButton.Checked); StartingLanguage.PerformClick(); };
+			radEnglish.Click += (s, e) => lblTitle.Text = "Hello World";
+			radFrench.Click += (s, e) => lblTitle.Text = "Bonjour le Monde";
+			radGerman.Click += (s, e) => lblTitle.Text = "Hallo Welt";
+			btnReset.Click += (s, e) => StartingLanguage.PerformClick();
 		}
 		public void HelloWorld(object sender, EventArgs e)
 		{
-			if ($"{sender}" == "English") { radEnglish.PerformClick(); }
-			if ($"{sender}" == "French") { radFrench.PerformClick(); }
-			if ($"{sender}" == "German") { radGerman.PerformClick(); }
-			if ($"{sender}" == "Reset") { btnReset.PerformClick(); }
+			if ($"{sender}" == "English") radEnglish.PerformClick();
+			if ($"{sender}" == "French") radFrench.PerformClick();
+			if ($"{sender}" == "German") radGerman.PerformClick();
+			if ($"{sender}" == "Reset") btnReset.PerformClick();
 			else if ($"{sender}" == "Secret")
 			{
 				pnlBody.Controls.OfType<RadioButton>().All(c => { c.Checked = false; return true; });

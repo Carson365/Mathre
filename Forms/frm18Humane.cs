@@ -29,9 +29,6 @@ namespace Mathre
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm18Humane>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 			lblCatSave.Text = "";
 			pnlPictureSave.Visible = false;
 			var loopfour = 1;

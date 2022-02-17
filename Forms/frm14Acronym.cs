@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualBasic;
 using System;
-using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -11,14 +10,7 @@ namespace Mathre
 		public Frm14Acronym()
 		{
 			InitializeComponent();
-			Load += FormLoad;
 			btnCreate.Click += Acronym;
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			ThisForm = Application.OpenForms.OfType<Frm14Acronym>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void Acronym(object sender, EventArgs e)
 		{

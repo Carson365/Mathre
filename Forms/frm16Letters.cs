@@ -10,20 +10,14 @@ namespace Mathre
 		public Frm16Letters()
 		{
 			InitializeComponent();
-			Load += FormLoad;
 			btnSearch.Click += Search;
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void Search(object sender, EventArgs e)
 		{
 			lblSearch.Text = Interaction.InputBox("What is the word or phrase to search?", "Letter Counter", "");
 			lblFind.Text = $"{Interaction.InputBox("What is the character to search for?\nOnly the first character will be searched", "Letter Counter", "").FirstOrDefault()}";
 			int count = 0;
-			foreach (char c in lblSearch.Text) { if ($"{c}".ToLower() == $"{lblFind.Text}".ToLower()) { count++; } }
+			foreach (char c in lblSearch.Text) { if ($"{c}".ToLower() == $"{lblFind.Text}".ToLower()) count++; }
 			lblOccurrances.Text = count.ToString();
 		}
 	}

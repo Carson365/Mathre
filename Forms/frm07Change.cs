@@ -1,6 +1,5 @@
 using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace Mathre
@@ -11,14 +10,8 @@ namespace Mathre
 		public Frm07Change()
 		{
 			InitializeComponent();
-			Load += FormLoad;
 			txtPaidAmount.TextChanged += ChangeMaker;
 			txtPaidAmount.KeyPress += InputFormatter;
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void ChangeMaker(object sender, EventArgs e)
 		{
@@ -26,8 +19,8 @@ namespace Mathre
 			string[] decimals = txtPaidAmount.Text.Split(DecimalChar.ToCharArray());
 			int Bills = 0;
 			int Coins = 0;
-			if (int.TryParse(decimals[0], out int BillsAmount)) { Bills = BillsAmount; }
-			if (decimals.Length > 1 && int.TryParse(decimals[1], out int CoinsAmount)) { Coins = CoinsAmount; }
+			if (int.TryParse(decimals[0], out int BillsAmount)) Bills = BillsAmount;
+			if (decimals.Length > 1 && int.TryParse(decimals[1], out int CoinsAmount)) Coins = CoinsAmount;
 			lblHundredsCount.Text = (Bills / 100).ToString();
 			lblFiftiesCount.Text = (Bills % 100 / 50).ToString();
 			lblTwentiesCount.Text = (Bills % 100 % 50 / 20).ToString();
@@ -43,10 +36,10 @@ namespace Mathre
 		{
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			TextBox textBox = sender as TextBox;
-			if (e.KeyChar.ToString() == DecimalChar ) { if (textBox.Text.Contains(DecimalChar)) e.Handled = true;}
-			else if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')) { e.Handled = true; }
+			if (e.KeyChar.ToString() == DecimalChar) { if (textBox.Text.Contains(DecimalChar)) e.Handled = true; }
+			else if (e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9')) e.Handled = true;
 			string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
-			if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar)) { e.Handled = true; }
+			if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar)) e.Handled = true;
 		}
 	}
 }

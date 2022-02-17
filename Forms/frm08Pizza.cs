@@ -4,7 +4,6 @@
 // Large: https://cloudfront-us-east-1.images.arcpublishing.com/gmg/BCUKGOJJYRABVPC7IK3422PWBE.jpg
 using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -14,7 +13,6 @@ namespace Mathre
 		public Frm08Pizza()
 		{
 			InitializeComponent();
-			Load += FormLoad;
 			txtPizzaSize.TextChanged += Pizza;
 			txtPizzaTip.TextChanged += Pizza;
 			radDelivery.CheckedChanged += Pizza;
@@ -23,11 +21,6 @@ namespace Mathre
 			radDollars.CheckedChanged += Pizza;
 			txtPizzaTip.KeyPress += InputFormatter;
 			txtPizzaSize.KeyPress += InputFormatter;
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void Pizza(object sender, EventArgs e)
 		{
@@ -40,15 +33,15 @@ namespace Mathre
 				_ => () => { }
 			};
 			a.Invoke();
-			if (!radDelivery.Checked & !radTakeout.Checked) { radDelivery.Checked = true; }
-			if (!radDollars.Checked & !radPercent.Checked) { radPercent.Checked = true; }
+			if (!radDelivery.Checked & !radTakeout.Checked) radDelivery.Checked = true;
+			if (!radDollars.Checked & !radPercent.Checked) radPercent.Checked = true;
 			int Size = 0;
 			decimal Tip = 0;
-			if (int.TryParse(txtPizzaSize.Text, out int SizeText)) { Size = SizeText; }
-			if (decimal.TryParse(txtPizzaTip.Text, out decimal TipText)) { Tip = TipText; }
+			if (int.TryParse(txtPizzaSize.Text, out int SizeText)) Size = SizeText;
+			if (decimal.TryParse(txtPizzaTip.Text, out decimal TipText)) Tip = TipText;
 			decimal Cost = (decimal)(0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(radDelivery.Checked) * 1.5));
-			if (Size != 0) { lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(radDollars.Checked)) + (Convert.ToInt32(radPercent.Checked) * ((Tip / 100) * Cost)), 2) }".ToString(); }
-			else { lblPizzaCostAmount.Text = "Not Enough Information"; }
+			if (Size != 0) lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(radDollars.Checked)) + (Convert.ToInt32(radPercent.Checked) * (Tip / 100 * Cost)), 2) }".ToString();
+			else lblPizzaCostAmount.Text = "Not Enough Information";
 			pnlPizzaViewer.BackgroundImage = Size switch
 			{
 				0 => null,
@@ -62,11 +55,11 @@ namespace Mathre
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
 			TextBox textBox = sender as TextBox;
 			if (e.KeyChar.ToString() == DecimalChar) { if (textBox.Name == "txtPizzaTip") { if (textBox.Text.Contains(DecimalChar)) e.Handled = true; } else e.Handled = true; }
-			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) { e.Handled = true; }
+			else if ((e.KeyChar != '\b' && (e.KeyChar < '0' || e.KeyChar > '9'))) e.Handled = true;
 			if (textBox.Name == "txtPizzaTip")
 			{
 				string[] decimals = textBox.Text.Split(DecimalChar.ToCharArray());
-				if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar)) { e.Handled = true; }
+				if (decimals.Length > 1 && e.KeyChar != '\b' && decimals[1].Length > 1 && textBox.SelectionStart > textBox.Text.IndexOf(DecimalChar)) e.Handled = true;
 			}
 		}
 	}

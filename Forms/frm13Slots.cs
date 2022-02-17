@@ -1,6 +1,5 @@
 ﻿using Microsoft.VisualBasic;
 using System;
-using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 namespace Mathre
@@ -17,14 +16,8 @@ namespace Mathre
 		public Frm13Slots()
 		{
 			InitializeComponent();
-			Load += FormLoad;
 			btnSpin.Click += Gamble;
 			chbAuto.CheckedChanged += Autocheck;
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
 		}
 		public void Tabbed() { if (!loadedonce) { loadedonce = true; Loaded(null, null); } }
 		public void Loaded(object sender, EventArgs e)
@@ -35,7 +28,7 @@ namespace Mathre
 			while (Age == 0)
 			{
 				string AgeCheck = Interaction.InputBox($"Hello {PlayerName}! What is your Age?", "Slot Machine");
-				if (double.TryParse(AgeCheck, out double AgeResult)) { Age = AgeResult; }
+				if (double.TryParse(AgeCheck, out double AgeResult)) Age = AgeResult;
 			}
 			if (Age < 18) { int LegalAge = 18; MessageBox.Show($"Sorry, you are under the legal age to gamble ({LegalAge}). Goodbye.", "Ineligible"); Close(); }
 		}
@@ -44,11 +37,11 @@ namespace Mathre
 		public void Gamble(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = "";
-			if (tokens <= 0) { Message("No Tokens", null); }
+			if (tokens <= 0) Message("No Tokens", null);
 			else
 			{
 				counter++;
-				if (tokens == 1 && chbDouble.Checked) { chbDouble.Checked = false; }
+				if (tokens == 1 && chbDouble.Checked) chbDouble.Checked = false;
 				tokens -= (1 + Convert.ToInt32(chbDouble.Checked));
 				Random rnd = new();
 				int rnd1 = rnd.Next(1, 4);
@@ -72,8 +65,8 @@ namespace Mathre
 			string plural = counter switch { 1 => "", _ => "s" };
 			string plural2 = count switch { 1 => "", -1 => "", _ => "s" };
 			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}.\nYou now have {tokens} tokens.";
-			if (chbMessage.Checked && sender.ToString() != "No Tokens") { MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "Result"); }
-			else if (chbMessage.Checked) { MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "Result"); }
+			if (chbMessage.Checked && sender.ToString() != "No Tokens") MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "Result");
+			else if (chbMessage.Checked) MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "Result");
 			counter = 0;
 			auto = false;
 			chbAuto.Checked = auto;

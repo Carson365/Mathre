@@ -14,18 +14,10 @@ namespace Mathre
 		public Frm03Rectangle()
 		{
 			InitializeComponent();
-			Load += FormLoad;
+			Load += (p, e) => { lblRectangleError.Visible = false; pnlRectangle.Visible = false; KeyPreview = true; };
 			txtRectangleDimensions.KeyPress += Rectangle;
 			txtRectangleDimensions.TextChanged += Rectangle;
 			txtRectangleDimensions.KeyDown += RectangleKeypress;
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			lblRectangleError.Visible = false;
-			pnlRectangle.Visible = false;
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-			KeyPreview = true;
 		}
 		public void Rectangle(object sender, EventArgs e)
 		{
@@ -34,8 +26,8 @@ namespace Mathre
 			string[] words = txtRectangleDimensions.Text.Split('*');
 			if (words.Length > 1)
 			{
-				if (double.TryParse(words[1], out double HeightValue)) { Height = HeightValue; }
-				if (double.TryParse(words[0], out double WidthValue)) { Width = WidthValue; }
+				if (double.TryParse(words[1], out double HeightValue)) Height = HeightValue;
+				if (double.TryParse(words[0], out double WidthValue)) Width = WidthValue;
 			}
 			if (ReferenceEquals(sender, Placeholder) || ReferenceEquals(sender, txtRectangleDimensions))
 			{
@@ -84,17 +76,17 @@ namespace Mathre
 
 				if (e.KeyCode == Keys.OemPeriod || e.KeyCode == Keys.Decimal)
 				{
-					if (textBox.SelectionStart > words[0].Length && words[1].Contains(DecimalChar)) { e.SuppressKeyPress = true; }
-					else if (textBox.SelectionStart < words[0].Length && words[0].Contains(DecimalChar)) { e.SuppressKeyPress = true; }
+					if (textBox.SelectionStart > words[0].Length && words[1].Contains(DecimalChar)) e.SuppressKeyPress = true;
+					else if (textBox.SelectionStart < words[0].Length && words[0].Contains(DecimalChar)) e.SuppressKeyPress = true;
 				}
 				else if (e.KeyCode != Keys.Back && e.KeyCode != Keys.Delete)
 				{
 					if (e.Shift)
 					{
-						if (e.KeyCode == Keys.D8) { if (textBox.Text.Contains("*")) { e.SuppressKeyPress = true; } }
-						else { e.SuppressKeyPress = true; }
+						if (e.KeyCode == Keys.D8) { if (textBox.Text.Contains("*")) e.SuppressKeyPress = true; }
+						else e.SuppressKeyPress = true;
 					}
-					else if (((e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9) && (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9)))
+					else if ((e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9) && (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9))
 					{
 						if (textBox.Text.Contains("*"))
 						{

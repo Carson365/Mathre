@@ -27,27 +27,20 @@ namespace Mathre
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
-			Load += FormLoad;
+			Load += (p, e) => Timer();
 			txtP1.TextChanged += Default;
 			txtP1.KeyDown += KeyPressEvent;
 			txtP2.KeyDown += KeyPressEvent;
 			txtP2.TextChanged += Default;
-			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) { txtP1.UseSystemPasswordChar = true; } else { txtP1.UseSystemPasswordChar = false; } };
+			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) txtP1.UseSystemPasswordChar = true; else txtP1.UseSystemPasswordChar = false; };
 			chbSounds.CheckedChanged += (p, e) => { playsounds = !playsounds; Play("Background"); };
-		}
-		public void FormLoad(object sender, EventArgs e)
-		{
-			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-			foreach (Control c in Controls) { BaseForm.GetAllControls(c); }
-			//Play("Background");
-			Timer();
 		}
 		public void TickEvent(object sender, EventArgs e) { lblTime.Text = $"{elapsedtime++}"; if (finished) { tmrTime.Stop(); elapsedtime = 1; lblTime.Text = "0"; } }
 		public void Tabbed(bool play) { playsounds = play; Play("Background"); }
 		public void Timer() { System.Timers.Timer aTimer = new(100); aTimer.Elapsed += FlashScreen; aTimer.Enabled = true; }
 		public void Default(object sender, EventArgs e)
 		{
-			if (ReferenceEquals(sender, txtP1))
+			if (sender == txtP1)
 			{
 				{ finished = true; runonce = true; tmrTime.Tick -= TickEvent; }
 				{ guesses.Clear(); guesscount = 0; totalguesses = 6; correctguesses = 0; abc = ""; }
@@ -57,7 +50,7 @@ namespace Mathre
 				// Sets every underscore to have the proper spacing, and adds spaces before dashes and preexisting spaces as necessary
 				lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), @"\s*-", " -"), "_", " _");
 			}
-			if (ReferenceEquals(sender, txtP2))
+			if (sender == txtP2)
 			{
 				if (runonce) { finished = false; tmrTime.Start(); tmrTime.Tick += TickEvent; runonce = false; }
 				if (!guesses.Contains<string>(txtP2.Text.ToLower()) && txtP1.Text.Length > 0)
@@ -84,7 +77,7 @@ namespace Mathre
 				}
 				{ txtP2.TextChanged -= Default; txtP2.Clear(); txtP2.TextChanged += Default; }
 				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); finished = true; runcolors = 0; MessageBox.Show("YOU HAVE WON"); }
-				if (totalguesses < 1) { MessageBox.Show("YOU HAVE LOST"); }
+				if (totalguesses < 1) MessageBox.Show("YOU HAVE LOST");
 			}
 		}
 		// https://stackoverflow.com/a/38006788
@@ -98,8 +91,8 @@ namespace Mathre
 			{
 				// Gets the location of the file by string, opens it using the native windows API "mciSendString" after ensuring another isn't open, then closes it when done.
 				mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0);
-				if (file == "Background") { mciSendString($"play {file} repeat", null, 0, 0); }
-				else { mciSendString($"play {file}", null, 0, 0); }
+				if (file == "Background") mciSendString($"play {file} repeat", null, 0, 0);
+				else mciSendString($"play {file}", null, 0, 0);
 			}
 		}
 		public void FlashScreen(object sender, ElapsedEventArgs e)
@@ -123,8 +116,8 @@ namespace Mathre
 		public void KeyPressEvent(object sender, KeyEventArgs e)
 		{
 			TextBox tB = sender as TextBox;
-			if (tB.Name == "txtP1") { if (tB.Text.Length > 15 && e.KeyCode != Keys.Back) { e.SuppressKeyPress = true; } }
-			else { { if (totalguesses < 1) { e.SuppressKeyPress = true; } if (tB.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } } };
+			if (tB.Name == "txtP1") { if (tB.Text.Length > 15 && e.KeyCode != Keys.Back) e.SuppressKeyPress = true; }
+			else { { if (totalguesses < 1) e.SuppressKeyPress = true; if (tB.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } } };
 		}
 	}
 }

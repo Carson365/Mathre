@@ -65,8 +65,8 @@ namespace Mathre
 			ColorKey.Close();
 			KeyPreview = true;
 			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
-			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) { MenuKeypress((ToolStripMenuItem)ToolStripMenuItem); }
-			foreach (Control c in Controls) { GetAllControls(this); }
+			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) MenuKeypress((ToolStripMenuItem)ToolStripMenuItem);
+			foreach (Control c in Controls) GetPanels(c);
 			hidden = true;
 			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
@@ -77,9 +77,9 @@ namespace Mathre
 			foreach (ToolStripMenuItem item in items.OfType<ToolStripMenuItem>()) { allItems.Add(item); allItems.AddRange(GetAll(item.DropDownItems)); }
 			return allItems;
 		}
-		public void GetAllControls(Control container)
+		public void GetPanels(Control container)
 		{
-			foreach (Control b in container.Controls) { GetAllControls(b); if ((b is Panel) && (b is not TabPage) && b.Name != "pnlFrame") { b.Paint += PaintPanel; } }
+			foreach (Control b in container.Controls) { GetPanels(b); if ((b is Panel) && (b is not TabPage) && b.Name != "pnlFrame") b.Paint += PaintPanel; }
 		}
 		public void GetMenu(Control container, ToolStripMenuItem item, Form form)
 		{
@@ -92,7 +92,7 @@ namespace Mathre
 					item.DropDownItems.Add(menu);
 					GetMenu(b, menu, form);
 				}
-				else { GetMenu(b, item, form); }
+				else GetMenu(b, item, form);
 				if ((b is Button) || (b is RadioButton) || (b is CheckBox))
 				{
 					ToolStripMenuItem tool = new();
@@ -123,8 +123,8 @@ namespace Mathre
 					else if (b.FindForm().Name == "Frm12Hurricane")
 						tool.TextBox.KeyDown += Application.OpenForms.OfType<Frm12Hurricane>().SingleOrDefault().EnterKey;
 					else tool.TextBox.KeyPress += ((Forms.IManager)form).InputFormatter;
-					b.TextChanged += (p, e) => { tool.Text = b.Text; };
-					tool.TextChanged += (p, e) => { b.Text = tool.Text; };
+					b.TextChanged += (p, e) => tool.Text = b.Text;
+					tool.TextChanged += (p, e) => b.Text = tool.Text;
 					item.DropDownItems.Add(tool);
 				}
 			}
@@ -135,8 +135,8 @@ namespace Mathre
 			{
 				foreach (Form form in Application.OpenForms)
 				{
-					if (form.Name != "Frm00Mathre" && form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) { form.Hide(); }
-					else if (form.Name != "Frm00Mathre") { form.Show(); }
+					if (form.Name != "Frm00Mathre" && form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide();
+					else if (form.Name != "Frm00Mathre") form.Show();
 				}
 				var F13 = Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault();
 				if (tabMathre.SelectedTab.Name == "tab13Slots" && F13 != null) F13.Tabbed();
@@ -167,10 +167,10 @@ namespace Mathre
 				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			}
-			if (e.Control & e.KeyCode == Keys.R & hidden == false) { F01.HelloWorld("Secret", null); }
-			if (e.Control & e.Shift & e.KeyCode == Keys.R) { F01.HelloWorld("Reset", null); }
-			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D8)) { tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1]; }
-			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode == Keys.D9)) { tabMathre.SelectedTab = tabMathre.TabPages[tabMathre.TabCount - 1]; }
+			if (e.Control & e.KeyCode == Keys.R & hidden == false) F01.HelloWorld("Secret", null);
+			if (e.Control & e.Shift & e.KeyCode == Keys.R) F01.HelloWorld("Reset", null);
+			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D8)) tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1];
+			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode == Keys.D9)) tabMathre.SelectedTab = tabMathre.TabPages[tabMathre.TabCount - 1];
 		}
 		public class MenuColorTable : ProfessionalColorTable
 		{
@@ -180,13 +180,10 @@ namespace Mathre
 		}
 		public void PaintPanel(object box, PaintEventArgs p)
 		{
-			Color BorderColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
-			if ($"{((Panel)box).Tag}".Contains("Black")) { BorderColor = Color.Black; }
-			if ($"{((Panel)box).Tag}".Contains("Transparent")) { BorderColor = Color.Transparent; }
-			var rect = new Rectangle(0, 0, ((Panel)box).Width, ((Panel)box).Height);
-			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
-			rect.Inflate(-1, -1);
-			ControlPaint.DrawBorder(p.Graphics, rect, BorderColor, ButtonBorderStyle.Solid);
+			Color Border = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
+			if ($"{((Panel)box).Tag}".StartsWith("Black")) Border = Color.Black;
+			if ($"{((Panel)box).Tag}".StartsWith("Transparent")) Border = Color.Transparent;
+			ControlPaint.DrawBorder(p.Graphics, ((Panel)box).ClientRectangle, Border, 2, ButtonBorderStyle.Solid, Border, 2, ButtonBorderStyle.Solid, Border, 2, ButtonBorderStyle.Solid, Border, 2, ButtonBorderStyle.Solid);
 		}
 	}
 }
