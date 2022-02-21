@@ -196,6 +196,12 @@
     <Compile Include="Forms\frm19bSecretMessage.Designer.cs">
       <DependentUpon>frm19bSecretMessage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm20Shell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm20Shell.Designer.cs">
+      <DependentUpon>frm20Shell.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -325,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm19bSecretMessage.resx">
       <DependentUpon>frm19bSecretMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm20Shell.resx">
+      <DependentUpon>frm20Shell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>
@@ -904,7 +913,9 @@
     <Content Include="Resources\Chime.mp3" />
     <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\Koolaid.mp3" />
+    <Content Include="Resources\Pearl.gif" />
     <Content Include="Resources\PetNames.txt" />
+    <Content Include="Resources\Shell.gif" />
     <None Include="Resources\Rainbow.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -81,6 +81,10 @@ namespace Mathre
 		{
 			foreach (Control b in container.Controls) { GetPanels(b); if ((b is Panel) && (b is not TabPage) && b.Name != "pnlFrame") b.Paint += PaintPanel; }
 		}
+		// Button Clicker
+		[System.Runtime.InteropServices.DllImport("user32.dll")]
+		public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+		//
 		public void GetMenu(Control container, ToolStripMenuItem item, Form form)
 		{
 			foreach (Control b in container.Controls)
@@ -93,15 +97,14 @@ namespace Mathre
 					GetMenu(b, menu, form);
 				}
 				else GetMenu(b, item, form);
-				if ((b is Button) || (b is RadioButton) || (b is CheckBox))
+				if ((b is Button) || (b is RadioButton) || (b is CheckBox) || (b is PictureBox pic && b.FindForm().Name == "Frm20Shell" && $"{pic.Tag}" != "" ))
 				{
 					ToolStripMenuItem tool = new();
 					tool.Enabled = b.Enabled;
 					tool.Text = b.Text;
+					if (b is PictureBox pb) tool.Text = pb.Tag.ToString();
 					tool.Name = b.Name;
-					if (b is Button bb) tool.Click += (p, e) => bb.PerformClick();
-					if (b is RadioButton rb) tool.Click += (p, e) => rb.PerformClick();
-					if (b is CheckBox cb) tool.Click += (p, e) => cb.Checked ^= true;
+					tool.Click += (p, e) => { SendMessage(b.Handle, 0x0201, 0, 1); SendMessage(b.Handle, 0x0202, 0, 0); };
 					item.DropDownItems.Add(tool);
 				}
 				if (b is TextBox bx && (b.Parent is not NumericUpDown))
