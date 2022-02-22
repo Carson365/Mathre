@@ -97,7 +97,7 @@ namespace Mathre
 					GetMenu(b, menu, form);
 				}
 				else GetMenu(b, item, form);
-				if ((b is Button) || (b is RadioButton) || (b is CheckBox) || (b is PictureBox pic && b.FindForm().Name == "Frm20Shell" && $"{pic.Tag}" != "" ))
+				if ((b is Button) || (b is RadioButton) || (b is CheckBox) || (b is PictureBox pic && b.FindForm().Name == "Frm20Shell" && $"{pic.Tag}" != ""))
 				{
 					ToolStripMenuItem tool = new();
 					tool.Enabled = b.Enabled;
