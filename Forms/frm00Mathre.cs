@@ -136,10 +136,10 @@ namespace Mathre
 				var F13 = Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault();
 				if (tabMathre.SelectedTab.Name == "tab13Slots" && F13 != null) F13.Tabbed();
 				var F17 = Application.OpenForms.OfType<Frm17WordGuess>().SingleOrDefault();
-				if (tabMathre.SelectedTab.Name == "tab17WordGuess" && F17 != null) F17.Tabbed(true);
+				if (tabMathre.SelectedTab.Name == "tab17WordGuess") F17.Tabbed(true);
 				else F17.Tabbed(false);
 				var F18 = Application.OpenForms.OfType<Frm18Humane>().SingleOrDefault();
-				if (tabMathre.SelectedTab.Name == "tab18Humane" && F18 != null) F18.Tabbed(true);
+				if (tabMathre.SelectedTab.Name == "tab18Humane") F18.Tabbed(true);
 				else F18.Tabbed(false);
 			}
 		}
@@ -149,7 +149,6 @@ namespace Mathre
 		}
 		public void KeyboardShortcuts(object sender, KeyEventArgs e)
 		{
-			var F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 			if (e.Control & e.KeyCode == Keys.S)
 			{
 				if (hidden == true)
@@ -162,6 +161,7 @@ namespace Mathre
 				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 			}
+			var F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 			if (e.Control & e.KeyCode == Keys.R & hidden == false) F01.HelloWorld("Secret", null);
 			if (e.Control & e.Shift & e.KeyCode == Keys.R) F01.HelloWorld("Reset", null);
 			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D8)) tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1];
