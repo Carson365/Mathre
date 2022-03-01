@@ -202,6 +202,12 @@
     <Compile Include="Forms\frm20Shell.Designer.cs">
       <DependentUpon>frm20Shell.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm21Dice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm21Dice.Designer.cs">
+      <DependentUpon>frm21Dice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -334,6 +340,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm20Shell.resx">
       <DependentUpon>frm20Shell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm21Dice.resx">
+      <DependentUpon>frm21Dice.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>
