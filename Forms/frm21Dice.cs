@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -11,21 +12,24 @@ namespace Mathre
 		}
 		class MyNUD : NumericUpDown
 		{
-			public override void UpButton() { int n = (int)Math.Round((double)Value * ((1 + Math.Sqrt(5)) / 2.0)); if (n < Maximum) Value = n; }
-			public override void DownButton() { int n = (int)Math.Round((double)Value / ((1 + Math.Sqrt(5)) / 2.0)); if (n >= Minimum) Value = n; }
+			public override void UpButton() { int n = (int)Math.Round((double)Value * ((1 + Math.Sqrt(5)) / 2.0)); if (n < Maximum) Value = n; if (Value == 0) Value = 1; }
+			public override void DownButton() { int n = (int)Math.Round((double)Value / ((1 + Math.Sqrt(5)) / 2.0)); if (n >= Minimum) Value = n; if (Value == 0) Value = 1; }
 		}
 		public void Default(object sender, EventArgs e)
 		{
-			MyNUD numer = new();
-			numer.Size = numWager.Size;
-			numer.Location = numWager.Location;
-			numer.Value = 1;
-			numer.Minimum = 1;
-			numer.Maximum = 1000;
-			numer.KeyPress += InputFormatter;
-			pnlWager.Controls.Add(numer);
+			MyNUD num = new();
+			num.Size = numWager.Size;
+			num.Location = numWager.Location;
+			num.Value = 1;
+			num.Minimum = 0;
+			num.Maximum = 1000;
+			num.KeyPress += InputFormatter;
+			TextBox txt = (TextBox)num.Controls[1];
+			num.KeyUp += (p,e) => { if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete) if (txt.Text == "") num.Value = 0; else txt.Text = $"{num.Value}"; };
+			num.KeyDown += (p,e) => { if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete) if (txt.Text == "") num.Value = 0; };
+			pnlWager.Controls.Add(num);
 			numWager.Hide();
-			numer.Show();
+			num.Show();
 		}
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
