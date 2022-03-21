@@ -28,6 +28,8 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm21Dice));
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
@@ -38,7 +40,14 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.lblWagerTitle = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.imgDice = new System.Windows.Forms.ImageList(this.components);
+            this.pnlDie1 = new System.Windows.Forms.Panel();
+            this.pnlDie2 = new System.Windows.Forms.Panel();
+            this.pnlDie3 = new System.Windows.Forms.Panel();
+            this.pnlDie4 = new System.Windows.Forms.Panel();
+            this.pnlDie5 = new System.Windows.Forms.Panel();
             this.pnlFrame.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
             this.pnlWager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).BeginInit();
@@ -62,6 +71,11 @@
             // 
             this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody2.Controls.Add(this.pnlDie5);
+            this.pnlBody2.Controls.Add(this.pnlDie4);
+            this.pnlBody2.Controls.Add(this.pnlDie3);
+            this.pnlBody2.Controls.Add(this.pnlDie2);
+            this.pnlBody2.Controls.Add(this.pnlDie1);
             this.pnlBody2.Location = new System.Drawing.Point(287, 276);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
@@ -157,6 +171,62 @@
             this.lblTitle.Text = "Title";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // imgDice
+            // 
+            this.imgDice.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imgDice.ImageStream")));
+            this.imgDice.TransparentColor = System.Drawing.Color.Transparent;
+            this.imgDice.Images.SetKeyName(0, "die6.gif");
+            this.imgDice.Images.SetKeyName(1, "die5.gif");
+            this.imgDice.Images.SetKeyName(2, "die4.gif");
+            this.imgDice.Images.SetKeyName(3, "die3.gif");
+            this.imgDice.Images.SetKeyName(4, "die2.gif");
+            this.imgDice.Images.SetKeyName(5, "die1.gif");
+            // 
+            // pnlDie1
+            // 
+            this.pnlDie1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie1.Location = new System.Drawing.Point(14, 31);
+            this.pnlDie1.Name = "pnlDie1";
+            this.pnlDie1.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie1.TabIndex = 0;
+            this.pnlDie1.Tag = "Transparent";
+            // 
+            // pnlDie2
+            // 
+            this.pnlDie2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie2.Location = new System.Drawing.Point(95, 31);
+            this.pnlDie2.Name = "pnlDie2";
+            this.pnlDie2.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie2.TabIndex = 1;
+            this.pnlDie2.Tag = "Transparent";
+            // 
+            // pnlDie3
+            // 
+            this.pnlDie3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie3.Location = new System.Drawing.Point(176, 31);
+            this.pnlDie3.Name = "pnlDie3";
+            this.pnlDie3.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie3.TabIndex = 1;
+            this.pnlDie3.Tag = "Transparent";
+            // 
+            // pnlDie4
+            // 
+            this.pnlDie4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie4.Location = new System.Drawing.Point(257, 31);
+            this.pnlDie4.Name = "pnlDie4";
+            this.pnlDie4.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie4.TabIndex = 1;
+            this.pnlDie4.Tag = "Transparent";
+            // 
+            // pnlDie5
+            // 
+            this.pnlDie5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie5.Location = new System.Drawing.Point(338, 31);
+            this.pnlDie5.Name = "pnlDie5";
+            this.pnlDie5.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie5.TabIndex = 1;
+            this.pnlDie5.Tag = "Transparent";
+            // 
             // Frm21Dice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,6 +237,7 @@
             this.Name = "Frm21Dice";
             this.Text = "Dice Game";
             this.pnlFrame.ResumeLayout(false);
+            this.pnlBody2.ResumeLayout(false);
             this.pnlBody.ResumeLayout(false);
             this.pnlWager.ResumeLayout(false);
             this.pnlWager.PerformLayout();
@@ -187,5 +258,11 @@
 		private System.Windows.Forms.Label lblPoints;
 		private System.Windows.Forms.Label lblScore;
 		private System.Windows.Forms.Label lblWagerTitle;
+		private System.Windows.Forms.Panel pnlDie5;
+		private System.Windows.Forms.Panel pnlDie4;
+		private System.Windows.Forms.Panel pnlDie3;
+		private System.Windows.Forms.Panel pnlDie2;
+		private System.Windows.Forms.Panel pnlDie1;
+		private System.Windows.Forms.ImageList imgDice;
 	}
 }
