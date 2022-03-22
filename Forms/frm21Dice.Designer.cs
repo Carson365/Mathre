@@ -32,6 +32,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm21Dice));
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody2 = new System.Windows.Forms.Panel();
+            this.pnlDie5 = new System.Windows.Forms.Panel();
+            this.pnlDie4 = new System.Windows.Forms.Panel();
+            this.pnlDie3 = new System.Windows.Forms.Panel();
+            this.pnlDie2 = new System.Windows.Forms.Panel();
+            this.pnlDie1 = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.numWager = new System.Windows.Forms.NumericUpDown();
@@ -41,11 +46,7 @@
             this.lblWagerTitle = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.imgDice = new System.Windows.Forms.ImageList(this.components);
-            this.pnlDie1 = new System.Windows.Forms.Panel();
-            this.pnlDie2 = new System.Windows.Forms.Panel();
-            this.pnlDie3 = new System.Windows.Forms.Panel();
-            this.pnlDie4 = new System.Windows.Forms.Panel();
-            this.pnlDie5 = new System.Windows.Forms.Panel();
+            this.btnRoll = new System.Windows.Forms.Button();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -81,10 +82,56 @@
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
             this.pnlBody2.TabIndex = 38;
             // 
+            // pnlDie5
+            // 
+            this.pnlDie5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie5.Location = new System.Drawing.Point(338, 31);
+            this.pnlDie5.Name = "pnlDie5";
+            this.pnlDie5.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie5.TabIndex = 1;
+            this.pnlDie5.Tag = "Transparent";
+            // 
+            // pnlDie4
+            // 
+            this.pnlDie4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie4.Location = new System.Drawing.Point(257, 31);
+            this.pnlDie4.Name = "pnlDie4";
+            this.pnlDie4.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie4.TabIndex = 1;
+            this.pnlDie4.Tag = "Transparent";
+            // 
+            // pnlDie3
+            // 
+            this.pnlDie3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie3.Location = new System.Drawing.Point(176, 31);
+            this.pnlDie3.Name = "pnlDie3";
+            this.pnlDie3.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie3.TabIndex = 1;
+            this.pnlDie3.Tag = "Transparent";
+            // 
+            // pnlDie2
+            // 
+            this.pnlDie2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie2.Location = new System.Drawing.Point(95, 31);
+            this.pnlDie2.Name = "pnlDie2";
+            this.pnlDie2.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie2.TabIndex = 1;
+            this.pnlDie2.Tag = "Transparent";
+            // 
+            // pnlDie1
+            // 
+            this.pnlDie1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pnlDie1.Location = new System.Drawing.Point(14, 31);
+            this.pnlDie1.Name = "pnlDie1";
+            this.pnlDie1.Size = new System.Drawing.Size(75, 75);
+            this.pnlDie1.TabIndex = 0;
+            this.pnlDie1.Tag = "Transparent";
+            // 
             // pnlBody
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.btnRoll);
             this.pnlBody.Controls.Add(this.pnlWager);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
             this.pnlBody.Name = "pnlBody";
@@ -182,50 +229,14 @@
             this.imgDice.Images.SetKeyName(4, "die2.gif");
             this.imgDice.Images.SetKeyName(5, "die1.gif");
             // 
-            // pnlDie1
+            // btnRoll
             // 
-            this.pnlDie1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlDie1.Location = new System.Drawing.Point(14, 31);
-            this.pnlDie1.Name = "pnlDie1";
-            this.pnlDie1.Size = new System.Drawing.Size(75, 75);
-            this.pnlDie1.TabIndex = 0;
-            this.pnlDie1.Tag = "Transparent";
-            // 
-            // pnlDie2
-            // 
-            this.pnlDie2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlDie2.Location = new System.Drawing.Point(95, 31);
-            this.pnlDie2.Name = "pnlDie2";
-            this.pnlDie2.Size = new System.Drawing.Size(75, 75);
-            this.pnlDie2.TabIndex = 1;
-            this.pnlDie2.Tag = "Transparent";
-            // 
-            // pnlDie3
-            // 
-            this.pnlDie3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlDie3.Location = new System.Drawing.Point(176, 31);
-            this.pnlDie3.Name = "pnlDie3";
-            this.pnlDie3.Size = new System.Drawing.Size(75, 75);
-            this.pnlDie3.TabIndex = 1;
-            this.pnlDie3.Tag = "Transparent";
-            // 
-            // pnlDie4
-            // 
-            this.pnlDie4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlDie4.Location = new System.Drawing.Point(257, 31);
-            this.pnlDie4.Name = "pnlDie4";
-            this.pnlDie4.Size = new System.Drawing.Size(75, 75);
-            this.pnlDie4.TabIndex = 1;
-            this.pnlDie4.Tag = "Transparent";
-            // 
-            // pnlDie5
-            // 
-            this.pnlDie5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pnlDie5.Location = new System.Drawing.Point(338, 31);
-            this.pnlDie5.Name = "pnlDie5";
-            this.pnlDie5.Size = new System.Drawing.Size(75, 75);
-            this.pnlDie5.TabIndex = 1;
-            this.pnlDie5.Tag = "Transparent";
+            this.btnRoll.Location = new System.Drawing.Point(242, 55);
+            this.btnRoll.Name = "btnRoll";
+            this.btnRoll.Size = new System.Drawing.Size(75, 23);
+            this.btnRoll.TabIndex = 36;
+            this.btnRoll.Text = "button1";
+            this.btnRoll.UseVisualStyleBackColor = true;
             // 
             // Frm21Dice
             // 
@@ -264,5 +275,6 @@
 		private System.Windows.Forms.Panel pnlDie2;
 		private System.Windows.Forms.Panel pnlDie1;
 		private System.Windows.Forms.ImageList imgDice;
+		private System.Windows.Forms.Button btnRoll;
 	}
 }
