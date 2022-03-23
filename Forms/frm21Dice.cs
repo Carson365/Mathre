@@ -25,8 +25,8 @@ namespace Mathre
 			num.Maximum = 1000;
 			num.KeyPress += InputFormatter;
 			TextBox txt = (TextBox)num.Controls[1];
-			num.KeyUp += (p,e) => { if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete) if (txt.Text == "") num.Value = 0; else txt.Text = $"{num.Value}"; };
-			num.KeyDown += (p,e) => { if (e.KeyCode == Keys.Back || e.KeyCode == Keys.Delete) if (txt.Text == "") num.Value = 0; };
+			num.KeyUp += (p,e) => { if (txt.Text == "") num.Value = 0; else txt.Text = $"{num.Value}"; };
+			num.TextChanged += (s, e) => { if (num.Text.StartsWith("0")) num.Text = num.Text.TrimStart('0'); };
 			pnlWager.Controls.Add(num);
 			numWager.Hide();
 			num.Show();
@@ -34,7 +34,7 @@ namespace Mathre
 		public void InputFormatter(object sender, KeyPressEventArgs e)
 		{
 			NumericUpDown box = sender as NumericUpDown;
-			if (e.KeyChar != '\b' && e.KeyChar != '-' && (e.KeyChar < '0' | e.KeyChar > '9')) e.Handled = true;
+			if (e.KeyChar != '\b' && (e.KeyChar < '0' | e.KeyChar > '9')) e.Handled = true;
 			else if (box.Text.Length > 2 && e.KeyChar != '\b') e.Handled = true;
 			box.Validate(true);
 		}

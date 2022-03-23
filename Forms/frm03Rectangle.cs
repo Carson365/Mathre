@@ -62,7 +62,7 @@ namespace Mathre
 				}
 			}
 		}
-		public void RectangleKeypress(object sender, KeyEventArgs e)
+	public void RectangleKeypress(object sender, KeyEventArgs e)
 		{
 			TextBox textBox = sender as TextBox;
 			string DecimalChar = CultureInfo.CurrentCulture.NumberFormat.NumberDecimalSeparator;
@@ -78,7 +78,8 @@ namespace Mathre
 					if (textBox.SelectionStart > words[0].Length && words[1].Contains(DecimalChar)) e.SuppressKeyPress = true;
 					else if (textBox.SelectionStart < words[0].Length && words[0].Contains(DecimalChar)) e.SuppressKeyPress = true;
 				}
-				else if (e.KeyCode != Keys.Back && e.KeyCode != Keys.Delete)
+				else if (e.KeyCode == Keys.Back && e.Control) e.SuppressKeyPress= true;
+				else if (e.KeyCode != Keys.Back && e.KeyCode != Keys.Delete )
 				{
 					if (e.Shift)
 					{
@@ -100,6 +101,7 @@ namespace Mathre
 							textBox.SelectionStart = selectionIndex + 1;
 						}
 					}
+					if ((e.KeyCode == Keys.D0 || e.KeyCode == Keys.NumPad0) && (textBox.SelectionStart == 0 || textBox.SelectionStart == words[0].Length+1)) e.SuppressKeyPress = true;
 				}
 				Rectangle(Placeholder, null);
 			}
