@@ -38,6 +38,7 @@
             this.pnlDie2 = new System.Windows.Forms.Panel();
             this.pnlDie1 = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.lblRules = new System.Windows.Forms.Label();
             this.btnRoll = new System.Windows.Forms.Button();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.numWager = new System.Windows.Forms.NumericUpDown();
@@ -47,6 +48,7 @@
             this.lblWagerTitle = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.imgDice = new System.Windows.Forms.ImageList(this.components);
+            this.lblRuleHeader = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -131,6 +133,8 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.lblRuleHeader);
+            this.pnlBody.Controls.Add(this.lblRules);
             this.pnlBody.Controls.Add(this.btnRoll);
             this.pnlBody.Controls.Add(this.pnlWager);
             this.pnlBody.Location = new System.Drawing.Point(287, 165);
@@ -138,9 +142,18 @@
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
             // 
+            // lblRules
+            // 
+            this.lblRules.Location = new System.Drawing.Point(173, 32);
+            this.lblRules.Name = "lblRules";
+            this.lblRules.Size = new System.Drawing.Size(79, 59);
+            this.lblRules.TabIndex = 37;
+            this.lblRules.Text = "Odd Total? Win Double! Even Total?  Lose Your Bet!";
+            this.lblRules.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // btnRoll
             // 
-            this.btnRoll.Location = new System.Drawing.Point(242, 41);
+            this.btnRoll.Location = new System.Drawing.Point(258, 41);
             this.btnRoll.Name = "btnRoll";
             this.btnRoll.Size = new System.Drawing.Size(90, 23);
             this.btnRoll.TabIndex = 36;
@@ -238,6 +251,16 @@
             this.imgDice.Images.SetKeyName(4, "die2.gif");
             this.imgDice.Images.SetKeyName(5, "die1.gif");
             // 
+            // lblRuleHeader
+            // 
+            this.lblRuleHeader.AutoSize = true;
+            this.lblRuleHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRuleHeader.Location = new System.Drawing.Point(195, 13);
+            this.lblRuleHeader.Name = "lblRuleHeader";
+            this.lblRuleHeader.Size = new System.Drawing.Size(34, 13);
+            this.lblRuleHeader.TabIndex = 6;
+            this.lblRuleHeader.Text = "Rules";
+            // 
             // Frm21Dice
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,6 +273,7 @@
             this.pnlFrame.ResumeLayout(false);
             this.pnlBody2.ResumeLayout(false);
             this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
             this.pnlWager.ResumeLayout(false);
             this.pnlWager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).EndInit();
@@ -276,5 +300,7 @@
 		private System.Windows.Forms.Panel pnlDie1;
 		private System.Windows.Forms.ImageList imgDice;
 		private System.Windows.Forms.Button btnRoll;
+		private System.Windows.Forms.Label lblRules;
+		private System.Windows.Forms.Label lblRuleHeader;
 	}
 }

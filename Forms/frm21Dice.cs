@@ -7,6 +7,7 @@ namespace Mathre
 	{
 		readonly System.Timers.Timer aTimer = new(400);
 		MyNUD numW = new();
+		Random rnd = new();
 		public Frm21Dice()
 		{
 			InitializeComponent();
@@ -21,7 +22,6 @@ namespace Mathre
 			public override void UpButton() { int n = (int)Math.Round((double)Value * ((1 + Math.Sqrt(5)) / 2.0)); if (n < Maximum) Value = n; else Value = Maximum; if (Value == 0) Value = 1; }
 			public override void DownButton() { int n = (int)Math.Round((double)Value / ((1 + Math.Sqrt(5)) / 2.0)); if (n >= Minimum) Value = n; if (Value == 0) Value = 1; }
 		}
-		public int Random(int min, int max) { Random rnd = new();  int num = rnd.Next(min, max); return num; }
 		public void Game(object sender, EventArgs e)
 		{
 			if (numW.Value == 0 && sender is not Frm21Dice) MessageBox.Show("Sorry, You have no points to wager.", "INVALID");
@@ -33,7 +33,7 @@ namespace Mathre
 				while (loopfour < 6 && aTimer.Interval <= 400)
 				{
 					// Generates a random number for each die
-					int num = Random(1, 7);
+					int num = rnd.Next(1, 7);
 					((Panel)Controls.Find($"pnlDie{loopfour}", true)[0]).BackgroundImage = imgDice.Images[$"die{num}.gif".ToString()];
 					// Store the die value in a global array
 					Dice[loopfour - 1] = num;
