@@ -69,6 +69,7 @@ namespace Mathre
 			foreach (Control c in Controls) GetPanels(c);
 			hidden = true;
 			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
+			Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 		}
 		public IEnumerable<ToolStripMenuItem> GetAll(ToolStripItemCollection items)
@@ -157,12 +158,18 @@ namespace Mathre
 				if (hidden == true)
 				{
 					tabMathre.Controls.Add(Secret);
+					bool sized1 = Location == new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 500);
+					if (sized1) Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 					tabMathre.SelectedTab = Secret;
 					hidden = false;
 				}
 				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
+				bool sized = Location == new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2) ;
+				bool minsized = Size == MinimumSize;
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
+				if (minsized) Size = MinimumSize;
+				if (sized) Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			}
 			var F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 			if (e.Control & e.KeyCode == Keys.R & hidden == false) F01.HelloWorld("Secret", null);

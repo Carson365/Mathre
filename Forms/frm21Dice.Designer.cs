@@ -38,6 +38,7 @@
             this.pnlDie2 = new System.Windows.Forms.Panel();
             this.pnlDie1 = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.btnRoll = new System.Windows.Forms.Button();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.numWager = new System.Windows.Forms.NumericUpDown();
             this.lblWager = new System.Windows.Forms.Label();
@@ -46,7 +47,6 @@
             this.lblWagerTitle = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.imgDice = new System.Windows.Forms.ImageList(this.components);
-            this.btnRoll = new System.Windows.Forms.Button();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -138,6 +138,15 @@
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
             // 
+            // btnRoll
+            // 
+            this.btnRoll.Location = new System.Drawing.Point(242, 41);
+            this.btnRoll.Name = "btnRoll";
+            this.btnRoll.Size = new System.Drawing.Size(90, 23);
+            this.btnRoll.TabIndex = 36;
+            this.btnRoll.Text = "Roll The Dice!";
+            this.btnRoll.UseVisualStyleBackColor = true;
+            // 
             // pnlWager
             // 
             this.pnlWager.Controls.Add(this.numWager);
@@ -152,7 +161,7 @@
             // 
             // numWager
             // 
-            this.numWager.Location = new System.Drawing.Point(78, 59);
+            this.numWager.Location = new System.Drawing.Point(72, 59);
             this.numWager.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -160,7 +169,7 @@
             0});
             this.numWager.Name = "numWager";
             this.numWager.ReadOnly = true;
-            this.numWager.Size = new System.Drawing.Size(41, 20);
+            this.numWager.Size = new System.Drawing.Size(55, 20);
             this.numWager.TabIndex = 5;
             this.numWager.Value = new decimal(new int[] {
             1,
@@ -215,7 +224,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
             this.lblTitle.TabIndex = 31;
-            this.lblTitle.Text = "Title";
+            this.lblTitle.Text = "Dice Game";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // imgDice
@@ -228,15 +237,6 @@
             this.imgDice.Images.SetKeyName(3, "die3.gif");
             this.imgDice.Images.SetKeyName(4, "die2.gif");
             this.imgDice.Images.SetKeyName(5, "die1.gif");
-            // 
-            // btnRoll
-            // 
-            this.btnRoll.Location = new System.Drawing.Point(242, 55);
-            this.btnRoll.Name = "btnRoll";
-            this.btnRoll.Size = new System.Drawing.Size(75, 23);
-            this.btnRoll.TabIndex = 36;
-            this.btnRoll.Text = "button1";
-            this.btnRoll.UseVisualStyleBackColor = true;
             // 
             // Frm21Dice
             // 

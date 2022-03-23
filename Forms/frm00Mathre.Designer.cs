@@ -104,6 +104,7 @@ namespace Mathre
             this.MainMenuStrip = this.mnuBaseLayer;
             this.MinimumSize = new System.Drawing.Size(1230, 500);
             this.Name = "Frm00Mathre";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mathre";
             this.mnuBaseLayer.ResumeLayout(false);
             this.mnuBaseLayer.PerformLayout();

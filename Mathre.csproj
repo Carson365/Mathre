@@ -343,6 +343,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm21Dice.resx">
       <DependentUpon>frm21Dice.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmSecret.resx">
       <DependentUpon>frmSecret.cs</DependentUpon>

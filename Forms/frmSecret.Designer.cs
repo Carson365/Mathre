@@ -131,7 +131,7 @@ namespace Mathre
             this.ClientSize = new System.Drawing.Size(984, 461);
             this.Controls.Add(this.pnlFrame);
             this.Name = "FrmSecret";
-            this.Text = "Secret Settings Page";
+            this.Text = "Secret Settings";
             this.pnlFrame.ResumeLayout(false);
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
