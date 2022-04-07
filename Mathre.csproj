@@ -208,6 +208,12 @@
     <Compile Include="Forms\frm21Dice.Designer.cs">
       <DependentUpon>frm21Dice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm22CardGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm22CardGame.Designer.cs">
+      <DependentUpon>frm22CardGame.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -311,6 +317,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm10VideoGames.resx">
       <DependentUpon>frm10VideoGames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm22CardGame.resx">
+      <DependentUpon>frm22CardGame.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -868,6 +877,7 @@
     <Content Include="Resources\CatPictures\cat_99.png" />
     <Content Include="Resources\Chime.mp3" />
     <Content Include="Resources\Icon.ico" />
+    <Content Include="Resources\Cards.png" />
     <Content Include="Resources\Koolaid.mp3" />
     <Content Include="Resources\Pearl.gif" />
     <Content Include="Resources\PetNames.txt" />

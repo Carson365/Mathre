@@ -63,6 +63,16 @@ namespace Mathre {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Cards {
+            get {
+                object obj = ResourceManager.GetObject("Cards", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap English {
             get {
                 object obj = ResourceManager.GetObject("English", resourceCulture);
