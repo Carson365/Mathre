@@ -15,6 +15,8 @@ namespace Mathre
 		readonly bool[] cardused = new bool[7]; // bool[] defaults to false for all items
 		bool stopgame;
 		int Hsum;
+		int Psum;
+		decimal score = 1000;
 		public Frm22CardGame()
 		{
 			InitializeComponent();
@@ -24,6 +26,7 @@ namespace Mathre
 			pnlCard3.Click += Hit;
 			btnDeal.Click += Setup;
 			btnStand.Click += Hit;
+			btnRules.Click += Rules;
 		}
 		// Custom NumericUpDown for Fib Sequence
 		class MyNUD : NumericUpDown
@@ -41,7 +44,7 @@ namespace Mathre
 			numW.Maximum = 1000;
 			numW.KeyPress += ValidEntry;
 			TextBox txt = (TextBox)numW.Controls[1];
-			numW.KeyUp += (p, e) => { if (txt.Text == "") numW.Value = 1; else txt.Text = $"{numW.Value}"; };
+			numW.KeyUp += (p, e) => { if (txt.Text == "" && 1! < numW.Maximum) numW.Value = 1; else txt.Text = $"{numW.Value}"; };
 			numW.TextChanged += (s, e) => { if (numW.Text.StartsWith("0")) numW.Text = numW.Text.TrimStart('0'); };
 			pnlWager.Controls.Add(numW);
 			numWager.Hide();
@@ -63,6 +66,7 @@ namespace Mathre
 		}		
 		public void Setup(object sender, EventArgs e)
 		{
+			lblRTotal.Text = "";
 			for (int i = 0; i < cardnums.Length; i++) { cardnums[i] = Rand(2, 14); } // an ace is an 11 so the count starts at 2
 			for (int i = 0; i < cardnums.Length; i++) { cards[i] = (cardnums[i]-2) * 4 + Rand(0, 3); } // subtract 2 from above (start at 0)
 			pnl = GetAll(Controls).OfType<Panel>().Where(a => a.Name.StartsWith("pnlCard")).OrderBy(x => x.Name).ToArray();
@@ -71,27 +75,31 @@ namespace Mathre
 		}
 		public int Rand(int low, int high) { return rnd.Next(low, high + 1); } // Better random than Random.Next
 		public void SetCard(int i) { cardused[i] = true; pnl[i].BackgroundImage = lstCards.Images[cards[i]]; }
-		public int GetCardVal(int slot) { return slot switch { < 12 => slot, _ => 10 }; } 
+		public int GetCardVal(int slot) { return slot switch { < 12 => slot, _ => 10 }; }
 		public void Hit(object sender, EventArgs e)
 		{
-			if (Hsum < 21) { if (!cardused[6]) SetCard(6); }
-			lblRTotal.Text = "";
-			if (!stopgame)
+			if (numW.Value == 0 && sender is not Frm21Dice) MessageBox.Show("Sorry, You have no points to wager.", "INVALID");
+			else
 			{
-				if (sender is Panel pan)
+				if (Hsum < 21 && Psum > Hsum) { if (!cardused[6]) SetCard(6); }
+				lblRTotal.Text = "";
+				if (!stopgame)
 				{
-					if (!cardused[2] && pan.Name.Last() == '2') SetCard(2);
-					else if (cardused[2] && !cardused[3] && pan.Name.Last() == '3') { SetCard(3); stopgame = true; }
+					if (sender is Panel pan)
+					{
+						if (!cardused[2] && pan.Name.Last() == '2') SetCard(2);
+						else if (cardused[2] && !cardused[3] && pan.Name.Last() == '3') { SetCard(3); stopgame = true; }
+					}
+					else { stopgame = true; }
 				}
-				else { stopgame = true; }
+				Game();
 			}
-			Game();
 		}
 		public void Game()
 		{
 			int[] PScore = new int[7];
 			for (int i = 0; i <= 3; i++) PScore[i] = (cardused[i] ? 1 : 0) * GetCardVal(cardnums[i]);
-			int Psum = PScore.Sum();
+			Psum = PScore.Sum();
 			int[] HScore = new int[7];
 			for (int i = 4; i <= 6; i++) HScore[i] = (cardused[i] ? 1 : 0) * GetCardVal(cardnums[i]);
 			Hsum = HScore.Sum();
@@ -103,19 +111,28 @@ namespace Mathre
 			if (cardused[6] && Hsum < 21 && Psum < 21 && Psum > Hsum) stopgame = true;
 			if (stopgame)
 			{
-				lblRTotal.Text = (Psum, Hsum, Psum - Hsum) switch
-				{
-					( > 21, > 21, _) => "Draw",
-					( > 21, _, _) => "You Lose",
-					(_, > 21, _) => "You Win",
-					(_, _, > 0) => "You Win",
-					(_, _, < 0) => "You Lose",
-					_ => "Draw"
-				};
+				if (Psum > 21 && Hsum > 21) { lblRTotal.Text = "Draw";}
+				else if (Psum > 21) { lblRTotal.Text = "You Lose"; score -= numW.Value; }
+				else if (Hsum > 21) { lblRTotal.Text = "You Win"; score += numW.Value; }
+				else if (Psum > Hsum) { lblRTotal.Text = "You Win"; score += numW.Value; }
+				else if (Psum < Hsum) { lblRTotal.Text = "You Lose"; score -= numW.Value; }
+				else { lblRTotal.Text = "Draw"; }
+				lblScore.Text = $"{score}";
+				numW.Maximum = score;
 				stopgame = false;
 				MessageBox.Show(lblRTotal.Text);
 				Setup(null, null);
 			}
+		}
+		public void Rules(object sender, EventArgs e)
+		{
+			string rules =
+				"Try to be closer to 21 that the house!\n" +
+				"Click on the hidden cards to be dealt them.\n" +
+				"Click on \"stand\" when you believe you can win.\n" +
+				"Click \"Deal\" to be dealt a new hand to play with.\n" +
+				"Win against the house to earn what you have wagered!";
+			MessageBox.Show(rules, "RULES");
 		}
 	}
 }

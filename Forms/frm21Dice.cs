@@ -32,7 +32,7 @@ namespace Mathre
 			numW.Maximum = 1000;
 			numW.KeyPress += ValidEntry;
 			TextBox txt = (TextBox)numW.Controls[1];
-			numW.KeyUp += (p, e) => { if (txt.Text == "") numW.Value = 1; else txt.Text = $"{numW.Value}"; };
+			numW.KeyUp += (p, e) => { if (txt.Text == "" && 1 !< numW.Maximum) numW.Value = 1; else txt.Text = $"{numW.Value}"; };
 			numW.TextChanged += (s, e) => { if (numW.Text.StartsWith("0")) numW.Text = numW.Text.TrimStart('0'); };
 			pnlWager.Controls.Add(numW);
 			numWager.Hide();

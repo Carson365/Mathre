@@ -40,7 +40,7 @@
             this.pnlCard3 = new System.Windows.Forms.Panel();
             this.pnlCard2 = new System.Windows.Forms.Panel();
             this.lblPlayer = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnRules = new System.Windows.Forms.Button();
             this.lblHTotal = new System.Windows.Forms.Label();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.numWager = new System.Windows.Forms.NumericUpDown();
@@ -53,17 +53,17 @@
             this.pnlCard5 = new System.Windows.Forms.Panel();
             this.pnlCard4 = new System.Windows.Forms.Panel();
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.lblRTotal = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblResult = new System.Windows.Forms.Label();
-            this.btnDeal = new System.Windows.Forms.Button();
+            this.pnlBody3 = new System.Windows.Forms.Panel();
             this.btnStand = new System.Windows.Forms.Button();
+            this.btnDeal = new System.Windows.Forms.Button();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.lblRTotal = new System.Windows.Forms.Label();
             this.pnlBody.SuspendLayout();
             this.pnlWager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).BeginInit();
             this.pnlBody2.SuspendLayout();
             this.pnlFrame.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.pnlBody3.SuspendLayout();
             this.SuspendLayout();
             // 
             // lstCards
@@ -146,9 +146,9 @@
             this.pnlBody.Controls.Add(this.pnlCard3);
             this.pnlBody.Controls.Add(this.pnlCard2);
             this.pnlBody.Controls.Add(this.lblPlayer);
-            this.pnlBody.Controls.Add(this.button2);
+            this.pnlBody.Controls.Add(this.btnRules);
             this.pnlBody.Controls.Add(this.lblHTotal);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(223, 165);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
@@ -186,9 +186,9 @@
             this.lblPTotal.AutoSize = true;
             this.lblPTotal.Location = new System.Drawing.Point(387, 45);
             this.lblPTotal.Name = "lblPTotal";
-            this.lblPTotal.Size = new System.Drawing.Size(31, 13);
+            this.lblPTotal.Size = new System.Drawing.Size(19, 13);
             this.lblPTotal.TabIndex = 42;
-            this.lblPTotal.Text = "1000";
+            this.lblPTotal.Text = "21";
             // 
             // pnlCard3
             // 
@@ -196,7 +196,7 @@
             this.pnlCard3.Location = new System.Drawing.Point(257, 15);
             this.pnlCard3.Name = "pnlCard3";
             this.pnlCard3.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard3.TabIndex = 4;
+            this.pnlCard3.TabIndex = 2;
             this.pnlCard3.Tag = "Transparent";
             // 
             // pnlCard2
@@ -205,7 +205,7 @@
             this.pnlCard2.Location = new System.Drawing.Point(176, 15);
             this.pnlCard2.Name = "pnlCard2";
             this.pnlCard2.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard2.TabIndex = 5;
+            this.pnlCard2.TabIndex = 1;
             this.pnlCard2.Tag = "Transparent";
             // 
             // lblPlayer
@@ -218,23 +218,23 @@
             this.lblPlayer.TabIndex = 7;
             this.lblPlayer.Text = "Player:";
             // 
-            // button2
+            // btnRules
             // 
-            this.button2.Location = new System.Drawing.Point(338, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(85, 23);
-            this.button2.TabIndex = 41;
-            this.button2.Text = "Rules";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnRules.Location = new System.Drawing.Point(338, 3);
+            this.btnRules.Name = "btnRules";
+            this.btnRules.Size = new System.Drawing.Size(85, 23);
+            this.btnRules.TabIndex = 0;
+            this.btnRules.Text = "&Rules";
+            this.btnRules.UseVisualStyleBackColor = true;
             // 
             // lblHTotal
             // 
             this.lblHTotal.AutoSize = true;
             this.lblHTotal.Location = new System.Drawing.Point(387, 77);
             this.lblHTotal.Name = "lblHTotal";
-            this.lblHTotal.Size = new System.Drawing.Size(31, 13);
+            this.lblHTotal.Size = new System.Drawing.Size(19, 13);
             this.lblHTotal.TabIndex = 6;
-            this.lblHTotal.Text = "1000";
+            this.lblHTotal.Text = "21";
             // 
             // pnlWager
             // 
@@ -312,7 +312,7 @@
             this.pnlBody2.Controls.Add(this.pnlWager);
             this.pnlBody2.Controls.Add(this.pnlCard5);
             this.pnlBody2.Controls.Add(this.pnlCard4);
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(223, 276);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 105);
             this.pnlBody2.TabIndex = 38;
@@ -350,7 +350,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlFrame.BackColor = System.Drawing.Color.Transparent;
-            this.pnlFrame.Controls.Add(this.panel1);
+            this.pnlFrame.Controls.Add(this.pnlBody3);
             this.pnlFrame.Controls.Add(this.pnlBody2);
             this.pnlFrame.Controls.Add(this.pnlBody);
             this.pnlFrame.Controls.Add(this.lblTitle);
@@ -359,55 +359,55 @@
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 34;
             // 
-            // lblRTotal
+            // pnlBody3
             // 
-            this.lblRTotal.AutoSize = true;
-            this.lblRTotal.Location = new System.Drawing.Point(77, 13);
-            this.lblRTotal.Name = "lblRTotal";
-            this.lblRTotal.Size = new System.Drawing.Size(31, 13);
-            this.lblRTotal.TabIndex = 44;
-            this.lblRTotal.Text = "1000";
+            this.pnlBody3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody3.BackColor = System.Drawing.Color.Transparent;
+            this.pnlBody3.Controls.Add(this.btnStand);
+            this.pnlBody3.Controls.Add(this.btnDeal);
+            this.pnlBody3.Controls.Add(this.lblResult);
+            this.pnlBody3.Controls.Add(this.lblRTotal);
+            this.pnlBody3.Location = new System.Drawing.Point(655, 165);
+            this.pnlBody3.Name = "pnlBody3";
+            this.pnlBody3.Size = new System.Drawing.Size(122, 216);
+            this.pnlBody3.TabIndex = 45;
             // 
-            // panel1
+            // btnStand
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Controls.Add(this.btnStand);
-            this.panel1.Controls.Add(this.btnDeal);
-            this.panel1.Controls.Add(this.lblResult);
-            this.panel1.Controls.Add(this.lblRTotal);
-            this.panel1.Location = new System.Drawing.Point(719, 165);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(122, 216);
-            this.panel1.TabIndex = 45;
+            this.btnStand.Location = new System.Drawing.Point(18, 45);
+            this.btnStand.Name = "btnStand";
+            this.btnStand.Size = new System.Drawing.Size(85, 23);
+            this.btnStand.TabIndex = 3;
+            this.btnStand.Text = "&Stand";
+            this.btnStand.UseVisualStyleBackColor = true;
+            // 
+            // btnDeal
+            // 
+            this.btnDeal.Location = new System.Drawing.Point(20, 91);
+            this.btnDeal.Name = "btnDeal";
+            this.btnDeal.Size = new System.Drawing.Size(85, 23);
+            this.btnDeal.TabIndex = 4;
+            this.btnDeal.Text = "&Deal";
+            this.btnDeal.UseVisualStyleBackColor = true;
             // 
             // lblResult
             // 
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.Location = new System.Drawing.Point(22, 13);
+            this.lblResult.Location = new System.Drawing.Point(18, 13);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(40, 13);
             this.lblResult.TabIndex = 44;
             this.lblResult.Text = "Result:";
             // 
-            // btnDeal
+            // lblRTotal
             // 
-            this.btnDeal.Location = new System.Drawing.Point(25, 91);
-            this.btnDeal.Name = "btnDeal";
-            this.btnDeal.Size = new System.Drawing.Size(85, 23);
-            this.btnDeal.TabIndex = 44;
-            this.btnDeal.Text = "Deal";
-            this.btnDeal.UseVisualStyleBackColor = true;
-            // 
-            // btnStand
-            // 
-            this.btnStand.Location = new System.Drawing.Point(23, 45);
-            this.btnStand.Name = "btnStand";
-            this.btnStand.Size = new System.Drawing.Size(85, 23);
-            this.btnStand.TabIndex = 45;
-            this.btnStand.Text = "Stand";
-            this.btnStand.UseVisualStyleBackColor = true;
+            this.lblRTotal.AutoSize = true;
+            this.lblRTotal.Location = new System.Drawing.Point(63, 13);
+            this.lblRTotal.Name = "lblRTotal";
+            this.lblRTotal.Size = new System.Drawing.Size(37, 13);
+            this.lblRTotal.TabIndex = 44;
+            this.lblRTotal.Text = "Result";
             // 
             // Frm22CardGame
             // 
@@ -425,8 +425,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).EndInit();
             this.pnlBody2.ResumeLayout(false);
             this.pnlFrame.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlBody3.ResumeLayout(false);
+            this.pnlBody3.PerformLayout();
             this.ResumeLayout(false);
 
 		}
@@ -439,7 +439,7 @@
 		private System.Windows.Forms.Panel pnlCard1;
 		private System.Windows.Forms.Panel pnlCard3;
 		private System.Windows.Forms.Panel pnlCard2;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button btnRules;
 		private System.Windows.Forms.Panel pnlWager;
 		private System.Windows.Forms.NumericUpDown numWager;
 		private System.Windows.Forms.Label lblWager;
@@ -456,7 +456,7 @@
 		private System.Windows.Forms.Label lblPlayer;
 		private System.Windows.Forms.Label lblHTotal;
 		private System.Windows.Forms.Label lblRTotal;
-		private System.Windows.Forms.Panel panel1;
+		private System.Windows.Forms.Panel pnlBody3;
 		private System.Windows.Forms.Label lblResult;
 		private System.Windows.Forms.Button btnStand;
 		private System.Windows.Forms.Button btnDeal;
