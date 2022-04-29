@@ -15,11 +15,16 @@ namespace Mathre
 		{
 			if (ReferenceEquals(btnInput, sender))
 			{
+				lblFriendsList.Text = "";
 				for (int i = 0; i < friends.Length; i++)
 				{
 					friends[i] = Microsoft.VisualBasic.Interaction.InputBox($"Input Name of Contact {i+1}");
+					lblFriendsList.Text += $"friend {i+1}: {friends[i]}\n";
 				}
+				btnSearch.Enabled = true;
+				btnSort.Enabled = true;
 			}
+			
 			//else if (ReferenceEquals(btnSort, sender))
 			//{
 
