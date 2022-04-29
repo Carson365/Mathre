@@ -9,7 +9,6 @@ namespace Mathre
 		{
 			InitializeComponent();
 			btnInput.Click += Default;
-			txtSearch.TextChanged += Default;
 			btnSortUp.Click += Default;
 			btnSortDown.Click += Default;
 			btnSearch.Click += Default;
