@@ -113,6 +113,16 @@ namespace Mathre {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Invader {
+            get {
+                object obj = ResourceManager.GetObject("Invader", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pearl {
             get {
                 object obj = ResourceManager.GetObject("Pearl", resourceCulture);

@@ -220,11 +220,17 @@
     <Compile Include="Forms\frm23Friends.Designer.cs">
       <DependentUpon>frm23Friends.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\frm24Invaders.cs">
+    <Compile Include="Forms\frm24bInvaders.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\frm24Invaders.Designer.cs">
-      <DependentUpon>frm24Invaders.cs</DependentUpon>
+    <Compile Include="Forms\frm24bInvaders.Designer.cs">
+      <DependentUpon>frm24bInvaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm24aInvaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm24aInvaders.Designer.cs">
+      <DependentUpon>frm24aInvaders.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
@@ -336,8 +342,11 @@
     <EmbeddedResource Include="Forms\frm23Friends.resx">
       <DependentUpon>frm23Friends.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\frm24Invaders.resx">
-      <DependentUpon>frm24Invaders.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\frm24aInvaders.resx">
+      <DependentUpon>frm24aInvaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm24bInvaders.resx">
+      <DependentUpon>frm24bInvaders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -896,6 +905,7 @@
     <Content Include="Resources\Chime.mp3" />
     <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\Cards.png" />
+    <None Include="Resources\Invader.png" />
     <Content Include="Resources\Koolaid.mp3" />
     <Content Include="Resources\Pearl.gif" />
     <Content Include="Resources\PetNames.txt" />

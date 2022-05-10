@@ -2,9 +2,9 @@
 using System.Windows.Forms;
 namespace Mathre
 {
-	public partial class Frm24Invaders : Form
+	public partial class Frm24aInvaders : Form
 	{
-		public Frm24Invaders()
+		public Frm24aInvaders()
 		{
 			InitializeComponent();
 		}

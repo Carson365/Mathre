@@ -145,6 +145,9 @@ namespace Mathre
 				var F18 = Application.OpenForms.OfType<Frm18Humane>().SingleOrDefault();
 				if (tabMathre.SelectedTab.Name == "tab18Humane") F18.Tabbed(true);
 				else F18.Tabbed(false);
+				var F24b = Application.OpenForms.OfType<Frm24bInvaders>().SingleOrDefault();
+				if (tabMathre.SelectedTab.Name == "tab18Humane") F24b.Tabbed(true);
+				else F24b.Tabbed(false);				
 			}
 		}
 		public void MenuKeypress(ToolStripMenuItem TSMI)
