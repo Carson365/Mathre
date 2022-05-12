@@ -135,7 +135,7 @@ namespace Mathre
 			{
 				foreach (Form form in Application.OpenForms)
 				{
-					if (form.Name != "Frm00Mathre") { if (form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide(); else form.Show(); }
+					if (form.Name != "Frm00Mathre" && form.Name != "Frm24bInvaders") { if (form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide(); else form.Show(); }
 				}
 				var F13 = Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault();
 				if (tabMathre.SelectedTab.Name == "tab13Slots" && F13 != null) F13.Tabbed();

@@ -15,13 +15,13 @@ namespace Mathre
 		int ShotSpeed;
 		int InvaderSpeed;
 		int InvaderDrop;
-		int NumOfInvaders = 5;
+		readonly int NumOfInvaders = 5;
 		int InvadersShot = 0;
 		bool playing = false;
 		bool playsounds = false;
 
-		readonly System.Timers.Timer tmrMain = new(10);
-		List<Invader> Invaders = new();
+		public readonly System.Timers.Timer tmrMain = new(10);
+		readonly List<Invader> Invaders = new();
 		public Frm24bInvaders()
 		{
 			KeyPreview = true;
