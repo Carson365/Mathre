@@ -21,7 +21,7 @@ namespace Mathre
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			foreach (Type type in Assembly.GetExecutingAssembly().DefinedTypes.Where(t => t.BaseType == typeof(Form) && t.Name != "Frm00Mathre" && t.Name != "FrmTemplate" && t.Name != "Frm19bSecretMessage").OrderBy(x => x.Name))
+			foreach (Type type in Assembly.GetExecutingAssembly().DefinedTypes.Where(t => t.BaseType == typeof(Form) && t.Name != "Frm00Mathre" && t.Name != "Frm24bInvaders" && t.Name != "FrmTemplate" && t.Name != "Frm19bSecretMessage").OrderBy(x => x.Name))
 			{
 				Icon = Resources.Rainbow;
 				var form = Activator.CreateInstance(type) as Form;
@@ -71,6 +71,7 @@ namespace Mathre
 			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
 			Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
+			FormManager(null, null);
 		}
 		public IEnumerable<ToolStripMenuItem> GetAll(ToolStripItemCollection items)
 		{
@@ -134,20 +135,10 @@ namespace Mathre
 			{
 				foreach (Form form in Application.OpenForms)
 				{
-					if (form.Name != "Frm00Mathre" && form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide();
-					else if (form.Name != "Frm00Mathre") form.Show();
+					if (form.Name != "Frm00Mathre") { if (form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide(); else form.Show(); }
 				}
 				var F13 = Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault();
 				if (tabMathre.SelectedTab.Name == "tab13Slots" && F13 != null) F13.Tabbed();
-				var F17 = Application.OpenForms.OfType<Frm17WordGuess>().SingleOrDefault();
-				if (tabMathre.SelectedTab.Name == "tab17WordGuess") F17.Tabbed(true);
-				else F17.Tabbed(false);
-				var F18 = Application.OpenForms.OfType<Frm18Humane>().SingleOrDefault();
-				if (tabMathre.SelectedTab.Name == "tab18Humane") F18.Tabbed(true);
-				else F18.Tabbed(false);
-				var F24b = Application.OpenForms.OfType<Frm24bInvaders>().SingleOrDefault();
-				if (tabMathre.SelectedTab.Name == "tab18Humane") F24b.Tabbed(true);
-				else F24b.Tabbed(false);				
 			}
 		}
 		public void MenuKeypress(ToolStripMenuItem TSMI)
@@ -168,7 +159,7 @@ namespace Mathre
 					hidden = false;
 				}
 				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
-				bool sized = Location == new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2) ;
+				bool sized = Location == new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 				bool minsized = Size == MinimumSize;
 				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
 				if (minsized) Size = MinimumSize;

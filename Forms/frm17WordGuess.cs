@@ -17,12 +17,13 @@ namespace Mathre
 		int guesscount = 0;
 		int correctguesses = 0;
 		int totalguesses = 6;
-		bool playsounds = true;
+		bool playsounds = false;
 		int elapsedtime = 1;
 		bool finished = false;
 		bool runonce = true;
 		int color = 0;
 		int runcolors = 10;
+		int Loading = 4;
 		public Frm17WordGuess()
 		{
 			InitializeComponent();
@@ -31,11 +32,11 @@ namespace Mathre
 			txtP1.KeyDown += KeyPressEvent;
 			txtP2.KeyDown += KeyPressEvent;
 			txtP2.TextChanged += Default;
+			VisibleChanged += (p, e) => { if (Loading > 0) Loading--; else { playsounds = Visible; Play("Background"); } };
 			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) txtP1.UseSystemPasswordChar = true; else txtP1.UseSystemPasswordChar = false; };
 			chbSounds.CheckedChanged += (p, e) => { playsounds = !playsounds; Play("Background"); };
 		}
 		public void TickEvent(object sender, EventArgs e) { lblTime.Text = $"{elapsedtime++}"; if (finished) { tmrTime.Stop(); elapsedtime = 1; lblTime.Text = "0"; } }
-		public void Tabbed(bool play) { playsounds = play; Play("Background"); }
 		public void Timer() { System.Timers.Timer aTimer = new(100); aTimer.Elapsed += FlashScreen; aTimer.Enabled = true; }
 		public void Default(object sender, EventArgs e)
 		{

@@ -18,8 +18,9 @@ namespace Mathre
 			btnSpin.Click += Gamble;
 			chbAuto.CheckedChanged += Autocheck;
 		}
-		public void Tabbed() { if (!loadedonce) { loadedonce = true; Loaded(null, null); } }
-		public void Loaded(object sender, EventArgs e)
+		public void Tabbed() { if (!loadedonce) { loadedonce = true; Loaded(); } }
+		//public void Tabbed() 
+		public void Loaded()
 		{
 			lblScore.Text = tokens.ToString();
 			PlayerName = Interaction.InputBox("What is your Name?", "Slot Machine", "High Roller");

@@ -15,6 +15,7 @@ namespace Mathre
 		int n = 1;
 		readonly Random rnd = new();
 		readonly System.Timers.Timer aTimer = new(2000);
+		int shown = 4;
 		public Frm18Humane()
 		{
 			InitializeComponent();
@@ -24,6 +25,7 @@ namespace Mathre
 			btnKeep2.Click += Keep;
 			btnKeep3.Click += Keep;
 			btnKeep4.Click += Keep;
+			VisibleChanged += (p, e) => { if (shown > 0) shown--; else aTimer.Enabled = Visible; };
 			foreach (Panel pnl in pnlBody2.Controls.OfType<Panel>()) { foreach (PictureBox pb in pnl.Controls.OfType<PictureBox>()) { pb.LoadCompleted += Catname; } }
 			btnTimerToggle.Click += (p, e) => { aTimer.Enabled = !aTimer.Enabled; };
 		}
@@ -40,7 +42,6 @@ namespace Mathre
 				loopfour++;
 			}
 		}
-		public void Tabbed(bool enable) { aTimer.Enabled = enable; }
 		public void Images(object sender, EventArgs e) { ((PictureBox)Controls.Find($"picCat{n}", true)[0]).LoadAsync(@"https://thiscatdoesnotexist.com/"); }
 		public void Catname(object sender, EventArgs e)
 		{

@@ -63,12 +63,12 @@ namespace Mathre
 			List<Control> allItems = new();
 			foreach (Control item in items.OfType<Control>()) { allItems.Add(item); allItems.AddRange(GetAll(item.Controls)); }
 			return allItems;
-		}		
+		}
 		public void Setup(object sender, EventArgs e)
 		{
 			lblRTotal.Text = "";
 			for (int i = 0; i < cardnums.Length; i++) { cardnums[i] = Rand(2, 14); } // an ace is an 11 so the count starts at 2
-			for (int i = 0; i < cardnums.Length; i++) { cards[i] = (cardnums[i]-2) * 4 + Rand(0, 3); } // subtract 2 from above (start at 0)
+			for (int i = 0; i < cardnums.Length; i++) { cards[i] = (cardnums[i] - 2) * 4 + Rand(0, 3); } // subtract 2 from above (start at 0)
 			pnl = GetAll(Controls).OfType<Panel>().Where(a => a.Name.StartsWith("pnlCard")).OrderBy(x => x.Name).ToArray();
 			for (int i = 0; i < pnl.Length; i++) { if (i != 2 && i != 3 && i != 6) SetCard(i); else { pnl[i].BackgroundImage = Resources.Cards; cardused[i] = false; } }
 			Game();
@@ -111,7 +111,7 @@ namespace Mathre
 			if (cardused[6] && Hsum < 21 && Psum < 21 && Psum > Hsum) stopgame = true;
 			if (stopgame)
 			{
-				if (Psum > 21 && Hsum > 21) { lblRTotal.Text = "Draw";}
+				if (Psum > 21 && Hsum > 21) { lblRTotal.Text = "Draw"; }
 				else if (Psum > 21) { lblRTotal.Text = "You Lose"; score -= numW.Value; }
 				else if (Hsum > 21) { lblRTotal.Text = "You Win"; score += numW.Value; }
 				else if (Psum > Hsum) { lblRTotal.Text = "You Win"; score += numW.Value; }

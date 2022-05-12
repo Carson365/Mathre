@@ -20,8 +20,8 @@ namespace Mathre
 				lblFriendsList.Text = "";
 				for (int i = 0; i < friends.Length; i++)
 				{
-					friends[i] = Microsoft.VisualBasic.Interaction.InputBox($"Input Name of Contact {i+1}");
-					lblFriendsList.Text += $"Friend {i+1}: {friends[i]}\n";
+					friends[i] = Microsoft.VisualBasic.Interaction.InputBox($"Input Name of Contact {i + 1}");
+					lblFriendsList.Text += $"Friend {i + 1}: {friends[i]}\n";
 				}
 				btnSearch.Enabled = true;
 				btnSortUp.Enabled = true;

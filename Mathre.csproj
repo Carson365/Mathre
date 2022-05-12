@@ -903,8 +903,14 @@
     <Content Include="Resources\CatPictures\cat_98.png" />
     <Content Include="Resources\CatPictures\cat_99.png" />
     <Content Include="Resources\Chime.mp3" />
+    <Content Include="Resources\Dead.wav" />
+    <Content Include="Resources\Hit.wav" />
     <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\Cards.png" />
+    <Content Include="Resources\Intro.wav" />
+    <Content Include="Resources\Shot.wav" />
+    <Content Include="Resources\Win.wav" />
+    <None Include="Resources\Shooter.png" />
     <None Include="Resources\Invader.png" />
     <Content Include="Resources\Koolaid.mp3" />
     <Content Include="Resources\Pearl.gif" />

@@ -32,7 +32,7 @@ namespace Mathre
 			numW.Maximum = 1000;
 			numW.KeyPress += ValidEntry;
 			TextBox txt = (TextBox)numW.Controls[1];
-			numW.KeyUp += (p, e) => { if (txt.Text == "" && 1 !< numW.Maximum) numW.Value = 1; else txt.Text = $"{numW.Value}"; };
+			numW.KeyUp += (p, e) => { if (txt.Text == "" && 1! < numW.Maximum) numW.Value = 1; else txt.Text = $"{numW.Value}"; };
 			numW.TextChanged += (s, e) => { if (numW.Text.StartsWith("0")) numW.Text = numW.Text.TrimStart('0'); };
 			pnlWager.Controls.Add(numW);
 			numWager.Hide();
@@ -76,7 +76,7 @@ namespace Mathre
 			NumericUpDown box = sender as NumericUpDown;
 			TextBox txt = (TextBox)numW.Controls[1];
 			if (e.KeyChar != '\b' && (e.KeyChar < '0' | e.KeyChar > '9')) e.Handled = true;
-			else if (e.KeyChar != '\b' && Convert.ToInt32(box.Text.Remove(txt.SelectionStart, txt.SelectionLength).Insert(((TextBox)numW.Controls[1]).SelectionStart, $"{e.KeyChar}")) > numW.Maximum ) e.Handled = true;
+			else if (e.KeyChar != '\b' && Convert.ToInt32(box.Text.Remove(txt.SelectionStart, txt.SelectionLength).Insert(((TextBox)numW.Controls[1]).SelectionStart, $"{e.KeyChar}")) > numW.Maximum) e.Handled = true;
 			box.Validate(true);
 		}
 		// The actual roll action
