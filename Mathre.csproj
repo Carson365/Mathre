@@ -232,6 +232,18 @@
     <Compile Include="Forms\frm24aInvaders.Designer.cs">
       <DependentUpon>frm24aInvaders.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frm25aTurtle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm25aTurtle.Designer.cs">
+      <DependentUpon>frm25aTurtle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm25bTurtle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm25bTurtle.Designer.cs">
+      <DependentUpon>frm25bTurtle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmSecret.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -347,6 +359,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm24bInvaders.resx">
       <DependentUpon>frm24bInvaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm25aTurtle.resx">
+      <DependentUpon>frm25aTurtle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
