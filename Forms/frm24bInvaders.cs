@@ -19,21 +19,21 @@ namespace Mathre
 		int InvadersShot = 0;
 		bool playing = false;
 		bool playsounds = false;
+		int Loading = 3;
 
 		public readonly System.Timers.Timer tmrMain = new(10);
 		readonly List<Invader> Invaders = new();
 		public Frm24bInvaders()
 		{
+			tmrMain.Enabled = false;
 			KeyPreview = true;
-			Shown += (p, e) => { tmrMain.Enabled = true; Focus(); InvaderSetup(); };
-			Shown += LoadSettings;
+			Shown += (p, e) => { Focus(); InvaderSetup(); };
 			KeyDown += Key;
 			KeyDown += Pause;
 			KeyUp += UnKey;
 			tmrMain.Elapsed += Timer;
 			InitializeComponent();
-			VisibleChanged += (p, e) => { tmrMain.Enabled = Visible; if (Visible) Focus(); else SRight = false; SLeft = false; };
-			VisibleChanged += (p, e) => { playsounds = Visible; /*Play("Background", "mp3");*/ };
+			VisibleChanged += (p, e) => { playsounds = Visible; if (Loading == 0) { LoadSettings();  tmrMain.Enabled = Visible; if (Visible) Focus(); else SRight = false; SLeft = false; } Loading--; };
 		}
 		class Invader : PictureBox
 		{
@@ -181,7 +181,7 @@ namespace Mathre
 				}
 			}));
 		}
-		private void LoadSettings(object sender, EventArgs e)
+		private void LoadSettings()
 		{
 			Invoke(new MethodInvoker(delegate
 			{
@@ -223,7 +223,7 @@ namespace Mathre
 		}
 		public void PlayAgain()
 		{
-			if (MessageBox.Show("Play Again?", "Game Over", MessageBoxButtons.YesNo) == DialogResult.Yes) LoadSettings(null, null);
+			if (MessageBox.Show("Play Again?", "Game Over", MessageBoxButtons.YesNo) == DialogResult.Yes) LoadSettings();
 		}
 	}
 }

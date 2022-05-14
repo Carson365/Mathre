@@ -12,14 +12,14 @@ namespace Mathre
 		public bool loadedonce = false;
 		int counter = 0;
 		string PlayerName = "";
+		int Loading = 4;
 		public Frm13Slots()
 		{
 			InitializeComponent();
 			btnSpin.Click += Gamble;
 			chbAuto.CheckedChanged += Autocheck;
+			VisibleChanged += (p, e) => { if (Loading == 0 && !loadedonce) { loadedonce = true; Loaded(); } Loading--; };
 		}
-		public void Tabbed() { if (!loadedonce) { loadedonce = true; Loaded(); } }
-		//public void Tabbed() 
 		public void Loaded()
 		{
 			lblScore.Text = tokens.ToString();

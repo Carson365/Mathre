@@ -17,11 +17,13 @@ namespace Mathre
 		int Hsum;
 		int Psum;
 		decimal score = 1000;
+		int Loading = 4;
+
 		public Frm22CardGame()
 		{
 			InitializeComponent();
 			Shown += NumSet;
-			Load += Setup;
+			VisibleChanged += (p, e) => { if (Loading == 0) { Setup(null, null); } Loading--; };
 			pnlCard2.Click += Hit;
 			pnlCard3.Click += Hit;
 			btnDeal.Click += Setup;

@@ -6,8 +6,8 @@ namespace Mathre
 	public partial class Frm21Dice : Form
 	{
 		readonly System.Timers.Timer aTimer = new(400);
-		MyNUD numW = new();
-		Random rnd = new();
+		readonly MyNUD numW = new();
+		readonly Random rnd = new();
 		public Frm21Dice()
 		{
 			InitializeComponent();

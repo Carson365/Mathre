@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
 	public partial class Frm24aInvaders : Form
 	{
-		Frm24bInvaders F24b;
+		readonly Frm24bInvaders F24b;
 		public Frm24aInvaders()
 		{
 			InitializeComponent();

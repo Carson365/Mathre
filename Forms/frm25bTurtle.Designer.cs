@@ -1,4 +1,4 @@
-﻿namespace Mathre.Forms
+﻿namespace Mathre
 {
 	partial class Frm25bTurtle
 	{
@@ -28,10 +28,18 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.components = new System.ComponentModel.Container();
-			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Text = "frm25bTurtle";
+            this.SuspendLayout();
+            // 
+            // Frm25bTurtle
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Name = "Frm25bTurtle";
+            this.Text = "frm25bTurtle";
+            this.ResumeLayout(false);
+
 		}
 
 		#endregion

@@ -16,12 +16,11 @@ namespace Mathre
 		{
 			InitializeComponent();
 			KeyDown += KeyboardShortcuts;
-			tabMathre.SelectedIndexChanged += FormManager;
 			Load += LoadEvent;
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			foreach (Type type in Assembly.GetExecutingAssembly().DefinedTypes.Where(t => t.BaseType == typeof(Form) && t.Name != "Frm00Mathre" && t.Name != "Frm24bInvaders" && t.Name != "FrmTemplate" && t.Name != "Frm19bSecretMessage").OrderBy(x => x.Name))
+			foreach (Type type in Assembly.GetExecutingAssembly().DefinedTypes.Where(t => t.BaseType == typeof(Form) && t.Name != "Frm00Mathre" && t.Name != "Frm24bInvaders" && t.Name != "FrmTemplate" && !System.Text.RegularExpressions.Regex.IsMatch(t.Name, @"\d{2}b")).OrderBy(x => x.Name))
 			{
 				Icon = Resources.Rainbow;
 				var form = Activator.CreateInstance(type) as Form;
@@ -72,6 +71,7 @@ namespace Mathre
 			Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 			FormManager(null, null);
+			tabMathre.SelectedIndexChanged += FormManager;
 		}
 		public IEnumerable<ToolStripMenuItem> GetAll(ToolStripItemCollection items)
 		{
@@ -133,12 +133,11 @@ namespace Mathre
 		{
 			if (Application.OpenForms.Count > 0 && tabMathre.TabPages.Count > 0)
 			{
-				foreach (Form form in Application.OpenForms)
+				for (int x = 0; x < tabMathre.TabPages.Count; x++)
 				{
-					if (form.Name != "Frm00Mathre" && form.Name != "Frm24bInvaders") { if (form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide(); else form.Show(); }
+					Form form = Application.OpenForms[x];
+					if (form.Name != "Frm00Mathre") { if (form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide(); else form.Show(); }
 				}
-				var F13 = Application.OpenForms.OfType<Frm13Slots>().SingleOrDefault();
-				if (tabMathre.SelectedTab.Name == "tab13Slots" && F13 != null) F13.Tabbed();
 			}
 		}
 		public void MenuKeypress(ToolStripMenuItem TSMI)
