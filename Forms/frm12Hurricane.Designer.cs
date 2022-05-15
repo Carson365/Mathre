@@ -79,7 +79,7 @@
             // 
             this.pnlHurricaneList.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlHurricaneList.Controls.Add(this.lstHurricaneList);
-            this.pnlHurricaneList.Location = new System.Drawing.Point(466, 165);
+            this.pnlHurricaneList.Location = new System.Drawing.Point(466, 150);
             this.pnlHurricaneList.Name = "pnlHurricaneList";
             this.pnlHurricaneList.Size = new System.Drawing.Size(600, 247);
             this.pnlHurricaneList.TabIndex = 37;
@@ -103,7 +103,7 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(287, 95);
+            this.lblTitle.Location = new System.Drawing.Point(287, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
@@ -125,7 +125,7 @@
             this.pnlBody2.Controls.Add(this.lblType);
             this.pnlBody2.Controls.Add(this.lblTypeLabel);
             this.pnlBody2.Controls.Add(this.lblNameLabel);
-            this.pnlBody2.Location = new System.Drawing.Point(135, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(135, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(325, 136);
             this.pnlBody2.TabIndex = 35;
@@ -248,7 +248,7 @@
             this.pnlBody.Controls.Add(this.btnRandom);
             this.pnlBody.Controls.Add(this.btnCalculate);
             this.pnlBody.Controls.Add(this.lblSpeed);
-            this.pnlBody.Location = new System.Drawing.Point(135, 165);
+            this.pnlBody.Location = new System.Drawing.Point(135, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(325, 105);
             this.pnlBody.TabIndex = 34;

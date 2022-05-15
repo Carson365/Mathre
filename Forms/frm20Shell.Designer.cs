@@ -31,16 +31,16 @@
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.lblGames = new System.Windows.Forms.Label();
+            this.lblGamesCount = new System.Windows.Forms.Label();
+            this.lblWins = new System.Windows.Forms.Label();
+            this.lblWinCount = new System.Windows.Forms.Label();
             this.picPearl3 = new System.Windows.Forms.PictureBox();
             this.picPearl2 = new System.Windows.Forms.PictureBox();
             this.picPearl1 = new System.Windows.Forms.PictureBox();
             this.picShell3 = new System.Windows.Forms.PictureBox();
             this.picShell2 = new System.Windows.Forms.PictureBox();
             this.picShell1 = new System.Windows.Forms.PictureBox();
-            this.lblWinCount = new System.Windows.Forms.Label();
-            this.lblWins = new System.Windows.Forms.Label();
-            this.lblGames = new System.Windows.Forms.Label();
-            this.lblGamesCount = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picPearl3)).BeginInit();
@@ -68,7 +68,7 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
@@ -90,10 +90,46 @@
             this.pnlBody.Controls.Add(this.picShell3);
             this.pnlBody.Controls.Add(this.picShell2);
             this.pnlBody.Controls.Add(this.picShell1);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 247);
             this.pnlBody.TabIndex = 38;
+            // 
+            // lblGames
+            // 
+            this.lblGames.AutoSize = true;
+            this.lblGames.Location = new System.Drawing.Point(178, 220);
+            this.lblGames.Name = "lblGames";
+            this.lblGames.Size = new System.Drawing.Size(13, 13);
+            this.lblGames.TabIndex = 9;
+            this.lblGames.Text = "0";
+            // 
+            // lblGamesCount
+            // 
+            this.lblGamesCount.AutoSize = true;
+            this.lblGamesCount.Location = new System.Drawing.Point(94, 220);
+            this.lblGamesCount.Name = "lblGamesCount";
+            this.lblGamesCount.Size = new System.Drawing.Size(78, 13);
+            this.lblGamesCount.TabIndex = 8;
+            this.lblGamesCount.Text = "Games Played:";
+            // 
+            // lblWins
+            // 
+            this.lblWins.AutoSize = true;
+            this.lblWins.Location = new System.Drawing.Point(320, 220);
+            this.lblWins.Name = "lblWins";
+            this.lblWins.Size = new System.Drawing.Size(13, 13);
+            this.lblWins.TabIndex = 7;
+            this.lblWins.Text = "0";
+            // 
+            // lblWinCount
+            // 
+            this.lblWinCount.AutoSize = true;
+            this.lblWinCount.Location = new System.Drawing.Point(279, 220);
+            this.lblWinCount.Name = "lblWinCount";
+            this.lblWinCount.Size = new System.Drawing.Size(34, 13);
+            this.lblWinCount.TabIndex = 6;
+            this.lblWinCount.Text = "Wins:";
             // 
             // picPearl3
             // 
@@ -154,42 +190,6 @@
             this.picShell1.TabIndex = 0;
             this.picShell1.TabStop = false;
             this.picShell1.Tag = "Shell 1";
-            // 
-            // lblWinCount
-            // 
-            this.lblWinCount.AutoSize = true;
-            this.lblWinCount.Location = new System.Drawing.Point(279, 220);
-            this.lblWinCount.Name = "lblWinCount";
-            this.lblWinCount.Size = new System.Drawing.Size(34, 13);
-            this.lblWinCount.TabIndex = 6;
-            this.lblWinCount.Text = "Wins:";
-            // 
-            // lblWins
-            // 
-            this.lblWins.AutoSize = true;
-            this.lblWins.Location = new System.Drawing.Point(320, 220);
-            this.lblWins.Name = "lblWins";
-            this.lblWins.Size = new System.Drawing.Size(13, 13);
-            this.lblWins.TabIndex = 7;
-            this.lblWins.Text = "0";
-            // 
-            // lblGames
-            // 
-            this.lblGames.AutoSize = true;
-            this.lblGames.Location = new System.Drawing.Point(178, 220);
-            this.lblGames.Name = "lblGames";
-            this.lblGames.Size = new System.Drawing.Size(13, 13);
-            this.lblGames.TabIndex = 9;
-            this.lblGames.Text = "0";
-            // 
-            // lblGamesCount
-            // 
-            this.lblGamesCount.AutoSize = true;
-            this.lblGamesCount.Location = new System.Drawing.Point(94, 220);
-            this.lblGamesCount.Name = "lblGamesCount";
-            this.lblGamesCount.Size = new System.Drawing.Size(78, 13);
-            this.lblGamesCount.TabIndex = 8;
-            this.lblGamesCount.Text = "Games Played:";
             // 
             // Frm20Shell
             // 

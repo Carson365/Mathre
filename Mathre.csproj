@@ -331,11 +331,32 @@
       <DependentUpon>frm00Mathre.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm01HelloWorld.resx">
+      <DependentUpon>frm01HelloWorld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm02MySchool.resx">
+      <DependentUpon>frm02MySchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm03Rectangle.resx">
+      <DependentUpon>frm03Rectangle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm04MyFavorites.resx">
       <DependentUpon>frm04MyFavorites.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm05Temperature.resx">
+      <DependentUpon>frm05Temperature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm06Digits.resx">
+      <DependentUpon>frm06Digits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm07Change.resx">
+      <DependentUpon>frm07Change.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm08Pizza.resx">
       <DependentUpon>frm08Pizza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm09Grade.resx">
+      <DependentUpon>frm09Grade.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm11RPS.resx">
       <DependentUpon>frm11RPS.cs</DependentUpon>
@@ -344,8 +365,29 @@
     <EmbeddedResource Include="Forms\frm12Hurricane.resx">
       <DependentUpon>frm12Hurricane.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm13Slots.resx">
+      <DependentUpon>frm13Slots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm14Acronym.resx">
+      <DependentUpon>frm14Acronym.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm15Sum.resx">
+      <DependentUpon>frm15Sum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm16Letters.resx">
+      <DependentUpon>frm16Letters.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm17WordGuess.resx">
       <DependentUpon>frm17WordGuess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm18Humane.resx">
+      <DependentUpon>frm18Humane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm19aSecretMessage.resx">
+      <DependentUpon>frm19aSecretMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm20Shell.resx">
+      <DependentUpon>frm20Shell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm21Dice.resx">
       <DependentUpon>frm21Dice.cs</DependentUpon>
@@ -374,6 +416,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frm26Prizes.resx">
       <DependentUpon>frm26Prizes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSecret.resx">
+      <DependentUpon>frmSecret.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTemplate.resx">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

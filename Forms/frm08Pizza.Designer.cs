@@ -78,7 +78,7 @@ namespace Mathre
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
@@ -93,7 +93,7 @@ namespace Mathre
             this.pnlBody2.Controls.Add(this.pnlPizzaViewer);
             this.pnlBody2.Controls.Add(this.lblPizzaCostAmount);
             this.pnlBody2.Controls.Add(this.lblPizzaCost);
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 81);
             this.pnlBody2.TabIndex = 35;
@@ -141,7 +141,7 @@ namespace Mathre
             this.pnlBody.Controls.Add(this.lblPizzaSize);
             this.pnlBody.Controls.Add(this.pnlTip);
             this.pnlBody.Controls.Add(this.lblPizzaTip);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 34;

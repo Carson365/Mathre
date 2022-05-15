@@ -36,16 +36,16 @@
             this.picCat3 = new System.Windows.Forms.PictureBox();
             this.pnlPicture2 = new System.Windows.Forms.Panel();
             this.picCat2 = new System.Windows.Forms.PictureBox();
-            this.btnKeep4 = new System.Windows.Forms.Button();
             this.lblCat4 = new System.Windows.Forms.Label();
             this.lblCat3 = new System.Windows.Forms.Label();
-            this.btnKeep3 = new System.Windows.Forms.Button();
             this.lblCat2 = new System.Windows.Forms.Label();
-            this.btnKeep2 = new System.Windows.Forms.Button();
-            this.btnKeep1 = new System.Windows.Forms.Button();
             this.lblCat1 = new System.Windows.Forms.Label();
             this.pnlPicture1 = new System.Windows.Forms.Panel();
             this.picCat1 = new System.Windows.Forms.PictureBox();
+            this.btnKeep1 = new System.Windows.Forms.Button();
+            this.btnKeep2 = new System.Windows.Forms.Button();
+            this.btnKeep3 = new System.Windows.Forms.Button();
+            this.btnKeep4 = new System.Windows.Forms.Button();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.lblCatSave = new System.Windows.Forms.Label();
             this.btnTimerToggle = new System.Windows.Forms.Button();
@@ -97,7 +97,7 @@
             this.pnlBody2.Controls.Add(this.btnKeep2);
             this.pnlBody2.Controls.Add(this.btnKeep3);
             this.pnlBody2.Controls.Add(this.btnKeep4);
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
             this.pnlBody2.TabIndex = 37;
@@ -160,15 +160,6 @@
             this.picCat2.TabIndex = 41;
             this.picCat2.TabStop = false;
             // 
-            // btnKeep4
-            // 
-            this.btnKeep4.Location = new System.Drawing.Point(336, 108);
-            this.btnKeep4.Name = "btnKeep4";
-            this.btnKeep4.Size = new System.Drawing.Size(84, 23);
-            this.btnKeep4.TabIndex = 3;
-            this.btnKeep4.Text = "Keep Animal 4";
-            this.btnKeep4.UseVisualStyleBackColor = true;
-            // 
             // lblCat4
             // 
             this.lblCat4.Location = new System.Drawing.Point(338, 6);
@@ -187,15 +178,6 @@
             this.lblCat3.Text = "Name";
             this.lblCat3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnKeep3
-            // 
-            this.btnKeep3.Location = new System.Drawing.Point(226, 108);
-            this.btnKeep3.Name = "btnKeep3";
-            this.btnKeep3.Size = new System.Drawing.Size(84, 23);
-            this.btnKeep3.TabIndex = 6;
-            this.btnKeep3.Text = "Keep Animal 3";
-            this.btnKeep3.UseVisualStyleBackColor = true;
-            // 
             // lblCat2
             // 
             this.lblCat2.Location = new System.Drawing.Point(118, 6);
@@ -204,24 +186,6 @@
             this.lblCat2.TabIndex = 5;
             this.lblCat2.Text = "Name";
             this.lblCat2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // btnKeep2
-            // 
-            this.btnKeep2.Location = new System.Drawing.Point(116, 108);
-            this.btnKeep2.Name = "btnKeep2";
-            this.btnKeep2.Size = new System.Drawing.Size(84, 23);
-            this.btnKeep2.TabIndex = 3;
-            this.btnKeep2.Text = "Keep Animal 2";
-            this.btnKeep2.UseVisualStyleBackColor = true;
-            // 
-            // btnKeep1
-            // 
-            this.btnKeep1.Location = new System.Drawing.Point(6, 108);
-            this.btnKeep1.Name = "btnKeep1";
-            this.btnKeep1.Size = new System.Drawing.Size(84, 23);
-            this.btnKeep1.TabIndex = 0;
-            this.btnKeep1.Text = "Keep Animal 1";
-            this.btnKeep1.UseVisualStyleBackColor = true;
             // 
             // lblCat1
             // 
@@ -251,6 +215,42 @@
             this.picCat1.TabIndex = 41;
             this.picCat1.TabStop = false;
             // 
+            // btnKeep1
+            // 
+            this.btnKeep1.Location = new System.Drawing.Point(6, 108);
+            this.btnKeep1.Name = "btnKeep1";
+            this.btnKeep1.Size = new System.Drawing.Size(84, 23);
+            this.btnKeep1.TabIndex = 0;
+            this.btnKeep1.Text = "Keep Animal 1";
+            this.btnKeep1.UseVisualStyleBackColor = true;
+            // 
+            // btnKeep2
+            // 
+            this.btnKeep2.Location = new System.Drawing.Point(116, 108);
+            this.btnKeep2.Name = "btnKeep2";
+            this.btnKeep2.Size = new System.Drawing.Size(84, 23);
+            this.btnKeep2.TabIndex = 3;
+            this.btnKeep2.Text = "Keep Animal 2";
+            this.btnKeep2.UseVisualStyleBackColor = true;
+            // 
+            // btnKeep3
+            // 
+            this.btnKeep3.Location = new System.Drawing.Point(226, 108);
+            this.btnKeep3.Name = "btnKeep3";
+            this.btnKeep3.Size = new System.Drawing.Size(84, 23);
+            this.btnKeep3.TabIndex = 6;
+            this.btnKeep3.Text = "Keep Animal 3";
+            this.btnKeep3.UseVisualStyleBackColor = true;
+            // 
+            // btnKeep4
+            // 
+            this.btnKeep4.Location = new System.Drawing.Point(336, 108);
+            this.btnKeep4.Name = "btnKeep4";
+            this.btnKeep4.Size = new System.Drawing.Size(84, 23);
+            this.btnKeep4.TabIndex = 3;
+            this.btnKeep4.Text = "Keep Animal 4";
+            this.btnKeep4.UseVisualStyleBackColor = true;
+            // 
             // pnlBody
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -258,7 +258,7 @@
             this.pnlBody.Controls.Add(this.lblCatSave);
             this.pnlBody.Controls.Add(this.btnTimerToggle);
             this.pnlBody.Controls.Add(this.pnlPictureSave);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
@@ -304,7 +304,7 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);

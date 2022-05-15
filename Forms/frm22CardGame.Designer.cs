@@ -127,7 +127,7 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
@@ -148,7 +148,7 @@
             this.pnlBody.Controls.Add(this.lblPlayer);
             this.pnlBody.Controls.Add(this.btnRules);
             this.pnlBody.Controls.Add(this.lblHTotal);
-            this.pnlBody.Location = new System.Drawing.Point(223, 165);
+            this.pnlBody.Location = new System.Drawing.Point(223, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
@@ -312,7 +312,7 @@
             this.pnlBody2.Controls.Add(this.pnlWager);
             this.pnlBody2.Controls.Add(this.pnlCard5);
             this.pnlBody2.Controls.Add(this.pnlCard4);
-            this.pnlBody2.Location = new System.Drawing.Point(223, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(223, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 105);
             this.pnlBody2.TabIndex = 38;
@@ -367,7 +367,7 @@
             this.pnlBody3.Controls.Add(this.btnDeal);
             this.pnlBody3.Controls.Add(this.lblResult);
             this.pnlBody3.Controls.Add(this.lblRTotal);
-            this.pnlBody3.Location = new System.Drawing.Point(655, 165);
+            this.pnlBody3.Location = new System.Drawing.Point(655, 150);
             this.pnlBody3.Name = "pnlBody3";
             this.pnlBody3.Size = new System.Drawing.Size(122, 216);
             this.pnlBody3.TabIndex = 45;

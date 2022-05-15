@@ -30,15 +30,15 @@
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody2 = new System.Windows.Forms.Panel();
-            this.pnlBody = new System.Windows.Forms.Panel();
-            this.btnSearch = new System.Windows.Forms.Button();
+            this.lblOccurrances = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.lblFind = new System.Windows.Forms.Label();
+            this.lblSearch = new System.Windows.Forms.Label();
             this.lblChar = new System.Windows.Forms.Label();
             this.lblText = new System.Windows.Forms.Label();
+            this.pnlBody = new System.Windows.Forms.Panel();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.lblSearch = new System.Windows.Forms.Label();
-            this.lblFind = new System.Windows.Forms.Label();
-            this.lblResult = new System.Windows.Forms.Label();
-            this.lblOccurrances = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -68,29 +68,54 @@
             this.pnlBody2.Controls.Add(this.lblSearch);
             this.pnlBody2.Controls.Add(this.lblChar);
             this.pnlBody2.Controls.Add(this.lblText);
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
             this.pnlBody2.TabIndex = 36;
             // 
-            // pnlBody
+            // lblOccurrances
             // 
-            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Controls.Add(this.btnSearch);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
-            this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(426, 105);
-            this.pnlBody.TabIndex = 32;
+            this.lblOccurrances.AutoSize = true;
+            this.lblOccurrances.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOccurrances.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblOccurrances.Location = new System.Drawing.Point(170, 94);
+            this.lblOccurrances.Name = "lblOccurrances";
+            this.lblOccurrances.Size = new System.Drawing.Size(99, 20);
+            this.lblOccurrances.TabIndex = 14;
+            this.lblOccurrances.Text = "Occurrances";
             // 
-            // btnSearch
+            // lblResult
             // 
-            this.btnSearch.Location = new System.Drawing.Point(176, 41);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
+            this.lblResult.AutoSize = true;
+            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblResult.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblResult.Location = new System.Drawing.Point(66, 94);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(98, 20);
+            this.lblResult.TabIndex = 13;
+            this.lblResult.Text = "Occurances:";
+            // 
+            // lblFind
+            // 
+            this.lblFind.AutoSize = true;
+            this.lblFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFind.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblFind.Location = new System.Drawing.Point(170, 58);
+            this.lblFind.Name = "lblFind";
+            this.lblFind.Size = new System.Drawing.Size(132, 20);
+            this.lblFind.TabIndex = 12;
+            this.lblFind.Text = "Character to Find";
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblSearch.Location = new System.Drawing.Point(170, 22);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(112, 20);
+            this.lblSearch.TabIndex = 11;
+            this.lblSearch.Text = "Text to Search";
             // 
             // lblChar
             // 
@@ -114,61 +139,36 @@
             this.lblText.TabIndex = 9;
             this.lblText.Text = "Text to Search:";
             // 
+            // pnlBody
+            // 
+            this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.btnSearch);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.TabIndex = 32;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(176, 41);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.TabIndex = 5;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            // 
             // lblTitle
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
             this.lblTitle.TabIndex = 31;
             this.lblTitle.Text = "Letter Counter";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSearch.Location = new System.Drawing.Point(170, 22);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(112, 20);
-            this.lblSearch.TabIndex = 11;
-            this.lblSearch.Text = "Text to Search";
-            // 
-            // lblFind
-            // 
-            this.lblFind.AutoSize = true;
-            this.lblFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFind.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblFind.Location = new System.Drawing.Point(170, 58);
-            this.lblFind.Name = "lblFind";
-            this.lblFind.Size = new System.Drawing.Size(132, 20);
-            this.lblFind.TabIndex = 12;
-            this.lblFind.Text = "Character to Find";
-            // 
-            // lblResult
-            // 
-            this.lblResult.AutoSize = true;
-            this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblResult.Location = new System.Drawing.Point(66, 94);
-            this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(98, 20);
-            this.lblResult.TabIndex = 13;
-            this.lblResult.Text = "Occurances:";
-            // 
-            // lblOccurrances
-            // 
-            this.lblOccurrances.AutoSize = true;
-            this.lblOccurrances.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblOccurrances.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblOccurrances.Location = new System.Drawing.Point(170, 94);
-            this.lblOccurrances.Name = "lblOccurrances";
-            this.lblOccurrances.Size = new System.Drawing.Size(99, 20);
-            this.lblOccurrances.TabIndex = 14;
-            this.lblOccurrances.Text = "Occurrances";
             // 
             // Frm16Letters
             // 

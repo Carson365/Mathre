@@ -30,10 +30,10 @@
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.lblAcronym = new System.Windows.Forms.Label();
             this.lblAcronymPrompt = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btnCreate = new System.Windows.Forms.Button();
             this.pnlFrame.SuspendLayout();
             this.pnlBody.SuspendLayout();
             this.SuspendLayout();
@@ -58,10 +58,19 @@
             this.pnlBody.Controls.Add(this.btnCreate);
             this.pnlBody.Controls.Add(this.lblAcronym);
             this.pnlBody.Controls.Add(this.lblAcronymPrompt);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
+            // 
+            // btnCreate
+            // 
+            this.btnCreate.Location = new System.Drawing.Point(259, 42);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(86, 23);
+            this.btnCreate.TabIndex = 11;
+            this.btnCreate.Text = "Acronymize";
+            this.btnCreate.UseVisualStyleBackColor = true;
             // 
             // lblAcronym
             // 
@@ -89,22 +98,13 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
             this.lblTitle.TabIndex = 31;
             this.lblTitle.Text = "Acronym Maker";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnCreate
-            // 
-            this.btnCreate.Location = new System.Drawing.Point(259, 42);
-            this.btnCreate.Name = "btnCreate";
-            this.btnCreate.Size = new System.Drawing.Size(86, 23);
-            this.btnCreate.TabIndex = 11;
-            this.btnCreate.Text = "Acronymize";
-            this.btnCreate.UseVisualStyleBackColor = true;
             // 
             // Frm14Acronym
             // 

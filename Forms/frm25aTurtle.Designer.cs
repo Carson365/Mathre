@@ -33,13 +33,13 @@
             this.lblConstruction = new System.Windows.Forms.Label();
             this.lblScoreboard = new System.Windows.Forms.Label();
             this.pnlBody2 = new System.Windows.Forms.Panel();
-            this.lblSlowKey = new System.Windows.Forms.Label();
             this.lblSlow = new System.Windows.Forms.Label();
-            this.lblSpeedKey = new System.Windows.Forms.Label();
             this.lblSpeed = new System.Windows.Forms.Label();
+            this.lblControls = new System.Windows.Forms.Label();
+            this.lblSlowKey = new System.Windows.Forms.Label();
+            this.lblSpeedKey = new System.Windows.Forms.Label();
             this.lblPauseKey = new System.Windows.Forms.Label();
             this.lblPause = new System.Windows.Forms.Label();
-            this.lblControls = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
@@ -68,9 +68,9 @@
             this.pnlBody3.BackColor = System.Drawing.SystemColors.Control;
             this.pnlBody3.Controls.Add(this.lblConstruction);
             this.pnlBody3.Controls.Add(this.lblScoreboard);
-            this.pnlBody3.Location = new System.Drawing.Point(64, 122);
+            this.pnlBody3.Location = new System.Drawing.Point(64, 150);
             this.pnlBody3.Name = "pnlBody3";
-            this.pnlBody3.Size = new System.Drawing.Size(155, 311);
+            this.pnlBody3.Size = new System.Drawing.Size(155, 260);
             this.pnlBody3.TabIndex = 34;
             // 
             // lblConstruction
@@ -103,19 +103,10 @@
             this.pnlBody2.Controls.Add(this.lblSpeedKey);
             this.pnlBody2.Controls.Add(this.lblPauseKey);
             this.pnlBody2.Controls.Add(this.lblPause);
-            this.pnlBody2.Location = new System.Drawing.Point(1031, 122);
+            this.pnlBody2.Location = new System.Drawing.Point(1031, 150);
             this.pnlBody2.Name = "pnlBody2";
-            this.pnlBody2.Size = new System.Drawing.Size(155, 311);
+            this.pnlBody2.Size = new System.Drawing.Size(155, 260);
             this.pnlBody2.TabIndex = 33;
-            // 
-            // lblSlowKey
-            // 
-            this.lblSlowKey.AutoSize = true;
-            this.lblSlowKey.Location = new System.Drawing.Point(114, 133);
-            this.lblSlowKey.Name = "lblSlowKey";
-            this.lblSlowKey.Size = new System.Drawing.Size(14, 13);
-            this.lblSlowKey.TabIndex = 12;
-            this.lblSlowKey.Text = "A";
             // 
             // lblSlow
             // 
@@ -126,15 +117,6 @@
             this.lblSlow.TabIndex = 11;
             this.lblSlow.Text = "Slow Down";
             // 
-            // lblSpeedKey
-            // 
-            this.lblSpeedKey.AutoSize = true;
-            this.lblSpeedKey.Location = new System.Drawing.Point(114, 101);
-            this.lblSpeedKey.Name = "lblSpeedKey";
-            this.lblSpeedKey.Size = new System.Drawing.Size(15, 13);
-            this.lblSpeedKey.TabIndex = 10;
-            this.lblSpeedKey.Text = "D";
-            // 
             // lblSpeed
             // 
             this.lblSpeed.AutoSize = true;
@@ -143,6 +125,34 @@
             this.lblSpeed.Size = new System.Drawing.Size(55, 13);
             this.lblSpeed.TabIndex = 9;
             this.lblSpeed.Text = "Speed Up";
+            // 
+            // lblControls
+            // 
+            this.lblControls.AutoSize = true;
+            this.lblControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblControls.Location = new System.Drawing.Point(39, 39);
+            this.lblControls.Name = "lblControls";
+            this.lblControls.Size = new System.Drawing.Size(76, 20);
+            this.lblControls.TabIndex = 0;
+            this.lblControls.Text = "Controls";
+            // 
+            // lblSlowKey
+            // 
+            this.lblSlowKey.AutoSize = true;
+            this.lblSlowKey.Location = new System.Drawing.Point(114, 133);
+            this.lblSlowKey.Name = "lblSlowKey";
+            this.lblSlowKey.Size = new System.Drawing.Size(14, 13);
+            this.lblSlowKey.TabIndex = 12;
+            this.lblSlowKey.Text = "A";
+            // 
+            // lblSpeedKey
+            // 
+            this.lblSpeedKey.AutoSize = true;
+            this.lblSpeedKey.Location = new System.Drawing.Point(114, 101);
+            this.lblSpeedKey.Name = "lblSpeedKey";
+            this.lblSpeedKey.Size = new System.Drawing.Size(15, 13);
+            this.lblSpeedKey.TabIndex = 10;
+            this.lblSpeedKey.Text = "D";
             // 
             // lblPauseKey
             // 
@@ -162,30 +172,20 @@
             this.lblPause.TabIndex = 7;
             this.lblPause.Text = "Pause";
             // 
-            // lblControls
-            // 
-            this.lblControls.AutoSize = true;
-            this.lblControls.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblControls.Location = new System.Drawing.Point(39, 39);
-            this.lblControls.Name = "lblControls";
-            this.lblControls.Size = new System.Drawing.Size(76, 20);
-            this.lblControls.TabIndex = 0;
-            this.lblControls.Text = "Controls";
-            // 
             // pnlBody
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Location = new System.Drawing.Point(225, 122);
+            this.pnlBody.Location = new System.Drawing.Point(225, 150);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(800, 311);
+            this.pnlBody.Size = new System.Drawing.Size(800, 260);
             this.pnlBody.TabIndex = 32;
             // 
             // lblTitle
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(312, 68);
+            this.lblTitle.Location = new System.Drawing.Point(312, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);

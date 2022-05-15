@@ -32,27 +32,27 @@ namespace Mathre
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlLanguage = new System.Windows.Forms.Panel();
+            this.picGerman = new System.Windows.Forms.PictureBox();
             this.radEnglish = new System.Windows.Forms.RadioButton();
+            this.picFrench = new System.Windows.Forms.PictureBox();
             this.radFrench = new System.Windows.Forms.RadioButton();
+            this.picEnglish = new System.Windows.Forms.PictureBox();
             this.radGerman = new System.Windows.Forms.RadioButton();
             this.btnReset = new System.Windows.Forms.Button();
             this.pnlFrame = new System.Windows.Forms.Panel();
-            this.picGerman = new System.Windows.Forms.PictureBox();
-            this.picFrench = new System.Windows.Forms.PictureBox();
-            this.picEnglish = new System.Windows.Forms.PictureBox();
             this.pnlBody.SuspendLayout();
             this.pnlLanguage.SuspendLayout();
-            this.pnlFrame.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picGerman)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFrench)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnglish)).BeginInit();
+            this.pnlFrame.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(287, 95);
+            this.lblTitle.Location = new System.Drawing.Point(287, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(426, 51);
@@ -67,7 +67,7 @@ namespace Mathre
             this.pnlBody.Controls.Add(this.pnlLanguage);
             this.pnlBody.Controls.Add(this.btnReset);
             this.pnlBody.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 30;
@@ -83,17 +83,27 @@ namespace Mathre
             this.pnlLanguage.Controls.Add(this.picEnglish);
             this.pnlLanguage.Controls.Add(this.radGerman);
             this.pnlLanguage.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.pnlLanguage.Location = new System.Drawing.Point(6, 5);
+            this.pnlLanguage.Location = new System.Drawing.Point(6, 4);
             this.pnlLanguage.Name = "pnlLanguage";
             this.pnlLanguage.Size = new System.Drawing.Size(414, 43);
             this.pnlLanguage.TabIndex = 31;
             this.pnlLanguage.Tag = "Transparent,Language";
             // 
+            // picGerman
+            // 
+            this.picGerman.Image = global::Mathre.Resources.German;
+            this.picGerman.Location = new System.Drawing.Point(287, 8);
+            this.picGerman.Name = "picGerman";
+            this.picGerman.Size = new System.Drawing.Size(31, 25);
+            this.picGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picGerman.TabIndex = 13;
+            this.picGerman.TabStop = false;
+            // 
             // radEnglish
             // 
             this.radEnglish.AutoSize = true;
             this.radEnglish.Checked = true;
-            this.radEnglish.Location = new System.Drawing.Point(65, 13);
+            this.radEnglish.Location = new System.Drawing.Point(65, 12);
             this.radEnglish.Name = "radEnglish";
             this.radEnglish.Size = new System.Drawing.Size(59, 17);
             this.radEnglish.TabIndex = 7;
@@ -101,20 +111,40 @@ namespace Mathre
             this.radEnglish.Text = "English";
             this.radEnglish.UseVisualStyleBackColor = true;
             // 
+            // picFrench
+            // 
+            this.picFrench.Image = global::Mathre.Resources.French;
+            this.picFrench.Location = new System.Drawing.Point(158, 8);
+            this.picFrench.Name = "picFrench";
+            this.picFrench.Size = new System.Drawing.Size(31, 25);
+            this.picFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picFrench.TabIndex = 11;
+            this.picFrench.TabStop = false;
+            // 
             // radFrench
             // 
             this.radFrench.AutoSize = true;
-            this.radFrench.Location = new System.Drawing.Point(195, 13);
+            this.radFrench.Location = new System.Drawing.Point(195, 12);
             this.radFrench.Name = "radFrench";
             this.radFrench.Size = new System.Drawing.Size(58, 17);
             this.radFrench.TabIndex = 10;
             this.radFrench.Text = "French";
             this.radFrench.UseVisualStyleBackColor = true;
             // 
+            // picEnglish
+            // 
+            this.picEnglish.Image = global::Mathre.Resources.English;
+            this.picEnglish.Location = new System.Drawing.Point(28, 8);
+            this.picEnglish.Name = "picEnglish";
+            this.picEnglish.Size = new System.Drawing.Size(31, 25);
+            this.picEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picEnglish.TabIndex = 12;
+            this.picEnglish.TabStop = false;
+            // 
             // radGerman
             // 
             this.radGerman.AutoSize = true;
-            this.radGerman.Location = new System.Drawing.Point(324, 13);
+            this.radGerman.Location = new System.Drawing.Point(324, 12);
             this.radGerman.Name = "radGerman";
             this.radGerman.Size = new System.Drawing.Size(62, 17);
             this.radGerman.TabIndex = 8;
@@ -123,7 +153,7 @@ namespace Mathre
             // 
             // btnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(169, 61);
+            this.btnReset.Location = new System.Drawing.Point(169, 60);
             this.btnReset.Name = "btnReset";
             this.btnReset.Size = new System.Drawing.Size(75, 23);
             this.btnReset.TabIndex = 9;
@@ -143,36 +173,6 @@ namespace Mathre
             this.pnlFrame.Size = new System.Drawing.Size(1000, 500);
             this.pnlFrame.TabIndex = 31;
             // 
-            // picGerman
-            // 
-            this.picGerman.Image = global::Mathre.Resources.German;
-            this.picGerman.Location = new System.Drawing.Point(287, 9);
-            this.picGerman.Name = "picGerman";
-            this.picGerman.Size = new System.Drawing.Size(31, 25);
-            this.picGerman.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picGerman.TabIndex = 13;
-            this.picGerman.TabStop = false;
-            // 
-            // picFrench
-            // 
-            this.picFrench.Image = global::Mathre.Resources.French;
-            this.picFrench.Location = new System.Drawing.Point(158, 9);
-            this.picFrench.Name = "picFrench";
-            this.picFrench.Size = new System.Drawing.Size(31, 25);
-            this.picFrench.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picFrench.TabIndex = 11;
-            this.picFrench.TabStop = false;
-            // 
-            // picEnglish
-            // 
-            this.picEnglish.Image = global::Mathre.Resources.English;
-            this.picEnglish.Location = new System.Drawing.Point(28, 9);
-            this.picEnglish.Name = "picEnglish";
-            this.picEnglish.Size = new System.Drawing.Size(31, 25);
-            this.picEnglish.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.picEnglish.TabIndex = 12;
-            this.picEnglish.TabStop = false;
-            // 
             // Frm01HelloWorld
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -185,10 +185,10 @@ namespace Mathre
             this.pnlBody.ResumeLayout(false);
             this.pnlLanguage.ResumeLayout(false);
             this.pnlLanguage.PerformLayout();
-            this.pnlFrame.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picGerman)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picFrench)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picEnglish)).EndInit();
+            this.pnlFrame.ResumeLayout(false);
             this.ResumeLayout(false);
 
 		}

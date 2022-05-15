@@ -70,7 +70,7 @@ namespace Mathre
             this.pnlBody2.Controls.Add(this.lblFahrenheitDisplayLabel);
             this.pnlBody2.Controls.Add(this.lblFahrenheitDisplay);
             this.pnlBody2.Controls.Add(this.lblCelsiusDisplayLabel);
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 81);
             this.pnlBody2.TabIndex = 36;
@@ -127,7 +127,7 @@ namespace Mathre
             this.pnlBody.Controls.Add(this.radFahrenheit);
             this.pnlBody.Controls.Add(this.radCelsius);
             this.pnlBody.Controls.Add(this.lblTemperature);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 35;
@@ -191,7 +191,7 @@ namespace Mathre
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);

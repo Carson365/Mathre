@@ -30,6 +30,9 @@
 		{
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame = new System.Windows.Forms.Panel();
+            this.pnlBody3 = new System.Windows.Forms.Panel();
+            this.lblConstruction = new System.Windows.Forms.Label();
+            this.lblScoreboard = new System.Windows.Forms.Label();
             this.pnlBody2 = new System.Windows.Forms.Panel();
             this.lblPauseKey = new System.Windows.Forms.Label();
             this.lblPause = new System.Windows.Forms.Label();
@@ -41,19 +44,16 @@
             this.lblLeft = new System.Windows.Forms.Label();
             this.lblControls = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
-            this.pnlBody3 = new System.Windows.Forms.Panel();
-            this.lblConstruction = new System.Windows.Forms.Label();
-            this.lblScoreboard = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
-            this.pnlBody2.SuspendLayout();
             this.pnlBody3.SuspendLayout();
+            this.pnlBody2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblTitle
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(312, 68);
+            this.lblTitle.Location = new System.Drawing.Point(312, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
@@ -76,6 +76,36 @@
             this.pnlFrame.Size = new System.Drawing.Size(1250, 500);
             this.pnlFrame.TabIndex = 34;
             // 
+            // pnlBody3
+            // 
+            this.pnlBody3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pnlBody3.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody3.Controls.Add(this.lblConstruction);
+            this.pnlBody3.Controls.Add(this.lblScoreboard);
+            this.pnlBody3.Location = new System.Drawing.Point(64, 150);
+            this.pnlBody3.Name = "pnlBody3";
+            this.pnlBody3.Size = new System.Drawing.Size(155, 260);
+            this.pnlBody3.TabIndex = 34;
+            // 
+            // lblConstruction
+            // 
+            this.lblConstruction.AutoSize = true;
+            this.lblConstruction.Location = new System.Drawing.Point(28, 101);
+            this.lblConstruction.Name = "lblConstruction";
+            this.lblConstruction.Size = new System.Drawing.Size(98, 13);
+            this.lblConstruction.TabIndex = 1;
+            this.lblConstruction.Text = "Under Construction";
+            // 
+            // lblScoreboard
+            // 
+            this.lblScoreboard.AutoSize = true;
+            this.lblScoreboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblScoreboard.Location = new System.Drawing.Point(39, 39);
+            this.lblScoreboard.Name = "lblScoreboard";
+            this.lblScoreboard.Size = new System.Drawing.Size(65, 20);
+            this.lblScoreboard.TabIndex = 0;
+            this.lblScoreboard.Text = "Scores";
+            // 
             // pnlBody2
             // 
             this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -89,9 +119,9 @@
             this.pnlBody2.Controls.Add(this.lblRight);
             this.pnlBody2.Controls.Add(this.lblLeft);
             this.pnlBody2.Controls.Add(this.lblControls);
-            this.pnlBody2.Location = new System.Drawing.Point(1031, 122);
+            this.pnlBody2.Location = new System.Drawing.Point(1031, 150);
             this.pnlBody2.Name = "pnlBody2";
-            this.pnlBody2.Size = new System.Drawing.Size(155, 311);
+            this.pnlBody2.Size = new System.Drawing.Size(155, 260);
             this.pnlBody2.TabIndex = 33;
             // 
             // lblPauseKey
@@ -180,40 +210,10 @@
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody.Location = new System.Drawing.Point(225, 122);
+            this.pnlBody.Location = new System.Drawing.Point(225, 150);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(800, 311);
+            this.pnlBody.Size = new System.Drawing.Size(800, 260);
             this.pnlBody.TabIndex = 32;
-            // 
-            // pnlBody3
-            // 
-            this.pnlBody3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pnlBody3.BackColor = System.Drawing.SystemColors.Control;
-            this.pnlBody3.Controls.Add(this.lblConstruction);
-            this.pnlBody3.Controls.Add(this.lblScoreboard);
-            this.pnlBody3.Location = new System.Drawing.Point(64, 122);
-            this.pnlBody3.Name = "pnlBody3";
-            this.pnlBody3.Size = new System.Drawing.Size(155, 311);
-            this.pnlBody3.TabIndex = 34;
-            // 
-            // lblConstruction
-            // 
-            this.lblConstruction.AutoSize = true;
-            this.lblConstruction.Location = new System.Drawing.Point(28, 101);
-            this.lblConstruction.Name = "lblConstruction";
-            this.lblConstruction.Size = new System.Drawing.Size(98, 13);
-            this.lblConstruction.TabIndex = 1;
-            this.lblConstruction.Text = "Under Construction";
-            // 
-            // lblScoreboard
-            // 
-            this.lblScoreboard.AutoSize = true;
-            this.lblScoreboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScoreboard.Location = new System.Drawing.Point(39, 39);
-            this.lblScoreboard.Name = "lblScoreboard";
-            this.lblScoreboard.Size = new System.Drawing.Size(65, 20);
-            this.lblScoreboard.TabIndex = 0;
-            this.lblScoreboard.Text = "Scores";
             // 
             // Frm24aInvaders
             // 
@@ -225,10 +225,10 @@
             this.Name = "Frm24aInvaders";
             this.Text = "EZ Invaders";
             this.pnlFrame.ResumeLayout(false);
-            this.pnlBody2.ResumeLayout(false);
-            this.pnlBody2.PerformLayout();
             this.pnlBody3.ResumeLayout(false);
             this.pnlBody3.PerformLayout();
+            this.pnlBody2.ResumeLayout(false);
+            this.pnlBody2.PerformLayout();
             this.ResumeLayout(false);
 
 		}

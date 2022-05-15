@@ -36,11 +36,11 @@
             this.pnlBody = new System.Windows.Forms.Panel();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.btnSpin = new System.Windows.Forms.Button();
-            this.chbDouble = new System.Windows.Forms.CheckBox();
             this.lblPoints = new System.Windows.Forms.Label();
             this.lblScore = new System.Windows.Forms.Label();
-            this.chbAuto = new System.Windows.Forms.CheckBox();
+            this.chbDouble = new System.Windows.Forms.CheckBox();
             this.lblWinIndicator = new System.Windows.Forms.Label();
+            this.chbAuto = new System.Windows.Forms.CheckBox();
             this.chbMessage = new System.Windows.Forms.CheckBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
@@ -70,7 +70,7 @@
             this.pnlBody2.Controls.Add(this.lbl3);
             this.pnlBody2.Controls.Add(this.lbl2);
             this.pnlBody2.Controls.Add(this.lbl1);
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
             this.pnlBody2.TabIndex = 35;
@@ -110,7 +110,7 @@
             this.pnlBody.Controls.Add(this.lblWinIndicator);
             this.pnlBody.Controls.Add(this.chbAuto);
             this.pnlBody.Controls.Add(this.chbMessage);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 34;
@@ -135,16 +135,6 @@
             this.btnSpin.Text = "Spin";
             this.btnSpin.UseVisualStyleBackColor = true;
             // 
-            // chbDouble
-            // 
-            this.chbDouble.AutoSize = true;
-            this.chbDouble.Location = new System.Drawing.Point(78, 45);
-            this.chbDouble.Name = "chbDouble";
-            this.chbDouble.Size = new System.Drawing.Size(114, 17);
-            this.chbDouble.TabIndex = 3;
-            this.chbDouble.Text = "Double Or Nothing";
-            this.chbDouble.UseVisualStyleBackColor = true;
-            // 
             // lblPoints
             // 
             this.lblPoints.AutoSize = true;
@@ -164,15 +154,15 @@
             this.lblScore.TabIndex = 1;
             this.lblScore.Text = "100";
             // 
-            // chbAuto
+            // chbDouble
             // 
-            this.chbAuto.AutoSize = true;
-            this.chbAuto.Location = new System.Drawing.Point(105, 75);
-            this.chbAuto.Name = "chbAuto";
-            this.chbAuto.Size = new System.Drawing.Size(71, 17);
-            this.chbAuto.TabIndex = 7;
-            this.chbAuto.Text = "Auto Play";
-            this.chbAuto.UseVisualStyleBackColor = true;
+            this.chbDouble.AutoSize = true;
+            this.chbDouble.Location = new System.Drawing.Point(78, 45);
+            this.chbDouble.Name = "chbDouble";
+            this.chbDouble.Size = new System.Drawing.Size(114, 17);
+            this.chbDouble.TabIndex = 3;
+            this.chbDouble.Text = "Double Or Nothing";
+            this.chbDouble.UseVisualStyleBackColor = true;
             // 
             // lblWinIndicator
             // 
@@ -183,6 +173,16 @@
             this.lblWinIndicator.Size = new System.Drawing.Size(197, 59);
             this.lblWinIndicator.TabIndex = 5;
             this.lblWinIndicator.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chbAuto
+            // 
+            this.chbAuto.AutoSize = true;
+            this.chbAuto.Location = new System.Drawing.Point(105, 75);
+            this.chbAuto.Name = "chbAuto";
+            this.chbAuto.Size = new System.Drawing.Size(71, 17);
+            this.chbAuto.TabIndex = 7;
+            this.chbAuto.Text = "Auto Play";
+            this.chbAuto.UseVisualStyleBackColor = true;
             // 
             // chbMessage
             // 
@@ -198,7 +198,7 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);

@@ -14,7 +14,6 @@ namespace Mathre
 		}
 		public void Default(object sender, EventArgs e)
 		{
-			F25b.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 			F25b.FormBorderStyle = FormBorderStyle.None;
 			F25b.Left = 2;
 			F25b.Top = 2;

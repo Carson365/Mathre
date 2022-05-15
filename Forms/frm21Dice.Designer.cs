@@ -38,6 +38,7 @@
             this.pnlDie2 = new System.Windows.Forms.Panel();
             this.pnlDie1 = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.lblRuleHeader = new System.Windows.Forms.Label();
             this.lblRules = new System.Windows.Forms.Label();
             this.btnRoll = new System.Windows.Forms.Button();
             this.pnlWager = new System.Windows.Forms.Panel();
@@ -48,7 +49,6 @@
             this.lblWagerTitle = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.imgDice = new System.Windows.Forms.ImageList(this.components);
-            this.lblRuleHeader = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody2.SuspendLayout();
             this.pnlBody.SuspendLayout();
@@ -79,7 +79,7 @@
             this.pnlBody2.Controls.Add(this.pnlDie3);
             this.pnlBody2.Controls.Add(this.pnlDie2);
             this.pnlBody2.Controls.Add(this.pnlDie1);
-            this.pnlBody2.Location = new System.Drawing.Point(287, 276);
+            this.pnlBody2.Location = new System.Drawing.Point(287, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 136);
             this.pnlBody2.TabIndex = 38;
@@ -137,10 +137,20 @@
             this.pnlBody.Controls.Add(this.lblRules);
             this.pnlBody.Controls.Add(this.btnRoll);
             this.pnlBody.Controls.Add(this.pnlWager);
-            this.pnlBody.Location = new System.Drawing.Point(287, 165);
+            this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
             this.pnlBody.Size = new System.Drawing.Size(426, 105);
             this.pnlBody.TabIndex = 32;
+            // 
+            // lblRuleHeader
+            // 
+            this.lblRuleHeader.AutoSize = true;
+            this.lblRuleHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRuleHeader.Location = new System.Drawing.Point(195, 13);
+            this.lblRuleHeader.Name = "lblRuleHeader";
+            this.lblRuleHeader.Size = new System.Drawing.Size(34, 13);
+            this.lblRuleHeader.TabIndex = 6;
+            this.lblRuleHeader.Text = "Rules";
             // 
             // lblRules
             // 
@@ -232,7 +242,7 @@
             // 
             this.lblTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 32F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(187, 95);
+            this.lblTitle.Location = new System.Drawing.Point(187, 80);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(626, 51);
@@ -250,16 +260,6 @@
             this.imgDice.Images.SetKeyName(3, "die3.gif");
             this.imgDice.Images.SetKeyName(4, "die2.gif");
             this.imgDice.Images.SetKeyName(5, "die1.gif");
-            // 
-            // lblRuleHeader
-            // 
-            this.lblRuleHeader.AutoSize = true;
-            this.lblRuleHeader.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRuleHeader.Location = new System.Drawing.Point(195, 13);
-            this.lblRuleHeader.Name = "lblRuleHeader";
-            this.lblRuleHeader.Size = new System.Drawing.Size(34, 13);
-            this.lblRuleHeader.TabIndex = 6;
-            this.lblRuleHeader.Text = "Rules";
             // 
             // Frm21Dice
             // 
