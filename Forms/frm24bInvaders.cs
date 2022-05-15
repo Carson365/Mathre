@@ -25,6 +25,7 @@ namespace Mathre
 		readonly List<Invader> Invaders = new();
 		public Frm24bInvaders()
 		{
+			InitializeComponent();
 			tmrMain.Enabled = false;
 			KeyPreview = true;
 			Shown += (p, e) => { Focus(); InvaderSetup(); };
@@ -32,8 +33,7 @@ namespace Mathre
 			KeyDown += Pause;
 			KeyUp += UnKey;
 			tmrMain.Elapsed += Timer;
-			InitializeComponent();
-			VisibleChanged += (p, e) => { playsounds = Visible; if (Loading == 0) { LoadSettings();  tmrMain.Enabled = Visible; if (Visible) Focus(); else SRight = false; SLeft = false; } Loading--; };
+			VisibleChanged += (p, e) => { playsounds = Visible; if (Loading == 0) { LoadSettings(); tmrMain.Enabled = Visible; if (Visible) Focus(); else SRight = false; SLeft = false; } else Loading--; };
 		}
 		class Invader : PictureBox
 		{
@@ -54,7 +54,14 @@ namespace Mathre
 			}
 		}
 
-		private void Timer(object sender, EventArgs e) { if (IsHandleCreated) { MoveShooter(); FireShot(); MoveInvader(); CheckHit(); EndGame(); } }
+		private void Timer(object sender, EventArgs e)
+		{
+			if (IsHandleCreated) Invoke(new MethodInvoker(delegate
+			{
+				MoveShooter(); FireShot(); MoveInvader(); CheckHit(); EndGame();
+			}));
+		}
+
 		private void Key(object sender, KeyEventArgs e)
 		{
 			if (e.KeyCode == Keys.D)
@@ -99,17 +106,11 @@ namespace Mathre
 		{
 			if (SRight == true && picShooter.Left + 5 + picShooter.Width < ClientRectangle.Width)
 			{
-				if (picShooter.InvokeRequired)
-				{
-					Invoke(new MethodInvoker(delegate { picShooter.Left += ShooterSpeed; }));
-				}
+				picShooter.Left += ShooterSpeed;
 			}
 			if (SLeft == true && picShooter.Left - 5 > ClientRectangle.Left)
 			{
-				if (picShooter.InvokeRequired)
-				{
-					Invoke(new MethodInvoker(delegate { picShooter.Left -= ShooterSpeed; }));
-				}
+				picShooter.Left -= ShooterSpeed;
 			}
 		}
 		private void FireShot()
@@ -117,29 +118,23 @@ namespace Mathre
 			if (picShot.Visible)
 			{
 				if (!playing) { Play("Shot", "wav"); playing = true; }
-				Invoke(new MethodInvoker(delegate
+				picShot.Top -= ShotSpeed;
+				if (picShot.Top + picShot.Height < ClientRectangle.Top)
 				{
-					picShot.Top -= ShotSpeed;
-					if (picShot.Top + picShot.Height < ClientRectangle.Top)
-					{
-						picShot.Visible = false;
-					}
-				}));
+					picShot.Visible = false;
+				}
 			}
 			else playing = false;
 		}
 		private void MoveInvader()
 		{
-			Invoke(new MethodInvoker(delegate
+			for (int x = 0; x < NumOfInvaders; x++)
 			{
-				for (int x = 0; x < NumOfInvaders; x++)
-				{
-					if (Invaders[x].IRight) Invaders[x].Left += InvaderSpeed;
-					else Invaders[x].Left -= InvaderSpeed;
-					if (Invaders[x].Left + Invaders[x].Width > ClientRectangle.Width && Invaders[x].IRight) { Invaders[x].IRight = false; Invaders[x].Top += InvaderDrop; }
-					if (Invaders[x].Left < ClientRectangle.Left && !Invaders[x].IRight) { Invaders[x].IRight = true; Invaders[x].Top += InvaderDrop; }
-				}
-			}));
+				if (Invaders[x].IRight) Invaders[x].Left += InvaderSpeed;
+				else Invaders[x].Left -= InvaderSpeed;
+				if (Invaders[x].Left + Invaders[x].Width > ClientRectangle.Width && Invaders[x].IRight) { Invaders[x].IRight = false; Invaders[x].Top += InvaderDrop; }
+				if (Invaders[x].Left < ClientRectangle.Left && !Invaders[x].IRight) { Invaders[x].IRight = true; Invaders[x].Top += InvaderDrop; }
+			}
 		}
 		private void EndGame()
 		{
@@ -167,32 +162,26 @@ namespace Mathre
 		}
 		private void CheckHit()
 		{
-			Invoke(new MethodInvoker(delegate
+			for (int x = 0; x < NumOfInvaders; x++)
 			{
-				for (int x = 0; x < NumOfInvaders; x++)
+				if ((picShot.Top + picShot.Height >= Invaders[x].Top) && (picShot.Top <= Invaders[x].Top + Invaders[x].Height) && (picShot.Left + picShot.Width >= Invaders[x].Left) && (picShot.Left <= Invaders[x].Left + Invaders[x].Width) && Invaders[x].Visible && picShot.Visible)
 				{
-					if ((picShot.Top + picShot.Height >= Invaders[x].Top) && (picShot.Top <= Invaders[x].Top + Invaders[x].Height) && (picShot.Left + picShot.Width >= Invaders[x].Left) && (picShot.Left <= Invaders[x].Left + Invaders[x].Width) && Invaders[x].Visible && picShot.Visible)
-					{
-						InvadersShot++;
-						Invaders[x].Visible = false;
-						picShot.Visible = false;
-						Play("Hit", "wav");
-					}
+					InvadersShot++;
+					Invaders[x].Visible = false;
+					picShot.Visible = false;
+					Play("Hit", "wav");
 				}
-			}));
+			}
 		}
 		private void LoadSettings()
 		{
-			Invoke(new MethodInvoker(delegate
+			for (int x = 0; x < NumOfInvaders; x++)
 			{
-				for (int x = 0; x < NumOfInvaders; x++)
-				{
-					Invaders[x].IRight = true;
-					Invaders[x].Location = new Point(picInvader.Left + picInvader.Width + 10 + (x * 60) - (NumOfInvaders * 60 + 180), picInvader.Top);
-					Invaders[x].Top = 0;
-					Invaders[x].Visible = true;
-				}
-			}));
+				Invaders[x].IRight = true;
+				Invaders[x].Location = new Point(picInvader.Left + picInvader.Width + 10 + (x * 60) - (NumOfInvaders * 60 + 180), picInvader.Top);
+				Invaders[x].Top = 0;
+				Invaders[x].Visible = true;
+			}
 			picShooter.Top = ClientRectangle.Bottom - picShooter.Height;
 			ShooterSpeed = 5;
 			InvaderSpeed = 6;

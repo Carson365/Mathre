@@ -17,7 +17,7 @@ namespace Mathre
 			InitializeComponent();
 			KeyDown += KeyProcessor;
 			Shown += (p, e) => { tmrMain.Enabled = true; Focus(); };
-			VisibleChanged += (p, e) => { tmrMain.Enabled = Visible; if (Visible) Focus(); else { } };
+			VisibleChanged += (p, e) => { tmrMain.Enabled = Visible; if (Visible) Focus(); };
 			// Create the turtle element
 			Turtle.Left = -200;
 			Turtle.Top = (ClientRectangle.Height / 2) - (Turtle.Height);
@@ -40,7 +40,7 @@ namespace Mathre
 		}
 		public void Default(object sender, EventArgs e)
 		{
-			BeginInvoke(new MethodInvoker(delegate // Required since this is multithreaded
+			if (IsHandleCreated) Invoke(new MethodInvoker(delegate // Required since this is multithreaded
 			{
 				ticks++;
 				Turtle.Left += Speed; // Move the turtle
