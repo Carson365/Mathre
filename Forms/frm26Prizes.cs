@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 namespace Mathre
 {
@@ -51,11 +52,10 @@ namespace Mathre
 			// Two different random X values
 			int rndX1 = rnd.Next(ButtonsX);
 			int rndX2 = rnd.Next(ButtonsX);
-			while (rndX2 == rndX1) rndX2 = rnd.Next(ButtonsX);
 			// Two different random Y values
 			int rndY1 = rnd.Next(ButtonsY);
 			int rndY2 = rnd.Next(ButtonsY);
-			while (rndY2 == rndY1) rndY2 = rnd.Next(ButtonsY);
+			while (rndY2 == rndY1 && rndX2 == rndX1) { rndX2 = rnd.Next(ButtonsX); rndY2 = rnd.Next(ButtonsY); }
 			// Set the button tag for the click event
 			Buttons[rndX1, rndY1].Tag = "1";
 			Buttons[rndX2, rndY2].Tag = "2";
@@ -70,7 +70,7 @@ namespace Mathre
 			Setup();
 			Contain.Invalidate(); // Fix visual bugs
 		}
-		private void Guess(object sender, EventArgs e)
+		private async void Guess(object sender, EventArgs e)
 		{
 			if (sender is Button b && b.Text == "") // Ensure each button is only pressed once
 			{
@@ -81,20 +81,55 @@ namespace Mathre
 				if (guesses == 5 || b1 && b2) // end the game after 5 guesses or two correct
 				{
 					string un = (b1 && b2) switch { false => "un", _ => "" };
-					string winlose = (b1 && b2) switch { false => "Lose.", _ => "Win!" };
+					string winlose = (b1 && b2) switch { false => "Lose.", _ => "Win a computer!" };
 					foreach (Button btn in Buttons) // Show where the correct guesses were
 					{
 						btn.Enabled = false;
 						if ($"{btn.Tag}" == "1" && btn.Text == "") { btn.Text = "Comp"; btn.BackColor = System.Drawing.Color.LightCoral; }
 						else if ($"{btn.Tag}" == "2" && btn.Text == "") { btn.Text = "uter"; btn.BackColor = System.Drawing.Color.LightCoral; }
 					}
+					Shuffle(rnd, Buttons);
+					if (b1 && b2) foreach (Button btn in Buttons) // Show the win animation
+						{
+							btn.BackColor = HSVToRGB(1F / rnd.Next(2, 6), 1F / 3, 1);
+							await System.Threading.Tasks.Task.Delay(15);
+						}
+					MessageBox.Show($"You {winlose}\nYou were {un}able to find both word fragments.");
 					guesses = 0;
 					b1 = false;
 					b2 = false;
-					MessageBox.Show($"You {winlose}\nYou were {un}able to find both word fragments.");
 					Play(null, null); // Comment this line out to restart the game manually
 				}
 			}
+		}
+		// https://stackoverflow.com/a/30164383 Shuffle a 2D Array
+		public static void Shuffle<T>(Random random, T[,] array)
+		{
+			int lengthRow = array.GetLength(1);
+
+			for (int i = array.Length - 1; i > 0; i--)
+			{
+				int i0 = i / lengthRow;
+				int i1 = i % lengthRow;
+
+				int j = random.Next(i + 1);
+				int j0 = j / lengthRow;
+				int j1 = j % lengthRow;
+
+				T temp = array[i0, i1];
+				array[i0, i1] = array[j0, j1];
+				array[j0, j1] = temp;
+			}
+		}
+		// https://stackoverflow.com/a/70996160 Convert HSV to RGB
+		private Color HSVToRGB(float h, float s, float v)
+		{
+			Func<float, int> f = delegate (float n)
+			{
+				float k = (n + h * 6) % 6;
+				return (int)((v - (v * s * (Math.Max(0, Math.Min(Math.Min(k, 4 - k), 1))))) * 255);
+			};
+			return Color.FromArgb(f(5), f(3), f(1));
 		}
 	}
 }
