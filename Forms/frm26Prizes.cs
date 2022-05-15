@@ -30,8 +30,9 @@ namespace Mathre
 					// Configure the button
 					Button b = new()
 					{
-						Size = new System.Drawing.Size(42, 42),
-						Location = new System.Drawing.Point(11 + 49 * x, 11 + 49 * y),
+						Size = new Size(42, 42),
+						Location = new Point(11 + 49 * x, 11 + 49 * y),
+						BackColor = Color.White
 					};
 					b.Click += Guess;
 					b.Enabled = true;
@@ -43,18 +44,19 @@ namespace Mathre
 			// Set the container size and location, then add it to the form
 			Contain.Width = Buttons[ButtonsX - 1, ButtonsY - 1].Right + 11;
 			Contain.Height = Buttons[ButtonsX - 1, ButtonsY - 1].Bottom + 11;
-			Contain.Location = new System.Drawing.Point((pnlBody.Width - Contain.Width) / 2, (pnlBody.Height - Contain.Height) / 2);
+			Contain.Location = new Point((pnlBody.Width - Contain.Width) / 2, (pnlBody.Height - Contain.Height) / 2);
 			pnlBody.Controls.Add(Contain);
 			Generate();
 		}
 		private void Generate()
 		{
-			// Two different random X values
+			// Two random X values
 			int rndX1 = rnd.Next(ButtonsX);
 			int rndX2 = rnd.Next(ButtonsX);
-			// Two different random Y values
+			// Two random Y values
 			int rndY1 = rnd.Next(ButtonsY);
 			int rndY2 = rnd.Next(ButtonsY);
+			// Ensure there's no overlap
 			while (rndY2 == rndY1 && rndX2 == rndX1) { rndX2 = rnd.Next(ButtonsX); rndY2 = rnd.Next(ButtonsY); }
 			// Set the button tag for the click event
 			Buttons[rndX1, rndY1].Tag = "1";
@@ -62,7 +64,11 @@ namespace Mathre
 		}
 		private void Play(object sender, EventArgs e)
 		{
-			// Regenerate Grid 
+			// Reset the variables
+			guesses = 0;
+			b1 = false;
+			b2 = false;
+			// Regenerate Grid
 			foreach (Button b in Buttons) Contain.Controls.Remove(b);
 			Controls.Remove(Contain);
 			ButtonsX = Convert.ToInt16(nudX.Value);
@@ -74,8 +80,8 @@ namespace Mathre
 		{
 			if (sender is Button b && b.Text == "") // Ensure each button is only pressed once
 			{
-				if ($"{b.Tag}" == "1") { b.Text = "Comp"; b1 = true; b.BackColor = System.Drawing.Color.PaleGreen; }
-				else if ($"{b.Tag}" == "2") { b.Text = "uter"; b2 = true; b.BackColor = System.Drawing.Color.PaleGreen; }
+				if ($"{b.Tag}" == "1") { b.Text = "Comp"; b1 = true; b.BackColor = Color.PaleGreen; }
+				else if ($"{b.Tag}" == "2") { b.Text = "uter"; b2 = true; b.BackColor = Color.PaleGreen; }
 				else b.Text = "X";
 				guesses++;
 				if (guesses == 5 || b1 && b2) // end the game after 5 guesses or two correct
@@ -85,41 +91,44 @@ namespace Mathre
 					foreach (Button btn in Buttons) // Show where the correct guesses were
 					{
 						btn.Enabled = false;
-						if ($"{btn.Tag}" == "1" && btn.Text == "") { btn.Text = "Comp"; btn.BackColor = System.Drawing.Color.LightCoral; }
-						else if ($"{btn.Tag}" == "2" && btn.Text == "") { btn.Text = "uter"; btn.BackColor = System.Drawing.Color.LightCoral; }
+						if ($"{btn.Tag}" == "1" && btn.Text == "") { btn.Text = "Comp"; btn.BackColor = Color.LightCoral; }
+						else if ($"{btn.Tag}" == "2" && btn.Text == "") { btn.Text = "uter"; btn.BackColor = Color.LightCoral; }
 					}
-					Shuffle(rnd, Buttons);
-					if (b1 && b2) foreach (Button btn in Buttons) // Show the win animation
-						{
-							btn.BackColor = HSVToRGB(1F / rnd.Next(2, 6), 1F / 3, 1);
-							await System.Threading.Tasks.Task.Delay(15);
-						}
+					btnPlay.Enabled = false; // Ensure the animation isn't skipped
+					foreach (Button btn in SpiralMatrix(Buttons)) // Show the win/lose animation
+					{
+						// Change the color if it has none, or if it is green and you have lost.
+						if (btn.BackColor == Color.White || !((b1 && b2) ? btn.BackColor == Color.PaleGreen : btn.BackColor == Color.LightCoral )) btn.BackColor = (b1 && b2) switch
+						{ 
+							true => HSVToRGB(1F / rnd.Next(2, 6), 1F / 3, 1),
+							_ => HSVToRGB(Convert.ToSingle(1 / (20 / Convert.ToDouble(rnd.Next(18, 21)))), 1F / 2, 1)
+						};
+						await System.Threading.Tasks.Task.Delay(100);
+					}
+					btnPlay.Enabled = true;
 					MessageBox.Show($"You {winlose}\nYou were {un}able to find both word fragments.");
-					guesses = 0;
-					b1 = false;
-					b2 = false;
 					Play(null, null); // Comment this line out to restart the game manually
 				}
 			}
 		}
-		// https://stackoverflow.com/a/30164383 Shuffle a 2D Array
-		public static void Shuffle<T>(Random random, T[,] array)
+		// https://stackoverflow.com/a/12774782 Flatten a 2D Array into a spiral matrix (modified)
+		private Button[] SpiralMatrix(Button[,] arr)
 		{
-			int lengthRow = array.GetLength(1);
-
-			for (int i = array.Length - 1; i > 0; i--)
+			Button[] temp;
+			int entries = 0;
+			int rows = arr.GetLength(0);
+			int cols = arr.GetLength(1);
+			temp = new Button[rows * cols];
+			int top = 0, bottom = rows - 1, left = 0, right = cols - 1;
+			int dir = rnd.Next(1, 5);
+			while (top <= bottom && left <= right)
 			{
-				int i0 = i / lengthRow;
-				int i1 = i % lengthRow;
-
-				int j = random.Next(i + 1);
-				int j0 = j / lengthRow;
-				int j1 = j % lengthRow;
-
-				T temp = array[i0, i1];
-				array[i0, i1] = array[j0, j1];
-				array[j0, j1] = temp;
+				if (dir == 1) { for (int i = left; i <= right; ++i) { temp[entries] = arr[top, i]; entries++; } ++top; dir = 2; } // Left -> Right
+				else if (dir == 2) { for (int i = top; i <= bottom; ++i) { temp[entries] = arr[i, right]; entries++; } --right; dir = 3; } // Top -> Bottom
+				else if (dir == 3) { for (int i = right; i >= left; --i) { temp[entries] = arr[bottom, i]; entries++; } --bottom; dir = 4; } // Right -> Left
+				else if (dir == 4) { for (int i = bottom; i >= top; --i) { temp[entries] = arr[i, left]; entries++; } ++left; dir = 1; } // Bottom -> Top
 			}
+			return temp;
 		}
 		// https://stackoverflow.com/a/70996160 Convert HSV to RGB
 		private Color HSVToRGB(float h, float s, float v)
