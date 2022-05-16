@@ -80,7 +80,7 @@ namespace Mathre
 		public int GetCardVal(int slot) { return slot switch { < 12 => slot, _ => 10 }; }
 		public void Hit(object sender, EventArgs e)
 		{
-			if (numW.Value == 0 && sender is not Frm21Dice) MessageBox.Show("Sorry, You have no points to wager.", "INVALID");
+			if (numW.Value == 0 && sender is not Frm21Dice && Properties.Settings.Default.bPopups) MessageBox.Show("Sorry, You have no points to wager.", "INVALID");
 			else
 			{
 				if (Hsum < 21 && Psum > Hsum) { if (!cardused[6]) SetCard(6); }
@@ -122,7 +122,7 @@ namespace Mathre
 				lblScore.Text = $"{score}";
 				numW.Maximum = score;
 				stopgame = false;
-				MessageBox.Show(lblRTotal.Text);
+				if (Properties.Settings.Default.bPopups) MessageBox.Show(lblRTotal.Text);
 				Setup(null, null);
 			}
 		}
@@ -134,7 +134,7 @@ namespace Mathre
 				"Click on \"stand\" when you believe you can win.\n" +
 				"Click \"Deal\" to be dealt a new hand to play with.\n" +
 				"Win against the house to earn what you have wagered!";
-			MessageBox.Show(rules, "RULES");
+			if (Properties.Settings.Default.bPopups) MessageBox.Show(rules, "RULES");
 		}
 	}
 }

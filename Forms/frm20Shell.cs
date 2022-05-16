@@ -21,7 +21,7 @@ namespace Mathre
 			PictureBox pb = sender as PictureBox;
 			foreach (Control b in pnlBody.Controls) if (b.GetType() == typeof(PictureBox) && b.Name.Contains($"Pearl{Convert.ToString(rnum)[0]}")) // Get the right pearl
 				{ b.Visible = true; if (pb.Name[8] == $"{rnum}"[0]) { wonlost = "won"; lblWins.Text = $"{Convert.ToInt32(lblWins.Text) + 1}"; } }// Set winstate, increment wins and show the pearl
-			MessageBox.Show($"You have {wonlost}.", "Results"); // Display the won message, then...
+			if (Properties.Settings.Default.bPopups) MessageBox.Show($"You have {wonlost}.", "Results"); // Display the won message, then...
 			foreach (Control b in pnlBody.Controls) if (b.GetType() == typeof(PictureBox) && b.Name.Contains("Pearl")) b.Visible = false; // Re-hide all of the pearls
 		}
 	}

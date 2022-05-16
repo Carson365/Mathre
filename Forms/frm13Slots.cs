@@ -30,7 +30,7 @@ namespace Mathre
 				string AgeCheck = Interaction.InputBox($"Hello {PlayerName}! What is your Age?", "Slot Machine");
 				if (double.TryParse(AgeCheck, out double AgeResult)) Age = AgeResult;
 			}
-			if (Age < 18) { int LegalAge = 18; MessageBox.Show($"Sorry, you are under the legal age to gamble ({LegalAge}). Goodbye.", "Ineligible"); Close(); }
+			if (Age < 18) { int LegalAge = 18; if (Properties.Settings.Default.bPopups) MessageBox.Show($"Sorry, you are under the legal age to gamble ({LegalAge}). Goodbye.", "Ineligible"); Close(); }
 		}
 		public async void AutoGamble(object sender, EventArgs e) { while (auto) { chbMessage.Checked = true; Gamble(null, null); await Task.Delay(20); } }
 		public void Autocheck(object sender, EventArgs e) { auto = chbAuto.Checked; AutoGamble(null, null); }
@@ -65,8 +65,8 @@ namespace Mathre
 			string plural = counter switch { 1 => "", _ => "s" };
 			string plural2 = count switch { 1 => "", -1 => "", _ => "s" };
 			string message = $"It took {counter} attempt{plural} and you {WonOrLost} {$"{count}".Trim('-')} token{plural2}.\nYou now have {tokens} tokens.";
-			if (chbMessage.Checked && sender.ToString() != "No Tokens") MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "Result");
-			else if (chbMessage.Checked) MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "Result");
+			if (chbMessage.Checked && sender.ToString() != "No Tokens"&& Properties.Settings.Default.bPopups) MessageBox.Show($"Congratulations {PlayerName}!\nYou have won a {sender}\n\n{message}", "Result");
+			else if (chbMessage.Checked && Properties.Settings.Default.bPopups) MessageBox.Show($"Sorry {PlayerName}.\nYou have run out of tokens.\n\n{message}", "Result");
 			counter = 0;
 			auto = false;
 			chbAuto.Checked = auto;

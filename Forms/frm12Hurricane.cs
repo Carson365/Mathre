@@ -97,7 +97,7 @@ namespace Mathre
 				Damage(chbDamage, null);
 			}
 		}
-		public void Damage(object sender, EventArgs e) { if (chbDamage.Checked && HurricaneInfo.Length != 0) MessageBox.Show(HurricaneInfo.Remove(0, 3).ToString(), "Damage"); }
+		public void Damage(object sender, EventArgs e) { if (chbDamage.Checked && HurricaneInfo.Length != 0 && Properties.Settings.Default.bPopups) MessageBox.Show(HurricaneInfo.Remove(0, 3).ToString(), "Damage"); }
 		public void Random(object sender, EventArgs e)
 		{
 			Random rnd = new();

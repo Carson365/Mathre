@@ -106,7 +106,7 @@ namespace Mathre
 						await System.Threading.Tasks.Task.Delay(100);
 					}
 					btnPlay.Enabled = true;
-					MessageBox.Show($"You {winlose}\nYou were {un}able to find both word fragments.");
+					if (Properties.Settings.Default.bPopups) MessageBox.Show($"You {winlose}\nYou were {un}able to find both word fragments.");
 					Play(null, null); // Comment this line out to restart the game manually
 				}
 			}

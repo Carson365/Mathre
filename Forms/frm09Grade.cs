@@ -67,7 +67,7 @@ namespace Mathre
 					_ => "Error",
 				};
 				lblGradesEnteredCount.Text = $"{abc}";
-				MessageBox.Show(result, "Result");
+				if(Properties.Settings.Default.bPopups) MessageBox.Show(result, "Result");
 			}
 			if (ReferenceEquals(sender, btnRandom))
 			{

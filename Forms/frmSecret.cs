@@ -14,6 +14,7 @@ namespace Mathre
 			btnSecretDisable.Click += SecretHandler;
 			btnSecretEnable.Click += SecretHandler;
 			txtSecretPassword.KeyUp += SecretHandler;
+			chbPopUps.CheckedChanged += (p, e) => Properties.Settings.Default.bPopups = chbPopUps.Checked;
 		}
 		public void FormLoad(object sender, EventArgs e)
 		{

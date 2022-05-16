@@ -60,11 +60,11 @@ namespace Mathre
 				int index = Array.IndexOf(searchFriends, search.ToUpper());
 				if (index == -1)
 				{
-					MessageBox.Show($"{search} is not in the list");
+					if (Properties.Settings.Default.bPopups) MessageBox.Show($"{search} is not in the list");
 				}
 				else
 				{
-					MessageBox.Show($"{search} is in the list as Friend {index + 1}");
+					if (Properties.Settings.Default.bPopups) MessageBox.Show($"{search} is in the list as Friend {index + 1}");
 				}
 			}
 		}

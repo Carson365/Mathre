@@ -76,8 +76,8 @@ namespace Mathre
 					lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
 				}
 				{ txtP2.TextChanged -= Default; txtP2.Clear(); txtP2.TextChanged += Default; }
-				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); finished = true; runcolors = 0; MessageBox.Show("YOU HAVE WON"); }
-				if (totalguesses < 1) MessageBox.Show("YOU HAVE LOST");
+				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); finished = true; runcolors = 0; if (Properties.Settings.Default.bPopups) MessageBox.Show("YOU HAVE WON"); }
+				if (totalguesses < 1) if (Properties.Settings.Default.bPopups) MessageBox.Show("YOU HAVE LOST");
 			}
 		}
 		// https://stackoverflow.com/a/38006788
@@ -117,7 +117,7 @@ namespace Mathre
 		{
 			TextBox tB = sender as TextBox;
 			if (tB.Name == "txtP1") { if (tB.Text.Length > 15 && e.KeyCode != Keys.Back) e.SuppressKeyPress = true; }
-			else { { if (totalguesses < 1) e.SuppressKeyPress = true; if (tB.Text.Length == 0) { e.SuppressKeyPress = true; MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } } };
+			else { { if (totalguesses < 1) e.SuppressKeyPress = true; if (tB.Text.Length == 0) { e.SuppressKeyPress = true; if (Properties.Settings.Default.bPopups) MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } } };
 		}
 	}
 }

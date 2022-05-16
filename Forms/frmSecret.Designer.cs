@@ -35,6 +35,7 @@ namespace Mathre
             this.btnSecretEnable = new System.Windows.Forms.RadioButton();
             this.txtSecretPassword = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.chbPopUps = new System.Windows.Forms.CheckBox();
             this.pnlFrame.SuspendLayout();
             this.pnlBody.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +57,7 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.chbPopUps);
             this.pnlBody.Controls.Add(this.btnSecretDisable);
             this.pnlBody.Controls.Add(this.lblSecretPrompt);
             this.pnlBody.Controls.Add(this.btnSecretEnable);
@@ -70,7 +72,7 @@ namespace Mathre
             this.btnSecretDisable.AutoSize = true;
             this.btnSecretDisable.Checked = true;
             this.btnSecretDisable.Enabled = false;
-            this.btnSecretDisable.Location = new System.Drawing.Point(85, 66);
+            this.btnSecretDisable.Location = new System.Drawing.Point(30, 67);
             this.btnSecretDisable.Name = "btnSecretDisable";
             this.btnSecretDisable.Size = new System.Drawing.Size(60, 17);
             this.btnSecretDisable.TabIndex = 11;
@@ -83,7 +85,7 @@ namespace Mathre
             this.lblSecretPrompt.AutoSize = true;
             this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSecretPrompt.Location = new System.Drawing.Point(52, 23);
+            this.lblSecretPrompt.Location = new System.Drawing.Point(26, 23);
             this.lblSecretPrompt.Name = "lblSecretPrompt";
             this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
             this.lblSecretPrompt.TabIndex = 9;
@@ -93,7 +95,7 @@ namespace Mathre
             // 
             this.btnSecretEnable.AutoSize = true;
             this.btnSecretEnable.Enabled = false;
-            this.btnSecretEnable.Location = new System.Drawing.Point(283, 67);
+            this.btnSecretEnable.Location = new System.Drawing.Point(121, 67);
             this.btnSecretEnable.Name = "btnSecretEnable";
             this.btnSecretEnable.Size = new System.Drawing.Size(58, 17);
             this.btnSecretEnable.TabIndex = 10;
@@ -105,7 +107,7 @@ namespace Mathre
             this.txtSecretPassword.BackColor = System.Drawing.SystemColors.Window;
             this.txtSecretPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSecretPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecretPassword.Location = new System.Drawing.Point(261, 21);
+            this.txtSecretPassword.Location = new System.Drawing.Point(185, 21);
             this.txtSecretPassword.Name = "txtSecretPassword";
             this.txtSecretPassword.PasswordChar = '∗';
             this.txtSecretPassword.Size = new System.Drawing.Size(114, 26);
@@ -122,6 +124,18 @@ namespace Mathre
             this.lblTitle.TabIndex = 31;
             this.lblTitle.Text = "Enable Super Secret Settings";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // chbPopUps
+            // 
+            this.chbPopUps.AutoSize = true;
+            this.chbPopUps.Checked = true;
+            this.chbPopUps.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chbPopUps.Location = new System.Drawing.Point(219, 67);
+            this.chbPopUps.Name = "chbPopUps";
+            this.chbPopUps.Size = new System.Drawing.Size(149, 17);
+            this.chbPopUps.TabIndex = 12;
+            this.chbPopUps.Text = "Enable Pop-Up Messages";
+            this.chbPopUps.UseVisualStyleBackColor = true;
             // 
             // FrmSecret
             // 
@@ -148,5 +162,6 @@ namespace Mathre
 		internal System.Windows.Forms.RadioButton btnSecretEnable;
 		internal System.Windows.Forms.TextBox txtSecretPassword;
 		internal System.Windows.Forms.Label lblTitle;
+		private System.Windows.Forms.CheckBox chbPopUps;
 	}
 }

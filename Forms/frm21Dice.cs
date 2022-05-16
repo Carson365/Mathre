@@ -40,7 +40,7 @@ namespace Mathre
 		}
 		public void Game(object sender, EventArgs e)
 		{
-			if (numW.Value == 0 && sender is not Frm21Dice) MessageBox.Show("Sorry, You have no points to wager.", "INVALID");
+			if (numW.Value == 0 && sender is not Frm21Dice && Properties.Settings.Default.bPopups) MessageBox.Show("Sorry, You have no points to wager.", "INVALID");
 			else
 			{
 				// Arry of all of the die values

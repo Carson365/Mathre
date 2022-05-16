@@ -71,7 +71,7 @@ namespace Mathre
 		public void Message(object sender, EventArgs e)
 		{
 			lblWinIndicator.Text = $"{sender}";
-			if (chbDisableMessagebox.Checked) MessageBox.Show($"{sender}", "Result");
+			if (chbDisableMessagebox.Checked && Properties.Settings.Default.bPopups) MessageBox.Show($"{sender}", "Result");
 		}
 	}
 }
