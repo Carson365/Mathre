@@ -87,7 +87,7 @@ namespace Mathre
 				if (guesses == 5 || b1 && b2) // end the game after 5 guesses or two correct
 				{
 					string un = (b1 && b2) switch { false => "un", _ => "" };
-					string winlose = (b1 && b2) switch { false => "Lose.", _ => "Win a computer!" };
+					string winlose = (b1 && b2) switch { false => "lose.", _ => "win a computer!" };
 					foreach (Button btn in Buttons) // Show where the correct guesses were
 					{
 						btn.Enabled = false;
@@ -98,8 +98,8 @@ namespace Mathre
 					foreach (Button btn in SpiralMatrix(Buttons)) // Show the win/lose animation
 					{
 						// Change the color if it has none, or if it is green and you have lost.
-						if (btn.BackColor == Color.White || !((b1 && b2) ? btn.BackColor == Color.PaleGreen : btn.BackColor == Color.LightCoral )) btn.BackColor = (b1 && b2) switch
-						{ 
+						if (btn.BackColor == Color.White || !((b1 && b2) ? btn.BackColor == Color.PaleGreen : btn.BackColor == Color.LightCoral)) btn.BackColor = (b1 && b2) switch
+						{
 							true => HSVToRGB(1F / rnd.Next(2, 6), 1F / 3, 1),
 							_ => HSVToRGB(Convert.ToSingle(1 / (20 / Convert.ToDouble(rnd.Next(18, 21)))), 1F / 2, 1)
 						};

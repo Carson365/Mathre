@@ -17,6 +17,13 @@ namespace Mathre
 			InitializeComponent();
 			KeyDown += KeyboardShortcuts;
 			Load += LoadEvent;
+			tabMathre.DrawItem += (p, e) => DrawItem(p as TabControl, e);
+		}
+		private void DrawItem(TabControl Tab, DrawItemEventArgs e)
+		{
+			if (!(e.State == DrawItemState.Selected)) e.Graphics.FillRectangle(Brushes.GhostWhite, e.Bounds);
+			StringFormat _stringFlags = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+			e.Graphics.DrawString(Tab.TabPages[e.Index].Text, Tab.Font, new SolidBrush(Color.Black), Tab.GetTabRect(e.Index), new StringFormat(_stringFlags));
 		}
 		public void LoadEvent(object sender, EventArgs e)
 		{
@@ -26,7 +33,7 @@ namespace Mathre
 				var form = Activator.CreateInstance(type) as Form;
 				form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 				form.FormBorderStyle = FormBorderStyle.None;
-				form.Left = 0;
+				form.Left = 125 / 2;
 				form.Top = 45;
 				form.TopLevel = false;
 				form.Visible = true;
@@ -37,6 +44,7 @@ namespace Mathre
 				TabPage newTab = new();
 				newTab.Name = $"{form.Name.Replace("Frm", "tab")}";
 				newTab.Text = $"{form.Text}";
+				newTab.UseVisualStyleBackColor = true;
 				if (newTab.Name == "tabSecret") { Secret = newTab; tabMathre.TabPages.Remove(Secret); }
 				else
 				{
@@ -67,7 +75,7 @@ namespace Mathre
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) MenuKeypress((ToolStripMenuItem)ToolStripMenuItem);
 			foreach (Control c in Controls) GetPanels(c);
 			hidden = true;
-			MinimumSize = new Size(Math.Min(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, Screen.FromControl(this).Bounds.Width), 500);
+			MinimumSize = new Size(1600, tabMathre.GetTabRect(tabMathre.TabCount - 1).Bottom + 65);
 			Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 			FormManager(null, null);
@@ -160,7 +168,7 @@ namespace Mathre
 				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
 				bool sized = Location == new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 				bool minsized = Size == MinimumSize;
-				MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 1).Right + 17, 500);
+				MinimumSize = new Size(1600, tabMathre.GetTabRect(tabMathre.TabCount - 1).Bottom + 65);
 				if (minsized) Size = MinimumSize;
 				if (sized) Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			}
