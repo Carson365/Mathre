@@ -32,7 +32,7 @@ namespace Mathre
 					{
 						Size = new Size(42, 42),
 						Location = new Point(11 + 49 * x, 11 + 49 * y),
-						BackColor = Color.White
+						BackColor = Color.LightGray
 					};
 					b.Click += Guess;
 					b.Enabled = true;
