@@ -47,7 +47,7 @@ namespace Mathre
             // 
             // mnuBaseLayer
             // 
-            this.mnuBaseLayer.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.mnuBaseLayer.BackColor = System.Drawing.SystemColors.Control;
             this.mnuBaseLayer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuFile,
             this.mnuEdit,
@@ -56,7 +56,7 @@ namespace Mathre
             this.mnuBaseLayer.Name = "mnuBaseLayer";
             this.mnuBaseLayer.Padding = new System.Windows.Forms.Padding(0);
             this.mnuBaseLayer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mnuBaseLayer.Size = new System.Drawing.Size(1453, 24);
+            this.mnuBaseLayer.Size = new System.Drawing.Size(1284, 24);
             this.mnuBaseLayer.TabIndex = 0;
             this.mnuBaseLayer.Text = "Menu";
             // 
@@ -81,13 +81,18 @@ namespace Mathre
             // 
             // tabMathre
             // 
-            this.tabMathre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.tabMathre.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabMathre.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tabMathre.Dock = System.Windows.Forms.DockStyle.Left;
+            this.tabMathre.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabMathre.ItemSize = new System.Drawing.Size(130, 20);
             this.tabMathre.Location = new System.Drawing.Point(0, 24);
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
+            this.tabMathre.Multiline = true;
             this.tabMathre.Name = "tabMathre";
             this.tabMathre.SelectedIndex = 0;
-            this.tabMathre.Size = new System.Drawing.Size(1453, 21);
-            this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.FillToRight;
+            this.tabMathre.Size = new System.Drawing.Size(140, 627);
+            this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabMathre.TabIndex = 4;
             this.tabMathre.Tag = "";
             // 
@@ -96,7 +101,7 @@ namespace Mathre
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1453, 461);
+            this.ClientSize = new System.Drawing.Size(1284, 651);
             this.Controls.Add(this.tabMathre);
             this.Controls.Add(this.mnuBaseLayer);
             this.DoubleBuffered = true;

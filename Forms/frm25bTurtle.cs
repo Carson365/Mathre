@@ -34,6 +34,7 @@ namespace Mathre
 			SpeedTag.TextAlign = HorizontalAlignment.Center;
 			SpeedTag.BorderStyle = BorderStyle.None;
 			SpeedTag.Font = new System.Drawing.Font(SpeedTag.Font.FontFamily, 16, System.Drawing.FontStyle.Bold);
+			SpeedTag.TabStop = false;
 			Controls.Add(SpeedTag);
 			// Start the timer once the form is loaded
 			HandleCreated += (p, e) => tmrMain.Elapsed += Default;
