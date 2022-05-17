@@ -18,13 +18,68 @@ namespace Mathre
 			KeyDown += KeyboardShortcuts;
 			Load += LoadEvent;
 			tabMathre.DrawItem += (p, e) => DrawItem(p as TabControl, e);
+			tabMathre.MouseEnter += (p, e) => UpdateHotTrack(p as TabControl);
+			tabMathre.MouseLeave += (p, e) => UpdateHotTrack(p as TabControl);
+			tabMathre.MouseMove += (p, e) => UpdateHotTrack(p as TabControl);
 		}
-		private void DrawItem(TabControl Tab, DrawItemEventArgs e)
+
+		// the index of the current hot-tracking tab
+		private int hotTrackTab = -1;
+
+		// returns the index of the tab under the cursor, or -1 if no tab is under
+		private int GetTabUnderCursor(TabControl Tab)
 		{
-			if (!(e.State == DrawItemState.Selected)) e.Graphics.FillRectangle(Brushes.GhostWhite, e.Bounds);
-			StringFormat _stringFlags = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
-			e.Graphics.DrawString(Tab.TabPages[e.Index].Text, Tab.Font, new SolidBrush(Color.Black), Tab.GetTabRect(e.Index), new StringFormat(_stringFlags));
+			Point cursor = Tab.PointToClient(Cursor.Position);
+			for (int i = 0; i < Tab.TabPages.Count; i++)
+			{
+				if (Tab.GetTabRect(i).Contains(cursor))
+					return i;
+			}
+			return -1;
 		}
+
+		// updates hot tracking based on the current cursor position
+		private void UpdateHotTrack(TabControl Tab)
+		{
+			int hot = GetTabUnderCursor(Tab);
+			if (hot != hotTrackTab)
+			{
+				// invalidate the old hot-track item to remove hot-track effects
+				if (hotTrackTab != -1)
+					Tab.Invalidate(Tab.GetTabRect(hotTrackTab));
+
+				hotTrackTab = hot;
+				
+				// invalidate the new hot-track item to add hot-track effects
+				if (hotTrackTab != -1)
+					Tab.Invalidate(Tab.GetTabRect(hotTrackTab));
+
+				// force the tab to redraw invalidated regions
+				Tab.Update();
+			}
+		}
+
+		private void DrawItem(TabControl Tab, DrawItemEventArgs e)
+		{	
+			// draw the background based on hot tracking
+			if (e.Index == this.hotTrackTab)
+			{
+				using Brush b = new SolidBrush(Color.Yellow);
+				e.Graphics.FillRectangle(b, e.Bounds);
+			}
+			else
+			{
+				e.Graphics.FillRectangle(new SolidBrush(Color.Silver), e.Bounds);
+				if (!(e.State == DrawItemState.Selected)) e.Graphics.FillRectangle(Brushes.GhostWhite, e.Bounds);
+				StringFormat _stringFlags = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+				e.Graphics.DrawString(Tab.TabPages[e.Index].Text, Tab.Font, new SolidBrush(Color.Black), Tab.GetTabRect(e.Index), new StringFormat(_stringFlags));
+			}
+
+			// draw the text label for the item, other effects, 
+		}
+
+		//
+
 		public void LoadEvent(object sender, EventArgs e)
 		{
 			foreach (Type type in Assembly.GetExecutingAssembly().DefinedTypes.Where(t => t.BaseType == typeof(Form) && t.Name != "Frm00Mathre" && t.Name != "Frm24bInvaders" && t.Name != "FrmTemplate" && !System.Text.RegularExpressions.Regex.IsMatch(t.Name, @"\d{2}b")).OrderBy(x => x.Name))
@@ -44,7 +99,8 @@ namespace Mathre
 				TabPage newTab = new();
 				newTab.Name = $"{form.Name.Replace("Frm", "tab")}";
 				newTab.Text = $"{form.Text}";
-				newTab.UseVisualStyleBackColor = true;
+				//newTab.BackColor = Color.GhostWhite;
+				//newTab.UseVisualStyleBackColor = true;
 				if (newTab.Name == "tabSecret") { Secret = newTab; tabMathre.TabPages.Remove(Secret); }
 				else
 				{

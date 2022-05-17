@@ -85,6 +85,7 @@ namespace Mathre
             this.tabMathre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabMathre.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabMathre.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
+            this.tabMathre.HotTrack = true;
             this.tabMathre.ItemSize = new System.Drawing.Size(130, 20);
             this.tabMathre.Location = new System.Drawing.Point(0, 24);
             this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
