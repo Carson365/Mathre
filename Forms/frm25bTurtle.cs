@@ -10,7 +10,7 @@ namespace Mathre
 		int Down = 0;
 		int ticks = 0;
 		readonly PictureBox Turtle = new();
-		readonly TextBox SpeedTag = new();
+		readonly Label SpeedTag = new();
 		readonly Random rnd = new();
 		public Frm25bTurtle()
 		{
@@ -29,10 +29,8 @@ namespace Mathre
 			SpeedTag.Left = -20;
 			SpeedTag.Top = 20;
 			SpeedTag.Visible = true;
-			SpeedTag.Size = new System.Drawing.Size(80, 20);
+			SpeedTag.Size = new System.Drawing.Size(100, 25);
 			SpeedTag.Text = "Slow";
-			SpeedTag.TextAlign = HorizontalAlignment.Center;
-			SpeedTag.BorderStyle = BorderStyle.None;
 			SpeedTag.Font = new System.Drawing.Font(SpeedTag.Font.FontFamily, 16, System.Drawing.FontStyle.Bold);
 			SpeedTag.TabStop = false;
 			Controls.Add(SpeedTag);

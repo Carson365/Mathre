@@ -6,7 +6,7 @@ namespace Mathre
 	public partial class Frm26Prizes : Form
 	{
 		Button[,] Buttons;
-		Panel Contain = new();
+		readonly Panel Contain = new();
 		int ButtonsX = 5;
 		int ButtonsY = 5;
 		int guesses = 0;
@@ -133,11 +133,11 @@ namespace Mathre
 		// https://stackoverflow.com/a/70996160 Convert HSV to RGB
 		private Color HSVToRGB(float h, float s, float v)
 		{
-			Func<float, int> f = delegate (float n)
+			int f(float n)
 			{
 				float k = (n + h * 6) % 6;
 				return (int)((v - (v * s * (Math.Max(0, Math.Min(Math.Min(k, 4 - k), 1))))) * 255);
-			};
+			}
 			return Color.FromArgb(f(5), f(3), f(1));
 		}
 	}
