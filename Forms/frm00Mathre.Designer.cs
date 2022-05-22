@@ -82,7 +82,6 @@ namespace Mathre
             // tabMathre
             // 
             this.tabMathre.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabMathre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tabMathre.Dock = System.Windows.Forms.DockStyle.Left;
             this.tabMathre.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.tabMathre.HotTrack = true;

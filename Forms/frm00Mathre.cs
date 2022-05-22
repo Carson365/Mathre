@@ -12,109 +12,103 @@ namespace Mathre
 		private static Color SystemColor;
 		public bool hidden;
 		private TabPage Secret;
+		private readonly List<Form> Projects = new();
+		private int hotTrackTab = -1;
 		public Frm00Mathre()
 		{
 			InitializeComponent();
 			KeyDown += KeyboardShortcuts;
 			Load += LoadEvent;
-			tabMathre.DrawItem += (p, e) => DrawItem(p as TabControl, e);
+			tabMathre.DrawItem += (p, e) => DrawTab(p as TabControl, e);
 			tabMathre.MouseEnter += (p, e) => UpdateHotTrack(p as TabControl);
 			tabMathre.MouseLeave += (p, e) => UpdateHotTrack(p as TabControl);
 			tabMathre.MouseMove += (p, e) => UpdateHotTrack(p as TabControl);
+			tabMathre.LostFocus += (p, e) => UpdateHotTrack(p as TabControl);
+			Shown += (p, e) => tabMathre.SelectedTab.Focus();
+			tabMathre.SelectedIndexChanged += (p, e) => tabMathre.SelectedTab.Focus();
 		}
-
-		// the index of the current hot-tracking tab
-		private int hotTrackTab = -1;
-
-		// returns the index of the tab under the cursor, or -1 if no tab is under
 		private int GetTabUnderCursor(TabControl Tab)
+		// Return the index of the tab under the cursor, or -1 if none
 		{
-			Point cursor = Tab.PointToClient(Cursor.Position);
-			for (int i = 0; i < Tab.TabPages.Count; i++)
-			{
-				if (Tab.GetTabRect(i).Contains(cursor))
-					return i;
-			}
+			for (int i = 0; i < Tab.TabPages.Count; i++) if (Tab.GetTabRect(i).Contains(Tab.PointToClient(Cursor.Position)) && ContainsFocus) return i;
 			return -1;
 		}
-
-		// updates hot tracking based on the current cursor position
 		private void UpdateHotTrack(TabControl Tab)
+		// Remove effects from the old tab and then add them to the new one
 		{
 			int hot = GetTabUnderCursor(Tab);
 			if (hot != hotTrackTab)
 			{
-				// invalidate the old hot-track item to remove hot-track effects
-				if (hotTrackTab != -1)
-					Tab.Invalidate(Tab.GetTabRect(hotTrackTab));
-
+				if (hotTrackTab != -1) Tab.Invalidate(Tab.GetTabRect(hotTrackTab));
 				hotTrackTab = hot;
-				
-				// invalidate the new hot-track item to add hot-track effects
-				if (hotTrackTab != -1)
-					Tab.Invalidate(Tab.GetTabRect(hotTrackTab));
-
-				// force the tab to redraw invalidated regions
+				if (hotTrackTab != -1) Tab.Invalidate(Tab.GetTabRect(hotTrackTab));
 				Tab.Update();
 			}
 		}
-
-		private void DrawItem(TabControl Tab, DrawItemEventArgs e)
-		{	
-			// draw the background based on hot tracking
-			if (e.Index == this.hotTrackTab)
+		private Color Blend(Color color, Color backColor, double amount)
+		// Return a color by combining two input colors in a specified ratio
+		{
+			byte r = (byte)(color.R * amount + backColor.R * (1 - amount));
+			byte g = (byte)(color.G * amount + backColor.G * (1 - amount));
+			byte b = (byte)(color.B * amount + backColor.B * (1 - amount));
+			return Color.FromArgb(r, g, b);
+		}
+		private void DrawTab(TabControl Tab, DrawItemEventArgs e)
+		// Draw the background based on hot tracking
+		{
+			if (e.Index == hotTrackTab)
 			{
-				using Brush b = new SolidBrush(Color.Yellow);
+				using Brush b = new SolidBrush(Blend(SystemColor, Color.GhostWhite, ((e.Index == Tab.SelectedIndex) ? .5 : .25)));
+				using Pen p = new(Color.FromArgb(255, SystemColor));
 				e.Graphics.FillRectangle(b, e.Bounds);
+				Rectangle r = new(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
+				e.Graphics.DrawRectangle(p, r);
 			}
 			else
 			{
-				e.Graphics.FillRectangle(new SolidBrush(Color.Silver), e.Bounds);
+				e.Graphics.FillRectangle(new SolidBrush(Blend(SystemColor, Color.GhostWhite, .65)), e.Bounds);
 				if (!(e.State == DrawItemState.Selected)) e.Graphics.FillRectangle(Brushes.GhostWhite, e.Bounds);
-				StringFormat _stringFlags = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
-				e.Graphics.DrawString(Tab.TabPages[e.Index].Text, Tab.Font, new SolidBrush(Color.Black), Tab.GetTabRect(e.Index), new StringFormat(_stringFlags));
 			}
-
-			// draw the text label for the item, other effects, 
+			StringFormat _stringFlags = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
+			e.Graphics.DrawString(Tab.TabPages[e.Index].Text, Tab.Font, new SolidBrush(Color.Black), Tab.GetTabRect(e.Index), new StringFormat(_stringFlags));
 		}
-
-		//
-
 		public void LoadEvent(object sender, EventArgs e)
 		{
-			foreach (Type type in Assembly.GetExecutingAssembly().DefinedTypes.Where(t => t.BaseType == typeof(Form) && t.Name != "Frm00Mathre" && t.Name != "Frm24bInvaders" && t.Name != "FrmTemplate" && !System.Text.RegularExpressions.Regex.IsMatch(t.Name, @"\d{2}b")).OrderBy(x => x.Name))
+			foreach (Type type in Assembly.GetExecutingAssembly().DefinedTypes.Where(t => t.BaseType == typeof(Form) && t.Name != "Frm00Mathre" && t.Name != "FrmTemplate").OrderBy(x => x.Name))
 			{
 				Icon = Resources.Rainbow;
-				var form = Activator.CreateInstance(type) as Form;
-				form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-				form.FormBorderStyle = FormBorderStyle.None;
-				form.Left = 125 / 2;
-				form.Top = 45;
-				form.TopLevel = false;
-				form.Visible = true;
-				Controls.Add(form);
-				form.Focus();
-				form.Width = Width - 16;
-				form.Height = Height - 84;
-				TabPage newTab = new();
-				newTab.Name = $"{form.Name.Replace("Frm", "tab")}";
-				newTab.Text = $"{form.Text}";
-				//newTab.BackColor = Color.GhostWhite;
-				//newTab.UseVisualStyleBackColor = true;
-				if (newTab.Name == "tabSecret") { Secret = newTab; tabMathre.TabPages.Remove(Secret); }
-				else
+				Form form = Activator.CreateInstance(type) as Form;
+				Projects.Add(form);
+				if (!System.Text.RegularExpressions.Regex.IsMatch(form.Name, @"\d{2}b"))
 				{
-					tabMathre.TabPages.Add(newTab);
-					ToolStripMenuItem item = new();
-					item.Name = newTab.Name.Replace("tab", "mnuView");
-					item.Text = newTab.Text;
-					item.Click += (s, e) => { tabMathre.SelectTab(newTab); };
-					mnuView.DropDownItems.Add(item);
-					ToolStripMenuItem menu = new();
-					menu.Text = form.Text;
-					menu.Name = form.Name.Replace("tab", "mnu");
-					mnuFile.DropDownItems.Add(menu);
-					form.Controls.OfType<Control>().All(c => { GetMenu(c, menu, form); return true; });
+					form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+					form.FormBorderStyle = FormBorderStyle.None;
+					form.Left = 125 / 2;
+					form.Top = 45;
+					form.TopLevel = false;
+					form.Visible = true;
+					Controls.Add(form);
+					form.Focus();
+					form.Width = Width - 16;
+					form.Height = Height - 84;
+					TabPage newTab = new();
+					newTab.Name = $"{form.Name.Replace("Frm", "tab")}";
+					newTab.Text = $"{form.Text}";
+					if (newTab.Name == "tabSecret") { Secret = newTab; tabMathre.TabPages.Remove(Secret); }
+					else
+					{
+						tabMathre.TabPages.Add(newTab);
+						ToolStripMenuItem item = new();
+						item.Name = newTab.Name.Replace("tab", "mnuView");
+						item.Text = newTab.Text;
+						item.Click += (s, e) => { tabMathre.SelectTab(newTab); };
+						mnuView.DropDownItems.Add(item);
+						ToolStripMenuItem menu = new();
+						menu.Text = form.Text;
+						menu.Name = form.Name.Replace("tab", "mnu");
+						mnuFile.DropDownItems.Add(menu);
+						form.Controls.OfType<Control>().All(c => { GetMenu(c, menu, form); return true; });
+					}
 				}
 			}
 			ToolStripMenuItem exit = new();
@@ -123,11 +117,6 @@ namespace Mathre
 			exit.Click += (s, e) => { Close(); };
 			mnuFile.DropDownItems.Add(exit);
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
-			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
-			AccentColor = $"{ColorKey.GetValue("AccentColor")}";
-			ColorKey.Close();
-			KeyPreview = true;
-			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
 			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) MenuKeypress((ToolStripMenuItem)ToolStripMenuItem);
 			foreach (Control c in Controls) GetPanels(c);
 			hidden = true;
@@ -136,6 +125,11 @@ namespace Mathre
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 			FormManager(null, null);
 			tabMathre.SelectedIndexChanged += FormManager;
+			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
+			AccentColor = $"{ColorKey.GetValue("AccentColor")}";
+			ColorKey.Close();
+			KeyPreview = true;
+			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
 		}
 		public IEnumerable<ToolStripMenuItem> GetAll(ToolStripItemCollection items)
 		{
@@ -150,7 +144,6 @@ namespace Mathre
 		// Button Clicker
 		[System.Runtime.InteropServices.DllImport("user32.dll")]
 		public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
-		//
 		public void GetMenu(Control container, ToolStripMenuItem item, Form form)
 		{
 			foreach (Control b in container.Controls)
@@ -195,14 +188,7 @@ namespace Mathre
 		}
 		public void FormManager(object sender, EventArgs e)
 		{
-			if (Application.OpenForms.Count > 0 && tabMathre.TabPages.Count > 0)
-			{
-				for (int x = 0; x < tabMathre.TabPages.Count; x++)
-				{
-					Form form = Application.OpenForms[x];
-					if (form.Name != "Frm00Mathre") { if (form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide(); else form.Show(); }
-				}
-			}
+			foreach (Form form in Projects) { if (form.Name.Replace("Frm", "tab") != tabMathre.SelectedTab.Name) form.Hide(); else form.Show(); }
 		}
 		public void MenuKeypress(ToolStripMenuItem TSMI)
 		{
