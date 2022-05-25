@@ -34,7 +34,7 @@ namespace Mathre
 			{
 				int LegalAge = 18;
 				if (Properties.Settings.Default.bPopups) MessageBox.Show($"Sorry, you are under the legal age to gamble ({LegalAge}). Goodbye.", "Ineligible");
-				Close();
+				foreach (Control c in Controls) Controls.Remove(c);
 			}
 		}
 		public async void AutoGamble(object sender, EventArgs e) { while (auto) { chbMessage.Checked = true; Gamble(null, null); await Task.Delay(20); } }

@@ -34,13 +34,13 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.pnlBody = new System.Windows.Forms.Panel();
             this.lblHouse = new System.Windows.Forms.Label();
-            this.pnlCard0 = new System.Windows.Forms.Panel();
-            this.pnlCard1 = new System.Windows.Forms.Panel();
             this.lblPTotal = new System.Windows.Forms.Label();
-            this.pnlCard3 = new System.Windows.Forms.Panel();
-            this.pnlCard2 = new System.Windows.Forms.Panel();
+            this.picCard3 = new System.Windows.Forms.PictureBox();
+            this.picCard2 = new System.Windows.Forms.PictureBox();
             this.lblPlayer = new System.Windows.Forms.Label();
+            this.picCard1 = new System.Windows.Forms.PictureBox();
             this.btnRules = new System.Windows.Forms.Button();
+            this.picCard0 = new System.Windows.Forms.PictureBox();
             this.lblHTotal = new System.Windows.Forms.Label();
             this.pnlWager = new System.Windows.Forms.Panel();
             this.numWager = new System.Windows.Forms.NumericUpDown();
@@ -49,9 +49,9 @@
             this.lblScore = new System.Windows.Forms.Label();
             this.lblWagerTitle = new System.Windows.Forms.Label();
             this.pnlBody2 = new System.Windows.Forms.Panel();
-            this.pnlCard6 = new System.Windows.Forms.Panel();
-            this.pnlCard5 = new System.Windows.Forms.Panel();
-            this.pnlCard4 = new System.Windows.Forms.Panel();
+            this.picCard5 = new System.Windows.Forms.PictureBox();
+            this.picCard6 = new System.Windows.Forms.PictureBox();
+            this.picCard4 = new System.Windows.Forms.PictureBox();
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody3 = new System.Windows.Forms.Panel();
             this.btnStand = new System.Windows.Forms.Button();
@@ -59,9 +59,16 @@
             this.lblResult = new System.Windows.Forms.Label();
             this.lblRTotal = new System.Windows.Forms.Label();
             this.pnlBody.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard0)).BeginInit();
             this.pnlWager.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).BeginInit();
             this.pnlBody2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard4)).BeginInit();
             this.pnlFrame.SuspendLayout();
             this.pnlBody3.SuspendLayout();
             this.SuspendLayout();
@@ -140,13 +147,13 @@
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
             this.pnlBody.Controls.Add(this.lblHouse);
-            this.pnlBody.Controls.Add(this.pnlCard0);
-            this.pnlBody.Controls.Add(this.pnlCard1);
             this.pnlBody.Controls.Add(this.lblPTotal);
-            this.pnlBody.Controls.Add(this.pnlCard3);
-            this.pnlBody.Controls.Add(this.pnlCard2);
+            this.pnlBody.Controls.Add(this.picCard3);
+            this.pnlBody.Controls.Add(this.picCard2);
             this.pnlBody.Controls.Add(this.lblPlayer);
+            this.pnlBody.Controls.Add(this.picCard1);
             this.pnlBody.Controls.Add(this.btnRules);
+            this.pnlBody.Controls.Add(this.picCard0);
             this.pnlBody.Controls.Add(this.lblHTotal);
             this.pnlBody.Location = new System.Drawing.Point(223, 150);
             this.pnlBody.Name = "pnlBody";
@@ -163,24 +170,6 @@
             this.lblHouse.TabIndex = 43;
             this.lblHouse.Text = "House:";
             // 
-            // pnlCard0
-            // 
-            this.pnlCard0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCard0.Location = new System.Drawing.Point(14, 15);
-            this.pnlCard0.Name = "pnlCard0";
-            this.pnlCard0.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard0.TabIndex = 2;
-            this.pnlCard0.Tag = "Transparent";
-            // 
-            // pnlCard1
-            // 
-            this.pnlCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCard1.Location = new System.Drawing.Point(95, 15);
-            this.pnlCard1.Name = "pnlCard1";
-            this.pnlCard1.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard1.TabIndex = 6;
-            this.pnlCard1.Tag = "Transparent";
-            // 
             // lblPTotal
             // 
             this.lblPTotal.AutoSize = true;
@@ -190,23 +179,23 @@
             this.lblPTotal.TabIndex = 42;
             this.lblPTotal.Text = "21";
             // 
-            // pnlCard3
+            // picCard3
             // 
-            this.pnlCard3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCard3.Location = new System.Drawing.Point(257, 15);
-            this.pnlCard3.Name = "pnlCard3";
-            this.pnlCard3.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard3.TabIndex = 2;
-            this.pnlCard3.Tag = "Transparent";
+            this.picCard3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCard3.Location = new System.Drawing.Point(257, 15);
+            this.picCard3.Name = "picCard3";
+            this.picCard3.Size = new System.Drawing.Size(75, 75);
+            this.picCard3.TabIndex = 49;
+            this.picCard3.TabStop = false;
             // 
-            // pnlCard2
+            // picCard2
             // 
-            this.pnlCard2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCard2.Location = new System.Drawing.Point(176, 15);
-            this.pnlCard2.Name = "pnlCard2";
-            this.pnlCard2.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard2.TabIndex = 1;
-            this.pnlCard2.Tag = "Transparent";
+            this.picCard2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCard2.Location = new System.Drawing.Point(176, 15);
+            this.picCard2.Name = "picCard2";
+            this.picCard2.Size = new System.Drawing.Size(75, 75);
+            this.picCard2.TabIndex = 48;
+            this.picCard2.TabStop = false;
             // 
             // lblPlayer
             // 
@@ -218,6 +207,15 @@
             this.lblPlayer.TabIndex = 7;
             this.lblPlayer.Text = "Player:";
             // 
+            // picCard1
+            // 
+            this.picCard1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCard1.Location = new System.Drawing.Point(95, 15);
+            this.picCard1.Name = "picCard1";
+            this.picCard1.Size = new System.Drawing.Size(75, 75);
+            this.picCard1.TabIndex = 47;
+            this.picCard1.TabStop = false;
+            // 
             // btnRules
             // 
             this.btnRules.Location = new System.Drawing.Point(338, 3);
@@ -226,6 +224,15 @@
             this.btnRules.TabIndex = 0;
             this.btnRules.Text = "&Rules";
             this.btnRules.UseVisualStyleBackColor = true;
+            // 
+            // picCard0
+            // 
+            this.picCard0.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCard0.Location = new System.Drawing.Point(14, 15);
+            this.picCard0.Name = "picCard0";
+            this.picCard0.Size = new System.Drawing.Size(75, 75);
+            this.picCard0.TabIndex = 46;
+            this.picCard0.TabStop = false;
             // 
             // lblHTotal
             // 
@@ -308,41 +315,41 @@
             // 
             this.pnlBody2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody2.BackColor = System.Drawing.Color.Transparent;
-            this.pnlBody2.Controls.Add(this.pnlCard6);
+            this.pnlBody2.Controls.Add(this.picCard5);
+            this.pnlBody2.Controls.Add(this.picCard6);
+            this.pnlBody2.Controls.Add(this.picCard4);
             this.pnlBody2.Controls.Add(this.pnlWager);
-            this.pnlBody2.Controls.Add(this.pnlCard5);
-            this.pnlBody2.Controls.Add(this.pnlCard4);
             this.pnlBody2.Location = new System.Drawing.Point(223, 261);
             this.pnlBody2.Name = "pnlBody2";
             this.pnlBody2.Size = new System.Drawing.Size(426, 105);
             this.pnlBody2.TabIndex = 38;
             // 
-            // pnlCard6
+            // picCard5
             // 
-            this.pnlCard6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCard6.Location = new System.Drawing.Point(176, 15);
-            this.pnlCard6.Name = "pnlCard6";
-            this.pnlCard6.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard6.TabIndex = 5;
-            this.pnlCard6.Tag = "Transparent";
+            this.picCard5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCard5.Location = new System.Drawing.Point(95, 15);
+            this.picCard5.Name = "picCard5";
+            this.picCard5.Size = new System.Drawing.Size(75, 75);
+            this.picCard5.TabIndex = 51;
+            this.picCard5.TabStop = false;
             // 
-            // pnlCard5
+            // picCard6
             // 
-            this.pnlCard5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCard5.Location = new System.Drawing.Point(95, 15);
-            this.pnlCard5.Name = "pnlCard5";
-            this.pnlCard5.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard5.TabIndex = 4;
-            this.pnlCard5.Tag = "Transparent";
+            this.picCard6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCard6.Location = new System.Drawing.Point(176, 15);
+            this.picCard6.Name = "picCard6";
+            this.picCard6.Size = new System.Drawing.Size(75, 75);
+            this.picCard6.TabIndex = 52;
+            this.picCard6.TabStop = false;
             // 
-            // pnlCard4
+            // picCard4
             // 
-            this.pnlCard4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pnlCard4.Location = new System.Drawing.Point(14, 15);
-            this.pnlCard4.Name = "pnlCard4";
-            this.pnlCard4.Size = new System.Drawing.Size(75, 75);
-            this.pnlCard4.TabIndex = 3;
-            this.pnlCard4.Tag = "Transparent";
+            this.picCard4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.picCard4.Location = new System.Drawing.Point(14, 15);
+            this.picCard4.Name = "picCard4";
+            this.picCard4.Size = new System.Drawing.Size(75, 75);
+            this.picCard4.TabIndex = 50;
+            this.picCard4.TabStop = false;
             // 
             // pnlFrame
             // 
@@ -420,10 +427,17 @@
             this.Text = "Card Game";
             this.pnlBody.ResumeLayout(false);
             this.pnlBody.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard0)).EndInit();
             this.pnlWager.ResumeLayout(false);
             this.pnlWager.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numWager)).EndInit();
             this.pnlBody2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picCard5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCard4)).EndInit();
             this.pnlFrame.ResumeLayout(false);
             this.pnlBody3.ResumeLayout(false);
             this.pnlBody3.PerformLayout();
@@ -435,10 +449,6 @@
 		private System.Windows.Forms.ImageList lstCards;
 		internal System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.Panel pnlBody;
-		private System.Windows.Forms.Panel pnlCard0;
-		private System.Windows.Forms.Panel pnlCard1;
-		private System.Windows.Forms.Panel pnlCard3;
-		private System.Windows.Forms.Panel pnlCard2;
 		private System.Windows.Forms.Button btnRules;
 		private System.Windows.Forms.Panel pnlWager;
 		private System.Windows.Forms.NumericUpDown numWager;
@@ -447,9 +457,6 @@
 		private System.Windows.Forms.Label lblScore;
 		private System.Windows.Forms.Label lblWagerTitle;
 		private System.Windows.Forms.Panel pnlBody2;
-		private System.Windows.Forms.Panel pnlCard6;
-		private System.Windows.Forms.Panel pnlCard5;
-		private System.Windows.Forms.Panel pnlCard4;
 		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Label lblHouse;
 		private System.Windows.Forms.Label lblPTotal;
@@ -460,5 +467,12 @@
 		private System.Windows.Forms.Label lblResult;
 		private System.Windows.Forms.Button btnStand;
 		private System.Windows.Forms.Button btnDeal;
+		private System.Windows.Forms.PictureBox picCard5;
+		private System.Windows.Forms.PictureBox picCard4;
+		private System.Windows.Forms.PictureBox picCard3;
+		private System.Windows.Forms.PictureBox picCard2;
+		private System.Windows.Forms.PictureBox picCard1;
+		private System.Windows.Forms.PictureBox picCard0;
+		private System.Windows.Forms.PictureBox picCard6;
 	}
 }

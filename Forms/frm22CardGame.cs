@@ -9,7 +9,7 @@ namespace Mathre
 	{
 		readonly MyNUD numW = new();
 		readonly Random rnd = new();
-		Panel[] pnl = new Panel[7];
+		PictureBox[] pnl = new PictureBox[7];
 		readonly int[] cardnums = new int[7];
 		readonly int[] cards = new int[7];
 		readonly bool[] cardused = new bool[7]; // bool[] defaults to false for all items
@@ -24,8 +24,8 @@ namespace Mathre
 			InitializeComponent();
 			Shown += NumSet;
 			VisibleChanged += (p, e) => { if (Loading == 0) { Setup(null, null); } Loading--; };
-			pnlCard2.Click += Hit;
-			pnlCard3.Click += Hit;
+			picCard2.Click += Hit;
+			picCard3.Click += Hit;
 			btnDeal.Click += Setup;
 			btnStand.Click += Hit;
 			btnRules.Click += Rules;
@@ -71,7 +71,7 @@ namespace Mathre
 			lblRTotal.Text = "";
 			for (int i = 0; i < cardnums.Length; i++) { cardnums[i] = Rand(2, 14); } // an ace is an 11 so the count starts at 2
 			for (int i = 0; i < cardnums.Length; i++) { cards[i] = (cardnums[i] - 2) * 4 + Rand(0, 3); } // subtract 2 from above (start at 0)
-			pnl = GetAll(Controls).OfType<Panel>().Where(a => a.Name.StartsWith("pnlCard")).OrderBy(x => x.Name).ToArray();
+			pnl = GetAll(Controls).OfType<PictureBox>().Where(a => a.Name.StartsWith("picCard")).OrderBy(x => x.Name).ToArray();
 			for (int i = 0; i < pnl.Length; i++) { if (i != 2 && i != 3 && i != 6) SetCard(i); else { pnl[i].BackgroundImage = Resources.Cards; cardused[i] = false; } }
 			Game();
 		}
@@ -87,7 +87,7 @@ namespace Mathre
 				lblRTotal.Text = "";
 				if (!stopgame)
 				{
-					if (sender is Panel pan)
+					if (sender is PictureBox pan)
 					{
 						if (!cardused[2] && pan.Name.Last() == '2') SetCard(2);
 						else if (cardused[2] && !cardused[3] && pan.Name.Last() == '3') { SetCard(3); stopgame = true; }

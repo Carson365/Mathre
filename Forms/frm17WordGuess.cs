@@ -117,7 +117,18 @@ namespace Mathre
 		{
 			TextBox tB = sender as TextBox;
 			if (tB.Name == "txtP1") { if (tB.Text.Length > 15 && e.KeyCode != Keys.Back) e.SuppressKeyPress = true; }
-			else { { if (totalguesses < 1) e.SuppressKeyPress = true; if (tB.Text.Length == 0) { e.SuppressKeyPress = true; if (Properties.Settings.Default.bPopups) MessageBox.Show("PLEASE ENTER A WORD TO GUESS"); } } };
+			else
+			{
+				if (totalguesses < 1)
+				{
+					e.SuppressKeyPress = true;
+				}
+					else if (txtP1.Text.Length == 0)
+					{
+						e.SuppressKeyPress = true;
+						if (Properties.Settings.Default.bPopups) MessageBox.Show("PLEASE ENTER A WORD TO GUESS");
+					}
+			}
 		}
 	}
 }

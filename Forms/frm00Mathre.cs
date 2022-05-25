@@ -8,11 +8,16 @@ namespace Mathre
 {
 	public partial class Frm00Mathre : Form
 	{
+
+		// TODO: Fix bug when clicking ctrl+s on an open ToolStripMenu
+
 		private string AccentColor;
 		private static Color SystemColor;
-		public bool hidden;
+		private static Color SystemLight;
+		private static Color SystemDark;
+		public bool Dark = false;
 		private TabPage Secret;
-		private readonly List<Form> Projects = new();
+		public readonly List<Form> Projects = new();
 		private int hotTrackTab = -1;
 		public Frm00Mathre()
 		{
@@ -26,6 +31,7 @@ namespace Mathre
 			tabMathre.LostFocus += (p, e) => UpdateHotTrack(p as TabControl);
 			Shown += (p, e) => tabMathre.SelectedTab.Focus();
 			tabMathre.SelectedIndexChanged += (p, e) => tabMathre.SelectedTab.Focus();
+			Microsoft.Win32.SystemEvents.UserPreferenceChanged += (p, e) => SysTheme();
 		}
 		private int GetTabUnderCursor(TabControl Tab)
 		// Return the index of the tab under the cursor, or -1 if none
@@ -45,7 +51,7 @@ namespace Mathre
 				Tab.Update();
 			}
 		}
-		private Color Blend(Color color, Color backColor, double amount)
+		public Color Blend(Color color, Color backColor, double amount)
 		// Return a color by combining two input colors in a specified ratio
 		{
 			byte r = (byte)(color.R * amount + backColor.R * (1 - amount));
@@ -53,12 +59,30 @@ namespace Mathre
 			byte b = (byte)(color.B * amount + backColor.B * (1 - amount));
 			return Color.FromArgb(r, g, b);
 		}
+
+
+		private Dictionary<TabPage, Color> TabColors = new Dictionary<TabPage, Color>();
+		private void SetTabHeader(TabPage page, Color color)
+		{
+			TabColors[page] = color;
+			tabMathre.Invalidate();
+		}
+
+
 		private void DrawTab(TabControl Tab, DrawItemEventArgs e)
 		// Draw the background based on hot tracking
 		{
+			//using Graphics graphics = e.Graphics;
+			//graphics.Clear(Color.Red);
+
+			// Color the Tab Header
+			using (Brush br = new SolidBrush(Color.Red))
+				e.Graphics.FillRectangle(br, tabMathre.Bounds);
+			// swap our height and width dimensions
+
 			if (e.Index == hotTrackTab)
 			{
-				using Brush b = new SolidBrush(Blend(SystemColor, Color.GhostWhite, ((e.Index == Tab.SelectedIndex) ? .5 : .25)));
+				using Brush b = new SolidBrush(Blend(SystemColor, Color.GhostWhite, ((e.Index == Tab.SelectedIndex) ? .5 : .4)));
 				using Pen p = new(Color.FromArgb(255, SystemColor));
 				e.Graphics.FillRectangle(b, e.Bounds);
 				Rectangle r = new(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1);
@@ -66,8 +90,8 @@ namespace Mathre
 			}
 			else
 			{
-				e.Graphics.FillRectangle(new SolidBrush(Blend(SystemColor, Color.GhostWhite, .65)), e.Bounds);
-				if (!(e.State == DrawItemState.Selected)) e.Graphics.FillRectangle(Brushes.GhostWhite, e.Bounds);
+				e.Graphics.FillRectangle(new SolidBrush(Blend(SystemColor, Color.GhostWhite, .6)), e.Bounds);
+				if (!(e.State == DrawItemState.Selected)) e.Graphics.FillRectangle(Dark ? Brushes.DarkGray : Brushes.GhostWhite, e.Bounds);
 			}
 			StringFormat _stringFlags = new() { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center };
 			e.Graphics.DrawString(Tab.TabPages[e.Index].Text, Tab.Font, new SolidBrush(Color.Black), Tab.GetTabRect(e.Index), new StringFormat(_stringFlags));
@@ -83,14 +107,14 @@ namespace Mathre
 				{
 					form.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
 					form.FormBorderStyle = FormBorderStyle.None;
-					form.Left = 125 / 2;
-					form.Top = 45;
+					form.Left = 140;
+					form.Top = 24;
 					form.TopLevel = false;
 					form.Visible = true;
 					Controls.Add(form);
 					form.Focus();
-					form.Width = Width - 16;
-					form.Height = Height - 84;
+					form.Width = Width - 156;
+					form.Height = Height - 63;
 					TabPage newTab = new();
 					newTab.Name = $"{form.Name.Replace("Frm", "tab")}";
 					newTab.Text = $"{form.Text}";
@@ -117,20 +141,29 @@ namespace Mathre
 			exit.Click += (s, e) => { Close(); };
 			mnuFile.DropDownItems.Add(exit);
 			mnuBaseLayer.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
-			foreach (var ToolStripMenuItem in mnuBaseLayer.Items) MenuKeypress((ToolStripMenuItem)ToolStripMenuItem);
+			foreach (ToolStripMenuItem ti in mnuBaseLayer.Items) { MenuKeypress(ti); ((ToolStripDropDownMenu)ti.DropDown).ShowImageMargin = false; }
 			foreach (Control c in Controls) GetPanels(c);
-			hidden = true;
 			MinimumSize = new Size(1600, tabMathre.GetTabRect(tabMathre.TabCount - 1).Bottom + 65);
 			Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			tabMathre.SelectedIndex = tabMathre.TabCount - 2;
 			FormManager(null, null);
 			tabMathre.SelectedIndexChanged += FormManager;
+			KeyPreview = true;
+			SysTheme();
+			BackColor = SystemColor;
+		}
+		public void SysTheme()
+		{
 			var ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
 			AccentColor = $"{ColorKey.GetValue("AccentColor")}";
 			ColorKey.Close();
 			KeyPreview = true;
 			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(AccentColor));
+			SystemLight = Blend(SystemColor, Color.GhostWhite, .4);
+			SystemDark = Blend(SystemColor, Color.GhostWhite, .6);
+			foreach (Control c in Controls) Recolor(c);
 		}
+		public void Recolor(Control c) { c.Invalidate(); foreach (Control a in c.Controls) Recolor(a); }
 		public IEnumerable<ToolStripMenuItem> GetAll(ToolStripItemCollection items)
 		{
 			List<ToolStripMenuItem> allItems = new();
@@ -192,22 +225,26 @@ namespace Mathre
 		}
 		public void MenuKeypress(ToolStripMenuItem TSMI)
 		{
-			foreach (var TSI in GetAll(TSMI.DropDownItems)) { if (TSI is ToolStripMenuItem TSI2) { TSMI.DropDown.KeyDown += KeyboardShortcuts; MenuKeypress(TSI2); } }
+			foreach (ToolStripMenuItem TSI in GetAll(TSMI.DropDownItems))
+			{
+				((ToolStripDropDownMenu)TSI.DropDown).ShowImageMargin = false;
+				TSMI.DropDown.KeyDown += KeyboardShortcuts;
+				MenuKeypress(TSI);
+			}
 		}
 		public void KeyboardShortcuts(object sender, KeyEventArgs e)
 		{
 			if (e.Control & e.KeyCode == Keys.S)
 			{
-				if (hidden == true)
+				if (!tabMathre.Controls.Contains(Secret))
 				{
 					tabMathre.Controls.Add(Secret);
 					bool sized1 = Location == new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 					MinimumSize = new Size(tabMathre.GetTabRect(tabMathre.TabCount - 2).Right + tabMathre.GetTabRect(tabMathre.TabCount - 1).Width + 17, 500);
 					if (sized1) Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 					tabMathre.SelectedTab = Secret;
-					hidden = false;
 				}
-				else if (hidden == false) { tabMathre.Controls.Remove(Secret); hidden = true; }
+				else { tabMathre.Controls.Remove(Secret); }
 				bool sized = Location == new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 				bool minsized = Size == MinimumSize;
 				MinimumSize = new Size(1600, tabMathre.GetTabRect(tabMathre.TabCount - 1).Bottom + 65);
@@ -215,16 +252,21 @@ namespace Mathre
 				if (sized) Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			}
 			var F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
-			if (e.Control & e.KeyCode == Keys.R & hidden == false) F01.HelloWorld("Secret", null);
+			if (e.Control & e.KeyCode == Keys.R) F01.HelloWorld("Secret", null);
 			if (e.Control & e.Shift & e.KeyCode == Keys.R) F01.HelloWorld("Reset", null);
-			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode >= Keys.D1 & e.KeyCode <= Keys.D8)) tabMathre.SelectedTab = tabMathre.TabPages[e.KeyCode - Keys.D1];
-			if (e.Control & (e.KeyCode - Keys.D0 <= tabMathre.TabCount & e.KeyCode == Keys.D9)) tabMathre.SelectedTab = tabMathre.TabPages[tabMathre.TabCount - 1];
+			if (e.Control & e.KeyCode == Keys.Down || e.KeyCode == Keys.Right) tabMathre.SelectedTab = tabMathre.TabPages[Math.Min(tabMathre.TabCount - 1, tabMathre.SelectedIndex + 1)];
+			if (e.Control & e.KeyCode == Keys.Up || e.KeyCode == Keys.Left) tabMathre.SelectedTab = tabMathre.TabPages[Math.Max(0, tabMathre.SelectedIndex - 1)];
 		}
 		public class MenuColorTable : ProfessionalColorTable
 		{
-			public override Color MenuItemBorder { get { return SystemColor; } }
-			public override Color MenuItemSelected { get { return SystemColor; } }
-			public override Color MenuBorder { get { return SystemColor; } }
+			public override Color MenuItemBorder => SystemColor;
+			public override Color MenuItemSelected => SystemLight;
+			public override Color MenuBorder => SystemColor;
+			public override Color ToolStripDropDownBackground => SystemColor;
+			public override Color MenuItemSelectedGradientBegin => SystemLight;
+			public override Color MenuItemSelectedGradientEnd => SystemLight;
+			public override Color MenuItemPressedGradientBegin => SystemDark;
+			public override Color MenuItemPressedGradientEnd => SystemDark;
 		}
 		public void PaintPanel(object box, PaintEventArgs p)
 		{

@@ -1,6 +1,5 @@
 // SOURCES:
 // Flag Icons: https://www.iconfinder.com/iconsets/flags-37
-using Microsoft.VisualBasic;
 using System;
 using System.Linq;
 using System.Windows.Forms;
@@ -9,6 +8,8 @@ namespace Mathre
 	public partial class Frm01HelloWorld : Form
 	{
 		private RadioButton StartingLanguage;
+		readonly Random rnd = new();
+		public bool show = false;
 		public Frm01HelloWorld()
 		{
 			InitializeComponent();
@@ -24,10 +25,16 @@ namespace Mathre
 			if ($"{sender}" == "French") radFrench.PerformClick();
 			if ($"{sender}" == "German") radGerman.PerformClick();
 			if ($"{sender}" == "Reset") btnReset.PerformClick();
-			else if ($"{sender}" == "Secret")
+			if ($"{sender}" == "Secret" && show)
 			{
-				pnlBody.Controls.OfType<RadioButton>().All(c => { c.Checked = false; return true; });
-				lblTitle.Text = ((long)Math.Round(Math.Pow(5d * Math.Pow(0.5d + VBMath.Rnd(), 2d) + 55d, 2f + 5f * VBMath.Rnd()))).ToString();
+				pnlLanguage.Controls.OfType<RadioButton>().All(c => c.Checked = false);
+				lblTitle.Text = "";
+				for (int i = rnd.Next(1, 4); i > 0; i--)
+				{
+					lblTitle.Text += ((char)rnd.Next(65, 91));
+					for (int n = 0; n < rnd.Next(3 - i, 6); n++) lblTitle.Text += ((char)rnd.Next(97, 123));
+					lblTitle.Text += ((char)32);
+				}
 			}
 		}
 	}

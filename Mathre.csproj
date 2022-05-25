@@ -72,6 +72,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Win32.SystemEvents, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.SystemEvents.6.0.1\lib\net461\Microsoft.Win32.SystemEvents.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -425,6 +428,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
@@ -442,6 +446,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -983,6 +988,9 @@
     <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\Cards.png" />
     <Content Include="Resources\Intro.wav" />
+    <None Include="Resources\shell1.gif" />
+    <None Include="Resources\Shooter1.png" />
+    <None Include="Resources\output-onlinepngtools1.png" />
     <Content Include="Resources\Shot.wav" />
     <None Include="Resources\Turtle3.png" />
     <None Include="Resources\Turtle2.png" />

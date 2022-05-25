@@ -37,44 +37,25 @@ namespace Mathre
         [DebuggerStepThrough()]
         private void InitializeComponent()
         {
-            this.mnuBaseLayer = new System.Windows.Forms.MenuStrip();
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
             this.tabMathre = new System.Windows.Forms.TabControl();
+            this.mnuBaseLayer = new System.Windows.Forms.MenuStrip();
+            this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuBaseLayer.SuspendLayout();
             this.SuspendLayout();
             // 
-            // mnuBaseLayer
-            // 
-            this.mnuBaseLayer.BackColor = System.Drawing.SystemColors.Control;
-            this.mnuBaseLayer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mnuFile,
-            this.mnuEdit,
-            this.mnuView});
-            this.mnuBaseLayer.Location = new System.Drawing.Point(0, 0);
-            this.mnuBaseLayer.Name = "mnuBaseLayer";
-            this.mnuBaseLayer.Padding = new System.Windows.Forms.Padding(0);
-            this.mnuBaseLayer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.mnuBaseLayer.Size = new System.Drawing.Size(1284, 24);
-            this.mnuBaseLayer.TabIndex = 0;
-            this.mnuBaseLayer.Text = "Menu";
-            // 
             // mnuFile
             // 
+            this.mnuFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.mnuFile.Name = "mnuFile";
             this.mnuFile.Size = new System.Drawing.Size(37, 24);
             this.mnuFile.Text = "File";
-            // 
-            // mnuEdit
-            // 
-            this.mnuEdit.Enabled = false;
-            this.mnuEdit.Name = "mnuEdit";
-            this.mnuEdit.Size = new System.Drawing.Size(39, 24);
-            this.mnuEdit.Text = "Edit";
+            this.mnuFile.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             // 
             // mnuView
             // 
+            this.mnuView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.mnuView.Name = "mnuView";
             this.mnuView.Size = new System.Drawing.Size(44, 24);
             this.mnuView.Text = "View";
@@ -95,6 +76,28 @@ namespace Mathre
             this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabMathre.TabIndex = 4;
             this.tabMathre.Tag = "";
+            // 
+            // mnuBaseLayer
+            // 
+            this.mnuBaseLayer.BackColor = System.Drawing.SystemColors.Control;
+            this.mnuBaseLayer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuFile,
+            this.mnuEdit,
+            this.mnuView});
+            this.mnuBaseLayer.Location = new System.Drawing.Point(0, 0);
+            this.mnuBaseLayer.Name = "mnuBaseLayer";
+            this.mnuBaseLayer.Padding = new System.Windows.Forms.Padding(0);
+            this.mnuBaseLayer.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.mnuBaseLayer.Size = new System.Drawing.Size(1284, 24);
+            this.mnuBaseLayer.TabIndex = 0;
+            this.mnuBaseLayer.Text = "Menu";
+            // 
+            // mnuEdit
+            // 
+            this.mnuEdit.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.mnuEdit.Name = "mnuEdit";
+            this.mnuEdit.Size = new System.Drawing.Size(39, 24);
+            this.mnuEdit.Text = "Edit";
             // 
             // Frm00Mathre
             // 
@@ -117,10 +120,10 @@ namespace Mathre
             this.PerformLayout();
 
         }
-        internal ToolStripMenuItem mnuEdit;
         internal ToolStripMenuItem mnuView;
 		internal TabControl tabMathre;
 		public ToolStripMenuItem mnuFile;
 		public MenuStrip mnuBaseLayer;
+		internal ToolStripMenuItem mnuEdit;
 	}
 }

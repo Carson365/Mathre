@@ -16,7 +16,7 @@ namespace Mathre
 		public Frm26Prizes()
 		{
 			InitializeComponent();
-			HandleCreated += (p, e) => { Setup(); foreach (Button b in Buttons) b.Enabled = false; };
+			HandleCreated += (p, e) => { Setup(); foreach (Button b in Buttons) b.Enabled = false; VisibleChanged += Play; };
 			btnPlay.Click += Play;
 			Contain.Tag = "Transparent";
 		}
@@ -80,6 +80,7 @@ namespace Mathre
 		{
 			if (sender is Button b && b.Text == "") // Ensure each button is only pressed once
 			{
+				b.ForeColor = Color.Black;
 				if ($"{b.Tag}" == "1") { b.Text = "Comp"; b1 = true; b.BackColor = Color.PaleGreen; }
 				else if ($"{b.Tag}" == "2") { b.Text = "uter"; b2 = true; b.BackColor = Color.PaleGreen; }
 				else b.Text = "X";
