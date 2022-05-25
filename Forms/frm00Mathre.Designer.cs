@@ -39,9 +39,9 @@ namespace Mathre
         {
             this.mnuFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuView = new System.Windows.Forms.ToolStripMenuItem();
-            this.tabMathre = new System.Windows.Forms.TabControl();
             this.mnuBaseLayer = new System.Windows.Forms.MenuStrip();
             this.mnuEdit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTabs = new System.Windows.Forms.MenuStrip();
             this.mnuBaseLayer.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,23 +59,6 @@ namespace Mathre
             this.mnuView.Name = "mnuView";
             this.mnuView.Size = new System.Drawing.Size(44, 24);
             this.mnuView.Text = "View";
-            // 
-            // tabMathre
-            // 
-            this.tabMathre.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabMathre.Dock = System.Windows.Forms.DockStyle.Left;
-            this.tabMathre.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
-            this.tabMathre.HotTrack = true;
-            this.tabMathre.ItemSize = new System.Drawing.Size(130, 20);
-            this.tabMathre.Location = new System.Drawing.Point(0, 24);
-            this.tabMathre.Margin = new System.Windows.Forms.Padding(0);
-            this.tabMathre.Multiline = true;
-            this.tabMathre.Name = "tabMathre";
-            this.tabMathre.SelectedIndex = 0;
-            this.tabMathre.Size = new System.Drawing.Size(140, 627);
-            this.tabMathre.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabMathre.TabIndex = 4;
-            this.tabMathre.Tag = "";
             // 
             // mnuBaseLayer
             // 
@@ -99,13 +82,27 @@ namespace Mathre
             this.mnuEdit.Size = new System.Drawing.Size(39, 24);
             this.mnuEdit.Text = "Edit";
             // 
+            // mnuTabs
+            // 
+            this.mnuTabs.AutoSize = false;
+            this.mnuTabs.BackColor = System.Drawing.SystemColors.Control;
+            this.mnuTabs.Dock = System.Windows.Forms.DockStyle.Left;
+            this.mnuTabs.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
+            this.mnuTabs.Location = new System.Drawing.Point(0, 24);
+            this.mnuTabs.Name = "mnuTabs";
+            this.mnuTabs.Padding = new System.Windows.Forms.Padding(0);
+            this.mnuTabs.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.mnuTabs.Size = new System.Drawing.Size(140, 627);
+            this.mnuTabs.TabIndex = 5;
+            this.mnuTabs.Text = "Menu";
+            // 
             // Frm00Mathre
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1284, 651);
-            this.Controls.Add(this.tabMathre);
+            this.Controls.Add(this.mnuTabs);
             this.Controls.Add(this.mnuBaseLayer);
             this.DoubleBuffered = true;
             this.KeyPreview = true;
@@ -121,9 +118,9 @@ namespace Mathre
 
         }
         internal ToolStripMenuItem mnuView;
-		internal TabControl tabMathre;
 		public ToolStripMenuItem mnuFile;
 		public MenuStrip mnuBaseLayer;
 		internal ToolStripMenuItem mnuEdit;
+		public MenuStrip mnuTabs;
 	}
 }
