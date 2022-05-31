@@ -8,9 +8,6 @@ namespace Mathre
 {
 	public partial class Frm00Mathre : Form
 	{
-
-		// TODO: Fix bug when clicking ctrl+s on an open ToolStripMenu
-
 		private string AccentColor;
 		private static Color SystemColor;
 		private static Color SystemLight;
@@ -26,8 +23,13 @@ namespace Mathre
 			Load += LoadEvent;
 			Shown += (p, e) => activeToolStripItem.Select();
 			Microsoft.Win32.SystemEvents.UserPreferenceChanged += (p, e) => SysTheme();
-			mnuTabs.Paint += (o, e) => activeToolStripItem?.Select();
-			mnuTabs.ItemClicked += (o, e) => { activeToolStripItem = e.ClickedItem; FormManager(o,e); };
+			mnuTabs.ItemClicked += (o, e) => { activeToolStripItem = e.ClickedItem; RePaint(); FormManager(o, e); };
+		}
+		public void RePaint()
+		{
+			mnuTabs.Paint += (o, e) => SetSelectStyle(activeToolStripItem, e);
+			mnuTabs.Invalidate();
+			mnuTabs.Paint -= (o, e) => SetSelectStyle(activeToolStripItem, e);
 		}
 		public Color Blend(Color color, Color backColor, double amount)
 		// Return a color by combining two input colors in a specified ratio
@@ -66,7 +68,7 @@ namespace Mathre
 						ToolStripMenuItem item = new();
 						item.Name = newTab.Name.Replace("tab", "mnuView");
 						item.Text = newTab.Text;
-						item.Click += (s, e) => { newTab.Select(); };
+						item.Click += (s, e) => { newTab.PerformClick(); };
 						mnuView.DropDownItems.Add(item);
 						ToolStripMenuItem menu = new();
 						menu.Text = form.Text;
@@ -85,10 +87,9 @@ namespace Mathre
 			mnuTabs.Renderer = new ToolStripProfessionalRenderer(new MenuColorTable());
 			foreach (ToolStripMenuItem ti in mnuBaseLayer.Items) { MenuKeypress(ti); ((ToolStripDropDownMenu)ti.DropDown).ShowImageMargin = false; }
 			foreach (Control c in Controls) GetPanels(c);
-			MinimumSize = new Size(1600, mnuTabs.Items[mnuTabs.Items.Count-1].Bounds.Bottom + 65);
+			MinimumSize = new Size(1600, mnuTabs.Items[mnuTabs.Items.Count - 1].Bounds.Bottom + 65);
 			Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
-			activeToolStripItem = mnuTabs.Items[mnuTabs.Items.Count - 2];
-			FormManager(null, null);
+			mnuTabs.Items[mnuTabs.Items.Count - 2].PerformClick();
 			KeyPreview = true;
 			SysTheme();
 			BackColor = SystemColor;
@@ -195,8 +196,12 @@ namespace Mathre
 			var F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 			if (e.Control & e.KeyCode == Keys.R) F01.HelloWorld("Secret", null);
 			if (e.Control & e.Shift & e.KeyCode == Keys.R) F01.HelloWorld("Reset", null);
-			//if (e.Control & e.KeyCode == Keys.Down || e.KeyCode == Keys.Right) mnuTabs.SelectedTab = mnuTabs.TabPages[Math.Min(mnuTabs.TabCount - 1, mnuTabs.SelectedIndex + 1)];
-			//if (e.Control & e.KeyCode == Keys.Up || e.KeyCode == Keys.Left) mnuTabs.SelectedTab = mnuTabs.TabPages[Math.Max(0, mnuTabs.SelectedIndex - 1)];
+			if (e.Control & e.KeyCode == Keys.Down || e.KeyCode == Keys.Right) mnuTabs.Items[Math.Min(mnuTabs.Items.Count - 1, mnuTabs.Items.IndexOf(activeToolStripItem) + 1)].PerformClick();
+			if (e.Control & e.KeyCode == Keys.Up || e.KeyCode == Keys.Left) mnuTabs.Items[Math.Max(0, mnuTabs.Items.IndexOf(activeToolStripItem) - 1)].PerformClick();
+		}
+		public void SetSelectStyle(object sender, PaintEventArgs e)
+		{
+			e.Graphics.FillRectangle(new SolidBrush(Blend(SystemColor, Color.GhostWhite, .6)), ((ToolStripMenuItem)sender).Bounds);
 		}
 		public class MenuColorTable : ProfessionalColorTable
 		{

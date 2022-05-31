@@ -57,10 +57,6 @@ namespace Mathre
 				else pnl.BackColor = BaseForm.Blend(Color.DimGray, Color.Black, 0.5);
 			}
 
-
-			// else if (control is ...) { ... }
-
-			// Everything else is colored by using property "BackColor"
 			else if (c is TextBox) { c.BackColor = Color.Gray; }
 			else if (c is ListView || c is MenuStrip || c is TabControl) { c.BackColor = Color.DimGray; }
 			else if (c is NumericUpDown || c is Button || c.Parent is UpDownBase) { c.BackColor = Color.DimGray; }
