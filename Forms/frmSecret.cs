@@ -28,7 +28,8 @@ namespace Mathre
 		public void Recurse(object o)
 		{
 			if (o is ToolStripMenuItem ti) { foreach (ToolStripItem a in ti.DropDownItems) Recurse(a); TSITheme(ti); }
-			else if (o is ToolStripTextBox tb) { tb.BackColor = Color.Gray; }
+			else if (o is ToolStripTextBox tb)
+			{ tb.BackColor = Color.DimGray; tb.ForeColor = Color.White; tb.BorderStyle = BorderStyle.FixedSingle; }
 			else if (o is Control c)
 			{
 				foreach (Control a in c.Controls) Recurse(a); DarkMode(c);
@@ -57,7 +58,7 @@ namespace Mathre
 				else pnl.BackColor = BaseForm.Blend(Color.DimGray, Color.Black, 0.5);
 			}
 
-			else if (c is TextBox) { c.BackColor = Color.Gray; }
+			else if (c is TextBox) { c.BackColor = Color.DimGray; }
 			else if (c is ListView || c is MenuStrip || c is TabControl) { c.BackColor = Color.DimGray; }
 			else if (c is NumericUpDown || c is Button || c.Parent is UpDownBase) { c.BackColor = Color.DimGray; }
 			else if (c is ListView lv) lv.ForeColor = Color.DimGray;

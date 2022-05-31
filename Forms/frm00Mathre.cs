@@ -25,6 +25,11 @@ namespace Mathre
 			Microsoft.Win32.SystemEvents.UserPreferenceChanged += (p, e) => SysTheme();
 			mnuTabs.ItemClicked += (o, e) => { activeToolStripItem = e.ClickedItem; RePaint(); FormManager(o, e); };
 		}
+		public void Recurse(object o)
+		{
+			if (o is ToolStripMenuItem ti) { foreach (ToolStripItem a in ti.DropDownItems) Recurse(a); ti.DropDown.BackColor = SystemColors.Control; }
+			else if (o is ToolStripTextBox tb) { tb.BackColor = SystemColors.Control; tb.BorderStyle = BorderStyle.FixedSingle; }
+		}
 		public void RePaint()
 		{
 			mnuTabs.Paint += (o, e) => SetSelectStyle(activeToolStripItem, e);
@@ -93,6 +98,7 @@ namespace Mathre
 			KeyPreview = true;
 			SysTheme();
 			BackColor = SystemColor;
+			foreach (ToolStripMenuItem ti in mnuBaseLayer.Items) Recurse(ti);
 		}
 		public void SysTheme()
 		{
