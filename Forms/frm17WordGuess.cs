@@ -10,8 +10,10 @@ using System.Timers;
 using System.Windows.Forms;
 namespace Mathre
 {
+
 	public partial class Frm17WordGuess : Form
 	{
+		public static Frm01HelloWorld BaseForm;
 		string abc = " ";
 		readonly List<string> guesses = new();
 		int guesscount = 0;
@@ -35,8 +37,9 @@ namespace Mathre
 			VisibleChanged += (p, e) => { if (Loading > 0) Loading--; else { playsounds = Visible; Play("Background"); } };
 			chbHide.CheckedChanged += (p, e) => { if (chbHide.Checked) txtP1.UseSystemPasswordChar = true; else txtP1.UseSystemPasswordChar = false; };
 			chbSounds.CheckedChanged += (p, e) => { playsounds = !playsounds; Play("Background"); };
+			BaseForm = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 		}
-		public void TickEvent(object sender, EventArgs e) { lblTime.Text = $"{elapsedtime++}"; if (finished) { tmrTime.Stop(); elapsedtime = 1; lblTime.Text = "0"; } }
+		public void TickEvent(object sender, EventArgs e) { lblTime.Text = $"{elapsedtime++}"; if (finished) { tmrTime.Stop(); elapsedtime = 0; lblTime.Text = "0"; } }
 		public void Timer() { System.Timers.Timer aTimer = new(100); aTimer.Elapsed += FlashScreen; aTimer.Enabled = true; }
 		public void Default(object sender, EventArgs e)
 		{
@@ -111,7 +114,7 @@ namespace Mathre
 				if (color > 4) color = 0; else color++;
 				runcolors++;
 			}
-			else BackColor = System.Drawing.Color.White;
+			else BackColor = BaseForm.BackColor;
 		}
 		public void KeyPressEvent(object sender, KeyEventArgs e)
 		{
@@ -123,11 +126,11 @@ namespace Mathre
 				{
 					e.SuppressKeyPress = true;
 				}
-					else if (txtP1.Text.Length == 0)
-					{
-						e.SuppressKeyPress = true;
-						if (Properties.Settings.Default.bPopups) MessageBox.Show("PLEASE ENTER A WORD TO GUESS");
-					}
+				else if (txtP1.Text.Length == 0)
+				{
+					e.SuppressKeyPress = true;
+					if (Properties.Settings.Default.bPopups) MessageBox.Show("PLEASE ENTER A WORD TO GUESS");
+				}
 			}
 		}
 	}

@@ -173,6 +173,8 @@
             // chbHide
             // 
             this.chbHide.AutoSize = true;
+            this.chbHide.Checked = true;
+            this.chbHide.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chbHide.Location = new System.Drawing.Point(309, 15);
             this.chbHide.Name = "chbHide";
             this.chbHide.Size = new System.Drawing.Size(48, 17);

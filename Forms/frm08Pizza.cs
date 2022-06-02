@@ -39,7 +39,7 @@ namespace Mathre
 			if (int.TryParse(txtPizzaSize.Text, out int SizeText)) Size = SizeText;
 			if (decimal.TryParse(txtPizzaTip.Text, out decimal TipText)) Tip = TipText;
 			decimal Cost = (decimal)(0.75 + 1 + 0.05 * (Size * Size) + (Convert.ToInt32(radDelivery.Checked) * 1.5));
-			if (Size != 0) lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(radDollars.Checked)) + (Convert.ToInt32(radPercent.Checked) * (Tip / 100 * Cost)), 2) }".ToString();
+			if (Size != 0) lblPizzaCostAmount.Text = $"${Math.Round(Cost + (Tip * Convert.ToInt32(radDollars.Checked)) + (Convert.ToInt32(radPercent.Checked) * (Tip / 100 * Cost)), 2)}".ToString();
 			else lblPizzaCostAmount.Text = "Not Enough Information";
 			pnlPizzaViewer.BackgroundImage = Size switch
 			{

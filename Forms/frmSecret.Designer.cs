@@ -30,13 +30,15 @@ namespace Mathre
 		{
             this.pnlFrame = new System.Windows.Forms.Panel();
             this.pnlBody = new System.Windows.Forms.Panel();
+            this.chbDark = new System.Windows.Forms.CheckBox();
             this.chbPopUps = new System.Windows.Forms.CheckBox();
-            this.btnSecretDisable = new System.Windows.Forms.RadioButton();
+            this.radSecretDisable = new System.Windows.Forms.RadioButton();
             this.lblSecretPrompt = new System.Windows.Forms.Label();
-            this.btnSecretEnable = new System.Windows.Forms.RadioButton();
+            this.radSecretEnable = new System.Windows.Forms.RadioButton();
             this.txtSecretPassword = new System.Windows.Forms.TextBox();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.chbDark = new System.Windows.Forms.CheckBox();
+            this.btnCustomColor = new System.Windows.Forms.Button();
+            this.lblSecretDescription = new System.Windows.Forms.Label();
             this.pnlFrame.SuspendLayout();
             this.pnlBody.SuspendLayout();
             this.SuspendLayout();
@@ -58,70 +60,82 @@ namespace Mathre
             // 
             this.pnlBody.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pnlBody.BackColor = System.Drawing.SystemColors.Control;
+            this.pnlBody.Controls.Add(this.lblSecretDescription);
+            this.pnlBody.Controls.Add(this.btnCustomColor);
             this.pnlBody.Controls.Add(this.chbDark);
             this.pnlBody.Controls.Add(this.chbPopUps);
-            this.pnlBody.Controls.Add(this.btnSecretDisable);
+            this.pnlBody.Controls.Add(this.radSecretDisable);
             this.pnlBody.Controls.Add(this.lblSecretPrompt);
-            this.pnlBody.Controls.Add(this.btnSecretEnable);
+            this.pnlBody.Controls.Add(this.radSecretEnable);
             this.pnlBody.Controls.Add(this.txtSecretPassword);
             this.pnlBody.Location = new System.Drawing.Point(287, 150);
             this.pnlBody.Name = "pnlBody";
-            this.pnlBody.Size = new System.Drawing.Size(426, 105);
+            this.pnlBody.Size = new System.Drawing.Size(426, 155);
             this.pnlBody.TabIndex = 32;
+            // 
+            // chbDark
+            // 
+            this.chbDark.AutoSize = true;
+            this.chbDark.Location = new System.Drawing.Point(256, 85);
+            this.chbDark.Name = "chbDark";
+            this.chbDark.Size = new System.Drawing.Size(79, 17);
+            this.chbDark.TabIndex = 13;
+            this.chbDark.Text = "Dark Mode";
+            this.chbDark.UseVisualStyleBackColor = true;
             // 
             // chbPopUps
             // 
             this.chbPopUps.AutoSize = true;
             this.chbPopUps.Checked = true;
             this.chbPopUps.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chbPopUps.Location = new System.Drawing.Point(219, 67);
+            this.chbPopUps.Location = new System.Drawing.Point(256, 59);
             this.chbPopUps.Name = "chbPopUps";
             this.chbPopUps.Size = new System.Drawing.Size(149, 17);
             this.chbPopUps.TabIndex = 12;
             this.chbPopUps.Text = "Enable Pop-Up Messages";
             this.chbPopUps.UseVisualStyleBackColor = true;
             // 
-            // btnSecretDisable
+            // radSecretDisable
             // 
-            this.btnSecretDisable.AutoSize = true;
-            this.btnSecretDisable.Checked = true;
-            this.btnSecretDisable.Enabled = false;
-            this.btnSecretDisable.Location = new System.Drawing.Point(30, 67);
-            this.btnSecretDisable.Name = "btnSecretDisable";
-            this.btnSecretDisable.Size = new System.Drawing.Size(60, 17);
-            this.btnSecretDisable.TabIndex = 11;
-            this.btnSecretDisable.TabStop = true;
-            this.btnSecretDisable.Text = "Disable";
-            this.btnSecretDisable.UseVisualStyleBackColor = true;
+            this.radSecretDisable.AutoSize = true;
+            this.radSecretDisable.Checked = true;
+            this.radSecretDisable.Enabled = false;
+            this.radSecretDisable.Location = new System.Drawing.Point(49, 85);
+            this.radSecretDisable.Name = "radSecretDisable";
+            this.radSecretDisable.Size = new System.Drawing.Size(60, 17);
+            this.radSecretDisable.TabIndex = 11;
+            this.radSecretDisable.TabStop = true;
+            this.radSecretDisable.Text = "Disable";
+            this.radSecretDisable.UseVisualStyleBackColor = true;
             // 
             // lblSecretPrompt
             // 
             this.lblSecretPrompt.AutoSize = true;
             this.lblSecretPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblSecretPrompt.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblSecretPrompt.Location = new System.Drawing.Point(26, 23);
+            this.lblSecretPrompt.Location = new System.Drawing.Point(77, 20);
             this.lblSecretPrompt.Name = "lblSecretPrompt";
             this.lblSecretPrompt.Size = new System.Drawing.Size(153, 20);
             this.lblSecretPrompt.TabIndex = 9;
             this.lblSecretPrompt.Text = "Enter the Passcode:";
             // 
-            // btnSecretEnable
+            // radSecretEnable
             // 
-            this.btnSecretEnable.AutoSize = true;
-            this.btnSecretEnable.Enabled = false;
-            this.btnSecretEnable.Location = new System.Drawing.Point(121, 67);
-            this.btnSecretEnable.Name = "btnSecretEnable";
-            this.btnSecretEnable.Size = new System.Drawing.Size(58, 17);
-            this.btnSecretEnable.TabIndex = 10;
-            this.btnSecretEnable.Text = "Enable";
-            this.btnSecretEnable.UseVisualStyleBackColor = true;
+            this.radSecretEnable.AutoSize = true;
+            this.radSecretEnable.Enabled = false;
+            this.radSecretEnable.Location = new System.Drawing.Point(140, 85);
+            this.radSecretEnable.Name = "radSecretEnable";
+            this.radSecretEnable.Size = new System.Drawing.Size(58, 17);
+            this.radSecretEnable.TabIndex = 10;
+            this.radSecretEnable.Text = "Enable";
+            this.radSecretEnable.UseVisualStyleBackColor = true;
             // 
             // txtSecretPassword
             // 
             this.txtSecretPassword.BackColor = System.Drawing.SystemColors.Window;
             this.txtSecretPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSecretPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecretPassword.Location = new System.Drawing.Point(185, 21);
+            this.txtSecretPassword.Location = new System.Drawing.Point(236, 18);
             this.txtSecretPassword.Name = "txtSecretPassword";
             this.txtSecretPassword.PasswordChar = '∗';
             this.txtSecretPassword.Size = new System.Drawing.Size(114, 26);
@@ -139,15 +153,23 @@ namespace Mathre
             this.lblTitle.Text = "Enable Super Secret Settings";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // chbDark
+            // btnCustomColor
             // 
-            this.chbDark.AutoSize = true;
-            this.chbDark.Location = new System.Drawing.Point(317, 27);
-            this.chbDark.Name = "chbDark";
-            this.chbDark.Size = new System.Drawing.Size(79, 17);
-            this.chbDark.TabIndex = 13;
-            this.chbDark.Text = "Dark Mode";
-            this.chbDark.UseVisualStyleBackColor = true;
+            this.btnCustomColor.Location = new System.Drawing.Point(116, 113);
+            this.btnCustomColor.Name = "btnCustomColor";
+            this.btnCustomColor.Size = new System.Drawing.Size(195, 23);
+            this.btnCustomColor.TabIndex = 33;
+            this.btnCustomColor.Text = "Custom Theme Color";
+            this.btnCustomColor.UseVisualStyleBackColor = true;
+            // 
+            // lblSecretDescription
+            // 
+            this.lblSecretDescription.AutoSize = true;
+            this.lblSecretDescription.Location = new System.Drawing.Point(21, 61);
+            this.lblSecretDescription.Name = "lblSecretDescription";
+            this.lblSecretDescription.Size = new System.Drawing.Size(205, 13);
+            this.lblSecretDescription.TabIndex = 34;
+            this.lblSecretDescription.Text = "Custom Languages in Hello World (ctrl + r)";
             // 
             // FrmSecret
             // 
@@ -169,12 +191,14 @@ namespace Mathre
 
 		public System.Windows.Forms.Panel pnlFrame;
 		private System.Windows.Forms.Panel pnlBody;
-		internal System.Windows.Forms.RadioButton btnSecretDisable;
+		internal System.Windows.Forms.RadioButton radSecretDisable;
 		internal System.Windows.Forms.Label lblSecretPrompt;
-		internal System.Windows.Forms.RadioButton btnSecretEnable;
+		internal System.Windows.Forms.RadioButton radSecretEnable;
 		internal System.Windows.Forms.TextBox txtSecretPassword;
 		internal System.Windows.Forms.Label lblTitle;
 		private System.Windows.Forms.CheckBox chbPopUps;
 		private System.Windows.Forms.CheckBox chbDark;
+		private System.Windows.Forms.Button btnCustomColor;
+		private System.Windows.Forms.Label lblSecretDescription;
 	}
 }

@@ -4,7 +4,7 @@ namespace Mathre
 {
 	public partial class Frm23Friends : Form, Forms.IManager
 	{
-		string[] friends = new string[5];
+		readonly string[] friends = new string[5];
 		public Frm23Friends()
 		{
 			InitializeComponent();

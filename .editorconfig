@@ -5,3 +5,6 @@ dotnet_diagnostic.CS0649.severity = suggestion
 
 [*.{cs,vb}]
 indent_style=tab
+
+# IDE0017: Simplify object initialization
+dotnet_diagnostic.IDE0017.severity = silent

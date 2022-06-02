@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
@@ -8,88 +9,46 @@ namespace Mathre
 	public partial class FrmSecret : Form
 	{
 		public static Frm00Mathre BaseForm;
+		readonly ColorDialog cdlCustom = new();
+		readonly List<int> colors = new();
+		readonly Frm01HelloWorld F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
+		bool unlocked = false;
 		public FrmSecret()
 		{
 			InitializeComponent();
-			btnSecretDisable.Click += SecretHandler;
-			btnSecretEnable.Click += SecretHandler;
+			Shown += SecretHandler;
+			btnCustomColor.Click += CustomColor;
+			radSecretDisable.Click += (p, e) => F01.show = true;
+			radSecretEnable.Click += (p, e) => F01.show = true;
 			txtSecretPassword.KeyUp += SecretHandler;
 			chbPopUps.CheckedChanged += (p, e) => Properties.Settings.Default.bPopups = chbPopUps.Checked;
-			chbDark.CheckedChanged += (p, e) =>
-			{
-				foreach (Control c in BaseForm.Controls) Recurse(c); BaseForm.Dark = true;
-				foreach (ToolStripMenuItem ti in BaseForm.mnuBaseLayer.Items)
-				{
-					Recurse(ti);
-				}
-			};
+			chbDark.CheckedChanged += (p, e) => { BaseForm.Dark = chbDark.Checked; BaseForm.StartTheme(); }; // Set the Dark Mode
 			BaseForm = Application.OpenForms.OfType<Frm00Mathre>().Single();
-		}
-		public void Recurse(object o)
-		{
-			if (o is ToolStripMenuItem ti) { foreach (ToolStripItem a in ti.DropDownItems) Recurse(a); TSITheme(ti); }
-			else if (o is ToolStripTextBox tb)
-			{ tb.BackColor = Color.DimGray; tb.ForeColor = Color.White; tb.BorderStyle = BorderStyle.FixedSingle; }
-			else if (o is Control c)
-			{
-				foreach (Control a in c.Controls) Recurse(a); DarkMode(c);
-			}
-		}
-
-		private void TSITheme(ToolStripMenuItem ti)
-		{
-			ti.DropDown.BackColor = Color.DimGray;
-			ti.DropDown.ForeColor = Color.White;
-		}
-
-		public void DarkMode(Control c)
-		{
-			if (c is Form f)
-			{
-				f.BackColor = BaseForm.Blend(Color.DimGray, Color.Black, 0.5);
-			}
-			else if (c is Panel pnl)
-			{
-				if (pnl.Name != "pnlFrame")
-				{
-					if (pnl.BackColor != Color.Transparent) pnl.BackColor = Color.Gray;
-					else pnl.BackColor = Color.DimGray;
-				}
-				else pnl.BackColor = BaseForm.Blend(Color.DimGray, Color.Black, 0.5);
-			}
-
-			else if (c is TextBox) { c.BackColor = Color.DimGray; }
-			else if (c is ListView || c is MenuStrip || c is TabControl) { c.BackColor = Color.DimGray; }
-			else if (c is NumericUpDown || c is Button || c.Parent is UpDownBase) { c.BackColor = Color.DimGray; }
-			else if (c is ListView lv) lv.ForeColor = Color.DimGray;
-			else c.BackColor = Color.Transparent;
-			{ c.ForeColor = Color.White; }
-			//if (c is MenuStrip m) m.ForeColor = Color.Black;
-			if (c is Button btn)
-			{
-				btn.FlatStyle = FlatStyle.Flat;
-				btn.FlatAppearance.BorderColor = BaseForm.BackColor;
-				btn.FlatAppearance.BorderSize = 1;
-			}
+			chbDark.Checked = BaseForm.Dark;
 		}
 		public void SecretHandler(object sender, EventArgs e)
+		// Check the hash of the input text against the stored value (sha256 hash of "12345")
 		{
-			if (sender == txtSecretPassword)
-			{
-				string hashedvalue;
-				if (string.IsNullOrEmpty(txtSecretPassword.Text)) hashedvalue = string.Empty;
-				using (var sha = new System.Security.Cryptography.SHA256Managed())
-				{
-					byte[] textData = System.Text.Encoding.UTF8.GetBytes(txtSecretPassword.Text);
-					byte[] hash = sha.ComputeHash(textData);
-					hashedvalue = BitConverter.ToString(hash).Replace("-", string.Empty);
-				}
-				if (hashedvalue == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") { btnSecretEnable.Enabled = true; btnSecretDisable.Enabled = true; }
-				else { btnSecretEnable.Enabled = false; btnSecretDisable.Enabled = false; btnSecretDisable.Checked = true; }
-			}
-			Frm01HelloWorld F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
-			if (sender == btnSecretEnable) F01.show = true;
-			if (sender == btnSecretDisable) F01.show = true;
+			System.Security.Cryptography.SHA256Managed sha = new();
+			byte[] hash = sha.ComputeHash(System.Text.Encoding.UTF8.GetBytes(txtSecretPassword.Text));
+			if (BitConverter.ToString(hash).Replace("-", string.Empty) == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") unlocked = true;
+			else { unlocked = false; radSecretDisable.Checked = true; }
+			radSecretEnable.Enabled = unlocked;
+			radSecretDisable.Enabled = unlocked;
+			chbDark.Enabled = unlocked;
+			chbPopUps.Enabled = unlocked;
+			btnCustomColor.Enabled = unlocked;
+			lblSecretDescription.ForeColor = unlocked ? (BaseForm.Dark ? Color.White : Color.Black) : (BaseForm.Dark ? BaseForm.Blend(Color.DimGray, Color.Black, 0.8) : Color.Gray);
+		}
+		public void CustomColor(object sender, EventArgs e)
+		// Allow the user to pick a custom theme color. Store past theme colors in a list.
+		{
+			cdlCustom.Color = Frm00Mathre.SystemColor;
+			cdlCustom.SolidColorOnly = true;
+			if (!colors.Contains(ColorTranslator.ToOle(Frm00Mathre.SystemColor))) colors.Add(ColorTranslator.ToOle(Frm00Mathre.SystemColor));
+			cdlCustom.CustomColors = colors.ToArray();
+			if (cdlCustom.ShowDialog() == DialogResult.OK) Frm00Mathre.SystemColor = cdlCustom.Color;
+			BaseForm.PaintTheme();
 		}
 	}
 }
