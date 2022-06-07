@@ -8,10 +8,10 @@ namespace Mathre
 {
 	public partial class FrmSecret : Form
 	{
-		public static Frm00Mathre BaseForm;
-		readonly ColorDialog cdlCustom = new();
+		static Frm00Mathre BaseForm;
+		readonly static ColorDialog cdlCustom = new();
 		readonly List<int> colors = new();
-		readonly Frm01HelloWorld F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
+		readonly static Frm01HelloWorld F01 = Application.OpenForms.OfType<Frm01HelloWorld>().Single();
 		bool unlocked = false;
 		public FrmSecret()
 		{
@@ -29,7 +29,7 @@ namespace Mathre
 		public void SecretHandler(object sender, EventArgs e)
 		// Check the hash of the input text against the stored value (sha256 hash of "12345")
 		{
-			System.Security.Cryptography.SHA256Managed sha = new();
+			System.Security.Cryptography.SHA256 sha = System.Security.Cryptography.SHA256.Create();
 			byte[] hash = sha.ComputeHash(System.Text.Encoding.UTF8.GetBytes(txtSecretPassword.Text));
 			if (BitConverter.ToString(hash).Replace("-", string.Empty) == "5994471ABB01112AFCC18159F6CC74B4F511B99806DA59B3CAF5A9C173CACFC5") unlocked = true;
 			else { unlocked = false; radSecretDisable.Checked = true; }
@@ -38,16 +38,16 @@ namespace Mathre
 			chbDark.Enabled = unlocked;
 			chbPopUps.Enabled = unlocked;
 			btnCustomColor.Enabled = unlocked;
-			lblSecretDescription.ForeColor = unlocked ? (BaseForm.Dark ? Color.White : Color.Black) : (BaseForm.Dark ? BaseForm.Blend(Color.DimGray, Color.Black, 0.8) : Color.Gray);
+			lblSecretDescription.ForeColor = unlocked ? (BaseForm.Dark ? Color.White : Color.Black) : (BaseForm.Dark ? Frm00Mathre.Blend(Color.DimGray, Color.Black, 0.8) : Color.Gray);
 		}
 		public void CustomColor(object sender, EventArgs e)
 		// Allow the user to pick a custom theme color. Store past theme colors in a list.
 		{
-			cdlCustom.Color = Frm00Mathre.SystemColor;
+			cdlCustom.Color = Frm00MathreHelpers.SystemColor;
 			cdlCustom.SolidColorOnly = true;
-			if (!colors.Contains(ColorTranslator.ToOle(Frm00Mathre.SystemColor))) colors.Add(ColorTranslator.ToOle(Frm00Mathre.SystemColor));
+			if (!colors.Contains(ColorTranslator.ToOle(Frm00MathreHelpers.SystemColor))) colors.Add(ColorTranslator.ToOle(Frm00MathreHelpers.SystemColor));
 			cdlCustom.CustomColors = colors.ToArray();
-			if (cdlCustom.ShowDialog() == DialogResult.OK) Frm00Mathre.SystemColor = cdlCustom.Color;
+			if (cdlCustom.ShowDialog() == DialogResult.OK) Frm00MathreHelpers.SystemColor = cdlCustom.Color;
 			BaseForm.PaintTheme();
 		}
 	}

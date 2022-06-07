@@ -4,13 +4,12 @@ namespace Mathre
 {
 	public partial class Frm25aTurtle : Form
 	{
-		readonly Frm25bTurtle F25b;
+		static readonly Frm25bTurtle F25b = new();
 		public Frm25aTurtle()
 		{
 			InitializeComponent();
-			F25b = new();
 			Shown += Default;
-			VisibleChanged += (p, e) => F25b.tmrMain.Enabled = Visible;
+			VisibleChanged += (p, e) => Frm25bTurtle.tmrMain.Enabled = Visible;
 		}
 		public void Default(object sender, EventArgs e)
 		{

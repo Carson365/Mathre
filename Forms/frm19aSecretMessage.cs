@@ -7,7 +7,7 @@ namespace Mathre
 {
 	public partial class Frm19aSecretMessage : Form
 	{
-		public static Frm00Mathre BaseForm;
+		static Frm00Mathre BaseForm;
 		string einput = "";
 		List<int> dinput = new();
 		bool decodemode = false;

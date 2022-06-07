@@ -8,14 +8,11 @@ namespace Mathre
 {
 	public partial class Frm00Mathre : Form
 	{
-		public static Color SystemColor;
-		public static Color SystemLight;
-		public static Color SystemDark;
 		public bool Dark = true;
-		private ToolStripMenuItem Secret;
+		private static ToolStripMenuItem Secret;
 		public readonly List<Form> Projects = new();
-		ToolStripItem LastTab = null;
-		ToolStripItem ActiveTab = null;
+		static ToolStripItem LastTab = null;
+		static ToolStripItem ActiveTab = null;
 		public Frm00Mathre()
 		{
 			InitializeComponent();
@@ -26,11 +23,11 @@ namespace Mathre
 		}
 		// Add a paint event handler to manage a clicked manuitem 'tab' then remove it once the tab has been styled
 		public void RePaint() { mnuTabs.Paint += (p, e) => SetSelectStyle(e); mnuTabs.Invalidate(); mnuTabs.Paint -= (p, e) => SetSelectStyle(e); }
-		public void SetSelectStyle(PaintEventArgs e)
+		public static void SetSelectStyle(PaintEventArgs e)
 		// Add visual effects to the selected form's corresponding tab
 		{
-			e.Graphics.FillRectangle(new SolidBrush(SystemDark), ActiveTab.Bounds);
-			e.Graphics.DrawRectangle(new Pen(SystemColor, 1), new Rectangle(ActiveTab.Bounds.Location, new Size(ActiveTab.Bounds.Width - 1, ActiveTab.Bounds.Height - 1)));
+			e.Graphics.FillRectangle(new SolidBrush(Frm00MathreHelpers.SystemDark), ActiveTab.Bounds);
+			e.Graphics.DrawRectangle(new Pen(Frm00MathreHelpers.SystemColor, 1), new Rectangle(ActiveTab.Bounds.Location, new Size(ActiveTab.Bounds.Width - 1, ActiveTab.Bounds.Height - 1)));
 		}
 		public void Recurse(object o)
 		// Set up the Menu Items to have the proper styling
@@ -46,7 +43,7 @@ namespace Mathre
 		}
 		// Make sure the right form is always showing
 		public void FormManager() { foreach (Form form in Projects) { if (form.Name.Replace("Frm", "tab") != ActiveTab.Name) form.Hide(); else form.Show(); } }
-		public Color Blend(Color color, Color backColor, double amount)
+		public static Color Blend(Color color, Color backColor, double amount)
 		// Return a color by combining two input colors in a specified ratio
 		{
 			byte r = (byte)(color.R * amount + backColor.R * (1 - amount));
@@ -77,7 +74,7 @@ namespace Mathre
 				else if (c is ListView lv) lv.ForeColor = Dark ? Color.DimGray : Color.White;
 				else c.BackColor = Color.Transparent;
 				c.ForeColor = Dark ? Color.White : Color.Black;
-				if (c is Button btn) { btn.FlatStyle = FlatStyle.Flat; btn.FlatAppearance.BorderSize = 1; btn.FlatAppearance.BorderColor = SystemColor; }
+				if (c is Button btn) { btn.FlatStyle = FlatStyle.Flat; btn.FlatAppearance.BorderSize = 1; btn.FlatAppearance.BorderColor = Frm00MathreHelpers.SystemColor; }
 				// Recurse
 				foreach (Control a in c.Controls) DarkMode(a);
 			}
@@ -127,7 +124,7 @@ namespace Mathre
 						menu.Text = form.Text;
 						menu.Name = form.Name.Replace("tab", "mnu");
 						mnuFile.DropDownItems.Add(menu);
-						form.Controls.OfType<Control>().All(c => { GetMenu(c, menu, form); return true; });
+						form.Controls.OfType<Control>().All(c => { GetMenu(c, menu, form); return true; }).Equals(true);
 					}
 				}
 			}
@@ -143,7 +140,7 @@ namespace Mathre
 			Location = new Point((Screen.PrimaryScreen.WorkingArea.Width - Width) / 2, (Screen.PrimaryScreen.WorkingArea.Height - Height) / 2);
 			mnuTabs.Items[mnuTabs.Items.Count - 2].PerformClick();
 			KeyPreview = true;
-			BackColor = SystemColor;
+			BackColor = Frm00MathreHelpers.SystemColor;
 			foreach (ToolStripMenuItem ti in mnuBaseLayer.Items) Recurse(ti);
 			SysTheme();
 		}
@@ -151,15 +148,15 @@ namespace Mathre
 		public void SysTheme()
 		{
 			Microsoft.Win32.RegistryKey ColorKey = Microsoft.Win32.Registry.CurrentUser.OpenSubKey(@"Software\Microsoft\Windows\DWM");
-			SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(ColorKey.GetValue("AccentColor")));
+			Frm00MathreHelpers.SystemColor = ColorTranslator.FromWin32(Convert.ToInt32(ColorKey.GetValue("AccentColor")));
 			ColorKey.Close();
 			PaintTheme();
 		}
 		public void PaintTheme()
 		// Initiate recursive theming for all elements
 		{
-			SystemLight = Blend(SystemColor, Color.GhostWhite, .4);
-			SystemDark = Blend(SystemColor, Color.GhostWhite, .6);
+			Frm00MathreHelpers.SystemLight = Blend(Frm00MathreHelpers.SystemColor, Color.GhostWhite, .4);
+			Frm00MathreHelpers.SystemDark = Blend(Frm00MathreHelpers.SystemColor, Color.GhostWhite, .6);
 			StartTheme();
 			foreach (Control c in Controls) Recolor(c);
 		}
@@ -170,14 +167,14 @@ namespace Mathre
 		public void PaintPanel(object box, PaintEventArgs p)
 		// Set the background color of the panels
 		{
-			Color Border = SystemColor;
+			Color Border = Frm00MathreHelpers.SystemColor;
 			if ($"{((Panel)box).Tag}".StartsWith("Black")) Border = Color.Black;
 			if ($"{((Panel)box).Tag}".StartsWith("Transparent")) Border = Color.Transparent;
 			ControlPaint.DrawBorder(p.Graphics, ((Panel)box).ClientRectangle, Border, 2, ButtonBorderStyle.Solid, Border, 2, ButtonBorderStyle.Solid, Border, 2, ButtonBorderStyle.Solid, Border, 2, ButtonBorderStyle.Solid);
 		}
 		// Button Clicker
 		[System.Runtime.InteropServices.DllImport("user32.dll")]
-		public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
+		static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
 		public void GetMenu(Control container, ToolStripMenuItem item, Form form)
 		// Add Menu items to the menu corresponding to various elements within the projects
 		{
@@ -186,7 +183,7 @@ namespace Mathre
 				if ((b is Panel) && $"{b.Tag}".Contains(','))
 				{
 					ToolStripMenuItem menu = new();
-					menu.Text = $"{b.Tag}".Substring($"{b.Tag}".LastIndexOf(',') + 1);
+					menu.Text = $"{b.Tag}"[($"{b.Tag}".LastIndexOf(',') + 1)..];
 					item.DropDownItems.Add(menu);
 					GetMenu(b, menu, form);
 				}
@@ -198,7 +195,7 @@ namespace Mathre
 					tool.Text = b.Text;
 					if (b is PictureBox pb) tool.Text = pb.Tag.ToString();
 					tool.Name = b.Name;
-					tool.Click += (p, e) => { SendMessage(b.Handle, 0x0201, 0, 1); SendMessage(b.Handle, 0x0202, 0, 0); };
+					tool.Click += (p, e) => { SendMessage(b.Handle, 0x0201, 0, 1).Equals(true); SendMessage(b.Handle, 0x0202, 0, 0).Equals(true); };
 					item.DropDownItems.Add(tool);
 				}
 				if (b is TextBox bx && (b.Parent is not NumericUpDown))
@@ -250,14 +247,14 @@ namespace Mathre
 		public class MenuColorTable : ProfessionalColorTable
 		// Set the colors for the menu strips
 		{
-			public override Color MenuItemBorder => SystemColor;
-			public override Color MenuItemSelected => SystemLight;
-			public override Color MenuBorder => SystemColor;
-			public override Color ToolStripDropDownBackground => SystemColor;
-			public override Color MenuItemSelectedGradientBegin => SystemLight;
-			public override Color MenuItemSelectedGradientEnd => SystemLight;
-			public override Color MenuItemPressedGradientBegin => SystemDark;
-			public override Color MenuItemPressedGradientEnd => SystemDark;
+			public override Color MenuItemBorder => Frm00MathreHelpers.SystemColor;
+			public override Color MenuItemSelected => Frm00MathreHelpers.SystemLight;
+			public override Color MenuBorder => Frm00MathreHelpers.SystemColor;
+			public override Color ToolStripDropDownBackground => Frm00MathreHelpers.SystemColor;
+			public override Color MenuItemSelectedGradientBegin => Frm00MathreHelpers.SystemLight;
+			public override Color MenuItemSelectedGradientEnd => Frm00MathreHelpers.SystemLight;
+			public override Color MenuItemPressedGradientBegin => Frm00MathreHelpers.SystemDark;
+			public override Color MenuItemPressedGradientEnd => Frm00MathreHelpers.SystemDark;
 		}
 	}
 }

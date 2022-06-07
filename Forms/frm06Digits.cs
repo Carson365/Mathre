@@ -14,7 +14,7 @@ namespace Mathre
 		}
 		public void Digits(object sender, EventArgs e)
 		{
-			int.TryParse(lblDigitsCount.Text, out int a);
+			_ = int.TryParse(lblDigitsCount.Text, out int a);
 			if (txtNumber.Text.Length > a)
 			{
 				var label = (txtNumber.SelectionStart % 2) switch { 0 => lblDigitsListEvens, _ => lblDigitsListOdds };

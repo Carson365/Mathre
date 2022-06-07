@@ -23,7 +23,7 @@ namespace Mathre
 			if (!radCelsius.Checked & !radFahrenheit.Checked) radCelsius.Checked = true;
 			double temp = 0;
 			int roundamount;
-			if (txtTemperature.Text.Contains(DecimalChar) && txtTemperature.Text[txtTemperature.Text.Length - 1].ToString() != DecimalChar)
+			if (txtTemperature.Text.Contains(DecimalChar) && txtTemperature.Text[^1].ToString() != DecimalChar)
 			{
 				string[] words = txtTemperature.Text.Split(DecimalChar.ToCharArray());
 				roundamount = words[1].Length;

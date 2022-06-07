@@ -5,9 +5,9 @@ namespace Mathre
 {
 	public partial class Frm21Dice : Form
 	{
-		readonly System.Timers.Timer aTimer = new(400);
-		readonly MyNUD numW = new();
-		readonly Random rnd = new();
+		static readonly System.Timers.Timer aTimer = new(400);
+		static readonly MyNUD numW = new();
+		static readonly Random rnd = new();
 		public Frm21Dice()
 		{
 			InitializeComponent();

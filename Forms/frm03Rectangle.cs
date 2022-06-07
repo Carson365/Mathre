@@ -2,13 +2,12 @@
 // Enter Icon: https://icons8.com/icon/62334/enter-mac-key
 using System;
 using System.Globalization;
-using System.Linq;
 using System.Windows.Forms;
 namespace Mathre
 {
 	public partial class Frm03Rectangle : Form
 	{
-		public static object Placeholder;
+		readonly static object Placeholder;
 		public int lastvalue = 0;
 		public Frm03Rectangle()
 		{
@@ -83,12 +82,12 @@ namespace Mathre
 				{
 					if (e.Shift)
 					{
-						if (e.KeyCode == Keys.D8) { if (textBox.Text.Contains("*")) e.SuppressKeyPress = true; }
+						if (e.KeyCode == Keys.D8) { if (textBox.Text.Contains('*')) e.SuppressKeyPress = true; }
 						else e.SuppressKeyPress = true;
 					}
 					else if ((e.KeyCode < Keys.D0 || e.KeyCode > Keys.D9) && (e.KeyCode < Keys.NumPad0 || e.KeyCode > Keys.NumPad9))
 					{
-						if (textBox.Text.Contains("*"))
+						if (textBox.Text.Contains('*'))
 						{
 							e.SuppressKeyPress = true;
 							if (textBox.SelectedText.Contains('*')) { textBox.SelectedText = ""; textBox.AppendText("*"); }

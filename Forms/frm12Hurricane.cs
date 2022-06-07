@@ -88,7 +88,7 @@ namespace Mathre
 						_ => "Special Case"
 					};
 					if (RunCount > 21) llbName.Enabled = true;
-					Dictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{txtMPH.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo.Substring(3, HurricaneInfo.LastIndexOf(':') - 3)}." });
+					Dictionary.Add(RunCount, new List<string> { $"{llbName.Text}", $"{txtMPH.Text}", $"{lblKnots.Text}", $"{lblType.Text}", $"{lblCategory.Text}", $"{HurricaneInfo[3..HurricaneInfo.LastIndexOf(':')]}." });
 					var item = new ListViewItem(Dictionary[RunCount][0]);
 					foreach (var data in Dictionary[RunCount].Skip(1)) { item.SubItems.Add(data); }
 					lstHurricaneList.Items.Add(item);

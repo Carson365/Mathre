@@ -8,7 +8,7 @@ namespace Mathre
 	public partial class Frm01HelloWorld : Form
 	{
 		private RadioButton StartingLanguage;
-		readonly Random rnd = new();
+		static readonly Random rnd = new();
 		public bool show = false;
 		public Frm01HelloWorld()
 		{
@@ -27,7 +27,7 @@ namespace Mathre
 			if ($"{sender}" == "Reset") btnReset.PerformClick();
 			if ($"{sender}" == "Secret" && show)
 			{
-				pnlLanguage.Controls.OfType<RadioButton>().All(c => c.Checked = false);
+				pnlLanguage.Controls.OfType<RadioButton>().All(c => c.Checked = false).Equals(true);
 				lblTitle.Text = "";
 				for (int i = rnd.Next(1, 4); i > 0; i--)
 				{

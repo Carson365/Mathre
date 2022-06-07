@@ -4,13 +4,12 @@ namespace Mathre
 {
 	public partial class Frm24aInvaders : Form
 	{
-		readonly Frm24bInvaders F24b;
+		static readonly Frm24bInvaders F24b = new();
 		public Frm24aInvaders()
 		{
 			InitializeComponent();
-			F24b = new();
 			Shown += Default;
-			VisibleChanged += (p, e) => F24b.tmrMain.Enabled = Visible;
+			VisibleChanged += (p, e) => Frm24bInvaders.tmrMain.Enabled = Visible;
 		}
 		public void Default(object sender, EventArgs e)
 		{

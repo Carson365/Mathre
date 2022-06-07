@@ -4,14 +4,14 @@ namespace Mathre
 {
 	public partial class Frm25bTurtle : Form
 	{
-		public readonly System.Timers.Timer tmrMain = new(15);
+		public static readonly System.Timers.Timer tmrMain = new(15);
 		int Speed = 1;
 		int Up = 0;
 		int Down = 0;
 		int ticks = 0;
-		readonly PictureBox Turtle = new();
-		readonly Label SpeedTag = new();
-		readonly Random rnd = new();
+		static readonly PictureBox Turtle = new();
+		static readonly Label SpeedTag = new();
+		static readonly Random rnd = new();
 		public Frm25bTurtle()
 		{
 			InitializeComponent();

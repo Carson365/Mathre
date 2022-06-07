@@ -13,7 +13,7 @@ namespace Mathre
 
 	public partial class Frm17WordGuess : Form
 	{
-		public static Frm01HelloWorld BaseForm;
+		static Frm01HelloWorld BaseForm;
 		string abc = " ";
 		readonly List<string> guesses = new();
 		int guesscount = 0;
@@ -79,23 +79,23 @@ namespace Mathre
 					lblPhrase.Text = Regex.Replace(Regex.Replace(Regex.Replace($"{abc}", "  ", "   "), "_", " _"), @"_(\w)", @"_ $1");
 				}
 				{ txtP2.TextChanged -= Default; txtP2.Clear(); txtP2.TextChanged += Default; }
-				if (!lblPhrase.Text.Contains("_") && txtP1.Text.Length > 0) { Play("Koolaid"); finished = true; runcolors = 0; if (Properties.Settings.Default.bPopups) MessageBox.Show("YOU HAVE WON"); }
+				if (!lblPhrase.Text.Contains('_') && txtP1.Text.Length > 0) { Play("Koolaid"); finished = true; runcolors = 0; if (Properties.Settings.Default.bPopups) MessageBox.Show("YOU HAVE WON"); }
 				if (totalguesses < 1) if (Properties.Settings.Default.bPopups) MessageBox.Show("YOU HAVE LOST");
 			}
 		}
 		// https://stackoverflow.com/a/38006788
-		[System.Runtime.InteropServices.DllImport("winmm.dll")]
-		public static extern uint mciSendString(string command, StringBuilder buffer, int buffersize, int hWndCallback);
+		[System.Runtime.InteropServices.DllImport("winmm.dll", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+		static extern uint mciSendString(string command, StringBuilder buffer, int buffersize, int hWndCallback);
 		public void Play(string file)
 		{
 			string Sound = string.Format($"{{0}}Resources\\{file}.mp3", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")));
-			mciSendString(@$"close {file}", null, 0, 0);
+			mciSendString(@$"close {file}", null, 0, 0).Equals(true);
 			if (playsounds)
 			{
 				// Gets the location of the file by string, opens it using the native windows API "mciSendString" after ensuring another isn't open, then closes it when done.
-				mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0);
-				if (file == "Background") mciSendString($"play {file} repeat", null, 0, 0);
-				else mciSendString($"play {file}", null, 0, 0);
+				mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0).Equals(true);
+				if (file == "Background") mciSendString($"play {file} repeat", null, 0, 0).Equals(true);
+				else mciSendString($"play {file}", null, 0, 0).Equals(true);
 			}
 		}
 		public void FlashScreen(object sender, ElapsedEventArgs e)

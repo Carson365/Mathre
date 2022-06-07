@@ -4,9 +4,8 @@ namespace Mathre
 {
 	public partial class Frm15Sum : Form, Forms.IManager
 	{
-		public static int counter;
-		public static int countercount;
-		public static int total;
+		static int counter;
+		static int total;
 		public Frm15Sum()
 		{
 			InitializeComponent();
@@ -18,8 +17,8 @@ namespace Mathre
 		public void Digits(object sender, EventArgs e)
 		{
 			lblCalculation.Text = "";
-			int.TryParse(txtStart.Text, out int a);
-			int.TryParse(txtEnd.Text, out int b);
+			_ = int.TryParse(txtStart.Text, out int a);
+			_ = int.TryParse(txtEnd.Text, out int b);
 			if (a <= b)
 			{
 				counter = a;
@@ -29,7 +28,6 @@ namespace Mathre
 					lblCalculation.Text += $"{counter} + ";
 					total += counter;
 					counter++;
-					countercount++;
 				}
 				if (counter > b)
 				{

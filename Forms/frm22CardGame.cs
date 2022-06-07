@@ -7,8 +7,8 @@ namespace Mathre
 {
 	public partial class Frm22CardGame : Form
 	{
-		readonly MyNUD numW = new();
-		readonly Random rnd = new();
+		static readonly MyNUD numW = new();
+		static readonly Random rnd = new();
 		PictureBox[] pnl = new PictureBox[7];
 		readonly int[] cardnums = new int[7];
 		readonly int[] cards = new int[7];
@@ -75,10 +75,10 @@ namespace Mathre
 			for (int i = 0; i < pnl.Length; i++) { if (i != 2 && i != 3 && i != 6) SetCard(i); else { pnl[i].BackgroundImage = Resources.Cards; cardused[i] = false; } }
 			Game();
 		}
-		public int Rand(int low, int high) { return rnd.Next(low, high + 1); } // Better random than Random.Next
-		public void SetCard(int i) { cardused[i] = true; pnl[i].BackgroundImage = lstCards.Images[cards[i]]; }
-		public int GetCardVal(int slot) { return slot switch { < 12 => slot, _ => 10 }; }
-		public void Hit(object sender, EventArgs e)
+		static int Rand(int low, int high) { return rnd.Next(low, high + 1); } // Better random than Random.Next
+		void SetCard(int i) { cardused[i] = true; pnl[i].BackgroundImage = lstCards.Images[cards[i]]; }
+		static int GetCardVal(int slot) { return slot switch { < 12 => slot, _ => 10 }; }
+		void Hit(object sender, EventArgs e)
 		{
 			if (numW.Value == 0 && sender is not Frm21Dice && Properties.Settings.Default.bPopups) MessageBox.Show("Sorry, You have no points to wager.", "INVALID");
 			else

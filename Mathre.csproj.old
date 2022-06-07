@@ -1,9 +1,20 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{589A2A13-4BEA-06C0-17C9-357656E50C18}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <StartupObject>Mathre.My.MyApplication</StartupObject>
+    <RootNamespace>Mathre</RootNamespace>
+    <AssemblyName>Mathre</AssemblyName>
+    <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <DefaultItemExcludes>$(DefaultItemExcludes);$(ProjectDir)**\*.vb</DefaultItemExcludes>
     <LangVersion>latest</LangVersion>
@@ -21,23 +32,28 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <UseWindowsForms>true</UseWindowsForms>
-    <UseWPF>true</UseWPF>
-    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <DocumentationFile></DocumentationFile>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <RunCodeAnalysis>false</RunCodeAnalysis>
     <LangVersion>preview</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>bin\Release\Mathre.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <LangVersion>preview</LangVersion>
@@ -55,6 +71,25 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.Win32.SystemEvents, Version=6.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.SystemEvents.6.0.1\lib\net461\Microsoft.Win32.SystemEvents.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
     <Import Include="Microsoft.VisualBasic" />
     <Import Include="System" />
     <Import Include="System.Collections" />
@@ -68,10 +103,361 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="My Project\Application.myapp">
+    <Compile Include="Forms\frm07Change.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm07Change.Designer.cs">
+      <DependentUpon>frm07Change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm06Digits.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm06Digits.Designer.cs">
+      <DependentUpon>frm06Digits.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm01HelloWorld.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm01HelloWorld.Designer.cs">
+      <DependentUpon>frm01HelloWorld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm04MyFavorites.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm04MyFavorites.Designer.cs">
+      <DependentUpon>frm04MyFavorites.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm02MySchool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm02MySchool.Designer.cs">
+      <DependentUpon>frm02MySchool.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm08Pizza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm08Pizza.Designer.cs">
+      <DependentUpon>frm08Pizza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm03Rectangle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm03Rectangle.Designer.cs">
+      <DependentUpon>frm03Rectangle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm09Grade.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm09Grade.Designer.cs">
+      <DependentUpon>frm09Grade.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm11RPS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm11RPS.Designer.cs">
+      <DependentUpon>frm11RPS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm12Hurricane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm12Hurricane.Designer.cs">
+      <DependentUpon>frm12Hurricane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm14Acronym.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm14Acronym.Designer.cs">
+      <DependentUpon>frm14Acronym.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm16Letters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm16Letters.Designer.cs">
+      <DependentUpon>frm16Letters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm17WordGuess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm17WordGuess.Designer.cs">
+      <DependentUpon>frm17WordGuess.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm18Humane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm18Humane.Designer.cs">
+      <DependentUpon>frm18Humane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm19aSecretMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm19aSecretMessage.Designer.cs">
+      <DependentUpon>frm19aSecretMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm19bSecretMessage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm19bSecretMessage.Designer.cs">
+      <DependentUpon>frm19bSecretMessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm20Shell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm20Shell.Designer.cs">
+      <DependentUpon>frm20Shell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm21Dice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm21Dice.Designer.cs">
+      <DependentUpon>frm21Dice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm22CardGame.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm22CardGame.Designer.cs">
+      <DependentUpon>frm22CardGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm23Friends.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm23Friends.Designer.cs">
+      <DependentUpon>frm23Friends.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm24bInvaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm24bInvaders.Designer.cs">
+      <DependentUpon>frm24bInvaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm24aInvaders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm24aInvaders.Designer.cs">
+      <DependentUpon>frm24aInvaders.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm25aTurtle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm25aTurtle.Designer.cs">
+      <DependentUpon>frm25aTurtle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm25bTurtle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm25bTurtle.Designer.cs">
+      <DependentUpon>frm25bTurtle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm26Prizes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm26Prizes.Designer.cs">
+      <DependentUpon>frm26Prizes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmSecret.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmSecret.Designer.cs">
+      <DependentUpon>frmSecret.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm05Temperature.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm05Temperature.Designer.cs">
+      <DependentUpon>frm05Temperature.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm13Slots.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm13Slots.Designer.cs">
+      <DependentUpon>frm13Slots.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm15Sum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm15Sum.Designer.cs">
+      <DependentUpon>frm15Sum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmTemplate.Designer.cs">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmUnknown.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmUnknown.Designer.cs">
+      <DependentUpon>frmUnknown.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm10VideoGames.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm10VideoGames.Designer.cs">
+      <DependentUpon>frm10VideoGames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\IManager.cs" />
+    <Compile Include="My Project\MyNamespace.Dynamic.Designer.cs" />
+    <Compile Include="My Project\MyNamespace.Static.1.Designer.cs" />
+    <Compile Include="My Project\MyNamespace.Static.2.Designer.cs" />
+    <Compile Include="My Project\MyNamespace.Static.3.Designer.cs" />
+    <Compile Include="Forms\frm00Mathre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm00Mathre.Designer.cs">
+      <DependentUpon>frm00Mathre.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="My Project\AssemblyInfo.cs" />
+    <Compile Include="My Project\Application.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Forms\frm00Mathre.resx">
+      <DependentUpon>frm00Mathre.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm01HelloWorld.resx">
+      <DependentUpon>frm01HelloWorld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm02MySchool.resx">
+      <DependentUpon>frm02MySchool.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm03Rectangle.resx">
+      <DependentUpon>frm03Rectangle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm04MyFavorites.resx">
+      <DependentUpon>frm04MyFavorites.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm05Temperature.resx">
+      <DependentUpon>frm05Temperature.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm06Digits.resx">
+      <DependentUpon>frm06Digits.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm07Change.resx">
+      <DependentUpon>frm07Change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm08Pizza.resx">
+      <DependentUpon>frm08Pizza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm09Grade.resx">
+      <DependentUpon>frm09Grade.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm11RPS.resx">
+      <DependentUpon>frm11RPS.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm12Hurricane.resx">
+      <DependentUpon>frm12Hurricane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm13Slots.resx">
+      <DependentUpon>frm13Slots.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm14Acronym.resx">
+      <DependentUpon>frm14Acronym.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm15Sum.resx">
+      <DependentUpon>frm15Sum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm16Letters.resx">
+      <DependentUpon>frm16Letters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm17WordGuess.resx">
+      <DependentUpon>frm17WordGuess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm18Humane.resx">
+      <DependentUpon>frm18Humane.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm19aSecretMessage.resx">
+      <DependentUpon>frm19aSecretMessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm20Shell.resx">
+      <DependentUpon>frm20Shell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm21Dice.resx">
+      <DependentUpon>frm21Dice.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm10VideoGames.resx">
+      <DependentUpon>frm10VideoGames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm22CardGame.resx">
+      <DependentUpon>frm22CardGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm23Friends.resx">
+      <DependentUpon>frm23Friends.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm24aInvaders.resx">
+      <DependentUpon>frm24aInvaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm24bInvaders.resx">
+      <DependentUpon>frm24bInvaders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm25aTurtle.resx">
+      <DependentUpon>frm25aTurtle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm25bTurtle.resx">
+      <DependentUpon>frm25bTurtle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm26Prizes.resx">
+      <DependentUpon>frm26Prizes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmSecret.resx">
+      <DependentUpon>frmSecret.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmTemplate.resx">
+      <DependentUpon>frmTemplate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".editorconfig" />
+    <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.cs</LastGenOutput>
     </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>Mathre.My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Resources\English.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\German.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\French.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
@@ -86,7 +472,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <SupportedPlatform Include="Windows" />
+    <None Include="Resources\English1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\RedRiver.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EnterKey.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Resources\Background.mp3" />
@@ -596,20 +988,25 @@
     <Content Include="Resources\Icon.ico" />
     <Content Include="Resources\Cards.png" />
     <Content Include="Resources\Intro.wav" />
+    <None Include="Resources\shell1.gif" />
+    <None Include="Resources\Shooter1.png" />
+    <None Include="Resources\output-onlinepngtools1.png" />
     <Content Include="Resources\Shot.wav" />
+    <None Include="Resources\Turtle3.png" />
+    <None Include="Resources\Turtle2.png" />
+    <None Include="Resources\Turtle1.png" />
     <Content Include="Resources\Win.wav" />
+    <None Include="Resources\Shooter.png" />
+    <None Include="Resources\Invader.png" />
     <Content Include="Resources\Koolaid.mp3" />
     <Content Include="Resources\Pearl.gif" />
     <Content Include="Resources\PetNames.txt" />
     <Content Include="Resources\Shell.gif" />
+    <None Include="Resources\Rainbow.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.VisualBasic" Version="10.3.0" />
-    <PackageReference Include="Microsoft.Win32.SystemEvents" Version="6.0.1" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Remove="My Project\Resources.resx" />
-  </ItemGroup>
-  <PropertyGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
 </Project>

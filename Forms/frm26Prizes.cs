@@ -6,13 +6,13 @@ namespace Mathre
 	public partial class Frm26Prizes : Form
 	{
 		Button[,] Buttons;
-		readonly Panel Contain = new();
+		static readonly Panel Contain = new();
 		int ButtonsX = 5;
 		int ButtonsY = 5;
 		int guesses = 0;
 		bool b1 = false;
 		bool b2 = false;
-		readonly Random rnd = new();
+		static readonly Random rnd = new();
 		public Frm26Prizes()
 		{
 			InitializeComponent();
@@ -113,7 +113,7 @@ namespace Mathre
 			}
 		}
 		// https://stackoverflow.com/a/12774782 Flatten a 2D Array into a spiral matrix (modified)
-		private Button[] SpiralMatrix(Button[,] arr)
+		private static Button[] SpiralMatrix(Button[,] arr)
 		{
 			Button[] temp;
 			int entries = 0;
@@ -132,7 +132,7 @@ namespace Mathre
 			return temp;
 		}
 		// https://stackoverflow.com/a/70996160 Convert HSV to RGB
-		private Color HSVToRGB(float h, float s, float v)
+		private static Color HSVToRGB(float h, float s, float v)
 		{
 			int f(float n)
 			{

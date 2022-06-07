@@ -7,7 +7,7 @@ namespace Mathre
 {
 	public partial class Frm09Grade : Form, Forms.IManager
 	{
-		public static int abc = 0;
+		static int abc = 0;
 		public Frm09Grade()
 		{
 			InitializeComponent();
@@ -55,7 +55,7 @@ namespace Mathre
 			}
 			if (ReferenceEquals(sender, btnMethod5))
 			{
-				pnlBody.Controls.OfType<RadioButton>().All(c => { c.Checked = false; return true; });
+				pnlBody.Controls.OfType<RadioButton>().All(c => { c.Checked = false; return true; }).Equals(true);
 				abc++;
 				string result = (double)Math.Round((Points / Total * 100), 2) switch
 				{

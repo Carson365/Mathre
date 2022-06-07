@@ -21,7 +21,7 @@ namespace Mathre
 		bool playsounds = false;
 		int Loading = 3;
 
-		public readonly System.Timers.Timer tmrMain = new(10);
+		public static readonly System.Timers.Timer tmrMain = new(10);
 		readonly List<Invader> Invaders = new();
 		public Frm24bInvaders()
 		{
@@ -194,18 +194,18 @@ namespace Mathre
 			tmrMain.Enabled = true;
 		}
 		//
-		[System.Runtime.InteropServices.DllImport("winmm.dll")]
-		public static extern uint mciSendString(string command, StringBuilder buffer, int buffersize, int hWndCallback);
+		[System.Runtime.InteropServices.DllImport("winmm.dll", CharSet = System.Runtime.InteropServices.CharSet.Unicode)]
+		static extern uint mciSendString(string command, StringBuilder buffer, int buffersize, int hWndCallback);
 		public void Play(string file, string type)
 		{
 			string Sound = string.Format($"{{0}}Resources\\{file}.{type}", Path.GetFullPath(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\")));
-			mciSendString(@$"close {file}", null, 0, 0);
+			mciSendString(@$"close {file}", null, 0, 0).Equals(true);
 			if (playsounds)
 			{
 				// Gets the location of the file by string, opens it using the native windows API "mciSendString" after ensuring another isn't open, then closes it when done.
-				mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0);
-				if (file == "Background") mciSendString($"play {file} repeat", null, 0, 0);
-				else mciSendString($"play {file}", null, 0, 0);
+				mciSendString(@$"open ""{Sound}"" alias {file}", null, 0, 0).Equals(true);
+				if (file == "Background") mciSendString($"play {file} repeat", null, 0, 0).Equals(true);
+				else mciSendString($"play {file}", null, 0, 0).Equals(true);
 			}
 			else
 			{ }

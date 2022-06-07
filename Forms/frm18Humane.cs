@@ -10,11 +10,9 @@ namespace Mathre
 {
 	public partial class Frm18Humane : Form
 	{
-
-		public static Frm18Humane ThisForm;
 		int n = 1;
-		readonly Random rnd = new();
-		readonly System.Timers.Timer aTimer = new(2000);
+		readonly static Random rnd = new();
+		readonly static System.Timers.Timer aTimer = new(2000);
 		int shown = 4;
 		public Frm18Humane()
 		{
@@ -37,8 +35,8 @@ namespace Mathre
 			while (loopfour < 5)
 			{
 				int num = rnd.Next(0, 500);
-				((Label)Controls.Find($"lblCat{loopfour}", true)[0]).Text = File.ReadLines($"{Path.GetFullPath(@"..\..\")}\\Resources\\PetNames.txt").ElementAt(num);
-				((PictureBox)Controls.Find($"picCat{loopfour}", true)[0]).Image = Image.FromFile($"{Path.GetFullPath(@"..\..\")}\\Resources\\CatPictures\\cat_{num}.png");
+				((Label)Controls.Find($"lblCat{loopfour}", true)[0]).Text = File.ReadLines($"{Path.GetFullPath(@"..\..\..\")}\\Resources\\PetNames.txt").ElementAt(num);
+				((PictureBox)Controls.Find($"picCat{loopfour}", true)[0]).Image = Image.FromFile($"{Path.GetFullPath(@"..\..\..\")}\\Resources\\CatPictures\\cat_{num}.png");
 				loopfour++;
 			}
 		}
@@ -50,9 +48,9 @@ namespace Mathre
 			{
 				if (((PictureBox)Controls.Find($"picCat{n}", true)[0]).Image == ((PictureBox)Controls.Find($"picCat{n}", true)[0]).ErrorImage)
 				{
-					((PictureBox)Controls.Find($"picCat{n}", true)[0]).Image = Image.FromFile($"{Path.GetFullPath(@"..\..\")}\\Resources\\CatPictures\\cat_{num}.png");
+					((PictureBox)Controls.Find($"picCat{n}", true)[0]).Image = Image.FromFile($"{Path.GetFullPath(@"..\..\..\")}\\Resources\\CatPictures\\cat_{num}.png");
 				}
-				((Label)Controls.Find($"lblCat{n++}", true)[0]).Text = File.ReadLines($"{Path.GetFullPath(@"..\..\")}\\Resources\\PetNames.txt").ElementAt(num);
+				((Label)Controls.Find($"lblCat{n++}", true)[0]).Text = File.ReadLines($"{Path.GetFullPath(@"..\..\..\")}\\Resources\\PetNames.txt").ElementAt(num);
 			}));
 			if (n > 4) n = 1;
 		}
@@ -65,7 +63,7 @@ namespace Mathre
 			while (lblCatSave.Text == "")
 			{
 				lblCatSave.Text = Interaction.InputBox("What would you like to name this cat?\n(At most 8 letters)", "Humane Society", name).ToUpper();
-				if (lblCatSave.Text.Length > 8) { lblCatSave.Text = lblCatSave.Text.Substring(0, 8); SystemSounds.Asterisk.Play(); }
+				if (lblCatSave.Text.Length > 8) { lblCatSave.Text = lblCatSave.Text[..8]; SystemSounds.Asterisk.Play(); }
 			}
 			pnlPictureSave.Visible = true;
 			picCatSave.Image = img;
